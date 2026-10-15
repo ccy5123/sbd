@@ -32,6 +32,7 @@ pm = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(pm)
 
 T_REL = 0.2
+NOSE_X, HEAD_X, DY_F, DY_N = 0.10, 0.0, -0.30, 0.30  # probe x, head axis x, lateral seat positions (make_case.py)
 NOSES = ("own nose (releaser)", "neighbour's nose")
 
 
@@ -59,6 +60,29 @@ def breath_metrics(t, c, n_phase=24):
     return float(np.mean(worst)), float(np.max(worst))
 
 
+def zone_series(case: Path, r_bz=0.05, r_head=0.25):
+    """From the nose-height plane (every 0.5 s): mean s in the breathing zone (disc of radius r_bz around the probe
+    point 2.5 cm in front of the nose) and max s within r_head of the head axis (catches a cloud passing behind)."""
+    d = case / "postProcessing/planes"
+    times = sorted((q for q in d.iterdir() if q.name.replace(".", "").isdigit()), key=lambda q: float(q.name))
+    t, bz, ring = [], [], []
+    for q in times:
+        f = q / "noseHeight.xy"
+        if not f.exists():
+            continue
+        a = np.loadtxt(f)
+        t.append(float(q.name))
+        row_bz, row_ring = [], []
+        for y in (DY_F, DY_N):
+            dist_bz = np.hypot(a[:, 0] - NOSE_X, a[:, 1] - y)
+            dist_head = np.hypot(a[:, 0] - HEAD_X, a[:, 1] - y)
+            row_bz.append(a[dist_bz < r_bz, 3].mean())
+            row_ring.append(a[dist_head < r_head, 3].max())
+        bz.append(row_bz)
+        ring.append(row_ring)
+    return np.array(t), np.array(bz), np.array(ring)
+
+
 def metrics(t, s):
     o = np.array([oav(x, P) for x in np.maximum(s, 0.0)])
     above = o >= 1.0
@@ -78,12 +102,20 @@ def main(runs: Path):
             print("missing", case)
             continue
         t, s = read_probe(case)
-        series[mode] = (t, s)
         res[mode] = {NOSES[i]: metrics(t, s[:, i]) for i in range(2)}
+        tz, bz, ring = zone_series(case)
+        series[mode] = (t, s, tz, bz)
+        for i in range(2):
+            res[mode][NOSES[i]].update({
+                "bz_peak_OAV": oav(float(bz[:, i].max()), P),
+                "bz_exposure_s_dt": float(np.trapezoid(bz[:, i], tz)),
+                "head_ring_peak_OAV": oav(float(ring[:, i].max()), P),
+                "t_head_ring_peak_s": float(tz[np.argmax(ring[:, i])] - T_REL)})
     if len(res) == 2:
         res["R_silent_over_audible"] = {
             n: {k: (res["silent"][n][k] / res["audible"][n][k] if res["audible"][n][k] else None)
-                for k in ("peak_OAV", "exposure_s_dt", "worst_breath_OAV_mean", "worst_breath_OAV_max")}
+                for k in ("peak_OAV", "exposure_s_dt", "worst_breath_OAV_mean", "worst_breath_OAV_max",
+                          "bz_peak_OAV", "bz_exposure_s_dt", "head_ring_peak_OAV")}
             for n in NOSES}
     (ROOT / "cfd/cases/sofa/results.json").write_text(json.dumps(res, indent=1))
     print(json.dumps(res, indent=1))
@@ -97,10 +129,13 @@ def plot(series):
                          "axes.spines.top": False, "axes.spines.right": False, "axes.titleweight": "bold"})
     fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.0), sharey=True, constrained_layout=True)
     for i, ax in enumerate(axes):
-        for mode, (t, s) in series.items():
+        for mode, (t, s, tz, bz) in series.items():
             o = np.array([oav(x, P) for x in np.maximum(s[:, i], 0.0)])
-            ax.plot(t - T_REL, np.maximum(o, 1e-3), color=COL[mode], lw=1.8,
-                    label="silent (0.9 m/s, 2 s)" if mode == "silent" else "audible (41 m/s, 0.5 s)")
+            ob = np.array([oav(x, P) for x in np.maximum(bz[:, i], 0.0)])
+            lab = "silent (0.9 m/s, 2 s)" if mode == "silent" else "audible (41 m/s, 0.5 s)"
+            ax.plot(t - T_REL, np.maximum(o, 1e-3), color=COL[mode], lw=1.8, label=f"{lab}, probe")
+            ax.plot(tz - T_REL, np.maximum(ob, 1e-3), color=COL[mode], lw=1.2, ls=(0, (3, 2)),
+                    label=f"{lab}, breathing-zone mean (r = 5 cm)")
         ax.axhline(1.0, color=INK2, lw=0.8, ls=(0, (4, 3)))
         ax.text(0.98, 1.15, "odour threshold (OAV = 1)", transform=ax.get_yaxis_transform(), ha="right",
                 fontsize=7.5, color=INK2)
