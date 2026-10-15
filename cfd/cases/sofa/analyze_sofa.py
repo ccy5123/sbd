@@ -22,10 +22,10 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "gate0"))
-from model import load_params, nominal, oav  # noqa: E402  (gate0 model)
+from model import load_params, nominal, oav
 
 P = nominal(load_params())
-import importlib.util  # noqa: E402
+import importlib.util
 
 _spec = importlib.util.spec_from_file_location("pmodel", ROOT / "perception/model.py")
 pm = importlib.util.module_from_spec(_spec)
