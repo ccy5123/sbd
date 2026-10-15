@@ -62,26 +62,30 @@
   field; the 26 °C run starts from rest. Statistics are taken over 30–60 s (`fieldAverage` UMean/TMean; line samples
   every 0.5 s).
 
-**Results** (pending: 23 °C and 26 °C runs)
+**Results** (pending: 26 °C run)
 
 | room | peak U_z in front of face (mean ± sd) | Licina et al. 2014 |
 |---|---|---|
 | 20 °C | 0.34 ± 0.01 m/s | 0.24 m/s (clothed), 0.205 m/s (nude) |
-| 23 °C | *running* | — |
+| 23 °C | 0.28 ± 0.02 m/s | ≈ 0.20 m/s (linear between 20 and 26 °C) |
 | 26 °C | *queued* | 0.16 m/s |
 
-- At 20 °C the CFD conveyor belt is about 40 % faster than the thermal-manikin measurement.
+- The CFD conveyor belt is about 40 % faster than the thermal-manikin measurement at both 20 and 23 °C.
+- The room-temperature trend has the right sign and size: −19 % from 20 to 23 °C, against −17 % interpolated from
+  Licina et al.
 - Candidate causes:
   - coarse near-wall resolution with wall functions;
   - a sealed half room whose walls are held at room temperature (no stratification);
   - a geometric manikin with no hair or clothing.
-- The room-temperature trend (Licina: −33 % from 20 to 26 °C) is the second criterion and will be checked once the set
-  completes.
+- The full room-temperature trend (Licina: −33 % from 20 to 26 °C) will be checked once the 26 °C run completes.
 
-**Conveyor-belt trajectories** (20 °C, time-mean field, `cfd/postprocess/conveyor_from_cbl.sh`):
+**Conveyor-belt trajectories** (time-mean field, `cfd/postprocess/conveyor_from_cbl.sh`; the figure shows 23 °C, the
+Scenario A room temperature):
 
-- 5 of 8 massless parcels released at seat level reach nose height, in **4.7–7.4 s**.
-- Gate 0 assumed L/u = 0.74 / 0.17 ≈ 4.4 s for own-nose transport. The CFD time is 7–70 % longer.
+- At 20 °C, 5 of 8 massless parcels released at seat level reach nose height, in **4.7–7.4 s**.
+- At 23 °C, 6 of 8 reach it: five in **6.8–8.0 s** and one from behind the hips in 18.4 s.
+- Gate 0 assumed L/u = 0.74 / 0.17 ≈ 4.4 s for own-nose transport. The CFD time is 1.1–1.8× that at 20 °C and about
+  1.6–1.8× at 23 °C (ignoring the slow parcel).
 - The earlier 8–18 s from the unconverged steady field is withdrawn.
 - Given the 40 % over-prediction of the CBL velocity, the true transport time is probably longer still. Gate 0 will
   carry the CFD range as its own-nose transport-time distribution.
