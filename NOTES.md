@@ -144,6 +144,15 @@
   - max Co held at 5 by the time-step control (Δt ≈ 0.8 ms); domain-mean Co ≈ 1.6e-5.
 - Pipeline `run_sofa.sh` launched detached. It waits for the transient CBL set, then runs the precursor (30 s) and the
   silent and audible branches (release at +0.2 s, 30 s each).
+- **Precursor (30 s):** the CBL at both noses (probe 2.5 cm in front) settles to U_z ≈ 0.20–0.21 m/s after 10 s, the
+  same at both seats. Nose-height air is +1.3 K.
+- **Silent branch (30 s):**
+  - Nobody's breathing zone receives odour: the peak OAV in the 5 cm disc in front of either nose is < 1e-10.
+  - The release rises through the ~3 cm gap between the releaser's back and the backrest (a "chimney").
+  - It passes behind and over the releaser's head at 5 s, with peak OAV ≈ 5 800 within 25 cm of the head axis.
+  - It then continues to the ceiling. The neighbour sees nothing within 30 s.
+  - **Sensitivity flag:** the gap is a feature of the upright manikin. A reclining posture with the back against the
+    cushion would close it. The 30 s window also ends before room-scale mixing brings the ceiling cloud back down.
 
 ### M6 — perception (done, see `perception/m6_report.md`)
 - **Neighbour, as emitted:** the median physical difference is R = 0.91. In perceived intensity that is
