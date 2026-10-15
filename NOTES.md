@@ -132,6 +132,11 @@
     - This coupling probably also drove the massSource failures. The inlet is kept because it is the cleaner model.
     - The closed CBL validation rooms pin the pressure with a reference cell. Their p swings of a few Pa give
       < 0.01 K, so they are not affected.
+- **Inlet test with internal energy** (audible, from rest, release at 0.02 s, serial):
+  - stable through the ramp and the full-flow plateau to t = 0.106 s (stopped there to free the cores);
+  - max Co held at 5 by the time-step control (Δt ≈ 0.8 ms); domain-mean Co ≈ 1.6e-5.
+- Pipeline `run_sofa.sh` launched detached. It waits for the transient CBL set, then runs the precursor (30 s) and the
+  silent and audible branches (release at +0.2 s, 30 s each).
 
 ### M6 — perception (done, see `perception/m6_report.md`)
 - **Neighbour, as emitted:** the median physical difference is R = 0.91. In perceived intensity that is
