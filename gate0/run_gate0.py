@@ -157,6 +157,10 @@ def monte_carlo(n=20000):
                     row[f"R_{who}_conc_{metric}_{cl}"] = rs[metric] / rl[metric]
                     row[f"R_{who}_mass_{metric}_{cl}"] = (rs[metric] / silent.V) / (rl[metric] / loud.V)
                 if cl == "none":
+                    for tag, rr in (("s", rs), ("l", rl)):
+                        row[f"ta_{who}_{tag}"] = rr["t_travel"]
+                        row[f"st_{who}_{tag}"] = rr["sigma_t"]
+                        row[f"phi_{who}_{tag}"] = rr["phi_inst"]
                     row[f"OAV_{who}_silent"] = oav(rs["phi_inh"], p)
                     row[f"OAV_{who}_loud"] = oav(rl["phi_inh"], p)
                     row[f"Si_s"], row[f"Si_l"] = rs["Si"], rl["Si"]

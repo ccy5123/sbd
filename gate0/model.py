@@ -126,6 +126,12 @@ def phase1(rel: Release, p: dict, clothing: str = "none") -> dict:
             "Si": u_eff / u_h, "regime": regime}
 
 
+def puff_sigma(V_h: float, t_travel: float, K: float) -> float:
+    """Gaussian-puff standard deviation (m) after t_travel."""
+    sigma0 = V_h ** (1.0 / 3.0) / np.sqrt(2.0 * np.pi)
+    return float(np.sqrt(sigma0**2 + 2.0 * K * t_travel))
+
+
 def phase2(V_h: float, t_travel: float, K: float, u_adv: float, T_insp: float) -> tuple[float, float]:
     """Gaussian puff of initial volume V_h advected for t_travel with eddy diffusivity K.
 
@@ -149,7 +155,8 @@ def receptor(rel: Release, p: dict, L: float, u_adv: float, clothing: str = "non
     g_inst, g_inh = phase2(rel.V * ph1["D1"], t2, p["K_turb"], u_adv, p["T_insp"])
     phi_inst = g_inst / ph1["D1"]
     phi_inh = g_inh / ph1["D1"]
-    return {**ph1, "t_travel": t2, "phi_inst": phi_inst, "phi_inh": phi_inh,
+    sig = puff_sigma(rel.V * ph1["D1"], t2, p["K_turb"])
+    return {**ph1, "t_travel": t2, "phi_inst": phi_inst, "phi_inh": phi_inh, "sigma": sig, "sigma_t": sig / u_adv,
             "D_total": 1.0 / phi_inst, "Re": rel.reynolds(p["nu_gas"]), "u0": rel.u0}
 
 
