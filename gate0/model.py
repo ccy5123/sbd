@@ -70,7 +70,7 @@ def effective_source(rel: Release, clothing: str, p: dict) -> tuple[float, float
 
     Returns (u_eff, d_eff, dilution_cap). For porous trousers the gas leaves the fabric at
     the Darcy velocity set by the (upper-bound) stagnation pressure of the impinging jet,
-    u_perm = a * (0.5 rho u0^2) / 125 Pa, where a is the air permeability at 125 Pa.
+    u_perm = a * (0.5 rho u0^2) / dp_ref, where a is the air permeability at dp_ref = 100 Pa (EN ISO 9237).
     The source area grows accordingly (mass conservation). A skirt is an open-bottom
     mixing chamber: the free jet dilutes at most to the enclosed volume.
     """
@@ -78,9 +78,9 @@ def effective_source(rel: Release, clothing: str, p: dict) -> tuple[float, float
     if clothing in ("none", "skirt"):
         cap = p["V_skirt"] / rel.V if clothing == "skirt" else None
         return u0, rel.d, cap
-    a = {"denim": p["a_denim"], "leggings": p["a_leggings"]}[clothing]
+    a = {"denim": p["a_denim"], "leggings": p["a_leggings"], "chino": p["a_chino"]}[clothing]
     dp = 0.5 * p["rho_air"] * u0**2
-    u_eff = min(u0, a * dp / 125.0)
+    u_eff = min(u0, a * dp / p["dp_ref_fabric"])
     area = (rel.V / rel.T) / max(u_eff, 1e-12)
     return u_eff, float(np.sqrt(4.0 * area / np.pi)), None
 

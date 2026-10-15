@@ -52,46 +52,50 @@ silent penalty is robust:
 
 ## 3. Parameters
 
-All parameters are in `params/params.yaml`, with source and status. Verified in this pass:
+All parameters are in `params/params.yaml`, with source and status. The M0 pass is complete: every former [VERIFY]
+entry is now VERIFIED, DERIVED, PARTIAL or an explicit ASSUMPTION. Gate 0 uses:
 
-- Suarez 1998 sulfur gases.
-- Nagata 2003 thresholds.
-- Dowling & Dimotakis K_c.
-- Hussein et al. B_u.
-- Sangras/Diez C_x and C_p.
-- Licina 2014 CBL velocity.
-- Cheng 2011 indoor K = 0.0019–0.013 m²/s.
-- Per-passage volume, 32–207 mL (median 92), derived from Suarez 1997 Table 1.
-- Flatus buoyancy, derived from the Suarez 1997 Table 1 compositions.
+- sulfur gases (Suarez 1998) and odour thresholds (Nagata 2003);
+- K_c (Dowling & Dimotakis), and the starting-jet and puff coefficients (Sangras 2002 / Diez 2003 erratum);
+- the thermal entrainment coefficient α = 0.25 ± 0.1 (Landeau et al. 2014);
+- CBL velocity 0.11–0.24 m/s (Licina 2014);
+- indoor K 0.0019–0.013 m²/s (Cheng 2011);
+- individual passage volume **17–375 mL**, quoted from the Suarez 1997 text (n = 87);
+- seat-to-nose height from ANSUR II;
+- inspiratory time 1.6–2.7 s (Wysocki 2006: Ti/Ttot = 0.42, so the plan's I:E = 1:2 is not supported);
+- fabric air permeability at 100 Pa — denim 17–46 mm/s, stretch denim up to 253 mm/s, stretched jersey leggings
+  0.16–1.9 m/s;
+- flatus buoyancy, derived from the Suarez 1997 Table 1 compositions.
 
-The derived values are computed in `params/derive_from_suarez1997.py`.
-
-**Correction to plan §3.1.** Median flatus is positively buoyant (g′ = +1.7 m/s² at 37 °C). However, CO₂-rich flatus is
-denser than air: 1/16 subjects at 37 °C, and 4/16 after cooling to room temperature. Buoyancy is therefore treated as
-signed, and the Monte Carlo resamples the 16 empirical values.
+**Correction to plan §3.1.** Median flatus is positively buoyant (g′ = +1.7 m/s² at 37 °C; independently +1.2 m/s² from
+the Modesto 2022 meta-analysis mean composition). However, CO₂-rich flatus is denser than air: 1/16 subjects at 37 °C,
+4/16 after cooling to room temperature. Buoyancy is therefore treated as signed, and the Monte Carlo resamples the
+16 empirical values.
 
 Still **assumptions**:
 
-- orifice diameter (2–15 mm) and release duration (0.3–5 s);
+- orifice diameter (1–15 mm; a Bernoulli check gives 1.7–3 mm for a 0.1 L/s release at 0.1–1 kPa) and release
+  duration (0.3–5 s);
 - the audibility threshold u_audible (1–5 m/s), a placeholder until M2;
 - the hand-off velocity u_h (0.05–0.25 m/s);
 - the room transport speed (0.03–0.15 m/s);
-- the lower bound K = 10⁻⁴ m²/s for puff relative dispersion near the body.
+- the lower bound K = 10⁻⁴ m²/s for puff relative dispersion near the body;
+- the skirt volume and the woven-trouser permeability.
 
 ## 4. Results
 
 **Source strength.** The flatus mean contains 26 977 ppb H₂S, 5 345 ppb CH₃SH and 2 036 ppb DMS. The summed odour
 activity value is 1.4 × 10⁵: methanethiol (OAV 7.6 × 10⁴) slightly out-ranks H₂S (6.6 × 10⁴). **One 100 mL passage
-therefore needs ≈ 14 m³ of air to fall to the detection threshold** — about the volume of a lift car. At both noses and
-for both release types, the median inhalation-averaged OAV is 10¹–10² (Monte Carlo medians: own nose ≈ 380, neighbour
-≈ 80–100). Every release is clearly detectable, so the question is purely relative.
+therefore needs ≈ 14 m³ of air to fall to the detection threshold** — about the volume of a lift car. The median
+inhalation-averaged OAV is ≈ 220 at the emitter's nose and ≈ 60–90 at the neighbour's. Every release is clearly
+detectable, so the question is purely relative.
 
 **Reference pair** (silent: 40 mL, 2 s, d = 6 mm, Re ≈ 250; audible: 100 mL, 0.5 s, Re ≈ 2 500):
 
-| | Si | near-field D₁ | regime | total dilution, own nose | total dilution, neighbour |
+| | Si | near-field D₁ | dominant mixer | total dilution, own nose | total dilution, neighbour |
 |---|---|---|---|---|---|
-| silent | 4.7 | 5.7 (buoyancy-dominated) | thermal | 690 | 4 500 |
-| audible | 47 | 14 | puff | 320 | 1 900 |
+| silent | 4.7 | 5.7 | buoyancy (thermal) | 950 | 4 500 |
+| audible | 47 | 14 | momentum (puff) | 430 | 1 900 |
 
 Near-field mixing differs by only a factor of ≈ 2.4, far less than the factor of 10 in u₀. A short audible release
 becomes a puff, and puffs decelerate fast (u ∝ x⁻³). Meanwhile, the buoyancy of the silent release mixes it by itself.
@@ -100,12 +104,23 @@ becomes a puff, and puffs decelerate fast (u ∝ x⁻³). Meanwhile, the buoyanc
 
 | receptor | wardrobe | basis | median R | 5–95 % | P(R > 1) | P(R > 2) "noticeably deadlier" | P(R < ½) |
 |---|---|---|---|---|---|---|---|
-| own nose | none | equal mass | 1.18 | 0.81–3.4 | 0.84 | 0.16 | 0.01 |
-| own nose | none | equal conc. | 1.00 | 0.36–2.9 | 0.50 | 0.14 | 0.13 |
-| neighbour | none | equal mass | 1.05 | 0.91–2.2 | 0.84 | 0.06 | 0.01 |
-| neighbour | none | equal conc. | 0.89 | 0.30–2.7 | 0.42 | 0.11 | 0.21 |
-| neighbour | denim | equal mass | 1.00 | 0.87–1.5 | 0.65 | 0.02 | 0.01 |
-| neighbour | none, jet aimed at neighbour | equal mass | 0.75 | 0.28–1.7 | 0.20 | 0.03 | 0.17 |
+| own nose | none | equal mass | 1.35 | 0.83–9.1 | 0.88 | 0.31 | 0.02 |
+| own nose | none | as emitted (equal conc.) | 0.94 | 0.18–4.9 | 0.47 | 0.21 | 0.27 |
+| neighbour | none | equal mass | 1.12 | 0.92–5.2 | 0.88 | 0.17 | 0.01 |
+| neighbour | none | as emitted (equal conc.) | 0.75 | 0.13–4.4 | 0.39 | 0.17 | 0.36 |
+| neighbour | denim | equal mass | 1.02 | 0.85–2.3 | 0.73 | 0.07 | 0.01 |
+| neighbour | denim | as emitted (equal conc.) | 0.59 | 0.11–3.6 | 0.31 | 0.12 | 0.44 |
+| neighbour | none, jet aimed at neighbour | equal mass | 0.74 | 0.11–4.1 | 0.27 | 0.11 | 0.26 |
+
+**Interpreting the two bases.**
+
+- **Equal emitted mass** isolates the fluid mechanics: per odorant molecule, a silent release *is* delivered more
+  efficiently. The near-field penalty is real: median 1.35 at the emitter's own nose, and 1.12 at the neighbour's.
+- **Equal source concentration** compares passages *as they actually come out of one gut*. Here the larger volume of
+  audible releases wins: the median R is 0.75 at the neighbour, and **loud passages deliver more odorant in the
+  majority of pairs** (P(R > 1) = 0.39). This basis is the closest Gate 0 analogue of the folk belief.
+- This basis still assumes the same composition. Faster fermentation (loud-prone releases) would, if anything, make
+  audible gas richer (plan §4.2), which would strengthen the reversal.
 
 **Ratio maps** (`figures/gate0_ratio_map.png`). In quiescent air near the body (K = 10⁻⁴ m²/s), the equal-mass silent
 penalty reaches a factor of 3–30 for travel times of 1–5 s against highly turbulent audible comparators. At room-scale
@@ -118,28 +133,30 @@ release is the worse one everywhere except in the near-field corner.
 |---|---|
 | V_audible / V_silent | +0.58 |
 | eddy diffusivity K | −0.51 |
-| u₀ of the audible release | +0.37 |
-| orifice diameter of the audible release | −0.15 |
-| room transport speed | +0.14 |
-| buoyancy g′ | −0.11 |
+| u₀ of the audible release | +0.50 |
+| orifice diameter of the audible release | −0.17 |
+| room transport speed | +0.15 |
 
-The jet constants (K_c, Γ) do not matter (|ρ| ≤ 0.01). This is good: the verified constants are not the bottleneck.
+Buoyancy, breathing and the jet constants are all |ρ| ≤ 0.06. This is good: the verified constants are not the
+bottleneck. The bottleneck is K near the body and the release geometry.
 
 ## 5. Gate decision (narrative branch, plan §1)
 
-The physical silent-release penalty is **real but small and regime-dependent**:
+The physical silent-release penalty is **real per molecule, but modest, regime-dependent, and reversed for real
+passages**:
 
-- It is a factor of ≈ 1.2 at the emitter's own nose with no clothing. It is ≲ 1.05 at the neighbour and vanishes
-  under trousers ("trousers are the great equaliser": fabric removes the jet momentum from both releases).
-- It reverses when releases are compared at equal source concentration, or when the audible jet is aimed at the
-  neighbour.
-- A "noticeably deadlier" silent release (R > 2) occurs in only 2–16 % of pairs.
+- Per molecule (equal mass), a silent release is delivered ≈ 1.1–1.35× more efficiently. Fewer than one pair in five
+  reaches the neighbour noticeably (×2) deadlier.
+- Trousers drive the penalty to ≈ 1.0 ("trousers are the great equaliser": fabric strips the jet momentum from both
+  releases).
+- For passages as emitted (equal source concentration), the larger volume of loud releases outweighs the mixing
+  advantage. The neighbour receives *more* odour from the audible release in the majority of pairs.
+- The penalty is large only in one corner: **emitter's own nose, bare, still air, within ~5 s**.
 
 → **Recommended branch: "Debunked (mostly) — the nose was fooled by the ears", with a regime map.** The physics cannot
 carry the belief on its own. The psychological "preparedness" layer (H2, M6) becomes the headline: the break-even
-γ* needed to sustain the belief is small (≈ 1.05–1.2 in the typical regime). The physical exception is a
-well-defined corner — **own nose, bare, still air, short delay** — which "He who smelt it dealt it" (Scenario B) can
-exploit for comedy.
+γ* needed to sustain the belief for real passages is ≈ 1.3–1.7 at the neighbour (1/median R on the as-emitted
+basis). The physical exception corner is a natural home for "He who smelt it dealt it" (Scenario B).
 
 This is a Gate 0 result. CFD (M3–M5) is still required, mainly to replace the two weakest links:
 
@@ -149,7 +166,7 @@ This is a Gate 0 result. CFD (M3–M5) is still required, mainly to replace the 
 
 ## 6. Recommended CFD ranges (from Gate 0 sensitivity)
 
-- **Releases:** V 30–210 mL; d 2–15 mm (log-spaced, 5 levels); T 0.3–5 s; signed g′ ∈ {−0.7, +1.7, +4.7} m/s².
+- **Releases:** V 17–375 mL; d 1–15 mm (log-spaced, 5 levels); T 0.3–5 s; signed g′ ∈ {−0.7, +1.7, +4.7} m/s².
 - **Most valuable CFD outputs:** puff relative dispersion within the CBL (an effective K for 1–15 s), and the
   momentum-sink efficiency of each fabric.
 - **Mesh:** resolve the orifice to ≥ 10 cells per d for the audible releases (d ≥ 2 mm → cell ≤ 0.2 mm locally). An
@@ -160,7 +177,7 @@ This is a Gate 0 result. CFD (M3–M5) is still required, mainly to replace the 
 
 - Single receptor on the centreline (an upper bound for both releases).
 - No room walls or ventilation.
-- Clothing is a crude Darcy momentum sink.
+- Clothing is a crude Darcy momentum sink. Open knits have Re_k up to ≈ 1.8, so CFD needs a Forchheimer term.
 - The audibility threshold is a placeholder.
 - The Gaussian puff ignores CBL shear stretching.
 - Odorant adsorption on fabric and cushions is ignored. Suarez 1998 reports that a charcoal cushion "absorbed more than

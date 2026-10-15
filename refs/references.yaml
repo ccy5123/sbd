@@ -34,3 +34,24 @@ references:
   jamshaid2020: {authors: [Jamshaid H, Rajput AW, Zahid B, Asfand N, Basra SA, Ali A], year: 2020, title: "Comparison of functional properties of woven and knitted denim fabrics", journal: "Industria Textila", volume: 71, issue: 1, pages: "3-7", doi: 10.35530/it.071.01.1604, openalex: W3008290548}
   hirani2009: {authors: [Hirani R (director)], year: 2009, title: "3 Idiots", medium: film, publisher: "Vinod Chopra Films"}
   grose1811: {authors: [Grose F], year: 1811, title: "Dictionary of the Vulgar Tongue", note: "entry 'fice'; public domain"}
+  # --- added in the M0 parameter pass (full texts read by the user-supplied PDFs or by the verification agent) ---
+  hussein1994: {authors: [Hussein HJ, Capp SP, George WK], year: 1994, title: "Velocity measurements in a high-Reynolds-number, momentum-conserving, axisymmetric, turbulent jet", journal: "Journal of Fluid Mechanics", volume: 258, pages: "31-75", doi: 10.1017/S002211209400323X}
+  sangras2002: {authors: [Sangras R, Kwon OC, Faeth GM], year: 2002, title: "Self-preserving properties of unsteady round nonbuoyant turbulent starting jets and puffs in still fluids", journal: "Journal of Heat Transfer", volume: 124, pages: "460-469", doi: 10.1115/1.1421047}
+  diez2003: {authors: [Diez FJ, Sangras R, Kwon OC, Faeth GM], year: 2003, title: "Erratum: Self-preserving properties of unsteady round nonbuoyant turbulent starting jets and puffs in still fluids", journal: "Journal of Heat Transfer", volume: 125, pages: "204-205", doi: 10.1115/1.1532019}
+  cheng2011: {authors: [Cheng K-C, Acevedo-Bolton V, Jiang R-T, Klepeis NE, Ott WR, Fringer OB, Hildemann LM], year: 2011, title: "Modeling exposure close to air pollution sources in naturally ventilated residences: association of turbulent diffusion coefficient with air change rate", journal: "Environmental Science & Technology", volume: 45, pages: "4016-4022", doi: 10.1021/es103080p, note: "author list beyond first three to be confirmed"}
+  modesto2022: {authors: [Modesto A, et al.], year: 2022, journal: "Digestive Diseases and Sciences", volume: 67, pages: "3842-3859", doi: 10.1007/s10620-021-07254-1, note: "flatus composition meta-analysis; title to be filled"}
+  freire2022: {authors: [Freire, et al.], year: 2022, journal: Sensors, volume: 22, pages: "838", doi: 10.3390/s22030838}
+  wysocki2006: {authors: [Wysocki M, et al.], year: 2006, journal: "Respiratory Physiology & Neurobiology", volume: 153, pages: "54-65", doi: 10.1016/j.resp.2005.09.008}
+  landeau2014: {authors: [Landeau M, Deguen R, Olson P], year: 2014, journal: "Journal of Fluid Mechanics", volume: 749, pages: "478-518", doi: 10.1017/jfm.2014.202}
+  vanreeuwijk2015: {authors: [van Reeuwijk M, Craske J], year: 2015, journal: "Journal of Fluid Mechanics", volume: 782, pages: "333-355", doi: 10.1017/jfm.2015.534}
+  papanicolaou1988: {authors: [Papanicolaou PN, List EJ], year: 1988, journal: "Journal of Fluid Mechanics", volume: 195, pages: "341-391", doi: 10.1017/S0022112088002447}
+  lee2016: {authors: [Lee TH, Bharucha AE], year: 2016, journal: "Journal of Neurogastroenterology and Motility", volume: 22, pages: "46-59", doi: 10.5056/jnm15168}
+  sundlevander2002: {authors: [Sund-Levander M, Forsberg C, Wahren LK], year: 2002, journal: "Scandinavian Journal of Caring Sciences", volume: 16, pages: "122-128", doi: 10.1046/j.1471-6712.2002.00069.x}
+  hongisto2017: {authors: [Hongisto V, Varjo J, Sanchez-Oliva D, Haapakangas A, Benway E], year: 2017, journal: "Frontiers in Psychology", volume: 8, pages: "1177", doi: 10.3389/fpsyg.2017.01177}
+  yao2017: {authors: [Yao CMKL, Ma AK, Cushing SL, Lin V], year: 2017, journal: "Journal of Otolaryngology - Head & Neck Surgery", volume: 46, pages: "62", doi: 10.1186/s40463-017-0239-6}
+  celik2017: {authors: [Celik HI, Kaynak HK], year: 2017, journal: "IOP Conference Series: Materials Science and Engineering", volume: 254, pages: "082007", doi: 10.1088/1757-899X/254/8/082007}
+  kanat2026: {authors: [Kanat ZE, Ozdil N], year: 2026, journal: Materials, volume: 19, pages: "3264", doi: 10.3390/ma19153264}
+  jerkovic2025: {authors: [Jerkovic I, Psikuta A, Ebrahimi S, Baumann J, Camenzind M, Annaheim S, Rossi RM], year: 2025, journal: Materials, volume: 18, pages: "2655", doi: 10.3390/ma18112655}
+  suzuki2024: {authors: [Suzuki Y, Takeshima H, Kurakata K], year: 2024, journal: "Acoustical Science and Technology", volume: 45, pages: "1-8", doi: 10.1250/ast.e23.66}
+  gordon2014: {authors: [Gordon CC, et al.], year: 2014, title: "2012 Anthropometric Survey of U.S. Army Personnel (ANSUR II)", report: "NATICK/TR-15/007"}
+  chervinsky2022: {authors: [Chervinsky M], year: 2022, title: "Consider the Sphincter", publisher: "flatology.com (Invisible College of Experimental Flatology)", note: "NON-PEER-REVIEWED"}

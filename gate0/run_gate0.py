@@ -105,16 +105,16 @@ def ratio_maps():
 
 # --- 2. Monte Carlo -----------------------------------------------------------------------
 SAMPLED = {  # name: (low, high, log-uniform?)
-    "u_handoff": (0.05, 0.25, False), "K_turb": (1e-4, 1.3e-2, True), "u_CBL": (0.16, 0.24, False),
-    "u_room": (0.03, 0.15, True), "L_own": (0.6, 0.8, False), "L_neighbour": (0.8, 1.4, False),
-    "T_insp": (1.2, 2.0, False), "B_u": (5.8, 5.9, False),
+    "u_handoff": (0.05, 0.25, False), "K_turb": (1e-4, 1.3e-2, True), "u_CBL": (0.11, 0.24, False),
+    "u_room": (0.03, 0.15, True), "L_own": (0.65, 0.85, False), "L_neighbour": (0.8, 1.4, False),
+    "T_insp": (1.6, 2.7, False), "B_u": (5.8, 5.9, False),
     "K_c": (4.73, 5.2, False), "Gamma_sj": (2.74, 2.86, False), "C_puff": (2.54, 2.66, False),
-    "alpha_th": (0.2, 0.3, False),
-    "a_denim": (0.005, 0.10, True), "a_leggings": (0.2, 1.5, True), "V_skirt": (0.01, 0.06, True),
+    "alpha_th": (0.15, 0.35, False),
+    "a_denim": (0.017, 0.25, True), "a_leggings": (0.16, 1.9, True), "a_chino": (0.02, 0.15, True), "V_skirt": (0.01, 0.06, True),
     "u_audible": (1.0, 5.0, True),
 }
-RELEASE_PRIOR = {"V": (3.2e-5, 2.07e-4), "T": (0.3, 5.0), "d": (2.0e-3, 1.5e-2)}  # all log-uniform
-CLOTHING = ("none", "skirt", "leggings", "denim")
+RELEASE_PRIOR = {"V": (1.7e-5, 3.75e-4), "T": (0.3, 5.0), "d": (1.0e-3, 1.5e-2)}  # all log-uniform
+CLOTHING = ("none", "skirt", "leggings", "chino", "denim")
 
 
 def draw_release(rng):
