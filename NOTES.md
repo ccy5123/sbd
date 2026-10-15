@@ -85,3 +85,8 @@
   - mesh: snappyHexMesh, 340 k cells (coarse).
 - Compute budget: 4 cores. Running several cases in parallel on one core each is memory-bound and slow, so the CBL
   cases and the fine jet run one after another on 4 MPI ranks (`cfd/validation/run_pipeline.sh`).
+- **First CBL "conveyor" result** (23 °C, coarse, iteration 3000; preview figure `figures/preview_conveyor_belt.png`):
+  - 3-D streamlines (OpenFOAM `streamlinesPoints`) from 8 seat-level seeds; 7 of 8 reach nose height in 8–18 s,
+    passing 0.09–0.34 m from the nose.
+  - Gate 0 assumed own-nose transport of L/u = 0.74/0.17 ≈ 4.4 s. The CFD path is longer and slower, so update Gate 0
+    (it lengthens own-nose travel and narrows the own-nose silent penalty) once the CBL validation is final.
