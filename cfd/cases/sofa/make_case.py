@@ -1,7 +1,7 @@
 """Scenario A, 'sofa duet': two seated adults on a sofa in a quiescent living room; one releases.
 
 Transient RANS k-omega SST, Boussinesq ('fluid' solver), skin 33 C, walls 23 C (same set-up as the M3b CBL runs).
-Release = momentum-equivalent mass source (fvModel massSource) in a small sphere behind the farter's buttocks just
+Release = momentum-equivalent mass source (fvModel massSource) in a 2 cm sphere behind the farter's buttocks just
 above the seat, directed down-and-back into the seat/backrest corner:
   physical release  : V over T through an orifice d  ->  Q0 = V/T, u0 = Q0/(pi d^2/4), M0 = u0 Q0
   equivalent source : sphere of radius r_s, area A_s = pi r_s^2;
@@ -32,7 +32,8 @@ DY_F, DY_N = -0.30, 0.30
 NOSE_X, NOSE_Z = 0.10, 1.215
 REL = (-0.195, DY_F, 0.478)            # release point: behind the buttocks, 2.8 cm above the seat
 REL_DIR = (-0.5, 0.0, -0.866)          # down and back, into the seat/backrest corner
-R_SRC = 0.0075
+R_SRC = 0.02                           # 328 cells at level 4 (5 mm). A 7.5 mm sphere held only 14 cells and injected
+                                       # ~2x the cell mass per time step; the test run diverged at step 5
 VENT_BOX = "(1.6 1.0 2.5) (2.1 1.5 2.7)"  # ceiling faces with centres in this box become the vent patch
 T_ROOM, T_SKIN = 23.0, 33.0
 G_PRIME = 1.70                         # params.yaml source.g_reduced (median)

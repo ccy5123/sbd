@@ -1,10 +1,10 @@
 """Preview figure: 'The Conveyor Belt' - the human convective boundary layer on the mid-sagittal plane.
 
-Serious data (steady RANS k-omega SST, room 23 C, skin 33 C, coarse mesh), ridiculous staging (plan section 13).
-Input: postProcessing/midPlane/<time>/cutPlane.xy from
-  foamPostProcess -func "cutPlaneSurface(funcName=midPlane, point=(0 0.003 0), normal=(0 1 0), fields=(U T),
-                                         interpolate=false, surfaceFormat=raw)" -time <time>
-Usage: python3 fig_conveyor.py <case_dir> <time> <out.png>
+Serious data (transient RANS k-omega SST, time-mean field, skin 33 C, coarse mesh), ridiculous staging (plan
+section 13).
+Input: postProcessing/midPlane/<time>/cutPlane.xy (x y z Ux Uy Uz T) and postProcessing/seatParcels/<time>/tracks.xy
+(x y z age ...), both written by cfd/postprocess/conveyor_from_cbl.sh.
+Usage: python3 fig_conveyor.py <case_dir> <time> <out.png> [room_C] [method line]
 """
 import sys
 from pathlib import Path
@@ -68,7 +68,8 @@ def integrate(fx, fz, start, dt=0.02, t_max=40.0, z_stop=manikin.NOSE[2]):
     return np.array(path), None
 
 
-def main(case: Path, time: str, out: Path):
+def main(case: Path, time: str, out: Path, room_c: float = 23.0,
+         method: str = "Transient RANS (k-ω SST), Boussinesq, 340 k cells, mean over 30–60 s."):
     x, z, ux, uz, T = load(case, time)
     tri = triangulation(x, z)
     umag = np.hypot(ux, uz)
@@ -79,7 +80,7 @@ def main(case: Path, time: str, out: Path):
     fig, ax = plt.subplots(figsize=(7.6, 8.6))
     levels = np.linspace(0, 0.40, 17)
     cf = ax.tricontourf(tri, np.clip(umag, 0, 0.40), levels=levels, cmap=SEQ, zorder=1)
-    t_room = 273.15 + 23.0
+    t_room = 273.15 + room_c
     ax.tricontour(tri, T - t_room, levels=[0.5, 2.0], colors=[MUTED, INK2], linewidths=[0.6, 0.9],
                   linestyles=["--", "-"], zorder=2)
     silhouette(ax)
@@ -124,13 +125,13 @@ def main(case: Path, time: str, out: Path):
     cb.ax.text(1.9, 0.37, "express lane", transform=cb.ax.get_yaxis_transform(), fontsize=7.5, va="center",
                color=INK2)
     fig.suptitle("The Conveyor Belt", x=0.06, y=0.985, ha="left", fontsize=14, fontweight="bold")
-    fig.text(0.06, 0.953, "Human convective boundary layer of a seated adult, mid-sagittal plane. Room 23 °C, "
-             "skin 33 °C.\nSteady RANS (k-ω SST), Boussinesq, 340 k cells. Thin/solid grey contours: +0.5 / +2 K "
-             "above room air.\nPRELIMINARY (coarse mesh, validation in progress).", fontsize=7.8, color=INK2,
-             va="top")
+    fig.text(0.06, 0.953, "Human convective boundary layer of a seated adult, mid-sagittal plane. "
+             f"Room {room_c:.0f} °C, skin 33 °C.\n{method}\nThin/solid grey contours: +0.5 / +2 K above room air.",
+             fontsize=7.8, color=INK2, va="top")
     fig.savefig(out, dpi=220, bbox_inches="tight")
     print("wrote", out, "arrival times (s):", [round(a, 1) for a in arrivals])
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]), sys.argv[2], Path(sys.argv[3]))
+    main(Path(sys.argv[1]), sys.argv[2], Path(sys.argv[3]), *([float(sys.argv[4])] if len(sys.argv) > 4 else []),
+         *(sys.argv[5:6]))
