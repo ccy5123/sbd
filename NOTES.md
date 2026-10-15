@@ -100,3 +100,18 @@
   - the Co limit binds only in near-wall layer cells (mean Co about 0.02), giving Δt ≈ 0.03 s;
   - 60 s of physical time from the steady state, averaged over 30–60 s;
   - about 1 h per case on 4 cores.
+
+### M6 — perception (done, see `perception/m6_report.md`)
+- **Neighbour, as emitted:** the median physical difference is R = 0.91. In perceived intensity that is
+  R^0.28 = 0.973, a 2.7 % difference and **below the olfactory JND (≈ 7 %)**. The break-even expectation factor is
+  γ\* = 1.03, so a 3 % amplification for unwarned exposures sustains the belief. At γ = 1.15, P(belief) = 0.64; at the
+  own nose it is 0.76.
+- **Breath-hold:**
+  - An audible puff reaches the neighbour after a median of 16 s. Unwarned, the worst breath catches ≈ 93 % of the
+    peak.
+  - Warned, a 50 % dodge needs a 23 s hold; the typical 33 s maximum gives 68 %.
+  - The ear buys a physical escape option only if the warned person holds their breath almost to their limit.
+- **Newcomer effect:** in a 4 m³ lift car, an occupant is adapted to 0.66 of a fresh nose at 60 s, so a newcomer
+  perceives ≈ 1.5× more. This carries into Scenario C.
+- Still assumptions: γ itself (direction verified, size not found), τ_adapt, the post-hold breath, and the lift-car
+  ventilation.

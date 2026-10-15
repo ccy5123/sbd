@@ -110,10 +110,14 @@ acoustics:          # inputs for M2
 acoustics_proxy:    # Gate 0 only - replaced by the lip-reed model in M2
   u_audible:    {value: 2.0, low: 1.0, high: 5.0, units: m/s, status: ASSUMPTION, note: "exit velocity above which tissue oscillation (sound) is assumed; placeholder for M2"}
 
-perception:         # M6 (PRELIMINARY: verification in progress)
-  n_stevens:    {value: 0.28, low: 0.2, high: 0.6, units: "-", status: ASSUMPTION, source: "Collins et al. 2001 (odour rating = 1.51 [H2S ppm]^0.28, dog flatus, human judge); range pending verification"}
-  tau_adapt:    {value: 60.0, low: 20.0, high: 180.0, units: s, status: ASSUMPTION, note: "time constant of olfactory adaptation (pending verification)"}
-  a_inf:        {value: 0.3, low: 0.1, high: 0.5, units: "-", status: ASSUMPTION, note: "asymptotic relative intensity under sustained exposure (pending)"}
-  t_react:      {value: 0.7, low: 0.3, high: 1.5, units: s, status: ASSUMPTION, note: "sound-to-breath-hold reaction latency"}
-  H_max:        {value: 45.0, low: 30.0, high: 90.0, units: s, status: ASSUMPTION, note: "maximum voluntary breath-hold at rest (pending)"}
+perception:         # M6 (verified 2026-10-15; see refs/references.yaml)
+  n_stevens:    {value: 0.28, low: 0.20, high: 0.45, units: "-", status: VERIFIED, source: "Collins et al. 2001 Am J Vet Res 62:1014 (odour rating = 1.51 [H2S ppm]^0.28); Amoore 1985 CARB report x1.2 per doubling (n = 0.26, non-peer-reviewed); thiols 0.36 and all odorants median 0.40 (Devos et al. 2002 via Zarzo 2012 Sensors 12:4105)", note: "range = sensitivity bracket"}
+  k_w_H2S:      {value: 0.95, low: 0.8, high: 1.2, units: "intensity units per decade", status: PARTIAL, source: "Japan MoE 6-point scale: H2S 0.02 -> 0.2 ppm spans intensity 2.5 -> 3.5; municipal tables Y = 0.950 log10(ppm) + 4.14 (not read directly)"}
+  weber_C:      {value: 0.28, low: 0.05, high: 0.40, units: "dC/C", status: VERIFIED, source: "Stone & Bosley 1965 Percept Mot Skills 20:657 (K = 0.28); Cain 1977 Science 195:796 (down to 0.05 with ideal delivery)"}
+  tau_adapt:    {value: 80.0, low: 40.0, high: 120.0, units: s, status: ASSUMPTION, source: "derived: asymptote reached by ~4 min (Cain 1974 via Cometto-Muniz & Cain 1995) taken as ~3 tau"}
+  a_inf:        {value: 0.35, low: 0.25, high: 0.40, units: "-", status: PARTIAL, source: "H2S, DMDS, pyridine 25-40 % of initial intensity (Berglund et al. 1978; Ekman et al. 1967; via Cometto-Muniz & Cain 1995)"}
+  gamma_lit:    {value: 1.15, low: 1.0, high: 1.3, units: "-", status: ASSUMPTION, source: "direction verified: negative names raise intensity (Djordjevic et al. 2008); hazard framing causes sensitization instead of adaptation (Dalton 1996, 1997, 1999); label shifts pleasantness, not intensity (de Araujo et al. 2005); sounds shift pleasantness, not intensity (Seo & Hummel 2011)", note: "no study measures intensity for unexpected vs expected odours"}
+  sniff_ratio:  {value: 0.64, low: 0.61, high: 0.75, units: "-", status: VERIFIED, source: "Frank et al. 2006 Arch Otolaryngol 132:532 (malodour sniff magnitude ratio); modulation latency 0.16-0.26 s (Johnson et al. 2003)"}
+  t_react:      {value: 0.5, low: 0.3, high: 1.5, units: s, status: ASSUMPTION, note: "sound-to-breath-hold latency; reflex floor 0.16 s (Johnson et al. 2003)"}
+  H_max:        {value: 33.0, low: 24.0, high: 90.0, units: s, status: VERIFIED, source: "Marks et al. 1997 JMRI 7:595 (31.7 s, room air, end-expiration); Roujol et al. 2014 MRM (35 +/- 11 s)", note: "upper bound after full inspiration is an ASSUMPTION"}
   recovery_gain: {value: 1.5, low: 1.0, high: 2.0, units: "-", status: ASSUMPTION, note: "tidal-volume factor of the first breath after a hold"}

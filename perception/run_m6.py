@@ -103,8 +103,10 @@ def fig7(mc):
         p_dodge.append(np.mean(rs < 0.1)); med_ratio.append(np.median(rs))
     ax.plot(holds, p_dodge, color=ORANGE, lw=2, marker="o", ms=4, label="P(dodge): worst breath < 10 % of peak")
     ax.plot(holds, med_ratio, color=INK, lw=1.6, ls=(0, (4, 2)), label="median worst breath / C_peak")
-    ax.axvspan(P["H_max"] * 0 + 30, 90, color="#e4e3df", lw=0)
-    ax.text(31, 0.93, "beyond typical voluntary\nbreath-hold (≈30–90 s)", fontsize=7.5, color=INK2, va="top")
+    ax.axvspan(24, 35, color="#e4e3df", lw=0)
+    ax.axvspan(35, 60, color="#f0efec", lw=0)
+    ax.text(24.5, 0.97, "typical max\nbreath-hold\n(32–35 s)", fontsize=7.2, color=INK2, va="top")
+    ax.text(36, 0.97, "requires a deep\nbreath first", fontsize=7.2, color=INK2, va="top")
     ax.set_xlim(0, 60); ax.set_ylim(0, 1.02)
     ax.set_xlabel("breath-hold duration H after hearing it (s)")
     ax.set_title("c  Warned: hold your breath (audible releases only)", loc="left")
@@ -139,8 +141,15 @@ def fig11(mc):
         ns = np.linspace(0.15, 0.7, 40)
         a2.plot(ns, [pm.gamma_star(np.median(R), x) for x in ns], color=col, lw=2, label=lab)
         out[lab] = {"median_R": float(np.median(R)), "gamma_star_median": gstar,
+                    "P_belief_gamma_lit": float(pm.p_belief(R, n, [P["gamma_lit"]])[0]),
+                    "intensity_ratio_median": float(np.median(R) ** n),
                     "P_belief_gamma1": float(pm.p_belief(R, n, [1.0])[0]),
                     "P_belief_gamma1.5": float(pm.p_belief(R, n, [1.5])[0])}
+    a1.axvspan(1.0, 1.3, color="#f2a3a2", alpha=0.25, lw=0)
+    a1.text(1.14, 0.97, "plausible\nexpectation\neffect", fontsize=7, color=INK2, ha="center", va="top")
+    jnd = (1 + P["weber_C"]) ** n
+    a1.axvline(jnd, color=MUTED, lw=0.8, ls=(0, (1, 2)))
+    a1.text(jnd * 1.01, 0.36, f"intensity JND\n(ΔC/C = {P['weber_C']})", fontsize=7, color=INK2)
     a1.axhline(0.5, color=MUTED, lw=0.8, ls=(0, (3, 3)))
     a1.axvline(1.0, color=INK, lw=0.8)
     a1.text(1.01, 0.03, "no expectation effect", fontsize=7.5, color=INK2, rotation=90, va="bottom")
@@ -149,7 +158,10 @@ def fig11(mc):
     a1.set_ylabel("P(silent perceived as worse)")
     a1.set_title(f"a  How much surprise does the belief need? (Stevens n = {n})", loc="left")
     a1.legend(frameon=False, fontsize=7.5, loc="lower right")
-    a2.axvspan(P.get("n_lo", 0.2), P.get("n_hi", 0.6), color="#e4e3df", lw=0)
+    a2.axvspan(0.20, 0.45, color="#e4e3df", lw=0)
+    for nv, lab in ((0.28, "H₂S (flatus)"), (0.36, "thiols"), (0.40, "all odorants")):
+        a2.axvline(nv, color=MUTED, lw=0.7, ls=(0, (2, 2)))
+        a2.text(nv, 1.75, lab, fontsize=7, color=INK2, rotation=90, va="top", ha="right")
     a2.axhline(1.0, color=INK, lw=0.8)
     a2.set_xlabel("Stevens exponent n"); a2.set_ylabel("break-even γ* at the median pair")
     a2.set_title("b  Break-even vs the steepness of the intensity law", loc="left")
@@ -161,9 +173,38 @@ def fig11(mc):
     return out
 
 
+def fig_adaptation():
+    """Supplementary: a lift car. Occupants adapt; a newcomer arrives with a fresh nose."""
+    V_cab, ach = 4.0, 12.0  # m^3; air changes per hour (ASSUMPTIONS for a lift car)
+    oav0 = 14.28 / V_cab  # one 100 mL passage well mixed (Gate 0: 14.3 m^3 to threshold)
+    n, tau, a_inf = P["n_stevens"], P["tau_adapt"], P["a_inf"]
+    t = np.linspace(0, 600, 1201)
+    oav = oav0 * np.exp(-ach / 3600 * t)
+    fig, ax = plt.subplots(figsize=(7.2, 4.0), constrained_layout=True)
+    base = pm.stevens(np.maximum(oav, 1.0), n) - 1.0  # 0 at threshold
+    ax.plot(t, np.where(oav > 1, base * pm.adaptation(t, tau, a_inf), 0), color=BLUE, lw=2,
+            label="occupant present at release")
+    for te, col in ((60, ORANGE), (180, AQUA)):
+        m = t >= te
+        ax.plot(t[m], np.where(oav[m] > 1, base[m] * pm.adaptation(t[m] - te, tau, a_inf), 0), color=col, lw=2,
+                label=f"newcomer entering at {te} s")
+    ax.plot(t, np.where(oav > 1, base, 0), color=MUTED, lw=1, ls=(0, (3, 3)), label="unadapted nose (reference)")
+    ax.set_xlabel("time after the release (s)")
+    ax.set_ylabel("perceived intensity above threshold (Stevens units)")
+    ax.set_title(f"Supplementary · The newcomer effect in a {V_cab:.0f} m³ lift car ({ach:.0f} air changes/h)",
+                 loc="left", fontsize=10, fontweight="bold")
+    ax.legend(frameon=False, fontsize=8)
+    ax.spines[["top", "right"]].set_visible(False)
+    fig.savefig(ROOT / "figures/figS_adaptation.png", dpi=200)
+    plt.close(fig)
+    i60 = np.argmin(abs(t - 60))
+    return {"oav0_well_mixed": oav0, "t_below_threshold_s": float(t[np.argmax(oav < 1)]) if np.any(oav < 1) else None,
+            "occupant_vs_newcomer_at_60s": float(pm.adaptation(60, tau, a_inf))}
+
+
 def main():
     mc = g0.monte_carlo(n=6000)
-    res = {"fig7": fig7(mc), "fig11": fig11(mc), "n_mc": int(mc["V_s"].size)}
+    res = {"fig7": fig7(mc), "fig11": fig11(mc), "adaptation": fig_adaptation(), "n_mc": int(mc["V_s"].size)}
     (ROOT / "perception/results.json").write_text(json.dumps(res, indent=2))
     print(json.dumps(res, indent=1))
 

@@ -74,3 +74,17 @@ references:
   vandam2014: {authors: [VanDam M], year: 2014, journal: "Journal of the Acoustical Society of America", volume: 136, pages: "EL263", doi: 10.1121/1.4895015}
   pierce2019: {authors: [Pierce AD], year: 2019, title: "Acoustics: An Introduction to Its Physical Principles and Applications", edition: 3, publisher: Springer, doi: 10.1007/978-3-030-11214-1}
   iec61672: {organization: IEC, year: 2013, title: "IEC 61672-1:2013 Electroacoustics - Sound level meters - Part 1: Specifications"}
+  # --- M6 perception (verification agent; DOIs from OpenAlex/publisher pages) ---
+  zarzo2012: {authors: [Zarzo M], year: 2012, journal: Sensors, volume: 12, pages: "4105", doi: 10.3390/s120404105}
+  cain1977: {authors: [Cain WS], year: 1977, title: "Differential sensitivity for smell: 'noise' at the nose", journal: Science, volume: 195, pages: "796", doi: 10.1126/science.836592}
+  stone1965: {authors: [Stone H, Bosley JJ], year: 1965, journal: "Perceptual and Motor Skills", volume: 20, pages: "657", doi: 10.2466/pms.1965.20.2.657}
+  comettomuniz1995: {authors: [Cometto-Muniz JE, Cain WS], year: 1995, title: "Olfactory adaptation", booktitle: "Handbook of Olfaction and Gustation", pages: "257-281"}
+  ekman1967: {authors: [Ekman G, et al.], year: 1967, journal: "Scandinavian Journal of Psychology", volume: 8, pages: "177", doi: 10.1111/j.1467-9450.1967.tb01392.x}
+  hummel1996: {authors: [Hummel T, et al.], year: 1996, journal: "Brain Research", volume: 717, pages: "160", doi: 10.1016/0006-8993(96)00094-7}
+  dalton1997: {authors: [Dalton P, et al.], year: 1997, journal: "International Archives of Occupational and Environmental Health", doi: 10.1007/s004200050168}
+  dalton1999: {authors: [Dalton P], year: 1999, journal: "Health Psychology", volume: 18, pages: "579", doi: 10.1037/0278-6133.18.6.579}
+  johnson2003: {authors: [Johnson BN, et al.], year: 2003, journal: "Journal of Neurophysiology", doi: 10.1152/jn.00115.2003}
+  frank2006: {authors: [Frank RA, et al.], year: 2006, journal: "Archives of Otolaryngology - Head & Neck Surgery", volume: 132, pages: "532", doi: 10.1001/archotol.132.5.532}
+  marks1997: {authors: [Marks B, et al.], year: 1997, journal: "Journal of Magnetic Resonance Imaging", volume: 7, pages: "595", doi: 10.1002/jmri.1880070323}
+  roujol2014: {authors: [Roujol S, et al.], year: 2014, journal: "Magnetic Resonance in Medicine", doi: 10.1002/mrm.24969}
+  amoore1985: {authors: [Amoore JE], year: 1985, title: "The perception of hydrogen sulfide odor in relation to setting an ambient standard", publisher: "California Air Resources Board", report: "A4-046-33", note: NON-PEER-REVIEWED}
