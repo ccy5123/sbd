@@ -1,7 +1,7 @@
 """Generate an OpenFOAM-13 case for the free round-jet validation (M3a).
 
 Axisymmetric 5-degree wedge, steady RANS (incompressibleFluid), passive scalar s (scalarTransport function, Sc_t = 0.7).
-Nozzle d = 10 mm, U0 = 10 m/s (Re = 6.7e3), domain 100 d x 40 d, no-slip base wall, open side and outlet boundaries.
+Nozzle d = 10 mm, U0 = 10 m/s (Re = 6.7e3), domain 100 d x 40 d, no-slip base wall, open (entraining) side boundary, outflow-only outlet.
 
 Usage: python3 make_case.py <case_dir> --level {coarse,medium,fine} --model {kOmegaSST,kEpsilon,realizableKE}
 """
@@ -10,7 +10,8 @@ import math
 from pathlib import Path
 
 D, U0, NU = 0.01, 10.0, 1.5e-5
-# Base (x = 0, r > d/2) is a no-slip wall (jet issuing from a wall); side and outlet are open pressure boundaries.
+# Base (x = 0, r > d/2) is a no-slip wall (jet issuing from a wall); the side boundary supplies entrained air
+# (total pressure 0); the outlet is outflow-only (an open total-pressure outlet admitted a spurious reverse flow).
 # A co-flow was tried first and rejected: over the 40 d domain its momentum flux rivals the jet's.
 L, R = 100 * D, 40 * D
 HALF = math.radians(2.5)
@@ -89,10 +90,10 @@ def make(case: Path, level: str, model: str, c1: float | None = None):
     w(case / "system/blockMeshDict", "dictionary", "blockMeshDict", block_mesh(level))
     w(case / "0/U", "volVectorField", "U", field("U", "volVectorField", "[0 1 -1 0 0 0 0]", "(0 0 0)", {
         "inlet": f"type fixedValue; value uniform ({U0} 0 0);", "base": "type noSlip;",
-        "side": openU, "outlet": openU}))
+        "side": openU, "outlet": "type inletOutlet; inletValue uniform (0 0 0); value uniform (0 0 0);"}))
     w(case / "0/p", "volScalarField", "p", field("p", "volScalarField", "[0 2 -2 0 0 0 0]", 0, {
         "inlet": "type zeroGradient;", "base": "type zeroGradient;",
-        "side": "type totalPressure; p0 uniform 0;", "outlet": "type totalPressure; p0 uniform 0;"}))
+        "side": "type totalPressure; p0 uniform 0;", "outlet": "type fixedValue; value uniform 0;"}))
     w(case / "0/s", "volScalarField", "s", field("s", "volScalarField", "[0 0 0 0 0 0 0]", 0, {
         "inlet": "type fixedValue; value uniform 1;", "base": "type zeroGradient;",
         **{p: "type inletOutlet; inletValue uniform 0; value uniform 0;" for p in ("side", "outlet")}}))

@@ -70,9 +70,15 @@
 - M3a free jet (axisymmetric wedge, Re 6 700):
   - A first attempt with a 1 % co-flow over the 40 d domain was invalid: the co-flow momentum flux rivalled the jet.
     That run was discarded.
-  - Final set-up: no-slip base wall, open side and outlet. Momentum and scalar fluxes are conserved within ±1 %.
-  - Coarse SST: B_u = 5.48 (−5.5 % vs Hussein 1994), K_c = 4.73 (−7.4 % vs Dowling & Dimotakis 1990), S = 0.105
-    (+12 %). This is the usual mild RANS over-spreading.
+  - A second set-up with an open (total-pressure) outlet converged for SST coarse but let k-ε medium settle into a
+    spurious solution with reverse flow entering the outlet. It was discarded too.
+  - Final set-up: no-slip base wall, entraining side (total pressure 0), outflow-only outlet. Momentum flux is
+    conserved to within 3.5 % up to x/d = 95.
+  - Coarse results, against Hussein 1994 (B_u), Dowling & Dimotakis 1990 (K_c) and S = 0.094:
+    - SST: B_u = 5.03 (−13 %), K_c = 4.57 (−11 %), S = 0.117 (+25 %);
+    - k-ε: B_u = 5.07, K_c = 4.31, S = 0.113 (+20 %).
+  - This is the known RANS "round-jet anomaly" (over-spreading), so RANS will slightly over-dilute audible jets.
+    That bias favours H1 and must be stated. A k-ε case with C_ε1 = 1.6 tests the standard correction.
 - M3b CBL:
   - simplified seated manikin from primitives (`cfd/geometry/manikin.py`), half model;
   - skin 33 °C, room 20/23/26 °C;

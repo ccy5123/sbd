@@ -1,5 +1,5 @@
 #!/bin/bash
-# M3a jet validation set: SST at three mesh levels, standard k-epsilon, k-epsilon with C1 = 1.6 (round-jet correction).
+# M3a jet validation set: SST and k-epsilon (coarse, medium), k-epsilon with C1 = 1.6 (round-jet correction).
 # One case per core; endTime scales with mesh level.
 source /opt/openfoam13/etc/bashrc >/dev/null 2>&1
 HERE=$(cd "$(dirname "$0")" && pwd)
@@ -15,8 +15,10 @@ run_case () {
      && foamPostProcess -func writeCellCentres -latestTime > log.C 2>&1; echo "done $name $?")
 }
 run_case jet_sst_coarse coarse kOmegaSST 3000 &
-run_case jet_sst_medium medium kOmegaSST 4000 &
-run_case jet_sst_fine fine kOmegaSST 6000 &
-run_case jet_ke_medium medium kEpsilon 4000 &
+run_case jet_ke_coarse coarse kEpsilon 3000 &
 wait
-run_case jet_ke_pope_medium medium kEpsilon 4000 "--c1 1.6"
+run_case jet_sst_medium medium kOmegaSST 4000 &
+run_case jet_ke_medium medium kEpsilon 4000 &
+run_case jet_ke_pope_medium medium kEpsilon 4000 "--c1 1.6" &
+wait
+# the fine SST level is run by ../run_pipeline.sh (mapped from medium, 4 MPI ranks)
