@@ -89,28 +89,31 @@ def phase1(rel: Release, p: dict, clothing: str = "none") -> dict:
     """Near-field dilution until the cloud's self-induced velocity decays to u_handoff."""
     u_h = p["u_handoff"]
     u_eff, d_s, cap = effective_source(rel, clothing, p)
-    rho_ratio = 1.0 - p["g_reduced"] / p["g"]  # rho_0 / rho_a
+    rho_ratio = 1.0 - p["g_reduced"] / p["g"]  # rho_0 / rho_a (g' < 0: CO2-rich, denser than air)
     d_star = d_s * np.sqrt(rho_ratio)
 
     D_mom, x_h, regime = 1.0, 0.0, "no-momentum"
     if u_eff > u_h:
         M0 = u_eff**2 * np.pi * d_s**2 / 4.0  # kinematic momentum flux, m^4/s^2
         G = p["Gamma_sj"]
-        x_f = G * M0**0.25 * rel.T**0.5  # starting-jet front at end of release
-        u_f = G**2 * np.sqrt(M0) / (2.0 * x_f)  # front velocity at end of release
+        x_f = G * M0**0.25 * rel.T**0.5  # starting-jet tip at end of release (Sangras et al. 2002, erratum)
+        u_f = G**2 * np.sqrt(M0) / (2.0 * x_f)  # tip velocity at end of release
         if u_f <= u_h:  # hand-off during the jet phase
             x_h = G**2 * np.sqrt(M0) / (2.0 * u_h)
             D_mom = x_h / (p["K_c"] * d_star)
             regime = "starting-jet"
-        else:  # jet becomes a puff; puff velocity ~ x^-3, puff volume ~ x^3
-            x_h = x_f * (u_f / u_h) ** (1.0 / 3.0)
+        else:
+            # source cut off -> puff. Measured self-preserving puff law (Diez et al. 2003 erratum):
+            # x_p^4 = C_p^4 (Q0 u0) t  =>  u_p(x) = C_p^4 Q0 u0 / (4 x^3); puff volume ~ x^3
+            Cp4 = p["C_puff"] ** 4
+            x_h = max(x_f, (Cp4 * rel.V * u_eff / (4.0 * u_h)) ** (1.0 / 3.0))
             D_mom = x_f / (p["K_c"] * d_star) * (x_h / x_f) ** 3
             regime = "puff"
         D_mom = max(1.0, D_mom)
 
     # buoyant thermal: r = alpha z, w = c_th sqrt(B)/z with c_th = sqrt(3/(2 pi alpha^3))/2
     a_t = p["alpha_th"]
-    B = p["g_reduced"] * rel.V
+    B = abs(p["g_reduced"]) * rel.V  # rising or sinking thermal entrains alike
     c_th = 0.5 * np.sqrt(3.0 / (2.0 * np.pi * a_t**3))
     z_h = c_th * np.sqrt(B) / u_h
     D_buoy = max(1.0, (4.0 / 3.0) * np.pi * a_t**3 * z_h**3 / rel.V)

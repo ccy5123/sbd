@@ -21,32 +21,35 @@ ambient:
 
 source:
   T_gas:        {value: 310.15, units: K, status: VERIFY, note: "core body temperature 37 C"}
-  V_passage:    {value: 7.0e-5, low: 3.0e-5, high: 1.5e-4, units: m^3, status: VERIFY, source: "Tomlin et al. 1991; Suarez et al. 1997"}
+  V_passage:    {value: 9.2e-5, low: 3.2e-5, high: 2.07e-4, units: m^3, status: VERIFIED, source: "Suarez et al. 1997, Table 1 (per-subject 4-h volume / passages; bean+lactulose diet), derived in params/derive_from_suarez1997.py", note: "Tomlin 1991 median 705 mL/day / Furne & Levitt 1996 10 passages/day ~ 70 mL (normal diet)"}
+  V_daily:      {value: 7.05e-4, low: 4.76e-4, high: 1.491e-3, units: m^3/day, status: VERIFIED, source: "Tomlin et al. 1991 (median 705, range 476-1491 mL/day)"}
+  n_daily:      {value: 10, low: 1, high: 20, units: 1/day, status: VERIFIED, source: "Furne & Levitt 1996 (10 +/- 1, upper limit of normal 20)"}
   d_orifice:    {value: 6.0e-3, low: 2.0e-3, high: 1.5e-2, units: m, status: ASSUMPTION, note: "effective orifice diameter; key sensitivity parameter"}
   T_release:    {value: 1.0, low: 0.3, high: 5.0, units: s, status: ASSUMPTION}
-  g_reduced:    {value: 0.5, low: 0.2, high: 3.0, units: m/s^2, status: ASSUMPTION, note: "reduced gravity g' of flatus vs room air; temperature alone gives ~0.5; H2-rich gas more"}
+  g_reduced:    {value: 1.70, low: -0.66, high: 4.68, units: m/s^2, status: VERIFIED, source: "computed from Suarez et al. 1997 Table 1 compositions at 37 C vs air at 22 C (params/derive_from_suarez1997.py)", note: "median of 16 subjects; 1/16 negatively buoyant at 37 C, 4/16 after cooling to room temperature. MC resamples the 16 empirical values"}
   nu_gas:       {value: 1.7e-5, units: m^2/s, status: ASSUMPTION, note: "N2-dominated mixture at 37 C"}
   # Sulfur gases (Suarez et al. 1998, Gut 43:100), mean concentrations in flatus
-  c_H2S:        {value: 1.06, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
-  c_CH3SH:      {value: 0.21, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
-  c_DMS:        {value: 0.08, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
+  c_H2S:        {value: 1.06, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 Gut 43:100 (mean (SEM) 1.06 (0.2))"}
+  c_CH3SH:      {value: 0.21, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 (0.21 (0.04))"}
+  c_DMS:        {value: 0.08, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 (0.08 (0.01))"}
 
 odour_thresholds:   # detection thresholds, mole fraction (ppbv)
-  H2S:          {value: 0.41, low: 0.41, high: 0.9, units: ppbv, status: VERIFY, source: "Nagata 2003 (0.41); McGinley & McGinley 2004"}
-  CH3SH:        {value: 0.070, units: ppbv, status: VERIFY, source: "Nagata 2003"}
-  DMS:          {value: 3.0, units: ppbv, status: VERIFY, source: "Nagata 2003"}
+  H2S:          {value: 0.41, low: 0.41, high: 0.9, units: ppbv, status: VERIFIED, source: "Nagata 2003 Table 2 (0.00041 ppm); McGinley & McGinley 2004 laboratory olfactometry 0.45-0.9 ppbv"}
+  CH3SH:        {value: 0.070, units: ppbv, status: VERIFIED, source: "Nagata 2003 Table 2 (0.000070 ppm)"}
+  DMS:          {value: 3.0, units: ppbv, status: VERIFIED, source: "Nagata 2003 Table 2 (0.0030 ppm)"}
 
 jet:                # turbulent round jet / starting jet / puff constants
-  B_u:          {value: 5.8, low: 5.4, high: 6.1, units: "-", status: VERIFY, note: "centreline velocity decay u_c/u0 = B_u d/(x-x0); Hussein et al. 1994; Pope 2000"}
-  K_c:          {value: 5.0, low: 4.4, high: 5.4, units: "-", status: VERIFY, note: "centreline concentration decay C_c/C0 = K_c d*/(x-x0); Dowling & Dimotakis 1990"}
-  Gamma_sj:     {value: 2.7, low: 2.5, high: 3.0, units: "-", status: VERIFY, note: "starting-jet front x_f = Gamma M0^(1/4) t^(1/2); Witze 1980; Sangras et al. 2002"}
+  B_u:          {value: 5.8, low: 5.8, high: 5.9, units: "-", status: VERIFIED, source: "Hussein, Capp & George 1994 JFM 258:31 (B_u = 5.8 LDA/flying hot-wire within 100d; 5.9 stationary hot-wire; x0 = 4d)"}
+  K_c:          {value: 5.11, low: 4.73, high: 5.2, units: "-", status: VERIFIED, source: "Dowling & Dimotakis 1990 JFM 218:109 (K = 5.11 at Re 5000, x0 = -3.7d; 4.73 at Re 16000; 5.1-5.2 at Re 40000; d* = d (rho0/rho_inf)^1/2)"}
+  Gamma_sj:     {value: 2.8, low: 2.74, high: 2.86, units: "-", status: VERIFIED, source: "Diez, Sangras, Kwon & Faeth 2003 erratum to Sangras et al. 2002 J Heat Transfer: (x_p - x0)/((Q0dot u0)^1/2 t)^1/2 = C_x = 2.8 (0.06), x0/d ~ 0"}
+  C_puff:       {value: 2.6, low: 2.54, high: 2.66, units: "-", status: VERIFIED, source: "Diez et al. 2003 erratum: (x_p - x0)/((Q0 u0) t)^1/4 = C_x = 2.6 (0.06), x0/d = 8.5 (2.0), C_r = 0.17"}
   alpha_th:     {value: 0.25, low: 0.2, high: 0.3, units: "-", status: VERIFY, note: "thermal spreading rate r = alpha z; Scorer 1957; Turner 1969"}
 
 environment:
   u_handoff:    {value: 0.15, low: 0.05, high: 0.25, units: m/s, status: ASSUMPTION, note: "self-induced velocity at which the cloud is surrendered to ambient flow (CBL / room air)"}
-  u_CBL:        {value: 0.20, low: 0.16, high: 0.24, units: m/s, status: VERIFY, source: "Licina et al. 2014 Build Environ 75:79-91 (seated manikin peak CBL velocity)"}
+  u_CBL:        {value: 0.20, low: 0.16, high: 0.24, units: m/s, status: VERIFIED, source: "Licina et al. 2014 Build Environ 75:79-91: CBL mean peak velocity in front of the seated manikin 0.24 m/s (20 C) to 0.16 m/s (26 C)"}
   u_room:       {value: 0.08, low: 0.03, high: 0.15, units: m/s, status: ASSUMPTION, note: "lateral transport speed of room air between neighbours"}
-  K_turb:       {value: 1.0e-3, low: 1.0e-4, high: 1.0e-2, units: m^2/s, status: VERIFY, note: "indoor eddy diffusivity; ranges reported for residences ~1e-3-1e-2 (to be verified)"}
+  K_turb:       {value: 2.0e-3, low: 1.0e-4, high: 1.3e-2, units: m^2/s, status: VERIFIED, source: "Cheng et al. 2011 Environ Sci Technol 45:4016, Table 1: K = 0.0019-0.0129 m^2/s (ACH 0.17-5.4 /h; 0.0019-0.0045 with closed/slightly open windows)", note: "Cheng values are 30-min, room-scale absolute dispersion; relative dispersion of a seconds-old 2-10 cm puff near the body is smaller -> lower bound 1e-4 is an ASSUMPTION"}
   D_H2S_air:    {value: 1.6e-5, units: m^2/s, status: VERIFY, note: "molecular diffusivity; negligible vs K_turb"}
 
 geometry:           # sofa duet (Scenario A)
