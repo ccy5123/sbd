@@ -1,7 +1,11 @@
 """Generate an OpenFOAM-13 case for the human convective-boundary-layer validation (M3b).
 
 Simplified seated manikin (cfd/geometry/manikin.py) in a quiescent room, half model (symmetry plane y = 0).
-Steady RANS k-omega SST, Boussinesq buoyancy (solver 'fluid'), skin at T_skin, walls/floor/ceiling at T_room.
+RANS k-omega SST, Boussinesq buoyancy (solver 'fluid'), skin at T_skin, walls/floor/ceiling at T_room.
+Steady SIMPLE did not converge (the closed-room buoyant circulation oscillates in pseudo-time with an amplitude of
+0.03-1.1 m/s at the face), so the validation runs are transient (--transient T: Euler, Co <= 1.5) and averaged
+over the second half of the run (max Co 5 with 2 outer correctors: the Co limit binds only in the
+near-wall layer cells; the mean Co is ~0.02).
 Target: peak upward CBL velocity in front of the face (Licina et al. 2014: 0.24 m/s at 20 C -> 0.16 m/s at 26 C).
 
 Usage: python3 make_case.py <case_dir> --troom 23 [--tskin 33] [--level medium]
@@ -138,7 +142,7 @@ def fields(troom_k, tskin_k):
     return out
 
 
-def make(case: Path, troom_c: float, tskin_c: float, level: str):
+def make(case: Path, troom_c: float, tskin_c: float, level: str, transient: float = 0.0):
     troom, tskin = troom_c + 273.15, tskin_c + 273.15
     dx, rl, sl = LEVELS[level]
     geo = case / "constant/geometry"
@@ -164,15 +168,31 @@ mixture
 }}
 """)
     w(case / "constant/momentumTransport", "simulationType RAS;\nRAS\n{\n    model kOmegaSST;\n    turbulence on;\n}\n")
+    if transient > 0:
+        t_avg = 0.5 * transient
+        time_ctrl = f"""endTime {transient};
+deltaT 0.01;
+adjustTimeStep yes;
+maxCo 5;
+maxDeltaT 0.1;
+writeControl adjustableRunTime;
+writeInterval {transient / 4};
+purgeWrite 0;"""
+        graph_ctrl = "writeControl=adjustableRunTime, writeInterval=0.5"
+        extra = f"    #includeFunc fieldAverage(U, T, startTime={t_avg})\n"
+    else:
+        time_ctrl = """endTime 3000;
+deltaT 1;
+writeControl timeStep;
+writeInterval 1000;
+purgeWrite 1;"""
+        graph_ctrl = "writeControl=timeStep, writeInterval=100"
+        extra = ""
     w(case / "system/controlDict", f"""solver fluid;
 startFrom latestTime;
 startTime 0;
 stopAt endTime;
-endTime 3000;
-deltaT 1;
-writeControl timeStep;
-writeInterval 1000;
-purgeWrite 1;
+{time_ctrl}
 writeFormat binary;
 writePrecision 8;
 writeCompression off;
@@ -181,29 +201,50 @@ runTimeModifiable true;
 functions
 {{
     #includeFunc residuals(p_rgh, U, h, k, omega)
-    #includeFunc graphUniform(funcName=faceLine, start=(0.06 0.001 1.215), end=(0.40 0.001 1.215), nPoints=200, fields=(U T), axis=x, writeControl=timeStep, writeInterval=100)
-    #includeFunc graphUniform(funcName=noseColumn, start=(0.12 0.001 0.50), end=(0.12 0.001 1.60), nPoints=220, fields=(U T), axis=z, writeControl=timeStep, writeInterval=100)
-    #includeFunc graphUniform(funcName=headTop, start=(-0.03 0.001 1.37), end=(-0.03 0.001 2.30), nPoints=200, fields=(U T), axis=z, writeControl=timeStep, writeInterval=100)
-}}
+    #includeFunc graphUniform(funcName=faceLine, start=(0.06 0.001 1.215), end=(0.40 0.001 1.215), nPoints=200, fields=(U T), axis=x, {graph_ctrl})
+    #includeFunc graphUniform(funcName=noseColumn, start=(0.12 0.001 0.50), end=(0.12 0.001 1.60), nPoints=220, fields=(U T), axis=z, {graph_ctrl})
+    #includeFunc graphUniform(funcName=headTop, start=(-0.03 0.001 1.37), end=(-0.03 0.001 2.30), nPoints=200, fields=(U T), axis=z, {graph_ctrl})
+{extra}}}
 """)
-    w(case / "system/fvSchemes", """ddtSchemes { default steadyState; }
+    bounded = "" if transient > 0 else "bounded "
+    w(case / "system/fvSchemes", ("""ddtSchemes { default Euler; }""" if transient > 0 else
+                                  """ddtSchemes { default steadyState; }""") + """
 gradSchemes { default Gauss linear; }
 divSchemes
 {
     default none;
-    div(phi,U) bounded Gauss linearUpwind grad(U);
-    div(phi,h) bounded Gauss upwind;
-    div(phi,k) bounded Gauss upwind;
-    div(phi,omega) bounded Gauss upwind;
-    div(phi,K) bounded Gauss linear;
+    div(phi,U) BOUNDEDGauss linearUpwind grad(U);
+    div(phi,h) BOUNDEDGauss upwind;
+    div(phi,k) BOUNDEDGauss upwind;
+    div(phi,omega) BOUNDEDGauss upwind;
+    div(phi,K) BOUNDEDGauss linear;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 }
 laplacianSchemes { default Gauss linear limited corrected 0.5; }
 interpolationSchemes { default linear; }
 snGradSchemes { default limited corrected 0.5; }
 wallDist { method meshWave; }
+""".replace("BOUNDED", bounded))
+    if transient > 0:
+        w(case / "system/fvSolution", """solvers
+{
+    "p_rgh.*" { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0.01; }
+    p_rghFinal { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0; }
+    "(U|h|k|omega).*" { solver PBiCGStab; preconditioner DILU; tolerance 1e-7; relTol 0; }
+    "rho.*" { solver diagonal; }
+}
+PIMPLE
+{
+    momentumPredictor yes;
+    nOuterCorrectors 2;
+    nCorrectors 2;
+    nNonOrthogonalCorrectors 1;
+    pRefCell 0;
+    pRefValue 0;
+}
 """)
-    w(case / "system/fvSolution", """solvers
+    else:
+        w(case / "system/fvSolution", """solvers
 {
     p_rgh { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0.01; }
     "(U|h|k|omega)" { solver PBiCGStab; preconditioner DILU; tolerance 1e-7; relTol 0.1; }
@@ -231,6 +272,7 @@ if __name__ == "__main__":
     ap.add_argument("--troom", type=float, default=23.0)
     ap.add_argument("--tskin", type=float, default=33.0)
     ap.add_argument("--level", default="medium", choices=LEVELS)
+    ap.add_argument("--transient", type=float, default=0.0, help="physical end time (s); 0 = steady SIMPLE")
     a = ap.parse_args()
-    make(Path(a.case), a.troom, a.tskin, a.level)
+    make(Path(a.case), a.troom, a.tskin, a.level, a.transient)
     print("written", a.case)

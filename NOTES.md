@@ -90,3 +90,13 @@
     passing 0.09–0.34 m from the nose.
   - Gate 0 assumed own-nose transport of L/u = 0.74/0.17 ≈ 4.4 s. The CFD path is longer and slower, so update Gate 0
     (it lengthens own-nose travel and narrows the own-nose silent penalty) once the CBL validation is final.
+- **Steady CBL runs rejected.** Steady SIMPLE did not converge. Sampled every 100 iterations, the face-front peak
+  velocity in the 20 °C case swung 0.03 → 1.1 → 0.03 m/s with a period of about 2 000 iterations: the closed-room
+  buoyant circulation oscillates in pseudo-time. Averaging over that has no physical meaning. The 23 °C steady values
+  (0.27–0.30 m/s) and the trajectory times in the preview figure come from the same unconverged state and are
+  **withdrawn** until the transient runs replace them.
+- **CBL switched to transient RANS** (`make_case.py --transient 60`, `run_transient.sh`):
+  - Euler time stepping; 2 outer correctors; max Co 5;
+  - the Co limit binds only in near-wall layer cells (mean Co about 0.02), giving Δt ≈ 0.03 s;
+  - 60 s of physical time from the steady state, averaged over 30–60 s;
+  - about 1 h per case on 4 cores.
