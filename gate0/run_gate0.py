@@ -111,7 +111,7 @@ SAMPLED = {  # name: (low, high, log-uniform?)
     "K_c": (4.73, 5.2, False), "Gamma_sj": (2.74, 2.86, False), "C_puff": (2.54, 2.66, False),
     "alpha_th": (0.15, 0.35, False),
     "a_denim": (0.017, 0.25, True), "a_leggings": (0.16, 1.9, True), "a_chino": (0.02, 0.15, True), "V_skirt": (0.01, 0.06, True),
-    "u_audible": (1.0, 5.0, True),
+    "P_th": (200.0, 1300.0, True), "C_d": (0.6, 1.0, False),
 }
 RELEASE_PRIOR = {"V": (1.7e-5, 3.75e-4), "T": (0.3, 5.0), "d": (1.0e-3, 1.5e-2)}  # all log-uniform
 CLOTHING = ("none", "skirt", "leggings", "chino", "denim")
@@ -130,8 +130,10 @@ def monte_carlo(n=20000):
         for k, (lo, hi, lg) in SAMPLED.items():
             p[k] = logu(rng, lo, hi) if lg else rng.uniform(lo, hi)
         p["g_reduced"] = float(rng.choice(G_RED_EMPIRICAL))  # empirical flatus buoyancy (signed)
+        # M2: a release is audible-type if it drives tissue oscillation (acoustics/regime.py u_onset)
+        p["u_audible"] = p["C_d"] * np.sqrt(2.0 * p["P_th"] / (p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])))
         silent = loud = None
-        for _ in range(60):
+        for _ in range(200):
             r = draw_release(rng)
             if r.u0 < p["u_audible"] and silent is None:
                 silent = r
@@ -143,6 +145,7 @@ def monte_carlo(n=20000):
             continue
         row = {k: p[k] for k in SAMPLED}
         row["g_reduced"] = p["g_reduced"]
+        row["u_audible"] = p["u_audible"]
         row.update({"V_s": silent.V, "T_s": silent.T, "d_s": silent.d, "u0_s": silent.u0,
                     "V_l": loud.V, "T_l": loud.T, "d_l": loud.d, "u0_l": loud.u0,
                     "Re_s": silent.reynolds(p["nu_gas"]), "Re_l": loud.reynolds(p["nu_gas"])})
@@ -244,7 +247,7 @@ def sensitivity(mc):
         "u_handoff": mc["u_handoff"], "log u_room": np.log(mc["u_room"]), "L neighbour": mc["L_neighbour"],
         "log d silent": np.log(mc["d_s"]), "log d audible": np.log(mc["d_l"]), "g′ (buoyancy)": mc["g_reduced"],
         "K_c (jet constant)": mc["K_c"], "Γ (starting jet)": mc["Gamma_sj"], "T_insp": mc["T_insp"],
-        "log u_audible threshold": np.log(mc["u_audible"]),
+        "log u_onset (acoustic)": np.log(mc["u_audible"]),
     }
     rho = {k: float(spearmanr(v, target).statistic) for k, v in feats.items()}
     order = sorted(rho, key=lambda k: abs(rho[k]))

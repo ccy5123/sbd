@@ -182,3 +182,16 @@ This is a Gate 0 result. CFD (M3–M5) is still required, mainly to replace the 
 - The Gaussian puff ignores CBL shear stretching.
 - Odorant adsorption on fabric and cushions is ignored. Suarez 1998 reports that a charcoal cushion "absorbed more than
   90% of the sulphur gases" — a first-order effect for the sofa scenario with cushion reservoir, still to be modelled.
+
+## 8. Update after M2 (2026-10-15)
+
+The placeholder audibility threshold (u_audible 1–5 m/s) has been replaced by the acoustic onset criterion from M2:
+u_onset = C_d √(2P_th/ρ) ≈ 14–51 m/s. Audible releases are therefore faster and dilute more in the near field.
+
+Updated headline numbers:
+
+- **Equal emitted mass:** median R is 1.93 at the emitter's own nose and 1.35 at the neighbour's.
+- **As emitted:** median R is 1.22 at the own nose and **0.92 at the neighbour's**, with P(R > 1) = 0.47.
+
+The confirmed narrative branch stands for the neighbour. The own-nose exception is stronger than in §5. See
+`acoustics/m2_report.md`. The figures and `results.json` in this directory reflect the M2-coupled run.
