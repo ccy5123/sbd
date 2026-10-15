@@ -101,6 +101,24 @@
   - 60 s of physical time from the steady state, averaged over 30–60 s;
   - about 1 h per case on 4 cores.
 
+### M4 — Scenario A "sofa duet" (in preparation)
+- Case generator `cfd/cases/sofa/make_case.py`; pipeline `cfd/cases/sofa/run_sofa.sh`.
+- Set-up:
+  - two seated manikins 0.6 m apart on a sofa in a 3.2 × 3.2 × 2.6 m room;
+  - 721 k cells (snappyHexMesh, level 4 = 5 mm at the release);
+  - precursor of 30 s, then silent and audible branches mapped from it.
+- Release: a momentum-equivalent mass source in a 7.5 mm sphere behind the farter's buttocks.
+  - Audible default (92 mL over 0.5 s through 2.4 mm, u₀ = 41 m/s) → u_eq = 6.5 m/s, pre-diluted 6.25×.
+  - Silent default: 92 mL over 2 s through 8 mm (u₀ = 0.9 m/s).
+- **Closed-room failure and fix.** The first source tests diverged within 3 time steps:
+  - the global continuity error grew 1e-7 → 2e-3 and T(h) failed;
+  - this happened with an equal mass sink in a far corner, with no temperature excess, and with max Co 0.5;
+  - a sealed Boussinesq room has no compressibility, so any net or numerically unbalanced volume source makes the
+    pressure equation incompatible.
+  - Fix: a 0.5 × 0.5 m ceiling vent (p_rgh = 0, inflow at room temperature), cut from the ceiling patch with
+    `createPatch`.
+  - With the vent, the global continuity error is ≈ 1e-12 per step. A real living room is not airtight either.
+
 ### M6 — perception (done, see `perception/m6_report.md`)
 - **Neighbour, as emitted:** the median physical difference is R = 0.91. In perceived intensity that is
   R^0.28 = 0.973, a 2.7 % difference and **below the olfactory JND (≈ 7 %)**. The break-even expectation factor is
