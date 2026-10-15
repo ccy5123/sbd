@@ -39,3 +39,43 @@
 - Fig. 12 world map done (`culture/make_map.py` → `figures/fig12_culture_map.png`; Serbo-Croatian mapped as D since its B is etymological only).
 - Open: verify LIV² pp. 473/477 and Mallory & Adams 1997 directly; the Korean native
   saying is still unverified.
+
+## 2026-10-15 · Session 1, part 2 (narrative confirmed; M2, M3)
+
+- **Narrative branch confirmed by the owner:** "Debunked (mostly) — the nose was fooled by the ears", with a regime map.
+
+### M2 — acoustics (done, see `acoustics/m2_report.md`)
+- Model chain:
+  - onset when Δp = ½ρ(u₀/C_d)² > P_th (lip-reed / vocal-fold analogue);
+  - harmonic monopole radiation into a half space;
+  - ISO 226 audibility;
+  - critical-ratio masking.
+- Verified anchors:
+  - phonation threshold pressure 0.2–0.5 kPa;
+  - brass lips p₀ = K·f with K = 4–8 Pa/Hz;
+  - glottal C_d 0.85;
+  - critical ratio ≈ 17 dB;
+  - clothing insertion loss 0–3 dB.
+- Still unsourced: anal tissue mechanics and any measured flatus SPL or spectrum. These remain assumptions.
+- **S2 is empty:** an oscillating release is audible in any quiet room. Silent means S1 (no oscillation) or S3 (masked).
+- Over the release prior, 79 % of releases are S1. The rest are masked in a restaurant (91 % of them) or subway car (76 %).
+- Gate 0 now uses u_onset ≈ 30 m/s (14–51) instead of the 1–5 m/s placeholder:
+  - neighbour, as emitted: median R = 0.92, P(R > 1) = 0.47, so the narrative holds;
+  - own nose, equal mass: median R = 1.93;
+  - own nose, as emitted: median R = 1.22. The exception corner is stronger than in the first Gate 0 pass.
+
+### M3 — CFD (in progress)
+- OpenFOAM 13 (openfoam.org) installed from apt. Solvers: `foamRun -solver incompressibleFluid` and `fluid`
+  (Boussinesq).
+- M3a free jet (axisymmetric wedge, Re 6 700):
+  - A first attempt with a 1 % co-flow over the 40 d domain was invalid: the co-flow momentum flux rivalled the jet.
+    That run was discarded.
+  - Final set-up: no-slip base wall, open side and outlet. Momentum and scalar fluxes are conserved within ±1 %.
+  - Coarse SST: B_u = 5.48 (−5.5 % vs Hussein 1994), K_c = 4.73 (−7.4 % vs Dowling & Dimotakis 1990), S = 0.105
+    (+12 %). This is the usual mild RANS over-spreading.
+- M3b CBL:
+  - simplified seated manikin from primitives (`cfd/geometry/manikin.py`), half model;
+  - skin 33 °C, room 20/23/26 °C;
+  - mesh: snappyHexMesh, 340 k cells (coarse).
+- Compute budget: 4 cores. Running several cases in parallel on one core each is memory-bound and slow, so the CBL
+  cases and the fine jet run one after another on 4 MPI ranks (`cfd/validation/run_pipeline.sh`).
