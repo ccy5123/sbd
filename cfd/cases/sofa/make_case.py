@@ -12,6 +12,9 @@ above the seat, directed down-and-back into the seat/backrest corner:
                       by an equivalent temperature excess dT = g'/(g beta), diluted like the scalar.
   odorant           : passive scalar s (s = 1 for undiluted flatus), scalarTransport with Sc_t = 0.7.
 Nose probes 2.5 cm in front of each nose tip.
+Pressure relief: a 0.5 m x 0.5 m ceiling vent (p_rgh = 0, inflow at room temperature) in the far corner, cut from the
+ceiling patch by createPatch after meshing. A sealed Boussinesq room cannot take a net mass source (incompatible
+pressure equation; two tests diverged, also with no temperature excess and with max Co 0.5), and a real room leaks.
 
 Usage: python3 make_case.py <case_dir> --mode {precursor,silent,audible} [--V 9.2e-5 --T 2.0 --d 0.008]
        [--t-release 30 --t-end 60]   (branch cases mapped from the precursor use --t-release 1 --t-end 31)
@@ -30,6 +33,7 @@ NOSE_X, NOSE_Z = 0.10, 1.215
 REL = (-0.195, DY_F, 0.478)            # release point: behind the buttocks, 2.8 cm above the seat
 REL_DIR = (-0.5, 0.0, -0.866)          # down and back, into the seat/backrest corner
 R_SRC = 0.0075
+VENT_BOX = "(1.6 1.0 2.5) (2.1 1.5 2.7)"  # ceiling faces with centres in this box become the vent patch
 T_ROOM, T_SKIN = 23.0, 33.0
 G_PRIME = 1.70                         # params.yaml source.g_reduced (median)
 T_PRE, T_REL = 30.0, 30.0              # precursor length; release time
@@ -144,9 +148,10 @@ def fields(src):
     troom, tskin = T_ROOM + 273.15, T_SKIN + 273.15
     k0, om0 = 1e-5, 0.1
 
-    def bc(wall, body, sofa):
+    def bc(wall, body, sofa, vent):
         return ("boundaryField\n{\n" + "".join(f"    {p} {{ {wall} }}\n" for p in WALLS)
-                + "".join(f"    {b} {{ {body} }}\n" for b in BODIES) + f"    sofa {{ {sofa} }}\n}}\n")
+                + "".join(f"    {b} {{ {body} }}\n" for b in BODIES) + f"    sofa {{ {sofa} }}\n"
+                + f"    vent {{ {vent} }}\n}}\n")
 
     def sources(spec):
         return f"sources\n{{\n    massSource {{ {spec} }}\n}}\n" if src else ""
@@ -158,29 +163,34 @@ def fields(src):
     s_in = 1.0 / src["dilution"] if src else 0.0
     return {
         "U": ("volVectorField", "dimensions [0 1 -1 0 0 0 0];\ninternalField uniform (0 0 0);\n"
-              + bc("type noSlip;", "type noSlip;", "type noSlip;")
+              + bc("type noSlip;", "type noSlip;", "type noSlip;",
+                   "type pressureInletOutletVelocity; value uniform (0 0 0);")
               + sources(f"type uniformInletOutlet; uniformInletValue ({ux:.5g} {uy:.5g} {uz:.5g});")),
         "T": ("volScalarField", f"dimensions [0 0 0 1 0 0 0];\ninternalField uniform {troom};\n"
               + bc(f"type fixedValue; value uniform {troom};", f"type fixedValue; value uniform {tskin};",
-                   "type zeroGradient;")
+                   "type zeroGradient;", f"type inletOutlet; inletValue uniform {troom}; value uniform {troom};")
               + sources(f"type uniformInletOutlet; uniformInletValue {troom + dT_eq:.4f};")),
         "s": ("volScalarField", "dimensions [0 0 0 0 0 0 0];\ninternalField uniform 0;\n"
-              + bc("type zeroGradient;", "type zeroGradient;", "type zeroGradient;")
+              + bc("type zeroGradient;", "type zeroGradient;", "type zeroGradient;",
+                   "type inletOutlet; inletValue uniform 0; value uniform 0;")
               + sources(f"type uniformInletOutlet; uniformInletValue {s_in:.6g};")),
         "p_rgh": ("volScalarField", "dimensions [1 -1 -2 0 0 0 0];\ninternalField uniform 0;\n"
-                  + bc(*["type fixedFluxPressure; value uniform 0;"] * 3)),
+                  + bc(*["type fixedFluxPressure; value uniform 0;"] * 3, "type fixedValue; value uniform 0;")),
         "p": ("volScalarField", "dimensions [1 -1 -2 0 0 0 0];\ninternalField uniform 0;\n"
-              + bc(*["type calculated; value uniform 0;"] * 3)),
+              + bc(*["type calculated; value uniform 0;"] * 4)),
         "k": ("volScalarField", f"dimensions [0 2 -2 0 0 0 0];\ninternalField uniform {k0};\n"
-              + bc(*[f"type kqRWallFunction; value uniform {k0};"] * 3)
+              + bc(*[f"type kqRWallFunction; value uniform {k0};"] * 3,
+                   f"type inletOutlet; inletValue uniform {k0}; value uniform {k0};")
               + sources("type turbulentIntensityKineticEnergy; intensity 0.05;")),
         "omega": ("volScalarField", f"dimensions [0 0 -1 0 0 0 0];\ninternalField uniform {om0};\n"
-                  + bc(*[f"type omegaWallFunction; value uniform {om0};"] * 3)
+                  + bc(*[f"type omegaWallFunction; value uniform {om0};"] * 3,
+                       f"type inletOutlet; inletValue uniform {om0}; value uniform {om0};")
                   + sources(f"type turbulentMixingLengthFrequency; mixingLength {0.07 * 2 * R_SRC:.5g};")),
         "nut": ("volScalarField", "dimensions [0 2 -1 0 0 0 0];\ninternalField uniform 0;\n"
-                + bc(*["type nutkWallFunction; value uniform 0;"] * 3)),
+                + bc(*["type nutkWallFunction; value uniform 0;"] * 3, "type calculated; value uniform 0;")),
         "alphat": ("volScalarField", "dimensions [1 -1 -1 0 0 0 0];\ninternalField uniform 0;\n"
-                   + bc(*["type compressible::alphatJayatillekeWallFunction; Prt 0.85; value uniform 0;"] * 3)),
+                   + bc(*["type compressible::alphatJayatillekeWallFunction; Prt 0.85; value uniform 0;"] * 3,
+                     "type calculated; value uniform 0;")),
     }
 
 
@@ -195,6 +205,16 @@ def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_R
     manikin.write_scene(geo, DY_F, DY_N)
     w(case / "system/blockMeshDict", block_mesh())
     w(case / "system/snappyHexMeshDict", snappy())
+    w(case / "system/createPatchDict", f"""patches
+{{
+    vent
+    {{
+        patchInfo {{ type patch; }}
+        constructFrom zone;
+        zone {{ type box; zoneType face; box {VENT_BOX}; zone {{ type patch; patch ceiling; }} }}
+    }}
+}}
+""")
     for name, (cls, body) in fields(src).items():
         w(case / "0" / name, body, cls)
     w(case / "constant/g", "dimensions [0 1 -2 0 0 0 0];\nvalue (0 0 -9.81);\n", "uniformDimensionedVectorField", "g")
