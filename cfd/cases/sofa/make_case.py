@@ -198,7 +198,7 @@ def fields(src, t_rel=T_REL, T=1.0):
         """Boundary conditions; the nozzle stub takes the sofa (furniture) condition."""
         return ("boundaryField\n{\n" + "".join(f"    {p} {{ {wall} }}\n" for p in WALLS)
                 + "".join(f"    {b} {{ {body} }}\n" for b in BODIES) + f"    sofa {{ {sofa} }}\n"
-                + f"    emitter_nozzle {{ {sofa} }}\n    vent {{ {vent} }}\n    emitter_release {{ {release} }}\n}}\n")
+                + f"    nozzle {{ {sofa} }}\n    vent {{ {vent} }}\n    release {{ {release} }}\n}}\n")
 
     beta = 1.0 / troom
     if src:
@@ -322,6 +322,7 @@ functions
         writeControl    adjustableRunTime;
         writeInterval   0.5;
         surfaceFormat   raw;
+        interpolationScheme cell;
         interpolate     false;
         fields          (s T U);
         surfaces
