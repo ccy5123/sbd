@@ -181,9 +181,9 @@ runTimeModifiable true;
 functions
 {{
     #includeFunc residuals(p_rgh, U, h, k, omega)
-    #includeFunc graphUniform(funcName=faceLine, start=(0.06 0.001 1.215), end=(0.40 0.001 1.215), nPoints=200, fields=(U T), axis=x)
-    #includeFunc graphUniform(funcName=noseColumn, start=(0.12 0.001 0.50), end=(0.12 0.001 1.60), nPoints=220, fields=(U T), axis=z)
-    #includeFunc graphUniform(funcName=headTop, start=(-0.03 0.001 1.37), end=(-0.03 0.001 2.30), nPoints=200, fields=(U T), axis=z)
+    #includeFunc graphUniform(funcName=faceLine, start=(0.06 0.001 1.215), end=(0.40 0.001 1.215), nPoints=200, fields=(U T), axis=x, writeControl=timeStep, writeInterval=100)
+    #includeFunc graphUniform(funcName=noseColumn, start=(0.12 0.001 0.50), end=(0.12 0.001 1.60), nPoints=220, fields=(U T), axis=z, writeControl=timeStep, writeInterval=100)
+    #includeFunc graphUniform(funcName=headTop, start=(-0.03 0.001 1.37), end=(-0.03 0.001 2.30), nPoints=200, fields=(U T), axis=z, writeControl=timeStep, writeInterval=100)
 }}
 """)
     w(case / "system/fvSchemes", """ddtSchemes { default steadyState; }
