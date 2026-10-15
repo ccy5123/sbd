@@ -1,0 +1,65 @@
+# Single source of truth for all model parameters (SI units unless stated).
+# status:
+#   VERIFIED            - value checked against a citable (peer-reviewed / standard) source
+#   NON-PEER-REVIEWED   - only a non-peer-reviewed source exists; treated as an assumption in UQ
+#   VERIFY              - taken from memory or a secondary source; must be checked before it enters a figure
+#   ASSUMPTION          - deliberate modelling choice; must appear in the manuscript parameter table and UQ
+# Every entry with a (low, high) range is sampled in the Gate 0 Monte Carlo.
+#
+# M0 status: PRELIMINARY. Values below are seed values from the research plan (v3);
+# they are replaced/annotated as the verification pass returns.
+
+physical_constants:
+  R_gas:        {value: 8.314462618, units: J/(mol K), status: VERIFIED, source: CODATA 2018}
+  g:            {value: 9.80665, units: m/s^2, status: VERIFIED, source: standard gravity}
+  p_atm:        {value: 101325.0, units: Pa, status: VERIFIED, source: standard atmosphere}
+
+ambient:
+  T_room:       {value: 295.15, low: 293.15, high: 299.15, units: K, status: ASSUMPTION, note: "20-26 C design range"}
+  rho_air:      {value: 1.196, units: kg/m^3, status: VERIFY, note: "dry air at 22 C, 1 atm"}
+  nu_air:       {value: 1.53e-5, units: m^2/s, status: VERIFY, note: "kinematic viscosity of air at 22 C"}
+
+source:
+  T_gas:        {value: 310.15, units: K, status: VERIFY, note: "core body temperature 37 C"}
+  V_passage:    {value: 7.0e-5, low: 3.0e-5, high: 1.5e-4, units: m^3, status: VERIFY, source: "Tomlin et al. 1991; Suarez et al. 1997"}
+  d_orifice:    {value: 6.0e-3, low: 2.0e-3, high: 1.5e-2, units: m, status: ASSUMPTION, note: "effective orifice diameter; key sensitivity parameter"}
+  T_release:    {value: 1.0, low: 0.3, high: 5.0, units: s, status: ASSUMPTION}
+  g_reduced:    {value: 0.5, low: 0.2, high: 3.0, units: m/s^2, status: ASSUMPTION, note: "reduced gravity g' of flatus vs room air; temperature alone gives ~0.5; H2-rich gas more"}
+  nu_gas:       {value: 1.7e-5, units: m^2/s, status: ASSUMPTION, note: "N2-dominated mixture at 37 C"}
+  # Sulfur gases (Suarez et al. 1998, Gut 43:100), mean concentrations in flatus
+  c_H2S:        {value: 1.06, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
+  c_CH3SH:      {value: 0.21, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
+  c_DMS:        {value: 0.08, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
+
+odour_thresholds:   # detection thresholds, mole fraction (ppbv)
+  H2S:          {value: 0.41, low: 0.41, high: 0.9, units: ppbv, status: VERIFY, source: "Nagata 2003 (0.41); McGinley & McGinley 2004"}
+  CH3SH:        {value: 0.070, units: ppbv, status: VERIFY, source: "Nagata 2003"}
+  DMS:          {value: 3.0, units: ppbv, status: VERIFY, source: "Nagata 2003"}
+
+jet:                # turbulent round jet / starting jet / puff constants
+  B_u:          {value: 5.8, low: 5.4, high: 6.1, units: "-", status: VERIFY, note: "centreline velocity decay u_c/u0 = B_u d/(x-x0); Hussein et al. 1994; Pope 2000"}
+  K_c:          {value: 5.0, low: 4.4, high: 5.4, units: "-", status: VERIFY, note: "centreline concentration decay C_c/C0 = K_c d*/(x-x0); Dowling & Dimotakis 1990"}
+  Gamma_sj:     {value: 2.7, low: 2.5, high: 3.0, units: "-", status: VERIFY, note: "starting-jet front x_f = Gamma M0^(1/4) t^(1/2); Witze 1980; Sangras et al. 2002"}
+  alpha_th:     {value: 0.25, low: 0.2, high: 0.3, units: "-", status: VERIFY, note: "thermal spreading rate r = alpha z; Scorer 1957; Turner 1969"}
+
+environment:
+  u_handoff:    {value: 0.15, low: 0.05, high: 0.25, units: m/s, status: ASSUMPTION, note: "self-induced velocity at which the cloud is surrendered to ambient flow (CBL / room air)"}
+  u_CBL:        {value: 0.20, low: 0.16, high: 0.24, units: m/s, status: VERIFY, source: "Licina et al. 2014 Build Environ 75:79-91 (seated manikin peak CBL velocity)"}
+  u_room:       {value: 0.08, low: 0.03, high: 0.15, units: m/s, status: ASSUMPTION, note: "lateral transport speed of room air between neighbours"}
+  K_turb:       {value: 1.0e-3, low: 1.0e-4, high: 1.0e-2, units: m^2/s, status: VERIFY, note: "indoor eddy diffusivity; ranges reported for residences ~1e-3-1e-2 (to be verified)"}
+  D_H2S_air:    {value: 1.6e-5, units: m^2/s, status: VERIFY, note: "molecular diffusivity; negligible vs K_turb"}
+
+geometry:           # sofa duet (Scenario A)
+  L_own:        {value: 0.70, low: 0.60, high: 0.80, units: m, status: VERIFY, note: "seat-to-nose path for a seated adult via the CBL"}
+  L_neighbour:  {value: 1.0, low: 0.8, high: 1.4, units: m, status: ASSUMPTION, note: "seat-to-neighbour-nose path (lateral 0.5-0.7 m + rise)"}
+
+breathing:
+  T_insp:       {value: 1.5, low: 1.2, high: 2.0, units: s, status: VERIFY, note: "inspiratory time at rest (12-16 breaths/min, I:E ~ 1:2)"}
+
+clothing:           # air permeability at 125 Pa (ASTM D737), m/s  (1 cm^3/cm^2/s = 0.01 m/s)
+  a_denim:      {value: 0.03, low: 0.005, high: 0.10, units: m/s, status: VERIFY}
+  a_leggings:   {value: 0.6, low: 0.2, high: 1.5, units: m/s, status: VERIFY}
+  V_skirt:      {value: 0.03, low: 0.01, high: 0.06, units: m^3, status: ASSUMPTION, note: "air volume enclosed under a skirt, acting as a mixing chamber"}
+
+acoustics_proxy:    # Gate 0 only - replaced by the lip-reed model in M2
+  u_audible:    {value: 2.0, low: 1.0, high: 5.0, units: m/s, status: ASSUMPTION, note: "exit velocity above which tissue oscillation (sound) is assumed; placeholder for M2"}
