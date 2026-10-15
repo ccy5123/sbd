@@ -69,7 +69,17 @@ def box(lo, hi):
     return tris
 
 
-def body():
+def _shift(tris, dx=0.0, dy=0.0, dz=0.0):
+    d = np.array([dx, dy, dz])
+    return [tuple(np.asarray(p) + d for p in tri) for tri in tris]
+
+
+def body(dy: float = 0.0):
+    """Seated manikin centred at lateral offset dy (m)."""
+    return _shift(_body(), dy=dy)
+
+
+def _body():
     t = []
     t += cylinder((-0.07, 0, SEAT_Z + 0.01), (-0.07, 0, 1.05), 0.11, 0.17)       # torso (elliptic)
     t += ellipsoid((-0.07, 0, 1.05), (0.11, 0.19, 0.07))                          # shoulders cap
@@ -82,6 +92,17 @@ def body():
         t += box((0.38, s * 0.10 - 0.05, 0.0), (0.66, s * 0.10 + 0.05, 0.07))                # foot
         t += cylinder((-0.07, s * 0.21, 1.00), (-0.04, s * 0.22, 0.73), 0.045)               # upper arm
         t += cylinder((-0.04, s * 0.21, 0.73), (0.28, s * 0.14, 0.62), 0.04)                 # forearm
+    return t
+
+
+def sofa(half_width=0.85):
+    """Two-seat sofa: seat block, backrest and armrests (seat surface at SEAT_Z)."""
+    hw = half_width
+    t = box((-0.25, -hw, 0.0), (0.30, hw, SEAT_Z))                    # seat block
+    t += box((-0.42, -hw - 0.15, 0.0), (-0.21, hw + 0.15, 0.95))      # backrest
+    for s_ in (-1, 1):
+        lo, hi = sorted((s_ * (hw - 0.02), s_ * (hw + 0.15)))  # overlap the seat: no coincident faces
+        t += box((-0.25, lo, 0.0), (0.30, hi, 0.65))                  # armrest
     return t
 
 
@@ -103,6 +124,14 @@ def write_stl(path, name, tris):
                 fh.write(f"   vertex {p[0]:.6e} {p[1]:.6e} {p[2]:.6e}\n")
             fh.write("  endloop\n endfacet\n")
         fh.write(f"endsolid {name}\n")
+
+
+def write_scene(out: Path, dy_farter=-0.30, dy_neighbour=0.30):
+    """Sofa duet: farter.stl, neighbour.stl, sofa.stl."""
+    out.mkdir(parents=True, exist_ok=True)
+    write_stl(out / "farter.stl", "farter", body(dy_farter))
+    write_stl(out / "neighbour.stl", "neighbour", body(dy_neighbour))
+    write_stl(out / "sofa.stl", "sofa", sofa())
 
 
 if __name__ == "__main__":
