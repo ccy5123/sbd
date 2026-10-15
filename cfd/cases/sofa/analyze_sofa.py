@@ -123,7 +123,7 @@ def main(runs: Path):
 
 
 def plot(series):
-    SURFACE, INK, INK2 = "#fcfcfb", "#0b0b0b", "#52514e"
+    SURFACE, INK2 = "#fcfcfb", "#52514e"
     COL = {"silent": "#2a78d6", "audible": "#eb6834"}
     plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "font.size": 9,
                          "axes.spines.top": False, "axes.spines.right": False, "axes.titleweight": "bold"})
