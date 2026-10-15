@@ -100,6 +100,13 @@
   - the Co limit binds only in near-wall layer cells (mean Co about 0.02), giving Δt ≈ 0.03 s;
   - 60 s of physical time from the steady state, averaged over 30–60 s;
   - about 1 h per case on 4 cores.
+- **Transient CBL results:**
+  - face-front peak at 20 °C: 0.34 ± 0.01 m/s; at 23 °C: 0.28 ± 0.02 m/s;
+  - about 40 % above Licina et al., with the right trend (−19 % against −17 % interpolated).
+- **26 °C from rest failed** after 1 s (T(h) inversion, max Co 25): the steady 26 °C run never reached iteration 3000.
+  - It is re-queued after the sofa pipeline, initialised from the developed 23 °C field without T.
+  - `run_transient.sh` now reports FAILED instead of done when the log contains FATAL. The failed run is kept as
+    `cbl_t26_tr_fromrest_failed`.
 
 ### M4 — Scenario A "sofa duet" (in preparation)
 - Case generator `cfd/cases/sofa/make_case.py`; pipeline `cfd/cases/sofa/run_sofa.sh`.
