@@ -90,10 +90,13 @@ def gci(f1, f2, f3, r=2.0, Fs=1.25):
     """Roache GCI (fine-grid) from three systematically refined solutions f1 (fine), f2, f3 (coarse)."""
     e32, e21 = f3 - f2, f2 - f1
     if e21 == 0 or e32 / e21 <= 0:
-        return {"p": None, "GCI_fine": None, "extrapolated": None}
+        # oscillatory convergence: Roache GCI undefined; use U = 0.5 (max - min) (Stern et al. 2001, J Fluids Eng 123:793)
+        u = 0.5 * (max(f1, f2, f3) - min(f1, f2, f3))
+        return {"convergence": "oscillatory", "U_mesh": float(u), "U_mesh_rel_pct": float(100 * u / abs(f1))}
     p = np.log(abs(e32 / e21)) / np.log(r)
     ext = f1 + e21 / (r**p - 1)
-    return {"p": float(p), "GCI_fine": float(Fs * abs(e21 / f1) / (r**p - 1)), "extrapolated": float(ext)}
+    return {"convergence": "monotonic", "p": float(p), "GCI_fine": float(Fs * abs(e21 / f1) / (r**p - 1)),
+            "extrapolated": float(ext)}
 
 
 def main(runs: Path):

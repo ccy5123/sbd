@@ -23,6 +23,18 @@
     "err_K_c_pct": -16.87876526175677,
     "err_S_pct": 28.488141802608414
   },
+  "jet_sst_fine": {
+    "label": "SST fine",
+    "iteration": "3000",
+    "B_u": 5.013608185940155,
+    "x0_u_over_d": 1.4771240016169647,
+    "K_c": 4.33158849102234,
+    "x0_s_over_d": 1.2967996986907175,
+    "S": 0.118766640031827,
+    "err_B_u_pct": -13.558479552755943,
+    "err_K_c_pct": -15.233101936940507,
+    "err_S_pct": 26.347489395560643
+  },
   "jet_ke_medium": {
     "label": "k-\u03b5 medium",
     "iteration": "4000",
@@ -46,6 +58,21 @@
     "err_B_u_pct": 30.025988711950923,
     "err_K_c_pct": 53.61774111779247,
     "err_S_pct": -11.99277237624755
+  },
+  "GCI_B_u": {
+    "convergence": "oscillatory",
+    "U_mesh": 0.049192358317073026,
+    "U_mesh_rel_pct": 0.9811767591856291
+  },
+  "GCI_K_c": {
+    "convergence": "oscillatory",
+    "U_mesh": 0.16203241531628843,
+    "U_mesh_rel_pct": 3.740715805578419
+  },
+  "GCI_S": {
+    "convergence": "oscillatory",
+    "U_mesh": 0.0017671979638091,
+    "U_mesh_rel_pct": 1.4879582038656036
   },
   "experiment": {
     "B_u": 5.8,
