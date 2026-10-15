@@ -153,6 +153,12 @@
   - It then continues to the ceiling. The neighbour sees nothing within 30 s.
   - **Sensitivity flag:** the gap is a feature of the upright manikin. A reclining posture with the back against the
     cushion would close it. The 30 s window also ends before room-scale mixing brings the ceiling cloud back down.
+- **Audible branch (30 s):**
+  - The jet escapes the chimney: part reaches the neighbour's head region within 6 s (OAV 369 within 25 cm) and both
+    breathing zones at OAV 0.5–0.7 (sub-threshold mean).
+  - R = C_silent / C_audible ≈ 1e-10 to 1e-14 in every breathing-zone metric.
+  - Report: `cfd/cases/sofa/m4_report.md`; Figs 5 and 6.
+  - Open sensitivities: posture (back gap), RANS intermittency, 30 s window.
 
 ### M6 — perception (done, see `perception/m6_report.md`)
 - **Neighbour, as emitted:** the median physical difference is R = 0.91. In perceived intensity that is

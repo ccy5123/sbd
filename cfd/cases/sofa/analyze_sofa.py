@@ -127,7 +127,7 @@ def plot(series):
     COL = {"silent": "#2a78d6", "audible": "#eb6834"}
     plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "font.size": 9,
                          "axes.spines.top": False, "axes.spines.right": False, "axes.titleweight": "bold"})
-    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.0), sharey=True, constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.6), sharey=True, constrained_layout=True)
     for i, ax in enumerate(axes):
         for mode, (t, s, tz, bz) in series.items():
             o = np.array([oav(x, P) for x in np.maximum(s[:, i], 0.0)])
@@ -140,11 +140,17 @@ def plot(series):
         ax.text(0.98, 1.15, "odour threshold (OAV = 1)", transform=ax.get_yaxis_transform(), ha="right",
                 fontsize=7.5, color=INK2)
         ax.set_yscale("log")
-        ax.set_ylim(1e-2, None)
+        ax.set_ylim(1e-2, 3.0)
+        if "silent" in series:
+            t, s, tz, bz = series["silent"]
+            peak = oav(float(max(s[:, i].max(), bz[:, i].max(), 0.0)), P)
+            ax.text(0.02, 0.95, f"silent: peak OAV {peak:.0e} (off scale)", transform=ax.transAxes, fontsize=7.5, va="top",
+                    color=COL["silent"])
         ax.set_xlabel("time after release onset (s)")
         ax.set_title(f"{'ab'[i]}  {NOSES[i]}", loc="left")
     axes[0].set_ylabel("summed odour activity value at the nose")
-    axes[0].legend(frameon=False, fontsize=8)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="outside lower center", ncol=2, frameon=False, fontsize=8)
     fig.suptitle("Fig. 5 · Sofa duet: the same 92 mL, released silently or audibly (RANS, 23 °C room)",
                  x=0.01, ha="left", fontsize=10, fontweight="bold")
     fig.savefig(ROOT / "figures/fig5_sofa_duet_noses.png", dpi=200)
