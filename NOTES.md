@@ -123,6 +123,15 @@
     - A 7.5 mm sphere (14 cells, injecting ≈ 2× the cell mass per step) failed at step 5.
     - A 2 cm sphere (328 cells) failed at step 12; the domain-mean Courant number grew ×2.5 per step.
     - The same mesh without the source was stable, so the volumetric source was abandoned for a boundary inlet.
+  - **Root cause (found afterwards):** the inlet version also blew up, before the release started, and so did an
+    isothermal room at rest. OpenFOAM's Boussinesq equation of state includes h = p/ρ(T) in the enthalpy.
+    - With `energy sensibleEnthalpy`, each pressure change shifts T and ρ (≈ 0.025 K per 30 Pa).
+    - The expansion leaves through the vent, which changes the pressure again. The first-step outflow volume did not
+      depend on Δt, so smaller time steps made it worse.
+    - With `sensibleInternalEnergy` (e has no pressure term) the isothermal room stays at rest (mean Co 1e-9).
+    - This coupling probably also drove the massSource failures. The inlet is kept because it is the cleaner model.
+    - The closed CBL validation rooms pin the pressure with a reference cell. Their p swings of a few Pa give
+      < 0.01 K, so they are not affected.
 
 ### M6 — perception (done, see `perception/m6_report.md`)
 - **Neighbour, as emitted:** the median physical difference is R = 0.91. In perceived intensity that is

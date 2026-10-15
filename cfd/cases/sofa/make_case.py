@@ -16,6 +16,10 @@ Nose probes 2.5 cm in front of each nose tip.
 Pressure relief: a 0.5 m x 0.5 m ceiling vent (p_rgh = 0, inflow at room temperature) in the far corner, cut from the
 ceiling patch by createPatch after meshing. A sealed Boussinesq room cannot take a net volume inflow, and a real room
 leaks.
+Energy: sensibleInternalEnergy. OpenFOAM's Boussinesq equation of state puts h = p/rho(T) into the enthalpy, so with
+sensibleEnthalpy every pressure change shifts T and rho; with an open vent that expansion leaves through the vent and
+changes the pressure again. An isothermal room at rest blew up within 3 steps with h and stays at rest (mean Co 1e-9)
+with e. The closed CBL validation rooms (pressure pinned by the reference cell) are not affected.
 History: a volumetric massSource (sphere, r = 7.5 mm and 2 cm) diverged within 5-12 time steps with a growing
 domain-mean Courant number, with or without the vent; the same mesh without the source was stable. The release is
 therefore a boundary inlet.
@@ -272,7 +276,7 @@ def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_R
     w(case / "constant/physicalProperties", f"""thermoType
 {{
     type heRhoThermo; mixture pureMixture; transport const; thermo hConst;
-    equationOfState Boussinesq; specie specie; energy sensibleEnthalpy;
+    equationOfState Boussinesq; specie specie; energy sensibleInternalEnergy;
 }}
 mixture
 {{
@@ -314,7 +318,7 @@ functions
 {{
     #includeFunc scalarTransport(s, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)
     #includeFunc probes(funcName=noses, points=({nose_f} {nose_n}), fields=(s T U))
-    #includeFunc residuals(p_rgh, U, h, k, omega, s)
+    #includeFunc residuals(p_rgh, U, e, k, omega, s)
     planes
     {{
         type            surfaces;
@@ -339,7 +343,8 @@ divSchemes
 {
     default none;
     div(phi,U) Gauss linearUpwind grad(U);
-    div(phi,h) Gauss upwind;
+    div(phi,e) Gauss upwind;
+    div(phi,(p|rho)) Gauss linear;
     div(phi,k) Gauss upwind;
     div(phi,omega) Gauss upwind;
     div(phi,K) Gauss linear;
@@ -355,7 +360,7 @@ wallDist { method meshWave; }
 {
     "p_rgh.*" { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0.01; }
     p_rghFinal { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0; }
-    "(U|h|k|omega|s).*" { solver PBiCGStab; preconditioner DILU; tolerance 1e-8; relTol 0; }
+    "(U|e|k|omega|s).*" { solver PBiCGStab; preconditioner DILU; tolerance 1e-8; relTol 0; }
     "rho.*" { solver diagonal; }
 }
 PIMPLE
