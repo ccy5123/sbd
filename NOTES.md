@@ -32,5 +32,6 @@
 - 32 languages. A-level traditional sayings: Mandarin, Cantonese, English. B: Russian, French, Persian, historical
   English. Silent-fart lexemes are verified in 5 language families. The PIE *pesd-/*perd- soft/loud split is
   reconstructed in LIV² and Pokorny, so it is supported but needs direct handbook check.
-- Open: world-map figure (Fig. 12); verify LIV² pp. 473/477 and Mallory & Adams 1997 directly; the Korean native
+- Fig. 12 world map done (`culture/make_map.py` → `figures/fig12_culture_map.png`; Serbo-Croatian mapped as D since its B is etymological only).
+- Open: verify LIV² pp. 473/477 and Mallory & Adams 1997 directly; the Korean native
   saying is still unverified.
