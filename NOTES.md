@@ -107,17 +107,22 @@
   - two seated manikins 0.6 m apart on a sofa in a 3.2 × 3.2 × 2.6 m room;
   - 721 k cells (snappyHexMesh, level 4 = 5 mm at the release);
   - precursor of 30 s, then silent and audible branches mapped from it.
-- Release: a momentum-equivalent mass source in a 7.5 mm sphere behind the farter's buttocks.
-  - Audible default (92 mL over 0.5 s through 2.4 mm, u₀ = 41 m/s) → u_eq = 6.5 m/s, pre-diluted 6.25×.
-  - Silent default: 92 mL over 2 s through 8 mm (u₀ = 0.9 m/s).
-- **Closed-room failure and fix.** The first source tests diverged within 3 time steps:
-  - the global continuity error grew 1e-7 → 2e-3 and T(h) failed;
-  - this happened with an equal mass sink in a far corner, with no temperature excess, and with max Co 0.5;
-  - a sealed Boussinesq room has no compressibility, so any net or numerically unbalanced volume source makes the
-    pressure equation incompatible.
-  - Fix: a 0.5 × 0.5 m ceiling vent (p_rgh = 0, inflow at room temperature), cut from the ceiling patch with
-    `createPatch`.
-  - With the vent, the global continuity error is ≈ 1e-12 per step. A real living room is not airtight either.
+- Release: a momentum-equivalent **inlet** at the end face of a 3 cm × 1 cm-radius nozzle stub behind the farter's
+  buttocks, pointing down and back into the seat/backrest corner.
+  - Audible default (92 mL over 0.5 s through 2.4 mm, u₀ = 41 m/s) → u_eq = 4.9 m/s, pre-diluted 8.3×.
+  - Silent default: 92 mL over 2 s through 8 mm (u₀ = 0.9 m/s) → u = 0.15 m/s, no pre-dilution.
+  - The pulse has 0.03 s linear ramps (volume preserved). The branch cases run in two stages: the release with
+    maxDeltaT ≈ 4 cell-crossing times, then the drift with maxDeltaT 0.1 s.
+- **Source-model failures (recorded as null results):**
+  - Closed room plus volumetric massSource: the global continuity error grew 1e-7 → 2e-3 within 3 steps and T(h)
+    failed. This happened with an equal mass sink, with no temperature excess, and with max Co 0.5. A sealed
+    Boussinesq room has no compressibility, so the pressure equation becomes incompatible.
+    - Fix: a 0.5 × 0.5 m ceiling vent (p_rgh = 0), cut from the ceiling patch with `createPatch`. The global error
+      dropped to ≈ 1e-12.
+  - Vent plus massSource: the source still diverged.
+    - A 7.5 mm sphere (14 cells, injecting ≈ 2× the cell mass per step) failed at step 5.
+    - A 2 cm sphere (328 cells) failed at step 12; the domain-mean Courant number grew ×2.5 per step.
+    - The same mesh without the source was stable, so the volumetric source was abandoned for a boundary inlet.
 
 ### M6 — perception (done, see `perception/m6_report.md`)
 - **Neighbour, as emitted:** the median physical difference is R = 0.91. In perceived intensity that is
