@@ -94,20 +94,52 @@ remembered silent passage seems stronger than a remembered audible one.
 Truth over all passages: 0.49.
 
 **Base rate p_S.** A literature search (2026-10-16) found **no published measurement** of how often bystanders smell
-a neighbour's flatus (null result). The bracket below is constrained from its components [ASSUMPTION, low
-confidence]:
+a neighbour's flatus (null result). All 11 component papers were then read in full; the numbers come from
+`uq/observer_ps.py` → `uq/observer_ps.json`.
 
-- **Thin dilution margin.** A 100 mL passage with ~26 ppm H₂S (Suarez 1998) mixed into a 1 m-radius sphere gives
-  ~0.6 ppb. That is below the median H₂S detection threshold (~8 ppb, Amoore & Hautala 1983).
-- **The plume favours the emitter.** The thermal plume carries lower-body releases to the emitter's own breathing
-  zone (Rim & Novoselac 2009), as the M4 chimney also shows.
-- **Clothing** removes ~22 % of sulfide gas (Ohge 2005).
-- **Observer-side losses.** About 7.5 % of adults aged 55 or under have olfactory dysfunction (Desiato 2021).
-  Threshold sensitivity spans ~250-fold across people (Amoore 1985, grey literature), and a single person's threshold
-  fluctuates over time (Stevens 1988).
+The method applies observer models from the literature to the same 20 000 Gate 0 passages, in the living room. The
+puff centre is still placed on the neighbour's nose, so each p_S is an **upper bound for that observer**.
 
-Bracket: **p_S ≈ 0.1–0.5, central ≈ 0.25**. This gives a memory-layer belief of **0.78–0.97, central 0.91**: a strong
-belief built on a coin-flip truth.
+| observer | OAV scale | spread (binary steps) | p_S | memory belief | truth |
+|---|---|---|---|---|---|
+| Gate 0 (Nagata 2003 trained-panel thresholds, deterministic) | 1 | — | 0.93 | 0.53 | 0.49 |
+| attentive, Wilby 1969 recognition medians | 1/10 | 2.0 | 0.68 | 0.67 | 0.50 |
+| attentive, Amoore & Hautala 1983 population thresholds | 1/20 | 2.0 | 0.59 | 0.73 | 0.50 |
+| **distracted (everyday)**: 50 % response at 26× threshold | 1/520 | 3.5 | **0.21** | **0.91** | 0.50 |
+| distracted, clothed emitter (−22 % sulfide, Ohge 2005) | 1/667 | 3.5 | 0.19 | 0.92 | 0.51 |
+
+- **Thresholds.** Nagata's triangle-bag thresholds (H₂S 0.41 ppb, CH₃SH 0.07 ppb) are 10–23× lower than population
+  values:
+  - Amoore & Hautala 1983 Table 2: H₂S 8.1 ppb, CH₃SH 1.6 ppb;
+  - Wilby 1969 Table V, recognition medians from 35 untrained people: H₂S 4.1 ppb, CH₃SH 0.80 ppb.
+- **Spread.** Population thresholds have SD 1.97 ≈ 2 binary steps (Amoore & Hautala 1983, p. 286). One person's
+  thresholds vary about as much over time (Stevens et al. 1988: typically a ~2000-fold within-person range, near-equal
+  subject means). So detection is treated as a per-passage probability, Φ(log₂ OAV / SD).
+- **Distraction.** A bystander is not expecting an odour. Amoore & Hautala's warning line (from Whisman et al. 1978,
+  more than 1 600 undirected/misdirected people): 50 % of distracted people respond at 26× threshold, SD 3.5 binary
+  steps. They note the data do not support extrapolation below the 50 % level, so the distracted row carries that
+  extra uncertainty.
+- **Routing (not in the table).** Rim & Novoselac 2009 tested a near-floor source behind one occupant: about 1.2×
+  ambient at the mouth in stratified air, about 1× in mixed air. Olmedo et al. 2012 found a neighbour at 0.35–1.1 m
+  inhales about the fully mixed room level under mixing ventilation. Neither tested a seat-level puff; both only
+  suggest that a puff centred on the neighbour's nose is optimistic. The M4 chimney is the strongest evidence that it
+  is.
+- **Emitter-side anchor (indirect).** Bolin & Stanton 1998 (n = 120, 3-day diaries) report flatus rated odorous on
+  69 % of days for men (12.7 passages/day) and 47 % of days for women (7.1/day). They report per day, not per
+  passage. If passages are independent, about 0.09 of passages were odorous to the emitter [INFERRED, low]. Bounds:
+  0.05 if one odorous passage per flagged day; 0.5–0.7 if every passage on a flagged day was odorous. The authors
+  also suggest men "may be more willing to admit to aroma".
+- **Anosmia.** Olfactory dysfunction affects 7.5 % of identification-test samples with mean age ≤ 55, and 34.5 % above
+  55 (Desiato et al. 2021). Total anosmia is about 1 in 500 (Amoore & Hautala). Specific anosmia to sulfur compounds
+  was not tested by Croy et al. 2015.
+
+**Bracket (revised): p_S ≈ 0.1–0.6, central ≈ 0.2** [ASSUMPTION, low-moderate confidence; up from low].
+- Upper end: attentive observer with the puff on the nose.
+- Central: distracted observer, which is the everyday case; routing would lower it.
+- Lower end: the Bolin emitter-side estimate.
+
+This gives a memory-layer belief of **0.73–0.97, central ≈ 0.91**, against a truth of 0.49–0.51: a strong belief built
+on a coin-flip truth.
 
 ## CFD check: routing that Gate 0 does not model
 
@@ -135,4 +167,5 @@ about any particular sofa. Posture variants (M4 sensitivities) are deferred.
 - The surrogate is analytic: there is no CFD-based UQ, and routing is absent.
 - The Sobol inputs are dependent, so the indices are descriptive (see (b)).
 - The JND applies only to concentration ratios. Intensity curvature (Stevens n) is not used here; it is in M6.
-- p_S is unmeasured. The memory-layer numbers are conditional on the bracket.
+- p_S is unmeasured. The memory-layer numbers are conditional on the bracket. The distracted-observer row
+  extrapolates Amoore & Hautala's warning line below 50 % response, which they flag as unsupported by data.

@@ -321,11 +321,27 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
   - equal mass: 0.93;
   - own nose: 0.56 / 0.93;
   - denim: 0.31.
-- Base rate p_S: background research found no direct measurement (null result). Bracket 0.1–0.5, central 0.25
-  [ASSUMPTION, low]. Memory-layer belief 0.78–0.97 (0.91 central).
+- Base rate p_S: background research found no direct measurement (null result). First bracket 0.1–0.5, central
+  0.25 [ASSUMPTION, low]; revised below after the full texts arrived.
   - New refs: ohge2005, amoore1983, rim2009, stevens1988, wilby1969, whisman1978, desiato2021, croy2015,
     olmedo2012, weinberg2005 (abstracts only; PDFs requested). bolin1998 and manichanh2014 were already listed.
   - Most useful if obtained: Bolin 1998 (fraction of odorous passages).
   - Suarez 1998 (full text already in hand), Table 1: odour rated 0 (none) to 8 (very offensive) from 20 mL syringe
     samples, i.e. undiluted. Mean ratings are 3.3 and 5.6 (two judges, n = 87). The table gives means only, with no
     share rated odourless, so it does not constrain p_S.
+
+### p_S revised with observer models (2026-10-16; `uq/observer_ps.py`, M7 report)
+- All 11 base-rate papers were supplied by the author and read in full.
+- New params (perception):
+  - `thr_scale_typ` 0.05 (0.05–0.10): Nagata thresholds are 10–23× below Amoore/Wilby population values;
+  - `thr_sd_bs` 2 binary steps (Amoore & Hautala p. 286);
+  - `distracted_factor` 26 and `distracted_sd_bs` 3.5 (Amoore & Hautala Fig. 2, from Whisman 1978).
+- p_S with the puff still centred on the nose: Gate 0 0.93; attentive 0.59–0.68; distracted 0.21; distracted and
+  clothed 0.19. The matching memory beliefs are 0.53, 0.67–0.73, 0.91 and 0.92; the truth stays at 0.49–0.51.
+- Bolin & Stanton 1998: odour is reported per day, not per passage. Converting gives ≈ 0.09 per passage (independent
+  passages) [INFERRED, low]; bounds 0.05–0.7.
+- Revised bracket p_S 0.1–0.6, central 0.2 [ASSUMPTION, low-moderate]. Belief 0.73–0.97, central 0.91.
+- Corrections to the first-pass summary:
+  - Rim & Novoselac 2009 used off-body sources (a near-floor source behind the occupant gives mouth ≈ 1.2× ambient in
+    stratified air, ≈ 1× in mixed air), so it is only weak support for "the plume favours the emitter".
+  - Croy 2015 tested no sulfur odorants.
