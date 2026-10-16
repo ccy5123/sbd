@@ -390,3 +390,16 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
   - Belief across observer models: 0.67–0.92 (truth ≈ 0.5).
 - These references are NOT yet added to `refs/references.yaml`; they await the full texts. The DOI list was given to
   the author.
+
+### BODS flatus items, full text (Liuzza et al. 2016 Chem Senses, Table 4; 2026-10-16)
+- Scale: 1 (not disgusting at all) to 5 (extremely disgusting); total n = 528 over 3 studies.
+- "You are alone at home and pass gas. It is silent but smells strongly": 2.51 (SD 1.15).
+- "You are sitting next to a stranger and they pass gas. It is silent but smells strongly": 3.71 (SD 1.05).
+- Self–other gap: **1.20**, the largest of the six odour types:
+  - sweat 0.69, feet 0.67, breath 0.60, faeces 0.79, urine 0.49;
+  - consistent with Stevenson & Repacholi 2005.
+- Caveats:
+  - context is confounded with source (alone at home vs next to a stranger);
+  - both items are silent, so they say nothing about the silent-vs-audible contrast;
+  - the items support only a lower absolute unpleasantness for the emitter.
+- Remaining 14 full texts (literature pass 3) are being verified; results to follow.
