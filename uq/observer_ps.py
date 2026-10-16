@@ -10,8 +10,9 @@ are seen by an untrained observer:
     Whisman et al. 1978); 'distracted' is the everyday state of a bystander who is not expecting an odour;
   * clothing removes 22 % of sulfide gas (Ohge et al. 2005, ordinary garments, 30 s);
   * sound-cued attention: an audible passage turns the distracted bystander into an attentive one for that passage.
-Distraction changes noticing, not sensory magnitude (Forster & Spence 2018; Ashkenazi & Marks 2004), so perceived
-intensity always uses the attentive OAV; only the detection probability depends on the observer state.
+Distraction mainly changes noticing (Forster & Spence 2018); peak rated intensity in the first 10 s is unaffected
+(Fallon et al. 2018), so perceived intensity always uses the attentive OAV; only the detection probability depends on
+the observer state.
 Routing by posture and furniture (M4 CFD) is still absent, so every p_S here remains an upper bound for its observer.
 
 Usage (repo root): python3 uq/observer_ps.py -> uq/observer_ps.json

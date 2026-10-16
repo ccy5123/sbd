@@ -403,3 +403,39 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
   - both items are silent, so they say nothing about the silent-vs-audible contrast;
   - the items support only a lower absolute unpleasantness for the emitter.
 - Remaining 14 full texts (literature pass 3) are being verified; results to follow.
+
+### Literature pass 3 verified in full text (2026-10-16; 14 papers supplied by the author, all in refs)
+The abstract-only pass was wrong or overstated in several places:
+- **Ashkenazi & Marks 2004.**
+  - Measure: 2AFC percent correct (no d′, no thresholds), with retronasal vanillin only.
+  - The "control" was divided attention, not distraction; orthonasal smell was not tested.
+  - So it does NOT show that attention leaves the olfactory threshold unchanged. The citation was replaced by Fallon
+    2018 in `uq/observer_ps.py` and the M7 report.
+- **Fallon et al. 2018** (n = 19, pleasant fragrance):
+  - peak intensity in the first 10 s was focused 4.85 vs distracted 4.32 (ns);
+  - at 15–65 s, 3.12 vs 2.02 (p = .035), i.e. distraction speeds the decay;
+  - this supports the peak-breath definition of deadliness being insensitive to attention.
+- **Spence et al. 2001 used H₂S** (0.8 vs 3 ppm intensity discrimination). The cue was 67 % valid (not 80 %): RT
+  −114 ms, no accuracy gain.
+- **Stuck et al. 2014**, H₂S 1–8 ppm:
+  - complete desensitization in 40–70 s (n = 10);
+  - after 120 s of exposure, intensity is 3.1–4.0/10 at 5 s and still 6.2–7.8/10 at 180 s (n = 20);
+  - pleasantness was not measured.
+  - [INFERRED] For an emitter whose passages cluster within a few minutes, later passages in a run are perceived
+    weaker, whatever their sound; this adds noise, not a silent/audible bias.
+- **Li et al. 2023.** 15 s adaptation lowered H₂S intensity by ≈ 25–32 % (figure-read); H₂S unpleasantness was unchanged.
+- **Self-source effect**, all on unpleasantness/disgust; none measured intensity:
+  - BODS internal–external gap 0.63, 0.5–0.9 by country (Zakrzewska 2023, from Table 2);
+  - Stefańczyk 2020: 0.72 EMM, η²p = .10;
+  - McBurney 1976: 9/11 donors, and the effect held even when the donor did not recognise his shirt.
+  - Intensity evidence for self-odour rests on Hierl 2021 alone.
+- **Belief about the source changes hedonics.** In Hold & Schleidt 1977, men rated the shirt they *believed* was theirs
+  as pleasant more often than their real shirt (p < .05). This supports expectation as the only route by which an
+  emitter could acquire the silent/audible belief.
+- **Other corrections:**
+  - Hold & Schleidt: men's modal rating of their own odour was "indifferent", not "unpleasant".
+  - Wysocki 1997: the butanol threshold difference was ns (not "unchanged"; medians differed 20×).
+  - Distel 2001 tested no malodours.
+  - Pause 1999 / Krauel 1998: n ≤ 6, with the ignore session always first; directional only.
+- The emitter prediction is unchanged: the silent/audible judgement tracks physics (≈ coin flip). The self-effect
+  lowers absolute unpleasantness only.

@@ -121,8 +121,10 @@ puff centre is still placed on the neighbour's nose, so each p_S is an **upper b
   steps. They note the data do not support extrapolation below the 50 % level, so the distracted row carries that
   extra uncertainty.
 - **Sound-cued attention (last row).**
-  - Distraction changes *noticing*, not sensory magnitude (Forster & Spence 2018; Ashkenazi & Marks 2004). So
-    perceived intensity always uses the attentive OAV; only the detection probability depends on the observer state.
+  - Distraction mainly changes *noticing* (Forster & Spence 2018). The peak rated intensity in the first 10 s did not
+    differ between focused and distracted listeners (Fallon et al. 2018: 4.85 vs 4.32, ns); only the later decay was
+    faster. Deadliness is defined at the peak breath, so perceived intensity always uses the attentive OAV, and only
+    the detection probability depends on the observer state.
   - If a sound makes the bystander attentive for that passage, P(smelled | heard) rises from 0.21 to 0.60. That
     shrinks the Berkson gap from 0.81 to 0.39, and the belief falls from 0.91 to 0.81. It stays far above the truth.
   - The "truth" column here is over all passages through this observer's nose: the observer genuinely smells audible
