@@ -325,5 +325,7 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
   [ASSUMPTION, low]. Memory-layer belief 0.78–0.97 (0.91 central).
   - New refs: ohge2005, amoore1983, rim2009, stevens1988, wilby1969, whisman1978, desiato2021, croy2015,
     olmedo2012, weinberg2005 (abstracts only; PDFs requested). bolin1998 and manichanh2014 were already listed.
-  - Most useful if obtained: Bolin 1998 (fraction of odorous passages), Suarez 1998 full text (rating scale, share
-    rated odourless).
+  - Most useful if obtained: Bolin 1998 (fraction of odorous passages).
+  - Suarez 1998 (full text already in hand), Table 1: odour rated 0 (none) to 8 (very offensive) from 20 mL syringe
+    samples, i.e. undiluted. Mean ratings are 3.3 and 5.6 (two judges, n = 87). The table gives means only, with no
+    share rated odourless, so it does not constrain p_S.
