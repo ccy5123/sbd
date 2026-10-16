@@ -354,3 +354,39 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
 - M3 report table filled; Fig. 4 regenerated. `u_own_eff` (×1.4 correction at 23 °C) is unchanged.
 - This closes the pause-point item "M3b at 26 °C still open". The Gate 0 own-nose update was already done (see
   above).
+
+### Emitter's own nose: literature pass 3 (2026-10-16; background research, abstracts plus some full texts)
+- **Self-source effect.**
+  - Own odours are rated less disgusting: BODS questionnaire, N ≈ 6 800 in 9 countries, self 3.39 vs stranger 4.02 on
+    a 1–5 scale. The flatus item pair is literally "silent but smells strongly"; item-level means are not yet obtained.
+  - Own baby's faeces: d_z ≈ 1.0; blind trials hold, mislabelling abolishes the effect (Case, Repacholi & Stevenson
+    2006).
+  - Hierl et al. 2021, n = 28: own body odour rated *less intense* (η² = .30), with no pleasantness difference
+    (BF₁₀ 0.53).
+  - Nulls and sex asymmetries exist (Olsson 2006; Hold & Schleidt 1977).
+  - No laboratory study of real flatus, own vs other, and no study of whether emitters detect their own passages
+    (null).
+- **No "self-blindness".** Own odour is processed equally fast or faster (ERP studies, n ≤ 6), but consciously poorly
+  discriminated. Own breath is misjudged (Pham 2012: sensitivity 47 %, specificity 59 %), which looks like chronic
+  adaptation.
+- **Attention.**
+  - Noticing a suprathreshold ambient odour drops from 60 % to 20 % under visual load (Forster & Spence 2018,
+    φ = .41).
+  - Endogenous attention does not lower the sensory threshold (Ashkenazi & Marks 2004).
+  - So Amoore's 26× is mostly awareness and criterion. No study of tactile or proprioceptive cueing of odour detection
+    exists (null).
+- **Adaptation.** H₂S desensitises fast (Stuck 2014), but its unpleasantness barely adapts over 15 s (Li 2023).
+  Distraction speeds desensitisation (Fallon 2018).
+- **Prediction for the emitter** [INFERRED, moderate]:
+  - The emitter feels every release and is a directed observer for all passages, so the emitter-side factors apply
+    equally to silent and audible.
+  - The emitter's silent-vs-audible judgement should therefore track physics (≈ coin flip): Theorem 3 with N = 1.
+  - The self-source effect lowers absolute unpleasantness (and perhaps intensity), not the silent/audible contrast.
+  - The only route to the belief for an emitter is expectation, if they already hold the folk belief (untested).
+- **Correction to the agent's synthesis (computed, `uq/observer_ps.py`).** It predicted that sound-cued attention would
+  *amplify* the bystander's selection. The opposite holds:
+  - cueing raises P(smelled | heard) from 0.21 to 0.60;
+  - the gap shrinks from 0.81 to 0.39, and the belief falls from 0.91 to 0.81.
+  - Belief across observer models: 0.67–0.92 (truth ≈ 0.5).
+- These references are NOT yet added to `refs/references.yaml`; they await the full texts. The DOI list was given to
+  the author.

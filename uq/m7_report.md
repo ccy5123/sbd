@@ -107,6 +107,7 @@ puff centre is still placed on the neighbour's nose, so each p_S is an **upper b
 | attentive, Amoore & Hautala 1983 population thresholds | 1/20 | 2.0 | 0.59 | 0.73 | 0.50 |
 | **distracted (everyday)**: 50 % response at 26× threshold | 1/520 | 3.5 | **0.21** | **0.91** | 0.50 |
 | distracted, clothed emitter (−22 % sulfide, Ohge 2005) | 1/667 | 3.5 | 0.19 | 0.92 | 0.51 |
+| distracted, but sound cues attention for audible passages | 1/520 (audible 1/20) | 3.5 (2.0) | 0.31 | 0.81 | 0.32 |
 
 - **Thresholds.** Nagata's triangle-bag thresholds (H₂S 0.41 ppb, CH₃SH 0.07 ppb) are 10–23× lower than population
   values:
@@ -119,6 +120,15 @@ puff centre is still placed on the neighbour's nose, so each p_S is an **upper b
   more than 1 600 undirected/misdirected people): 50 % of distracted people respond at 26× threshold, SD 3.5 binary
   steps. They note the data do not support extrapolation below the 50 % level, so the distracted row carries that
   extra uncertainty.
+- **Sound-cued attention (last row).**
+  - Distraction changes *noticing*, not sensory magnitude (Forster & Spence 2018; Ashkenazi & Marks 2004). So
+    perceived intensity always uses the attentive OAV; only the detection probability depends on the observer state.
+  - If a sound makes the bystander attentive for that passage, P(smelled | heard) rises from 0.21 to 0.60. That
+    shrinks the Berkson gap from 0.81 to 0.39, and the belief falls from 0.91 to 0.81. It stays far above the truth.
+  - The "truth" column here is over all passages through this observer's nose: the observer genuinely smells audible
+    passages more often (0.32).
+  - So cueing *weakens* the selection effect but does not remove it. Across all observer models the belief stays at
+    0.67–0.92.
 - **Routing (not in the table).** Rim & Novoselac 2009 tested a near-floor source behind one occupant: about 1.2×
   ambient at the mouth in stratified air, about 1× in mixed air. Olmedo et al. 2012 found a neighbour at 0.35–1.1 m
   inhales about the fully mixed room level under mixing ventilation. Neither tested a seat-level puff; both only
