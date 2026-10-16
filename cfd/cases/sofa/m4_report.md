@@ -67,8 +67,8 @@
 ## Caveats (first pass; not yet publishable numbers)
 
 1. **Posture.** The upright manikin leaves a ~3 cm channel between back and backrest, and that channel *is* the silent
-   pathway. A reclined occupant whose back touches the cushion would close it. This is the dominant sensitivity and
-   needs a second geometry.
+   pathway. A reclined occupant whose back touches the cushion would close it. This was the dominant sensitivity; a
+   second geometry is now run (see "Posture sensitivity" below): the outcome holds.
 2. **RANS mean field.** RANS predicts the ensemble mean. A real puff meanders, and instantaneous peaks at a nose can
    exceed the mean by an order of magnitude (intermittency). Sub-threshold mean OAVs of 0.5–0.7 (audible) are
    therefore consistent with a detectable whiff. Silent values of 10⁻¹¹ are not, because the mean cloud is centimetres
@@ -78,3 +78,55 @@
 4. **Validation bias.** The coarse-mesh CBL is about 40 % too fast (M3b), so the chimney may lift the cloud faster than
    reality.
 5. **Single realisation.** One release volume, one position and one jet direction.
+
+## Posture sensitivity: releaser reclined 4.5° (2026-10-16)
+
+*Code: `make_case.py --recline 4.5`, `run_sofa.sh <runs> 4.5`, `analyze_sofa.py --recline 4.5`,
+`fig_sofa_planes.py --recline 4.5` · numbers: `results_rec4.5.json` · figures: `figures/figS_sofa_rec4.5_noses.png`,
+`figures/figS_sofa_rec4.5_planes.png`*
+
+**Set-up.**
+- The releaser's upper body (torso, head, arms) is rotated 4.5° backwards about the hip. Pelvis, legs, release point
+  and neighbour are unchanged.
+- The back now meets the backrest from z ≈ 0.85 m up to its top at 0.95 m (≈ 8 mm overlap). This closes the top of
+  the chimney, while the 3 cm gap at seat level stays open.
+- The releaser's nose moves back 6 cm and the probes move with it.
+- Same mesh recipe (723 k cells). checkMesh flags 4 highly skewed faces (max skewness 5.0, against 2.8 upright),
+  presumably at the back–backrest contact. The run was stable: no FATAL, both branches reached 30 s.
+
+**Results** (peak OAV within 30 s; worst breath = max over breathing phase):
+
+| receptor | posture | silent | audible | R (silent / audible) |
+|---|---|---|---|---|
+| own nose: breathing-zone peak | upright | 5 × 10⁻¹¹ | 0.46 | 1 × 10⁻¹⁰ |
+| | reclined | 9 × 10⁻¹¹ | **3.3** | 3 × 10⁻¹¹ |
+| own nose: worst breath | upright | 4 × 10⁻¹³ | 0.37 | 1 × 10⁻¹² |
+| | reclined | 7 × 10⁻¹² | **2.3** | 3 × 10⁻¹² |
+| neighbour: breathing-zone peak | upright | 3 × 10⁻¹⁴ | 0.63 | 5 × 10⁻¹⁴ |
+| | reclined | 3 × 10⁻¹⁵ | 0.19 | 2 × 10⁻¹⁴ |
+| own head ring (25 cm) | upright | 5 800 (5.3 s) | 200 | 28 |
+| | reclined | 3 100 (5.3 s) | 200 | 16 |
+| neighbour's head ring | upright | 1 × 10⁻⁶ | 370 | 3 × 10⁻⁹ |
+| | reclined | 4 × 10⁻⁵ | 630 | 6 × 10⁻⁸ |
+
+**Pathways.**
+- **Silent.** Closing the top of the chimney does not stop it.
+  - The release pools in the seat-level wedge for ~3 s.
+  - It then leaves the wedge *sideways* at shoulder level. At nose height the cloud first appears behind the head at
+    x ≈ −0.19 m, 0.13 m inboard of the releaser's mid-plane, at 4.8 s; it then appears outboard (0.13 m) at 5.3 s.
+  - It rises behind and over the head to the ceiling.
+  - Neither breathing zone receives a detectable dose; values stay 10⁻¹¹ or below.
+- **Audible.** The jet again escapes the wedge. In the reclined posture a filament wraps around the releaser's face
+  (Fig. S, 7.8 s and 14.8 s), so the releaser's **own** breathing zone exceeds threshold (OAV 2–4). The neighbour
+  stays sub-threshold (0.2).
+
+**Conclusion.** In both postures the silent release is the one that misses every nose, by ten or more orders of
+magnitude in the RANS mean. The chimney finding is not an artefact of the 3 cm back gap: the body's convective
+boundary layer captures a low-momentum release wherever it leaks out. Reclining makes the audible release *more*
+noticeable to the releaser, not less.
+
+**Remaining sensitivities:**
+- a 120 s window (room-scale mixing, which equalises both modes towards M/V);
+- RANS intermittency;
+- a forward-leaning posture;
+- a different release direction.

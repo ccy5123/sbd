@@ -450,3 +450,15 @@ The abstract-only pass was wrong or overstated in several places:
 - TeX Live installed in the container: texlive-latex-recommended/extra, -publishers (achemso), -science (mhchem,
   siunitx), latexmk. The build is clean (13 pages, 38 references cited).
 - New reference: forster2018 (full text read by the literature agent; OpenAlex metadata).
+
+### M4 posture sensitivity: reclined 4.5° (2026-10-16; `cfd/cases/sofa/m4_report.md`)
+- The releaser's upper body is reclined about the hip; the back closes onto the backrest above 0.85 m.
+- 4 highly skewed faces at the contact; the run is stable.
+- The pipeline is detached with setsid (background tool runs are capped at 2 h); the audible branch was re-run once.
+- Silent: no breathing-zone dose at either nose (≤ 10⁻¹⁰ OAV). The cloud leaves the seat wedge sideways at shoulder
+  level and rises behind the head (head ring 3 100).
+- Audible: the releaser's own breathing zone is now above threshold (OAV 2–4, a face-wrapping filament); the
+  neighbour is at 0.2.
+- Breathing-zone R at both noses ≈ 10⁻¹¹–10⁻¹⁴, as upright. **The chimney result is robust to closing the back gap.**
+- Scripts take `--recline`. Upright results are reproduced exactly (same triangle set; `results.json` identical
+  apart from the new `recline_deg` key).

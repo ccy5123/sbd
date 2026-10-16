@@ -119,8 +119,10 @@ comparisons, because a silent passage only enters memory if it stank (Berkson se
   - valve parameters explain < 0.5 % each.
 - **4.5 The sofa** (Figs 5–6; M4 report). The backrest chimney carries the silent release over the head; the jet
   escapes and reaches the neighbour; breathing-zone R ≈ 10⁻¹⁰–10⁻¹⁴.
-  - **Posture sensitivity:** reclined variant (back closed onto the backrest above 0.85 m) running 2026-10-16.
-    **GAP:** results.
+  - **Posture sensitivity (done):** reclined 4.5°, with the back closed onto the backrest above 0.85 m.
+    - Silent still reaches no breathing zone; it leaves the wedge sideways and rises behind the head.
+    - Audible now exceeds threshold at the releaser's own nose (OAV 2–4).
+    - Breathing-zone R ≈ 10⁻¹¹–10⁻¹⁴ in both postures (`cfd/cases/sofa/m4_report.md`).
 - **4.6 Perception** (Figs 7, 11): median difference 2.7 % at the neighbour, below the JND. γ is an auxiliary
   hypothesis (0–3 %, sign unknown).
 - **4.7 Composition counter-argument.** Suarez 1997 Table 3: no volume–sulfur-concentration link; sulfur mass rises

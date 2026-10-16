@@ -29,5 +29,55 @@
    "t_head_ring_peak_s": 29.8
   }
  },
+ "audible": {
+  "own nose (releaser)": {
+   "peak_s": 3.06169e-05,
+   "peak_OAV": 4.372912152205488,
+   "t_peak_s": 11.190909000000001,
+   "t_arrival_s": 8.453846200000001,
+   "time_above_OAV1_s": 3.4487175999999993,
+   "exposure_s_dt": 6.690854907995295e-05,
+   "worst_breath_OAV_mean": 1.5700534804607027,
+   "worst_breath_OAV_max": 2.2948988272240154,
+   "bz_peak_OAV": 3.325422483497542,
+   "bz_exposure_s_dt": 9.991017936805675e-05,
+   "head_ring_peak_OAV": 197.56535135105494,
+   "t_head_ring_peak_s": 5.8
+  },
+  "neighbour's nose": {
+   "peak_s": 2.7988308e-07,
+   "peak_OAV": 0.03997478914353512,
+   "t_peak_s": 8.3,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 3.2443273212804566e-07,
+   "worst_breath_OAV_mean": 0.008790378229972607,
+   "worst_breath_OAV_max": 0.020043642604145928,
+   "bz_peak_OAV": 0.19339726986556693,
+   "bz_exposure_s_dt": 3.4582133152656222e-06,
+   "head_ring_peak_OAV": 630.06387233478,
+   "t_head_ring_peak_s": 6.3
+  }
+ },
+ "R_silent_over_audible": {
+  "own nose (releaser)": {
+   "peak_OAV": 2.5417550111213086e-12,
+   "exposure_s_dt": 2.027495787481498e-12,
+   "worst_breath_OAV_mean": 1.7798039006181323e-12,
+   "worst_breath_OAV_max": 3.1450334222465984e-12,
+   "bz_peak_OAV": 2.854184696274717e-11,
+   "bz_exposure_s_dt": 2.431083176461239e-11,
+   "head_ring_peak_OAV": 15.871192070742289
+  },
+  "neighbour's nose": {
+   "peak_OAV": 2.2051133637660418e-16,
+   "exposure_s_dt": 1.724500478860806e-16,
+   "worst_breath_OAV_mean": 3.349326483933463e-16,
+   "worst_breath_OAV_max": 3.7588607086628257e-16,
+   "bz_peak_OAV": 1.492951146256639e-14,
+   "bz_exposure_s_dt": 4.2851804049200504e-15,
+   "head_ring_peak_OAV": 6.32932399610118e-08
+  }
+ },
  "recline_deg": 4.5
 }
