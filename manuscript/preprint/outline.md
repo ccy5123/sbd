@@ -80,7 +80,8 @@ comparisons, because a silent passage only enters memory if it stank (Berkson se
 - **3.2 Acoustics** (`acoustics/m2_report.md`):
   - lip-reed onset ½ρ(u₀/C_d)² > P_th, harmonic monopole, ISO 226 audibility, critical-ratio masking;
   - onset u₀ ≈ 30 m/s (14–51); 79 % of releases are S1.
-  - Sphincter wording: internal (involuntary) vs external (voluntary). **GAP:** fix in the M2 report.
+  - Sphincter wording: internal (involuntary) vs external (voluntary) is already in the M2 report ("Who controls
+    the valve").
 - **3.3 Gate 0 analytic dispersion** (`gate0/gate0_report.md`):
   - starting jet → puff, then Gaussian puff transport, then inhalation averaging;
   - Monte Carlo over 20 000 pairs;
