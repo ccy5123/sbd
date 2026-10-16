@@ -182,3 +182,11 @@ One paragraph. Deadpan.
 - Figure count: keep 12–13 main figures, or move Figs 7, 11 and 8 to the SI?
 - Plan Figs 8 (elevator whodunit) and 9 (countermeasures): drop, or run later as M5 scenarios?
 - Venue order (PLAN §1): preprint first, J. Immat. Sci. second.
+- Preprint server (open, decide before submission; 2026-10-16 discussion):
+  - arXiv `physics.flu-dyn` (best audience fit; needs endorsement for a first submission);
+  - otherwise ChemRxiv (no endorsement; basic screening; matches achemso);
+  - bioRxiv excluded (requires biological research with new data);
+  - post to one server only.
+- AI-use disclosure: required (arXiv, ACS); to be written last, gap marker in `main.tex`.
+- Affiliation: "Independent Researcher, Incheon, Republic of Korea" (author's choice). The author is to check employer
+  rules on outside publication and IP.
