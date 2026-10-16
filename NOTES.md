@@ -323,7 +323,7 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
   - denim: 0.31.
 - Base rate p_S: background research found no direct measurement (null result). Bracket 0.1–0.5, central 0.25
   [ASSUMPTION, low]. Memory-layer belief 0.78–0.97 (0.91 central).
-  - New refs: ohge2005, bolin1998, amoore1983, rim2009, stevens1988, wilby1969, whisman1978, desiato2021, croy2015,
-    olmedo2012, weinberg2005 (abstracts only; PDFs requested).
+  - New refs: ohge2005, amoore1983, rim2009, stevens1988, wilby1969, whisman1978, desiato2021, croy2015,
+    olmedo2012, weinberg2005 (abstracts only; PDFs requested). bolin1998 and manichanh2014 were already listed.
   - Most useful if obtained: Bolin 1998 (fraction of odorous passages), Suarez 1998 full text (rating scale, share
     rated odourless).
