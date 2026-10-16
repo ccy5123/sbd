@@ -259,7 +259,8 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
 ### Predictions (theory only; no survey planned)
 1. **Emitter vs bystander.** The emitter's noticing does not depend on smell (h₁ = 0 ⇒ OR = 1, Boyd), so the
    emitter should hold the belief less. Supported by Berkson/Boyd, Fiedler 2000 and Denrell 2005 (analogy only).
-2. **Noisy environments (masking)** — the original prediction is revised. The accounts disagree, which makes
+2. **Noisy environments (masking)** — the original prediction is revised (and see the selection-model result
+   below: masking is NOT a clean discriminator, because a physical "loudness selection" also weakens the belief). The accounts disagree, which makes
    masking a discriminating test:
    - pure selection: no change;
    - Hamilton & Gifford: weaker belief;
@@ -272,6 +273,24 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
 - Fix the sphincter wording in the M2 report.
 - Behavioural differences (e.g. changing posture to release quietly) are treated in psychological and social terms
   only, with no physics model.
-- Add the selection model (Theorem 3, Berkson form) to the manuscript outline. Optionally, simulate apparent R
-  under (C) using Gate 0 samples.
+- Selection model implemented 2026-10-16 (see below). Add it to the manuscript outline.
+
+### Selection model implemented (2026-10-16; `perception/selection.py`, `run_selection.py`, Fig. 13)
+- Setup: 20 000 single passages from the Gate 0 priors.
+  - A log-normal sulfur multiplier: `params.yaml` `sulfur_sigma_ln` = 1.1, from Suarez 1998 SEM over 87 passages
+    (per-passage SD 1.87 µmol/L).
+  - The `c_H2S` note is corrected: it had treated the SEM as over 16 subjects.
+  - M2 audibility at the neighbour's distance for each background.
+- Theorem 3 is verified numerically: the memory gap P(S|silent,N) − P(S|audible,N) equals 1 − P(S|H) at every base
+  rate.
+- Gate 0 nominal (puff centred on the nose): the neighbour smells 93 % of passages.
+  - P(belief): truth 0.486, bystander memory 0.525, emitter 0.534 (own-nose physics, no selection).
+- Base-rate sweep, bystander-memory P(belief) by the share of passages the neighbour smells:
+  0.91 → 0.54, 0.74 → 0.64, 0.49 → 0.78, 0.34 → 0.86, 0.17 → 0.95. The truth stays at 0.49–0.53.
+- Masking: library and living room 0.525, subway 0.495, restaurant 0.43 (only 30 heard).
+  - P(S | silent, N) stays 1. The belief weakens because only the largest releases are heard in noise, and they
+    carry more sulfur ("loudness selection").
+- **The key empirical unknown is the everyday base rate** (how often a neighbour's passage is noticed by smell).
+  Gate 0 gives an upper bound (0.93). The sofa CFD suggests it is far lower, because breathing zones were
+  sub-threshold for both modes.
 

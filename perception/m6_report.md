@@ -72,10 +72,66 @@ use the old framing and will be regenerated.*
 - A newcomer entering at that moment therefore perceives ≈ 1.5× more than the occupants, which gives the lift
   whodunit (Scenario C) a false-accusation bias towards the last person in.
 
+## Selection model — the memory filter (Fig. 13; added 2026-10-16)
+
+*Code: `perception/selection.py`, `perception/run_selection.py` · tests: `perception/test_selection.py` (4) · numbers:
+`perception/selection.json` · 20 000 single passages from the Gate 0 priors, a log-normal sulfur multiplier
+(σ_ln = 1.1, independent of volume), M2 audibility at the neighbour's distance per background.*
+
+**Theorem 3 (Berkson / collider form).** Let H = heard and S = smelled (OAV ≥ 1). An observer remembers a passage
+iff N = H ∨ S. Then, whatever the joint law of H and S:
+
+- P(S | ¬H, N) = 1 and P(S | H, N) = P(S | H);
+- so the memory gap is 1 − P(S | H), even if sound and smell are independent;
+- an observer whose noticing does not depend on S (the emitter, who feels every release) has no bias (Boyd's
+  h₁ = 0 case; Snoep et al. 2014, appendix).
+
+**Results**
+
+1. **Gate 0 nominal case** (living room; the puff passes centred on the nose, so this is an upper bound on how often
+   a passage is smelled):
+
+   | | P(smelled \| silent) | P(smelled \| audible) | P(belief) |
+   |---|---|---|---|
+   | neighbour's nose, all passages | 0.92 | 0.96 | 0.486 |
+   | bystander's memory | **1.00** | 0.96 | 0.525 |
+   | emitter (own nose, all passages) | 0.99 | 1.00 | 0.534 |
+
+   - The neighbour smells 93 % of passages, so the filter has little to remove and the belief barely moves.
+   - The emitter's 0.534 is physics, not selection: it is the own-nose near-field exception of Gate 0.
+
+2. **The base rate controls the belief** (Fig. 13b; all OAVs scaled together).
+   - The memory gap equals 1 − P(S | H) at every scale, a numerical check of Theorem 3.
+
+   | fraction of passages smelled by the neighbour | 0.91 | 0.84 | 0.74 | 0.62 | 0.49 | 0.34 | 0.17 | 0.06 |
+   |---|---|---|---|---|---|---|---|---|
+   | P(belief), bystander's memory | 0.54 | 0.58 | 0.64 | 0.71 | 0.78 | 0.86 | 0.95 | 0.99 |
+
+   - Over the same range the truth at the neighbour's nose stays at 0.49–0.53, and the emitter at 0.50–0.56.
+   - **The belief is produced by memory, not by noses**, and it grows as stinky passages become rarer.
+
+3. **Masking noise** (Fig. 13c).
+   - Library and living room: 0.525.
+   - Subway: 0.495, with 7 % of oscillating releases still heard.
+   - Restaurant: 0.43, with 1 % still heard (only 30 heard passages; noisy).
+   - P(S | silent, N) stays exactly 1. The belief still weakens, because in noise only the loudest, i.e. largest,
+     releases are heard, and by the mass criterion those carry the most sulfur. This "loudness selection" is a
+     physical effect that predicts a weaker belief even without the Hamilton & Gifford mechanism. **Masking is
+     therefore not a clean test between the psychological accounts**; this revises the prediction in `NOTES.md`.
+
+**What sets the real base rate.** Gate 0 assumes the puff is centred on the receptor's nose, which gives the
+neighbour a smelling rate of 0.93. The Scenario A CFD shows that in a real seated geometry the cloud usually
+misses the breathing zone: the sub-threshold mean OAV was 10⁻¹¹ for the silent release and 0.5–0.7 for the
+audible one. So the everyday base rate is probably far lower, which is where the filter turns a coin flip into a
+near-certain belief. The fraction of a neighbour's passages that one actually notices by smell is the single
+empirical number this account needs.
+
 ## Limitations
 
 - γ is not measured, and neither its size nor its sign is established for a single brief release. It is an
   auxiliary hypothesis; only a break-even analysis is offered (plan §16).
+- The selection model treats noticing as deterministic (OAV ≥ 1, or heard). A graded detection probability would
+  soften P(S | silent, N) = 1 to a value just below 1. Its base rate is not measured (see above).
 - Sniff suppression for malodours (sniff-magnitude ratio 0.64, Frank 2006) is not yet applied. It acts on both
   silent and audible releases after detection, but a warned nose can suppress in anticipation (Frank 2007). This
   would strengthen the warned-avoidance channel.

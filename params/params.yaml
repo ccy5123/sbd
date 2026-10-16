@@ -30,10 +30,12 @@ source:
   p_anal_rest:  {value: 8666.0, low: 6133.0, high: 12000.0, units: Pa, status: VERIFIED, source: "Lee & Bharucha 2016: anal resting pressure 46-90 mmHg (means/medians); high-pressure zone 3.5-4.3 cm. Used in M2"}
   g_reduced:    {value: 1.70, low: -0.66, high: 4.68, units: m/s^2, status: DERIVED, source: "Suarez et al. 1997 Table 1 compositions at 37 C vs dry air at 22 C (params/derive_from_suarez1997.py)", note: "median of 16 subjects; 1/16 negatively buoyant at 37 C, 4/16 after cooling. Cross-check (independent agent, Modesto 2022 meta-analysis mean composition, water-saturated): +1.24; CO2-rich -0.86 to -1.18. MC resamples the 16 empirical values"}
   nu_gas:       {value: 1.7e-5, units: m^2/s, status: ASSUMPTION, note: "N2/CO2/H2 mixture at 37 C; H2-rich gas higher. Enters Re only"}
-  # Sulfur gases (Suarez et al. 1998, Gut 43:100), mean (SEM), n = 16; 1 umol/L = 25.45 ppm at 37 C
-  c_H2S:        {value: 1.06, low: 0.26, high: 1.86, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 Gut 43:100 (1.06 (SEM 0.2)); low/high = mean -/+ 1 SD (SD = SEM x 4)"}
+  # Sulfur gases (Suarez et al. 1998, Gut 43:100), mean (SEM) over n = 87 passages of 16 subjects (Table 1 footnote);
+  # 1 umol/L = 25.45 ppm at 37 C
+  c_H2S:        {value: 1.06, low: 0.26, high: 1.86, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 Gut 43:100 (1.06 (SEM 0.2)); low/high = mean -/+ 4 SEM", note: "corrected 2026-10-16: the SEM is over 87 passages, so the per-passage SD is 0.20 x sqrt(87) = 1.87 umol/L (see sulfur_sigma_ln); low/high is a bracket on the mean, not +/- 1 SD. Not sampled in Gate 0"}
   c_CH3SH:      {value: 0.21, low: 0.05, high: 0.37, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 (0.21 (0.04))"}
   c_DMS:        {value: 0.08, low: 0.04, high: 0.12, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 (0.08 (0.01))"}
+  sulfur_sigma_ln: {value: 1.1, low: 1.0, high: 1.25, units: "-", status: DERIVED, source: "per-passage spread of sulfur concentration: Suarez et al. 1998 Table 1 H2S SEM 0.20 over n = 87 -> SD 1.87, CV 1.76, sigma_ln = 1.21; Suarez et al. 1997 H2S 2.9 +/- 4.0 x 10^-3 % (dispersion read as SD) -> CV 1.38, sigma_ln = 1.07", note: "log-normal multiplier on all three sulfur gases (mean 1), independent of passage volume and hence of audibility: Suarez 1997 Table 3, r(volume, [H2S]) = +0.195 ns. Used by perception/run_selection.py"}
 
 composition:        # % v/v; Modesto et al. 2022 Dig Dis Sci 67:3842 (11-study meta-analysis); ranges Freire et al. 2022 Sensors 22:838 Table 1
   N2:           {value: 65.1, low: 26.0, high: 88.0, units: "%", status: VERIFIED}
