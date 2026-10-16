@@ -1,51 +1,185 @@
 \section{Results}
 \label{sec:results}
 
-\subsection{Most releases are silent}
-\gap{Prose.} 79\% of releases do not oscillate (regime S1) \src{acoustics/m2\_report.md}.
+\subsection{Most releases are physically silent}
+\label{sec:res-acoustics}
+Over the release prior, 79\% of passages never drive the valve into oscillation (regime S1;
+Figure~\ref{fig:acoustics}). The remaining 21\% are audible in any quiet room.
+
+The intermediate regime, an oscillating but inaudible release, is empty. At sofa distance (0.6\,m), even
+1\,mL\,s$^{-1}$ of oscillating flow gives a 32\,dB fundamental, against an 18\,dB hearing threshold at 160\,Hz. A
+``silent'' passage is therefore either physically silent or masked.
+
+Masking needs loud backgrounds. In a restaurant or a subway car, only near-maximal passages (0.6--1.7\,L\,s$^{-1}$)
+are still heard. Audible releases are fast: the median exit velocity is 68\,m\,s$^{-1}$ through a 1.6\,mm orifice
+\src{acoustics/m2\_report.md}.
+
 \begin{figure}
 \includegraphics[width=\textwidth]{fig3_acoustic_regimes.png}
-\caption{\gap{caption} Acoustic regimes.}
+\caption{Acoustic regimes over volume flow rate and orifice diameter. \gap{caption details}}
 \label{fig:acoustics}
 \end{figure}
 
 \subsection{Validation}
-\gap{Prose and merged figure (jet + CBL).}
+\label{sec:res-validation}
+The jet constants and the convective boundary layer behave as stated in Section~\ref{sec:cfd}. Their biases matter
+here in two ways.
+\begin{itemize}
+  \item Excess jet spreading over-dilutes audible releases by about 15\%, which favours the silent release.
+  \item The fast convective boundary layer shortens travel times to the releaser's own nose by about 30\%. The analytic
+  model compensates by stretching the CFD times by a factor of 1.4.
+\end{itemize}
+\gap{merged validation figure (jet + boundary layer)}
 
 \subsection{The physical ratio}
-\gap{Prose.} Equal mass: $R$ = 1.35 (neighbour), 1.73 (own nose). As emitted: 0.92 (neighbour, $P(R>1)$ = 0.47), 1.15
-(own nose). Sobol: release volumes explain about 0.6 of the variance as emitted \src{uq/m7\_report.md}.
+\label{sec:res-ratio}
+Table~\ref{tab:ratio} gives $R = C_\mathrm{silent}/C_\mathrm{audible}$, breath-averaged, for 20\,000 random pairs.
+
+\begin{table}
+\caption{Silent-to-audible concentration ratio from the analytic model (20\,000 pairs).}
+\label{tab:ratio}
+\begin{tabular}{llccc}
+\toprule
+receptor & basis & median $R$ & 5--95\% & $P(R>1)$ \\
+\midrule
+own nose & equal mass & 1.73 & 0.94--14.0 & 0.93 \\
+own nose & as emitted & 1.15 & 0.20--6.0 & 0.56 \\
+neighbour & equal mass & 1.35 & 0.97--8.7 & 0.93 \\
+neighbour & as emitted & 0.92 & 0.15--5.0 & 0.47 \\
+neighbour, denim & as emitted & 0.63 & 0.11--3.4 & 0.31 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Equal mass.} At equal mass a silent release is delivered more efficiently, as Eq.~\eqref{eq:silencer}
+predicts: the audible release has been pre-diluted by its own momentum. Applying the just-noticeable ratio of 1.28,
+54\% of these pairs are perceptibly stronger for the silent release at the neighbour and 44\% are indistinguishable
+\src{uq/m7\_report.md}.
+
+\emph{As emitted.} Passages as emitted reverse the picture, because loud passages are larger. At the neighbour a silent
+passage is stronger in 47\% of pairs, i.e.\ a coin flip. Only 37\% are perceptibly stronger, against 44\% perceptibly
+weaker. Trousers strip the jet momentum from both releases and push $P(R>1)$ down to 0.31.
+
+\emph{What decides it.} As emitted, the two passage volumes explain about 0.6 of the variance of $\log_{10} R$ at the
+neighbour. At equal mass, the eddy diffusivity $K$ explains 0.35. Sphincter pressure, discharge coefficient, buoyancy
+and inhalation time each explain less than 0.5\%: the valve decides whether a passage is heard, not how strongly it
+smells.
+
+\emph{Regime map} (Figure~\ref{fig:uq}a). The silent advantage is perceptible only at short travel times and high
+audible Silencer numbers. At the releaser's own nose (6.7\,s) every audible release is perceptibly weaker at equal
+mass. At the neighbour (12.5\,s) a barely audible release is indistinguishable from a silent one.
+
 \begin{figure}
 \includegraphics[width=\textwidth]{fig10_regime_uq.png}
-\caption{\gap{caption} Regime map, first-order indices and the layered headline.}
+\caption{(a) Regime map of $\log_{10} R$ at equal mass; (b) first-order Sobol indices; (c) the headline in layers:
+physics, perception, memory. \gap{caption details}}
 \label{fig:uq}
 \end{figure}
 
 \subsection{A sofa}
-\gap{Prose.} The backrest chimney carries the silent release over the releaser's head; the jet escapes it and reaches the
-neighbour \src{cfd/cases/sofa/m4\_report.md}. With the releaser reclined by 4.5\,\textdegree, which closes the back
-onto the backrest, the silent release leaves the seat-level wedge sideways and still rises behind the head. No
-breathing zone receives a detectable dose. The audible jet now exceeds threshold at the releaser's own nose (OAV 2--4).
-In both postures the breathing-zone ratio is $R \approx 10^{-11}$--$10^{-14}$ \src{cfd/cases/sofa/results\_rec4.5.json}.
+\label{sec:res-sofa}
+The simulations of two people on a sofa overturn the analytic picture, in the direction opposite to the belief
+(Table~\ref{tab:sofa}, Figure~\ref{fig:sofa}).
+
+\emph{Silent release.} The silent release has too little momentum to leave the convective boundary layer of the
+releaser's back. It is drawn up the gap between back and backrest, over the head and on to the ceiling. Within 30\,s
+its breathing-zone OAV stays at or below $10^{-10}$ at both noses, while the region within 25\,cm of the releaser's head
+reaches an OAV of 6\,000.
+
+\emph{Audible release.} The audible jet escapes this chimney. It reaches the neighbour's head region within 6\,s and
+both breathing zones at OAV 0.2--0.6.
+
+\emph{Reclined posture.} Reclining the releaser by 4.5\,\textdegree\ closes the back onto the backrest. The silent
+release then leaves the seat-level wedge sideways and still rises behind the head, so no breathing zone receives a
+detectable dose. The audible jet now wraps around the releaser's face, exceeding threshold at their own nose (OAV
+2--4).
+
+In both postures the breathing-zone ratio is $R \approx 10^{-11}$--$10^{-14}$
+\src{cfd/cases/sofa/m4\_report.md}. \gap{120 s window result}
+
+\begin{table}
+\caption{Sofa duet: peak breathing-zone OAV within 30\,s of release onset (RANS mean field).}
+\label{tab:sofa}
+\begin{tabular}{llcc}
+\toprule
+nose & posture & silent & audible \\
+\midrule
+releaser & upright & $5\times10^{-11}$ & 0.46 \\
+releaser & reclined 4.5\,\textdegree & $9\times10^{-11}$ & 3.3 \\
+neighbour & upright & $3\times10^{-14}$ & 0.63 \\
+neighbour & reclined 4.5\,\textdegree & $3\times10^{-15}$ & 0.19 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}
 \includegraphics[width=\textwidth]{fig5_sofa_duet_noses.png}
-\caption{\gap{caption} Sofa duet: nose time series.}
+\caption{Sofa duet, upright posture: OAV at the releaser's and the neighbour's nose for the same 92\,mL released
+silently or audibly. \gap{caption details}}
 \label{fig:sofa}
 \end{figure}
 
 \subsection{Perception}
-\gap{Prose.} Median silent/audible difference at the neighbour: 2.7\% in perceived intensity, below the JND
+\label{sec:res-perception}
+\emph{Breath sampling.} Breath sampling barely protects an unwarned neighbour: the worst breath still captures 81--99\%
+of the peak. A warned listener needs about 23\,s of breath-hold for an even chance of missing the cloud
 \src{perception/m6\_report.md}.
 
+\emph{Silent versus audible.} Through Stevens' law, the median physical difference at the neighbour becomes a 2.7\%
+difference in perceived intensity. That is below the olfactory just-noticeable difference of about 7\% in intensity.
+Without an expectation effect, a silent passage seems stronger in 47\% of pairs.
+
+\emph{Expectation.} An expectation effect large enough to flip this would have to exceed 3\% in intensity. For brief
+exposures the measured label effects are 0--3\%, and their sign for an unwarned listener is not established
+\cite{herz2001,djordjevic2008,dalton1999}. We therefore keep expectation as an auxiliary hypothesis only.
+
 \subsection{The composition counter-argument}
-\gap{Prose.} No link between passage volume and sulfur concentration; sulfur mass rises with volume
-\cite{suarez1997}; nitrogen is blood-derived, not swallowed air \cite{levitt1970,tomlin1991}.
+\label{sec:res-composition}
+Could loud passages be mostly swallowed air and therefore odourless? Across 87 passages, \ce{H2S} concentration does
+not correlate with passage volume ($r = +0.20$, not significant), so sulfur \emph{mass} rises with volume
+\cite{suarez1997}.
+
+The nitrogen in flatus is largely blood-derived rather than swallowed \cite{levitt1970}. At high production rates
+almost all flatus is fermentation gas \cite{tomlin1991}. The counter-argument has no support.
 
 \subsection{Memory}
-\gap{Prose.} Truth 0.49; bystander belief 0.67--0.92 across observer models; emitter unbiased
-\src{perception/selection.json, uq/observer\_ps.json}.
+\label{sec:res-memory}
+Applying Theorem~3 to the simulated passages (Figure~\ref{fig:memory}) gives the following.
+
+\emph{Gate-0 observer.} For an observer with trained-panel thresholds and the cloud centred on the nose, 93\% of passages
+are smelled. The remembered belief is then 0.53, against a truth of 0.49.
+
+\emph{Untrained observers.} Literature observer models lower the share of passages smelled, and the belief rises:
+
+\begin{table}
+\caption{Base rate $p_S$ and remembered belief $P(\text{a silent passage seems stronger})$ for literature observer
+models; the cloud is centred on the neighbour's nose, so each $p_S$ is an upper bound.}
+\label{tab:observers}
+\begin{tabular}{lccc}
+\toprule
+observer & $p_S$ & belief & truth \\
+\midrule
+trained panel, deterministic & 0.93 & 0.53 & 0.49 \\
+attentive, population thresholds & 0.59--0.68 & 0.67--0.73 & 0.50 \\
+distracted (everyday) & 0.21 & 0.91 & 0.50 \\
+distracted, clothed emitter & 0.19 & 0.92 & 0.51 \\
+distracted, sound cues attention & 0.31 & 0.81 & 0.32 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Sound-cued attention.} When a sound makes the bystander attentive, audible passages are smelled more often, the
+selection gap shrinks and the belief falls to 0.81. The ``truth'' in that row is lower, because that observer really
+does smell audible passages more often.
+
+\emph{The emitter.} The emitter, who notices every release, shows no selection bias (Figure~\ref{fig:memory}a).
+
+\emph{Masking.} Masking is not a clean test of the mechanism: in loud backgrounds only the largest passages are heard,
+and this ``loudness selection'' weakens the belief on its own.
+
 \begin{figure}
 \includegraphics[width=\textwidth]{fig13_memory_filter.png}
-\caption{\gap{caption} The memory filter.}
+\caption{The memory filter: (a) what each observer keeps; (b) belief against base rate, with literature observer
+models; (c) masking. \gap{caption details}}
 \label{fig:memory}
 \end{figure}
