@@ -174,3 +174,15 @@
   perceives ≈ 1.5× more. This carries into Scenario C.
 - Still assumptions: γ itself (direction verified, size not found), τ_adapt, the post-hold breath, and the lift-car
   ventilation.
+
+## 2026-10-16 · Paused here (by request)
+- **M4 first pass is complete:** `cfd/cases/sofa/m4_report.md`, Figs 5 and 6.
+- **Not run yet**, for a later session, in suggested order:
+  1. A reclined-posture variant that closes the back/backrest gap.
+  2. A longer drift window (120 s) for room-scale mixing.
+  3. An intermittency (meandering) correction of the RANS mean.
+- **M3b at 26 °C still open.** The re-run (initialised from the 23 °C field) was interrupted by a session restart and is
+  partial in `cfd/runs/cbl_t26_tr`, which is gitignored. To finish it: delete that directory, run
+  `cfd/validation/cbl/run_transient.sh`, then `cfd/validation/cbl/analyze.py`.
+- **Gate 0 update** (own-nose transport time from the CFD trajectories) is still pending.
+
