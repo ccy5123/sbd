@@ -14,6 +14,15 @@ The model chains four steps, and each defines one of the plan's §4.1 categories
      lips give p₀ = K·f with K = 4–8 Pa/Hz, i.e. 0.64–1.28 kPa at 160 Hz (Fletcher & Tarnopolsky 1999).
    - C_d = 0.85 (0.6–1.0, glottal value).
    - The nominal onset velocity is **u_onset ≈ 30 m/s** (14–51 m/s over the ranges).
+   - **Who controls the valve** (added 2026-10-16).
+     - Resting closure is mostly involuntary: the internal sphincter supplies about 70–85 % of resting anal pressure,
+       and the voluntary external sphincter 15–30 % (literature cited by Miller et al. 1988).
+     - A voluntary squeeze adds 10–50 mmHg but can be held for only about a minute (Duthie & Bennett 1963).
+     - "Silencing" a passage therefore acts on part of the closing force, plus buttock posture, and works against
+       the rectal driving pressure set by the gas volume. This is why the onset criterion is written in terms of the
+       exit velocity, which reflects both.
+     - P_th is the oscillation threshold of the already-opened valve, not the resting closing pressure (~8.7 kPa).
+       No flatus-acoustics study exists, so the reed model is neither supported nor refuted.
 2. **Source.** The valve modulates the volume flow. The fundamental has amplitude α·Q with α = 0.7 (0.5–1.0), and the
    harmonics roll off at −12 dB/octave in volume flow, as for a glottal source. Each harmonic radiates as a monopole
    into a half space, p = 2ρωq/(4πr). As a check, Q′ = 10⁻⁴ m³/s at 150 Hz and 1 m gives 56 dB.

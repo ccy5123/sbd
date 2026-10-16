@@ -2,8 +2,10 @@
 
 Fig. 7  'The breath-hold strategy'  - what a breathing nose actually samples from a passing puff, and whether a warned
                                        listener can dodge it by holding their breath.
-Fig. 11 'The preparedness break-even' - how large an expectation (prediction-error) amplification gamma must be for the
-                                       belief to survive the physics; gamma* = R^-n.
+Fig. 11 'The expectation break-even' - how large an expectation amplification gamma would have to be for the belief to
+                                       survive the physics; gamma* = R^-n. gamma is an auxiliary hypothesis (2026-10-16):
+                                       its sign for unwarned exposure is not established; the main account of the belief
+                                       is selection (perception/run_selection.py, Fig. 13).
 Usage (repo root): python3 perception/run_m6.py  -> figures/fig7_breath_hold.png, figures/fig11_gamma.png,
                                                     perception/results.json
 """
@@ -145,8 +147,9 @@ def fig11(mc):
                     "intensity_ratio_median": float(np.median(R) ** n),
                     "P_belief_gamma1": float(pm.p_belief(R, n, [1.0])[0]),
                     "P_belief_gamma1.5": float(pm.p_belief(R, n, [1.5])[0])}
-    a1.axvspan(1.0, 1.3, color="#f2a3a2", alpha=0.25, lw=0)
-    a1.text(1.14, 0.97, "plausible\nexpectation\neffect", fontsize=7, color=INK2, ha="center", va="top")
+    a1.axvspan(0.97, 1.03, color="#e4e3df", lw=0)  # label effects on intensity, brief exposure (Herz 2001; Dalton)
+    a1.text(0.955, 0.97, "label effects on\nintensity, brief\nexposure: ±3 %,\nsign unknown", fontsize=7,
+            color=INK2, ha="right", va="top")
     jnd = (1 + P["weber_C"]) ** n
     a1.axvline(jnd, color=MUTED, lw=0.8, ls=(0, (1, 2)))
     a1.text(jnd * 1.01, 0.36, f"intensity JND\n(ΔC/C = {P['weber_C']})", fontsize=7, color=INK2)
@@ -154,9 +157,9 @@ def fig11(mc):
     a1.axvline(1.0, color=INK, lw=0.8)
     a1.text(1.01, 0.03, "no expectation effect", fontsize=7.5, color=INK2, rotation=90, va="bottom")
     a1.set_xscale("log"); a1.set_xticks([0.7, 1, 1.5, 2, 3, 4]); a1.set_xticklabels(["0.7", "1", "1.5", "2", "3", "4"])
-    a1.set_ylim(0, 1); a1.set_xlabel("γ, perceived-intensity amplification for an unwarned (silent) exposure")
+    a1.set_ylim(0, 1); a1.set_xlabel("γ, perceived-intensity factor for an unwarned (silent) exposure")
     a1.set_ylabel("P(silent perceived as worse)")
-    a1.set_title(f"a  How much surprise does the belief need? (Stevens n = {n})", loc="left")
+    a1.set_title(f"a  How much surprise would the belief need? (Stevens n = {n})", loc="left")
     a1.legend(frameon=False, fontsize=7.5, loc="lower right")
     a2.axvspan(0.20, 0.45, color="#e4e3df", lw=0)
     for nv, lab in ((0.28, "H₂S (flatus)"), (0.36, "thiols"), (0.40, "all odorants")):
@@ -166,8 +169,8 @@ def fig11(mc):
     a2.set_xlabel("Stevens exponent n"); a2.set_ylabel("break-even γ* at the median pair")
     a2.set_title("b  Break-even vs the steepness of the intensity law", loc="left")
     a2.set_ylim(0.6, 1.8)
-    fig.suptitle("Fig. 11 · The preparedness break-even: γ* = R^(−n). Belief survives whenever unwarned noses amplify by more"
-                 " than γ*", x=0.01, ha="left", fontsize=10, fontweight="bold")
+    fig.suptitle("Fig. 11 · The expectation break-even (auxiliary hypothesis): γ* = R^(−n). The sign of γ for unwarned "
+                 "noses is not established", x=0.01, ha="left", fontsize=10, fontweight="bold")
     fig.savefig(ROOT / "figures/fig11_gamma.png", dpi=200)
     plt.close(fig)
     return out
