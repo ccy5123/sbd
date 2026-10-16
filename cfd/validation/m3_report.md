@@ -59,25 +59,34 @@
   period of about 2 000 iterations. The closed-room buoyant circulation has no steady state, and averaging pseudo-time
   has no meaning.
 - **Transient runs used.** 60 s of physical time, Euler, max Co 5. The 20 and 23 °C runs start from the last steady
-  field; the 26 °C run starts from rest. Statistics are taken over 30–60 s (`fieldAverage` UMean/TMean; line samples
+  field. The 26 °C run started from rest and failed after 1 s (T(h) inversion, max Co 25), so it was re-initialised
+  from the developed 23 °C field at 60 s without T, letting the new wall temperatures apply. It was interrupted at
+  35 s by a container restart and resumed from the 30 s write. Statistics are taken over 30–60 s (`fieldAverage` UMean/TMean; line samples
   every 0.5 s).
 
-**Results** (pending: 26 °C run)
+**Results**
 
 | room | peak U_z in front of face (mean ± sd) | Licina et al. 2014 |
 |---|---|---|
 | 20 °C | 0.34 ± 0.01 m/s | 0.24 m/s (clothed), 0.205 m/s (nude) |
 | 23 °C | 0.28 ± 0.02 m/s | ≈ 0.20 m/s (linear between 20 and 26 °C) |
-| 26 °C | *queued* | 0.16 m/s |
+| 26 °C | 0.25 ± 0.04 m/s | 0.16 m/s |
 
-- The CFD conveyor belt is about 40 % faster than the thermal-manikin measurement at both 20 and 23 °C.
-- The room-temperature trend has the right sign and size: −19 % from 20 to 23 °C, against −17 % interpolated from
-  Licina et al.
+- The CFD conveyor belt is faster than the thermal-manikin measurement at every temperature: +42 % at 20 °C, ≈ +40 %
+  at 23 °C (against the interpolated value), +56 % at 26 °C. The bias grows as the skin–room temperature difference
+  shrinks.
+- The room-temperature trend has the right sign and roughly the right size:
+  - 20 → 23 °C: −19 %, against −17 % interpolated from Licina et al.;
+  - 20 → 26 °C: −27 %, against −33 % measured.
 - Candidate causes:
   - coarse near-wall resolution with wall functions;
   - a sealed half room whose walls are held at room temperature (no stratification);
   - a geometric manikin with no hair or clothing.
-- The full room-temperature trend (Licina: −33 % from 20 to 26 °C) will be checked once the 26 °C run completes.
+- The 26 °C run has a larger fluctuation (sd 0.04 m/s) and inherits its initial flow from the 23 °C field. Its 30 s
+  averaging window is short for a weaker plume, so its bias is less certain than at 20 and 23 °C.
+- Consequence for Scenario A (23 °C room): CFD transport times to the nose are ~30 % too short. `u_own_eff` already
+  extends the CFD times ×1.4 (params.yaml). This bias makes the own nose look *more* exposed than it is, which favours
+  neither release type.
 
 **Conveyor-belt trajectories** (time-mean field, `cfd/postprocess/conveyor_from_cbl.sh`; the figure shows 23 °C, the
 Scenario A room temperature):

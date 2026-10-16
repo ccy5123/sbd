@@ -345,3 +345,12 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
   - Rim & Novoselac 2009 used off-body sources (a near-floor source behind the occupant gives mouth ≈ 1.2× ambient in
     stratified air, ≈ 1× in mixed air), so it is only weak support for "the plume favours the emitter".
   - Croy 2015 tested no sulfur odorants.
+
+### M3b at 26 °C done (2026-10-16)
+- `cbl_t26_tr`: initialised from 23 °C at 60 s without T; interrupted at 35 s by a container restart and resumed from
+  30 s with `startFrom latestTime`; no FATAL.
+- Face-front peak 0.25 ± 0.04 m/s, against Licina 0.16 (+56 %).
+- Bias across temperatures: +42 % (20 °C), ≈ +40 % (23 °C), +56 % (26 °C). Trend 20 → 26 °C: −27 % (Licina −33 %).
+- M3 report table filled; Fig. 4 regenerated. `u_own_eff` (×1.4 correction at 23 °C) is unchanged.
+- This closes the pause-point item "M3b at 26 °C still open". The Gate 0 own-nose update was already done (see
+  above).
