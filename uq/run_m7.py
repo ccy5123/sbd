@@ -28,9 +28,9 @@ from matplotlib.colors import TwoSlopeNorm
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "gate0"))
 sys.path.insert(0, str(ROOT / "acoustics"))
-import run_gate0 as g0  # noqa: E402
-from model import Release, phase1, ratio  # noqa: E402  (gate0 model)
-from regime import u_onset  # noqa: E402
+import run_gate0 as g0
+from model import Release, phase1, ratio  # gate0 model
+from regime import u_onset
 
 P0 = g0.P0
 SURFACE, INK, INK2, MUTED = "#fcfcfb", "#0b0b0b", "#52514e", "#8a8984"
@@ -224,7 +224,7 @@ def main():
         print(k, {a: (round(b, 3) if isinstance(b, float) else b) for a, b in v.items()})
     for tag in sob:
         top = sorted(((v["S1"], v["label"]) for k, v in sob[tag].items() if isinstance(v, dict)), reverse=True)[:5]
-        print(tag, "sum S1 %.2f" % sob[tag]["_sum_S1"], [(lab, round(s, 3)) for s, lab in top])
+        print(tag, f"sum S1 {sob[tag]['_sum_S1']:.2f}", [(lab, round(s, 3)) for s, lab in top])
     print("Si_onset", round(rm["Si_onset"], 1), "Si_silent_ref", round(rm["Si_silent_ref"], 2))
     print("memory", res["memory_layer"])
 
