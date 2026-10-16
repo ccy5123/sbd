@@ -186,3 +186,92 @@
   `cfd/validation/cbl/run_transient.sh`, then `cfd/validation/cbl/analyze.py`.
 - **Gate 0 update** (own-nose transport time from the CFD trajectories) is still pending.
 
+## 2026-10-16 · Discussion and literature pass 2 (no code changes)
+27 papers plus 2 supplements read in full; entries in `refs/references.yaml` under "Literature pass 2". Missing:
+Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
+
+### Definitions settled
+- **"Deadliness" of one event** = peak perceived intensity at breath resolution, i.e. the worst single inhalation
+  (flow-weighted mean concentration per inhalation), I = k·OAV^n. Cumulative exposure is a secondary metric.
+  - Perceived intensity saturates within one sniff: 1 sniff = 7 sniffs (Laing 1983); optimum 0.39–0.64 s, at most
+    1.63 s for butanol (Laing 1985).
+  - Within that window intensity does integrate: longer 100–300 ms H2S pulses are rated stronger (Frasnelli 2006,
+    F = 90.1).
+  - The sniff is the unit of processing (Uchida & Mainen 2003; Kepecs 2006). Odour-impact regulation also works per
+    breath (Schauberger 2012).
+- **Comparison bases**, to be stated in every claim:
+  - (A) equal mass and composition (physics);
+  - (B) as emitted (population);
+  - (C) among *noticed* events (folk experience).
+
+### Physics claims (theory, no new runs)
+- **Theorem 1 (linear transport).** For a passive release, C(t) = G * q. The time-integrated dose is invariant to the
+  release history, and a slower release (q_silent = q_audible * k, with ||k||₁ = 1) never has a higher peak (Young's
+  inequality).
+  - Holds for any G: any posture, room or flow.
+- **Theorem 2.** Release-mode memory decays with time and distance. In a closed room both modes tend to M / V_room.
+- **Exceptions** come only from release momentum and buoyancy (non-linear):
+  - near-field jet pre-dilution, which can make R > 1 (bounded by Si);
+  - routing changes, either sign (sofa chimney).
+  - This is the regime map.
+
+### Composition counter-argument ("loud = swallowed air, odourless"), addressed head-on
+- **Suarez 1997, Table 3** (87 passages):
+  - r(volume, [H2S]) = +0.195 (ns); MeSH −0.206 (ns); DMS +0.223 (ns);
+  - r(volume, [N2]) = −0.503 (P < 0.001); r(volume, [CO2]) = +0.559 (P < 0.001).
+  - Concentration criterion: no support. Mass criterion: refuted; sulfur mass rises with volume.
+  - Caveat: Suarez 1997 and 1998 are the SAME dataset (16 subjects, 87 passages, beans + lactulose, rectal tube,
+    no sound data).
+- **N2 is mostly blood-derived**, not swallowed air (Levitt & Bond 1970; Tomlin 1991). High-rate collections are
+  fermentation gas (Tomlin: > 80 mL/h ⇒ 98.9 % fermentation gas).
+- **Odour ratings in Suarez 1998** used fixed 10 mL aliquots, so they rate concentration. The authors argue the nose
+  responds to the volume of noxious gas per passage, which supports the mass criterion.
+- **Wording fix:** 70–85 % of resting anal pressure is the involuntary internal sphincter (Miller 1988). "The
+  sphincter controls sound" must distinguish the external (voluntary) from the internal sphincter.
+- No paper on flatus acoustics exists; the reed model is neither supported nor refuted.
+
+### Origin of the belief: restructured
+- **Main explanation: selection (Berkson / collider).** Noticed = heard OR smelled, so
+  P(smelly | silent, noticed) = 1 while P(smelly | audible, noticed) = p_S, even if sound and smell are independent.
+  - Cite this as the deterministic OR-collider case of Berkson's formula, not as his numerical example; the
+    direction there depends on the hospitalisation rates (Snoep 2014 appendix, Boyd formulas).
+  - Bias = 1 − p_S: stronger when stinky events are rare.
+  - Amplifiers: distinctiveness-based illusory correlation (Hamilton & Gifford 1976); availability (Tversky &
+    Kahneman 1973); selective-outcome sampling (Fiedler 2000).
+  - Competing route: the phrase itself transmits an associative belief (Chapman 1967), which must be separated
+    from experience.
+- **Expectation factor γ demoted to an auxiliary hypothesis with uncertain sign.**
+  - A negative label raises intensity (Djordjevic 2008: partial η² ≈ 0.18; Dalton 1999).
+  - No label ≈ positive label (Djordjevic, p = .65). The sound acts as a negative label given in advance, so the
+    literature, taken literally, predicts warned ≥ unwarned, which is opposite to γ > 1 for silent releases. No study
+    tests warned vs unwarned directly.
+  - Magnitude for a brief exposure is 0–3 % (Herz 2001; first ratings in Dalton). The 1.18–1.61 values (Dalton
+    1999) are 20-min means.
+  - "Sensitisation" was overstated: in Dalton 1999 intensity fell in all groups, and negative framing only slowed
+    the fall.
+- **Self vs other odour.** Own flatus is rated less unpleasant than a stranger's (Stevenson & Repacholi 2005). This
+  is hedonics only: no study measures intensity.
+  - Lenk 2019 SI: the only odour item is bad breath. Hygiene disgust: self 2.44 > partner 2.26, stranger 2.89, so
+    there is no "self is least disgusting" pattern.
+  - Platek 2001: the self advantage needs knowing the source.
+
+### Predictions (theory only; no survey planned)
+1. **Emitter vs bystander.** The emitter's noticing does not depend on smell (h₁ = 0 ⇒ OR = 1, Boyd), so the
+   emitter should hold the belief less. Supported by Berkson/Boyd, Fiedler 2000 and Denrell 2005 (analogy only).
+2. **Noisy environments (masking)** — the original prediction is revised. The accounts disagree, which makes
+   masking a discriminating test:
+   - pure selection: no change;
+   - Hamilton & Gifford: weaker belief;
+   - Fiedler sample size: stronger belief.
+3. **Anosmic people** never notice silent releases.
+
+### To do (later, with code)
+- Rewrite the M6 key sentence:
+  - Old: "a 3 % expectation amplification (γ* = 1.03) sustains the belief".
+  - New: "with γ = 1, P(belief) at the neighbour is about 0.47, a coin flip; selection explains the rest".
+- Fix the sphincter wording in the M2 report.
+- Behavioural differences (e.g. changing posture to release quietly) are treated in psychological and social terms
+  only, with no physics model.
+- Add the selection model (Theorem 3, Berkson form) to the manuscript outline. Optionally, simulate apparent R
+  under (C) using Gate 0 samples.
+
