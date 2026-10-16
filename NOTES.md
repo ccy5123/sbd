@@ -306,3 +306,24 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
   - Neighbour numbers are unchanged.
   - Updated: `gate0_report.md` §9, M2 table, M6 table, and the selection emitter value (0.521).
 
+
+### M7 — uncertainty, regime map, headline (2026-10-16; see `uq/m7_report.md`, Fig. 10)
+- Deviation: the surrogate is Gate 0, not a CFD Latin hypercube (one sofa branch = 1–2 h). The M4 branches are the
+  check (routing, which Gate 0 lacks).
+- Regime map (equal mass, room air): acoustic onset Si = 197. JND contour (ratio 1.28) crosses the own-nose time
+  (6.7 s) at Si ≈ 110 and the neighbour time (12.5 s) at Si ≈ 200.
+- Sobol (given-data, dependent inputs → descriptive):
+  - as emitted, the two volumes explain ~0.6 of the variance of log R;
+  - at equal mass, K explains 0.35;
+  - valve parameters explain < 0.5 % each.
+- Headline P(R > 1):
+  - neighbour, as emitted: 0.47 (perceptibly worse: silent 0.37 / audible 0.44);
+  - equal mass: 0.93;
+  - own nose: 0.56 / 0.93;
+  - denim: 0.31.
+- Base rate p_S: background research found no direct measurement (null result). Bracket 0.1–0.5, central 0.25
+  [ASSUMPTION, low]. Memory-layer belief 0.78–0.97 (0.91 central).
+  - New refs: ohge2005, bolin1998, amoore1983, rim2009, stevens1988, wilby1969, whisman1978, desiato2021, croy2015,
+    olmedo2012, weinberg2005 (abstracts only; PDFs requested).
+  - Most useful if obtained: Bolin 1998 (fraction of odorous passages), Suarez 1998 full text (rating scale, share
+    rated odourless).
