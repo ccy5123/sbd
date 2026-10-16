@@ -1,6 +1,9 @@
 # Preprint outline (M9, skeleton)
 
-*2026-10-16 · status: skeleton for review. Every number below points to the file it comes from; nothing here is new
+*2026-10-16 · status: skeleton for review. The manuscript itself is LaTeX with the ACS `achemso` class (author's
+choice): `main.tex` + `sections/*.tex`, bibliography generated from `refs/references.yaml` by `make_bib.py`; build with
+`latexmk -pdf main.tex` (needs texlive-publishers and texlive-science). Figures carry their own "Fig. N ·" titles from
+the analysis scripts; manuscript versions without those titles are a **GAP**, as LaTeX numbers figures itself. Every number below points to the file it comes from; nothing here is new
 analysis. Items marked **GAP** are missing before a full draft. Narrative branch (confirmed 2026-10-15): "Debunked
 (mostly): the nose was fooled by the ears", plus a regime map.*
 

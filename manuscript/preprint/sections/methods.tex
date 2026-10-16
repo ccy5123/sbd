@@ -1,0 +1,37 @@
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Source}
+\gap{Prose.} Passage volume 17--375\,mL and composition \cite{suarez1997,suarez1998}; signed buoyancy; per-passage
+sulfur spread $\sigma_{\ln} = 1.1$. All parameters with sources and status: Table~\ref{tab:params}
+\src{params/params.yaml}.
+
+\begin{table}
+\caption{Model parameters (generated from \texttt{params/params.yaml}).}
+\label{tab:params}
+\gap{table generator}
+\end{table}
+
+\subsection{Acoustics}
+\gap{Prose.} Lip-reed onset, harmonic monopole radiation, ISO 226 audibility \cite{iso226_2023}, critical-ratio masking
+\cite{hawkins1950}; onset $u_0 \approx 30$\,m/s (14--51) \src{acoustics/m2\_report.md}.
+
+\subsection{Analytic dispersion (Gate 0)}
+\gap{Prose.} Starting jet to puff \cite{sangras2002,diez2003}, thermal entrainment \cite{landeau2014}, Gaussian puff
+transport with indoor eddy diffusivity \cite{cheng2011}, inhalation averaging; 20\,000 Monte Carlo pairs
+\src{gate0/gate0\_report.md}.
+
+\subsection{Computational fluid dynamics}
+\gap{Prose.} OpenFOAM 13, transient RANS $k$--$\omega$ SST, Boussinesq (internal-energy form); free-jet and body-plume
+validation \cite{licina2014}; sofa duet with a momentum-equivalent release \src{cfd/validation/m3\_report.md,
+cfd/cases/sofa/m4\_report.md}.
+
+\subsection{Perception and observers}
+\gap{Prose.} Stevens exponent $n = 0.28$ \cite{collins2001}, Weber fraction 0.28 \cite{stone1965};
+population thresholds \cite{amoore1983,wilby1969}; per-passage spread of 2 binary steps \cite{amoore1983,stevens1988};
+distracted observers \cite{whisman1978,forster2018}; peak intensity unaffected by distraction \cite{fallon2018}
+\src{perception/m6\_report.md, uq/observer\_ps.py}.
+
+\subsection{Uncertainty}
+\gap{Prose.} Gate 0 as surrogate; given-data first-order Sobol indices; JND as a concentration ratio of 1.28
+\src{uq/m7\_report.md}.

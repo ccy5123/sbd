@@ -1,0 +1,52 @@
+% Preprint (M9). Skeleton: structure, claims and sources only; prose to be written section by section.
+% Build: latexmk -pdf main.tex   (refs.bib is generated: python3 manuscript/preprint/make_bib.py)
+\documentclass[journal=jacsat,manuscript=article]{achemso}
+
+\usepackage[version=4]{mhchem}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\graphicspath{{../../figures/}}
+\SectionNumbersOn
+
+% Skeleton marker: renders as a bracketed note so gaps stay visible in the PDF.
+\newcommand{\gap}[1]{\textbf{[GAP: #1]}}
+\newcommand{\src}[1]{\textsuperscript{\texttt{[#1]}}}  % pointer to the repository file a number comes from
+
+\author{Chan Young Joe}
+\affiliation{\gap{affiliation}}
+\email{ccy5123ccy@gmail.com}
+
+\title{The Silencer Conjecture: a fluid-dynamical, perceptual and selection-bias test of the ``silent but deadly'' belief}
+
+\abbreviations{OAV, odour activity value; CBL, convective boundary layer; JND, just-noticeable difference}
+\keywords{flatus, odour dispersion, starting jet, convective boundary layer, Berkson bias, olfactory perception}
+
+\begin{document}
+
+\begin{tocentry}
+\gap{TOC graphic: sofa duet, OAV iso-surfaces, manikins only}
+\end{tocentry}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/theory}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\begin{acknowledgement}
+\gap{acknowledgements}
+\end{acknowledgement}
+
+\begin{suppinfo}
+Supplementary figures S1--S5, the full parameter table and the code and data archive \gap{Zenodo DOI}.
+\end{suppinfo}
+
+\bibliography{refs}
+
+\end{document}
