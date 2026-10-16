@@ -1,22 +1,75 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\gap{Why the belief exists.} Selection is the main route \cite{berkson1946,snoep2014}; amplifiers are distinctiveness
-\cite{hamilton1976}, availability \cite{tversky1973} and sampling \cite{fiedler2000,denrell2005}; transmission of the
-phrase itself is the competing route \cite{chapman1967}.
+\subsection{Why the belief exists}
+Physics does not support the Silencer conjecture.
+\begin{itemize}
+  \item As emitted, a silent passage is stronger at a neighbour's nose in about half of all pairs.
+  \item At equal mass its advantage is modest and often imperceptible.
+  \item On a sofa it can be the release that reaches nobody at all.
+\end{itemize}
+The belief is nevertheless held across cultures. Theorem~3 explains why. A passage enters memory if it is heard or
+smelled, so every remembered silent passage was smelled, whereas audible passages are remembered whether or not
+they smelled. At plausible base rates this selection alone turns a truth of 0.5 into a belief of 0.7--0.9
+(Table~\ref{tab:observers}).
+
+Known biases reinforce the selection.
+\begin{itemize}
+  \item A silent, smelly event is distinctive, and distinctive pairings are over-remembered \cite{hamilton1976}.
+  \item Vivid episodes are easy to recall \cite{tversky1973}.
+  \item Judgements built from such biased samples are rarely corrected \cite{fiedler2000,denrell2005}.
+\end{itemize}
+
+The phrase itself may also transmit the belief without any experience behind it \cite{chapman1967}, and this
+competing route cannot be separated from experience with documentary evidence alone (Figure~\ref{fig:culture}).
+
 \begin{figure}
 \includegraphics[width=\textwidth]{fig12_culture_map.png}
-\caption{\gap{caption} The belief across languages, by evidence level.}
+\caption{The Silencer conjecture across languages, by evidence level. \gap{caption details}}
 \label{fig:culture}
 \end{figure}
 
-\gap{The emitter.} Own flatus is rated less disgusting \cite{stevenson2005,liuzza2016}; belief about the source shifts
-hedonic ratings \cite{hold1977,mcburney1976}; no study compares real own and other flatus.
+\subsection{The emitter}
+The emitter is the one observer the selection argument does not touch. They feel every release, so their noticing
+does not depend on smell, and their comparison of silent and audible releases should follow physics. Three findings
+bear on this.
+\begin{itemize}
+  \item People rate their own flatus as less disgusting than a stranger's. On a 1--5 scale the questionnaire item
+  reads ``silent but smells strongly'', and it is rated 2.51 for one's own flatus and 3.71 for a stranger's
+  \cite{liuzza2016,stevenson2005}. This lowers the absolute unpleasantness of the emitter's own releases, but not the
+  contrast between silent and audible ones.
+  \item The self-advantage appears even when people do not recognise their own odour \cite{mcburney1976}.
+  \item Believing an odour is one's own shifts its hedonic rating \cite{hold1977}. Expectation is therefore the one
+  route by which an emitter could share the belief.
+\end{itemize}
+No study has compared real own and other flatus, or asked whether emitters detect their own passages.
 
-\gap{Predictions.} Emitters hold the belief less than bystanders; anosmic people never notice silent passages; masking
-effects are ambiguous.
+\subsection{Predictions}
+The account makes three predictions, testable without new physics.
+\begin{enumerate}
+  \item Emitters should hold the belief less firmly than bystanders.
+  \item Anosmic people should never remember a silent passage at all.
+  \item Effects of background noise should be ambiguous, because masking removes the quieter audible passages and
+  so weakens the belief by itself.
+\end{enumerate}
 
-\gap{When a silent release really is worse:} bare, still air, the releaser's own nose, within about 5\,s.
+\subsection{When a silent release really is worse}
+At equal mass, at the releaser's own nose, in still air and within a few seconds, a silent release is perceptibly
+stronger than a loud one (Figure~\ref{fig:uq}a). This corner of the regime map is where the folk saying is literally
+true, and it belongs to the person least likely to report it.
 
-\gap{Limitations.} RANS and a single realisation; 30\,s window; body-plume speed over-predicted by 40--56\%; no human
-measurements; base rate unmeasured; one composition dataset \cite{suarez1997,suarez1998}.
+\subsection{Limitations}
+\begin{itemize}
+  \item \emph{Turbulence model.} The CFD is a RANS mean field. Real clouds meander, and instantaneous peaks can
+  exceed the mean by an order of magnitude. This matters for sub-threshold audible values, not for silent values
+  $10^{-10}$ below threshold.
+  \item \emph{Validation bias.} The body plume is 40--56\% too fast.
+  \item \emph{Coverage.} We simulated one release volume, two postures and a 30\,s window. \gap{120 s result}
+  \item \emph{No measurements on people.} We made no human measurements. The orifice diameter, release duration and
+  valve threshold are assumptions, covered by the uncertainty analysis.
+  \item \emph{Base rate.} The base rate of smelled passages has never been measured. We bracket it from population
+  thresholds and attention.
+  \item \emph{Composition.} All composition data come from one dataset of 16 volunteers on a bean-rich diet
+  \cite{suarez1997,suarez1998}.
+  \item \emph{Culture.} The cross-cultural evidence is documentary, not a prevalence survey.
+\end{itemize}
