@@ -248,7 +248,8 @@ def fields(src, t_rel=T_REL, T=1.0):
     }
 
 
-def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_REL, t_end: float = T_END):
+def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_REL, t_end: float = T_END,
+         recline: float = 0.0):
     troom = T_ROOM + 273.15
     rho0 = 101325 * 0.02896 / (8.314 * troom)
     src = equivalent_source(V, T, d) if mode != "precursor" else None
@@ -256,7 +257,7 @@ def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_R
     geo.mkdir(parents=True, exist_ok=True)
     sys.path.insert(0, str(ROOT / "cfd/geometry"))
     import manikin
-    manikin.write_scene(geo, DY_F, DY_N)
+    manikin.write_scene(geo, DY_F, DY_N, recline_farter=recline)
     write_emitter(geo / "emitter.stl", manikin)
     w(case / "system/blockMeshDict", block_mesh())
     w(case / "system/snappyHexMeshDict", snappy())
@@ -288,7 +289,9 @@ mixture
 """)
     w(case / "constant/momentumTransport", "simulationType RAS;\nRAS\n{\n    model kOmegaSST;\n    turbulence on;\n}\n")
     (case / "constant/fvModels").unlink(missing_ok=True)
-    nose_f, nose_n = f"({NOSE_X} {DY_F} {NOSE_Z})", f"({NOSE_X} {DY_N} {NOSE_Z})"
+    nf = manikin.nose_tip(recline)  # releaser's nose moves back when reclined; probe stays 2.5 cm in front of it
+    nose_f = f"({nf[0] + NOSE_X - manikin.NOSE[0]:.4f} {DY_F} {nf[2]:.4f})"
+    nose_n = f"({NOSE_X} {DY_N} {NOSE_Z})"
     # branch cases run in two stages (run_sofa.sh): 'release' up to stage1_end with a time step that resolves the
     # inlet pulse and its ramps, then 'drift' to t_end with maxDeltaT 0.1 and writeInterval 5
     if src:
@@ -387,12 +390,13 @@ if __name__ == "__main__":
     ap.add_argument("--d", type=float, default=None, help="effective orifice diameter (m)")
     ap.add_argument("--t-release", type=float, default=T_REL, help="release start time (s)")
     ap.add_argument("--t-end", type=float, default=T_END, help="end time (s)")
+    ap.add_argument("--recline", type=float, default=0.0, help="releaser upper-body recline about the hip (deg)")
     a = ap.parse_args()
     # defaults: silent = 92 mL over 2 s through 8 mm (u0 0.9 m/s, below acoustic onset);
     #           audible = 92 mL over 0.5 s through 2.4 mm (u0 41 m/s, above onset ~30 m/s)
     T = a.T if a.T is not None else (2.0 if a.mode != "audible" else 0.5)
     d = a.d if a.d is not None else (0.008 if a.mode != "audible" else 0.0024)
-    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end)
+    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline)
     if src:
         src["stage1_end"] = min(a.t_end, math.ceil(a.t_release + T + 0.3))
     print("written", a.case, a.mode, {k: round(v, 5) for k, v in (src or {}).items()})

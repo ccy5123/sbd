@@ -74,12 +74,30 @@ def _shift(tris, dx=0.0, dy=0.0, dz=0.0):
     return [tuple(np.asarray(p) + d for p in tri) for tri in tris]
 
 
-def body(dy: float = 0.0):
-    """Seated manikin centred at lateral offset dy (m)."""
-    return _shift(_body(), dy=dy)
+HIP = np.array([-0.07, 0.0, SEAT_Z + 0.01])  # recline pivot: bottom of the torso axis
 
 
-def _body():
+def _recline(tris, deg):
+    """Rotate triangles backwards (top towards -x) by deg about the lateral axis through HIP."""
+    if not deg:
+        return tris
+    a = np.radians(deg)
+    R = np.array([[np.cos(a), 0.0, -np.sin(a)], [0.0, 1.0, 0.0], [np.sin(a), 0.0, np.cos(a)]])
+    return [tuple(HIP + R @ (np.asarray(p) - HIP) for p in tri) for tri in tris]
+
+
+def nose_tip(recline_deg: float = 0.0):
+    """Nose tip of a manikin reclined by recline_deg (lateral offset 0)."""
+    return _recline([(NOSE,)], recline_deg)[0][0]
+
+
+def body(dy: float = 0.0, recline_deg: float = 0.0):
+    """Seated manikin centred at lateral offset dy (m); the upper body (torso, head, arms) reclined by recline_deg
+    about the hip, so the back closes onto the backrest while the pelvis and legs stay put."""
+    return _shift(_body(recline_deg), dy=dy)
+
+
+def _body(recline_deg: float = 0.0):
     t = []
     t += cylinder((-0.07, 0, SEAT_Z + 0.01), (-0.07, 0, 1.05), 0.11, 0.17)       # torso (elliptic)
     t += ellipsoid((-0.07, 0, 1.05), (0.11, 0.19, 0.07))                          # shoulders cap
@@ -87,11 +105,13 @@ def _body():
     t += ellipsoid((-0.03, 0, 1.24), (0.10, 0.08, 0.12))                          # head
     t += ellipsoid((0.065, 0, 1.215), (0.02, 0.015, 0.025))                       # nose
     for s in (-1, 1):
+        t += cylinder((-0.07, s * 0.21, 1.00), (-0.04, s * 0.22, 0.73), 0.045)               # upper arm
+        t += cylinder((-0.04, s * 0.21, 0.73), (0.28, s * 0.14, 0.62), 0.04)                 # forearm
+    t = _recline(t, recline_deg)
+    for s in (-1, 1):
         t += cylinder((-0.10, s * 0.10, SEAT_Z + 0.08), (0.44, s * 0.10, SEAT_Z + 0.08), 0.08)  # thigh
         t += cylinder((0.45, s * 0.10, SEAT_Z + 0.06), (0.45, s * 0.10, 0.06), 0.055)        # lower leg
         t += box((0.38, s * 0.10 - 0.05, 0.0), (0.66, s * 0.10 + 0.05, 0.07))                # foot
-        t += cylinder((-0.07, s * 0.21, 1.00), (-0.04, s * 0.22, 0.73), 0.045)               # upper arm
-        t += cylinder((-0.04, s * 0.21, 0.73), (0.28, s * 0.14, 0.62), 0.04)                 # forearm
     return t
 
 
@@ -126,10 +146,10 @@ def write_stl(path, name, tris):
         fh.write(f"endsolid {name}\n")
 
 
-def write_scene(out: Path, dy_farter=-0.30, dy_neighbour=0.30):
-    """Sofa duet: farter.stl, neighbour.stl, sofa.stl."""
+def write_scene(out: Path, dy_farter=-0.30, dy_neighbour=0.30, recline_farter=0.0):
+    """Sofa duet: farter.stl, neighbour.stl, sofa.stl. recline_farter (deg) reclines the releaser only."""
     out.mkdir(parents=True, exist_ok=True)
-    write_stl(out / "farter.stl", "farter", body(dy_farter))
+    write_stl(out / "farter.stl", "farter", body(dy_farter, recline_farter))
     write_stl(out / "neighbour.stl", "neighbour", body(dy_neighbour))
     write_stl(out / "sofa.stl", "sofa", sofa())
 

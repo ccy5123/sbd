@@ -8,6 +8,8 @@ log-normal sulfur multiplier (params sulfur_sigma_ln, independent of volume: Sua
 Observers: bystander (remembers heard or smelled), emitter (remembers all, classifies by oscillation), anosmic
 (remembers heard only). Reported: silent-vs-audible statistics over all passages (truth) and over remembered ones.
 
+Panel b marks the literature observer models from uq/observer_ps.json when that file exists (run uq/observer_ps.py
+first; it reuses simulate() from this module).
 Usage (repo root): python3 perception/run_selection.py -> figures/fig13_memory_filter.png, perception/selection.json
 """
 import json
@@ -131,6 +133,17 @@ def figure(base, rows, out):
     ax.plot([r["p_S_own"] for r in rows], [r["belief_emitter"] for r in rows], color=EMITTER_C, lw=2,
             label="emitter (own nose, all)")
     ax.axhline(0.5, color=MUTED, lw=0.8)
+    obs_file = ROOT / "uq/observer_ps.json"  # literature observer models (uq/observer_ps.py), if computed
+    if obs_file.exists():
+        obs = json.loads(obs_file.read_text())["observers"]
+        marks = [("attentive, Amoore thresholds", "o", "attentive"), ("distracted (everyday)", "s", "distracted"),
+                 ("distracted, sound cues attention", "D", "distracted,\nsound-cued")]
+        for key, mk, lab in marks:
+            if key in obs:
+                o = obs[key]
+                ax.plot(o["p_S"], o["belief_memory"], mk, ms=8, color=AUDIBLE_C, mec=SURFACE, mew=2, zorder=4)
+                ax.annotate(lab, (o["p_S"], o["belief_memory"]), xytext=(6, 4), textcoords="offset points",
+                            fontsize=7, color=INK2)
     ax.axvline(base["p_S_nb"], color=INK2, lw=0.7, ls=":")
     ax.text(base["p_S_nb"], 0.03, "Gate 0 nominal\n(puff centred\non the nose) ", fontsize=7.5, color=INK2,
             ha="right")
