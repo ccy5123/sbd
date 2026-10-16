@@ -240,7 +240,8 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
     Kahneman 1973); selective-outcome sampling (Fiedler 2000).
   - Competing route: the phrase itself transmits an associative belief (Chapman 1967), which must be separated
     from experience.
-- **Expectation factor γ demoted to an auxiliary hypothesis with uncertain sign.**
+- **Expectation factor γ demoted to an auxiliary hypothesis with uncertain sign** (confirmed by the author
+  2026-10-16; `perception/m6_report.md` updated, Fig. 11 annotations still to be regenerated).
   - A negative label raises intensity (Djordjevic 2008: partial η² ≈ 0.18; Dalton 1999).
   - No label ≈ positive label (Djordjevic, p = .65). The sound acts as a negative label given in advance, so the
     literature, taken literally, predicts warned ≥ unwarned, which is opposite to γ > 1 for silent releases. No study
@@ -266,9 +267,8 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
 3. **Anosmic people** never notice silent releases.
 
 ### To do (later, with code)
-- Rewrite the M6 key sentence:
-  - Old: "a 3 % expectation amplification (γ* = 1.03) sustains the belief".
-  - New: "with γ = 1, P(belief) at the neighbour is about 0.47, a coin flip; selection explains the rest".
+- M6 key sentence rewritten in the report (done 2026-10-16). Still to do: regenerate Fig. 11 without the
+  "plausible expectation effect" band, and update the same sentence in `PLAN.md`-derived drafts if any.
 - Fix the sphincter wording in the M2 report.
 - Behavioural differences (e.g. changing posture to release quietly) are treated in psychological and social terms
   only, with no physics model.

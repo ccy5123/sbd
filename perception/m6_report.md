@@ -13,11 +13,17 @@
   sensitivity range 0.20–0.45). The log scale (k_w ≈ 0.95 per decade, Japan MoE) is retained for reporting.
 - **Adaptation.** A(t) = a∞ + (1 − a∞)e^(−t/τ), with a∞ = 0.35 (25–40 % for H₂S; Berglund 1978, Ekman 1967) and
   τ = 80 s (assumption: asymptote reached by ~4 min).
-- **Preparedness.** The perceived ratio of silent to audible is γ·R^n, and the belief holds when it exceeds 1.
-  - Break-even: **γ\* = R^(−n)**.
-  - "Plausible expectation effect": ×1.0–1.3. This range is an assumption. The direction is verified (negative names
-    raise intensity, Djordjevic 2008; hazard framing causes sensitization instead of adaptation, Dalton 1996–1999),
-    but no study measures the intensity of an *unexpected* versus an expected odour.
+- **Expectation (auxiliary hypothesis, demoted 2026-10-16).** The perceived ratio of silent to audible is γ·R^n,
+  and the belief holds when it exceeds 1.
+  - Break-even: **γ\* = R^(−n)**. It is kept only as a sensitivity bound, not as the explanation of the belief.
+  - **The sign of γ is not established.** A negative label raises rated intensity (Djordjevic 2008; Dalton 1999), but
+    no label rates the same as a positive label (Djordjevic 2008, p = .65).
+    - An audible release acts as a negative label given *in advance*, so taken literally the literature predicts
+      warned ≥ unwarned, i.e. γ ≤ 1 for silent releases.
+    - No study compares warned and unwarned exposure directly.
+  - **Size:** 0–3 % for brief exposures (Herz 2001; first ratings in Dalton 1996/1999). The 1.18–1.61 ratios of Dalton
+    1999 are 20-min means and do not apply to a single release.
+  - The main account of the belief is selection: only noticed events are remembered (see `NOTES.md`, 2026-10-16).
 
 ## Results
 
@@ -35,7 +41,7 @@
 - The ear therefore buys a real, physical escape option. It works only if the warned person holds their breath almost
   to their limit, because the puff takes about 16 s to arrive.
 
-**Fig. 11 — the preparedness break-even** (Stevens n = 0.28):
+**Fig. 11 — the expectation break-even** (Stevens n = 0.28; γ is an auxiliary hypothesis, see Model):
 
 | scenario | median R | perceived intensity ratio R^n | γ\* | P(belief) at γ = 1 | at γ = 1.15 | at γ = 1.5 |
 |---|---|---|---|---|---|---|
@@ -46,9 +52,18 @@
 
 **Key sentence for the manuscript.** At the neighbour's nose, the median physical difference between a silent and an
 audible passage is a 2.7 % difference in perceived intensity. That is **below the olfactory just-noticeable difference
-(≈ 7 % in intensity for ΔC/C = 0.28)**. An expectation amplification of only **3 %** for an unwarned exposure (γ\*
-= 1.03) is enough for the belief to survive. With a modest 15 % amplification, two thirds of pairs "confirm" it.
-*The nose cannot tell the difference; the ears decide.*
+(≈ 7 % in intensity for ΔC/C = 0.28)**.
+
+- With no expectation effect (γ = 1), a silent release seems stronger in **47 %** of pairs, a coin flip. Physics and
+  perception alone do not produce the belief.
+- The belief is explained by selection: a silent release is noticed only when it smells, so every remembered silent
+  release was smelly.
+- An expectation effect could add to this, but its sign is not established. γ\* = 1.03 is reported only as a
+  sensitivity bound.
+
+*Superseded (2026-10-15 wording): "an expectation amplification of only 3 % (γ\* = 1.03) is enough for the belief to
+survive". The figure annotations in Fig. 11 (literature band 1.0–1.3, labelled a plausible expectation effect) still
+use the old framing and will be regenerated.*
 
 **Supplementary — the newcomer effect** (4 m³ lift car, 12 air changes/h, one 100 mL passage, well mixed):
 
@@ -59,7 +74,8 @@ audible passage is a 2.7 % difference in perceived intensity. That is **below th
 
 ## Limitations
 
-- γ is not measured. Only its direction and a break-even analysis are offered (plan §16).
+- γ is not measured, and neither its size nor its sign is established for a single brief release. It is an
+  auxiliary hypothesis; only a break-even analysis is offered (plan §16).
 - Sniff suppression for malodours (sniff-magnitude ratio 0.64, Frank 2006) is not yet applied. It acts on both
   silent and audible releases after detection, but a warned nose can suppress in anticipation (Frank 2007). This
   would strengthen the warned-avoidance channel.
