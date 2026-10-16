@@ -193,5 +193,26 @@ Updated headline numbers:
 - **Equal emitted mass:** median R is 1.93 at the emitter's own nose and 1.35 at the neighbour's.
 - **As emitted:** median R is 1.22 at the own nose and **0.92 at the neighbour's**, with P(R > 1) = 0.47.
 
-The confirmed narrative branch stands for the neighbour. The own-nose exception is stronger than in §5. See
+The confirmed narrative branch stands for the neighbour (own-nose numbers superseded by §9). The own-nose exception is stronger than in §5. See
 `acoustics/m2_report.md`. The figures and `results.json` in this directory reflect the M2-coupled run.
+
+## 9. Update after M3b: own-nose transport from CFD (2026-10-16)
+
+The releaser's own cloud used to reach the nose in L_own/u_CBL ≈ 0.75/0.175 ≈ 4.4 s, i.e. at the measured
+breathing-zone CBL speed. The transient CBL CFD (M3b, time-mean field) gives longer paths:
+
+- seat-level parcels reach nose height in 4.7–7.4 s (20 °C) and 6.8–8.0 s (23 °C);
+- the coarse-mesh CBL is about 40 % faster than Licina et al. 2014, so the upper time is extended ×1.4;
+- Gate 0 now samples an effective transport speed `u_own_eff` = 0.07–0.16 m/s (t ≈ 4.7–11 s). `u_CBL` keeps its
+  measured meaning.
+
+Headline own-nose numbers (neighbour numbers are unchanged):
+
+| basis | median R before | median R now | P(R > 1) now |
+|---|---|---|---|
+| equal emitted mass | 1.93 | **1.73** | 0.93 |
+| as emitted | 1.22 | **1.15** | 0.56 |
+
+The own-nose exception survives but is weaker: the longer trip lets the cloud spread, which erodes the near-field
+jet pre-dilution difference (Theorem 2 in `NOTES.md`). The figures and `results.json` reflect this run.
+

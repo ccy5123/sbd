@@ -79,7 +79,7 @@ def ratio_maps():
             cs = ax.contour(Re, t_sweep, np.log10(R), levels=[0.0], colors=INK, linewidths=1.6)
             ax.clabel(cs, fmt={0.0: "parity"}, fontsize=8)
             ax.set_xscale("log"); ax.set_yscale("log")
-            for t_mark, lab in [(P0["L_own"] / P0["u_CBL"], "own nose"),
+            for t_mark, lab in [(P0["L_own"] / P0["u_own_eff"], "own nose"),
                                 (P0["L_neighbour"] / P0["u_room"], "neighbour")]:
                 ax.axhline(t_mark, color=INK2, lw=0.8, ls=(0, (3, 3)))
                 ax.text(Re[-1] * 0.92, t_mark * 1.07, lab, ha="right", va="bottom", fontsize=8, color=INK2)
@@ -105,7 +105,7 @@ def ratio_maps():
 
 # --- 2. Monte Carlo -----------------------------------------------------------------------
 SAMPLED = {  # name: (low, high, log-uniform?)
-    "u_handoff": (0.05, 0.25, False), "K_turb": (1e-4, 1.3e-2, True), "u_CBL": (0.11, 0.24, False),
+    "u_handoff": (0.05, 0.25, False), "K_turb": (1e-4, 1.3e-2, True), "u_own_eff": (0.07, 0.16, False),
     "u_room": (0.03, 0.15, True), "L_own": (0.65, 0.85, False), "L_neighbour": (0.8, 1.4, False),
     "T_insp": (1.6, 2.7, False), "B_u": (5.8, 5.9, False),
     "K_c": (4.73, 5.2, False), "Gamma_sj": (2.74, 2.86, False), "C_puff": (2.54, 2.66, False),
@@ -149,7 +149,7 @@ def monte_carlo(n=20000):
         row.update({"V_s": silent.V, "T_s": silent.T, "d_s": silent.d, "u0_s": silent.u0,
                     "V_l": loud.V, "T_l": loud.T, "d_l": loud.d, "u0_l": loud.u0,
                     "Re_s": silent.reynolds(p["nu_gas"]), "Re_l": loud.reynolds(p["nu_gas"])})
-        for who, L, u in (("own", p["L_own"], p["u_CBL"]), ("nb", p["L_neighbour"], p["u_room"])):
+        for who, L, u in (("own", p["L_own"], p["u_own_eff"]), ("nb", p["L_neighbour"], p["u_room"])):
             for cl in CLOTHING:
                 rs = receptor(silent, p, L, u, cl)
                 rl = receptor(loud, p, L, u, cl)
@@ -281,7 +281,7 @@ def headline_numbers():
     out = {"source_ppb": x0, "source_OAV": oav0, "dilution_to_threshold": D_star,
            "detectability_volume_m3_per_100mL": D_star * 1e-4}
     for name, rel in (("silent_ref", REF_SILENT), ("loud_ref", Release(V_LOUD, 0.5, 6e-3))):
-        for who, L, u in (("own", p["L_own"], p["u_CBL"]), ("nb", p["L_neighbour"], p["u_room"])):
+        for who, L, u in (("own", p["L_own"], p["u_own_eff"]), ("nb", p["L_neighbour"], p["u_room"])):
             r = receptor(rel, p, L, u)
             out[f"{name}_{who}"] = {"Re": r["Re"], "u0": r["u0"], "Si": r["Si"], "D1": r["D1"],
                                     "regime": r["regime"], "x_h": r["x_h"], "t_travel": r["t_travel"],

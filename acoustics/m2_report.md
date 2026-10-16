@@ -70,12 +70,14 @@ Their near-field momentum dilution is correspondingly larger:
 
 | receptor | wardrobe | basis | median R | 5–95 % | P(R > 1) | P(R > 2) |
 |---|---|---|---|---|---|---|
-| own nose | none | equal mass | 1.93 | 0.92–14.7 | 0.93 | 0.48 |
-| own nose | none | as emitted | 1.22 | 0.22–6.1 | 0.59 | 0.31 |
+| own nose | none | equal mass | 1.73 | 0.94–14.0 | 0.93 | 0.44 |
+| own nose | none | as emitted | 1.15 | 0.20–6.0 | 0.56 | 0.30 |
 | neighbour | none | equal mass | 1.35 | 0.97–8.7 | 0.93 | 0.30 |
 | neighbour | none | as emitted | **0.92** | 0.15–5.0 | **0.47** | 0.23 |
 | neighbour | denim | as emitted | 0.63 | 0.11–3.4 | 0.31 | 0.12 |
 | neighbour | jet aimed at neighbour | equal mass | 0.73 | 0.06–8.9 | 0.38 | 0.22 |
+
+*Own-nose rows updated 2026-10-16: the releaser's own transport time now comes from the CFD trajectories (`u_own_eff`, t ≈ 4.7–11 s instead of ≈ 4.4 s). They were 1.93 (equal mass) and 1.22 (as emitted). Neighbour rows are unchanged.*
 
 **Effect on the narrative (confirmed branch: "Debunked (mostly)").** The neighbour receives no systematic penalty from
 a silent passage as emitted: the median is 0.92 and the comparison is a coin-flip. Trousers tip it towards the loud

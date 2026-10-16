@@ -284,7 +284,8 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
 - Theorem 3 is verified numerically: the memory gap P(S|silent,N) − P(S|audible,N) equals 1 − P(S|H) at every base
   rate.
 - Gate 0 nominal (puff centred on the nose): the neighbour smells 93 % of passages.
-  - P(belief): truth 0.486, bystander memory 0.525, emitter 0.534 (own-nose physics, no selection).
+  - P(belief): truth 0.486, bystander memory 0.525, emitter 0.521 (own-nose physics, no selection; 0.534 before
+    the own-nose transport update below).
 - Base-rate sweep, bystander-memory P(belief) by the share of passages the neighbour smells:
   0.91 → 0.54, 0.74 → 0.64, 0.49 → 0.78, 0.34 → 0.86, 0.17 → 0.95. The truth stays at 0.49–0.53.
 - Masking: library and living room 0.525, subway 0.495, restaurant 0.43 (only 30 heard).
@@ -293,4 +294,15 @@ Djordjevic 2008 Table S1 (Fig 1B can be digitised instead).
 - **The key empirical unknown is the everyday base rate** (how often a neighbour's passage is noticed by smell).
   Gate 0 gives an upper bound (0.93). The sofa CFD suggests it is far lower, because breathing zones were
   sub-threshold for both modes.
+- Fig. 11 relabelled: a ±3 % brief-exposure label-effect band with unknown sign replaces the 1.0–1.3 band. M2
+  report: the internal and external sphincter roles are added.
+
+### Own-nose transport time from CFD (2026-10-16)
+- New parameter `u_own_eff` = 0.07–0.16 m/s (t ≈ 4.7–11 s; CFD 4.7–8.0 s, extended ×1.4 for the 40 % CBL
+  over-prediction).
+  - It replaces `u_CBL` as Gate 0's own-nose transport speed. `u_CBL` stays the measured CBL velocity.
+- Own nose: equal mass 1.93 → **1.73**; as emitted 1.22 → **1.15** (P(R > 1) 0.59 → 0.56).
+  - M6 own-nose row: γ\* 0.94 → 0.96; P(belief) at γ = 1: 0.59 → 0.56.
+  - Neighbour numbers are unchanged.
+  - Updated: `gate0_report.md` §9, M2 table, M6 table, and the selection emitter value (0.521).
 

@@ -52,7 +52,7 @@ def simulate(n=N_EVENTS, seed=SEED):
         Q = r.V / r.T
         row = {"V": r.V, "u0": r.u0, "osc": r.u0 >= p["u_audible"], "sulfur": m,
                "OAV_nb": m * oav(receptor(r, p, p["L_neighbour"], p["u_room"])["phi_inh"], p),
-               "OAV_own": m * oav(receptor(r, p, p["L_own"], p["u_CBL"])["phi_inh"], p)}
+               "OAV_own": m * oav(receptor(r, p, p["L_own"], p["u_own_eff"])["phi_inh"], p)}
         for bg in BACKGROUNDS:
             row[f"heard_{bg}"] = bool(classify(Q, r.d, p, background=bg, r=p["L_neighbour"]) == AUDIBLE)
         rows.append(row)

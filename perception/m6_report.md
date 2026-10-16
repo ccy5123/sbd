@@ -46,9 +46,11 @@
 | scenario | median R | perceived intensity ratio R^n | γ\* | P(belief) at γ = 1 | at γ = 1.15 | at γ = 1.5 |
 |---|---|---|---|---|---|---|
 | neighbour, as emitted | 0.91 | 0.973 | **1.03** | 0.47 | 0.64 | 0.89 |
-| own nose, as emitted | 1.23 | 1.059 | 0.94 | 0.59 | 0.76 | 0.95 |
+| own nose, as emitted | 1.15 | 1.041 | 0.96 | 0.56 | 0.73 | 0.93 |
 | neighbour, equal mass | 1.34 | 1.086 | 0.92 | 0.93 | 0.99 | 1.00 |
 | neighbour, as emitted, denim | 0.62 | 0.876 | 1.14 | 0.31 | 0.51 | 0.81 |
+
+*Own-nose row updated 2026-10-16 (own transport time from CFD, see `gate0/gate0_report.md` §9); it was R 1.23, γ\* 0.94, P(belief) 0.59 / 0.76 / 0.95.*
 
 **Key sentence for the manuscript.** At the neighbour's nose, the median physical difference between a silent and an
 audible passage is a 2.7 % difference in perceived intensity. That is **below the olfactory just-noticeable difference
@@ -95,10 +97,10 @@ iff N = H ∨ S. Then, whatever the joint law of H and S:
    |---|---|---|---|
    | neighbour's nose, all passages | 0.92 | 0.96 | 0.486 |
    | bystander's memory | **1.00** | 0.96 | 0.525 |
-   | emitter (own nose, all passages) | 0.99 | 1.00 | 0.534 |
+   | emitter (own nose, all passages) | 0.98 | 1.00 | 0.521 |
 
    - The neighbour smells 93 % of passages, so the filter has little to remove and the belief barely moves.
-   - The emitter's 0.534 is physics, not selection: it is the own-nose near-field exception of Gate 0.
+   - The emitter's 0.521 is physics, not selection: it is the own-nose near-field exception of Gate 0.
 
 2. **The base rate controls the belief** (Fig. 13b; all OAVs scaled together).
    - The memory gap equals 1 − P(S | H) at every scale, a numerical check of Theorem 3.
@@ -107,7 +109,7 @@ iff N = H ∨ S. Then, whatever the joint law of H and S:
    |---|---|---|---|---|---|---|---|---|
    | P(belief), bystander's memory | 0.54 | 0.58 | 0.64 | 0.71 | 0.78 | 0.86 | 0.95 | 0.99 |
 
-   - Over the same range the truth at the neighbour's nose stays at 0.49–0.53, and the emitter at 0.50–0.56.
+   - Over the same range the truth at the neighbour's nose stays at 0.49–0.53, and the emitter at 0.50–0.55.
    - **The belief is produced by memory, not by noses**, and it grows as stinky passages become rarer.
 
 3. **Masking noise** (Fig. 13c).
