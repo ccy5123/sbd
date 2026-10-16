@@ -1,0 +1,33 @@
+{
+ "silent": {
+  "own nose (releaser)": {
+   "peak_s": 7.7820659e-17,
+   "peak_OAV": 1.1114871376061565e-11,
+   "t_peak_s": 17.008333,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 1.3565680140610365e-16,
+   "worst_breath_OAV_mean": 2.7943873087030332e-12,
+   "worst_breath_OAV_max": 7.21753351229405e-12,
+   "bz_peak_OAV": 9.491369961046548e-11,
+   "bz_exposure_s_dt": 2.4288995621890754e-15,
+   "head_ring_peak_OAV": 3135.5976378162777,
+   "t_head_ring_peak_s": 5.3
+  },
+  "neighbour's nose": {
+   "peak_s": 6.1717392e-23,
+   "peak_OAV": 8.814894175413897e-18,
+   "t_peak_s": 29.376923,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 5.594844019129343e-23,
+   "worst_breath_OAV_mean": 2.9441846609439407e-18,
+   "worst_breath_OAV_max": 7.534126064320437e-18,
+   "bz_peak_OAV": 2.887326757287027e-15,
+   "bz_exposure_s_dt": 1.481906793460985e-20,
+   "head_ring_peak_OAV": 3.987878386244953e-05,
+   "t_head_ring_peak_s": 29.8
+  }
+ },
+ "recline_deg": 4.5
+}
