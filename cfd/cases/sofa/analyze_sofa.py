@@ -6,9 +6,12 @@ activity value of H2S + CH3SH + DMS (gate0.model.oav). Release starts at t = 0.2
 
 Metrics per nose: peak OAV, arrival time (first OAV >= 1), time above OAV 1, exposure integral, and the worst-breath
 OAV (sinusoidal breathing, Wysocki 2006; mean and max over 24 breathing phases). R = silent / audible for each metric.
-Writes cfd/cases/sofa/results.json and figures/fig5_sofa_duet_noses.png.
-Usage: python3 analyze_sofa.py [runs_dir]
+Writes cfd/cases/sofa/results.json and figures/fig5_sofa_duet_noses.png. With --recline DEG (posture sensitivity,
+run_sofa.sh [runs_dir] DEG) it reads sofa_rec<DEG>_{silent,audible}, moves the releaser's breathing zone and head axis
+with the reclined head, and writes results_rec<DEG>.json and figures/figS_sofa_rec<DEG>_noses.png.
+Usage: python3 analyze_sofa.py [runs_dir] [--recline DEG]
 """
+import argparse
 import json
 import re
 import sys
@@ -34,6 +37,14 @@ _spec.loader.exec_module(pm)
 T_REL = 0.2
 NOSE_X, HEAD_X, DY_F, DY_N = 0.10, 0.0, -0.30, 0.30  # probe x, head axis x, lateral seat positions (make_case.py)
 NOSES = ("own nose (releaser)", "neighbour's nose")
+sys.path.insert(0, str(ROOT / "cfd/geometry"))
+import manikin
+
+
+def zone_x(recline: float):
+    """(breathing-zone x, head-axis x) for the releaser and the neighbour; only the releaser reclines."""
+    shift = manikin.nose_tip(recline)[0] - manikin.NOSE[0]
+    return ((NOSE_X + shift, HEAD_X + shift), (NOSE_X, HEAD_X))
 
 
 def read_probe(case: Path, field: str = "s"):
@@ -60,7 +71,7 @@ def breath_metrics(t, c, n_phase=24):
     return float(np.mean(worst)), float(np.max(worst))
 
 
-def zone_series(case: Path, r_bz=0.05, r_head=0.25):
+def zone_series(case: Path, r_bz=0.05, r_head=0.25, recline: float = 0.0):
     """From the nose-height plane (every 0.5 s): mean s in the breathing zone (disc of radius r_bz around the probe
     point 2.5 cm in front of the nose) and max s within r_head of the head axis (catches a cloud passing behind)."""
     d = case / "postProcessing/planes"
@@ -73,9 +84,9 @@ def zone_series(case: Path, r_bz=0.05, r_head=0.25):
         a = np.loadtxt(f)
         t.append(float(q.name))
         row_bz, row_ring = [], []
-        for y in (DY_F, DY_N):
-            dist_bz = np.hypot(a[:, 0] - NOSE_X, a[:, 1] - y)
-            dist_head = np.hypot(a[:, 0] - HEAD_X, a[:, 1] - y)
+        for y, (x_bz, x_head) in zip((DY_F, DY_N), zone_x(recline)):
+            dist_bz = np.hypot(a[:, 0] - x_bz, a[:, 1] - y)
+            dist_head = np.hypot(a[:, 0] - x_head, a[:, 1] - y)
             row_bz.append(a[dist_bz < r_bz, 3].mean())
             row_ring.append(a[dist_head < r_head, 3].max())
         bz.append(row_bz)
@@ -94,16 +105,17 @@ def metrics(t, s):
             "worst_breath_OAV_mean": oav(wb_mean, P), "worst_breath_OAV_max": oav(wb_max, P)}
 
 
-def main(runs: Path):
+def main(runs: Path, recline: float = 0.0):
     res, series = {}, {}
+    prefix = "sofa" if not recline else f"sofa_rec{recline:g}"
     for mode in ("silent", "audible"):
-        case = runs / f"sofa_{mode}"
+        case = runs / f"{prefix}_{mode}"
         if not (case / "postProcessing/noses").exists():
             print("missing", case)
             continue
         t, s = read_probe(case)
         res[mode] = {NOSES[i]: metrics(t, s[:, i]) for i in range(2)}
-        tz, bz, ring = zone_series(case)
+        tz, bz, ring = zone_series(case, recline=recline)
         series[mode] = (t, s, tz, bz)
         for i in range(2):
             res[mode][NOSES[i]].update({
@@ -117,12 +129,14 @@ def main(runs: Path):
                 for k in ("peak_OAV", "exposure_s_dt", "worst_breath_OAV_mean", "worst_breath_OAV_max",
                           "bz_peak_OAV", "bz_exposure_s_dt", "head_ring_peak_OAV")}
             for n in NOSES}
-    (ROOT / "cfd/cases/sofa/results.json").write_text(json.dumps(res, indent=1))
+    res["recline_deg"] = recline
+    tag = "" if not recline else f"_rec{recline:g}"
+    (ROOT / f"cfd/cases/sofa/results{tag}.json").write_text(json.dumps(res, indent=1))
     print(json.dumps(res, indent=1))
-    plot(series)
+    plot(series, recline)
 
 
-def plot(series):
+def plot(series, recline: float = 0.0):
     SURFACE, INK2 = "#fcfcfb", "#52514e"
     COL = {"silent": "#2a78d6", "audible": "#eb6834"}
     plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "font.size": 9,
@@ -151,10 +165,18 @@ def plot(series):
     axes[0].set_ylabel("summed odour activity value at the nose")
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="outside lower center", ncol=2, frameon=False, fontsize=8)
-    fig.suptitle("Fig. 5 · Sofa duet: the same 92 mL, released silently or audibly (RANS, 23 °C room)",
-                 x=0.01, ha="left", fontsize=10, fontweight="bold")
-    fig.savefig(ROOT / "figures/fig5_sofa_duet_noses.png", dpi=200)
+    title, out = ("Fig. 5 · Sofa duet: the same 92 mL, released silently or audibly (RANS, 23 °C room)",
+                  "fig5_sofa_duet_noses.png")
+    if recline:
+        title = f"Fig. S · Sofa duet, releaser reclined {recline:g}° (back closed onto the backrest): same 92 mL"
+        out = f"figS_sofa_rec{recline:g}_noses.png"
+    fig.suptitle(title, x=0.01, ha="left", fontsize=10, fontweight="bold")
+    fig.savefig(ROOT / "figures" / out, dpi=200)
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "cfd/runs")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("runs", nargs="?", default=str(ROOT / "cfd/runs"))
+    ap.add_argument("--recline", type=float, default=0.0)
+    a = ap.parse_args()
+    main(Path(a.runs), a.recline)
