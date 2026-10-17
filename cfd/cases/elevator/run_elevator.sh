@@ -35,7 +35,8 @@ for culprit in FL BL; do
       ( cd "$c"
         n=$(ls log.foamRun.drift* | wc -l)
         mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.drift.$n 2>&1
-        reconstructPar > log.reconstructPar 2>&1 )
+        reconstructPar > log.reconstructPar 2>&1
+        [ -f 60/s ] && rm -rf processor[0-9]* )
       echo "$(date -u +%H:%M) $c resumed and done"
       continue
     fi
@@ -50,7 +51,9 @@ for culprit in FL BL; do
       foamDictionary system/controlDict -entry writeInterval -set 5 > /dev/null
       foamDictionary system/controlDict -entry endTime -set 60 > /dev/null
       mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.drift 2>&1
-      reconstructPar > log.reconstructPar 2>&1 )
+      reconstructPar > log.reconstructPar 2>&1
+      # free the session's disk allowance: the decomposed copies duplicate the reconstructed fields
+      [ -f 60/s ] && rm -rf processor[0-9]* )
     echo "$(date -u +%H:%M) $c done"
   done
 done
