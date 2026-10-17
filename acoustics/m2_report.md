@@ -57,7 +57,10 @@ audible still. This also holds at 3 m. A "silent" passage is therefore either **
 
 - quiet rooms: well below the flow rates in the release prior;
 - restaurant: ≈ 0.6 L/s;
-- subway car: ≈ 1.7 L/s.
+- subway car: ≈ 0.36 L/s (the subway spectrum is low-frequency-heavy, so it masks the harmonics less than restaurant
+  babble);
+- at 3 m these rise to ≈ 3.0 and 1.8 L/s. *(Corrected 2026-10-17: the subway value previously given here, 1.7 L/s,
+  was the 3 m value; Fig. 3b was always correct.)*
 
 In a restaurant or subway car, an "audible" release must therefore be a near-maximal passage. This is Scenario F of the
 plan: *physically loud, perceptually silent*.

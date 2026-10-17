@@ -10,13 +10,17 @@ The intermediate regime, an oscillating but inaudible release, is empty. At sofa
 1\,mL\,s$^{-1}$ of oscillating flow gives a 32\,dB fundamental, against an 18\,dB hearing threshold at 160\,Hz. A
 ``silent'' passage is therefore either physically silent or masked.
 
-Masking needs loud backgrounds. In a restaurant or a subway car, only near-maximal passages (0.6--1.7\,L\,s$^{-1}$)
-are still heard. Audible releases are fast: the median exit velocity is 68\,m\,s$^{-1}$ through a 1.6\,mm orifice
+Masking needs loud backgrounds. In a restaurant or a subway car an oscillating release must exceed
+0.4--0.6\,L\,s$^{-1}$ at sofa distance (1.8--3.0\,L\,s$^{-1}$ at 3\,m) to be heard, so only near-maximal passages are. Audible releases are fast: the median exit velocity is 68\,m\,s$^{-1}$ through a 1.6\,mm orifice
 \src{acoustics/m2\_report.md}.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{fig3_acoustic_regimes.png}
-\caption{Acoustic regimes over volume flow rate and orifice diameter. \gap{caption details}}
+\caption{Acoustic regimes. (a) Regime of a release by volume flow rate and effective orifice diameter, for a
+neighbour at 0.6\,m in a 35\,dB(A) living room. S1: the valve does not oscillate (physically silent); S3: audible in
+quiet, masked here; dark: audible. Dashed box: the release prior. Grey lines: jet Reynolds number. (b) Minimum audible
+flow rate of an oscillating release for five backgrounds, at 0.6\,m and 3\,m. The grey band is the flow-rate range of
+the release prior.}
 \label{fig:acoustics}
 \end{figure}
 
@@ -78,8 +82,13 @@ mass. At the neighbour (12.5\,s) a barely audible release is indistinguishable f
 
 \begin{figure}
 \includegraphics[width=\textwidth]{fig10_regime_uq.png}
-\caption{(a) Regime map of $\log_{10} R$ at equal mass; (b) first-order Sobol indices; (c) the headline in layers:
-physics, perception, memory. \gap{caption details}}
+\caption{Uncertainty and regimes. (a) $\log_{10} R$ at equal mass and room-air mixing
+($K = 10^{-3}$\,m$^2$\,s$^{-1}$), over the Silencer number of the audible release and the travel time to the nose. The
+vertical line is the acoustic onset ($\mathrm{Si} = 197$); to its left the comparator is not audible (grey). The dashed
+contour is the just-noticeable ratio 1.28. Dotted lines mark the nominal travel times to the releaser's (6.7\,s) and
+the neighbour's (12.5\,s) nose. (b) First-order Sobol indices of $\log_{10} R$ at the neighbour, as emitted and at
+equal mass, with bootstrap 90\% intervals. (c) Shares of random silent/audible pairs in which the silent release is
+perceptibly stronger, indistinguishable, or perceptibly weaker, with $P(R>1)$.}
 \label{fig:uq}
 \end{figure}
 
@@ -134,7 +143,8 @@ neighbour & reclined 4.5\,\textdegree & $3\times10^{-15}$ & 0.19 \\
 \includegraphics[width=\textwidth]{fig5_sofa_duet_noses.png}
 \caption{Sofa duet, upright posture: OAV at the releaser's and the neighbour's nose over 120\,s for the same
 92\,mL released silently or audibly. During the direct pass ($<45$\,s) only the audible release reaches the noses; after
-room recirculation both modes converge. \gap{caption details}}
+room recirculation both modes converge. Solid: probe 2.5\,cm in front of the nose; dashed: mean over a 5\,cm
+breathing-zone disc. The horizontal line is the odour threshold (trained-panel thresholds).}
 \label{fig:sofa}
 \end{figure}
 
@@ -206,7 +216,11 @@ and this ``loudness selection'' weakens the belief on its own.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{fig13_memory_filter.png}
-\caption{The memory filter: (a) what each observer keeps; (b) belief against base rate, with literature observer
-models; (c) masking. \gap{caption details}}
+\caption{The memory filter, applied to 20\,000 simulated passages. (a) Probability that a silent or audible passage
+was smelled: at the neighbour's nose over all passages, in a bystander's memory, and at the emitter's own nose. (b)
+Probability that a remembered silent passage seems stronger than a remembered audible one, against the base rate of
+smelled passages. Bystander memory (orange), all passages (grey, dashed) and the emitter (green). Markers show the
+literature observer models of Table~\ref{tab:observers}; the dotted line is the analytic model's nominal base rate.
+(c) Belief in four backgrounds, with the fraction of oscillating releases still heard.}
 \label{fig:memory}
 \end{figure}
