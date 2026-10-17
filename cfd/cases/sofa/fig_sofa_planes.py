@@ -90,7 +90,8 @@ def main(runs: Path, times, recline: float = 0.0):
     cb.ax.text(2.6, 0.0, "threshold", transform=cb.ax.get_yaxis_transform(), va="center", fontsize=7.5)
     cb.ax.text(2.6, 3.6, "plausible\ndeniability\nexpires", transform=cb.ax.get_yaxis_transform(), va="center",
                fontsize=7.5, color=INK2)
-    head = "Fig. 6 · Sofa duet" if not recline else f"Fig. S · Sofa duet, releaser reclined {recline:g}°"
+    head = "Fig. 6 · Sofa duet" if not recline else (f"Fig. S · Sofa duet, releaser reclined {recline:g}°" if recline > 0
+                                                       else f"Fig. S · Sofa duet, releaser leaning forward {-recline:g}°")
     fig.suptitle(f"{head}, releaser's mid-plane: the same 92 mL, silent (2 s, 0.9 m/s) vs audible\n"
                  "(0.5 s, 41 m/s). Black contour: odour threshold (OAV = 1).", x=0.01, ha="left", fontsize=9.5,
                  fontweight="bold")

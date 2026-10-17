@@ -1,0 +1,84 @@
+{
+ "silent": {
+  "own nose (releaser)": {
+   "peak_s": 3.8221142e-13,
+   "peak_OAV": 5.459001281088927e-08,
+   "t_peak_s": 22.254545,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 5.245634247490069e-13,
+   "worst_breath_OAV_mean": 1.2745357812592638e-08,
+   "worst_breath_OAV_max": 3.507146801272149e-08,
+   "bz_peak_OAV": 2.6568053668121356e-07,
+   "bz_exposure_s_dt": 4.112999954677937e-12,
+   "head_ring_peak_OAV": 1001.0443436017263,
+   "t_head_ring_peak_s": 7.3
+  },
+  "neighbour's nose": {
+   "peak_s": 1.7667355e-11,
+   "peak_OAV": 2.523370797723753e-06,
+   "t_peak_s": 29.8,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 6.573635140037985e-11,
+   "worst_breath_OAV_mean": 1.265369916867785e-06,
+   "worst_breath_OAV_max": 2.3091682528082214e-06,
+   "bz_peak_OAV": 0.00012173420448931488,
+   "bz_exposure_s_dt": 2.0407768806718223e-09,
+   "head_ring_peak_OAV": 577.0770925868968,
+   "t_head_ring_peak_s": 9.8
+  }
+ },
+ "audible": {
+  "own nose (releaser)": {
+   "peak_s": 1.0371134e-11,
+   "peak_OAV": 1.481275305493094e-06,
+   "t_peak_s": 13.871429000000001,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 8.235758452201088e-12,
+   "worst_breath_OAV_mean": 1.609536148404941e-07,
+   "worst_breath_OAV_max": 4.3086213001419985e-07,
+   "bz_peak_OAV": 1.4600770762899791e-05,
+   "bz_exposure_s_dt": 1.342250145297632e-10,
+   "head_ring_peak_OAV": 127.09313024466364,
+   "t_head_ring_peak_s": 20.3
+  },
+  "neighbour's nose": {
+   "peak_s": 2.3032462e-06,
+   "peak_OAV": 0.3289651564169172,
+   "t_peak_s": 14.102198000000001,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 2.16923355760334e-06,
+   "worst_breath_OAV_mean": 0.05506469698926913,
+   "worst_breath_OAV_max": 0.14078375761985426,
+   "bz_peak_OAV": 2.5521558493857373,
+   "bz_exposure_s_dt": 2.0896322690922615e-05,
+   "head_ring_peak_OAV": 448.519511170276,
+   "t_head_ring_peak_s": 6.8
+  }
+ },
+ "R_silent_over_audible": {
+  "own nose (releaser)": {
+   "peak_OAV": 0.03685338748877413,
+   "exposure_s_dt": 0.06369339603552993,
+   "worst_breath_OAV_mean": 0.07918652728131242,
+   "worst_breath_OAV_max": 0.08139835360226633,
+   "bz_peak_OAV": 0.018196336412342112,
+   "bz_exposure_s_dt": 0.030642574106527036,
+   "head_ring_peak_OAV": 7.8764630446558535
+  },
+  "neighbour's nose": {
+   "peak_OAV": 7.670632431739166e-06,
+   "exposure_s_dt": 3.0303952827010534e-05,
+   "worst_breath_OAV_mean": 2.2979694542119738e-05,
+   "worst_breath_OAV_max": 1.6402234830550987e-05,
+   "bz_peak_OAV": 4.769857785864227e-05,
+   "bz_exposure_s_dt": 9.766201024251688e-05,
+   "head_ring_peak_OAV": 1.2866265083567683
+  }
+ },
+ "recline_deg": -10.0,
+ "window_s": 29.8
+}

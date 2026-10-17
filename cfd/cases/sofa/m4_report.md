@@ -128,8 +128,46 @@ noticeable to the releaser, not less.
 **Remaining sensitivities:**
 - a 120 s window (room-scale mixing, which equalises both modes towards M/V);
 - RANS intermittency;
-- a forward-leaning posture;
+- a forward-leaning posture (done below);
 - a different release direction.
+
+## Posture sensitivity: releaser leaning forward 10° (2026-10-17)
+
+*Code: `make_case.py --recline -10`, `run_sofa.sh <runs> -10`, `analyze_sofa.py --recline -10`,
+`fig_sofa_planes.py --recline -10` · numbers: `results_rec-10.json` · figures: `figures/figS_sofa_rec-10_noses.png`,
+`figures/figS_sofa_rec-10_planes.png`*
+
+**Set-up.**
+- The releaser's upper body is rotated 10° forward about the hip, the opposite of the reclined case. The gap between
+  back and backrest now widens upwards instead of closing.
+- The releaser's nose moves 13 cm forward and 4 cm down, to (0.20, 0, 1.18) m; the probes move with it.
+- Mesh 713 k cells, checkMesh "Mesh OK" (max skewness 3.3). No FATAL; both branches reached 30 s.
+
+**Results** (peak OAV within 30 s):
+
+| receptor | silent | audible | R (silent / audible) |
+|---|---|---|---|
+| own nose: breathing-zone peak | 3 × 10⁻⁷ | 1.5 × 10⁻⁵ | 0.02 |
+| own nose: worst breath | 4 × 10⁻⁸ | 4 × 10⁻⁷ | 0.08 |
+| neighbour: breathing-zone peak | 1.2 × 10⁻⁴ | **2.6** (14 s) | 5 × 10⁻⁵ |
+| neighbour: worst breath | 2 × 10⁻⁶ | 0.14 | 2 × 10⁻⁵ |
+| own head ring (25 cm) | 1 000 (7.3 s) | 130 (20 s) | 8 |
+| neighbour's head ring | **580** (9.8 s) | 450 (6.8 s) | 1.3 |
+
+**Pathways** (Fig. S planes).
+- **Both releases** now rise in the open gap behind the back, pass behind the head and go to the ceiling. Leaning
+  forward takes the releaser's nose out of that column, so **the releaser smells neither release** in 30 s
+  (breathing zone ≤ 3 × 10⁻⁷ silent, 1.5 × 10⁻⁵ audible).
+- **Silent.** For the first time the silent cloud reaches the neighbour's head ring (OAV 580 at 9.8 s, comparable to
+  the audible 450), but not the neighbour's breathing zone (10⁻⁴). In the RANS mean it passes within 25 cm of the
+  neighbour's face without entering the nose. This is where intermittent filaments, which RANS averages away, could
+  matter.
+- **Audible.** The jet reaches the neighbour's breathing zone above threshold (2.6 at 14 s), though the worst
+  breath stays below it (0.14).
+
+**Conclusion.** In three postures the silent release delivers less to both breathing zones than the audible one
+during the direct pass. Forward lean weakens the margin at the neighbour's *head* (R ≈ 1 at 25 cm) but not at the
+nose. Forward lean also hides the releaser's own nose from both releases.
 
 ## Longer window: 120 s (upright, 2026-10-17)
 

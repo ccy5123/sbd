@@ -175,7 +175,9 @@ def plot(series, recline: float = 0.0, tag: str = ""):
     title, out = ("Fig. 5 · Sofa duet: the same 92 mL, released silently or audibly (RANS, 23 °C room)",
                   "fig5_sofa_duet_noses.png")
     if recline:
-        title = f"Fig. S · Sofa duet, releaser reclined {recline:g}° (back closed onto the backrest): same 92 mL"
+        pose = (f"reclined {recline:g}° (back closed onto the backrest)" if recline > 0
+                else f"leaning forward {-recline:g}° (gap opened behind the back)")
+        title = f"Fig. S · Sofa duet, releaser {pose}: same 92 mL"
         out = f"figS_sofa_rec{recline:g}_noses.png"
     if "_W" in tag:
         out = out.replace(".png", tag[tag.index("_W"):] + ".png")

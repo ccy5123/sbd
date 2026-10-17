@@ -523,3 +523,33 @@ The abstract-only pass was wrong or overstated in several places:
 - **Receptors:** copper is not a general thiol mechanism (Duan 2012, Haag 2019); "Block 2017 PNAS" does not exist as
   remembered.
 - New refs: atkinson2004, levitt1999, duan2012, haag2019. 15 DOIs requested from the author.
+
+### Chemistry layer, part 3: full-text verification of 15 papers (2026-10-17; `chem/`, `chem/chem_report.md`)
+- **Tangerman 2009** (GC, n = 28): H₂S 149, MeSH 216, DMS 144 nM, so MeSH ≥ H₂S, against Suarez's H₂S ≈ 5× MeSH.
+  - With this composition or with the lowest literature thresholds, MeSH carries 60–94 % of the OAV.
+  - Tangerman's panel independently names MeSH as the main odorant.
+- **Dilution anchor.** Tangerman's experimental flatus threshold implies a dilution of 7.5 × 10⁴–1.3 × 10⁵
+  (6 × 10³–4.4 × 10⁴ with the Nagata thresholds). The Gate 0 breath-averaged median is 1.8 × 10³ at the neighbour
+  (10–90 %: 2.5 × 10²–2.9 × 10⁴). Gate 0 is at the concentrated end, consistent with an upper bound; the agreement is
+  only to an order of magnitude.
+- **Reactivity** now uses measured office OH 0.62–9.79 × 10⁵ cm⁻³ and O₃ 0.7–2.6 ppb (Fiorentino 2023); loss stays
+  < 0.4 % in 120 s.
+- **Corrections:**
+  - Braccia's "1.1 %" is 5/4,644 = 0.11 %.
+  - Yu 2022 measured carbonyl, acid and aromatic VOCs, no sulfur gases.
+  - Free H₂S is < 5 % of faecal total sulfide.
+  - The DMS threshold in Block 2017 is for seabirds.
+  - The "40 ppb" in Fiorentino is a formaldehyde guide value, not O₃.
+- **Receptors:** OR2T11 responds to MeSH, not H₂S (Li 2016). Nasal Cu is ≈ 2.5 µM (Block 2017). Zhang 2018 tested only
+  MTMT.
+- 15 refs added (152 total).
+
+### M4: forward-leaning posture, −10° (2026-10-17; `cfd/cases/sofa/m4_report.md`)
+- Mesh OK (713 k cells, max skewness 3.3); both branches reached 30 s.
+- **Releaser's nose:** 13 cm further forward, out of the back column; it receives neither release (≤ 1.5 × 10⁻⁵).
+- **Neighbour:** the silent cloud reaches the head ring (OAV 580, vs 450 audible) but not the breathing zone (10⁻⁴).
+  The audible jet reaches it at 2.6.
+- In all three postures, silent < audible in both breathing zones during the direct pass.
+- Forward lean is the one case where RANS intermittency could matter for the silent release.
+- Plot titles now say "leaning forward" for negative angles.
+- Manuscript: results paragraph, Table 2 rows, methods, discussion and abstract updated ("three postures").
