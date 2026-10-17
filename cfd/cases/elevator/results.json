@@ -1,0 +1,59 @@
+{
+ "branches": {
+  "FL_silent": {
+   "FL": {
+    "peak_s": 4.7237426e-05,
+    "peak_OAV": 6.746767771861536,
+    "t_peak_s": 31.322727,
+    "t_arrival_s": 17.589474,
+    "time_above_OAV1_s": 42.238007,
+    "exposure_s_dt": 0.0014297241760641733,
+    "worst_breath_OAV_mean": 6.6917976826344345,
+    "worst_breath_OAV_max": 6.742195672621068,
+    "bz_peak_OAV": 6.467027998857743,
+    "head_ring_peak_OAV": 301.5905826604059,
+    "t_head_ring_peak_s": 8.8
+   },
+   "FR": {
+    "peak_s": 2.71852e-05,
+    "peak_OAV": 3.882773613270338,
+    "t_peak_s": 59.8,
+    "t_arrival_s": 35.739999999999995,
+    "time_above_OAV1_s": 24.084323,
+    "exposure_s_dt": 0.0004432348328684873,
+    "worst_breath_OAV_mean": 3.552264760764115,
+    "worst_breath_OAV_max": 3.8702175477586267,
+    "bz_peak_OAV": 3.5704804462503295,
+    "head_ring_peak_OAV": 41.801717453701535,
+    "t_head_ring_peak_s": 13.8
+   },
+   "BL": {
+    "peak_s": 0.00021272616,
+    "peak_OAV": 30.38298489252697,
+    "t_peak_s": 17.457895,
+    "t_arrival_s": 8.756713000000001,
+    "time_above_OAV1_s": 51.0684318,
+    "exposure_s_dt": 0.005014455934283058,
+    "worst_breath_OAV_mean": 27.0052909158881,
+    "worst_breath_OAV_max": 29.95328700585054,
+    "bz_peak_OAV": 28.388963338292964,
+    "head_ring_peak_OAV": 87.81246908129204,
+    "t_head_ring_peak_s": 10.3
+   },
+   "BR": {
+    "peak_s": 5.4234384e-05,
+    "peak_OAV": 7.746120504067324,
+    "t_peak_s": 42.65119,
+    "t_arrival_s": 17.250658,
+    "time_above_OAV1_s": 42.576000500000006,
+    "exposure_s_dt": 0.0014800876081899552,
+    "worst_breath_OAV_mean": 7.620567928874853,
+    "worst_breath_OAV_max": 7.726595630576148,
+    "bz_peak_OAV": 7.457898969498525,
+    "head_ring_peak_OAV": 26.982631460921606,
+    "t_head_ring_peak_s": 21.8
+   }
+  }
+ },
+ "attribution": {}
+}
