@@ -32,7 +32,7 @@ references:
   who1999: {editors: [Berglund B, Lindvall T, Schwela DH], year: 1999, title: "Guidelines for Community Noise", publisher: "World Health Organization, Geneva"}
   erbil2026: {authors: [Erbil Y, Koçak S], year: 2026, title: "Air permeability and water vapour transmission in hemp-blended denim fabrics: a comparative study of hemp blend ratio, weft count and dual-core weft architecture", journal: Textiles, volume: 6, issue: 3, pages: "89", doi: 10.3390/textiles6030089, openalex: W7170162901}
   jamshaid2020: {authors: [Jamshaid H, Rajput AW, Zahid B, Asfand N, Basra SA, Ali A], year: 2020, title: "Comparison of functional properties of woven and knitted denim fabrics", journal: "Industria Textila", volume: 71, issue: 1, pages: "3-7", doi: 10.35530/it.071.01.1604, openalex: W3008290548}
-  hirani2009: {authors: [Hirani R (director)], year: 2009, title: "3 Idiots", medium: film, publisher: "Vinod Chopra Films"}
+  hirani2009: {authors: [Hirani R], year: 2009, title: "3 Idiots", medium: film, publisher: "Vinod Chopra Films"}
   grose1811: {authors: [Grose F], year: 1811, title: "Dictionary of the Vulgar Tongue", note: "entry 'fice'; public domain"}
   # --- added in the M0 parameter pass (full texts read by the user-supplied PDFs or by the verification agent) ---
   hussein1994: {authors: [Hussein HJ, Capp SP, George WK], year: 1994, title: "Velocity measurements in a high-Reynolds-number, momentum-conserving, axisymmetric, turbulent jet", journal: "Journal of Fluid Mechanics", volume: 258, pages: "31-75", doi: 10.1017/S002211209400323X}

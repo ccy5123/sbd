@@ -573,3 +573,14 @@ The abstract-only pass was wrong or overstated in several places:
 - **Introduction and abstract:** fifth contribution and one chemistry sentence.
 - `chem/buoyancy.py` refactored to expose `per_passage()`; its JSON output is unchanged (diffed).
 - Build: 41 pages, clean apart from the pre-existing overfull parameter longtable.
+
+### Introduction hook corrected (2026-10-17)
+- Chatur's nickname: the cause is the memory-enhancing pills he takes, whose side effect is silent but foul flatulence
+  (plot summaries; Film Companion).
+- Verse: sources disagree on the order of the ranking.
+  - kinoafisha subtitles: vehicle → train → "silent killer".
+  - Wikiquote: small flapping → huffing → greatest gas, which "kills in silence".
+  - Both end with the silent one as the deadliest. The text now says only that it "ranks flatus by its sound and ends
+    with the silent release". Paraphrase only; no quotation.
+- Bibliography: the film is now cited as `@misc` (Film (director); studio) instead of `@book` (`make_bib.py`,
+  `medium: film`).

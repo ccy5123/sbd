@@ -1,7 +1,7 @@
 """Generate refs.bib for the preprint from refs/references.yaml (the single bibliography source).
 
 Author strings "Surname AB" become "Surname, A. B."; "et al." becomes "and others". Entry type: techreport when a
-report number is given, book when a publisher or edition is given without a journal, misc for standards and
+report number is given, book when a publisher or edition is given without a journal, misc for films, standards and
 organisation documents, article otherwise.
 Usage (repo root): python3 manuscript/preprint/make_bib.py -> manuscript/preprint/refs.bib
 """
@@ -53,7 +53,9 @@ def author(a: str) -> str:
 
 
 def entry(key: str, r: dict) -> str:
-    if "report" in r:
+    if r.get("medium") == "film":
+        kind = "misc"
+    elif "report" in r:
         kind = "techreport"
     elif "journal" in r:
         kind = "article"
@@ -73,6 +75,8 @@ def entry(key: str, r: dict) -> str:
             f[dst] = str(r[src])
     if r.get("pages"):
         f["pages"] = str(r["pages"]).replace("-", "--")
+    if r.get("medium") == "film":  # director as author; studio in howpublished
+        f["howpublished"] = f"Film (director); {f.pop('publisher')}"
     if kind == "techreport":
         f["institution"] = r.get("publisher", r.get("organization", "n.a."))
     body = ",\n".join(f"  {k} = {{{ascii_tex(v.translate(SPECIAL)) if k != 'doi' else v}}}" for k, v in f.items())
