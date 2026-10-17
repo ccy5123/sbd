@@ -176,6 +176,7 @@ One paragraph. Deadpan.
 | 11 | γ (auxiliary) | `figures/fig11_gamma.png` | move to SI? |
 | 12 | Culture map | `figures/fig12_culture_map.png` | done |
 | 13 | Memory filter | `figures/fig13_memory_filter.png` | add observer points |
+| 14 | Chemistry of the passage | `figures/fig14_chemistry.png` (`chem/fig_chem.py`) | done |
 | S1 | Adaptation | `figures/figS_adaptation.png` | done |
 | S2–S4 | Gate 0 ratio map, sensitivity, P(SBD) | `figures/gate0_*.png` | SI |
 
@@ -189,6 +190,10 @@ One paragraph. Deadpan.
   - otherwise ChemRxiv (no endorsement; basic screening; matches achemso);
   - bioRxiv excluded (requires biological research with new data);
   - post to one server only.
+- Chemistry: **one preprint** (author, 2026-10-17). The chemistry is spread over the existing structure: Methods
+  "Odorant chemistry", Results "The chemistry of the odour" (absorbs the composition counter-argument; Fig. 14,
+  Table 3), Discussion "Where the odour comes from"; the introduction lists it as a fifth contribution. With this
+  content ChemRxiv becomes a stronger server candidate; the server choice is still open.
 - AI-use disclosure: required (arXiv, ACS); to be written last, gap marker in `main.tex`.
 - Affiliation: "Independent Researcher, Incheon, Republic of Korea" (author's choice). The author is to check employer
   rules on outside publication and IP.

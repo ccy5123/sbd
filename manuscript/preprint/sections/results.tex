@@ -178,14 +178,90 @@ Without an expectation effect, a silent passage seems stronger in 47\% of pairs.
 exposures the measured label effects are 0--3\%, and their sign for an unwarned listener is not established
 \cite{herz2001,djordjevic2008,dalton1999}. We therefore keep expectation as an auxiliary hypothesis only.
 
-\subsection{The composition counter-argument}
+\subsection{The chemistry of the odour}
 \label{sec:res-composition}
-Could loud passages be mostly swallowed air and therefore odourless? Across 87 passages, \ce{H2S} concentration does
-not correlate with passage volume ($r = +0.20$, not significant), so sulfur \emph{mass} rises with volume
-\cite{suarez1997}.
+\emph{Which molecule.} Methanethiol carries at least half of the odour and probably most of it
+(Figure~\ref{fig:chem}a).
+\begin{itemize}
+  \item With the composition of ref.~\citenum{suarez1998}, methanethiol and \ce{H2S} share the OAV about equally.
+  Methanethiol is one fifth as concentrated, but its threshold is 5--6 times lower.
+  \item With the composition of ref.~\citenum{tangerman2009}, or with the lowest reported thresholds, methanethiol
+  carries 60--94\%.
+\end{itemize}
+The two datasets disagree on the concentrations themselves: \ce{H2S} is five times methanethiol in one and slightly
+below it in the other. That study attributes the difference to the bean-rich diet of the first
+\cite{tangerman2009}. Its panel found that gas mixtures with methanethiol above its flatus threshold smelled like most
+passages.
 
-The nitrogen in flatus is largely blood-derived rather than swallowed \cite{levitt1970}. At high production rates
-almost all flatus is fermentation gas \cite{tomlin1991}. The counter-argument has no support.
+None of this affects the silent/audible comparison. Transport is linear and acts on all three gases alike, so every
+ratio is the same for any composition. Absolute OAVs are 11--38\% lower with the second composition, well within the
+uncertainty analysis.
+
+\emph{The intensity law with real flatus.} Zinc acetate lowers the summed OAV by a factor of 14. Stevens' law then
+predicts rating ratios of 0.31--0.59, and the two judges gave 0.28 and 0.59 \cite{suarez1998}. Activated charcoal
+lowers the OAV about 260-fold and is rated far weaker than the power law predicts. This is the known failure of a power
+law near threshold; it does not touch the supra-threshold ratios on which the silent/audible comparison rests.
+
+\emph{What makes a passage rise or sink.} Composition, not temperature, sets the buoyancy (Figure~\ref{fig:chem}b).
+\begin{itemize}
+  \item For the median passage the compositional part ($+1.25$\,m\,s$^{-2}$ dry, $+1.40$ saturated) is about three
+  times the thermal part ($+0.47$).
+  \item \ce{H2} and \ce{CH4} make flatus light; \ce{CO2} makes it heavy. The compositional part falls with \ce{CO2}
+  content ($r = -0.80$).
+  \item 6--12\% of passages sink even while hot. After cooling to room temperature, 25--38\% are heavier than air.
+\end{itemize}
+The signed $g'$ used in the dispersion model follows from these compositions (Section~\ref{sec:source}).
+
+\emph{Conserved tracers.} The odorants survive a passage (Table~\ref{tab:reactivity}).
+\begin{itemize}
+  \item In an office, gas-phase oxidation removes less than 0.4\% of any of the three gases in 120\,s. Even
+  hypochlorite cleaning removes less than 4\%.
+  \item Surface deposition is the one unconstrained sink. It removes 0.7\% in 120\,s at $v_d = 0.002$\,cm\,s$^{-1}$ but
+  51\% at 0.2\,cm\,s$^{-1}$.
+  \item Deposition would act most on the silent release, which lingers along the body and in the seat. It would
+  therefore strengthen the sofa result, not weaken it.
+\end{itemize}
+Treating the odorants as passive scalars is justified against chemistry by two to three orders of magnitude, and
+against deposition only if $v_d \lesssim 0.01$\,cm\,s$^{-1}$.
+
+\emph{How dilute a passage arrives.} The panel test of ref.~\citenum{tangerman2009} implies a dilution of
+$0.6$--$13\times10^{4}$ between release and nose, depending on the threshold set. The analytic model's
+breath-averaged dilution at the neighbour has a median of $1.8\times10^{3}$ (10--90\%: $2.5\times10^{2}$--$2.9\times10^{4}$).
+The anchor is biased upwards, because it requires the least sensitive panellist to detect but divides by the
+thresholds of the most sensitive. The analytic model therefore sits at the concentrated end of what a real nose
+receives, as an upper bound should, and agrees with the panel test to about an order of magnitude.
+
+\emph{Are loud passages just swallowed air?} Across 87 passages, \ce{H2S} concentration does not correlate with
+passage volume ($r = +0.20$, not significant), so sulfur \emph{mass} rises with volume \cite{suarez1997}. The nitrogen
+in flatus is largely blood-derived rather than swallowed \cite{levitt1970}, and at high production rates almost all
+flatus is fermentation gas \cite{tomlin1991}. The counter-argument has no support.
+
+\begin{table}
+\caption{The odorants are conserved over a passage: lifetime against gas-phase oxidation and the fraction lost in
+120\,s. Office levels are measured \cite{fiorentino2023}: low, OH $0.6\times10^{5}$\,cm$^{-3}$ and \ce{O3} 0.7\,ppb;
+high, OH $9.8\times10^{5}$\,cm$^{-3}$ and \ce{O3} 2.6\,ppb. Cleaning adds Cl $10^{6}$\,cm$^{-3}$ [ASSUMPTION]. Rate
+constants from ref.~\citenum{atkinson2004}.}
+\label{tab:reactivity}
+\begin{tabular}{lccc}
+\toprule
+scenario & \ce{H2S} & \ce{CH3SH} & DMS \\
+\midrule
+office, low & 40\,d / 0.003\% & 5.7\,d / 0.03\% & 28\,d / 0.005\% \\
+office, high & 2.5\,d / 0.06\% & 8.6\,h / 0.4\% & 1.8\,d / 0.08\% \\
+hypochlorite cleaning & 3.5\,h / 0.9\% & 1.2\,h / 2.8\% & 0.8\,h / 4.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig14_chemistry.png}
+\caption{The chemistry of the passage. (a) Share of the summed OAV carried by \ce{H2S}, methanethiol and dimethyl
+sulfide, for two measured compositions \cite{suarez1998,tangerman2009} under three threshold sets. (b) Reduced
+gravity of 16 measured compositions \cite{suarez1997} against their \ce{CO2} content, at 37\,\textdegree C (dry
+basis; water saturation shifts these values by $-0.04$ to $+0.29$\,m\,s$^{-2}$) and after cooling to room
+temperature.}
+\label{fig:chem}
+\end{figure}
 
 \subsection{Memory}
 \label{sec:res-memory}

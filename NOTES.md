@@ -553,3 +553,23 @@ The abstract-only pass was wrong or overstated in several places:
 - Forward lean is the one case where RANS intermittency could matter for the silent release.
 - Plot titles now say "leaning forward" for negative angles.
 - Manuscript: results paragraph, Table 2 rows, methods, discussion and abstract updated ("three postures").
+
+### Chemistry in the single preprint (2026-10-17; `manuscript/preprint/`, `chem/fig_chem.py`)
+- **Decision (author):** one preprint that includes the chemistry. It is spread over the existing structure, not set
+  apart as its own section; a two-panel figure was added.
+- **New figure, Fig. 14** (`chem/fig_chem.py`; palette validated):
+  - (a) OAV shares for 2 compositions × 3 threshold sets;
+  - (b) g′ at 37 °C and after cooling against %CO₂.
+- **Methods:** new subsection "Odorant chemistry" (OAV, removal check, buoyancy split, conserved tracers, dilution
+  anchor).
+- **Results:** "The chemistry of the odour" replaces "The composition counter-argument" and absorbs it. Adds the
+  reactivity table (Table 3) and Fig. 14.
+  - Stated explicitly: composition does not change any silent/audible ratio (linear transport); absolute OAVs drop
+    11–38 % with the Tangerman composition.
+- **Discussion:**
+  - new subsection "Where the odour comes from" (production, mucosal clearance, free vs total sulfide, diet, OR2T11
+    and copper; inferences marked);
+  - limitations now include OAV additivity and deposition.
+- **Introduction and abstract:** fifth contribution and one chemistry sentence.
+- `chem/buoyancy.py` refactored to expose `per_passage()`; its JSON output is unchanged (diffed).
+- Build: 41 pages, clean apart from the pre-existing overfull parameter longtable.

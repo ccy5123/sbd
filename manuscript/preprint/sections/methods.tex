@@ -133,6 +133,44 @@ intensity \cite{fallon2018}. Intensity is therefore always computed from the att
 \end{itemize}
 \src{uq/observer\_ps.py}
 
+\subsection{Odorant chemistry}
+\label{sec:methods-chem}
+\emph{Odour activity.} Each sulfur gas contributes an odour activity value $\mathrm{OAV}_i = x_i/\theta_i$, its mole
+fraction over its detection threshold, and the passage's OAV is their sum (additivity is assumed; mixture suppression
+is not modelled). We compare two measured compositions:
+\begin{itemize}
+  \item 87 passages of 16 volunteers \cite{suarez1998}, used throughout the dispersion model;
+  \item 28 passages measured by gas chromatography: \ce{H2S} 149, methanethiol 216 and dimethyl sulfide 144\,nmol\,L$^{-1}$
+  \cite{tangerman2009}.
+\end{itemize}
+Three threshold sets bracket the observer: a trained panel \cite{nagata2003}, population geometric means
+\cite{amoore1983,wilby1969} and the lowest values in the literature, as compiled in ref.~\citenum{tangerman2009}.
+
+\emph{Removal check.} Zinc acetate precipitates \ce{H2S} and thiols; activated charcoal adsorbs all three gases. For both
+treatments, ref.~\citenum{suarez1998} reports the gas concentrations and two judges' ratings before and after. We
+predict the rating ratio as $(\mathrm{OAV}_\mathrm{after}/\mathrm{OAV}_\mathrm{before})^n$ with $n = 0.20$--$0.45$
+\cite{collins2001}. This is a consistency check of the intensity law, not a fit.
+
+\emph{Buoyancy.} The reduced gravity $g' = g(\rho_a-\rho_g)/\rho_a$ of each of 16 measured compositions
+\cite{suarez1997} is split into two parts:
+\begin{itemize}
+  \item a thermal part, $g(1-T_a/T_g)$, for gas at 37\,\textdegree C in air at 22\,\textdegree C;
+  \item a compositional part, $g(M_a-M_g)/M_a$, at equal temperature, with air at 50\% relative humidity.
+\end{itemize}
+Whether flatus is saturated with water vapour has not been measured, so we bracket dry and saturated gas
+[ASSUMPTION].
+
+\emph{Conserved tracers.} Gas-phase losses use IUPAC rate constants at 298\,K for reaction with OH, \ce{O3}, \ce{NO3}
+and Cl \cite{atkinson2004}. Oxidant levels come from direct measurements in an office: OH $0.6$--$9.8\times10^{5}$\,cm$^{-3}$
+and \ce{O3} 0.7--2.6\,ppb \cite{fiorentino2023}. A worst case adds OH $10^6$\,cm$^{-3}$ with \ce{O3} 40\,ppb, and Cl
+$10^6$\,cm$^{-3}$ during hypochlorite cleaning [ASSUMPTION]. No deposition velocity $v_d$ has been published for these
+gases on indoor surfaces, so surface loss is bracketed as $k = v_d\,S/V$ with $S/V = 3$\,m$^{-1}$.
+
+\emph{Dilution anchor.} Ref.~\citenum{tangerman2009} reports the lowest source concentration that every panel member
+detected when 100\,mL was released below the nose. Divided by a detection threshold, it gives the dilution between
+release and nose in that test. We compare it with the breath-averaged dilution of the analytic model.
+\src{chem/chem\_report.md}
+
 \subsection{Uncertainty and the regime map}
 \label{sec:uq}
 The analytic model serves as the surrogate for uncertainty quantification. A Latin-hypercube CFD design was

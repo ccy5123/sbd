@@ -26,6 +26,7 @@ SCRIPTS = {  # script -> argv
     "uq/run_m7.py": [],
     "perception/run_selection.py": [],
     "culture/make_map.py": [],
+    "chem/fig_chem.py": [],
 }
 _save = Figure.savefig
 
