@@ -472,3 +472,16 @@ The abstract-only pass was wrong or overstated in several places:
   - TOC graphic, merged validation figure, caption details;
   - 120 s window result (running), survey data citation, Zenodo DOI, acknowledgements, AI disclosure (last).
 - 30 pages in the manuscript layout.
+
+### M4 120 s window (2026-10-17; `extend_window.sh`, `m4_report.md`)
+- Both upright branches were continued from 30 s to 120 s (detached runs; about 1 s of simulated time per minute).
+- **Direct pass (0–45 s):** unchanged; the silent release misses both noses.
+- **Return (45–70 s):** both clouds come back from the ceiling.
+- **After 70 s:** the neighbour sees identical traces (worst breath 0.39 for both; Theorem 2). The releaser sees silent
+  1.5–2× audible, touching OAV ≈ 1 (trained-panel threshold) for ~1 s near 100–110 s.
+- 120 s maxima:
+  - R_bz is 1.6 at the releaser and 0.67 at the neighbour;
+  - R for the worst breath is 1.7 and 1.0;
+  - R for exposure is 2.0 and 0.91.
+- `analyze_sofa.py --window 30` reproduces the first-pass breathing-zone numbers (`results_W30s.json`).
+- Manuscript: results, discussion, abstract and conclusion updated; the gaps closed.

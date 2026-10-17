@@ -130,3 +130,49 @@ noticeable to the releaser, not less.
 - RANS intermittency;
 - a forward-leaning posture;
 - a different release direction.
+
+## Longer window: 120 s (upright, 2026-10-17)
+
+*Code: `extend_window.sh` (continues both branches from 30 s), `analyze_sofa.py` (all data) and
+`analyze_sofa.py --window 30` (direct pass) · numbers: `results.json` (120 s), `results_W30s.json` (30 s) · figures:
+`figures/fig5_sofa_duet_noses.png` (120 s), `figures/fig5_sofa_duet_noses_W30s.png`*
+
+The 30 s re-analysis reproduces the first-pass breathing-zone numbers exactly. The silent probe values differ at the
+10⁻¹³ level, because the window now ends 0.2 s later.
+
+**Results** (peak over 0–120 s; worst breath = max over breathing phase):
+
+| nose | metric | silent | audible | R |
+|---|---|---|---|---|
+| releaser | breathing-zone peak | 1.0 (108 s) | 0.64 (14 s) | 1.6 |
+| releaser | worst breath | 0.99 | 0.59 | 1.7 |
+| neighbour | breathing-zone peak | 0.42 (114 s) | 0.63 (6 s) | 0.67 |
+| neighbour | worst breath | 0.39 | 0.39 | 1.0 |
+| releaser | breathing-zone exposure (s-integral) | 2.0× audible | | 2.0 |
+| neighbour | breathing-zone exposure | 0.91× audible | | 0.91 |
+
+**Phases.**
+1. **Direct pass (0–45 s).** As before, the silent cloud misses both noses (≤ 10⁻¹⁰), and the audible jet reaches them
+   at sub-threshold levels.
+2. **Return (45–70 s).** Both clouds have reached the ceiling and come back down through the room. Both modes arrive
+   at both noses at OAV 0.01–0.3.
+3. **Mixed room (> 70 s).**
+   - At the neighbour, silent and audible traces are indistinguishable (OAV 0.1–0.4). This is Theorem 2 in action:
+     the release mode is forgotten.
+   - At the releaser's own nose the silent cloud runs ~1.5–2× higher. It touches the trained-panel threshold
+     (OAV ≈ 1) for about 1 s near 100–110 s. The mechanism of this late own-nose excess was not analysed.
+
+**Interpretation.**
+- The 30 s conclusion ("the silent release reaches no nose") is a statement about the **direct pass** only.
+- Within about a minute, room recirculation brings both releases back at comparable, near-threshold levels, as the
+  well-mixed estimate predicts (92 mL × 1.4 × 10⁵ / 25.6 m³ ≈ 0.5).
+- The OAVs here use trained-panel thresholds (Nagata). For a typical untrained observer, thresholds are 10–23×
+  higher, so the late-phase values (≤ 1) would mostly go unnoticed; for a distracted one, almost always.
+- What a bystander could actually notice is the audible direct pass (OAV up to 0.6 in the breathing zone, with RANS
+  intermittency on top). The silent release only becomes faintly detectable once it has been mixed into the room, when
+  its origin can no longer be attributed.
+
+**Caveats.**
+- The room is sealed except for a pressure-relief vent (no supply air).
+- RANS mean field; one realisation.
+- The 30 s precursor flow is assumed to stay statistically steady for two minutes.

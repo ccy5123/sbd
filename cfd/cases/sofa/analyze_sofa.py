@@ -8,7 +8,9 @@ Metrics per nose: peak OAV, arrival time (first OAV >= 1), time above OAV 1, exp
 OAV (sinusoidal breathing, Wysocki 2006; mean and max over 24 breathing phases). R = silent / audible for each metric.
 Writes cfd/cases/sofa/results.json and figures/fig5_sofa_duet_noses.png. With --recline DEG (posture sensitivity,
 run_sofa.sh [runs_dir] DEG) it reads sofa_rec<DEG>_{silent,audible}, moves the releaser's breathing zone and head axis
-with the reclined head, and writes results_rec<DEG>.json and figures/figS_sofa_rec<DEG>_noses.png.
+with the reclined head, and writes results_rec<DEG>.json and figures/figS_sofa_rec<DEG>_noses.png. With --window W
+only the first W s after release onset are used and the output names get a _W<W>s suffix (e.g. the 30 s direct pass of
+runs later extended to 120 s by extend_window.sh).
 Usage: python3 analyze_sofa.py [runs_dir] [--recline DEG]
 """
 import argparse
@@ -105,7 +107,7 @@ def metrics(t, s):
             "worst_breath_OAV_mean": oav(wb_mean, P), "worst_breath_OAV_max": oav(wb_max, P)}
 
 
-def main(runs: Path, recline: float = 0.0):
+def main(runs: Path, recline: float = 0.0, window: float | None = None):
     res, series = {}, {}
     prefix = "sofa" if not recline else f"sofa_rec{recline:g}"
     for mode in ("silent", "audible"):
@@ -114,8 +116,11 @@ def main(runs: Path, recline: float = 0.0):
             print("missing", case)
             continue
         t, s = read_probe(case)
-        res[mode] = {NOSES[i]: metrics(t, s[:, i]) for i in range(2)}
         tz, bz, ring = zone_series(case, recline=recline)
+        if window is not None:
+            k, kz = t <= T_REL + window + 1e-9, tz <= T_REL + window + 1e-9
+            t, s, tz, bz, ring = t[k], s[k], tz[kz], bz[kz], ring[kz]
+        res[mode] = {NOSES[i]: metrics(t, s[:, i]) for i in range(2)}
         series[mode] = (t, s, tz, bz)
         for i in range(2):
             res[mode][NOSES[i]].update({
@@ -130,13 +135,14 @@ def main(runs: Path, recline: float = 0.0):
                           "bz_peak_OAV", "bz_exposure_s_dt", "head_ring_peak_OAV")}
             for n in NOSES}
     res["recline_deg"] = recline
-    tag = "" if not recline else f"_rec{recline:g}"
+    res["window_s"] = window if window is not None else float(max(series[m][0][-1] for m in series) - T_REL)
+    tag = ("" if not recline else f"_rec{recline:g}") + ("" if window is None else f"_W{window:g}s")
     (ROOT / f"cfd/cases/sofa/results{tag}.json").write_text(json.dumps(res, indent=1))
     print(json.dumps(res, indent=1))
-    plot(series, recline)
+    plot(series, recline, tag)
 
 
-def plot(series, recline: float = 0.0):
+def plot(series, recline: float = 0.0, tag: str = ""):
     SURFACE, INK2 = "#fcfcfb", "#52514e"
     COL = {"silent": "#2a78d6", "audible": "#eb6834"}
     plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "font.size": 9,
@@ -158,8 +164,9 @@ def plot(series, recline: float = 0.0):
         if "silent" in series:
             t, s, tz, bz = series["silent"]
             peak = oav(float(max(s[:, i].max(), bz[:, i].max(), 0.0)), P)
-            ax.text(0.02, 0.95, f"silent: peak OAV {peak:.0e} (off scale)", transform=ax.transAxes, fontsize=7.5, va="top",
-                    color=COL["silent"])
+            if peak < 1e-2:
+                ax.text(0.02, 0.95, f"silent: peak OAV {peak:.0e} (off scale)", transform=ax.transAxes, fontsize=7.5,
+                        va="top", color=COL["silent"])
         ax.set_xlabel("time after release onset (s)")
         ax.set_title(f"{'ab'[i]}  {NOSES[i]}", loc="left")
     axes[0].set_ylabel("summed odour activity value at the nose")
@@ -170,6 +177,8 @@ def plot(series, recline: float = 0.0):
     if recline:
         title = f"Fig. S · Sofa duet, releaser reclined {recline:g}° (back closed onto the backrest): same 92 mL"
         out = f"figS_sofa_rec{recline:g}_noses.png"
+    if "_W" in tag:
+        out = out.replace(".png", tag[tag.index("_W"):] + ".png")
     fig.suptitle(title, x=0.01, ha="left", fontsize=10, fontweight="bold")
     fig.savefig(ROOT / "figures" / out, dpi=200)
 
@@ -178,5 +187,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("runs", nargs="?", default=str(ROOT / "cfd/runs"))
     ap.add_argument("--recline", type=float, default=0.0)
+    ap.add_argument("--window", type=float, default=None, help="use only the first W s after release onset")
     a = ap.parse_args()
-    main(Path(a.runs), a.recline)
+    main(Path(a.runs), a.recline, a.window)
