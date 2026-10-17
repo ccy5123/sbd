@@ -115,6 +115,40 @@ def _body(recline_deg: float = 0.0):
     return t
 
 
+STAND_NOSE = np.array([0.075, 0.0, 1.59])  # standing nose tip (stature ~1.69 m, mean of ANSUR II p50 male/female)
+STAND_REL = np.array([-0.195, 0.0, 0.83])  # release point behind the buttocks, as on the sofa relative to the torso
+
+
+def standing(dx: float = 0.0, dy: float = 0.0):
+    """Standing manikin facing +x, centred at (dx, dy). Same torso, head and nose primitives as the seated one,
+    raised by 0.375 m (nose at 1.59 m); straight legs, arms hanging at the sides."""
+    t = []
+    t += cylinder((-0.07, 0, 0.80), (-0.07, 0, 1.425), 0.11, 0.17)               # torso incl. pelvis (elliptic)
+    t += ellipsoid((-0.07, 0, 1.425), (0.11, 0.19, 0.07))                         # shoulders cap
+    t += cylinder((-0.05, 0, 1.405), (-0.05, 0, 1.535), 0.055)                    # neck
+    t += ellipsoid((-0.03, 0, 1.615), (0.10, 0.08, 0.12))                         # head
+    t += ellipsoid((0.065, 0, 1.59), (0.02, 0.015, 0.025))                        # nose
+    for s in (-1, 1):
+        t += cylinder((-0.07, s * 0.20, 1.37), (-0.05, s * 0.20, 0.78), 0.045)   # arm, hanging
+        t += cylinder((-0.05, s * 0.10, 0.88), (-0.03, s * 0.10, 0.07), 0.065)   # leg
+        t += box((-0.08, s * 0.10 - 0.05, 0.0), (0.18, s * 0.10 + 0.05, 0.07))   # foot
+    return _shift(t, dx=dx, dy=dy)
+
+
+# Elevator car, rated load 630 kg / 8 persons: inside 1.10 m wide x 1.40 m deep (KONE MonoSpace planning guide;
+# 1.54 m2 <= EN 81-20 Table 6 maximum 1.66 m2), car height 2.10 m (the lower of the offered 2.10 / 2.20 m).
+# x = depth (door at x = CAR[0]), y = width, z = height. Four occupants in a 2 x 2 grid, all facing the door.
+CAR = (1.40, 1.10, 2.10)
+OCCUPANTS = {"FL": (0.95, -0.27), "FR": (0.95, 0.27), "BL": (0.45, -0.27), "BR": (0.45, 0.27)}
+
+
+def write_elevator(out: Path):
+    """Elevator whodunit: one STL per occupant (FL, FR, BL, BR = front/back, left/right)."""
+    out.mkdir(parents=True, exist_ok=True)
+    for name, (x, y) in OCCUPANTS.items():
+        write_stl(out / f"{name}.stl", name, standing(x, y))
+
+
 def sofa(half_width=0.85):
     """Two-seat sofa: seat block, backrest and armrests (seat surface at SEAT_Z)."""
     hw = half_width
