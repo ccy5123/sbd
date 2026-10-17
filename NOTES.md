@@ -485,3 +485,16 @@ The abstract-only pass was wrong or overstated in several places:
   - R for exposure is 2.0 and 0.91.
 - `analyze_sofa.py --window 30` reproduces the first-pass breathing-zone numbers (`results_W30s.json`).
 - Manuscript: results, discussion, abstract and conclusion updated; the gaps closed.
+
+### M9 figures and captions (2026-10-17)
+- `manuscript/preprint/make_figures.py` reruns the figure scripts unmodified, with suptitles suppressed and output
+  redirected to `manuscript/preprint/figs/`. Result files are reproduced unchanged.
+- `fig_chain.py` draws Fig. 2, the mechanism chain.
+- The validation figure stacks the jet and CBL panels; the sofa mid-plane snapshots are added.
+- All captions are written.
+- **Correction:** the M2 report listed 1.7 L/s as the subway minimum audible flow at 0.6 m. That is the 3 m value; at
+  0.6 m it is 0.36 L/s (Fig. 3b was right). The report and the manuscript are fixed.
+- Remaining gaps:
+  - Zenodo DOI, acknowledgements, AI disclosure (author decisions);
+  - TOC graphic (ACS journals only).
+- Running: forward-lean posture (−10°) sofa CFD, `run_sofa.sh <runs> -10`.
