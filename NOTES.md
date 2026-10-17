@@ -511,3 +511,15 @@ The abstract-only pass was wrong or overstated in several places:
 - **Buoyancy:** the compositional part (median +1.25 to +1.4 m/s²) is about 3× the thermal part (+0.47).
   - 6–12 % of passages sink while hot; 25–38 % are heavier than air after cooling.
   - Water saturation is an assumption, bracketed.
+
+### Chemistry layer, part 2 (2026-10-17; `chem/reactivity.py`, `chem/chem_report.md` part 2)
+- **Gas-phase loss over 120 s:** < 0.5 % (IUPAC k, indoor OH ≤ 10⁶); ≤ 4 % even during hypochlorite cleaning.
+- **Surface deposition:** no data exist (null result); it matters above v_d ≈ 0.01 cm/s.
+- **Fabric sorption:** no data beyond Ohge 2005 (null result).
+- **Biochemistry:** H₂S from SRB plus cysteine degradation. CH₃SH → H₂S → thiosulfate (Levitt 1999, read in full);
+  rhodanese.
+- **Correction:** the agent doubted that Suarez 1997 contains r(volume, [H₂S]). The full text, Table 3, shows 0.195;
+  our citation stands.
+- **Receptors:** copper is not a general thiol mechanism (Duan 2012, Haag 2019); "Block 2017 PNAS" does not exist as
+  remembered.
+- New refs: atkinson2004, levitt1999, duan2012, haag2019. 15 DOIs requested from the author.
