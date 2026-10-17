@@ -29,7 +29,14 @@ here in two ways.
   \item The fast convective boundary layer shortens travel times to the releaser's own nose by about 30\%. The analytic
   model compensates by stretching the CFD times by a factor of 1.4.
 \end{itemize}
-\gap{merged validation figure (jet + boundary layer)}
+\begin{figure}
+\includegraphics[width=\textwidth]{fig4_jet_validation.png}\\[4pt]
+\includegraphics[width=\textwidth]{fig4_cbl_validation.png}
+\caption{Validation. Top: free round jet at $\mathrm{Re} = 6700$ on three meshes (centreline velocity and scalar decay,
+spreading). Bottom: face-front convective boundary layer of the seated manikin against thermal-manikin data
+\cite{licina2014} at 20--26\,\textdegree C, and time-mean vertical velocity profiles at nose height.}
+\label{fig:validation}
+\end{figure}
 
 \subsection{The physical ratio}
 \label{sec:res-ratio}
@@ -79,7 +86,7 @@ physics, perception, memory. \gap{caption details}}
 \subsection{A sofa}
 \label{sec:res-sofa}
 The simulations of two people on a sofa overturn the analytic picture, in the direction opposite to the belief
-(Table~\ref{tab:sofa}, Figure~\ref{fig:sofa}).
+(Table~\ref{tab:sofa}, Figures~\ref{fig:sofa} and \ref{fig:planes}).
 
 \emph{Silent release.} The silent release has too little momentum to leave the convective boundary layer of the
 releaser's back. It is drawn up the gap between back and backrest, over the head and on to the ceiling. Within 30\,s
@@ -129,6 +136,14 @@ neighbour & reclined 4.5\,\textdegree & $3\times10^{-15}$ & 0.19 \\
 92\,mL released silently or audibly. During the direct pass ($<45$\,s) only the audible release reaches the noses; after
 room recirculation both modes converge. \gap{caption details}}
 \label{fig:sofa}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig6_sofa_duet_planes.png}
+\caption{Sofa duet, releaser's mid-sagittal plane (upright): log$_{10}$ OAV at 1, 3, 8 and 15\,s after release onset,
+silent (top) and audible (bottom). The black contour is the odour threshold. The silent release rises in the gap
+between back and backrest; the audible jet escapes it.}
+\label{fig:planes}
 \end{figure}
 
 \subsection{Perception}
