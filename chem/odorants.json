@@ -18,6 +18,12 @@
    "share_MeSH": 0.44131563486214115,
    "share_DMS": 0.0030033980705895724
   },
+  "trained panel (Nagata 2003) | Tangerman 2009 (n = 28)": {
+   "OAV_total": 89002.25305944856,
+   "share_H2S": 0.10391799744140541,
+   "share_MeSH": 0.8823564576616358,
+   "share_DMS": 0.013725544896958779
+  },
   "population (Amoore & Hautala 1983; DMS: Wilby 1969) | all (n = 87)": {
    "OAV_total": 7688.834148718149,
    "share_H2S": 0.43316136282372175,
@@ -35,6 +41,36 @@
    "share_H2S": 0.541532813217072,
    "share_MeSH": 0.3717301514456173,
    "share_DMS": 0.08673703533731071
+  },
+  "population (Amoore & Hautala 1983; DMS: Wilby 1969) | Tangerman 2009 (n = 28)": {
+   "OAV_total": 5736.325077515339,
+   "share_H2S": 0.08161253217943804,
+   "share_MeSH": 0.5989483485786273,
+   "share_DMS": 0.3194391192419346
+  },
+  "lowest literature (Tangerman 2009) | all (n = 87)": {
+   "OAV_total": 679729.5428914798,
+   "share_H2S": 0.1653666146645866,
+   "share_MeSH": 0.8190327613104524,
+   "share_DMS": 0.015600624024960997
+  },
+  "lowest literature (Tangerman 2009) | men (n = 52)": {
+   "OAV_total": 576868.7540295866,
+   "share_H2S": 0.1084558823529412,
+   "share_MeSH": 0.8731617647058825,
+   "share_DMS": 0.01838235294117647
+  },
+  "lowest literature (Tangerman 2009) | women (n = 35)": {
+   "OAV_total": 833225.4108065215,
+   "share_H2S": 0.22526248806872412,
+   "share_MeSH": 0.7636016544702514,
+   "share_DMS": 0.011135857461024499
+  },
+  "lowest literature (Tangerman 2009) | Tangerman 2009 (n = 28)": {
+   "OAV_total": 607514.9065874085,
+   "share_H2S": 0.026008029324489437,
+   "share_MeSH": 0.9425728748472683,
+   "share_DMS": 0.03141909582824227
   }
  },
  "removal": {
@@ -67,6 +103,30 @@
     0.5862068965517241
    ],
    "DMS_share_after": 0.021528243782678067
+  }
+ },
+ "dilution_anchor": {
+  "Tangerman_implied": {
+   "H2S": 75000.0,
+   "MeSH": 125000.0,
+   "DMS": 93750.0
+  },
+  "Tangerman_test_over_Nagata": {
+   "H2S": 43902.439024390245,
+   "MeSH": 17142.85714285714,
+   "DMS": 6000.0
+  },
+  "gate0_breath_averaged": {
+   "nb": {
+    "p10": 245.78375528386982,
+    "p50": 1813.7107307375059,
+    "p90": 29075.39273645852
+   },
+   "own": {
+    "p10": 153.5353894035897,
+    "p50": 804.3950543329431,
+    "p90": 7404.491380834716
+   }
   }
  }
 }

@@ -1,20 +1,34 @@
 {
  "gas_phase": {
-  "indoor typical": {
+  "office, measured low (Fiorentino 2023)": {
    "H2S": {
-    "lifetime_h": 591.0165484633569,
-    "lost_in_120s": 5.6398409549851536e-05
+    "lifetime_h": 953.2524975215435,
+    "lost_in_120s": 3.496738862662774e-05
    },
    "CH3SH": {
-    "lifetime_h": 84.17508417508418,
-    "lost_in_120s": 0.00039592160234880325
+    "lifetime_h": 135.76626479852285,
+    "lost_in_120s": 0.0002454898624313362
    },
    "DMS": {
-    "lifetime_h": 310.01984126984127,
-    "lost_in_120s": 0.00010751421993193677
+    "lifetime_h": 661.0294078762977,
+    "lost_in_120s": 5.04251286104207e-05
    }
   },
-  "indoor upper / outdoor day": {
+  "office, measured high (Fiorentino 2023)": {
+   "H2S": {
+    "lifetime_h": 60.36941250902524,
+    "lost_in_120s": 0.0005520035899284625
+   },
+   "CH3SH": {
+    "lifetime_h": 8.598067842194501,
+    "lost_in_120s": 0.003869334757814147
+   },
+   "DMS": {
+    "lifetime_h": 43.21734834254554,
+    "lost_in_120s": 0.0007709978283159113
+   }
+  },
+  "upper bracket": {
    "H2S": {
     "lifetime_h": 59.1016548463357,
     "lost_in_120s": 0.0005638409818967682
