@@ -498,3 +498,16 @@ The abstract-only pass was wrong or overstated in several places:
   - Zenodo DOI, acknowledgements, AI disclosure (author decisions);
   - TOC graphic (ACS journals only).
 - Running: forward-lean posture (−10°) sofa CFD, `run_sofa.sh <runs> -10`.
+
+### Chemistry layer for ChemRxiv, part 1 (2026-10-17; `chem/`, `chem/chem_report.md`)
+- The author asked for all chemistry items: OAV decomposition, buoyancy, reactivity, sorption, biochemistry and thiol
+  receptors. A literature agent is running for items 3–6.
+- **OAV shares:** MeSH ≈ H₂S (trained panel: 54 % vs 46 %). Men are MeSH-dominated, women H₂S-dominated. DMS is
+  ≤ 1 % (trained) or 9–17 % (population thresholds).
+- **Suarez 1998 Table 3 removal check:**
+  - zinc acetate: OAV × 0.072. Predicted intensity ratio 0.31–0.59 (n 0.45–0.20); the judges gave 0.28 and 0.59,
+    which is consistent.
+  - charcoal: rated far weaker than the power law predicts (failure near threshold).
+- **Buoyancy:** the compositional part (median +1.25 to +1.4 m/s²) is about 3× the thermal part (+0.47).
+  - 6–12 % of passages sink while hot; 25–38 % are heavier than air after cooling.
+  - Water saturation is an assumption, bracketed.

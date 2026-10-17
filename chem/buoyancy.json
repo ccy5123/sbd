@@ -1,0 +1,27 @@
+{
+ "dry": {
+  "g_reduced_median": 1.6621589740807616,
+  "g_reduced_min": -0.7128331764323044,
+  "g_reduced_max": 4.649961349996206,
+  "fraction_sinking_hot": 0.125,
+  "thermal_part": 0.47428582943736947,
+  "compositional_median": 1.248242777608498,
+  "compositional_min": -1.2474503122835157,
+  "compositional_max": 4.38789009893723,
+  "fraction_sinking_after_cooling": 0.375,
+  "M_gas_median": 25.153451701606173
+ },
+ "saturated at 37 C": {
+  "g_reduced_median": 1.8054151704801766,
+  "g_reduced_min": -0.4223778613038305,
+  "g_reduced_max": 4.608037196820008,
+  "fraction_sinking_hot": 0.0625,
+  "thermal_part": 0.47428582943736947,
+  "compositional_median": 1.398779485429194,
+  "compositional_min": -0.9422335886274202,
+  "compositional_max": 4.343835292541844,
+  "fraction_sinking_after_cooling": 0.25,
+  "M_gas_median": 24.71101916584415
+ },
+ "corr_g_CO2": -0.801293082774492
+}
