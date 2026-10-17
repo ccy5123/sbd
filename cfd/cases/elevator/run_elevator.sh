@@ -30,6 +30,15 @@ for culprit in FL BL; do
   for mode in silent audible; do
     c=${P}_${culprit}_$mode
     [ -d "$c/60" ] && continue
+    # resume an interrupted drift stage (e.g. after a container restart) from its latest write
+    if [ -f "$c/log.foamRun.drift" ] && [ -d "$c/processor0" ]; then
+      ( cd "$c"
+        n=$(ls log.foamRun.drift* | wc -l)
+        mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.drift.$n 2>&1
+        reconstructPar > log.reconstructPar 2>&1 )
+      echo "$(date -u +%H:%M) $c resumed and done"
+      continue
+    fi
     rm -rf "$c"
     python3 "$HERE/make_case.py" "$c" --mode $mode --culprit $culprit --t-release 0.2 --t-end 60 > "$c.make.log"
     cp -r ${P}_pre/constant/polyMesh "$c/constant/"
