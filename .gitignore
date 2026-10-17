@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+# CFD run directories (regenerate with cfd/validation/*/run_all.sh)
+cfd/runs/

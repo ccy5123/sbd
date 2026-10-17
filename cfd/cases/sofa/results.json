@@ -1,0 +1,84 @@
+{
+ "silent": {
+  "own nose (releaser)": {
+   "peak_s": 7.6971106e-06,
+   "peak_OAV": 1.099353248683233,
+   "t_peak_s": 108.3,
+   "t_arrival_s": 102.45,
+   "time_above_OAV1_s": 1.0636399999999995,
+   "exposure_s_dt": 0.00018938641122658687,
+   "worst_breath_OAV_mean": 0.8854925589967195,
+   "worst_breath_OAV_max": 0.9874051311522,
+   "bz_peak_OAV": 1.021534986371226,
+   "bz_exposure_s_dt": 0.00017887908366225318,
+   "head_ring_peak_OAV": 5812.266522761286,
+   "t_head_ring_peak_s": 5.3
+  },
+  "neighbour's nose": {
+   "peak_s": 3.2356788e-06,
+   "peak_OAV": 0.46214146909561943,
+   "t_peak_s": 113.89999999999999,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 5.646065882210673e-05,
+   "worst_breath_OAV_mean": 0.2807234203196348,
+   "worst_breath_OAV_max": 0.39346247765448666,
+   "bz_peak_OAV": 0.41741331779303176,
+   "bz_exposure_s_dt": 5.99724111886922e-05,
+   "head_ring_peak_OAV": 1.1999785607542817,
+   "t_head_ring_peak_s": 114.3
+  }
+ },
+ "audible": {
+  "own nose (releaser)": {
+   "peak_s": 5.0262034e-06,
+   "peak_OAV": 0.7178762685744323,
+   "t_peak_s": 14.254545,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 8.658865584144622e-05,
+   "worst_breath_OAV_mean": 0.4200075778217901,
+   "worst_breath_OAV_max": 0.5916026367926217,
+   "bz_peak_OAV": 0.6441720781985396,
+   "bz_exposure_s_dt": 8.90463479539599e-05,
+   "head_ring_peak_OAV": 204.9532218172418,
+   "t_head_ring_peak_s": 7.8
+  },
+  "neighbour's nose": {
+   "peak_s": 2.865746e-06,
+   "peak_OAV": 0.4093051716056906,
+   "t_peak_s": 93.425,
+   "t_arrival_s": null,
+   "time_above_OAV1_s": 0.0,
+   "exposure_s_dt": 5.8260601007188374e-05,
+   "worst_breath_OAV_mean": 0.31879986227559787,
+   "worst_breath_OAV_max": 0.39346769288155226,
+   "bz_peak_OAV": 0.6254883100945371,
+   "bz_exposure_s_dt": 6.621586915466835e-05,
+   "head_ring_peak_OAV": 368.85590916055173,
+   "t_head_ring_peak_s": 5.8
+  }
+ },
+ "R_silent_over_audible": {
+  "own nose (releaser)": {
+   "peak_OAV": 1.5313965606724156,
+   "exposure_s_dt": 2.18719657195482,
+   "worst_breath_OAV_mean": 2.108277578202257,
+   "worst_breath_OAV_max": 1.669034364865959,
+   "bz_peak_OAV": 1.58581071881911,
+   "bz_exposure_s_dt": 2.0088312184879267,
+   "head_ring_peak_OAV": 28.358990755188636
+  },
+  "neighbour's nose": {
+   "peak_OAV": 1.1290877837742772,
+   "exposure_s_dt": 0.969105327546148,
+   "worst_breath_OAV_mean": 0.8805631794061237,
+   "worst_breath_OAV_max": 0.9999867454757787,
+   "bz_peak_OAV": 0.6673399183590552,
+   "bz_exposure_s_dt": 0.9057105487599573,
+   "head_ring_peak_OAV": 0.003253244779201755
+  }
+ },
+ "recline_deg": 0.0,
+ "window_s": 119.8
+}

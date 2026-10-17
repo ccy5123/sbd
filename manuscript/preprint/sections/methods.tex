@@ -1,0 +1,185 @@
+\section{Methods}
+\label{sec:methods}
+
+All parameters, with their sources, ranges and status (verified, derived, partial or assumption), are kept in one file
+from which Table~\ref{tab:params} (Appendix) is generated. Code, data and figures are in the accompanying archive.
+
+\subsection{Source}
+\label{sec:source}
+Passage volumes span 17--375\,mL, with a median of 92\,mL \cite{suarez1997}. In the Monte Carlo analysis, volume $V$,
+duration $T$ (0.3--5\,s) and effective orifice diameter $d$ (1--15\,mm) are drawn log-uniformly; the last two are
+assumptions, since neither has been measured.
+
+Sulfur gas concentrations are taken from 87 passages of 16 volunteers \cite{suarez1998}:
+\begin{itemize}
+  \item \ce{H2S} 1.06\,\textmu mol\,L$^{-1}$;
+  \item methanethiol 0.21\,\textmu mol\,L$^{-1}$;
+  \item dimethyl sulfide 0.08\,\textmu mol\,L$^{-1}$.
+\end{itemize}
+They vary between passages by a log-normal factor with $\sigma_{\ln} = 1.1$, derived from the reported standard
+errors. The factor is drawn independently of volume, because sulfur concentration does not correlate with passage
+volume \cite{suarez1997}.
+
+Buoyancy is signed. Reduced gravity is computed from measured compositions; it is positive for the median passage but
+negative for \ce{CO2}-rich ones.
+
+\subsection{Acoustics}
+\label{sec:acoustics}
+The anal canal is modelled as a soft-tissue lip reed. The valve self-oscillates when the driving pressure
+$\tfrac12\rho(u_0/C_\mathrm{d})^2$ exceeds an oscillation threshold $P_\mathrm{th}$, which is anchored to vocal-fold and
+brass-lip thresholds (0.2--1.3\,kPa); the discharge coefficient is $C_\mathrm{d} = 0.85$. This gives an onset velocity
+$u_\mathrm{onset} \approx 30$\,m\,s$^{-1}$ (14--51).
+
+An oscillating valve radiates as a harmonic monopole: the fundamental is at 160\,Hz and the harmonics roll off at
+$-12$\,dB per octave. A release counts as \emph{audible} when at least one harmonic exceeds both the ISO 226 hearing
+threshold \cite{iso226_2023} and the critical-ratio masked threshold of the background \cite{hawkins1950}. Backgrounds
+range from a 35\,dB(A) living room to a 77\,dB(A) subway car \src{acoustics/m2\_report.md}.
+
+\subsection{Analytic dispersion}
+\label{sec:gate0}
+Dispersion is modelled in two phases.
+
+\begin{enumerate}
+  \item \emph{Near field.} The release behaves as a starting jet. Its tip follows
+  $x = \Gamma (\dot Q_0 u_0)^{1/4} t^{1/2}$, and once the source stops it follows the puff law
+  $x^4 = C_p^4 Q_0 u_0 t$, with $\Gamma = 2.8$ and $C_p = 2.6$ \cite{sangras2002,diez2003}. The centreline dilution
+  is $K_c d^*/x$ with $K_c = 5.11$. In parallel, a buoyant-thermal branch grows with entrainment coefficient
+  $\alpha = 0.25$ \cite{landeau2014}, and the larger of the two dilutions is kept. This phase ends at the hand-off,
+  when the self-induced velocity has fallen to the ambient velocity $u_h$ (0.05--0.25\,m\,s$^{-1}$), which gives
+  Eq.~\eqref{eq:silencer}.
+  \item \emph{Transport.} The handed-over cloud is advected to the nose and spreads as a Gaussian puff,
+  $\sigma^2 = \sigma_0^2 + 2Kt$. The indoor eddy diffusivity $K$ is $10^{-4}$--$1.3\times10^{-2}$\,m$^2$\,s$^{-1}$
+  \cite{cheng2011}.
+\end{enumerate}
+
+Receptors and exposure:
+\begin{itemize}
+  \item the releaser's own nose, reached by the body's convective boundary layer \cite{licina2014}, with the
+  transport speed taken from the CFD trajectories below;
+  \item a neighbour 0.8--1.4\,m away, reached by room air.
+\end{itemize}
+Concentrations are averaged over one inspiration.
+
+\emph{Monte Carlo.} We draw 20\,000 pairs of silent and audible releases. Each pair is classified by the acoustic
+onset and evaluated with environmental parameters drawn from their ranges \src{gate0/gate0\_report.md}. Every
+simplification is chosen to favour the silent release:
+\begin{itemize}
+  \item turbulent-jet constants are used even for laminar silent releases;
+  \item the nose sits on the cloud centreline;
+  \item the centreline concentration is used.
+\end{itemize}
+
+\subsection{Computational fluid dynamics}
+\label{sec:cfd}
+\emph{Solver.} We use OpenFOAM 13 with transient RANS and the $k$--$\omega$ SST model. Buoyancy follows the Boussinesq
+approximation, and the energy equation is solved for internal energy: the enthalpy form, which contains $p/\rho$,
+drove a pressure--expansion instability through the pressure-relief vent.
+
+\emph{Validation} \src{cfd/validation/m3\_report.md}.
+\begin{itemize}
+  \item \emph{Free round jet} (axisymmetric, $\mathrm{Re} = 6700$, three meshes). This gives a velocity-decay
+  constant of 5.0 and a scalar constant $K_c = 4.3$--4.6, with grid uncertainty of at most 3.7\%. The known
+  round-jet anomaly of SST (about 25\% excess spreading) means the model over-dilutes audible jets slightly, which
+  biases the ratio towards the belief.
+  \item \emph{Convective boundary layer} of a simplified seated manikin with skin at 33\,\textdegree C, compared with
+  thermal-manikin data \cite{licina2014}. The face-front peak velocity is 40--56\% too high at room temperatures of
+  20--26\,\textdegree C, while the trend with room temperature is reproduced ($-27\%$ vs $-33\%$ measured).
+\end{itemize}
+
+\emph{Sofa duet.} The scene is a 3.2 $\times$ 3.2 $\times$ 2.6\,m living room at 23\,\textdegree C. Two seated
+manikins sit 0.6\,m apart on a two-seat sofa, built from geometric primitives. The mesh has 0.72 million cells, refined to 5\,mm at the release and 2.5\,mm on the inlet face.
+\begin{itemize}
+  \item A 30\,s precursor run develops the body plumes.
+  \item Silent and audible branches then start from the same field. Each releases the same 92\,mL behind the
+  releaser's buttocks, as a momentum-equivalent inlet: silent, 2\,s through 8\,mm at $u_0 = 0.9$\,m\,s$^{-1}$;
+  audible, 0.5\,s through 2.4\,mm at 41\,m\,s$^{-1}$.
+  \item The odorant is a passive scalar, sampled at probes 2.5\,cm in front of each nose, on 5\,cm breathing-zone
+  discs and over sinusoidal breathing cycles.
+  \item Two posture variants rotate the releaser's upper body about the hip: reclined by 4.5\,\textdegree, so that
+  the back closes onto the backrest, and leaning forward by 10\,\textdegree, so that the gap behind the back opens.
+\end{itemize}
+\src{cfd/cases/sofa/m4\_report.md}
+
+\subsection{Perception and observers}
+\label{sec:perception}
+\emph{Exposure and intensity.}
+\begin{itemize}
+  \item The nose samples only during inhalation: sinusoidal flow at 12 breaths per minute, inspiratory fraction 0.42
+  \cite{wysocki2006}.
+  \item Perceived intensity follows Stevens' law with $n = 0.28$, measured for flatus \ce{H2S} \cite{collins2001}.
+  \item Two passages are distinguishable when their concentrations differ by more than the Weber fraction 0.28
+  \cite{stone1965}, i.e.\ a just-noticeable ratio of 1.28.
+\end{itemize}
+\src{perception/m6\_report.md}
+
+\emph{Detection.} The odour thresholds in the dispersion model come from a trained panel \cite{nagata2003}. For an
+untrained observer we use three ingredients:
+\begin{itemize}
+  \item \emph{Population thresholds}, 10--23 times higher \cite{amoore1983,wilby1969}.
+  \item \emph{Spread.} Detection is a per-passage probability $\Phi(\log_2\mathrm{OAV}/\sigma)$ with $\sigma = 2$
+  binary steps \cite{amoore1983}. One person's threshold varies over time about as much as thresholds vary across
+  people \cite{stevens1988}.
+  \item \emph{Distraction.} A bystander who is not expecting an odour needs 26 times the threshold for a 50\% response,
+  with $\sigma = 3.5$ binary steps \cite{amoore1983,whisman1978}.
+\end{itemize}
+
+\emph{Intensity is unaffected by attention.} Distraction reduces noticing \cite{forster2018} but not the peak rated
+intensity \cite{fallon2018}. Intensity is therefore always computed from the attentive OAV.
+
+\emph{Observer variants.}
+\begin{itemize}
+  \item Clothing removes 22\% of the sulfide gas \cite{ohge2005}.
+  \item A sound can turn a distracted bystander into an attentive one for that passage.
+\end{itemize}
+\src{uq/observer\_ps.py}
+
+\subsection{Odorant chemistry}
+\label{sec:methods-chem}
+\emph{Odour activity.} Each sulfur gas contributes an odour activity value $\mathrm{OAV}_i = x_i/\theta_i$, its mole
+fraction over its detection threshold, and the passage's OAV is their sum (additivity is assumed; mixture suppression
+is not modelled). We compare two measured compositions:
+\begin{itemize}
+  \item 87 passages of 16 volunteers \cite{suarez1998}, used throughout the dispersion model;
+  \item 28 passages measured by gas chromatography: \ce{H2S} 149, methanethiol 216 and dimethyl sulfide 144\,nmol\,L$^{-1}$
+  \cite{tangerman2009}.
+\end{itemize}
+Three threshold sets bracket the observer: a trained panel \cite{nagata2003}, population geometric means
+\cite{amoore1983,wilby1969} and the lowest values in the literature, as compiled in ref.~\citenum{tangerman2009}.
+
+\emph{Removal check.} Zinc acetate precipitates \ce{H2S} and thiols; activated charcoal adsorbs all three gases. For both
+treatments, ref.~\citenum{suarez1998} reports the gas concentrations and two judges' ratings before and after. We
+predict the rating ratio as $(\mathrm{OAV}_\mathrm{after}/\mathrm{OAV}_\mathrm{before})^n$ with $n = 0.20$--$0.45$
+\cite{collins2001}. This is a consistency check of the intensity law, not a fit.
+
+\emph{Buoyancy.} The reduced gravity $g' = g(\rho_a-\rho_g)/\rho_a$ of each of 16 measured compositions
+\cite{suarez1997} is split into two parts:
+\begin{itemize}
+  \item a thermal part, $g(1-T_a/T_g)$, for gas at 37\,\textdegree C in air at 22\,\textdegree C;
+  \item a compositional part, $g(M_a-M_g)/M_a$, at equal temperature, with air at 50\% relative humidity.
+\end{itemize}
+Whether flatus is saturated with water vapour has not been measured, so we bracket dry and saturated gas
+[ASSUMPTION].
+
+\emph{Conserved tracers.} Gas-phase losses use IUPAC rate constants at 298\,K for reaction with OH, \ce{O3}, \ce{NO3}
+and Cl \cite{atkinson2004}. Oxidant levels come from direct measurements in an office: OH $0.6$--$9.8\times10^{5}$\,cm$^{-3}$
+and \ce{O3} 0.7--2.6\,ppb \cite{fiorentino2023}. A worst case adds OH $10^6$\,cm$^{-3}$ with \ce{O3} 40\,ppb, and Cl
+$10^6$\,cm$^{-3}$ during hypochlorite cleaning [ASSUMPTION]. No deposition velocity $v_d$ has been published for these
+gases on indoor surfaces, so surface loss is bracketed as $k = v_d\,S/V$ with $S/V = 3$\,m$^{-1}$.
+
+\emph{Dilution anchor.} Ref.~\citenum{tangerman2009} reports the lowest source concentration that every panel member
+detected when 100\,mL was released below the nose. Divided by a detection threshold, it gives the dilution between
+release and nose in that test. We compare it with the breath-averaged dilution of the analytic model.
+\src{chem/chem\_report.md}
+
+\subsection{Uncertainty and the regime map}
+\label{sec:uq}
+The analytic model serves as the surrogate for uncertainty quantification. A Latin-hypercube CFD design was
+unaffordable: one branch costs 1--2\,h on four cores.
+\begin{itemize}
+  \item First-order Sobol indices of $\log_{10} R$ are estimated with a given-data (binning) estimator, because the
+  rejection sampling of silent and audible pairs makes the inputs dependent. The indices are therefore descriptive.
+  \item Bootstrap gives 90\% intervals.
+  \item The regime map shows $\log_{10} R$ against the audible release's Silencer number and the travel time, at equal
+  mass.
+\end{itemize}
+\src{uq/m7\_report.md}

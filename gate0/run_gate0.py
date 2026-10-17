@@ -21,6 +21,9 @@ from scipy.stats import spearmanr
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from model import Release, load_params, nominal, oav, ratio, receptor, source_mole_fraction_ppb  # noqa: E402
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "params"))
+from derive_from_suarez1997 import g_red as G_RED_EMPIRICAL  # noqa: E402  (16 subjects, Suarez 1997)
+
 ROOT = Path(__file__).resolve().parents[1]
 FIG = ROOT / "figures"
 FIG.mkdir(exist_ok=True)
@@ -76,7 +79,7 @@ def ratio_maps():
             cs = ax.contour(Re, t_sweep, np.log10(R), levels=[0.0], colors=INK, linewidths=1.6)
             ax.clabel(cs, fmt={0.0: "parity"}, fontsize=8)
             ax.set_xscale("log"); ax.set_yscale("log")
-            for t_mark, lab in [(P0["L_own"] / P0["u_CBL"], "own nose"),
+            for t_mark, lab in [(P0["L_own"] / P0["u_own_eff"], "own nose"),
                                 (P0["L_neighbour"] / P0["u_room"], "neighbour")]:
                 ax.axhline(t_mark, color=INK2, lw=0.8, ls=(0, (3, 3)))
                 ax.text(Re[-1] * 0.92, t_mark * 1.07, lab, ha="right", va="bottom", fontsize=8, color=INK2)
@@ -102,15 +105,16 @@ def ratio_maps():
 
 # --- 2. Monte Carlo -----------------------------------------------------------------------
 SAMPLED = {  # name: (low, high, log-uniform?)
-    "u_handoff": (0.05, 0.25, False), "K_turb": (1e-4, 1e-2, True), "u_CBL": (0.16, 0.24, False),
-    "u_room": (0.03, 0.15, True), "L_own": (0.6, 0.8, False), "L_neighbour": (0.8, 1.4, False),
-    "T_insp": (1.2, 2.0, False), "g_reduced": (0.2, 3.0, True), "B_u": (5.4, 6.1, False),
-    "K_c": (4.4, 5.4, False), "Gamma_sj": (2.5, 3.0, False), "alpha_th": (0.2, 0.3, False),
-    "a_denim": (0.005, 0.10, True), "a_leggings": (0.2, 1.5, True), "V_skirt": (0.01, 0.06, True),
-    "u_audible": (1.0, 5.0, True),
+    "u_handoff": (0.05, 0.25, False), "K_turb": (1e-4, 1.3e-2, True), "u_own_eff": (0.07, 0.16, False),
+    "u_room": (0.03, 0.15, True), "L_own": (0.65, 0.85, False), "L_neighbour": (0.8, 1.4, False),
+    "T_insp": (1.6, 2.7, False), "B_u": (5.8, 5.9, False),
+    "K_c": (4.73, 5.2, False), "Gamma_sj": (2.74, 2.86, False), "C_puff": (2.54, 2.66, False),
+    "alpha_th": (0.15, 0.35, False),
+    "a_denim": (0.017, 0.25, True), "a_leggings": (0.16, 1.9, True), "a_chino": (0.02, 0.15, True), "V_skirt": (0.01, 0.06, True),
+    "P_th": (200.0, 1300.0, True), "C_d": (0.6, 1.0, False),
 }
-RELEASE_PRIOR = {"V": (3.0e-5, 1.5e-4), "T": (0.3, 5.0), "d": (2.0e-3, 1.5e-2)}  # all log-uniform
-CLOTHING = ("none", "skirt", "leggings", "denim")
+RELEASE_PRIOR = {"V": (1.7e-5, 3.75e-4), "T": (0.3, 5.0), "d": (1.0e-3, 1.5e-2)}  # all log-uniform
+CLOTHING = ("none", "skirt", "leggings", "chino", "denim")
 
 
 def draw_release(rng):
@@ -125,8 +129,11 @@ def monte_carlo(n=20000):
         p = dict(P0)
         for k, (lo, hi, lg) in SAMPLED.items():
             p[k] = logu(rng, lo, hi) if lg else rng.uniform(lo, hi)
+        p["g_reduced"] = float(rng.choice(G_RED_EMPIRICAL))  # empirical flatus buoyancy (signed)
+        # M2: a release is audible-type if it drives tissue oscillation (acoustics/regime.py u_onset)
+        p["u_audible"] = p["C_d"] * np.sqrt(2.0 * p["P_th"] / (p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])))
         silent = loud = None
-        for _ in range(60):
+        for _ in range(200):
             r = draw_release(rng)
             if r.u0 < p["u_audible"] and silent is None:
                 silent = r
@@ -137,10 +144,12 @@ def monte_carlo(n=20000):
         if not (silent and loud):
             continue
         row = {k: p[k] for k in SAMPLED}
+        row["g_reduced"] = p["g_reduced"]
+        row["u_audible"] = p["u_audible"]
         row.update({"V_s": silent.V, "T_s": silent.T, "d_s": silent.d, "u0_s": silent.u0,
                     "V_l": loud.V, "T_l": loud.T, "d_l": loud.d, "u0_l": loud.u0,
                     "Re_s": silent.reynolds(p["nu_gas"]), "Re_l": loud.reynolds(p["nu_gas"])})
-        for who, L, u in (("own", p["L_own"], p["u_CBL"]), ("nb", p["L_neighbour"], p["u_room"])):
+        for who, L, u in (("own", p["L_own"], p["u_own_eff"]), ("nb", p["L_neighbour"], p["u_room"])):
             for cl in CLOTHING:
                 rs = receptor(silent, p, L, u, cl)
                 rl = receptor(loud, p, L, u, cl)
@@ -148,6 +157,10 @@ def monte_carlo(n=20000):
                     row[f"R_{who}_conc_{metric}_{cl}"] = rs[metric] / rl[metric]
                     row[f"R_{who}_mass_{metric}_{cl}"] = (rs[metric] / silent.V) / (rl[metric] / loud.V)
                 if cl == "none":
+                    for tag, rr in (("s", rs), ("l", rl)):
+                        row[f"ta_{who}_{tag}"] = rr["t_travel"]
+                        row[f"st_{who}_{tag}"] = rr["sigma_t"]
+                        row[f"phi_{who}_{tag}"] = rr["phi_inst"]
                     row[f"OAV_{who}_silent"] = oav(rs["phi_inh"], p)
                     row[f"OAV_{who}_loud"] = oav(rl["phi_inh"], p)
                     row[f"Si_s"], row[f"Si_l"] = rs["Si"], rl["Si"]
@@ -236,9 +249,9 @@ def sensitivity(mc):
         "log u₀ silent": np.log(mc["u0_s"]), "log u₀ audible": np.log(mc["u0_l"]),
         "log V audible / V silent": np.log(mc["V_l"] / mc["V_s"]), "log K (eddy diffusivity)": np.log(mc["K_turb"]),
         "u_handoff": mc["u_handoff"], "log u_room": np.log(mc["u_room"]), "L neighbour": mc["L_neighbour"],
-        "log d silent": np.log(mc["d_s"]), "log d audible": np.log(mc["d_l"]), "log g′": np.log(mc["g_reduced"]),
+        "log d silent": np.log(mc["d_s"]), "log d audible": np.log(mc["d_l"]), "g′ (buoyancy)": mc["g_reduced"],
         "K_c (jet constant)": mc["K_c"], "Γ (starting jet)": mc["Gamma_sj"], "T_insp": mc["T_insp"],
-        "log u_audible threshold": np.log(mc["u_audible"]),
+        "log u_onset (acoustic)": np.log(mc["u_audible"]),
     }
     rho = {k: float(spearmanr(v, target).statistic) for k, v in feats.items()}
     order = sorted(rho, key=lambda k: abs(rho[k]))
@@ -268,7 +281,7 @@ def headline_numbers():
     out = {"source_ppb": x0, "source_OAV": oav0, "dilution_to_threshold": D_star,
            "detectability_volume_m3_per_100mL": D_star * 1e-4}
     for name, rel in (("silent_ref", REF_SILENT), ("loud_ref", Release(V_LOUD, 0.5, 6e-3))):
-        for who, L, u in (("own", p["L_own"], p["u_CBL"]), ("nb", p["L_neighbour"], p["u_room"])):
+        for who, L, u in (("own", p["L_own"], p["u_own_eff"]), ("nb", p["L_neighbour"], p["u_room"])):
             r = receptor(rel, p, L, u)
             out[f"{name}_{who}"] = {"Re": r["Re"], "u0": r["u0"], "Si": r["Si"], "D1": r["D1"],
                                     "regime": r["regime"], "x_h": r["x_h"], "t_travel": r["t_travel"],

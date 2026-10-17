@@ -1,0 +1,69 @@
+{
+ "n_events": 20000,
+ "background": "living",
+ "observers": {
+  "Nagata thresholds, deterministic (Gate 0)": {
+   "OAV_scale": 1.0,
+   "sd_binary_steps": null,
+   "audible_override": null,
+   "p_S": 0.93055,
+   "P_smelled_heard": 0.9600425079702444,
+   "P_smelled_silent": 0.9214776070611311,
+   "belief_memory": 0.5252842950482618,
+   "truth": 0.48560649417287155
+  },
+  "attentive, Wilby thresholds": {
+   "OAV_scale": 0.1,
+   "sd_binary_steps": 2.0,
+   "audible_override": null,
+   "p_S": 0.6802663269147451,
+   "P_smelled_heard": 0.7190223166843783,
+   "P_smelled_silent": 0.66969597907813,
+   "belief_memory": 0.6697129259524894,
+   "truth": 0.4949080829412625
+  },
+  "attentive, Amoore thresholds": {
+   "OAV_scale": 0.05,
+   "sd_binary_steps": 2.0,
+   "audible_override": null,
+   "p_S": 0.5875912667188068,
+   "P_smelled_heard": 0.6148777895855473,
+   "P_smelled_silent": 0.577116704805492,
+   "belief_memory": 0.7248015851278448,
+   "truth": 0.49972597714310735
+  },
+  "distracted (everyday)": {
+   "OAV_scale": 0.0019230769230769232,
+   "sd_binary_steps": 3.5,
+   "audible_override": null,
+   "p_S": 0.20761656049754848,
+   "P_smelled_heard": 0.206163655685441,
+   "P_smelled_silent": 0.20706113108859103,
+   "belief_memory": 0.9123804966667752,
+   "truth": 0.50365038410377
+  },
+  "distracted, clothed emitter": {
+   "OAV_scale": 0.0015,
+   "sd_binary_steps": 3.5,
+   "audible_override": null,
+   "p_S": 0.1863016748800652,
+   "P_smelled_heard": 0.1806588735387885,
+   "P_smelled_silent": 0.18770840143837855,
+   "belief_memory": 0.924001790043052,
+   "truth": 0.5062148556254101
+  },
+  "distracted, sound cues attention": {
+   "OAV_scale": 0.0019230769230769232,
+   "sd_binary_steps": 3.5,
+   "audible_override": [
+    0.05,
+    2.0
+   ],
+   "p_S": 0.3051380558803305,
+   "P_smelled_heard": 0.6048884165781084,
+   "P_smelled_silent": 0.20732265446224257,
+   "belief_memory": 0.8074953307923729,
+   "truth": 0.32401007601478393
+  }
+ }
+}

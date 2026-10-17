@@ -1,0 +1,132 @@
+{
+ "shares": {
+  "trained panel (Nagata 2003) | all (n = 87)": {
+   "OAV_total": 142826.74445177297,
+   "share_H2S": 0.4606826215448804,
+   "share_MeSH": 0.5345656834907573,
+   "share_DMS": 0.004751694964362287
+  },
+  "trained panel (Nagata 2003) | men (n = 52)": {
+   "OAV_total": 106380.79375908592,
+   "share_H2S": 0.3442661213239381,
+   "share_MeSH": 0.6493542578967256,
+   "share_DMS": 0.0063796207793362526
+  },
+  "trained panel (Nagata 2003) | women (n = 35)": {
+   "OAV_total": 197721.20382720677,
+   "share_H2S": 0.5556809670672693,
+   "share_MeSH": 0.44131563486214115,
+   "share_DMS": 0.0030033980705895724
+  },
+  "trained panel (Nagata 2003) | Tangerman 2009 (n = 28)": {
+   "OAV_total": 89002.25305944856,
+   "share_H2S": 0.10391799744140541,
+   "share_MeSH": 0.8823564576616358,
+   "share_DMS": 0.013725544896958779
+  },
+  "population (Amoore & Hautala 1983; DMS: Wilby 1969) | all (n = 87)": {
+   "OAV_total": 7688.834148718149,
+   "share_H2S": 0.43316136282372175,
+   "share_MeSH": 0.43443837155846143,
+   "share_DMS": 0.13240026561781681
+  },
+  "population (Amoore & Hautala 1983; DMS: Wilby 1969) | men (n = 52)": {
+   "OAV_total": 5893.9742590699925,
+   "share_H2S": 0.3145198907176651,
+   "share_MeSH": 0.5127607116678883,
+   "share_DMS": 0.1727193976144466
+  },
+  "population (Amoore & Hautala 1983; DMS: Wilby 1969) | women (n = 35)": {
+   "OAV_total": 10269.583456131284,
+   "share_H2S": 0.541532813217072,
+   "share_MeSH": 0.3717301514456173,
+   "share_DMS": 0.08673703533731071
+  },
+  "population (Amoore & Hautala 1983; DMS: Wilby 1969) | Tangerman 2009 (n = 28)": {
+   "OAV_total": 5736.325077515339,
+   "share_H2S": 0.08161253217943804,
+   "share_MeSH": 0.5989483485786273,
+   "share_DMS": 0.3194391192419346
+  },
+  "lowest literature (Tangerman 2009) | all (n = 87)": {
+   "OAV_total": 679729.5428914798,
+   "share_H2S": 0.1653666146645866,
+   "share_MeSH": 0.8190327613104524,
+   "share_DMS": 0.015600624024960997
+  },
+  "lowest literature (Tangerman 2009) | men (n = 52)": {
+   "OAV_total": 576868.7540295866,
+   "share_H2S": 0.1084558823529412,
+   "share_MeSH": 0.8731617647058825,
+   "share_DMS": 0.01838235294117647
+  },
+  "lowest literature (Tangerman 2009) | women (n = 35)": {
+   "OAV_total": 833225.4108065215,
+   "share_H2S": 0.22526248806872412,
+   "share_MeSH": 0.7636016544702514,
+   "share_DMS": 0.011135857461024499
+  },
+  "lowest literature (Tangerman 2009) | Tangerman 2009 (n = 28)": {
+   "OAV_total": 607514.9065874085,
+   "share_H2S": 0.026008029324489437,
+   "share_MeSH": 0.9425728748472683,
+   "share_DMS": 0.03141909582824227
+  }
+ },
+ "removal": {
+  "activated charcoal (n = 9)": {
+   "OAV_untreated": 247199.57323900962,
+   "OAV_treated": 941.3962461037345,
+   "OAV_ratio": 0.0038082438159936774,
+   "predicted_intensity_ratio": {
+    "n=0.28": 0.2101855854485092,
+    "n=0.2": 0.3282048157032518,
+    "n=0.45": 0.08153163198198383
+   },
+   "judge_rating_ratios": [
+    0.02439024390243903,
+    0.06153846153846154
+   ],
+   "DMS_share_after": 0.00811032299997174
+  },
+  "zinc acetate (n = 16)": {
+   "OAV_untreated": 101614.41715685444,
+   "OAV_treated": 7290.06212194814,
+   "OAV_ratio": 0.07174239961141564,
+   "predicted_intensity_ratio": {
+    "n=0.28": 0.47820845633307113,
+    "n=0.2": 0.5904120052879508,
+    "n=0.45": 0.30556186663741886
+   },
+   "judge_rating_ratios": [
+    0.27999999999999997,
+    0.5862068965517241
+   ],
+   "DMS_share_after": 0.021528243782678067
+  }
+ },
+ "dilution_anchor": {
+  "Tangerman_implied": {
+   "H2S": 75000.0,
+   "MeSH": 125000.0,
+   "DMS": 93750.0
+  },
+  "Tangerman_test_over_Nagata": {
+   "H2S": 43902.439024390245,
+   "MeSH": 17142.85714285714,
+   "DMS": 6000.0
+  },
+  "gate0_breath_averaged": {
+   "nb": {
+    "p10": 245.78375528386982,
+    "p50": 1813.7107307375059,
+    "p90": 29075.39273645852
+   },
+   "own": {
+    "p10": 153.5353894035897,
+    "p50": 804.3950543329431,
+    "p90": 7404.491380834716
+   }
+  }
+ }
+}

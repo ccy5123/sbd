@@ -1,13 +1,12 @@
 # Single source of truth for all model parameters (SI units unless stated).
 # status:
-#   VERIFIED            - value checked against a citable (peer-reviewed / standard) source
+#   VERIFIED            - value read in a citable primary source (peer-reviewed paper, standard, primary dataset)
+#   DERIVED             - computed from VERIFIED inputs (script or arithmetic named in `source`)
+#   PARTIAL             - authoritative source, but the number was taken from a secondary transcription; re-check page before citing
 #   NON-PEER-REVIEWED   - only a non-peer-reviewed source exists; treated as an assumption in UQ
-#   VERIFY              - taken from memory or a secondary source; must be checked before it enters a figure
 #   ASSUMPTION          - deliberate modelling choice; must appear in the manuscript parameter table and UQ
-# Every entry with a (low, high) range is sampled in the Gate 0 Monte Carlo.
-#
-# M0 status: PRELIMINARY. Values below are seed values from the research plan (v3);
-# they are replaced/annotated as the verification pass returns.
+# Every entry with a (low, high) range is sampled in the Gate 0 Monte Carlo unless noted.
+# Full citations: refs/references.yaml (+ refs/bibliography_check.md). M0 pass completed 2026-10-15.
 
 physical_constants:
   R_gas:        {value: 8.314462618, units: J/(mol K), status: VERIFIED, source: CODATA 2018}
@@ -15,51 +14,117 @@ physical_constants:
   p_atm:        {value: 101325.0, units: Pa, status: VERIFIED, source: standard atmosphere}
 
 ambient:
-  T_room:       {value: 295.15, low: 293.15, high: 299.15, units: K, status: ASSUMPTION, note: "20-26 C design range"}
-  rho_air:      {value: 1.196, units: kg/m^3, status: VERIFY, note: "dry air at 22 C, 1 atm"}
-  nu_air:       {value: 1.53e-5, units: m^2/s, status: VERIFY, note: "kinematic viscosity of air at 22 C"}
+  T_room:       {value: 295.15, low: 293.15, high: 299.15, units: K, status: ASSUMPTION, note: "20-26 C design range (= Licina 2014 test range)"}
+  rho_air:      {value: 1.196, units: kg/m^3, status: DERIVED, source: "ideal gas, M = 28.965 g/mol, 22 C, 1 atm (1.190 at 50% RH)"}
+  mu_air:       {value: 1.823e-5, units: Pa s, status: DERIVED, source: "Sutherland's law (mu_ref 1.716e-5, T_ref 273.15 K, S 110.4 K)"}
+  nu_air:       {value: 1.524e-5, units: m^2/s, status: DERIVED, source: "mu/rho at 22 C"}
 
 source:
-  T_gas:        {value: 310.15, units: K, status: VERIFY, note: "core body temperature 37 C"}
-  V_passage:    {value: 7.0e-5, low: 3.0e-5, high: 1.5e-4, units: m^3, status: VERIFY, source: "Tomlin et al. 1991; Suarez et al. 1997"}
-  d_orifice:    {value: 6.0e-3, low: 2.0e-3, high: 1.5e-2, units: m, status: ASSUMPTION, note: "effective orifice diameter; key sensitivity parameter"}
+  T_gas:        {value: 310.15, low: 309.85, high: 310.65, units: K, status: VERIFIED, source: "Sund-Levander et al. 2002 Scand J Caring Sci 16:122 (rectal 36.7-37.5 C)", note: "gas likely water-saturated, x_H2O ~ 0.062"}
+  V_passage:    {value: 9.2e-5, low: 1.7e-5, high: 3.75e-4, units: m^3, status: VERIFIED, source: "Suarez et al. 1997 Am J Physiol 272:G1028: individual passages 'ranged from 17 to 375 ml' (n = 87, bean + lactulose diet); median of per-subject means 92 mL (32-207), Table 1, params/derive_from_suarez1997.py", note: "normal diet: Tomlin 1991 705 mL/day / Furne & Levitt 1996 10 /day ~ 70 mL"}
+  V_daily:      {value: 7.05e-4, low: 4.76e-4, high: 1.491e-3, units: m^3/day, status: VERIFIED, source: "Tomlin et al. 1991 Gut 32:665 (median 705, range 476-1491 mL/day; normal diet + 200 g baked beans)"}
+  n_daily:      {value: 10, low: 1, high: 20, units: 1/day, status: VERIFIED, source: "Furne & Levitt 1996 Dig Dis Sci 41:1631 (10 +/- 1, upper limit of normal 20); Bolin & Stanton 1998 (men 12.7, women 7.1)"}
+  d_orifice:    {value: 4.0e-3, low: 1.0e-3, high: 1.5e-2, units: m, status: ASSUMPTION, note: "effective orifice diameter; no source. Bernoulli check: Q = 0.1 L/s at 0.1-1 kPa gives d_eff 1.7-3 mm; silent releases may use a wider, relaxed opening. Key sensitivity parameter"}
   T_release:    {value: 1.0, low: 0.3, high: 5.0, units: s, status: ASSUMPTION}
-  g_reduced:    {value: 0.5, low: 0.2, high: 3.0, units: m/s^2, status: ASSUMPTION, note: "reduced gravity g' of flatus vs room air; temperature alone gives ~0.5; H2-rich gas more"}
-  nu_gas:       {value: 1.7e-5, units: m^2/s, status: ASSUMPTION, note: "N2-dominated mixture at 37 C"}
-  # Sulfur gases (Suarez et al. 1998, Gut 43:100), mean concentrations in flatus
-  c_H2S:        {value: 1.06, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
-  c_CH3SH:      {value: 0.21, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
-  c_DMS:        {value: 0.08, units: umol/L, status: VERIFY, source: "Suarez et al. 1998"}
+  dp_rectal:    {value: 2000.0, low: 500.0, high: 4000.0, units: Pa, status: ASSUMPTION, note: "driving pressure of gentle flatus; upper-bound context: intrarectal pressure during simulated defecation 20-72 mmHg (Lee & Bharucha 2016 J Neurogastroenterol Motil 22:46, Tables 2-3). Used in M2"}
+  p_anal_rest:  {value: 8666.0, low: 6133.0, high: 12000.0, units: Pa, status: VERIFIED, source: "Lee & Bharucha 2016: anal resting pressure 46-90 mmHg (means/medians); high-pressure zone 3.5-4.3 cm. Used in M2"}
+  g_reduced:    {value: 1.70, low: -0.66, high: 4.68, units: m/s^2, status: DERIVED, source: "Suarez et al. 1997 Table 1 compositions at 37 C vs dry air at 22 C (params/derive_from_suarez1997.py)", note: "median of 16 subjects; 1/16 negatively buoyant at 37 C, 4/16 after cooling. Cross-check (independent agent, Modesto 2022 meta-analysis mean composition, water-saturated): +1.24; CO2-rich -0.86 to -1.18. MC resamples the 16 empirical values"}
+  nu_gas:       {value: 1.7e-5, units: m^2/s, status: ASSUMPTION, note: "N2/CO2/H2 mixture at 37 C; H2-rich gas higher. Enters Re only"}
+  # Sulfur gases (Suarez et al. 1998, Gut 43:100), mean (SEM) over n = 87 passages of 16 subjects (Table 1 footnote);
+  # 1 umol/L = 25.45 ppm at 37 C
+  c_H2S:        {value: 1.06, low: 0.26, high: 1.86, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 Gut 43:100 (1.06 (SEM 0.2)); low/high = mean -/+ 4 SEM", note: "corrected 2026-10-16: the SEM is over 87 passages, so the per-passage SD is 0.20 x sqrt(87) = 1.87 umol/L (see sulfur_sigma_ln); low/high is a bracket on the mean, not +/- 1 SD. Not sampled in Gate 0"}
+  c_CH3SH:      {value: 0.21, low: 0.05, high: 0.37, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 (0.21 (0.04))"}
+  c_DMS:        {value: 0.08, low: 0.04, high: 0.12, units: umol/L, status: VERIFIED, source: "Suarez et al. 1998 (0.08 (0.01))"}
+  sulfur_sigma_ln: {value: 1.1, low: 1.0, high: 1.25, units: "-", status: DERIVED, source: "per-passage spread of sulfur concentration: Suarez et al. 1998 Table 1 H2S SEM 0.20 over n = 87 -> SD 1.87, CV 1.76, sigma_ln = 1.21; Suarez et al. 1997 H2S 2.9 +/- 4.0 x 10^-3 % (dispersion read as SD) -> CV 1.38, sigma_ln = 1.07", note: "log-normal multiplier on all three sulfur gases (mean 1), independent of passage volume and hence of audibility: Suarez 1997 Table 3, r(volume, [H2S]) = +0.195 ns. Used by perception/run_selection.py"}
+
+composition:        # % v/v; Modesto et al. 2022 Dig Dis Sci 67:3842 (11-study meta-analysis); ranges Freire et al. 2022 Sensors 22:838 Table 1
+  N2:           {value: 65.1, low: 26.0, high: 88.0, units: "%", status: VERIFIED}
+  O2:           {value: 2.3, low: 0.0, high: 20.0, units: "%", status: VERIFIED, note: "upper range likely air contamination; Levitt 1971 NEJM < 2 %"}
+  CO2:          {value: 9.9, low: 0.7, high: 27.0, units: "%", status: VERIFIED, note: "Suarez 1997 (bean + lactulose): CO2 dominant in 7/16 subjects, up to 62.8 %"}
+  H2:           {value: 2.9, low: 0.2, high: 49.0, units: "%", status: VERIFIED, note: "Suarez 1997: up to 64 % in a single passage"}
+  CH4:          {value: 14.4, low: 0.0, high: 30.3, units: "%", status: VERIFIED, note: "methane producers only (5/16 in Suarez 1997)"}
 
 odour_thresholds:   # detection thresholds, mole fraction (ppbv)
-  H2S:          {value: 0.41, low: 0.41, high: 0.9, units: ppbv, status: VERIFY, source: "Nagata 2003 (0.41); McGinley & McGinley 2004"}
-  CH3SH:        {value: 0.070, units: ppbv, status: VERIFY, source: "Nagata 2003"}
-  DMS:          {value: 3.0, units: ppbv, status: VERIFY, source: "Nagata 2003"}
+  H2S:          {value: 0.41, low: 0.41, high: 0.9, units: ppbv, status: VERIFIED, source: "Nagata 2003 Table 2 p.122 (0.00041 ppm); McGinley & McGinley 2004 laboratory olfactometry 0.45-0.9 ppbv"}
+  CH3SH:        {value: 0.070, units: ppbv, status: VERIFIED, source: "Nagata 2003 Table 2 p.122 (0.000070 ppm)"}
+  DMS:          {value: 3.0, units: ppbv, status: VERIFIED, source: "Nagata 2003 Table 2 p.122 (0.0030 ppm)"}
 
-jet:                # turbulent round jet / starting jet / puff constants
-  B_u:          {value: 5.8, low: 5.4, high: 6.1, units: "-", status: VERIFY, note: "centreline velocity decay u_c/u0 = B_u d/(x-x0); Hussein et al. 1994; Pope 2000"}
-  K_c:          {value: 5.0, low: 4.4, high: 5.4, units: "-", status: VERIFY, note: "centreline concentration decay C_c/C0 = K_c d*/(x-x0); Dowling & Dimotakis 1990"}
-  Gamma_sj:     {value: 2.7, low: 2.5, high: 3.0, units: "-", status: VERIFY, note: "starting-jet front x_f = Gamma M0^(1/4) t^(1/2); Witze 1980; Sangras et al. 2002"}
-  alpha_th:     {value: 0.25, low: 0.2, high: 0.3, units: "-", status: VERIFY, note: "thermal spreading rate r = alpha z; Scorer 1957; Turner 1969"}
+jet:                # turbulent round jet / starting jet / puff / plume constants
+  B_u:          {value: 5.8, low: 5.8, high: 5.9, units: "-", status: VERIFIED, source: "Hussein, Capp & George 1994 JFM 258:31 (5.8 LDA/flying hot-wire within 100d; 5.9 stationary hot-wire; x0 = 4d)"}
+  S_jet:        {value: 0.094, low: 0.094, high: 0.102, units: "-", status: VERIFIED, source: "Hussein et al. 1994 (half-width spreading rate 0.094 LDA/FHW; 0.102 SHW)"}
+  K_c:          {value: 5.11, low: 4.73, high: 5.2, units: "-", status: VERIFIED, source: "Dowling & Dimotakis 1990 JFM 218:109, sec 3.1 (5.11 +/- 0.05 at Re 5000, x0 = -3.7d; 4.73 +/- 0.1 at Re 16000; 5.1-5.2 at Re 40000; d* = d (rho0/rho_inf)^1/2)"}
+  Gamma_sj:     {value: 2.8, low: 2.74, high: 2.86, units: "-", status: VERIFIED, source: "Diez, Sangras, Kwon & Faeth 2003 J Heat Transfer 125:204 (erratum to Sangras et al. 2002 124:460): starting jet (x_p - x0)/((Q0dot u0)^1/2 t)^1/2 = 2.8 (0.06), x0/d ~ 0"}
+  C_puff:       {value: 2.6, low: 2.54, high: 2.66, units: "-", status: VERIFIED, source: "Diez et al. 2003: puff (x_p - x0)/((Q0 u0) t)^1/4 = 2.6 (0.06), x0/d = 8.5 (2.0), C_r = 0.17"}
+  alpha_th:     {value: 0.25, low: 0.15, high: 0.35, units: "-", status: VERIFIED, source: "Landeau, Deguen & Olson 2014 JFM 749:478, sec 6 (alpha_T = 0.25 +/- 0.1; Scorer 1957; Richards 1961)"}
+  alpha_jet:    {value: 0.07, low: 0.065, high: 0.080, units: "-", status: VERIFIED, source: "van Reeuwijk & Craske 2015 JFM 782:333, p.334 (top-hat, jets)"}
+  alpha_plume:  {value: 0.12, low: 0.10, high: 0.16, units: "-", status: VERIFIED, source: "van Reeuwijk & Craske 2015 p.334 (top-hat, pure plumes)"}
+  # jet-to-plume transition: l_M = M0^(3/4)/B0^(1/2); jet-like z/l_M < 1, plume-like z/l_M > 5 (Papanicolaou & List 1988 JFM 195:341, Eq. 12)
 
 environment:
   u_handoff:    {value: 0.15, low: 0.05, high: 0.25, units: m/s, status: ASSUMPTION, note: "self-induced velocity at which the cloud is surrendered to ambient flow (CBL / room air)"}
-  u_CBL:        {value: 0.20, low: 0.16, high: 0.24, units: m/s, status: VERIFY, source: "Licina et al. 2014 Build Environ 75:79-91 (seated manikin peak CBL velocity)"}
+  u_CBL:        {value: 0.17, low: 0.11, high: 0.24, units: m/s, status: VERIFIED, source: "Licina et al. 2014 Build Environ 75:79: breathing-zone peak 0.24 (20 C) to 0.16 (26 C); reference 0.17; table gap closed 0.111; clothing -17 to -40 %"}
+  u_CBL_pelvis: {value: 0.10, low: 0.05, high: 0.15, units: m/s, status: ASSUMPTION, note: "not reported; CBL develops upward, so lower than breathing zone"}
+  u_own_eff:    {value: 0.11, low: 0.07, high: 0.16, units: m/s, status: DERIVED, source: "seat-to-nose transport of the releaser's own cloud from the transient CBL CFD (M3b, time-mean field): parcels reach nose height in 4.7-7.4 s (20 C) and 6.8-8.0 s (23 C); upper time extended x1.4 because the coarse-mesh CBL is ~40 % faster than Licina et al. 2014 -> t = 4.7-11 s; u = L_own / t with L_own 0.65-0.85 m", note: "replaces u_CBL as the own-nose transport speed in Gate 0 (2026-10-16); u_CBL stays the measured breathing-zone CBL velocity. One 23 C parcel took 18.4 s (released behind the hips) and is excluded"}
+  delta_CBL:    {value: 0.10, low: 0.05, high: 0.15, units: m, status: ASSUMPTION, note: "CBL thickness at breathing zone; Licina 2014: profiles insensitive to clothing/chair 'beyond 5 cm distance from the body'"}
   u_room:       {value: 0.08, low: 0.03, high: 0.15, units: m/s, status: ASSUMPTION, note: "lateral transport speed of room air between neighbours"}
-  K_turb:       {value: 1.0e-3, low: 1.0e-4, high: 1.0e-2, units: m^2/s, status: VERIFY, note: "indoor eddy diffusivity; ranges reported for residences ~1e-3-1e-2 (to be verified)"}
-  D_H2S_air:    {value: 1.6e-5, units: m^2/s, status: VERIFY, note: "molecular diffusivity; negligible vs K_turb"}
+  K_turb:       {value: 2.0e-3, low: 1.0e-4, high: 1.3e-2, units: m^2/s, status: VERIFIED, source: "Cheng et al. 2011 Environ Sci Technol 45:4016, Table 1: K = 0.0019-0.0129 m^2/s (ACH 0.17-5.4 /h; 0.0019-0.0045 closed/slightly open windows)", note: "30-min room-scale absolute dispersion; relative dispersion of a seconds-old 2-10 cm puff near the body is smaller -> lower bound 1e-4 is an ASSUMPTION"}
+  D_H2S_air:    {value: 1.65e-5, low: 1.62e-5, high: 1.77e-5, units: m^2/s, status: PARTIAL, source: "Fuller-Schettler-Giddings estimate (Poling et al. 2001 Eq. 11-4.4): 1.62e-5 (22 C), 1.65e-5 (25 C), 1.77e-5 (37 C); +/- 5-10 %", note: "diffusion length sqrt(2Dt) = 8 mm in 2 s -> negligible vs advection (plan 3.6 confirmed)"}
 
-geometry:           # sofa duet (Scenario A)
-  L_own:        {value: 0.70, low: 0.60, high: 0.80, units: m, status: VERIFY, note: "seat-to-nose path for a seated adult via the CBL"}
+geometry:           # sofa duet (Scenario A); ANSUR II public data (Gordon et al. 2014, NATICK/TR-15/007)
+  eye_sit_m:    {value: 0.804, low: 0.750, high: 0.860, units: m, status: VERIFIED, source: "ANSUR II eyeheightsitting, men p50 (p5-p95), n = 4082"}
+  eye_sit_f:    {value: 0.748, low: 0.698, high: 0.799, units: m, status: VERIFIED, source: "ANSUR II eyeheightsitting, women p50 (p5-p95), n = 1986"}
+  eye_stand_m:  {value: 1.640, low: 1.536, high: 1.753, units: m, status: DERIVED, source: "ANSUR II stature - (sittingheight - eyeheightsitting)"}
+  eye_stand_f:  {value: 1.517, low: 1.421, high: 1.626, units: m, status: DERIVED, source: "ANSUR II"}
+  L_own:        {value: 0.74, low: 0.65, high: 0.85, units: m, status: ASSUMPTION, note: "seat-to-nose path via the CBL: seated eye height minus 0.03-0.05 m (ANSUR II), orifice at seat surface; path slightly longer than vertical"}
   L_neighbour:  {value: 1.0, low: 0.8, high: 1.4, units: m, status: ASSUMPTION, note: "seat-to-neighbour-nose path (lateral 0.5-0.7 m + rise)"}
 
-breathing:
-  T_insp:       {value: 1.5, low: 1.2, high: 2.0, units: s, status: VERIFY, note: "inspiratory time at rest (12-16 breaths/min, I:E ~ 1:2)"}
+breathing:          # Wysocki et al. 2006 Respir Physiol Neurobiol 153:54 (n = 9 seated); textbook VT 0.5 L, f 12-16 /min
+  V_tidal:      {value: 0.63e-3, low: 0.4e-3, high: 0.83e-3, units: m^3, status: VERIFIED}
+  f_breath:     {value: 12, low: 10, high: 16, units: 1/min, status: VERIFIED}
+  Ti_Ttot:      {value: 0.42, low: 0.34, high: 0.50, units: "-", status: VERIFIED, note: "I:E ~ 1:1.4 (the plan's 1:2 seed is not supported)"}
+  T_insp:       {value: 2.1, low: 1.6, high: 2.7, units: s, status: DERIVED, source: "Ti = Ti/Ttot x 60/f (0.42 at 10-16 /min); Wysocki 2006 measured Ti 2.67 s"}
 
-clothing:           # air permeability at 125 Pa (ASTM D737), m/s  (1 cm^3/cm^2/s = 0.01 m/s)
-  a_denim:      {value: 0.03, low: 0.005, high: 0.10, units: m/s, status: VERIFY}
-  a_leggings:   {value: 0.6, low: 0.2, high: 1.5, units: m/s, status: VERIFY}
+clothing:           # air permeability at 100 Pa (EN ISO 9237), m/s  (1 L/m^2/s = 1 mm/s)
+  dp_ref_fabric: {value: 100.0, units: Pa, status: VERIFIED, source: "EN ISO 9237 test pressure"}
+  a_denim:      {value: 0.030, low: 0.017, high: 0.25, units: m/s, status: VERIFIED, source: "Celik & Kaynak 2017 IOP Conf Ser MSE 254:082007 (17-46 mm/s, t 0.53-0.64 mm); Kanat & Ozdil 2026 Materials 19:3264 (19.4-44.2 mm/s); hemp/stretch denim up to 253 mm/s (Erbil & Kocak 2026 Textiles 6:89, ASTM D737)", note: "Darcy k = 1.6-6e-12 m^2"}
+  a_leggings:   {value: 0.61, low: 0.16, high: 1.9, units: m/s, status: VERIFIED, source: "Jerkovic et al. 2025 Materials 18:2655 Table 2: CO/EA jersey 163 relaxed / 614 at 20 % stretch; PES/EA 428/908; other jerseys 708-1917 mm/s", note: "leggings are worn stretched; Darcy k = 2e-11-2e-10 m^2; Re_k up to 1.8 -> add Forchheimer term in CFD"}
+  a_chino:      {value: 0.060, low: 0.020, high: 0.150, units: m/s, status: ASSUMPTION, note: "woven cotton trousers; not found"}
   V_skirt:      {value: 0.03, low: 0.01, high: 0.06, units: m^3, status: ASSUMPTION, note: "air volume enclosed under a skirt, acting as a mixing chamber"}
 
+acoustics:          # inputs for M2
+  f0_flatus:    {value: 160, low: 100, high: 300, units: Hz, status: NON-PEER-REVIEWED, source: "Chervinsky 2022 flatology.com (modelled sphincter resonance 161 Hz; observed ~270 Hz); mechanism only in Ancalle et al. 2021 JASA 150:A164", note: "no peer-reviewed frequency or SPL exists; source SPL is a free parameter"}
+  T_f:          {value: {50: 44.0, 63: 37.5, 80: 31.5, 100: 26.5, 125: 22.1, 160: 17.9, 200: 14.4, 250: 11.4, 315: 8.6, 400: 6.2, 500: 4.4, 630: 3.0, 800: 2.2, 1000: 2.4, 1250: 3.5, 1600: 1.7, 2000: -1.3, 2500: -4.2, 3150: -6.0}, units: dB SPL, status: PARTIAL, source: "ISO 226:2003 Table 1 (63-250 Hz via pydsm transcription, checked by M0 agent; other bands from the same table, not yet re-checked); ISO 226:2023 changes only 20 Hz (-0.4 dB) per Suzuki et al. 2024 Acoust Sci Tech 45:1", note: "verify against ISO 226:2023 before figure"}
+  bg_library:   {value: 40, low: 35, high: 45, units: dB(A), status: ASSUMPTION, source: "guideline limits: ANSI/ASA S12.60-2010 (35 dBA); WHO 1999 Table 4.1"}
+  bg_living:    {value: 35, low: 30, high: 45, units: dB(A), status: ASSUMPTION, source: "WHO 1999 Table 4.1 (35 dB LAeq,16h dwelling indoors)"}
+  bg_office:    {value: 45, low: 43, high: 55, units: dB(A), status: VERIFIED, source: "Hongisto et al. 2017 Front Psychol 8:1177 (43-45 dB LAeq with masking)"}
+  bg_restaurant: {value: 74, low: 67, high: 83, units: dB(A), status: VERIFIED, source: "To & Chung 2014 Noise Health 16:368 / 2015 Noise Vib Worldwide 46:11 (Leq 73.9, range 66.7-82.6 dBA); Lebo et al. 1994 (59-80 dBA, secondary)"}
+  bg_subway:    {value: 77, low: 74, high: 80, units: dB(A), status: VERIFIED, source: "Yao et al. 2017 J Otolaryngol Head Neck Surg 46:62 (76.8 +/- 2.6 dBA in moving vehicle); NYC car maxima 112 dBA (Gershon et al. 2006)"}
+
+  # --- M2 source / masking model (verified 2026-10-15; see refs/references.yaml) ---
+  P_th:         {value: 600.0, low: 200.0, high: 1300.0, units: Pa, status: ASSUMPTION, source: "anchored to vocal-fold phonation threshold pressure 0.2-0.5 kPa (Titze 2009 JSLHR 52:1062; Jiang et al. 1999) and brass-lip threshold p0 = K f with K = 4-8 Pa/Hz (Fletcher & Tarnopolsky 1999 JASA 105:874), i.e. 0.64-1.28 kPa at 160 Hz; trumpet thresholds 1.05-4.1 kPa at 235-700 Hz (Doc et al. 2023)", note: "no anal-tissue data; nominal = K 3.75 Pa/Hz x 160 Hz"}
+  C_d:          {value: 0.85, low: 0.6, high: 1.0, units: "-", status: PARTIAL, source: "glottal discharge coefficient 0.85 (van den Berg et al. 1957, k = 1.375); sharp slit 0.61 (Kirchhoff)"}
+  alpha_mod:    {value: 0.7, low: 0.5, high: 1.0, units: "-", status: ASSUMPTION, source: "derived from glottal AC (p-p) / minimum flow 1.6-5.2 (Holmberg et al. 1988; Sulter & Wit 1996) and trombone total-flow p-p / mean 1.6-2.9 (Boutin et al. 2015)", note: "fundamental flow amplitude / mean flow; not tabulated anywhere"}
+  harm_slope:   {value: -12.0, low: -18.0, high: -6.0, units: dB/octave, status: ASSUMPTION, note: "volume-flow harmonic roll-off (glottal source ~ -12 dB/oct); radiated pressure then falls 6 dB/oct slower"}
+  n_harm:       {value: 8, units: "-", status: ASSUMPTION}
+  A_cloth:      {value: 1.0, low: 0.0, high: 3.0, units: dB, status: PARTIAL, source: "VanDam 2014 JASA 136:EL263 (shirts: no difference vs bare microphone); mass law 0.3-0.4 kg/m2: 0.5 dB at 150 Hz, 2.6 dB at 300 Hz", note: "cushion seal: not found"}
+  r_listener:   {value: 0.6, low: 0.4, high: 3.0, units: m, status: ASSUMPTION, note: "sofa neighbour 0.6 m; plan range 0.5-3 m"}
+  CR:           {value: {100: 17.0, 500: 17.0, 1000: 18.0, 2000: 20.0, 4000: 23.0}, units: dB, status: PARTIAL, source: "critical ratio: ~17 dB (16-19) at 100-250 Hz (Hawkins & Stevens 1950, figure only; Moore, Peters & Glasberg 1990); 18 dB at 1 kHz (Scharf 1961)", note: "2-4 kHz values follow the usual rise; only the <= 1 kHz values matter here"}
+  bg_slope:     {value: {library: -5.0, living: -5.0, office: -5.0, restaurant: -3.0, subway: -8.0}, units: dB/octave, status: ASSUMPTION, source: "RC neutral spectrum -5 dB/oct (Blazier 1981, 1997); restaurant babble speech-shaped (Byrne et al. 1994); subway interior low-frequency dominated, spectral maximum at 12.5 Hz (Lee, Kim & Han 2017)"}
 acoustics_proxy:    # Gate 0 only - replaced by the lip-reed model in M2
   u_audible:    {value: 2.0, low: 1.0, high: 5.0, units: m/s, status: ASSUMPTION, note: "exit velocity above which tissue oscillation (sound) is assumed; placeholder for M2"}
+
+perception:         # M6 (verified 2026-10-15; see refs/references.yaml)
+  n_stevens:    {value: 0.28, low: 0.20, high: 0.45, units: "-", status: VERIFIED, source: "Collins et al. 2001 Am J Vet Res 62:1014 (odour rating = 1.51 [H2S ppm]^0.28); Amoore 1985 CARB report x1.2 per doubling (n = 0.26, non-peer-reviewed); thiols 0.36 and all odorants median 0.40 (Devos et al. 2002 via Zarzo 2012 Sensors 12:4105)", note: "range = sensitivity bracket"}
+  k_w_H2S:      {value: 0.95, low: 0.8, high: 1.2, units: "intensity units per decade", status: PARTIAL, source: "Japan MoE 6-point scale: H2S 0.02 -> 0.2 ppm spans intensity 2.5 -> 3.5; municipal tables Y = 0.950 log10(ppm) + 4.14 (not read directly)"}
+  weber_C:      {value: 0.28, low: 0.05, high: 0.40, units: "dC/C", status: VERIFIED, source: "Stone & Bosley 1965 Percept Mot Skills 20:657 (K = 0.28); Cain 1977 Science 195:796 (down to 0.05 with ideal delivery)"}
+  tau_adapt:    {value: 80.0, low: 40.0, high: 120.0, units: s, status: ASSUMPTION, source: "derived: asymptote reached by ~4 min (Cain 1974 via Cometto-Muniz & Cain 1995) taken as ~3 tau"}
+  a_inf:        {value: 0.35, low: 0.25, high: 0.40, units: "-", status: PARTIAL, source: "H2S, DMDS, pyridine 25-40 % of initial intensity (Berglund et al. 1978; Ekman et al. 1967; via Cometto-Muniz & Cain 1995)"}
+  gamma_lit:    {value: 1.15, low: 1.0, high: 1.3, units: "-", status: ASSUMPTION, source: "direction verified: negative names raise intensity (Djordjevic et al. 2008); hazard framing causes sensitization instead of adaptation (Dalton 1996, 1997, 1999); label shifts pleasantness, not intensity (de Araujo et al. 2005); sounds shift pleasantness, not intensity (Seo & Hummel 2011)", note: "no study measures intensity for unexpected vs expected odours", superseded: "2026-10-16: gamma is an auxiliary hypothesis; brief-exposure label effects on intensity are 0-3 % with unknown sign (Herz 2001; Djordjevic 2008, no label = positive label; Dalton 1996/1999 first ratings). Kept only to reproduce the 2026-10-15 table"}
+  sniff_ratio:  {value: 0.64, low: 0.61, high: 0.75, units: "-", status: VERIFIED, source: "Frank et al. 2006 Arch Otolaryngol 132:532 (malodour sniff magnitude ratio); modulation latency 0.16-0.26 s (Johnson et al. 2003)"}
+  t_react:      {value: 0.5, low: 0.3, high: 1.5, units: s, status: ASSUMPTION, note: "sound-to-breath-hold latency; reflex floor 0.16 s (Johnson et al. 2003)"}
+  H_max:        {value: 33.0, low: 24.0, high: 90.0, units: s, status: VERIFIED, source: "Marks et al. 1997 JMRI 7:595 (31.7 s, room air, end-expiration); Roujol et al. 2014 MRM (35 +/- 11 s)", note: "upper bound after full inspiration is an ASSUMPTION"}
+  thr_scale_typ: {value: 0.05, low: 0.05, high: 0.10, units: "-", status: VERIFIED, source: "ratio of Nagata 2003 thresholds (used in odour_thresholds) to population thresholds: Amoore & Hautala 1983 Table 2 H2S 8.1 ppb, CH3SH 1.6 ppb (x1/20, x1/23); Wilby 1969 Table V recognition medians H2S 4.1, CH3SH 0.80 ppb (x1/10, x1/11)", note: "multiplies OAV for an untrained observer; used by uq/observer_ps.py"}
+  thr_sd_bs:    {value: 2.0, units: "binary steps", status: VERIFIED, source: "Amoore & Hautala 1983 p.286: mean SD of population thresholds 1.97 binary steps (7 odorants, 18-443 observers)", note: "per-event detection probability Phi(log2(OAV)/sd); Stevens et al. 1988 show within-person variation is as large as between-person, so it applies per passage"}
+  distracted_factor: {value: 26.0, units: "-", status: VERIFIED, source: "Amoore & Hautala 1983 Fig. 2 warning line: 50 % of distracted people respond at 26x threshold, SD 3.5 binary steps; from Whisman et al. 1978 Table II (ethanethiol, misdirected/undirected, >1600 people)", note: "extrapolation below 50 % response is not supported by the data (Amoore & Hautala)"}
+  distracted_sd_bs: {value: 3.5, units: "binary steps", status: VERIFIED, source: "Amoore & Hautala 1983 Fig. 2"}
+  recovery_gain: {value: 1.5, low: 1.0, high: 2.0, units: "-", status: ASSUMPTION, note: "tidal-volume factor of the first breath after a hold"}

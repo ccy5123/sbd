@@ -70,7 +70,7 @@ def effective_source(rel: Release, clothing: str, p: dict) -> tuple[float, float
 
     Returns (u_eff, d_eff, dilution_cap). For porous trousers the gas leaves the fabric at
     the Darcy velocity set by the (upper-bound) stagnation pressure of the impinging jet,
-    u_perm = a * (0.5 rho u0^2) / 125 Pa, where a is the air permeability at 125 Pa.
+    u_perm = a * (0.5 rho u0^2) / dp_ref, where a is the air permeability at dp_ref = 100 Pa (EN ISO 9237).
     The source area grows accordingly (mass conservation). A skirt is an open-bottom
     mixing chamber: the free jet dilutes at most to the enclosed volume.
     """
@@ -78,9 +78,9 @@ def effective_source(rel: Release, clothing: str, p: dict) -> tuple[float, float
     if clothing in ("none", "skirt"):
         cap = p["V_skirt"] / rel.V if clothing == "skirt" else None
         return u0, rel.d, cap
-    a = {"denim": p["a_denim"], "leggings": p["a_leggings"]}[clothing]
+    a = {"denim": p["a_denim"], "leggings": p["a_leggings"], "chino": p["a_chino"]}[clothing]
     dp = 0.5 * p["rho_air"] * u0**2
-    u_eff = min(u0, a * dp / 125.0)
+    u_eff = min(u0, a * dp / p["dp_ref_fabric"])
     area = (rel.V / rel.T) / max(u_eff, 1e-12)
     return u_eff, float(np.sqrt(4.0 * area / np.pi)), None
 
@@ -89,28 +89,31 @@ def phase1(rel: Release, p: dict, clothing: str = "none") -> dict:
     """Near-field dilution until the cloud's self-induced velocity decays to u_handoff."""
     u_h = p["u_handoff"]
     u_eff, d_s, cap = effective_source(rel, clothing, p)
-    rho_ratio = 1.0 - p["g_reduced"] / p["g"]  # rho_0 / rho_a
+    rho_ratio = 1.0 - p["g_reduced"] / p["g"]  # rho_0 / rho_a (g' < 0: CO2-rich, denser than air)
     d_star = d_s * np.sqrt(rho_ratio)
 
     D_mom, x_h, regime = 1.0, 0.0, "no-momentum"
     if u_eff > u_h:
         M0 = u_eff**2 * np.pi * d_s**2 / 4.0  # kinematic momentum flux, m^4/s^2
         G = p["Gamma_sj"]
-        x_f = G * M0**0.25 * rel.T**0.5  # starting-jet front at end of release
-        u_f = G**2 * np.sqrt(M0) / (2.0 * x_f)  # front velocity at end of release
+        x_f = G * M0**0.25 * rel.T**0.5  # starting-jet tip at end of release (Sangras et al. 2002, erratum)
+        u_f = G**2 * np.sqrt(M0) / (2.0 * x_f)  # tip velocity at end of release
         if u_f <= u_h:  # hand-off during the jet phase
             x_h = G**2 * np.sqrt(M0) / (2.0 * u_h)
             D_mom = x_h / (p["K_c"] * d_star)
             regime = "starting-jet"
-        else:  # jet becomes a puff; puff velocity ~ x^-3, puff volume ~ x^3
-            x_h = x_f * (u_f / u_h) ** (1.0 / 3.0)
+        else:
+            # source cut off -> puff. Measured self-preserving puff law (Diez et al. 2003 erratum):
+            # x_p^4 = C_p^4 (Q0 u0) t  =>  u_p(x) = C_p^4 Q0 u0 / (4 x^3); puff volume ~ x^3
+            Cp4 = p["C_puff"] ** 4
+            x_h = max(x_f, (Cp4 * rel.V * u_eff / (4.0 * u_h)) ** (1.0 / 3.0))
             D_mom = x_f / (p["K_c"] * d_star) * (x_h / x_f) ** 3
             regime = "puff"
         D_mom = max(1.0, D_mom)
 
     # buoyant thermal: r = alpha z, w = c_th sqrt(B)/z with c_th = sqrt(3/(2 pi alpha^3))/2
     a_t = p["alpha_th"]
-    B = p["g_reduced"] * rel.V
+    B = abs(p["g_reduced"]) * rel.V  # rising or sinking thermal entrains alike
     c_th = 0.5 * np.sqrt(3.0 / (2.0 * np.pi * a_t**3))
     z_h = c_th * np.sqrt(B) / u_h
     D_buoy = max(1.0, (4.0 / 3.0) * np.pi * a_t**3 * z_h**3 / rel.V)
@@ -121,6 +124,12 @@ def phase1(rel: Release, p: dict, clothing: str = "none") -> dict:
         x_h = 0.0  # jet is confined under the skirt
     return {"D1": D1, "D_mom": D_mom, "D_buoy": D_buoy, "x_h": x_h, "u_eff": u_eff,
             "Si": u_eff / u_h, "regime": regime}
+
+
+def puff_sigma(V_h: float, t_travel: float, K: float) -> float:
+    """Gaussian-puff standard deviation (m) after t_travel."""
+    sigma0 = V_h ** (1.0 / 3.0) / np.sqrt(2.0 * np.pi)
+    return float(np.sqrt(sigma0**2 + 2.0 * K * t_travel))
 
 
 def phase2(V_h: float, t_travel: float, K: float, u_adv: float, T_insp: float) -> tuple[float, float]:
@@ -146,7 +155,8 @@ def receptor(rel: Release, p: dict, L: float, u_adv: float, clothing: str = "non
     g_inst, g_inh = phase2(rel.V * ph1["D1"], t2, p["K_turb"], u_adv, p["T_insp"])
     phi_inst = g_inst / ph1["D1"]
     phi_inh = g_inh / ph1["D1"]
-    return {**ph1, "t_travel": t2, "phi_inst": phi_inst, "phi_inh": phi_inh,
+    sig = puff_sigma(rel.V * ph1["D1"], t2, p["K_turb"])
+    return {**ph1, "t_travel": t2, "phi_inst": phi_inst, "phi_inh": phi_inh, "sigma": sig, "sigma_t": sig / u_adv,
             "D_total": 1.0 / phi_inst, "Re": rel.reynolds(p["nu_gas"]), "u0": rel.u0}
 
 

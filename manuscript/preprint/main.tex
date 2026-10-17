@@ -1,0 +1,64 @@
+% Preprint (M9). Skeleton: structure, claims and sources only; prose to be written section by section.
+% Build: latexmk -pdf main.tex   (refs.bib is generated: python3 manuscript/preprint/make_bib.py)
+\documentclass[journal=jacsat,manuscript=article]{achemso}
+
+\usepackage[version=4]{mhchem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\graphicspath{{figs/}{../../figures/}}  % figs/: title-free versions (make_figures.py)
+\SectionNumbersOn
+
+% Skeleton marker: renders as a bracketed note so gaps stay visible in the PDF.
+\newcommand{\gap}[1]{\textbf{[GAP: #1]}}
+\newcommand{\src}[1]{\textsuperscript{\texttt{[#1]}}}  % pointer to the repository file a number comes from
+
+\author{Chan Young Joe}
+\affiliation{Independent Researcher, Incheon, Republic of Korea}
+\email{ccy5123ccy@gmail.com}
+
+\title{The Silencer Conjecture: a fluid-dynamical, perceptual and selection-bias test of the ``silent but deadly'' belief}
+
+\abbreviations{OAV, odour activity value; CBL, convective boundary layer; JND, just-noticeable difference}
+\keywords{flatus, odour dispersion, starting jet, convective boundary layer, Berkson bias, olfactory perception}
+
+\begin{document}
+
+\begin{tocentry}
+\gap{TOC graphic: needed only for an ACS journal submission, not for the preprint}
+\end{tocentry}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/theory}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\appendix
+\section{Parameters}
+\label{app:params}
+{\small\setlength{\tabcolsep}{4pt}
+\input{tables/params}
+}
+
+\begin{acknowledgement}
+\gap{acknowledgements}
+\gap{AI-use disclosure, required by arXiv and ACS policy: Claude Code (Anthropic) wrote code, ran simulations,
+searched and extracted literature and drafted text; the author reviewed all content and takes responsibility.
+To be written last, per the author.}
+\end{acknowledgement}
+
+\begin{suppinfo}
+Supplementary figures S1--S5, the full parameter table and the code and data archive \gap{Zenodo DOI}.
+\end{suppinfo}
+
+\bibliography{refs}
+
+\end{document}
