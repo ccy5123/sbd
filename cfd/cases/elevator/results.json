@@ -212,72 +212,72 @@
   },
   "BL_audible": {
    "FL": {
-    "peak_s": 0.0,
-    "peak_OAV": 0.0,
-    "t_peak_s": -0.2,
-    "t_arrival_s": null,
-    "time_above_OAV1_s": 0.0,
-    "exposure_s_dt": 0.0,
-    "worst_breath_OAV_mean": 0.0,
-    "worst_breath_OAV_max": 0.0,
+    "peak_s": 2.0525222e-05,
+    "peak_OAV": 2.9315506374099085,
+    "t_peak_s": 42.930361,
+    "t_arrival_s": 37.3,
+    "time_above_OAV1_s": 22.528571499999998,
+    "exposure_s_dt": 0.000346398521543551,
+    "worst_breath_OAV_mean": 2.8087202534362157,
+    "worst_breath_OAV_max": 2.908678226908404,
     "t_notice_s": {
-     "1.0": null,
+     "1.0": 37.3,
      "0.05": null
     },
-    "bz_peak_OAV": 0.0,
-    "head_ring_peak_OAV": 0.0,
-    "t_head_ring_peak_s": -0.2
+    "bz_peak_OAV": 3.7581941095111815,
+    "head_ring_peak_OAV": 16.538240098117917,
+    "t_head_ring_peak_s": 28.3
    },
    "FR": {
-    "peak_s": 0.0,
-    "peak_OAV": 0.0,
-    "t_peak_s": -0.2,
+    "peak_s": 6.7001172e-06,
+    "peak_OAV": 0.9569559271213286,
+    "t_peak_s": 59.8,
     "t_arrival_s": null,
     "time_above_OAV1_s": 0.0,
-    "exposure_s_dt": 0.0,
-    "worst_breath_OAV_mean": 0.0,
-    "worst_breath_OAV_max": 0.0,
+    "exposure_s_dt": 3.972451770656555e-05,
+    "worst_breath_OAV_mean": 0.738880264511426,
+    "worst_breath_OAV_max": 0.9438826257114213,
     "t_notice_s": {
      "1.0": null,
      "0.05": null
     },
-    "bz_peak_OAV": 0.0,
-    "head_ring_peak_OAV": 0.0,
-    "t_head_ring_peak_s": -0.2
+    "bz_peak_OAV": 0.8804384512653118,
+    "head_ring_peak_OAV": 9.520315609087948,
+    "t_head_ring_peak_s": 47.8
    },
    "BL": {
-    "peak_s": 0.0,
-    "peak_OAV": 0.0,
-    "t_peak_s": -0.2,
-    "t_arrival_s": null,
-    "time_above_OAV1_s": 0.0,
-    "exposure_s_dt": 0.0,
-    "worst_breath_OAV_mean": 0.0,
-    "worst_breath_OAV_max": 0.0,
+    "peak_s": 0.00018313009,
+    "peak_OAV": 26.155874565860184,
+    "t_peak_s": 48.3625,
+    "t_arrival_s": 23.110417,
+    "time_above_OAV1_s": 36.71503,
+    "exposure_s_dt": 0.0037243304192340143,
+    "worst_breath_OAV_mean": 22.871604101669764,
+    "worst_breath_OAV_max": 24.46468084112657,
     "t_notice_s": {
-     "1.0": null,
-     "0.05": null
+     "1.0": 23.110417,
+     "0.05": 30.274359
     },
-    "bz_peak_OAV": 0.0,
-    "head_ring_peak_OAV": 0.0,
-    "t_head_ring_peak_s": -0.2
+    "bz_peak_OAV": 22.88669473198682,
+    "head_ring_peak_OAV": 90.94413969776961,
+    "t_head_ring_peak_s": 23.8
    },
    "BR": {
-    "peak_s": 0.0,
-    "peak_OAV": 0.0,
-    "t_peak_s": -0.2,
-    "t_arrival_s": null,
-    "time_above_OAV1_s": 0.0,
-    "exposure_s_dt": 0.0,
-    "worst_breath_OAV_mean": 0.0,
-    "worst_breath_OAV_max": 0.0,
+    "peak_s": 5.3039147e-05,
+    "peak_OAV": 7.575408694509021,
+    "t_peak_s": 52.355556,
+    "t_arrival_s": 45.161111,
+    "time_above_OAV1_s": 14.664682999999997,
+    "exposure_s_dt": 0.0004819134538047653,
+    "worst_breath_OAV_mean": 5.942195459212851,
+    "worst_breath_OAV_max": 6.746891489961369,
     "t_notice_s": {
-     "1.0": null,
+     "1.0": 45.161111,
      "0.05": null
     },
-    "bz_peak_OAV": 0.0,
-    "head_ring_peak_OAV": 0.0,
-    "t_head_ring_peak_s": -0.2
+    "bz_peak_OAV": 6.941541055323998,
+    "head_ring_peak_OAV": 15.445061335293383,
+    "t_head_ring_peak_s": 42.8
    }
   }
  },
@@ -407,9 +407,9 @@
    }
   },
   "audible | attentive, Amoore thresholds | culprit stays still": {
-   "P_no_one_reacts": 0.7309480298402522,
-   "P_correct": 0.49189763142967047,
-   "mean_posterior_true": 0.43389551349547145,
+   "P_no_one_reacts": 0.6006623412070935,
+   "P_correct": 0.4614953896611508,
+   "mean_posterior_true": 0.380883037404865,
    "p_react": {
     "FL": {
      "FL": 0.0,
@@ -424,23 +424,23 @@
      "BR": 0.49641988002917187
     },
     "BL": {
-     "FL": 0.0,
-     "FR": 0.0,
+     "FL": 0.07838664297429167,
+     "FR": 0.008673769499119412,
      "BL": 0.0,
-     "BR": 0.0
+     "BR": 0.1906601964834685
     },
     "BR": {
-     "FL": 0.0,
-     "FR": 0.0,
-     "BL": 0.0,
+     "FL": 0.008673769499119412,
+     "FR": 0.07838664297429167,
+     "BL": 0.1906601964834685,
      "BR": 0.0
     }
    }
   },
   "audible | attentive, Amoore thresholds | culprit acts along": {
-   "P_no_one_reacts": 0.7202503138655478,
-   "P_correct": 0.5002281428216258,
-   "mean_posterior_true": 0.4404780484490138,
+   "P_no_one_reacts": 0.39085536712212504,
+   "P_correct": 0.38977886005193674,
+   "mean_posterior_true": 0.3374517799762522,
    "p_react": {
     "FL": {
      "FL": 0.046320879992368766,
@@ -455,23 +455,23 @@
      "BR": 0.49641988002917187
     },
     "BL": {
-     "FL": 0.0,
-     "FR": 0.0,
-     "BL": 0.0,
-     "BR": 0.0
+     "FL": 0.07838664297429167,
+     "FR": 0.008673769499119412,
+     "BL": 0.5385489606127315,
+     "BR": 0.1906601964834685
     },
     "BR": {
-     "FL": 0.0,
-     "FR": 0.0,
-     "BL": 0.0,
-     "BR": 0.0
+     "FL": 0.008673769499119412,
+     "FR": 0.07838664297429167,
+     "BL": 0.1906601964834685,
+     "BR": 0.5385489606127315
     }
    }
   },
   "audible | distracted (everyday) | culprit stays still": {
-   "P_no_one_reacts": 0.9470744344429396,
-   "P_correct": 0.29585122984244355,
-   "mean_posterior_true": 0.278422171388463,
+   "P_no_one_reacts": 0.9215227317126397,
+   "P_correct": 0.28901972670637327,
+   "mean_posterior_true": 0.27012250357196915,
    "p_react": {
     "FL": {
      "FL": 0.0,
@@ -486,23 +486,23 @@
      "BR": 0.08881136409296175
     },
     "BL": {
-     "FL": 0.0,
-     "FR": 0.0,
+     "FL": 0.01569355989460236,
+     "FR": 0.003440402082929447,
      "BL": 0.0,
-     "BR": 0.0
+     "BR": 0.03264632656485434
     },
     "BR": {
-     "FL": 0.0,
-     "FR": 0.0,
-     "BL": 0.0,
+     "FL": 0.003440402082929447,
+     "FR": 0.01569355989460236,
+     "BL": 0.03264632656485434,
      "BR": 0.0
     }
    }
   },
   "audible | distracted (everyday) | culprit acts along": {
-   "P_no_one_reacts": 0.9423292645508723,
-   "P_correct": 0.2988323216960034,
-   "mean_posterior_true": 0.27955319319719163,
+   "P_no_one_reacts": 0.8698410647929375,
+   "P_correct": 0.27672731415715907,
+   "mean_posterior_true": 0.2628295696664308,
    "p_react": {
     "FL": {
      "FL": 0.010613825185463523,
@@ -517,16 +517,16 @@
      "BR": 0.08881136409296175
     },
     "BL": {
-     "FL": 0.0,
-     "FR": 0.0,
-     "BL": 0.0,
-     "BR": 0.0
+     "FL": 0.01569355989460236,
+     "FR": 0.003440402082929447,
+     "BL": 0.09892858146554528,
+     "BR": 0.03264632656485434
     },
     "BR": {
-     "FL": 0.0,
-     "FR": 0.0,
-     "BL": 0.0,
-     "BR": 0.0
+     "FL": 0.003440402082929447,
+     "FR": 0.01569355989460236,
+     "BL": 0.03264632656485434,
+     "BR": 0.09892858146554528
     }
    }
   }
@@ -606,12 +606,20 @@
     }
    },
    "BL": {
-    "first": null,
-    "times_s": {}
+    "first": "BL",
+    "times_s": {
+     "FL": 37.3,
+     "BL": 23.110417,
+     "BR": 45.161111
+    }
    },
    "BR": {
-    "first": null,
-    "times_s": {}
+    "first": "BR",
+    "times_s": {
+     "FR": 37.3,
+     "BL": 45.161111,
+     "BR": 23.110417
+    }
    }
   },
   "audible | scale 0.05": {
@@ -628,12 +636,16 @@
     }
    },
    "BL": {
-    "first": null,
-    "times_s": {}
+    "first": "BL",
+    "times_s": {
+     "BL": 30.274359
+    }
    },
    "BR": {
-    "first": null,
-    "times_s": {}
+    "first": "BR",
+    "times_s": {
+     "BR": 30.274359
+    }
    }
   }
  }

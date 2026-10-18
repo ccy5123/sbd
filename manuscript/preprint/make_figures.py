@@ -27,6 +27,7 @@ SCRIPTS = {  # script -> argv
     "perception/run_selection.py": [],
     "culture/make_map.py": [],
     "chem/fig_chem.py": [],
+    "cfd/cases/elevator/fig_elevator.py": [],
 }
 _save = Figure.savefig
 

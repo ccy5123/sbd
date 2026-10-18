@@ -100,6 +100,15 @@ manikins sit 0.6\,m apart on a two-seat sofa, built from geometric primitives. T
 \end{itemize}
 \src{cfd/cases/sofa/m4\_report.md}
 
+\emph{Elevator.} The car of a 630\,kg, eight-person elevator is 1.10\,m wide, 1.40\,m deep and 2.10\,m high (a
+manufacturer's standard car, within the maximum area of 1.66\,m$^2$ allowed for that load). Four standing manikins,
+built from the same primitives with the nose at 1.59\,m, stand in a $2 \times 2$ grid facing the door; the fan is off
+and a small ceiling opening relieves pressure [ASSUMPTION]. The mesh has 0.91 million cells. After a 30\,s precursor,
+four 60\,s branches release the same silent and audible 92\,mL behind a front-row or a back-row occupant; mirror
+symmetry gives the other two positions. Onlookers react with the detection probabilities of
+Section~\ref{sec:perception}; given who reacted, the culprit is inferred with a uniform prior, for a culprit who stays
+still and one who reacts along \src{cfd/cases/elevator/m5\_report.md}.
+
 \subsection{Perception and observers}
 \label{sec:perception}
 \emph{Exposure and intensity.}

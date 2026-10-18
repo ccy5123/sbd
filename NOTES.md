@@ -584,3 +584,27 @@ The abstract-only pass was wrong or overstated in several places:
     with the silent release". Paraphrase only; no quotation.
 - Bibliography: the film is now cited as `@misc` (Film (director); studio) instead of `@book` (`make_bib.py`,
   `medium: film`).
+
+### M5 scenario C: elevator whodunit (2026-10-17/18; `cfd/cases/elevator/m5_report.md`)
+- **Car:** 630 kg car, 1.10 × 1.40 × 2.10 m (KONE 8/630; within EN 81-20 Table 6, 1.66 m²). Four standing manikins
+  in a 2 × 2 grid; fan off; 60 s. Culprit FL/BL × silent/audible; FR and BR by mirror symmetry.
+- **Mesh:** 909 k cells, checkMesh OK.
+- **Run incidents:**
+  - The container was reclaimed when the session went idle (FL_silent resumed from 20 s; the run script now resumes
+    a drift stage).
+  - The disk allowance ran out during a reconstruction. Decomposed copies of reconstructed cases were removed (only
+    3-D snapshots at intermediate times of the 120 s sofa runs are lost; probes and planes are kept), and the script
+    now removes them after each branch.
+- **Result: routing by what stands behind the culprit.**
+  - Front culprit (a person behind): silent stronger at every nose, R 1.4–4.3; the person behind gets OAV 27 at
+    8.8 s, before the culprit (17.6 s).
+  - Back culprit (the wall behind): chimney; audible stronger at every nose, R 0.20–0.55.
+  - Silent stronger in 8 of 16 culprit–nose pairs.
+- **Whodunit (odour only):**
+  - distracted onlookers: no one reacts in 87–92 %, identification 0.28–0.31;
+  - attentive onlookers: 0.39–0.52 (chance 0.25).
+  - "He who smelt it dealt it" is right in half the positions.
+- **Bug found and fixed before reporting:** the observer scale was divided instead of multiplied (observers 400× too
+  sensitive), and the culprit-never-reacts assumption alone made identification trivial. Both were corrected.
+- **Manuscript:** Results 4.5 "An elevator" (Table 3, Fig. 15), Methods "Elevator" paragraph, Discussion corner case
+  and limitations, abstract sentence, introduction and conclusion lines.
