@@ -635,3 +635,11 @@ The abstract-only pass was wrong or overstated in several places:
 - Versus the review draft (82.5 / 6.3 / 10.6 / 0.7 attentive): one stream instead of paired draws changes < 0.2
   points; the sulfur multiplier (mean 1, so its log has mean -sigma^2/2) gives the rest.
 - Manuscript not yet changed; text and tables follow once items 2-7 are settled.
+
+### Headline redesign, item 3: scene weights (2026-10-18; `refs/scene_weights_sources.md`, params `scene_weights`)
+- User choice: real-frequency weights, weight ∝ hours/day near another person in that setting. Central sofa /
+  elevator / standing 1.4 / 0.01 / 0.5 h/day (0.73 / 0.005 / 0.26); bounding cases home-centred and
+  office/high-rise reported as a sensitivity range. Standing is an assumption (no direct measurement found).
+- Variants (postures, layouts, ventilation) and noses are averaged inside a scene first.
+- Current windows: frequency-weighted bystanders, attentive, physics 99.8 / 0.1 / 0.1 / 0.0 %; memory unchanged
+  (81.7 % silent worse, all from the elevator). Final numbers wait for the 10-minute runs (item 2).

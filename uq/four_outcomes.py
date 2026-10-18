@@ -121,6 +121,16 @@ def scene_of(row):
 SCENES = ("sofa", "elevator", "standing")
 
 
+def frequency_weights():
+    """Real-frequency scene weights (h/day near another person, params scene_weights): the central case and the two
+    bounding cases, home-centred (sofa high, others low) and office/high-rise (sofa low, others high)."""
+    raw = rs.g0.P_RAW["scene_weights"]
+    h = {sc: raw[f"hours_{sc}"] for sc in SCENES}
+    return {"frequency, central": {sc: v["value"] for sc, v in h.items()},
+            "frequency, home": {sc: v["high" if sc == "sofa" else "low"] for sc, v in h.items()},
+            "frequency, office": {sc: v["low" if sc == "sofa" else "high"] for sc, v in h.items()}}
+
+
 def aggregate(rows, weights):
     """Physics shares and pooled memory shares over `rows`. weights None: every row (nose) equally; else a dict
     scene -> weight, with the rows of a scene (its variants and noses) averaged first."""
@@ -161,7 +171,7 @@ def main():
                                         "memory": {k: mm[k] / mm["_total"] for k in OUTCOMES},
                                         "memory_mass": mm}
         out["rows"].append(row)
-    weights = {"per nose (old)": None, "equal per scene": {k: 1.0 for k in SCENES}}
+    weights = {"per nose (old)": None, "equal per scene": {k: 1.0 for k in SCENES}, **frequency_weights()}
     for grp, keep in (("bystanders", lambda s: s["nose"] != "culprit"), ("culprit", lambda s: s["nose"] == "culprit")):
         rows = [s for s in out["rows"] if keep(s) and "120 s" not in s["scene"]]
         out[f"summary_{grp}"] = {"n": len(rows), "per_scene": {sc: aggregate([s for s in rows if scene_of(s) == sc], None)

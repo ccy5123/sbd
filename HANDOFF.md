@@ -111,8 +111,11 @@ which reaches the server over SSH; drive the runs from there (repo clone + OpenF
   chose real-frequency scene weights: weight ∝ time per day spent near another person in that setting (passages
   uniform over waking hours). A literature search for these weights (ATUS / NHAPS time use, elevator trips and ride
   time, face-to-face standing conversation time; DOIs verified via OpenAlex) finished: `refs/scene_weights_sources.md`
-  (central 0.73 / 0.005 / 0.26 for sofa / elevator / standing, with two bounding cases). Awaiting the user's
-  approval before it goes into params.yaml.
+  (central 0.73 / 0.005 / 0.26 for sofa / elevator / standing, with two bounding cases). Approved (central +
+  both bounding cases as a sensitivity range); in params.yaml `scene_weights`, used by `uq/four_outcomes.py`.
+  With the current windows the frequency-weighted bystander result is ~100 % "none" (only the elevator, weight
+  <= 4 %, smells anything); the numbers mean something only after the item 2 runs.
+- Not yet: add `scene_weights` to SECTIONS in `manuscript/preprint/make_params_table.py` (manuscript stage).
 - Meanwhile: item 3 onwards. With the current windows only the elevator bystanders smell
   anything (sofa and standing bystanders: pi_s = pi_l = 0), so items 3 and 7 numbers wait for these runs.
 
