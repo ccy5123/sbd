@@ -1,0 +1,264 @@
+% Supporting Information for the preprint (main.tex). Build this file first: main.tex reads si.aux (xr) for the
+% S-numbers of the figures, tables and sections cited from the main text.
+\documentclass[journal=jacsat,manuscript=suppinfo]{achemso}
+
+\usepackage[version=4]{mhchem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\graphicspath{{figs/}{../../figures/}}
+\SectionNumbersOn
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thesection}{S\arabic{section}}
+\newcommand{\src}[1]{\textsuperscript{\texttt{[#1]}}}
+
+\author{Chan Young Joe}
+\affiliation{Independent Researcher, Incheon, Republic of Korea}
+\email{ccy5123ccy@gmail.com}
+\title{The Silencer Conjecture: a fluid-dynamical, perceptual and selection-bias test of the ``silent but deadly'' belief}
+
+\begin{document}
+\maketitle
+
+\noindent Contents: the chain from release to memory (Figure~\ref{fig:chain}); CFD validation
+(Section~\ref{sec:si-validation}); the CFD scenes in detail (Sections~\ref{sec:si-scenes}--\ref{sec:si-standing});
+breath sampling (Section~\ref{sec:si-breath}); the cross-cultural survey (Section~\ref{sec:si-culture}); and the
+full parameter table (Section~\ref{sec:si-params}). File paths in square brackets point into the code and data
+archive.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig2_chain.png}
+\caption{The chain from release to memory, the quantity each stage hands on, and where Theorems 1--3 act.}
+\label{fig:chain}
+\end{figure}
+
+\section{CFD validation}
+\label{sec:si-validation}
+\src{cfd/validation/m3\_report.md}
+\begin{itemize}
+  \item \emph{Free round jet} (axisymmetric, $\mathrm{Re} = 6700$, three meshes). This gives a velocity-decay
+  constant of 5.0 and a scalar constant $K_c = 4.3$--4.6, with grid uncertainty of at most 3.7\%. The known
+  round-jet anomaly of SST (about 25\% excess spreading) means the model over-dilutes audible jets by about 15\%,
+  which favours the silent release.
+  \item \emph{Convective boundary layer} of a simplified seated manikin with skin at 33\,\textdegree C, compared with
+  thermal-manikin data \cite{licina2014}. The face-front peak velocity is 40--56\% too high at room temperatures of
+  20--26\,\textdegree C, while the trend with room temperature is reproduced ($-27\%$ vs $-33\%$ measured). The fast
+  boundary layer shortens travel times to the releaser's own nose by about 30\%; the analytic model compensates by
+  stretching the CFD times by a factor of 1.4.
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig4_jet_validation.png}\\[4pt]
+\includegraphics[width=\textwidth]{fig4_cbl_validation.png}
+\caption{Validation. Top: free round jet at $\mathrm{Re} = 6700$ on three meshes (centreline velocity and scalar decay,
+spreading). Bottom: face-front convective boundary layer of the seated manikin against thermal-manikin data
+\cite{licina2014} at 20--26\,\textdegree C, and time-mean vertical velocity profiles at nose height.}
+\label{fig:validation}
+\end{figure}
+
+\section{CFD scenes}
+\label{sec:si-scenes}
+All scenes use the solver of the main text (transient RANS $k$--$\omega$ SST, Boussinesq, internal-energy form), skin
+at 33\,\textdegree C and walls at 23\,\textdegree C. Manikins are built from geometric primitives. The release is a
+momentum-equivalent inlet behind the releaser's buttocks, pointing down and back: silent, 92\,mL over 2\,s through
+8\,mm ($u_0 = 0.9$\,m\,s$^{-1}$); audible, 92\,mL over 0.5\,s through 2.4\,mm (41\,m\,s$^{-1}$). The odorant is a
+passive scalar, sampled at probes 2.5\,cm in front of each nose, on 5\,cm breathing-zone discs at nose height and
+over sinusoidal breathing cycles. Each scene first runs a precursor that develops the body plumes; the silent and
+audible branches then start from the same field.
+
+\begin{itemize}
+  \item \emph{Sofa duet.} A 3.2 $\times$ 3.2 $\times$ 2.6\,m living room at 23\,\textdegree C with a 0.5\,m ceiling
+  vent for pressure relief [ASSUMPTION]. Two seated manikins sit 0.6\,m apart on a two-seat sofa whose base is solid
+  to the floor. Mesh 0.72 million cells, refined to 5\,mm at the release and 2.5\,mm on the inlet face. Precursor
+  30\,s; branches 30\,s, the upright one extended to 120\,s. Two posture variants rotate the releaser's upper body
+  about the hip: reclined by 4.5\,\textdegree, so that the back closes onto the backrest, and leaning forward by
+  10\,\textdegree, so that the gap behind the back opens \src{cfd/cases/sofa/m4\_report.md}.
+  \item \emph{Elevator.} The car of a 630\,kg, eight-person elevator, 1.10\,m wide, 1.40\,m deep and 2.10\,m high (a
+  manufacturer's standard car, within the maximum area of 1.66\,m$^2$ allowed for that load). Four standing manikins
+  (nose at 1.59\,m) stand in a $2 \times 2$ grid facing the door; the fan is off and a 0.2\,m ceiling opening
+  relieves pressure [ASSUMPTION]. Mesh 0.91 million cells. Precursor 30\,s; four 60\,s branches release behind a
+  front-row or a back-row occupant, and mirror symmetry gives the other two positions
+  \src{cfd/cases/elevator/m5\_report.md}.
+  \item \emph{Standing pair.} The living room of the sofa duet with two standing manikins face to face, noses 1.0\,m
+  apart, and 0.8\,m of open floor behind each back. Two air states share one mesh (0.43 million cells): still air, and
+  office ventilation through one square ceiling diffuser above the pair, 21.2\,L\,s$^{-1}$ = 2.9 air changes per hour
+  (EN 16798-1 Category II for two people in a low-polluting 10\,m$^2$ room: 7\,L\,s$^{-1}$ per person plus
+  0.7\,L\,s$^{-1}$\,m$^{-2}$ \cite{olesen2024}), discharged horizontally along the ceiling at 1.5\,m\,s$^{-1}$
+  [ASSUMPTION] at room temperature, with a ceiling exhaust grille. Precursors 30\,s (still) and 90\,s (ventilated);
+  60\,s branches \src{cfd/cases/standing}.
+\end{itemize}
+
+\section{Sofa duet}
+\label{sec:si-sofa}
+\emph{Silent release.} The silent release has too little momentum to leave the convective boundary layer of the
+releaser's back. It is drawn up the gap between back and backrest, over the head and on to the ceiling. Within 30\,s
+its breathing-zone OAV stays at or below $10^{-10}$ at both noses, while the region within 25\,cm of the releaser's
+head reaches an OAV of 6\,000.
+
+\emph{Audible release.} The audible jet splashes into the corner between seat and backrest, spreads sideways along
+the gap and is lifted up both backs as a wider, more dilute sheet; part of it curls around the heads. It reaches the
+neighbour's head region within 6\,s and both breathing zones at OAV 0.2--0.6.
+
+\emph{Reclined posture.} Reclining the releaser by 4.5\,\textdegree\ closes the back onto the backrest. The silent
+release then leaves the seat-level wedge sideways and still rises behind the head, so no breathing zone receives a
+detectable dose. The audible jet now wraps around the releaser's face, exceeding threshold at their own nose (OAV
+2--4).
+
+\emph{Forward lean.} Leaning the releaser forward by 10\,\textdegree\ opens the gap behind the back. Both releases
+then rise behind the head, and the releaser's nose, now 13\,cm further forward, receives neither (breathing-zone OAV
+$\le 10^{-5}$). The silent cloud reaches the region within 25\,cm of the neighbour's head as strongly as the audible
+one (OAV 580 against 450) but not the neighbour's breathing zone ($10^{-4}$); the audible jet reaches it at OAV 2.6.
+
+\emph{Longer window.} Extending the upright case to 120\,s shows what happens after the direct pass. Both clouds reach
+the ceiling, come back down through the room and arrive at both noses from about 45\,s on. After about 70\,s the
+silent and audible traces at the neighbour are indistinguishable (worst breath 0.39 for both), as Theorem~2
+requires. At the releaser's own nose the mixed silent cloud runs 1.5--2 times higher and touches the trained-panel
+threshold for about a second near 100\,s. These late levels are 10--23 times below the thresholds of an untrained
+observer, and they arrive when the release can no longer be attributed to anyone.
+
+\begin{table}
+\caption{Sofa duet: peak breathing-zone OAV within 30\,s of release onset (RANS mean field).}
+\label{tab:sofa}
+\begin{tabular}{llcc}
+\toprule
+nose & posture & silent & audible \\
+\midrule
+releaser & upright & $5\times10^{-11}$ & 0.46 \\
+releaser & reclined 4.5\,\textdegree & $9\times10^{-11}$ & 3.3 \\
+releaser & forward 10\,\textdegree & $3\times10^{-7}$ & $1.5\times10^{-5}$ \\
+neighbour & upright & $3\times10^{-14}$ & 0.63 \\
+neighbour & reclined 4.5\,\textdegree & $3\times10^{-15}$ & 0.19 \\
+neighbour & forward 10\,\textdegree & $1\times10^{-4}$ & 2.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig5_sofa_duet_noses.png}
+\caption{Sofa duet, upright posture: OAV at the releaser's and the neighbour's nose over 120\,s for the same
+92\,mL released silently or audibly. During the direct pass ($<45$\,s) only the audible release reaches the noses;
+after room recirculation both modes converge. Solid: probe 2.5\,cm in front of the nose; dashed: mean over a 5\,cm
+breathing-zone disc. The horizontal line is the odour threshold (trained-panel thresholds).}
+\label{fig:sofa-noses}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.49\textwidth]{figS_sofa_rec4.5_noses.png}\hfill
+\includegraphics[width=0.49\textwidth]{figS_sofa_rec-10_noses.png}\\[4pt]
+\includegraphics[width=0.49\textwidth]{figS_sofa_rec4.5_planes.png}\hfill
+\includegraphics[width=0.49\textwidth]{figS_sofa_rec-10_planes.png}
+\caption{Sofa duet, posture variants over 30\,s: reclined by 4.5\,\textdegree\ (left) and leaning forward by
+10\,\textdegree\ (right). Top: OAV at both noses, as in Figure~\ref{fig:sofa-noses}. Bottom: log$_{10}$ OAV in the
+releaser's mid-sagittal plane, silent (upper rows) and audible (lower rows).}
+\label{fig:sofa-postures}
+\end{figure}
+
+\section{Elevator}
+\label{sec:si-elevator}
+\emph{What stands behind the culprit decides.} A silent release follows the culprit's own back plume.
+\begin{itemize}
+  \item With a person behind (front-row culprit), it rises in the 0.2\,m gap between the culprit's back and that
+  person's face, straight into their breathing zone. The silent release is stronger at every nose
+  ($R = 1.4$--$4.3$), and strongest, OAV 27, for the person behind.
+  \item With the car wall behind (back-row culprit), it rises in the gap between back and wall, the chimney of the
+  sofa, and reaches the front row only below threshold. The audible jet, which hits the floor and is lifted by all
+  four body plumes, is now stronger at every nose ($R = 0.20$--$0.55$).
+\end{itemize}
+
+\emph{Who smelt it.} With a front-row culprit, the person behind smells it first (8.8\,s), before the culprit
+(17.6\,s). The folk rule that the first to smell it dealt it is therefore right only for a back-row culprit, i.e.\
+in half of the positions, for both modes.
+
+\emph{Can the others tell?} Each occupant other than the culprit reacts with the detection probability of the main
+text's observer models, independently; observers see only who reacted and infer the culprit with a uniform prior,
+for a culprit who stays still and one who reacts along. An everyday, distracted car notices about nine passages in
+ten not at all. When someone does react, the culprit is identified barely above chance (0.28--0.31, against 0.25).
+Attentive occupants do better, but only about one time in two (0.39--0.52). Odour gives no better identification
+for silent passages than for audible ones; the audible passage also carries the culprit's acoustic signature, which
+is not modelled.
+
+\begin{table}
+\caption{Elevator: expected worst-breath OAV within 60\,s at each occupant's nose (trained-panel thresholds;
+RANS mean field), for a front-row and a back-row culprit.}
+\label{tab:elevator}
+\begin{tabular}{llccc}
+\toprule
+culprit & nose & silent & audible & $R$ \\
+\midrule
+front row & culprit & 6.7 & 1.9 & 3.4 \\
+ & beside & 3.6 & 0.8 & 4.3 \\
+ & behind & 27 & 20 & 1.4 \\
+ & diagonal & 7.6 & 2.7 & 2.9 \\
+back row & culprit & 4.5 & 23 & 0.20 \\
+ & beside & 2.3 & 5.9 & 0.39 \\
+ & in front & 0.57 & 2.8 & 0.20 \\
+ & diagonal & 0.41 & 0.74 & 0.55 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig15_elevator.png}
+\caption{Elevator whodunit: four standing occupants in a closed 630\,kg car, fan off, same 92\,mL. (a, b) Expected
+worst-breath OAV within 60\,s at each nose for a front-row and a back-row culprit; dashed lines mark the trained-panel
+threshold and the attentive population threshold. (c) Probability that the others identify the culprit from who
+reacted, for attentive and distracted onlookers and a culprit who stays still or reacts along; the labels give the
+probability that no one reacts. The dashed line is chance.}
+\label{fig:elevator}
+\end{figure}
+
+\section{Standing pair}
+\label{sec:si-standing}
+Results pending (simulations running).
+
+\section{Breath sampling}
+\label{sec:si-breath}
+An audible puff reaches the neighbour after a median of 16\,s and passes with a time scale of about 3.8\,s
+(10--90\%: 1.4--12\,s). Unwarned, the breathing phase barely helps: for a median passage the worst breath still
+captures 81--99\% of the peak. A listener warned by the sound needs about 23\,s of breath-hold for an even chance of
+missing the puff (worst breath below 10\% of the peak); 33\,s, the typical maximum at end-expiration, gives 68\%
+\src{perception/m6\_report.md}.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig7_breath_hold.png}
+\caption{Breath sampling at the neighbour's nose for audible releases. (a) A typical puff (arrival 16\,s, passage
+time scale 3.8\,s) and the inhalations of three breathing phases, with the worst breath of each. (b) Unwarned: worst
+breath relative to the peak against the breathing phase at release, for short, median and long passages. (c) Warned:
+probability of dodging the puff (worst breath below 10\% of the peak) and median worst breath, against the breath-hold
+duration after hearing the release (0.5\,s reaction latency).}
+\label{fig:breath}
+\end{figure}
+
+\section{Cross-cultural survey}
+\label{sec:si-culture}
+We searched dictionaries, proverb collections and etymological handbooks in 32 languages or historical stages for a
+dedicated word for a silent passage and for an explicit claim that it smells worse; every entry used was checked
+against a fetched source \src{culture/survey\_summary.md, culture/cross\_cultural\_table.csv}. Each language is graded
+by its strongest evidence: A, an explicit saying (traditional, or in media or film only); B, a dedicated word defined by
+its smell; C, a dedicated word without a smell claim; D, nothing found. The silent/loud distinction is lexicalised in
+at least five language families; the explicit claim is traditional only in Chinese and English, and smell-defined
+silent words arose independently at least four times within Indo-European. Documentary presence is not prevalence.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig12_culture_map.png}
+\caption{The Silencer conjecture across languages, by evidence level. Each country takes the strongest level among
+its surveyed languages. A: an explicit saying that silent passages smell worse (traditional, or in media or film only);
+B: a dedicated word for a silent passage defined by its smell; C: a dedicated word with no smell claim; D: surveyed,
+nothing found.}
+\label{fig:culture}
+\end{figure}
+
+\section{Parameters}
+\label{sec:si-params}
+All parameters, with their sources, ranges and status (verified, derived, partial or assumption), are generated from
+one file \src{params/params.yaml}.
+{\small\setlength{\tabcolsep}{4pt}
+\input{tables/params}
+}
+
+\bibliography{refs}
+
+\end{document}

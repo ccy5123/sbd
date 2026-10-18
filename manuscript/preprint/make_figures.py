@@ -17,18 +17,24 @@ from matplotlib.figure import Figure
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "manuscript/preprint/figs"
-SCRIPTS = {  # script -> argv
-    "acoustics/run_m2.py": [],
-    "cfd/validation/jet/analyze.py": [],
-    "cfd/validation/cbl/analyze.py": [],
-    "cfd/cases/sofa/analyze_sofa.py": [],
-    "cfd/cases/sofa/fig_sofa_planes.py": [],
-    "uq/run_m7.py": [],
-    "perception/run_selection.py": [],
-    "culture/make_map.py": [],
-    "chem/fig_chem.py": [],
-    "cfd/cases/elevator/fig_elevator.py": [],
-}
+SCRIPTS = [  # (script, argv); the same script may appear with different arguments
+    ("acoustics/run_m2.py", []),
+    ("cfd/validation/jet/analyze.py", []),
+    ("cfd/validation/cbl/analyze.py", []),
+    ("cfd/cases/sofa/analyze_sofa.py", []),
+    ("cfd/cases/sofa/analyze_sofa.py", ["--recline", "4.5"]),
+    ("cfd/cases/sofa/analyze_sofa.py", ["--recline", "-10"]),
+    ("cfd/cases/sofa/fig_sofa_planes.py", []),
+    ("cfd/cases/sofa/fig_sofa_planes.py", ["--recline", "4.5"]),
+    ("cfd/cases/sofa/fig_sofa_planes.py", ["--recline", "-10"]),
+    ("uq/run_m7.py", []),
+    ("perception/run_m6.py", []),
+    ("perception/run_selection.py", []),
+    ("culture/make_map.py", []),
+    ("chem/fig_chem.py", []),
+    ("cfd/cases/elevator/fig_elevator.py", []),
+    ("uq/fig_routing.py", []),
+]
 _save = Figure.savefig
 
 
@@ -40,9 +46,9 @@ def main(selected):
     OUT.mkdir(exist_ok=True)
     Figure.suptitle = lambda self, *a, **k: None
     Figure.savefig = _savefig
-    for script in selected or SCRIPTS:
+    for script, argv in [e for e in SCRIPTS if not selected or e[0] in selected]:
         path = ROOT / script
-        sys.argv = [str(path), *SCRIPTS.get(script, [])]
+        sys.argv = [str(path), *argv]
         sys.path.insert(0, str(path.parent))
         print("running", script, flush=True)
         runpy.run_path(str(path), run_name="__main__")

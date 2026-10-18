@@ -8,6 +8,8 @@
 \usepackage{siunitx}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{xr}
+\externaldocument[SI-]{si}  % S-numbers of the Supporting Information (build si.tex first)
 \graphicspath{{figs/}{../../figures/}}  % figs/: title-free versions (make_figures.py)
 \SectionNumbersOn
 
@@ -41,13 +43,6 @@
 \input{sections/discussion}
 \input{sections/conclusion}
 
-\appendix
-\section{Parameters}
-\label{app:params}
-{\small\setlength{\tabcolsep}{4pt}
-\input{tables/params}
-}
-
 \begin{acknowledgement}
 \gap{AI-use disclosure, required by arXiv and ACS policy: Claude Code (Anthropic) wrote code, ran simulations,
 searched and extracted literature and drafted text; the author reviewed all content and takes responsibility.
@@ -55,7 +50,9 @@ To be written last, per the author.}
 \end{acknowledgement}
 
 \begin{suppinfo}
-Supplementary figures S1--S5, the full parameter table and the code and data archive \gap{Zenodo DOI}.
+The chain from release to memory; CFD validation; the CFD scenes in detail (sofa postures, elevator whodunit,
+standing pair); breath sampling; the cross-cultural survey; and the full parameter table (PDF). Code and data archive:
+\gap{Zenodo DOI}.
 \end{suppinfo}
 
 \bibliography{refs}

@@ -2,7 +2,7 @@
 \label{sec:methods}
 
 All parameters, with their sources, ranges and status (verified, derived, partial or assumption), are kept in one file
-from which Table~\ref{tab:params} (Appendix) is generated. Code, data and figures are in the accompanying archive.
+from which Table~\ref{SI-tab:params} (Supporting Information) is generated. Code, data and figures are in the accompanying archive.
 
 \subsection{Source}
 \label{sec:source}
@@ -22,6 +22,44 @@ volume \cite{suarez1997}.
 
 Buoyancy is signed. Reduced gravity is computed from measured compositions; it is positive for the median passage but
 negative for \ce{CO2}-rich ones.
+
+\subsection{Odorant chemistry}
+\label{sec:methods-chem}
+\emph{Odour activity.} Each sulfur gas contributes an odour activity value $\mathrm{OAV}_i = x_i/\theta_i$, its mole
+fraction over its detection threshold, and the passage's OAV is their sum (additivity is assumed; mixture suppression
+is not modelled). We compare two measured compositions:
+\begin{itemize}
+  \item 87 passages of 16 volunteers \cite{suarez1998}, used throughout the dispersion model;
+  \item 28 passages measured by gas chromatography: \ce{H2S} 149, methanethiol 216 and dimethyl sulfide 144\,nmol\,L$^{-1}$
+  \cite{tangerman2009}.
+\end{itemize}
+Three threshold sets bracket the observer: a trained panel \cite{nagata2003}, population geometric means
+\cite{amoore1983,wilby1969} and the lowest values in the literature, as compiled in ref.~\citenum{tangerman2009}.
+
+\emph{Removal check.} Zinc acetate precipitates \ce{H2S} and thiols; activated charcoal adsorbs all three gases. For both
+treatments, ref.~\citenum{suarez1998} reports the gas concentrations and two judges' ratings before and after. We
+predict the rating ratio as $(\mathrm{OAV}_\mathrm{after}/\mathrm{OAV}_\mathrm{before})^n$ with $n = 0.20$--$0.45$
+\cite{collins2001}. This is a consistency check of the intensity law, not a fit.
+
+\emph{Buoyancy.} The reduced gravity $g' = g(\rho_a-\rho_g)/\rho_a$ of each of 16 measured compositions
+\cite{suarez1997} is split into two parts:
+\begin{itemize}
+  \item a thermal part, $g(1-T_a/T_g)$, for gas at 37\,\textdegree C in air at 22\,\textdegree C;
+  \item a compositional part, $g(M_a-M_g)/M_a$, at equal temperature, with air at 50\% relative humidity.
+\end{itemize}
+Whether flatus is saturated with water vapour has not been measured, so we bracket dry and saturated gas
+[ASSUMPTION].
+
+\emph{Conserved tracers.} Gas-phase losses use IUPAC rate constants at 298\,K for reaction with OH, \ce{O3}, \ce{NO3}
+and Cl \cite{atkinson2004}. Oxidant levels come from direct measurements in an office: OH $0.6$--$9.8\times10^{5}$\,cm$^{-3}$
+and \ce{O3} 0.7--2.6\,ppb \cite{fiorentino2023}. A worst case adds OH $10^6$\,cm$^{-3}$ with \ce{O3} 40\,ppb, and Cl
+$10^6$\,cm$^{-3}$ during hypochlorite cleaning [ASSUMPTION]. No deposition velocity $v_d$ has been published for these
+gases on indoor surfaces, so surface loss is bracketed as $k = v_d\,S/V$ with $S/V = 3$\,m$^{-1}$.
+
+\emph{Dilution anchor.} Ref.~\citenum{tangerman2009} reports the lowest source concentration that every panel member
+detected when 100\,mL was released below the nose. Divided by a detection threshold, it gives the dilution between
+release and nose in that test. We compare it with the breath-averaged dilution of the analytic model.
+\src{chem/chem\_report.md}
 
 \subsection{Acoustics}
 \label{sec:acoustics}
@@ -75,39 +113,28 @@ simplification is chosen to favour the silent release:
 approximation, and the energy equation is solved for internal energy: the enthalpy form, which contains $p/\rho$,
 drove a pressure--expansion instability through the pressure-relief vent.
 
-\emph{Validation} \src{cfd/validation/m3\_report.md}.
-\begin{itemize}
-  \item \emph{Free round jet} (axisymmetric, $\mathrm{Re} = 6700$, three meshes). This gives a velocity-decay
-  constant of 5.0 and a scalar constant $K_c = 4.3$--4.6, with grid uncertainty of at most 3.7\%. The known
-  round-jet anomaly of SST (about 25\% excess spreading) means the model over-dilutes audible jets slightly, which
-  biases the ratio towards the belief.
-  \item \emph{Convective boundary layer} of a simplified seated manikin with skin at 33\,\textdegree C, compared with
-  thermal-manikin data \cite{licina2014}. The face-front peak velocity is 40--56\% too high at room temperatures of
-  20--26\,\textdegree C, while the trend with room temperature is reproduced ($-27\%$ vs $-33\%$ measured).
-\end{itemize}
+\emph{Validation} (Section~\ref{SI-sec:si-validation}). A free round jet at $\mathrm{Re} = 6700$ reproduces the
+canonical decay constants (velocity 5.0, scalar $K_c = 4.3$--4.6) with a grid uncertainty of at most 3.7\%. The
+convective boundary layer of a seated manikin is 40--56\% faster than thermal-manikin data \cite{licina2014} but
+follows their trend with room temperature. Both biases favour the silent release: excess jet spreading over-dilutes
+audible releases by about 15\%, and the fast boundary layer shortens travel times to the releaser's own nose by about
+30\%, for which the analytic model compensates.
 
-\emph{Sofa duet.} The scene is a 3.2 $\times$ 3.2 $\times$ 2.6\,m living room at 23\,\textdegree C. Two seated
-manikins sit 0.6\,m apart on a two-seat sofa, built from geometric primitives. The mesh has 0.72 million cells, refined to 5\,mm at the release and 2.5\,mm on the inlet face.
+\emph{Scenes} (Section~\ref{SI-sec:si-scenes}). Manikins are built from geometric primitives with skin at
+33\,\textdegree C in rooms at 23\,\textdegree C:
 \begin{itemize}
-  \item A 30\,s precursor run develops the body plumes.
-  \item Silent and audible branches then start from the same field. Each releases the same 92\,mL behind the
-  releaser's buttocks, as a momentum-equivalent inlet: silent, 2\,s through 8\,mm at $u_0 = 0.9$\,m\,s$^{-1}$;
-  audible, 0.5\,s through 2.4\,mm at 41\,m\,s$^{-1}$.
-  \item The odorant is a passive scalar, sampled at probes 2.5\,cm in front of each nose, on 5\,cm breathing-zone
-  discs and over sinusoidal breathing cycles.
-  \item Two posture variants rotate the releaser's upper body about the hip: reclined by 4.5\,\textdegree, so that
-  the back closes onto the backrest, and leaning forward by 10\,\textdegree, so that the gap behind the back opens.
+  \item a sofa duet: two seated people 0.6\,m apart in a 3.2 $\times$ 3.2 $\times$ 2.6\,m living room, in three
+  postures of the releaser, over 30\,s (upright also 120\,s);
+  \item an elevator: four standing people in a closed 630\,kg car, fan off, over 60\,s, with the culprit in the front
+  or the back row;
+  \item a standing pair: two people face to face, noses 1.0\,m apart, in the living room, in still air and with
+  office ceiling ventilation at 2.9 air changes per hour (EN 16798-1 Category II \cite{olesen2024}), over 60\,s.
 \end{itemize}
-\src{cfd/cases/sofa/m4\_report.md}
-
-\emph{Elevator.} The car of a 630\,kg, eight-person elevator is 1.10\,m wide, 1.40\,m deep and 2.10\,m high (a
-manufacturer's standard car, within the maximum area of 1.66\,m$^2$ allowed for that load). Four standing manikins,
-built from the same primitives with the nose at 1.59\,m, stand in a $2 \times 2$ grid facing the door; the fan is off
-and a small ceiling opening relieves pressure [ASSUMPTION]. The mesh has 0.91 million cells. After a 30\,s precursor,
-four 60\,s branches release the same silent and audible 92\,mL behind a front-row or a back-row occupant; mirror
-symmetry gives the other two positions. Onlookers react with the detection probabilities of
-Section~\ref{sec:perception}; given who reacted, the culprit is inferred with a uniform prior, for a culprit who stays
-still and one who reacts along \src{cfd/cases/elevator/m5\_report.md}.
+Each scene first develops its body plumes in a precursor run. Silent and audible branches then start from the same
+field and release the same 92\,mL behind the releaser's buttocks as a momentum-equivalent inlet: silent, 2\,s through
+8\,mm at $u_0 = 0.9$\,m\,s$^{-1}$; audible, 0.5\,s through 2.4\,mm at 41\,m\,s$^{-1}$. The odorant is a passive
+scalar, sampled at probes 2.5\,cm in front of each nose, on 5\,cm breathing-zone discs and over sinusoidal breathing
+cycles.
 
 \subsection{Perception and observers}
 \label{sec:perception}
@@ -142,44 +169,6 @@ intensity \cite{fallon2018}. Intensity is therefore always computed from the att
 \end{itemize}
 \src{uq/observer\_ps.py}
 
-\subsection{Odorant chemistry}
-\label{sec:methods-chem}
-\emph{Odour activity.} Each sulfur gas contributes an odour activity value $\mathrm{OAV}_i = x_i/\theta_i$, its mole
-fraction over its detection threshold, and the passage's OAV is their sum (additivity is assumed; mixture suppression
-is not modelled). We compare two measured compositions:
-\begin{itemize}
-  \item 87 passages of 16 volunteers \cite{suarez1998}, used throughout the dispersion model;
-  \item 28 passages measured by gas chromatography: \ce{H2S} 149, methanethiol 216 and dimethyl sulfide 144\,nmol\,L$^{-1}$
-  \cite{tangerman2009}.
-\end{itemize}
-Three threshold sets bracket the observer: a trained panel \cite{nagata2003}, population geometric means
-\cite{amoore1983,wilby1969} and the lowest values in the literature, as compiled in ref.~\citenum{tangerman2009}.
-
-\emph{Removal check.} Zinc acetate precipitates \ce{H2S} and thiols; activated charcoal adsorbs all three gases. For both
-treatments, ref.~\citenum{suarez1998} reports the gas concentrations and two judges' ratings before and after. We
-predict the rating ratio as $(\mathrm{OAV}_\mathrm{after}/\mathrm{OAV}_\mathrm{before})^n$ with $n = 0.20$--$0.45$
-\cite{collins2001}. This is a consistency check of the intensity law, not a fit.
-
-\emph{Buoyancy.} The reduced gravity $g' = g(\rho_a-\rho_g)/\rho_a$ of each of 16 measured compositions
-\cite{suarez1997} is split into two parts:
-\begin{itemize}
-  \item a thermal part, $g(1-T_a/T_g)$, for gas at 37\,\textdegree C in air at 22\,\textdegree C;
-  \item a compositional part, $g(M_a-M_g)/M_a$, at equal temperature, with air at 50\% relative humidity.
-\end{itemize}
-Whether flatus is saturated with water vapour has not been measured, so we bracket dry and saturated gas
-[ASSUMPTION].
-
-\emph{Conserved tracers.} Gas-phase losses use IUPAC rate constants at 298\,K for reaction with OH, \ce{O3}, \ce{NO3}
-and Cl \cite{atkinson2004}. Oxidant levels come from direct measurements in an office: OH $0.6$--$9.8\times10^{5}$\,cm$^{-3}$
-and \ce{O3} 0.7--2.6\,ppb \cite{fiorentino2023}. A worst case adds OH $10^6$\,cm$^{-3}$ with \ce{O3} 40\,ppb, and Cl
-$10^6$\,cm$^{-3}$ during hypochlorite cleaning [ASSUMPTION]. No deposition velocity $v_d$ has been published for these
-gases on indoor surfaces, so surface loss is bracketed as $k = v_d\,S/V$ with $S/V = 3$\,m$^{-1}$.
-
-\emph{Dilution anchor.} Ref.~\citenum{tangerman2009} reports the lowest source concentration that every panel member
-detected when 100\,mL was released below the nose. Divided by a detection threshold, it gives the dilution between
-release and nose in that test. We compare it with the breath-averaged dilution of the analytic model.
-\src{chem/chem\_report.md}
-
 \subsection{Uncertainty and the regime map}
 \label{sec:uq}
 The analytic model serves as the surrogate for uncertainty quantification. A Latin-hypercube CFD design was
@@ -192,3 +181,11 @@ unaffordable: one branch costs 1--2\,h on four cores.
   mass.
 \end{itemize}
 \src{uq/m7\_report.md}
+
+\emph{Routing-aware headline.} The CFD gives each scene's route for one release volume at equal mass. The odorant is a
+passive scalar and the OAV is linear in concentration, so a passage of volume $V$ following the same route gives
+$\mathrm{OAV}\times V/92$\,mL. For each of the 20\,000 analytic-model pairs we scale the silent and the audible CFD
+doses by the pair's two volumes, and report $P(R>1)$ and the perceptual split per scene and nose. In the analytic
+model this factorisation is exact ($R_\text{as emitted} = R_\text{equal mass}\,V_s/V_l$). Applied to the CFD it
+assumes that the route does not depend on the volume, which holds for silent releases (whose momentum is negligible
+against the body plume) and is an approximation for audible ones [APPROXIMATION] \src{uq/routing\_headline.py}.

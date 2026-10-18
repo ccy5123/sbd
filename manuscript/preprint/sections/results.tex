@@ -1,6 +1,91 @@
 \section{Results}
 \label{sec:results}
 
+\subsection{The odorants and the gas that carries them}
+\label{sec:res-composition}
+\emph{Which molecule.} Methanethiol carries at least half of the odour and probably most of it
+(Figure~\ref{fig:chem}a).
+\begin{itemize}
+  \item With the composition of ref.~\citenum{suarez1998}, methanethiol and \ce{H2S} share the OAV about equally.
+  Methanethiol is one fifth as concentrated, but its threshold is 5--6 times lower.
+  \item With the composition of ref.~\citenum{tangerman2009}, or with the lowest reported thresholds, methanethiol
+  carries 60--94\%.
+\end{itemize}
+The two datasets disagree on the concentrations themselves: \ce{H2S} is five times methanethiol in one and slightly
+below it in the other. That study attributes the difference to the bean-rich diet of the first
+\cite{tangerman2009}. Its panel found that gas mixtures with methanethiol above its flatus threshold smelled like most
+passages.
+
+None of this affects the silent/audible comparison. Transport is linear and acts on all three gases alike, so every
+ratio is the same for any composition. Absolute OAVs are 11--38\% lower with the second composition, well within the
+uncertainty analysis.
+
+\emph{The intensity law with real flatus.} Zinc acetate lowers the summed OAV by a factor of 14. Stevens' law then
+predicts rating ratios of 0.31--0.59, and the two judges gave 0.28 and 0.59 \cite{suarez1998}. Activated charcoal
+lowers the OAV about 260-fold and is rated far weaker than the power law predicts. This is the known failure of a power
+law near threshold; it does not touch the supra-threshold ratios on which the silent/audible comparison rests.
+
+\emph{What makes a passage rise or sink.} Composition, not temperature, sets the buoyancy (Figure~\ref{fig:chem}b).
+\begin{itemize}
+  \item For the median passage the compositional part ($+1.25$\,m\,s$^{-2}$ dry, $+1.40$ saturated) is about three
+  times the thermal part ($+0.47$).
+  \item \ce{H2} and \ce{CH4} make flatus light; \ce{CO2} makes it heavy. The compositional part falls with \ce{CO2}
+  content ($r = -0.80$).
+  \item 6--12\% of passages sink even while hot. After cooling to room temperature, 25--38\% are heavier than air.
+\end{itemize}
+The signed $g'$ used in the dispersion model follows from these compositions (Section~\ref{sec:source}).
+
+\emph{Conserved tracers.} The odorants survive a passage (Table~\ref{tab:reactivity}).
+\begin{itemize}
+  \item In an office, gas-phase oxidation removes less than 0.4\% of any of the three gases in 120\,s. Even
+  hypochlorite cleaning removes less than 4\%.
+  \item Surface deposition is the one unconstrained sink. It removes 0.7\% in 120\,s at $v_d = 0.002$\,cm\,s$^{-1}$ but
+  51\% at 0.2\,cm\,s$^{-1}$.
+  \item Deposition would act most on the silent release, which lingers along the body and in the seat. It would
+  therefore strengthen the routing results of Section~\ref{sec:res-rooms}, not weaken them.
+\end{itemize}
+Treating the odorants as passive scalars is justified against chemistry by two to three orders of magnitude, and
+against deposition only if $v_d \lesssim 0.01$\,cm\,s$^{-1}$.
+
+\emph{How dilute a passage arrives.} The panel test of ref.~\citenum{tangerman2009} implies a dilution of
+$0.6$--$13\times10^{4}$ between release and nose, depending on the threshold set. The analytic model's
+breath-averaged dilution at the neighbour has a median of $1.8\times10^{3}$ (10--90\%: $2.5\times10^{2}$--$2.9\times10^{4}$).
+The anchor is biased upwards, because it requires the least sensitive panellist to detect but divides by the
+thresholds of the most sensitive. The analytic model therefore sits at the concentrated end of what a real nose
+receives, as an upper bound should, and agrees with the panel test to about an order of magnitude.
+
+\emph{Are loud passages just swallowed air?} Across 87 passages, \ce{H2S} concentration does not correlate with
+passage volume ($r = +0.20$, not significant), so sulfur \emph{mass} rises with volume \cite{suarez1997}. The nitrogen
+in flatus is largely blood-derived rather than swallowed \cite{levitt1970}, and at high production rates almost all
+flatus is fermentation gas \cite{tomlin1991}. The counter-argument has no support.
+
+\begin{table}
+\caption{The odorants are conserved over a passage: lifetime against gas-phase oxidation and the fraction lost in
+120\,s. Office levels are measured \cite{fiorentino2023}: low, OH $0.6\times10^{5}$\,cm$^{-3}$ and \ce{O3} 0.7\,ppb;
+high, OH $9.8\times10^{5}$\,cm$^{-3}$ and \ce{O3} 2.6\,ppb. Cleaning adds Cl $10^{6}$\,cm$^{-3}$ [ASSUMPTION]. Rate
+constants from ref.~\citenum{atkinson2004}.}
+\label{tab:reactivity}
+\begin{tabular}{lccc}
+\toprule
+scenario & \ce{H2S} & \ce{CH3SH} & DMS \\
+\midrule
+office, low & 40\,d / 0.003\% & 5.7\,d / 0.03\% & 28\,d / 0.005\% \\
+office, high & 2.5\,d / 0.06\% & 8.6\,h / 0.4\% & 1.8\,d / 0.08\% \\
+hypochlorite cleaning & 3.5\,h / 0.9\% & 1.2\,h / 2.8\% & 0.8\,h / 4.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig14_chemistry.png}
+\caption{The chemistry of the passage. (a) Share of the summed OAV carried by \ce{H2S}, methanethiol and dimethyl
+sulfide, for two measured compositions \cite{suarez1998,tangerman2009} under three threshold sets. (b) Reduced
+gravity of 16 measured compositions \cite{suarez1997} against their \ce{CO2} content, at 37\,\textdegree C (dry
+basis; water saturation shifts these values by $-0.04$ to $+0.29$\,m\,s$^{-2}$) and after cooling to room
+temperature.}
+\label{fig:chem}
+\end{figure}
+
 \subsection{Most releases are physically silent}
 \label{sec:res-acoustics}
 Over the release prior, 79\% of passages never drive the valve into oscillation (regime S1;
@@ -22,24 +107,6 @@ quiet, masked here; dark: audible. Dashed box: the release prior. Grey lines: je
 flow rate of an oscillating release for five backgrounds, at 0.6\,m and 3\,m. The grey band is the flow-rate range of
 the release prior.}
 \label{fig:acoustics}
-\end{figure}
-
-\subsection{Validation}
-\label{sec:res-validation}
-The jet constants and the convective boundary layer behave as stated in Section~\ref{sec:cfd}. Their biases matter
-here in two ways.
-\begin{itemize}
-  \item Excess jet spreading over-dilutes audible releases by about 15\%, which favours the silent release.
-  \item The fast convective boundary layer shortens travel times to the releaser's own nose by about 30\%. The analytic
-  model compensates by stretching the CFD times by a factor of 1.4.
-\end{itemize}
-\begin{figure}
-\includegraphics[width=\textwidth]{fig4_jet_validation.png}\\[4pt]
-\includegraphics[width=\textwidth]{fig4_cbl_validation.png}
-\caption{Validation. Top: free round jet at $\mathrm{Re} = 6700$ on three meshes (centreline velocity and scalar decay,
-spreading). Bottom: face-front convective boundary layer of the seated manikin against thermal-manikin data
-\cite{licina2014} at 20--26\,\textdegree C, and time-mean vertical velocity profiles at nose height.}
-\label{fig:validation}
 \end{figure}
 
 \subsection{The physical ratio}
@@ -92,69 +159,37 @@ perceptibly stronger, indistinguishable, or perceptibly weaker, with $P(R>1)$.}
 \label{fig:uq}
 \end{figure}
 
-\subsection{A sofa}
-\label{sec:res-sofa}
-The simulations of two people on a sofa overturn the analytic picture, in the direction opposite to the belief
-(Table~\ref{tab:sofa}, Figures~\ref{fig:sofa} and \ref{fig:planes}).
+\subsection{Real rooms: the route decides}
+\label{sec:res-rooms}
+The analytic model carries every cloud straight to the nose. In real rooms the body's own plume decides where a
+release goes, and it treats the two modes differently: a silent release has too little momentum to leave it, an
+audible jet escapes it. We simulated the same 92\,mL, released silently and audibly, in three scenes
+(Section~\ref{SI-sec:si-scenes}).
 
-\emph{Silent release.} The silent release has too little momentum to leave the convective boundary layer of the
-releaser's back. It is drawn up the gap between back and backrest, over the head and on to the ceiling. Within 30\,s
-its breathing-zone OAV stays at or below $10^{-10}$ at both noses, while the region within 25\,cm of the releaser's head
-reaches an OAV of 6\,000.
+\emph{Sofa.} The silent release is drawn up the gap between the releaser's back and the backrest, over the head and
+on to the ceiling (Figure~\ref{fig:planes}). Within 30\,s its breathing-zone OAV stays at or below $10^{-10}$ at both
+noses. The audible jet splashes into the corner between seat and backrest, spreads sideways along the gap and reaches
+both breathing zones at OAV 0.2--0.6. Reclining by 4.5\,\textdegree\ or leaning forward by 10\,\textdegree\ does not
+change this (Section~\ref{SI-sec:si-sofa}). After a minute of room recirculation both clouds return from the ceiling;
+at the neighbour the two traces are then indistinguishable, as Theorem~2 requires, while the releaser's own nose sees
+the mixed silent cloud 1.5--2 times higher, near threshold.
 
-\emph{Audible release.} The audible jet escapes this chimney. It reaches the neighbour's head region within 6\,s and
-both breathing zones at OAV 0.2--0.6.
+\emph{Elevator.} In a closed car with four standing occupants, what stands behind the culprit decides. With a person
+behind (front-row culprit), the silent release rises in the narrow gap straight into that person's breathing zone,
+and it is stronger at every nose ($R = 1.4$--$4.3$ at equal mass). With the car wall behind, it rises in the chimney
+between back and wall, and the audible release is stronger at every nose ($R = 0.20$--$0.55$). With a front-row
+culprit the person behind smells it first (8.8\,s, against 17.6\,s for the culprit), so the folk rule that the first
+to smell it dealt it holds in only half of the positions. Judged by who reacts, onlookers identify the culprit barely
+above chance (Section~\ref{SI-sec:si-elevator}).
 
-\emph{Reclined posture.} Reclining the releaser by 4.5\,\textdegree\ closes the back onto the backrest. The silent
-release then leaves the seat-level wedge sideways and still rises behind the head, so no breathing zone receives a
-detectable dose. The audible jet now wraps around the releaser's face, exceeding threshold at their own nose (OAV
-2--4).
+\emph{Standing pair.} \gap{standing pair face to face, still air and office ventilation: results pending}
 
-\emph{Forward lean.} Leaning the releaser forward by 10\,\textdegree\ opens the gap behind the back. Both releases
-then rise behind the head, and the releaser's nose, now 13\,cm further forward, receives neither (breathing-zone OAV
-$\le 10^{-5}$). The silent cloud reaches the region within 25\,cm of the neighbour's head as strongly as the audible
-one (OAV 580 against 450) but not the neighbour's breathing zone ($10^{-4}$); the audible jet reaches it at OAV 2.6.
-
-In all three postures the silent release delivers less to both breathing zones during this direct pass. The
-breathing-zone ratio is $R \approx 10^{-11}$--$10^{-14}$ upright and reclined, and $5\times10^{-5}$ at the
-neighbour when leaning forward \src{cfd/cases/sofa/m4\_report.md}.
-
-\emph{Longer window.} Extending the upright case to 120\,s shows what happens after the direct pass. Both clouds
-reach the ceiling, come back down through the room and arrive at both noses from about 45\,s on.
-\begin{itemize}
-  \item After about 70\,s the silent and audible traces at the neighbour are indistinguishable (worst breath 0.39
-  for both). The release mode has been forgotten, as Theorem~2 requires.
-  \item At the releaser's own nose the mixed silent cloud runs 1.5--2 times higher. It touches the trained-panel
-  threshold for about a second near 100\,s.
-\end{itemize}
-These late, room-mixed levels are 10--23 times below the thresholds of an untrained observer, and they arrive when the
-release can no longer be attributed to anyone.
-
-\begin{table}
-\caption{Sofa duet: peak breathing-zone OAV within 30\,s of release onset (RANS mean field).}
-\label{tab:sofa}
-\begin{tabular}{llcc}
-\toprule
-nose & posture & silent & audible \\
-\midrule
-releaser & upright & $5\times10^{-11}$ & 0.46 \\
-releaser & reclined 4.5\,\textdegree & $9\times10^{-11}$ & 3.3 \\
-releaser & forward 10\,\textdegree & $3\times10^{-7}$ & $1.5\times10^{-5}$ \\
-neighbour & upright & $3\times10^{-14}$ & 0.63 \\
-neighbour & reclined 4.5\,\textdegree & $3\times10^{-15}$ & 0.19 \\
-neighbour & forward 10\,\textdegree & $1\times10^{-4}$ & 2.6 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}
-\includegraphics[width=\textwidth]{fig5_sofa_duet_noses.png}
-\caption{Sofa duet, upright posture: OAV at the releaser's and the neighbour's nose over 120\,s for the same
-92\,mL released silently or audibly. During the direct pass ($<45$\,s) only the audible release reaches the noses; after
-room recirculation both modes converge. Solid: probe 2.5\,cm in front of the nose; dashed: mean over a 5\,cm
-breathing-zone disc. The horizontal line is the odour threshold (trained-panel thresholds).}
-\label{fig:sofa}
-\end{figure}
+\emph{How often, as emitted.} Each scene fixes a route. Scaling its equal-mass doses by the volumes of passages as
+emitted (Section~\ref{sec:uq}) gives the share of pairs in which the silent passage is stronger at each nose
+(Figure~\ref{fig:routing}). Silent passages are also smaller (median volume ratio 0.47), so even where the route
+favours the silent release the advantage shrinks: for the person behind a front-row culprit, a silent passage is
+stronger in 37\% of pairs. Over the nine bystander noses $P(R>1)$ ranges from 0 to 0.72, with an equal-weight mean of
+0.21, against 0.47 from the analytic model without routing \src{uq/routing\_headline.json}.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{fig6_sofa_duet_planes.png}
@@ -164,67 +199,22 @@ between back and backrest; the audible jet escapes it.}
 \label{fig:planes}
 \end{figure}
 
-\subsection{An elevator}
-\label{sec:res-elevator}
-In a closed elevator car with four standing occupants, the silent release no longer misses everyone, and which mode
-is stronger depends on where the culprit stands (Table~\ref{tab:elevator}, Figure~\ref{fig:elevator}).
-
-\emph{What stands behind the culprit decides.} A silent release again follows the culprit's own back plume.
-\begin{itemize}
-  \item With a person behind (front-row culprit), it rises straight into that person's breathing zone. The silent
-  release is stronger at every nose ($R = 1.4$--$4.3$), and strongest, OAV 27, for the person behind.
-  \item With the car wall behind (back-row culprit), it rises in the gap between back and wall, the chimney of the
-  sofa, and reaches the front row only below threshold. The audible jet, which hits the floor and is lifted by all
-  four body plumes, is now stronger at every nose ($R = 0.20$--$0.55$).
-\end{itemize}
-Over the four equally likely culprit positions, the silent release is stronger in exactly half of the culprit--nose
-pairs. At equal mass this is routing, the effect that Theorem~1 leaves free to take either sign.
-
-\emph{Who smelt it.} With a front-row culprit, the person behind smells it first (8.8\,s), before the culprit
-(17.6\,s). The folk rule that the first to smell it dealt it is therefore right only for a back-row culprit, i.e.\
-in half of the positions, for both modes.
-
-\emph{Can the others tell?} If onlookers judge only by who reacts, an everyday, distracted car notices about nine
-passages in ten not at all. When someone does react, the culprit is identified barely above chance
-(0.28--0.31, against 0.25). Attentive occupants do better, but only about one time in two (0.39--0.52). Odour gives
-no better identification for silent passages than for audible ones; the audible passage, of course, also carries the
-culprit's acoustic signature \src{cfd/cases/elevator/m5\_report.md}.
-
-\begin{table}
-\caption{Elevator: expected worst-breath OAV within 60\,s at each occupant's nose (trained-panel thresholds;
-RANS mean field), for a front-row and a back-row culprit.}
-\label{tab:elevator}
-\begin{tabular}{llccc}
-\toprule
-culprit & nose & silent & audible & $R$ \\
-\midrule
-front row & culprit & 6.7 & 1.9 & 3.4 \\
- & beside & 3.6 & 0.8 & 4.3 \\
- & behind & 27 & 20 & 1.4 \\
- & diagonal & 7.6 & 2.7 & 2.9 \\
-back row & culprit & 4.5 & 23 & 0.20 \\
- & beside & 2.3 & 5.9 & 0.39 \\
- & in front & 0.57 & 2.8 & 0.20 \\
- & diagonal & 0.41 & 0.74 & 0.55 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
 \begin{figure}
-\includegraphics[width=\textwidth]{fig15_elevator.png}
-\caption{Elevator whodunit: four standing occupants in a closed 630\,kg car, fan off, same 92\,mL. (a, b) Expected
-worst-breath OAV within 60\,s at each nose for a front-row and a back-row culprit; dashed lines mark the trained-panel
-threshold and the attentive population threshold. (c) Probability that the others identify the culprit from who
-reacted, for attentive and distracted onlookers and a culprit who stays still or reacts along; the labels give the
-probability that no one reacts. The dashed line is chance.}
-\label{fig:elevator}
+\includegraphics[width=\textwidth]{fig16_routing.png}
+\caption{The route decides. (a) Silent-to-audible ratio of the expected worst-breath OAV at each nose for the same
+92\,mL (equal mass), per CFD scene: sofa (30\,s, three postures) and elevator (60\,s, front-row and back-row culprit).
+Triangles: the silent cloud has not reached the nose within the window. The grey band is the just-noticeable ratio.
+(b) The same routes with passages as emitted (20\,000 silent/audible volume pairs from the analytic model): shares
+of pairs in which the silent passage is perceptibly stronger, indistinguishable, or perceptibly weaker, and
+$P(R>1)$. The dotted line is the analytic model without routing.}
+\label{fig:routing}
 \end{figure}
 
 \subsection{Perception}
 \label{sec:res-perception}
 \emph{Breath sampling.} Breath sampling barely protects an unwarned neighbour: the worst breath still captures 81--99\%
 of the peak. A warned listener needs about 23\,s of breath-hold for an even chance of missing the cloud
-\src{perception/m6\_report.md}.
+(Figure~\ref{SI-fig:breath}) \src{perception/m6\_report.md}.
 
 \emph{Silent versus audible.} Through Stevens' law, the median physical difference at the neighbour becomes a 2.7\%
 difference in perceived intensity. That is below the olfactory just-noticeable difference of about 7\% in intensity.
@@ -233,91 +223,6 @@ Without an expectation effect, a silent passage seems stronger in 47\% of pairs.
 \emph{Expectation.} An expectation effect large enough to flip this would have to exceed 3\% in intensity. For brief
 exposures the measured label effects are 0--3\%, and their sign for an unwarned listener is not established
 \cite{herz2001,djordjevic2008,dalton1999}. We therefore keep expectation as an auxiliary hypothesis only.
-
-\subsection{The chemistry of the odour}
-\label{sec:res-composition}
-\emph{Which molecule.} Methanethiol carries at least half of the odour and probably most of it
-(Figure~\ref{fig:chem}a).
-\begin{itemize}
-  \item With the composition of ref.~\citenum{suarez1998}, methanethiol and \ce{H2S} share the OAV about equally.
-  Methanethiol is one fifth as concentrated, but its threshold is 5--6 times lower.
-  \item With the composition of ref.~\citenum{tangerman2009}, or with the lowest reported thresholds, methanethiol
-  carries 60--94\%.
-\end{itemize}
-The two datasets disagree on the concentrations themselves: \ce{H2S} is five times methanethiol in one and slightly
-below it in the other. That study attributes the difference to the bean-rich diet of the first
-\cite{tangerman2009}. Its panel found that gas mixtures with methanethiol above its flatus threshold smelled like most
-passages.
-
-None of this affects the silent/audible comparison. Transport is linear and acts on all three gases alike, so every
-ratio is the same for any composition. Absolute OAVs are 11--38\% lower with the second composition, well within the
-uncertainty analysis.
-
-\emph{The intensity law with real flatus.} Zinc acetate lowers the summed OAV by a factor of 14. Stevens' law then
-predicts rating ratios of 0.31--0.59, and the two judges gave 0.28 and 0.59 \cite{suarez1998}. Activated charcoal
-lowers the OAV about 260-fold and is rated far weaker than the power law predicts. This is the known failure of a power
-law near threshold; it does not touch the supra-threshold ratios on which the silent/audible comparison rests.
-
-\emph{What makes a passage rise or sink.} Composition, not temperature, sets the buoyancy (Figure~\ref{fig:chem}b).
-\begin{itemize}
-  \item For the median passage the compositional part ($+1.25$\,m\,s$^{-2}$ dry, $+1.40$ saturated) is about three
-  times the thermal part ($+0.47$).
-  \item \ce{H2} and \ce{CH4} make flatus light; \ce{CO2} makes it heavy. The compositional part falls with \ce{CO2}
-  content ($r = -0.80$).
-  \item 6--12\% of passages sink even while hot. After cooling to room temperature, 25--38\% are heavier than air.
-\end{itemize}
-The signed $g'$ used in the dispersion model follows from these compositions (Section~\ref{sec:source}).
-
-\emph{Conserved tracers.} The odorants survive a passage (Table~\ref{tab:reactivity}).
-\begin{itemize}
-  \item In an office, gas-phase oxidation removes less than 0.4\% of any of the three gases in 120\,s. Even
-  hypochlorite cleaning removes less than 4\%.
-  \item Surface deposition is the one unconstrained sink. It removes 0.7\% in 120\,s at $v_d = 0.002$\,cm\,s$^{-1}$ but
-  51\% at 0.2\,cm\,s$^{-1}$.
-  \item Deposition would act most on the silent release, which lingers along the body and in the seat. It would
-  therefore strengthen the sofa result, not weaken it.
-\end{itemize}
-Treating the odorants as passive scalars is justified against chemistry by two to three orders of magnitude, and
-against deposition only if $v_d \lesssim 0.01$\,cm\,s$^{-1}$.
-
-\emph{How dilute a passage arrives.} The panel test of ref.~\citenum{tangerman2009} implies a dilution of
-$0.6$--$13\times10^{4}$ between release and nose, depending on the threshold set. The analytic model's
-breath-averaged dilution at the neighbour has a median of $1.8\times10^{3}$ (10--90\%: $2.5\times10^{2}$--$2.9\times10^{4}$).
-The anchor is biased upwards, because it requires the least sensitive panellist to detect but divides by the
-thresholds of the most sensitive. The analytic model therefore sits at the concentrated end of what a real nose
-receives, as an upper bound should, and agrees with the panel test to about an order of magnitude.
-
-\emph{Are loud passages just swallowed air?} Across 87 passages, \ce{H2S} concentration does not correlate with
-passage volume ($r = +0.20$, not significant), so sulfur \emph{mass} rises with volume \cite{suarez1997}. The nitrogen
-in flatus is largely blood-derived rather than swallowed \cite{levitt1970}, and at high production rates almost all
-flatus is fermentation gas \cite{tomlin1991}. The counter-argument has no support.
-
-\begin{table}
-\caption{The odorants are conserved over a passage: lifetime against gas-phase oxidation and the fraction lost in
-120\,s. Office levels are measured \cite{fiorentino2023}: low, OH $0.6\times10^{5}$\,cm$^{-3}$ and \ce{O3} 0.7\,ppb;
-high, OH $9.8\times10^{5}$\,cm$^{-3}$ and \ce{O3} 2.6\,ppb. Cleaning adds Cl $10^{6}$\,cm$^{-3}$ [ASSUMPTION]. Rate
-constants from ref.~\citenum{atkinson2004}.}
-\label{tab:reactivity}
-\begin{tabular}{lccc}
-\toprule
-scenario & \ce{H2S} & \ce{CH3SH} & DMS \\
-\midrule
-office, low & 40\,d / 0.003\% & 5.7\,d / 0.03\% & 28\,d / 0.005\% \\
-office, high & 2.5\,d / 0.06\% & 8.6\,h / 0.4\% & 1.8\,d / 0.08\% \\
-hypochlorite cleaning & 3.5\,h / 0.9\% & 1.2\,h / 2.8\% & 0.8\,h / 4.0\% \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}
-\includegraphics[width=\textwidth]{fig14_chemistry.png}
-\caption{The chemistry of the passage. (a) Share of the summed OAV carried by \ce{H2S}, methanethiol and dimethyl
-sulfide, for two measured compositions \cite{suarez1998,tangerman2009} under three threshold sets. (b) Reduced
-gravity of 16 measured compositions \cite{suarez1997} against their \ce{CO2} content, at 37\,\textdegree C (dry
-basis; water saturation shifts these values by $-0.04$ to $+0.29$\,m\,s$^{-2}$) and after cooling to room
-temperature.}
-\label{fig:chem}
-\end{figure}
 
 \subsection{Memory}
 \label{sec:res-memory}
