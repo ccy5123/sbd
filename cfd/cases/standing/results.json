@@ -86,30 +86,30 @@
   },
   "vent_audible": {
    "C": {
-    "peak_s": 4.7784761e-05,
-    "peak_OAV": 6.824941848036047,
-    "t_peak_s": 52.25,
+    "peak_s": 7.4965182e-05,
+    "peak_OAV": 10.70703289229465,
+    "t_peak_s": 58.853570999999995,
     "t_arrival_s": 36.606818,
-    "time_above_OAV1_s": 15.667756000000004,
-    "exposure_s_dt": 0.000524475584534937,
-    "worst_breath_OAV_mean": 6.240997317600135,
-    "worst_breath_OAV_max": 6.796045126667596,
-    "bz_peak_OAV": 5.7974557176776615,
-    "head_ring_peak_OAV": 8.45378817395137,
-    "t_head_ring_peak_s": 51.8
+    "time_above_OAV1_s": 23.214184499999998,
+    "exposure_s_dt": 0.001007625506860217,
+    "worst_breath_OAV_mean": 9.970417715711575,
+    "worst_breath_OAV_max": 10.632061895817268,
+    "bz_peak_OAV": 9.271948388475698,
+    "head_ring_peak_OAV": 12.614195411597542,
+    "t_head_ring_peak_s": 58.3
    },
    "N": {
-    "peak_s": 8.1438519e-11,
-    "peak_OAV": 1.1631598541743857e-05,
-    "t_peak_s": 52.25,
+    "peak_s": 7.8107687e-10,
+    "peak_OAV": 0.00011155866650868068,
+    "t_peak_s": 59.8,
     "t_arrival_s": null,
     "time_above_OAV1_s": 0.0,
-    "exposure_s_dt": 2.1576476946477913e-10,
-    "worst_breath_OAV_mean": 7.979809125187987e-06,
-    "worst_breath_OAV_max": 1.1516475182941836e-05,
-    "bz_peak_OAV": 1.0482975265306187e-05,
-    "head_ring_peak_OAV": 0.00017461223655718835,
-    "t_head_ring_peak_s": 51.8
+    "exposure_s_dt": 2.5866459001216033e-09,
+    "worst_breath_OAV_mean": 7.670197352115483e-05,
+    "worst_breath_OAV_max": 0.00010983012317479458,
+    "bz_peak_OAV": 0.00011773037758200668,
+    "head_ring_peak_OAV": 0.0017797376396658194,
+    "t_head_ring_peak_s": 59.8
    }
   }
  },
@@ -130,16 +130,16 @@
   },
   "vent": {
    "C": {
-    "worst_breath_OAV_mean": 0.003036211637264448,
-    "bz_peak_OAV": 0.0037555200736731475,
-    "peak_OAV": 0.00334796296250179,
-    "exposure_s_dt": 0.0017124428637721664
+    "worst_breath_OAV_mean": 0.0019005210437646513,
+    "bz_peak_OAV": 0.0023482077781009953,
+    "peak_OAV": 0.0021340788581024183,
+    "exposure_s_dt": 0.0008913375711956668
    },
    "N": {
-    "worst_breath_OAV_mean": 36.86937497412133,
-    "bz_peak_OAV": 46.2936052336325,
-    "peak_OAV": 36.70215933077073,
-    "exposure_s_dt": 42.98003134867174
+    "worst_breath_OAV_mean": 3.835762775743001,
+    "bz_peak_OAV": 4.122085808040325,
+    "peak_OAV": 3.8267289876347257,
+    "exposure_s_dt": 3.585174358461345
    }
   }
  }

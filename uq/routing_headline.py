@@ -74,10 +74,15 @@ def evaluate(o_s, o_l, vs, vl, obs):
            "P_silent_perceptibly_worse": float(np.mean(lr > j)),
            "P_indistinguishable": float(np.mean(np.abs(lr) <= j)),
            "P_audible_perceptibly_worse": float(np.mean(lr < -j)), "noticed": {}}
+    res["given_noticed"] = {}
     for name in OBS:
         scale, sd = obs[name][0], obs[name][1]
-        res["noticed"][name] = {"silent": float(np.mean(detect(scale * a_s, sd))),
-                                "audible": float(np.mean(detect(scale * a_l, sd)))}
+        p_s, p_l = detect(scale * a_s, sd), detect(scale * a_l, sd)
+        res["noticed"][name] = {"silent": float(np.mean(p_s)), "audible": float(np.mean(p_l))}
+        w = 1.0 - (1.0 - p_s) * (1.0 - p_l)      # probability that at least one of the pair is noticed
+        res["given_noticed"][name] = {"P_any_noticed": float(np.mean(w)),
+                                      "w_sum": float(np.sum(w)), "w_silent_stronger": float(np.sum(w * (r > 1.0))),
+                                      "P_R_gt_1": (float(np.sum(w * (r > 1.0)) / np.sum(w)) if np.sum(w) > 0 else None)}
     return res
 
 
@@ -97,14 +102,23 @@ def main():
         print(f"{scene:38s} {role:18s} R_eq {r['R_equal_mass'] if r['R_equal_mass'] is None else round(r['R_equal_mass'], 3)!s:>7}"
               f"  P(R>1) {r['P_R_gt_1']:.2f}  silent worse {r['P_silent_perceptibly_worse']:.2f}"
               f"  audible worse {r['P_audible_perceptibly_worse']:.2f}"
-              f"  noticed (attentive) s {att['silent']:.2f} a {att['audible']:.2f}")
+              f"  noticed (attentive) s {att['silent']:.2f} a {att['audible']:.2f}"
+              f"  | given noticed {r['given_noticed'][OBS[0]]['P_R_gt_1'] if r['given_noticed'][OBS[0]]['P_R_gt_1'] is None else round(r['given_noticed'][OBS[0]]['P_R_gt_1'], 2)}"
+              f" (P any {r['given_noticed'][OBS[0]]['P_any_noticed']:.3f})")
     by = [s for s in out["scenes"] if s["nose"] != "culprit" and "120 s" not in s["scene"]]
     own = [s for s in out["scenes"] if s["nose"] == "culprit" and "120 s" not in s["scene"]]
     for tag, grp in (("bystanders", by), ("culprit", own)):
         p = [s["P_R_gt_1"] for s in grp]
-        out[f"summary_{tag}"] = {"n": len(grp), "P_R_gt_1_range": [min(p), max(p)],
-                                 "P_R_gt_1_equal_weight": float(np.mean(p))}
+        summ = {"n": len(grp), "P_R_gt_1_range": [min(p), max(p)], "P_R_gt_1_equal_weight": float(np.mean(p))}
         print(f"{tag}: P(R>1) range {min(p):.2f}-{max(p):.2f}, equal-weight mean {np.mean(p):.2f} (n = {len(grp)})")
+        for name in OBS:
+            g = [s["given_noticed"][name] for s in grp]
+            pooled = sum(x["w_silent_stronger"] for x in g) / sum(x["w_sum"] for x in g)
+            summ[f"P_R_gt_1_given_noticed | {name}"] = pooled
+            summ[f"P_any_noticed_mean | {name}"] = float(np.mean([x["P_any_noticed"] for x in g]))
+            print(f"   {name}: P(silent stronger | at least one noticed), pooled over noses {pooled:.2f}; "
+                  f"mean P(any noticed) {summ[f'P_any_noticed_mean | {name}']:.3f}")
+        out[f"summary_{tag}"] = summ
     (ROOT / "uq/routing_headline.json").write_text(json.dumps(out, indent=1))
 
 
