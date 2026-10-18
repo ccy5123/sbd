@@ -19,7 +19,7 @@ from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 from scipy.stats import spearmanr
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from model import Release, load_params, nominal, oav, ratio, receptor, source_mole_fraction_ppb  # noqa: E402
+from model import Release, load_params, nominal, oav, prior_range, ratio, receptor, source_mole_fraction_ppb  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "params"))
 from derive_from_suarez1997 import g_red as G_RED_EMPIRICAL  # noqa: E402  (16 subjects, Suarez 1997)
@@ -111,9 +111,10 @@ SAMPLED = {  # name: (low, high, log-uniform?)
     "K_c": (4.73, 5.2, False), "Gamma_sj": (2.74, 2.86, False), "C_puff": (2.54, 2.66, False),
     "alpha_th": (0.15, 0.35, False),
     "a_denim": (0.017, 0.25, True), "a_leggings": (0.16, 1.9, True), "a_chino": (0.02, 0.15, True), "V_skirt": (0.01, 0.06, True),
-    "P_th": (200.0, 1300.0, True), "C_d": (0.6, 1.0, False),
+    "P_th": (*prior_range(P_RAW, "P_th"), True), "C_d": (0.6, 1.0, False),
 }
-RELEASE_PRIOR = {"V": (1.7e-5, 3.75e-4), "T": (0.3, 5.0), "d": (1.0e-3, 1.5e-2)}  # all log-uniform
+RELEASE_PRIOR = {k: prior_range(P_RAW, name)                    # all log-uniform; ranges from params.yaml
+                 for k, name in (("V", "V_passage"), ("T", "T_release"), ("d", "d_orifice"))}
 CLOTHING = ("none", "skirt", "leggings", "chino", "denim")
 
 

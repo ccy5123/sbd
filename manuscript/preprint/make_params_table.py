@@ -55,6 +55,8 @@ def main():
                    " measurement, derived from cited data, partly sourced, taken from a non-peer-reviewed source, or assumed. Parameter names are those of the"
                    " code; the source and notes for every entry are in \\texttt{params/params.yaml} of the code"
                    " archive.}\\label{tab:params}\\\\\n"
+                   + "\\toprule\nparameter & nominal & range & units & basis \\\\\n\\midrule\n\\endfirsthead\n"
+                   + "\\caption[]{Model parameters (continued).}\\\\\n"
                    + "\\toprule\nparameter & nominal & range & units & basis \\\\\n\\midrule\n\\endhead\n"
                    + body + "\n\\bottomrule\n\\end{longtable}\n")
     print(f"{body.count(chr(10)) + 1} rows -> {out}")

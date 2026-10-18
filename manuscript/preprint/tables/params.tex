@@ -4,14 +4,19 @@
 \toprule
 parameter & nominal & range & units & basis \\
 \midrule
+\endfirsthead
+\caption[]{Model parameters (continued).}\\
+\toprule
+parameter & nominal & range & units & basis \\
+\midrule
 \endhead
 \multicolumn{5}{l}{\textit{Source}} \\
 \texttt{T\_gas} & 310.15 & 309.85--310.65 & K & measured \\
 \texttt{V\_passage} & $9.2\times10^{-5}$ & $1.7\times10^{-5}$--$3.75\times10^{-4}$ & m$^3$ & measured \\
 \texttt{V\_daily} & $7.05\times10^{-4}$ & $4.76\times10^{-4}$--0.001491 & m$^3$\,d$^{-1}$ & measured \\
 \texttt{n\_daily} & 10 & 1--20 & d$^{-1}$ & measured \\
-\texttt{d\_orifice} & 0.004 & 0.001--0.015 & m & assumed \\
-\texttt{T\_release} & 1 & 0.3--5 & s & assumed \\
+\texttt{d\_orifice} & 0.004 & 0.001--0.008 & m & partly sourced \\
+\texttt{T\_release} & 1 & 0.3--20 & s & partly sourced \\
 \texttt{dp\_rectal} & 2000 & 500--4000 & Pa & assumed \\
 \texttt{p\_anal\_rest} & 8666 & 6133--12000 & Pa & measured \\
 \texttt{g\_reduced} & 1.7 & -0.66--4.68 & m\,s$^{-2}$ & derived \\
@@ -55,13 +60,13 @@ parameter & nominal & range & units & basis \\
 \texttt{Ti\_Ttot} & 0.42 & 0.34--0.5 & -- & measured \\
 \texttt{T\_insp} & 2.1 & 1.6--2.7 & s & derived \\
 \multicolumn{5}{l}{\textit{Acoustics}} \\
-\texttt{f0\_flatus} & 160 & 100--300 & Hz & non-peer-reviewed source \\
+\texttt{f0\_flatus} & 160 & 60--300 & Hz & partly sourced \\
 \texttt{bg\_library} & 40 & 35--45 & dB(A) & assumed \\
 \texttt{bg\_living} & 35 & 30--45 & dB(A) & assumed \\
 \texttt{bg\_office} & 45 & 43--55 & dB(A) & measured \\
 \texttt{bg\_restaurant} & 74 & 67--83 & dB(A) & measured \\
 \texttt{bg\_subway} & 77 & 74--80 & dB(A) & measured \\
-\texttt{P\_th} & 600 & 200--1300 & Pa & assumed \\
+\texttt{P\_th} & 1200 & 600--2500 & Pa & partly sourced \\
 \texttt{C\_d} & 0.85 & 0.6--1 & -- & partly sourced \\
 \texttt{alpha\_mod} & 0.7 & 0.5--1 & -- & assumed \\
 \texttt{harm\_slope} & -12 & -18---6 & dB/octave & assumed \\

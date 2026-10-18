@@ -45,6 +45,14 @@ def nominal(params: dict) -> dict:
     return {k: v["value"] for group in params.values() for k, v in group.items()}
 
 
+def prior_range(params: dict, name: str) -> tuple[float, float]:
+    """(low, high) of a parameter, wherever it sits in params.yaml."""
+    for group in params.values():
+        if name in group:
+            return float(group[name]["low"]), float(group[name]["high"])
+    raise KeyError(name)
+
+
 def source_mole_fraction_ppb(c_umol_per_L: float, T_gas: float, p: float = 101325.0) -> float:
     """Convert a molar concentration (umol/L) in flatus to a mole fraction in ppbv."""
     molar_volume_L = 8.314462618 * T_gas / p * 1e3  # L/mol

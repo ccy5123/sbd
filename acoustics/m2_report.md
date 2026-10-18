@@ -38,20 +38,24 @@ non-peer-reviewed source.
 
 ## Results
 
-**S2 is empty.** An oscillating release is always audible in a quiet room. At sofa distance (0.6 m), even 1 mL/s of
-oscillating flow gives a fundamental of ≈ 32 dB, against a 160 Hz threshold of 18 dB, and the harmonics are more
-audible still. This also holds at 3 m. A "silent" passage is therefore either **physically silent (S1)** or
+**S2 is empty.** An oscillating release is always audible in a quiet room. At sofa distance (0.6 m), the smallest flow that
+can oscillate (≈ 33 mL/s, set by the onset velocity) gives a fundamental of ≈ 47 dB, against a 160 Hz threshold of
+18 dB. *(Corrected 2026-10-18: this line previously claimed ≈ 32 dB at 1 mL/s; the model gives 16.9 dB there, and
+1 mL/s cannot oscillate anyway.)* This also holds at 3 m. A "silent" passage is therefore either **physically silent (S1)** or
 **masked (S3)**. A release that oscillates but is inaudible does not occur.
 
-**Regime fractions over the release prior** (V 17–375 mL, T 0.3–5 s, d 1–15 mm; n = 200 000; nominal acoustics):
+**Regime fractions over the release prior** (V 17–375 mL, T 0.3–20 s, d 1–8 mm, P_th 0.6–2.5 kPa; n = 200 000; nominal acoustics, f0 160 Hz; updated 2026-10-18 from the literature-sourced priors in params.yaml):
 
 | background | S1 | S2 | S3 (masked) | audible |
 |---|---|---|---|---|
-| library 40 dB(A) | 0.79 | 0 | 0 | 0.21 |
-| living room 35 dB(A) | 0.79 | 0 | 0 | 0.21 |
-| open-plan office 45 dB(A) | 0.79 | 0 | 0 | 0.21 |
-| restaurant / café 74 dB(A) | 0.79 | 0 | 0.20 | 0.02 |
-| subway car 77 dB(A) | 0.79 | 0 | 0.16 | 0.05 |
+| library 40 dB(A) | 0.85 | 0 | 0 | 0.15 |
+| living room 35 dB(A) | 0.85 | 0 | 0 | 0.15 |
+| open-plan office 45 dB(A) | 0.85 | 0 | 0 | 0.15 |
+| restaurant / café 74 dB(A) | 0.85 | 0 | 0.13 | 0.02 |
+| subway car 77 dB(A) | 0.85 | 0 | 0.11 | 0.04 |
+
+The audible share in loud backgrounds depends on the fundamental: none at f0 ≤ 100 Hz, 2–4 % at 160 Hz, 6–13 % at
+250–300 Hz.
 
 **Minimum audible flow rate of an oscillating release** at 0.6 m (Fig. 3b):
 

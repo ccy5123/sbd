@@ -1,8 +1,8 @@
 {
  "n_mc": 20000,
  "JND_conc_ratio": 1.28,
- "volume_ratio_median": 0.4729355610578464,
- "gate0_neighbour_P_R_gt_1": 0.46635,
+ "volume_ratio_median": 0.45194336339214325,
+ "gate0_neighbour_P_R_gt_1": 0.48055,
  "scenes": [
   {
    "OAV_equal_mass": [
@@ -11,30 +11,30 @@
    ],
    "R_equal_mass": 1.484924712023693e-12,
    "P_R_gt_1": 0.0,
-   "median_R": 7.022737018095861e-13,
+   "median_R": 6.711018687360976e-13,
    "P_silent_perceptibly_worse": 0.0,
    "P_indistinguishable": 0.0,
    "P_audible_perceptibly_worse": 1.0,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 5.0571330634152714e-113,
-     "audible": 0.0008120564361564322
+     "silent": 5.992461069567963e-113,
+     "audible": 0.0009209465265441593
     },
     "distracted (everyday)": {
-     "silent": 5.024444304272644e-47,
-     "audible": 0.0006975920843881723
+     "silent": 5.74726240716635e-47,
+     "audible": 0.0007702249336752528
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.0008120564361564323,
-     "w_sum": 16.241128723128647,
+     "P_any_noticed": 0.0009209465265441593,
+     "w_sum": 18.418930530883184,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.0006975920843881723,
-     "w_sum": 13.951841687763444,
+     "P_any_noticed": 0.0007702249336752528,
+     "w_sum": 15.404498673505056,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     }
@@ -50,30 +50,30 @@
    ],
    "R_equal_mass": 4.631088315985843e-15,
    "P_R_gt_1": 0.0,
-   "median_R": 2.1902063510292012e-15,
+   "median_R": 2.0929896296926986e-15,
    "P_silent_perceptibly_worse": 0.0,
    "P_indistinguishable": 0.0,
    "P_audible_perceptibly_worse": 1.0,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 7.499270514181125e-175,
-     "audible": 2.558485456421166e-06
+     "silent": 8.933012238952414e-175,
+     "audible": 2.9437380088385216e-06
     },
     "distracted (everyday)": {
-     "silent": 3.2815008567897626e-69,
-     "audible": 2.9543571759424604e-05
+     "silent": 3.7820137801101164e-69,
+     "audible": 3.295594688826603e-05
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 2.5584854564215055e-06,
-     "w_sum": 0.05116970912843011,
+     "P_any_noticed": 2.94373800883867e-06,
+     "w_sum": 0.0588747601767734,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
     "distracted (everyday)": {
-     "P_any_noticed": 2.954357175942462e-05,
-     "w_sum": 0.5908714351884924,
+     "P_any_noticed": 3.295594688826623e-05,
+     "w_sum": 0.6591189377653247,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     }
@@ -89,30 +89,30 @@
    ],
    "R_equal_mass": 1.7798039006181323e-12,
    "P_R_gt_1": 0.0,
-   "median_R": 8.417325563117798e-13,
+   "median_R": 8.043705610238145e-13,
    "P_silent_perceptibly_worse": 0.0,
    "P_indistinguishable": 0.0,
    "P_audible_perceptibly_worse": 1.0,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 4.1296761660591835e-94,
-     "audible": 0.08425910515616543
+     "silent": 4.880661726174634e-94,
+     "audible": 0.09271940032194173
     },
     "distracted (everyday)": {
-     "silent": 3.997050078830961e-40,
-     "audible": 0.016129678491301713
+     "silent": 4.557984739000384e-40,
+     "audible": 0.017514451541618948
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.08425910515616543,
-     "w_sum": 1685.1821031233085,
+     "P_any_noticed": 0.09271940032194173,
+     "w_sum": 1854.3880064388345,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.016129678491301713,
-     "w_sum": 322.59356982603424,
+     "P_any_noticed": 0.017514451541618948,
+     "w_sum": 350.28903083237896,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     }
@@ -128,30 +128,30 @@
    ],
    "R_equal_mass": 3.349326483933463e-16,
    "P_R_gt_1": 0.0,
-   "median_R": 1.5840155998449759e-16,
+   "median_R": 1.5137058762472707e-16,
    "P_silent_perceptibly_worse": 0.0,
    "P_indistinguishable": 0.0,
    "P_audible_perceptibly_worse": 1.0,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 1.4626150844762968e-203,
-     "audible": 4.419519886011029e-07
+     "silent": 1.744821713385893e-203,
+     "audible": 5.099759910660184e-07
     },
     "distracted (everyday)": {
-     "silent": 2.2140141243442582e-79,
-     "audible": 1.2078465085067672e-05
+     "silent": 2.5585457302904207e-79,
+     "audible": 1.3504151810141265e-05
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 4.4195198860148553e-07,
-     "w_sum": 0.008839039772029711,
+     "P_any_noticed": 5.099759910659585e-07,
+     "w_sum": 0.01019951982131917,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
     "distracted (everyday)": {
-     "P_any_noticed": 1.2078465085068234e-05,
-     "w_sum": 0.2415693017013647,
+     "P_any_noticed": 1.3504151810141125e-05,
+     "w_sum": 0.2700830362028225,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     }
@@ -166,19 +166,19 @@
     1.609536148404941e-07
    ],
    "R_equal_mass": 0.07918652728131242,
-   "P_R_gt_1": 0.00205,
-   "median_R": 0.03745012470800995,
-   "P_silent_perceptibly_worse": 0.0006,
-   "P_indistinguishable": 0.0047,
-   "P_audible_perceptibly_worse": 0.9947,
+   "P_R_gt_1": 0.0008,
+   "median_R": 0.03578782547486005,
+   "P_silent_perceptibly_worse": 0.0002,
+   "P_indistinguishable": 0.00275,
+   "P_audible_perceptibly_worse": 0.99705,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 3.920231307865935e-48,
-     "audible": 6.4411554362187465e-37
+     "silent": 4.58051156737914e-48,
+     "audible": 7.709157469334073e-37
     },
     "distracted (everyday)": {
-     "silent": 6.508162515008059e-23,
-     "audible": 2.6175881150426395e-18
+     "silent": 7.340665948955934e-23,
+     "audible": 3.019080067069484e-18
     }
    },
    "given_noticed": {
@@ -206,30 +206,30 @@
    ],
    "R_equal_mass": 2.2979694542119738e-05,
    "P_R_gt_1": 0.0,
-   "median_R": 1.086791473121533e-05,
+   "median_R": 1.038552044108967e-05,
    "P_silent_perceptibly_worse": 0.0,
    "P_indistinguishable": 0.0,
    "P_audible_perceptibly_worse": 1.0,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 9.560738337879845e-30,
-     "audible": 0.00013424582804559958
+     "silent": 1.1065504279452856e-29,
+     "audible": 0.00015311667935041968
     },
     "distracted (everyday)": {
-     "silent": 1.1005650717150415e-15,
-     "audible": 0.0002472314219628725
+     "silent": 1.2316356254683389e-15,
+     "audible": 0.00027402350604861423
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.0001342458280455998,
-     "w_sum": 2.684916560911996,
+     "P_any_noticed": 0.00015311667935041941,
+     "w_sum": 3.0623335870083883,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.00024723142196396913,
-     "w_sum": 4.9446284392793824,
+     "P_any_noticed": 0.00027402350604984214,
+     "w_sum": 5.480470120996843,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     }
@@ -244,33 +244,33 @@
     0.4200075778217901
    ],
    "R_equal_mass": 2.108277578202257,
-   "P_R_gt_1": 0.4992,
-   "median_R": 0.9970794393127618,
-   "P_silent_perceptibly_worse": 0.42305,
-   "P_indistinguishable": 0.1522,
-   "P_audible_perceptibly_worse": 0.42475,
+   "P_R_gt_1": 0.48485,
+   "median_R": 0.9528220596569703,
+   "P_silent_perceptibly_worse": 0.40715,
+   "P_indistinguishable": 0.15245,
+   "P_audible_perceptibly_worse": 0.4404,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.018482399772999456,
-     "audible": 0.011975717157405592
+     "silent": 0.020045047914105815,
+     "audible": 0.013407591524107256
     },
     "distracted (everyday)": {
-     "silent": 0.004792558474085217,
-     "audible": 0.00380987954652266
+     "silent": 0.005099452877000464,
+     "audible": 0.004173909542134857
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.030236447839072724,
-     "w_sum": 604.7289567814545,
-     "w_silent_stronger": 398.26665180234437,
-     "P_R_gt_1": 0.6585870369463317
+     "P_any_noticed": 0.03318405077869309,
+     "w_sum": 663.6810155738617,
+     "w_silent_stronger": 439.23796955075807,
+     "P_R_gt_1": 0.6618209037830687
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.00858416077562652,
-     "w_sum": 171.6832155125304,
-     "w_silent_stronger": 103.3071355040772,
-     "P_R_gt_1": 0.6017311313495131
+     "P_any_noticed": 0.009252134044286752,
+     "w_sum": 185.04268088573505,
+     "w_silent_stronger": 111.8364892455212,
+     "P_R_gt_1": 0.6043821280052729
     }
    },
    "scene": "sofa, upright (120 s)",
@@ -283,33 +283,33 @@
     0.31879986227559787
    ],
    "R_equal_mass": 0.8805631794061237,
-   "P_R_gt_1": 0.23825,
-   "median_R": 0.41644964129931616,
-   "P_silent_perceptibly_worse": 0.18195,
-   "P_indistinguishable": 0.12505,
-   "P_audible_perceptibly_worse": 0.693,
+   "P_R_gt_1": 0.21835,
+   "median_R": 0.39796468498008286,
+   "P_silent_perceptibly_worse": 0.1608,
+   "P_indistinguishable": 0.12895,
+   "P_audible_perceptibly_worse": 0.71025,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.0024432886105226403,
-     "audible": 0.007258829138609434
+     "silent": 0.0026836796932269555,
+     "audible": 0.008151256384646657
     },
     "distracted (everyday)": {
-     "silent": 0.001187717821948924,
-     "audible": 0.0027270764024331226
+     "silent": 0.0012729053033375052,
+     "audible": 0.002992786619708137
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.009684326727656489,
-     "w_sum": 193.68653455312977,
-     "w_silent_stronger": 40.61657184780597,
-     "P_R_gt_1": 0.20970261015571282
+     "P_any_noticed": 0.010812995236904962,
+     "w_sum": 216.25990473809924,
+     "w_silent_stronger": 42.4592475153421,
+     "P_R_gt_1": 0.19633434855509724
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.003911550919344399,
-     "w_sum": 78.23101838688798,
-     "w_silent_stronger": 17.932180592456625,
-     "P_R_gt_1": 0.2292208507854753
+     "P_any_noticed": 0.004261891269561817,
+     "w_sum": 85.23782539123633,
+     "w_silent_stronger": 18.220867676655935,
+     "P_R_gt_1": 0.21376504612856187
     }
    },
    "scene": "sofa, upright (120 s)",
@@ -322,33 +322,33 @@
     1.9435307765825849
    ],
    "R_equal_mass": 3.443113823183692,
-   "P_R_gt_1": 0.6492,
-   "median_R": 1.628370967753406,
-   "P_silent_perceptibly_worse": 0.57445,
-   "P_indistinguishable": 0.1463,
-   "P_audible_perceptibly_worse": 0.27925,
+   "P_R_gt_1": 0.6346,
+   "median_R": 1.556092441791619,
+   "P_silent_perceptibly_worse": 0.5585,
+   "P_indistinguishable": 0.147,
+   "P_audible_perceptibly_worse": 0.2945,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.19834774397213212,
-     "audible": 0.10819795558335404
+     "silent": 0.20849358451371486,
+     "audible": 0.11867063555680721
     },
     "distracted (everyday)": {
-     "silent": 0.03559265173387934,
-     "audible": 0.01989157898432735
+     "silent": 0.037346113034758745,
+     "audible": 0.021565951772127
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.2850788308154989,
-     "w_sum": 5701.576616309978,
-     "w_silent_stronger": 4197.744116429245,
-     "P_R_gt_1": 0.736242691963683
+     "P_any_noticed": 0.3025100706559354,
+     "w_sum": 6050.201413118708,
+     "w_silent_stronger": 4443.972013257389,
+     "P_R_gt_1": 0.7345163755410661
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.05477579509778093,
-     "w_sum": 1095.5159019556186,
-     "w_silent_stronger": 805.8086962465889,
-     "P_R_gt_1": 0.7355518024048123
+     "P_any_noticed": 0.05810880832274475,
+     "w_sum": 1162.176166454895,
+     "w_silent_stronger": 853.8105013129992,
+     "P_R_gt_1": 0.7346652994248409
     }
    },
    "scene": "elevator, front row (person behind)",
@@ -361,33 +361,33 @@
     0.8170883313252314
    ],
    "R_equal_mass": 4.347467249963923,
-   "P_R_gt_1": 0.71685,
-   "median_R": 2.0560718630423005,
-   "P_silent_perceptibly_worse": 0.6452,
-   "P_indistinguishable": 0.14195,
-   "P_audible_perceptibly_worse": 0.21285,
+   "P_R_gt_1": 0.7016,
+   "median_R": 1.9648089711858874,
+   "P_silent_perceptibly_worse": 0.63055,
+   "P_indistinguishable": 0.14075,
+   "P_audible_perceptibly_worse": 0.2287,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.10927750857653068,
-     "audible": 0.03506172411946491
+     "silent": 0.11611678620146049,
+     "audible": 0.038937977845802677
     },
     "distracted (everyday)": {
-     "silent": 0.020178452740373245,
-     "audible": 0.008149171709222617
+     "silent": 0.021268410784790165,
+     "audible": 0.008889100889257907
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.14050656517620438,
-     "w_sum": 2810.131303524088,
-     "w_silent_stronger": 2364.667577097265,
-     "P_R_gt_1": 0.8414793907074085
+     "P_any_noticed": 0.15054857737160657,
+     "w_sum": 3010.9715474321315,
+     "w_silent_stronger": 2530.3535275950026,
+     "P_R_gt_1": 0.8403777610429372
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.02816307207946883,
-     "w_sum": 563.2614415893767,
-     "w_silent_stronger": 458.8340635011864,
-     "P_R_gt_1": 0.8146022958831987
+     "P_any_noticed": 0.029968977058342578,
+     "w_sum": 599.3795411668516,
+     "w_silent_stronger": 487.42867694280324,
+     "P_R_gt_1": 0.8132220796090133
     }
    },
    "scene": "elevator, front row (person behind)",
@@ -400,33 +400,33 @@
     19.752725058180896
    ],
    "R_equal_mass": 1.3671678634894704,
-   "P_R_gt_1": 0.36765,
-   "median_R": 0.6465823005796498,
-   "P_silent_perceptibly_worse": 0.2925,
-   "P_indistinguishable": 0.14845,
-   "P_audible_perceptibly_worse": 0.55905,
+   "P_R_gt_1": 0.3507,
+   "median_R": 0.6178824425470818,
+   "P_silent_perceptibly_worse": 0.27275,
+   "P_indistinguishable": 0.15405,
+   "P_audible_perceptibly_worse": 0.5732,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.49629173428984724,
-     "audible": 0.6011788453992203
+     "silent": 0.5095430486303623,
+     "audible": 0.6308154225997943
     },
     "distracted (everyday)": {
-     "silent": 0.10315828100559779,
-     "audible": 0.12857586333087379
+     "silent": 0.1071475636768326,
+     "audible": 0.13681174347886055
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.7990200130528331,
-     "w_sum": 15980.400261056662,
-     "w_silent_stronger": 5963.617642071975,
-     "P_R_gt_1": 0.373183246016996
+     "P_any_noticed": 0.819355906148093,
+     "w_sum": 16387.11812296186,
+     "w_silent_stronger": 5911.087453273434,
+     "P_R_gt_1": 0.3607154967041298
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.21846411349831824,
-     "w_sum": 4369.282269966365,
-     "w_silent_stronger": 1722.3698871156616,
-     "P_R_gt_1": 0.3941997290847773
+     "P_any_noticed": 0.22932952876158932,
+     "w_sum": 4586.590575231787,
+     "w_silent_stronger": 1773.2073500337915,
+     "P_R_gt_1": 0.3866068533802325
     }
    },
    "scene": "elevator, front row (person behind)",
@@ -439,33 +439,33 @@
     2.6655558003192374
    ],
    "R_equal_mass": 2.8589039208866622,
-   "P_R_gt_1": 0.59305,
-   "median_R": 1.3520773298350104,
-   "P_silent_perceptibly_worse": 0.51645,
-   "P_indistinguishable": 0.1501,
-   "P_audible_perceptibly_worse": 0.33345,
+   "P_R_gt_1": 0.5771,
+   "median_R": 1.292062653620504,
+   "P_silent_perceptibly_worse": 0.50225,
+   "P_indistinguishable": 0.14965,
+   "P_audible_perceptibly_worse": 0.3481,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.2208494983797097,
-     "audible": 0.15180713772764243
+     "silent": 0.23161948928967968,
+     "audible": 0.16564592697713498
     },
     "distracted (everyday)": {
-     "silent": 0.03972471918937972,
-     "audible": 0.026805903910455224
+     "silent": 0.041642669829653804,
+     "audible": 0.02899422359221889
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.3391189068446642,
-     "w_sum": 6782.378136893285,
-     "w_silent_stronger": 4508.211072143587,
-     "P_R_gt_1": 0.6646947399793024
+     "P_any_noticed": 0.3590306468948801,
+     "w_sum": 7180.612937897602,
+     "w_silent_stronger": 4756.075876413666,
+     "P_R_gt_1": 0.662349567863797
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.06546510923793401,
-     "w_sum": 1309.3021847586801,
-     "w_silent_stronger": 880.3592665379692,
-     "P_R_gt_1": 0.6723881444528635
+     "P_any_noticed": 0.0694326574106284,
+     "w_sum": 1388.6531482125679,
+     "w_silent_stronger": 932.3065743076037,
+     "P_R_gt_1": 0.6713746881340674
     }
    },
    "scene": "elevator, front row (person behind)",
@@ -478,33 +478,33 @@
     22.871604101669764
    ],
    "R_equal_mass": 0.1949917161810552,
-   "P_R_gt_1": 0.02535,
-   "median_R": 0.09221851669371968,
-   "P_silent_perceptibly_worse": 0.0151,
-   "P_indistinguishable": 0.02745,
-   "P_audible_perceptibly_worse": 0.95745,
+   "P_R_gt_1": 0.02195,
+   "median_R": 0.08812521204447228,
+   "P_silent_perceptibly_worse": 0.0125,
+   "P_indistinguishable": 0.0239,
+   "P_audible_perceptibly_worse": 0.9636,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.13731789595086347,
-     "audible": 0.6362330959573559
+     "silent": 0.1453560467265494,
+     "audible": 0.6655493429154904
     },
     "distracted (everyday)": {
-     "silent": 0.024896194865941367,
-     "audible": 0.14119106500734915
+     "silent": 0.026198726829748616,
+     "audible": 0.15004054855060053
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.6861014130790126,
-     "w_sum": 13722.028261580253,
-     "w_silent_stronger": 259.1778004646221,
-     "P_R_gt_1": 0.018887718019812236
+     "P_any_noticed": 0.7143931193627905,
+     "w_sum": 14287.86238725581,
+     "w_silent_stronger": 235.95976923565942,
+     "P_R_gt_1": 0.01651470057873219
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.16256936219655432,
-     "w_sum": 3251.3872439310862,
-     "w_silent_stronger": 50.8642738213982,
-     "P_R_gt_1": 0.015643868295398985
+     "P_any_noticed": 0.17231762784549506,
+     "w_sum": 3446.352556909901,
+     "w_silent_stronger": 46.84369816229692,
+     "P_R_gt_1": 0.013592253662027638
     }
    },
    "scene": "elevator, back row (wall behind)",
@@ -517,33 +517,33 @@
     5.942195459212851
    ],
    "R_equal_mass": 0.3927439920020948,
-   "P_R_gt_1": 0.088,
-   "median_R": 0.18574260020960903,
-   "P_silent_perceptibly_worse": 0.06005,
-   "P_indistinguishable": 0.06395,
-   "P_audible_perceptibly_worse": 0.876,
+   "P_R_gt_1": 0.0732,
+   "median_R": 0.17749804069748376,
+   "P_silent_perceptibly_worse": 0.05235,
+   "P_indistinguishable": 0.05255,
+   "P_audible_perceptibly_worse": 0.8951,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.06856953724940276,
-     "audible": 0.3057470257738235
+     "silent": 0.07335477577523741,
+     "audible": 0.3288127388628026
     },
     "distracted (everyday)": {
-     "silent": 0.01343844943705391,
-     "audible": 0.05363840673934287
+     "silent": 0.014205980217960334,
+     "audible": 0.057655727097769977
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.3533250982545029,
-     "w_sum": 7066.501965090059,
-     "w_silent_stronger": 441.0741224032354,
-     "P_R_gt_1": 0.062417604152978416
+     "P_any_noticed": 0.3781335138319352,
+     "w_sum": 7562.670276638704,
+     "w_silent_stronger": 399.3416659807166,
+     "P_R_gt_1": 0.05280432061335451
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.06635538911082338,
-     "w_sum": 1327.1077822164675,
-     "w_silent_stronger": 84.32532985269333,
-     "P_R_gt_1": 0.06354067919928665
+     "P_any_noticed": 0.07104483581916135,
+     "w_sum": 1420.896716383227,
+     "w_silent_stronger": 75.73775311296538,
+     "P_R_gt_1": 0.05330278565619425
     }
    },
    "scene": "elevator, back row (wall behind)",
@@ -556,33 +556,33 @@
     2.8087202534362157
    ],
    "R_equal_mass": 0.2018310479675659,
-   "P_R_gt_1": 0.02745,
-   "median_R": 0.09545307990943389,
-   "P_silent_perceptibly_worse": 0.01595,
-   "P_indistinguishable": 0.02895,
-   "P_audible_perceptibly_worse": 0.9551,
+   "P_R_gt_1": 0.02355,
+   "median_R": 0.09121620265542274,
+   "P_silent_perceptibly_worse": 0.01375,
+   "P_indistinguishable": 0.02475,
+   "P_audible_perceptibly_worse": 0.9615,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.008975696551169995,
-     "audible": 0.1599955764183937
+     "silent": 0.009786892777835291,
+     "audible": 0.1744265073903695
     },
     "distracted (everyday)": {
-     "silent": 0.002851983254581156,
-     "audible": 0.02812479782901492
+     "silent": 0.0030433309020761307,
+     "audible": 0.03040877903680008
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.16753172578984,
-     "w_sum": 3350.6345157968,
-     "w_silent_stronger": 27.229330177250382,
-     "P_R_gt_1": 0.00812661901764451
+     "P_any_noticed": 0.18251070220012836,
+     "w_sum": 3650.2140440025673,
+     "w_silent_stronger": 25.86055687860304,
+     "P_R_gt_1": 0.007084668615828944
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.030896470246616285,
-     "w_sum": 617.9294049323257,
-     "w_silent_stronger": 7.323295830808903,
-     "P_R_gt_1": 0.011851347050899665
+     "P_any_noticed": 0.033359817317678384,
+     "w_sum": 667.1963463535677,
+     "w_silent_stronger": 6.780081104277477,
+     "P_R_gt_1": 0.01016204771104143
     }
    },
    "scene": "elevator, back row (wall behind)",
@@ -595,33 +595,33 @@
     0.738880264511426
    ],
    "R_equal_mass": 0.5551996683955794,
-   "P_R_gt_1": 0.14145,
-   "median_R": 0.2625736666717936,
-   "P_silent_perceptibly_worse": 0.10175,
-   "P_indistinguishable": 0.08655,
-   "P_audible_perceptibly_worse": 0.8117,
+   "P_R_gt_1": 0.1212,
+   "median_R": 0.2509188054889008,
+   "P_silent_perceptibly_worse": 0.0847,
+   "P_indistinguishable": 0.0816,
+   "P_audible_perceptibly_worse": 0.8337,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.005057983679749052,
-     "audible": 0.030164009843140105
+     "silent": 0.005534618758240715,
+     "audible": 0.0335423670962965
     },
     "distracted (everyday)": {
-     "silent": 0.0019227023163610035,
-     "audible": 0.007294930309021154
+     "silent": 0.002055856150400414,
+     "audible": 0.007962670624416825
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.035069043483747765,
-     "w_sum": 701.3808696749553,
-     "w_silent_stronger": 56.256683506012365,
-     "P_R_gt_1": 0.0802084658112841
+     "P_any_noticed": 0.03889131161656513,
+     "w_sum": 777.8262323313025,
+     "w_silent_stronger": 54.639703412130665,
+     "P_R_gt_1": 0.07024667096706731
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.00920358898191314,
-     "w_sum": 184.0717796382628,
-     "w_silent_stronger": 19.177251066126342,
-     "P_R_gt_1": 0.1041835478736252
+     "P_any_noticed": 0.01000219879686208,
+     "w_sum": 200.0439759372416,
+     "w_silent_stronger": 18.079324441311993,
+     "P_R_gt_1": 0.09037675019508656
     }
    },
    "scene": "elevator, back row (wall behind)",
@@ -635,30 +635,30 @@
    ],
    "R_equal_mass": 0.0011949036459793002,
    "P_R_gt_1": 0.0,
-   "median_R": 0.0005651124262212866,
+   "median_R": 0.0005400287726934198,
    "P_silent_perceptibly_worse": 0.0,
    "P_indistinguishable": 0.0,
    "P_audible_perceptibly_worse": 1.0,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 8.152231302011756e-15,
-     "audible": 0.0021942981088349384
+     "silent": 9.299267610196633e-15,
+     "audible": 0.0024787204062167332
     },
     "distracted (everyday)": {
-     "silent": 2.0329618429993423e-09,
-     "audible": 0.0012733183355056088
+     "silent": 2.2475225043484087e-09,
+     "audible": 0.0014023644003106899
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.0021942981088430716,
-     "w_sum": 43.88596217686143,
+     "P_any_noticed": 0.002478720406226009,
+     "w_sum": 49.574408124520176,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.001273320365867574,
-     "w_sum": 25.46640731735148,
+     "P_any_noticed": 0.0014023666446755505,
+     "w_sum": 28.047332893511008,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     }
@@ -673,19 +673,19 @@
     4.4153219980628886e-07
    ],
    "R_equal_mass": 6.337259230017466,
-   "P_R_gt_1": 0.8209,
-   "median_R": 2.997115249517326,
-   "P_silent_perceptibly_worse": 0.75375,
-   "P_indistinguishable": 0.1283,
-   "P_audible_perceptibly_worse": 0.11795,
+   "P_R_gt_1": 0.807,
+   "median_R": 2.8640822511019977,
+   "P_silent_perceptibly_worse": 0.73965,
+   "P_indistinguishable": 0.13065,
+   "P_audible_perceptibly_worse": 0.1297,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 4.757815215168406e-27,
-     "audible": 4.727586452856918e-33
+     "silent": 5.4959300805682146e-27,
+     "audible": 5.644634298742295e-33
     },
     "distracted (everyday)": {
-     "silent": 1.367337705893644e-14,
-     "audible": 8.829903506191137e-17
+     "silent": 1.527750159420659e-14,
+     "audible": 1.0164051957001852e-16
     }
    },
    "given_noticed": {
@@ -696,10 +696,10 @@
      "P_R_gt_1": null
     },
     "distracted (everyday)": {
-     "P_any_noticed": 1.3753215233336391e-14,
-     "w_sum": 2.750643046667278e-10,
-     "w_silent_stronger": 2.7425350879184407e-10,
-     "P_R_gt_1": 0.997052340630435
+     "P_any_noticed": 1.5371004469244554e-14,
+     "w_sum": 3.0742008938489107e-10,
+     "w_silent_stronger": 3.064979381406374e-10,
+     "P_R_gt_1": 0.997000354641433
     }
    },
    "scene": "standing pair, still air",
@@ -713,30 +713,30 @@
    ],
    "R_equal_mass": 0.0019005210437646513,
    "P_R_gt_1": 0.0,
-   "median_R": 0.0008988239861350792,
+   "median_R": 0.0008589278727165432,
    "P_silent_perceptibly_worse": 0.0,
    "P_indistinguishable": 0.0,
    "P_audible_perceptibly_worse": 1.0,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 2.2290051509473856e-06,
-     "audible": 0.4300399203293965
+     "silent": 2.4955957144038727e-06,
+     "audible": 0.45773037440871184
     },
     "distracted (everyday)": {
-     "silent": 2.0960217988361668e-05,
-     "audible": 0.08005740253351656
+     "silent": 2.278742173866668e-05,
+     "audible": 0.08568769093696887
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.43004118524774804,
-     "w_sum": 8600.82370495496,
+     "P_any_noticed": 0.4577317295290226,
+     "w_sum": 9154.634590580452,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
     "distracted (everyday)": {
-     "P_any_noticed": 0.08007668074356125,
-     "w_sum": 1601.533614871225,
+     "P_any_noticed": 0.08570853021265808,
+     "w_sum": 1714.1706042531614,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     }
@@ -751,33 +751,33 @@
     7.670197352115483e-05
    ],
    "R_equal_mass": 3.835762775743001,
-   "P_R_gt_1": 0.681,
-   "median_R": 1.814068620430818,
-   "P_silent_perceptibly_worse": 0.6075,
-   "P_indistinguishable": 0.144,
-   "P_audible_perceptibly_worse": 0.2485,
+   "P_R_gt_1": 0.6658,
+   "median_R": 1.733547530043675,
+   "P_silent_perceptibly_worse": 0.5921,
+   "P_indistinguishable": 0.14475,
+   "P_audible_perceptibly_worse": 0.26315,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 4.9505680033501967e-14,
-     "audible": 7.833917619256542e-17
+     "silent": 5.640648559634594e-14,
+     "audible": 9.219386379210525e-17
     },
     "distracted (everyday)": {
-     "silent": 4.540689938264017e-09,
-     "audible": 4.113857410959939e-10
+     "silent": 5.014850424296651e-09,
+     "audible": 4.677021772735614e-10
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 4.9578269267769315e-14,
-     "w_sum": 9.915653853553863e-10,
-     "w_silent_stronger": 9.905882780714137e-10,
-     "P_R_gt_1": 0.9990145810872347
+     "P_any_noticed": 5.6493226763265626e-14,
+     "w_sum": 1.1298645352653125e-09,
+     "w_silent_stronger": 1.128740323430577e-09,
+     "P_R_gt_1": 0.9990050029896094
     },
     "distracted (everyday)": {
-     "P_any_noticed": 4.95207567983158e-09,
-     "w_sum": 9.90415135966316e-05,
-     "w_silent_stronger": 9.350180881606551e-05,
-     "P_R_gt_1": 0.9440668404652239
+     "P_any_noticed": 5.482552602231738e-09,
+     "w_sum": 0.00010965105204463477,
+     "w_silent_stronger": 0.00010354704229920131,
+     "P_R_gt_1": 0.944332410573236
     }
    },
    "scene": "standing pair, office ventilation",
@@ -789,24 +789,24 @@
   "n": 11,
   "P_R_gt_1_range": [
    0.0,
-   0.8209
+   0.807
   ],
-  "P_R_gt_1_equal_weight": 0.31239545454545453,
-  "P_R_gt_1_given_noticed | attentive, Amoore thresholds": 0.36411930580280805,
-  "P_any_noticed_mean | attentive, Amoore thresholds": 0.16679169080612113,
-  "P_R_gt_1_given_noticed | distracted (everyday)": 0.3787144169761438,
-  "P_any_noticed_mean | distracted (everyday)": 0.03807605468781562
+  "P_R_gt_1_equal_weight": 0.3018318181818182,
+  "P_R_gt_1_given_noticed | attentive, Amoore thresholds": 0.3545879312950485,
+  "P_any_noticed_mean | attentive, Amoore thresholds": 0.17532974804151047,
+  "P_R_gt_1_given_noticed | distracted (everyday)": 0.3713470180314374,
+  "P_any_noticed_mean | distracted (everyday)": 0.04031440947741621
  },
  "summary_culprit": {
   "n": 7,
   "P_R_gt_1_range": [
    0.0,
-   0.6492
+   0.6346
   ],
-  "P_R_gt_1_equal_weight": 0.09665714285714286,
-  "P_R_gt_1_given_noticed | attentive, Amoore thresholds": 0.14971317350188282,
-  "P_any_noticed_mean | attentive, Amoore thresholds": 0.21264098412048923,
-  "P_R_gt_1_given_noticed | distracted (everyday)": 0.13575468673318491,
-  "P_any_noticed_mean | distracted (everyday)": 0.04507463271135056
+  "P_R_gt_1_equal_weight": 0.09390714285714287,
+  "P_R_gt_1_given_noticed | attentive, Amoore thresholds": 0.1489708707351383,
+  "P_any_noticed_mean | attentive, Amoore thresholds": 0.2243934266860658,
+  "P_R_gt_1_given_noticed | distracted (everyday)": 0.13409695820919226,
+  "P_any_noticed_mean | distracted (everyday)": 0.04797457278583823
  }
 }

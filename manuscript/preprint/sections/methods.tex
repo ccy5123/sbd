@@ -7,14 +7,18 @@ Table~\ref{SI-tab:params}. Code and data are archived (Section~\ref{SI-sec:si-da
 \subsection{Source}
 \label{sec:source}
 Passage volumes span 17--375\,mL, with a median of 92\,mL \cite{suarez1997}. In the Monte Carlo analysis, volume $V$,
-duration $T$ (0.3--5\,s) and effective orifice diameter $d$ (1--15\,mm) are drawn log-uniformly. Duration and diameter
-have not been measured; their ranges are assumed.
+duration $T$ (0.3--20\,s) and effective orifice diameter $d$ (1--8\,mm) are drawn log-uniformly. Neither has been
+measured for a passage. The upper bounds come from anorectal physiology: flatus passes during an anal relaxation
+lasting $19 \pm 6$\,s \cite{ronholt1999,corsetti2017}, and the mid anal canal widens to about 8\,mm only at balloon
+pressures above those that drive flatus \cite{luft2012,sorensen2014,miller1988b}. The lower bounds are assumed.
 
 Sulfur gas concentrations are taken from 87 passages of 16 volunteers \cite{suarez1998}: \ce{H2S}
 1.06\,\textmu mol\,L$^{-1}$, methanethiol 0.21\,\textmu mol\,L$^{-1}$ and dimethyl sulfide 0.08\,\textmu mol\,L$^{-1}$.
 They vary between passages by a log-normal factor with $\sigma_{\ln} = 1.1$, derived from the reported standard
 errors, drawn independently of volume because sulfur concentration does not correlate with passage volume
-\cite{suarez1997}. Buoyancy is computed from measured compositions and is signed (Section~\ref{sec:methods-chem}).
+\cite{suarez1997}. Buoyancy is computed from measured compositions and is signed (Section~\ref{sec:methods-chem}); it
+is drawn independently of volume because, across the 16 subjects of ref.~\citenum{suarez1997}, it does not correlate
+with mean passage volume (Spearman $-0.15$).
 
 \subsection{Odorant chemistry}
 \label{sec:methods-chem}
@@ -54,11 +58,15 @@ between release and nose in that test, which we compare with the breath-averaged
 \label{sec:acoustics}
 The anal canal is modelled as a lip reed, a soft-tissue valve that self-oscillates in the flow through it, as the
 lips do on a brass instrument. It oscillates when the driving pressure $\tfrac12\rho(u_0/C_\mathrm{d})^2$ exceeds a
-threshold $P_\mathrm{th}$ taken from vocal-fold and brass-lip measurements (0.2--1.3\,kPa), with discharge
-coefficient $C_\mathrm{d} = 0.85$. This gives an onset velocity $u_\mathrm{onset} \approx 30$\,m\,s$^{-1}$ (14--51).
+threshold $P_\mathrm{th}$ = 0.6--2.5\,kPa (nominal 1.2\,kPa), with discharge coefficient $C_\mathrm{d} = 0.85$. The
+closest measured soft-tissue sphincter source, the pharyngo-oesophageal segment of oesophageal speech, sustains
+phonation down to 1.1--2.5\,kPa \cite{nagai1993,grolman2007,ng2011}, which bounds the onset from above; lips on a brass
+instrument start at about 0.6\,kPa \cite{matteoli2021}. This gives an onset velocity
+$u_\mathrm{onset} \approx 42$\,m\,s$^{-1}$ (21--71).
 
-An oscillating valve radiates as a harmonic monopole with its fundamental at 160\,Hz and harmonics falling by 12\,dB
-per octave. A release counts as \emph{audible} when at least one harmonic exceeds both the ISO 226 hearing threshold
+An oscillating valve radiates as a harmonic monopole with harmonics falling by 12\,dB per octave. Its fundamental is
+taken as 160\,Hz (60--300\,Hz), between oesophageal speech at 60--150\,Hz \cite{nagai1993,robbins1984,pindzola1989,deschler1999}
+and recordings of flatus near 270\,Hz, which are not peer-reviewed. A release counts as \emph{audible} when at least one harmonic exceeds both the ISO 226 hearing threshold
 \cite{iso226_2023} and the masked threshold of the background, computed from the critical ratio \cite{hawkins1950}.
 Backgrounds range from a 35\,dB(A) living room to a 77\,dB(A) subway car.
 

@@ -18,7 +18,7 @@ from matplotlib.patches import Patch, Rectangle
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "gate0"))
 sys.path.insert(0, str(ROOT / "acoustics"))
-from model import load_params, nominal  # noqa: E402
+from model import load_params, nominal, prior_range  # noqa: E402
 import regime as ac  # noqa: E402
 
 INK, INK2, MUTED, SURFACE = "#0b0b0b", "#52514e", "#8a8984", "#fcfcfb"
@@ -33,7 +33,8 @@ plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "sa
 P = nominal(load_params())
 NU = P["nu_gas"]
 SEED = 20261015
-PRIOR = {"V": (1.7e-5, 3.75e-4), "T": (0.3, 5.0), "d": (1.0e-3, 1.5e-2)}  # same as Gate 0 release prior
+PRIOR = {k: prior_range(load_params(), name)  # same as the Gate 0 release prior (params.yaml)
+         for k, name in (("V", "V_passage"), ("T", "T_release"), ("d", "d_orifice"))}
 
 
 def prior_samples(n=200000):
@@ -44,7 +45,7 @@ def prior_samples(n=200000):
 
 
 def regime_map():
-    Q = np.geomspace(1e-6, 2e-3, 300)            # 1 mL/s .. 2 L/s
+    Q = np.geomspace(5e-7, 2e-3, 300)            # 0.5 mL/s .. 2 L/s
     d = np.geomspace(1e-3, 1.5e-2, 240)
     QQ, DD = np.meshgrid(Q, d)
     fig, axes = plt.subplots(1, 2, figsize=(11.2, 4.9), constrained_layout=True)
@@ -62,9 +63,10 @@ def regime_map():
             k = j[int(0.55 * j.size)]
             ax.text(Q[k] * 1e6, dd[k] * 1e3 * 1.06, f"Re {Re:,}", fontsize=7, color=INK2, rotation=33, ha="center")
     qs, ds = prior_samples(20000)
-    ax.add_patch(Rectangle((PRIOR["V"][0] / PRIOR["T"][1] * 1e6, 1.0), (PRIOR["V"][1] / PRIOR["T"][0] -
-                 PRIOR["V"][0] / PRIOR["T"][1]) * 1e6, 14.0, fill=False, ec=INK, lw=0.8, ls=(0, (4, 2))))
-    ax.text(PRIOR["V"][0] / PRIOR["T"][1] * 1e6 * 1.1, 13.0, "sampled releases\n(Suarez 1997 volumes)", fontsize=7,
+    ax.add_patch(Rectangle((PRIOR["V"][0] / PRIOR["T"][1] * 1e6, PRIOR["d"][0] * 1e3), (PRIOR["V"][1] / PRIOR["T"][0] -
+                 PRIOR["V"][0] / PRIOR["T"][1]) * 1e6, (PRIOR["d"][1] - PRIOR["d"][0]) * 1e3,
+                 fill=False, ec=INK, lw=0.8, ls=(0, (4, 2))))
+    ax.text(PRIOR["V"][0] / PRIOR["T"][1] * 1e6 * 1.1, PRIOR["d"][1] * 1e3 * 0.93, "sampled releases\n(Suarez 1997 volumes)", fontsize=7,
             color=INK, va="top")
     ax.set_xscale("log"); ax.set_yscale("log")
     ax.set_xlabel("volume flow rate Q (mL/s)"); ax.set_ylabel("effective orifice diameter d (mm)")
