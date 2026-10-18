@@ -10,6 +10,10 @@
     "exposure_s_dt": 0.0014297241760641733,
     "worst_breath_OAV_mean": 6.6917976826344345,
     "worst_breath_OAV_max": 6.742195672621068,
+    "t_notice_s": {
+     "1.0": 17.589474,
+     "0.05": null
+    },
     "bz_peak_OAV": 6.467027998857743,
     "head_ring_peak_OAV": 301.5905826604059,
     "t_head_ring_peak_s": 8.8
@@ -23,6 +27,10 @@
     "exposure_s_dt": 0.0004432348328684873,
     "worst_breath_OAV_mean": 3.552264760764115,
     "worst_breath_OAV_max": 3.8702175477586267,
+    "t_notice_s": {
+     "1.0": 35.739999999999995,
+     "0.05": null
+    },
     "bz_peak_OAV": 3.5704804462503295,
     "head_ring_peak_OAV": 41.801717453701535,
     "t_head_ring_peak_s": 13.8
@@ -36,6 +44,10 @@
     "exposure_s_dt": 0.005014455934283058,
     "worst_breath_OAV_mean": 27.0052909158881,
     "worst_breath_OAV_max": 29.95328700585054,
+    "t_notice_s": {
+     "1.0": 8.756713000000001,
+     "0.05": 16.505882
+    },
     "bz_peak_OAV": 28.388963338292964,
     "head_ring_peak_OAV": 87.81246908129204,
     "t_head_ring_peak_s": 10.3
@@ -49,6 +61,10 @@
     "exposure_s_dt": 0.0014800876081899552,
     "worst_breath_OAV_mean": 7.620567928874853,
     "worst_breath_OAV_max": 7.726595630576148,
+    "t_notice_s": {
+     "1.0": 17.250658,
+     "0.05": null
+    },
     "bz_peak_OAV": 7.457898969498525,
     "head_ring_peak_OAV": 26.982631460921606,
     "t_head_ring_peak_s": 21.8
@@ -64,6 +80,10 @@
     "exposure_s_dt": 0.0003974629406870813,
     "worst_breath_OAV_mean": 1.9435307765825849,
     "worst_breath_OAV_max": 1.963274847780379,
+    "t_notice_s": {
+     "1.0": 13.3,
+     "0.05": null
+    },
     "bz_peak_OAV": 2.2080656734483473,
     "head_ring_peak_OAV": 15.360349364891592,
     "t_head_ring_peak_s": 18.3
@@ -77,6 +97,10 @@
     "exposure_s_dt": 7.846365546688433e-05,
     "worst_breath_OAV_mean": 0.8170883313252314,
     "worst_breath_OAV_max": 0.9019700457123492,
+    "t_notice_s": {
+     "1.0": null,
+     "0.05": null
+    },
     "bz_peak_OAV": 0.9093157604925338,
     "head_ring_peak_OAV": 4.775618156910528,
     "t_head_ring_peak_s": 24.8
@@ -90,6 +114,10 @@
     "exposure_s_dt": 0.004004671334486273,
     "worst_breath_OAV_mean": 19.752725058180896,
     "worst_breath_OAV_max": 21.206081646720804,
+    "t_notice_s": {
+     "1.0": 8.5878788,
+     "0.05": 16.360547
+    },
     "bz_peak_OAV": 18.70284764402837,
     "head_ring_peak_OAV": 88.82722310700557,
     "t_head_ring_peak_s": 11.8
@@ -103,11 +131,510 @@
     "exposure_s_dt": 0.00044294689440275574,
     "worst_breath_OAV_mean": 2.6655558003192374,
     "worst_breath_OAV_max": 3.1412898495798025,
+    "t_notice_s": {
+     "1.0": 28.26875,
+     "0.05": null
+    },
     "bz_peak_OAV": 2.698946407466939,
     "head_ring_peak_OAV": 9.533918713883024,
     "t_head_ring_peak_s": 58.8
    }
+  },
+  "BL_silent": {
+   "FL": {
+    "peak_s": 4.1515267e-06,
+    "peak_OAV": 0.5929490430656124,
+    "t_peak_s": 55.241963999999996,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 4.274664084790083e-05,
+    "worst_breath_OAV_mean": 0.5668869521987587,
+    "worst_breath_OAV_max": 0.5900759653686265,
+    "t_notice_s": {
+     "1.0": null,
+     "0.05": null
+    },
+    "bz_peak_OAV": 0.5451089505295988,
+    "head_ring_peak_OAV": 7.1282362966270645,
+    "t_head_ring_peak_s": 59.8
+   },
+   "FR": {
+    "peak_s": 3.2438399e-06,
+    "peak_OAV": 0.46330709243976476,
+    "t_peak_s": 59.8,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 2.646234693914028e-05,
+    "worst_breath_OAV_mean": 0.41022607784078174,
+    "worst_breath_OAV_max": 0.4617894096037021,
+    "t_notice_s": {
+     "1.0": null,
+     "0.05": null
+    },
+    "bz_peak_OAV": 0.41281942973366903,
+    "head_ring_peak_OAV": 4.930577604823246,
+    "t_head_ring_peak_s": 58.3
+   },
+   "BL": {
+    "peak_s": 3.7102407e-05,
+    "peak_OAV": 5.2992160031346724,
+    "t_peak_s": 59.8,
+    "t_arrival_s": 28.168452000000002,
+    "time_above_OAV1_s": 31.659091500000002,
+    "exposure_s_dt": 0.0007758259481537493,
+    "worst_breath_OAV_mean": 4.459773335598249,
+    "worst_breath_OAV_max": 5.172190423962033,
+    "t_notice_s": {
+     "1.0": 28.168452000000002,
+     "0.05": null
+    },
+    "bz_peak_OAV": 6.051749750893303,
+    "head_ring_peak_OAV": 74.14502940744542,
+    "t_head_ring_peak_s": 18.3
+   },
+   "BR": {
+    "peak_s": 1.7155235e-05,
+    "peak_OAV": 2.4502263653551113,
+    "t_peak_s": 52.503704,
+    "t_arrival_s": 38.511537999999994,
+    "time_above_OAV1_s": 21.314658500000004,
+    "exposure_s_dt": 0.00031096013183992834,
+    "worst_breath_OAV_mean": 2.333761565907976,
+    "worst_breath_OAV_max": 2.388202540445846,
+    "t_notice_s": {
+     "1.0": 38.511537999999994,
+     "0.05": null
+    },
+    "bz_peak_OAV": 2.391638296754035,
+    "head_ring_peak_OAV": 84.10600651444275,
+    "t_head_ring_peak_s": 13.8
+   }
+  },
+  "BL_audible": {
+   "FL": {
+    "peak_s": 0.0,
+    "peak_OAV": 0.0,
+    "t_peak_s": -0.2,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 0.0,
+    "worst_breath_OAV_mean": 0.0,
+    "worst_breath_OAV_max": 0.0,
+    "t_notice_s": {
+     "1.0": null,
+     "0.05": null
+    },
+    "bz_peak_OAV": 0.0,
+    "head_ring_peak_OAV": 0.0,
+    "t_head_ring_peak_s": -0.2
+   },
+   "FR": {
+    "peak_s": 0.0,
+    "peak_OAV": 0.0,
+    "t_peak_s": -0.2,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 0.0,
+    "worst_breath_OAV_mean": 0.0,
+    "worst_breath_OAV_max": 0.0,
+    "t_notice_s": {
+     "1.0": null,
+     "0.05": null
+    },
+    "bz_peak_OAV": 0.0,
+    "head_ring_peak_OAV": 0.0,
+    "t_head_ring_peak_s": -0.2
+   },
+   "BL": {
+    "peak_s": 0.0,
+    "peak_OAV": 0.0,
+    "t_peak_s": -0.2,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 0.0,
+    "worst_breath_OAV_mean": 0.0,
+    "worst_breath_OAV_max": 0.0,
+    "t_notice_s": {
+     "1.0": null,
+     "0.05": null
+    },
+    "bz_peak_OAV": 0.0,
+    "head_ring_peak_OAV": 0.0,
+    "t_head_ring_peak_s": -0.2
+   },
+   "BR": {
+    "peak_s": 0.0,
+    "peak_OAV": 0.0,
+    "t_peak_s": -0.2,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 0.0,
+    "worst_breath_OAV_mean": 0.0,
+    "worst_breath_OAV_max": 0.0,
+    "t_notice_s": {
+     "1.0": null,
+     "0.05": null
+    },
+    "bz_peak_OAV": 0.0,
+    "head_ring_peak_OAV": 0.0,
+    "t_head_ring_peak_s": -0.2
+   }
   }
  },
- "attribution": {}
+ "attribution": {
+  "silent | attentive, Amoore thresholds | culprit stays still": {
+   "P_no_one_reacts": 0.606219247756245,
+   "P_correct": 0.5161227745263945,
+   "mean_posterior_true": 0.431917781490357,
+   "p_react": {
+    "FL": {
+     "FL": 0.0,
+     "FR": 0.10627311146788404,
+     "BL": 0.5857481581759968,
+     "BR": 0.24320978450645753
+    },
+    "FR": {
+     "FL": 0.10627311146788404,
+     "FR": 0.0,
+     "BL": 0.24320978450645753,
+     "BR": 0.5857481581759968
+    },
+    "BL": {
+     "FL": 0.005079093199487164,
+     "FR": 0.002525849552743136,
+     "BL": 0.0,
+     "BR": 0.06061451829083309
+    },
+    "BR": {
+     "FL": 0.002525849552743136,
+     "FR": 0.005079093199487164,
+     "BL": 0.06061451829083309,
+     "BR": 0.0
+    }
+   }
+  },
+  "silent | attentive, Amoore thresholds | culprit acts along": {
+   "P_no_one_reacts": 0.5110889550487644,
+   "P_correct": 0.4935575863173313,
+   "mean_posterior_true": 0.3958431783080738,
+   "p_react": {
+    "FL": {
+     "FL": 0.2148318883502497,
+     "FR": 0.10627311146788404,
+     "BL": 0.5857481581759968,
+     "BR": 0.24320978450645753
+    },
+    "FR": {
+     "FL": 0.10627311146788404,
+     "FR": 0.2148318883502497,
+     "BL": 0.24320978450645753,
+     "BR": 0.5857481581759968
+    },
+    "BL": {
+     "FL": 0.005079093199487164,
+     "FR": 0.002525849552743136,
+     "BL": 0.13951990341984594,
+     "BR": 0.06061451829083309
+    },
+    "BR": {
+     "FL": 0.002525849552743136,
+     "FR": 0.005079093199487164,
+     "BL": 0.06061451829083309,
+     "BR": 0.13951990341984594
+    }
+   }
+  },
+  "silent | distracted (everyday) | culprit stays still": {
+   "P_no_one_reacts": 0.909187000257186,
+   "P_correct": 0.3091939366591453,
+   "mean_posterior_true": 0.27888982403048856,
+   "p_react": {
+    "FL": {
+     "FL": 0.0,
+     "FR": 0.019923933452211707,
+     "BL": 0.1113842745472653,
+     "BR": 0.04086760577341513
+    },
+    "FR": {
+     "FL": 0.019923933452211707,
+     "FR": 0.0,
+     "BL": 0.04086760577341513,
+     "BR": 0.1113842745472653
+    },
+    "BL": {
+     "FL": 0.0024633988267178646,
+     "FR": 0.001614211687943479,
+     "BL": 0.0,
+     "BR": 0.012923970206763292
+    },
+    "BR": {
+     "FL": 0.001614211687943479,
+     "FR": 0.0024633988267178646,
+     "BL": 0.012923970206763292,
+     "BR": 0.0
+    }
+   }
+  },
+  "silent | distracted (everyday) | culprit acts along": {
+   "P_no_one_reacts": 0.8817477960825582,
+   "P_correct": 0.3095659108891202,
+   "mean_posterior_true": 0.27286784603061276,
+   "p_react": {
+    "FL": {
+     "FL": 0.03638438143240747,
+     "FR": 0.019923933452211707,
+     "BL": 0.1113842745472653,
+     "BR": 0.04086760577341513
+    },
+    "FR": {
+     "FL": 0.019923933452211707,
+     "FR": 0.03638438143240747,
+     "BL": 0.04086760577341513,
+     "BR": 0.1113842745472653
+    },
+    "BL": {
+     "FL": 0.0024633988267178646,
+     "FR": 0.001614211687943479,
+     "BL": 0.02490790821792594,
+     "BR": 0.012923970206763292
+    },
+    "BR": {
+     "FL": 0.001614211687943479,
+     "FR": 0.0024633988267178646,
+     "BL": 0.012923970206763292,
+     "BR": 0.02490790821792594
+    }
+   }
+  },
+  "audible | attentive, Amoore thresholds | culprit stays still": {
+   "P_no_one_reacts": 0.7309480298402522,
+   "P_correct": 0.49189763142967047,
+   "mean_posterior_true": 0.43389551349547145,
+   "p_react": {
+    "FL": {
+     "FL": 0.0,
+     "FR": 0.010536275260516162,
+     "BL": 0.49641988002917187,
+     "BR": 0.0730083898818443
+    },
+    "FR": {
+     "FL": 0.010536275260516162,
+     "FR": 0.0,
+     "BL": 0.0730083898818443,
+     "BR": 0.49641988002917187
+    },
+    "BL": {
+     "FL": 0.0,
+     "FR": 0.0,
+     "BL": 0.0,
+     "BR": 0.0
+    },
+    "BR": {
+     "FL": 0.0,
+     "FR": 0.0,
+     "BL": 0.0,
+     "BR": 0.0
+    }
+   }
+  },
+  "audible | attentive, Amoore thresholds | culprit acts along": {
+   "P_no_one_reacts": 0.7202503138655478,
+   "P_correct": 0.5002281428216258,
+   "mean_posterior_true": 0.4404780484490138,
+   "p_react": {
+    "FL": {
+     "FL": 0.046320879992368766,
+     "FR": 0.010536275260516162,
+     "BL": 0.49641988002917187,
+     "BR": 0.0730083898818443
+    },
+    "FR": {
+     "FL": 0.010536275260516162,
+     "FR": 0.046320879992368766,
+     "BL": 0.0730083898818443,
+     "BR": 0.49641988002917187
+    },
+    "BL": {
+     "FL": 0.0,
+     "FR": 0.0,
+     "BL": 0.0,
+     "BR": 0.0
+    },
+    "BR": {
+     "FL": 0.0,
+     "FR": 0.0,
+     "BL": 0.0,
+     "BR": 0.0
+    }
+   }
+  },
+  "audible | distracted (everyday) | culprit stays still": {
+   "P_no_one_reacts": 0.9470744344429396,
+   "P_correct": 0.29585122984244355,
+   "mean_posterior_true": 0.278422171388463,
+   "p_react": {
+    "FL": {
+     "FL": 0.0,
+     "FR": 0.0038944435620915513,
+     "BL": 0.08881136409296175,
+     "BR": 0.014864035702415478
+    },
+    "FR": {
+     "FL": 0.0038944435620915513,
+     "FR": 0.0,
+     "BL": 0.014864035702415478,
+     "BR": 0.08881136409296175
+    },
+    "BL": {
+     "FL": 0.0,
+     "FR": 0.0,
+     "BL": 0.0,
+     "BR": 0.0
+    },
+    "BR": {
+     "FL": 0.0,
+     "FR": 0.0,
+     "BL": 0.0,
+     "BR": 0.0
+    }
+   }
+  },
+  "audible | distracted (everyday) | culprit acts along": {
+   "P_no_one_reacts": 0.9423292645508723,
+   "P_correct": 0.2988323216960034,
+   "mean_posterior_true": 0.27955319319719163,
+   "p_react": {
+    "FL": {
+     "FL": 0.010613825185463523,
+     "FR": 0.0038944435620915513,
+     "BL": 0.08881136409296175,
+     "BR": 0.014864035702415478
+    },
+    "FR": {
+     "FL": 0.0038944435620915513,
+     "FR": 0.010613825185463523,
+     "BL": 0.014864035702415478,
+     "BR": 0.08881136409296175
+    },
+    "BL": {
+     "FL": 0.0,
+     "FR": 0.0,
+     "BL": 0.0,
+     "BR": 0.0
+    },
+    "BR": {
+     "FL": 0.0,
+     "FR": 0.0,
+     "BL": 0.0,
+     "BR": 0.0
+    }
+   }
+  }
+ },
+ "first_noticer": {
+  "silent | scale 1.0": {
+   "FL": {
+    "first": "BL",
+    "times_s": {
+     "FL": 17.589474,
+     "FR": 35.739999999999995,
+     "BL": 8.756713000000001,
+     "BR": 17.250658
+    }
+   },
+   "FR": {
+    "first": "BR",
+    "times_s": {
+     "FL": 35.739999999999995,
+     "FR": 17.589474,
+     "BL": 17.250658,
+     "BR": 8.756713000000001
+    }
+   },
+   "BL": {
+    "first": "BL",
+    "times_s": {
+     "BL": 28.168452000000002,
+     "BR": 38.511537999999994
+    }
+   },
+   "BR": {
+    "first": "BR",
+    "times_s": {
+     "BL": 38.511537999999994,
+     "BR": 28.168452000000002
+    }
+   }
+  },
+  "silent | scale 0.05": {
+   "FL": {
+    "first": "BL",
+    "times_s": {
+     "BL": 16.505882
+    }
+   },
+   "FR": {
+    "first": "BR",
+    "times_s": {
+     "BR": 16.505882
+    }
+   },
+   "BL": {
+    "first": null,
+    "times_s": {}
+   },
+   "BR": {
+    "first": null,
+    "times_s": {}
+   }
+  },
+  "audible | scale 1.0": {
+   "FL": {
+    "first": "BL",
+    "times_s": {
+     "FL": 13.3,
+     "BL": 8.5878788,
+     "BR": 28.26875
+    }
+   },
+   "FR": {
+    "first": "BR",
+    "times_s": {
+     "FR": 13.3,
+     "BL": 28.26875,
+     "BR": 8.5878788
+    }
+   },
+   "BL": {
+    "first": null,
+    "times_s": {}
+   },
+   "BR": {
+    "first": null,
+    "times_s": {}
+   }
+  },
+  "audible | scale 0.05": {
+   "FL": {
+    "first": "BL",
+    "times_s": {
+     "BL": 16.360547
+    }
+   },
+   "FR": {
+    "first": "BR",
+    "times_s": {
+     "BR": 16.360547
+    }
+   },
+   "BL": {
+    "first": null,
+    "times_s": {}
+   },
+   "BR": {
+    "first": null,
+    "times_s": {}
+   }
+  }
+ }
 }
