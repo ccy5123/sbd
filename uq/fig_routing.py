@@ -74,7 +74,7 @@ def main():
     ax2.text(1.02, -0.75, "P(R>1)", fontsize=7.5, color=INK2, va="bottom")
     nb = g0["headline"]["nb_conc"]["P_SBD"] if "headline" in g0 else d["gate0_neighbour_P_R_gt_1"]
     ax2.axvline(nb, color=INK, lw=0.9, ls=(0, (2, 2)), zorder=3)
-    ax2.text(nb + 0.01, -0.75, f"analytic model, no routing: {nb:.2f}", fontsize=7, color=INK, va="bottom")
+    ax2.text(nb + 0.01, -0.75, f"analytic model: {nb:.2f}", fontsize=7, color=INK, va="bottom")
     ax2.set_xlim(0, 1.15)
     ax2.set_xticks([0, 0.25, 0.5, 0.75, 1.0])
     ax2.set_xlabel("share of passages as emitted")

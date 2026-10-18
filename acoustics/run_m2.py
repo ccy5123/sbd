@@ -64,7 +64,7 @@ def regime_map():
     qs, ds = prior_samples(20000)
     ax.add_patch(Rectangle((PRIOR["V"][0] / PRIOR["T"][1] * 1e6, 1.0), (PRIOR["V"][1] / PRIOR["T"][0] -
                  PRIOR["V"][0] / PRIOR["T"][1]) * 1e6, 14.0, fill=False, ec=INK, lw=0.8, ls=(0, (4, 2))))
-    ax.text(PRIOR["V"][0] / PRIOR["T"][1] * 1e6 * 1.1, 13.0, "release prior\n(Suarez 1997 volumes)", fontsize=7,
+    ax.text(PRIOR["V"][0] / PRIOR["T"][1] * 1e6 * 1.1, 13.0, "sampled releases\n(Suarez 1997 volumes)", fontsize=7,
             color=INK, va="top")
     ax.set_xscale("log"); ax.set_yscale("log")
     ax.set_xlabel("volume flow rate Q (mL/s)"); ax.set_ylabel("effective orifice diameter d (mm)")
@@ -76,7 +76,7 @@ def regime_map():
     Qf = np.geomspace(1e-7, 1e-1, 4000)
     qlo, qhi = PRIOR["V"][0] / PRIOR["T"][1] * 1e6, PRIOR["V"][1] / PRIOR["T"][0] * 1e6
     ax.axvspan(qlo, qhi, color="#e4e3df", lw=0)
-    ax.text(np.sqrt(qlo * qhi), len(BG_ORDER) - 0.35, "flow-rate range of the release prior", ha="center",
+    ax.text(np.sqrt(qlo * qhi), len(BG_ORDER) - 0.35, "flow-rate range of the sampled releases", ha="center",
             fontsize=7.5, color=INK2)
     for r, col, lab in ((0.6, "#2a78d6", "sofa neighbour, 0.6 m"), (3.0, "#eb6834", "across the room, 3 m")):
         qstar = []
@@ -93,7 +93,7 @@ def regime_map():
     ax.set_ylim(-0.6, len(BG_ORDER) - 0.1)
     ax.set_xscale("log"); ax.set_xlim(1, 3e4)
     ax.set_xlabel("minimum audible flow rate Q* of an oscillating release (mL/s)")
-    ax.set_title("b  Audible to the right of each dot; masked (S3) to the left", loc="left")
+    ax.set_title("b  Audible to the right of each dot; masked to the left", loc="left")
     ax.legend(frameon=False, fontsize=8, loc="upper left")
     ax.tick_params(axis="y", length=0)
     axes[0].set_ylim(1, 15)

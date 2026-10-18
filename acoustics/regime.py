@@ -18,8 +18,8 @@ from __future__ import annotations
 import numpy as np
 
 S1, S2, S3, AUDIBLE = 0, 1, 2, 3
-LABELS = {S1: "S1 · no oscillation (physically silent)", S2: "S2 · oscillating, below hearing threshold",
-          S3: "S3 · audible in quiet, masked here", AUDIBLE: "audible"}
+LABELS = {S1: "no oscillation (physically silent)", S2: "oscillating, below hearing threshold",
+          S3: "audible in quiet, masked here", AUDIBLE: "audible"}
 OCTAVES = np.array([31.5, 63, 125, 250, 500, 1000, 2000, 4000, 8000])
 P_REF = 2e-5
 

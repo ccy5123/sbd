@@ -145,7 +145,7 @@ def figure(base, rows, out):
                 ax.annotate(lab, (o["p_S"], o["belief_memory"]), xytext=(6, 4), textcoords="offset points",
                             fontsize=7, color=INK2)
     ax.axvline(base["p_S_nb"], color=INK2, lw=0.7, ls=":")
-    ax.text(base["p_S_nb"], 0.03, "Gate 0 nominal\n(puff centred\non the nose) ", fontsize=7.5, color=INK2,
+    ax.text(base["p_S_nb"], 0.03, "analytic model\n(puff centred\non the nose) ", fontsize=7.5, color=INK2,
             ha="right")
     ax.set_xscale("log")
     ax.set_xlim(1e-3, 1)

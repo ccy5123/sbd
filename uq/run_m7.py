@@ -130,7 +130,7 @@ def figure(rm, sob, heads, out):
     ax.axvline(rm["Si_onset"], color=INK, lw=1.4)
     ax.text(rm["Si_onset"] * 1.06, 0.6, "acoustic onset\n(audible →)", fontsize=7.5, color=INK, va="bottom")
     ax.axvspan(rm["Si"].min(), rm["Si_onset"], color=SURFACE, alpha=0.6, lw=0, zorder=1.5)
-    ax.text(rm["Si"].min() * 1.2, 40.0, "comparator not audible (S1):\nonly the right of the onset\nline is a "
+    ax.text(rm["Si"].min() * 1.2, 40.0, "comparison release not audible:\nonly the right of the onset\nline is a "
             "silent-vs-audible pair", fontsize=7, color=INK2, va="top")
     for t_nom, lab in ((P0["L_own"] / P0["u_own_eff"], "own nose (nominal)"),
                        (P0["L_neighbour"] / P0["u_room"], "neighbour (nominal)")):

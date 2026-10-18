@@ -1,4 +1,4 @@
-% Preprint (M9). Skeleton: structure, claims and sources only; prose to be written section by section.
+% Preprint. Build si.tex first, then main.tex (main.tex reads si.aux for the S-numbers).
 % Build: latexmk -pdf main.tex   (refs.bib is generated: python3 manuscript/preprint/make_bib.py)
 \documentclass[journal=jacsat,manuscript=article]{achemso}
 
@@ -21,9 +21,9 @@
 \affiliation{Independent Researcher, Incheon, Republic of Korea}
 \email{ccy5123ccy@gmail.com}
 
-\title{Silent but deadly? Physics says rarely, memory says always}
+\title{Silent but deadly? Rarely at the nose, usually in memory}
 
-\abbreviations{OAV, odour activity value; CBL, convective boundary layer; JND, just-noticeable difference}
+\abbreviations{CFD, computational fluid dynamics; OAV, odour activity value; RANS, Reynolds-averaged Navier--Stokes}
 \keywords{flatus, odour dispersion, starting jet, convective boundary layer, Berkson bias, olfactory perception}
 
 \begin{document}
@@ -50,8 +50,8 @@ To be written last, per the author.}
 \end{acknowledgement}
 
 \begin{suppinfo}
-The chain from release to memory; CFD validation; the CFD scenes in detail (sofa postures, elevator whodunit,
-standing pair); breath sampling; the cross-cultural survey; and the full parameter table (PDF). Code and data archive:
+Overview diagram; CFD validation; the CFD scenes in detail (sofa postures, elevator, standing pair); breath
+sampling; the cross-cultural survey; source files of every result; and the full parameter table (PDF). Code and data:
 \gap{Zenodo DOI}.
 \end{suppinfo}
 

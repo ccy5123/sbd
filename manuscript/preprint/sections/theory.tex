@@ -37,7 +37,7 @@ Folk experience is basis (C). Physics answers (A) and (B).
 
 \subsection{Linear transport bounds the silent advantage}
 \label{sec:thm1}
-Odorants at sub-ppm levels are a passive scalar. Once the release has lost its own momentum and buoyancy, the
+Odorants at sub-ppm levels are a passive scalar: the air carries them without being affected by them. Once the release has lost its own momentum and buoyancy, the
 concentration at a fixed nose is a linear functional of the release history $q(t)$ (volume of flatus per unit time):
 \begin{equation}
   C(t) = \int G(t-s)\,q(s)\,\mathrm{d}s = (G * q)(t), \qquad \int q\,\mathrm{d}s = V,
@@ -86,14 +86,14 @@ puff or a steady jet alike, the dilution at that hand-off is
 \end{equation}
 because entrained mass is inversely proportional to the remaining velocity (Section~\ref{sec:methods}; jet and puff
 coefficients from refs.~\citenum{sangras2002,diez2003}). We call $\mathrm{Si} = u_0/u_h$ the \emph{Silencer number}. A
-loud release ($\mathrm{Si}\approx 60$) arrives pre-diluted; a quiet one ($\mathrm{Si}\approx 5$) does not. This is the
-only mechanism by which, at equal mass, a silent release can deliver a higher concentration, and it is bounded by the
-ratio of the two Silencer numbers.
+loud release ($\mathrm{Si}\approx 60$) arrives pre-diluted; a quiet one ($\mathrm{Si}\approx 5$) does not. At equal
+mass, pre-dilution favours the silent release by at most the ratio of the two Silencer numbers.
 
-\emph{Routing.} Momentum also decides which flow the release joins, and different flows lead to different noses.
-This effect can take either sign; the sofa simulations of Section~\ref{sec:results} show how large it can be.
+\emph{Routing.} Momentum also sets which flow the release joins, and different flows lead to different noses. This
+effect can favour either release. In the rooms of Section~\ref{sec:res-rooms} it changes the ratio by more than
+pre-dilution does.
 
-\subsection{Selection makes the belief}
+\subsection{Selection biases what is remembered}
 \label{sec:thm3}
 Let $H$ be the event that a passage is heard and $S$ the event that it is smelled. An observer can only compare
 passages they noticed, $N = H\cup S$.
@@ -109,8 +109,9 @@ Whatever the joint law of $H$ and $S$,
 conditioning on $N$ adds nothing. \hfill$\square$
 
 Among remembered passages, then, every silent one stank, while audible ones stank only at the base rate $p_S$, even
-when sound and smell are independent. The gap $1-P(S\mid H)$ is largest when smelly passages are rare. This is the
-deterministic ``OR-collider'' case of Berkson's bias \cite{berkson1946,snoep2014}.
+when sound and smell are independent. The gap $1-P(S\mid H)$ is largest when smelly passages are rare. This is
+Berkson's bias \cite{berkson1946,snoep2014}: selecting on an event that either of two causes can produce (here,
+noticing, produced by hearing or by smelling) makes the two causes appear related among the selected cases.
 
 An observer whose noticing does not depend on smell has no such bias. The emitter, who feels every release, has
 $N$ certain for all passages and so compares silent and audible releases at their true frequencies.
