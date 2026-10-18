@@ -57,7 +57,7 @@ attentive OAV (Fallon 2018); attention changes detection only.
 
 ## Problems to fix, in order
 
-1. **Physics and memory numbers come from different populations** (confidence high). The headline uses CFD-routed
+1. **[DONE 2026-10-18, code only: `uq/four_outcomes.py`, NOTES]** **Physics and memory numbers come from different populations** (confidence high). The headline uses CFD-routed
    scenes. The memory result "truth 0.32–0.51 → remembered 0.68–0.93" (`sections/discussion.tex:13`, Table
    `tab:observers`) uses the Gate 0 receptor, which puts the puff centre on the nose with no routing
    (`uq/observer_ps.py:3`). Its "truth" also counts both-unsmelled pairs as half ties (`perception/selection.py:35`).

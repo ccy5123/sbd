@@ -38,7 +38,9 @@ SURFACE, INK, INK2, MUTED = "#fcfcfb", "#0b0b0b", "#52514e", "#8a8984"
 SILENT_C, AUDIBLE_C, EMITTER_C, TRUTH_C = "#2a78d6", "#eb6834", "#1baf7a", "#8a8984"
 
 
-def simulate(n=N_EVENTS, seed=SEED):
+def simulate(n=N_EVENTS, seed=SEED, distances=()):
+    """`distances` (m): extra listener distances; adds heard_living@<r> per passage (draws no random numbers, so the
+    other columns are unchanged)."""
     rng = np.random.default_rng(seed)
     P0 = g0.P0
     sig = P0["sulfur_sigma_ln"]
@@ -57,6 +59,8 @@ def simulate(n=N_EVENTS, seed=SEED):
                "OAV_own": m * oav(receptor(r, p, p["L_own"], p["u_own_eff"])["phi_inh"], p)}
         for bg in BACKGROUNDS:
             row[f"heard_{bg}"] = bool(classify(Q, r.d, p, background=bg, r=p["L_neighbour"]) == AUDIBLE)
+        for L in distances:
+            row[f"heard_living@{L:.3f}"] = bool(classify(Q, r.d, p, background="living", r=L) == AUDIBLE)
         rows.append(row)
     return {k: np.array([r[k] for r in rows]) for k in rows[0]}
 

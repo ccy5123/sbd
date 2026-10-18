@@ -619,3 +619,19 @@ The abstract-only pass was wrong or overstated in several places:
 - Withdrawn: the earlier recommendation of D as the headline. C (probability of superiority with a smelled-or-zero
   intensity, ties not split) is the recommended form for both physics and memory.
 - Nose-probe time series of all 14 release branches archived in `cfd/probe_archive/nose_probes.tar.xz`.
+
+### Headline redesign, item 1: physics and memory on one population (2026-10-18; `uq/four_outcomes.py`)
+- User choices: class = what the nose's owner perceives (bystander: heard at that nose's distance, living-room
+  background; culprit: the oscillation); sulfur spread in both; living-room noise for every scene.
+- One passage stream (`perception/run_selection.simulate`, now with per-distance hearing) is routed through each CFD
+  scene: OAV = m x V/V0 x OAV_CFD(route by oscillation). Physics = all silent-audible pairs, memory = Theorem 3
+  remembered pairs, same four outcomes, nothing split; expectations over smelling are exact.
+- Release-to-nose distances are 0.79-1.46 m; in the living room every oscillating release is heard there, so the
+  heard class equals the oscillation class in every scene (frac 0.155).
+- Bystanders (11 noses, equal weight as before; memory pooled over noses), none / silent worse / audible worse / tie:
+  attentive physics 85.7 / 5.5 / 8.5 / 0.3 %, memory 0 / 81.7 / 14.5 / 3.8 %;
+  distracted physics 96.6 / 1.4 / 2.0 / 0.0 %, memory 0 / 95.8 / 3.4 / 0.8 %.
+  Culprit (feels every release): memory = physics, attentive 82.5 / 3.1 / 14.2 / 0.1 %.
+- Versus the review draft (82.5 / 6.3 / 10.6 / 0.7 attentive): one stream instead of paired draws changes < 0.2
+  points; the sulfur multiplier (mean 1, so its log has mean -sigma^2/2) gives the rest.
+- Manuscript not yet changed; text and tables follow once items 2-7 are settled.
