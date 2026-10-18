@@ -31,7 +31,7 @@ Supported, not settled. LIV² glosses *pesd- "to fart softly" and *perd- "to far
 - *pesd-* reflexes drift towards "stink" (Serbo-Croatian *bazdjeti*), "fear" (Russian, Lithuanian), "nonsense" (Polish *bzdura*) and "puffball" (Greek πέζις; independently French *vesse-de-loup*, Italian *vescia*).
 - Classical Arabic jurisprudence (Bukhari 135/137) treats sound OR smell as alternative detection signs — a two-channel detection model 1,200 years before ours.
 - The HKUST *Science Focus* article explicitly disputes the Chinese proverb.
-- Grey literature counter-evidence: Flatology "Sound of Stink" (ICEF, 2020) reports n = 1,619 with a weak *positive* loudness–smell relation (R² = 0.0155). Non-peer-reviewed, possibly satirical.
+- Grey literature counter-evidence: Flatology "Sound of Stink" (ICEF, 2020) reports 1,619 recorded passages (not respondents) with a weak *positive* loudness–smell relation (R² = 0.0155). Non-peer-reviewed, possibly satirical.
 
 ## Corrections to the plan's seed table (§12.2)
 
