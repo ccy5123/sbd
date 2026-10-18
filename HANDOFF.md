@@ -96,8 +96,8 @@ Whether "seldom" survives is open: item 2 favours silent, item 5 favours audible
 
 The user chose new CFD runs (not a well-mixed tail), every scene 10 min after release, residence times as stated
 assumptions plus a headline-vs-window curve. The runs go on the user's own server (36 threads, 251 GB; OpenFOAM is
-CPU-only, the GPUs do not help), from a Claude Code session started there (`claude remote-control` in the repo
-folder), not from a cloud session.
+CPU-only, the GPUs do not help). The cloud session was moved to the user's local machine (`claude --teleport`),
+which reaches the server over SSH; drive the runs from there (repo clone + OpenFOAM 13 on the server).
 - Branch `claude/handoff-review-fixes-qkpzin`. OpenFOAM 13 (openfoam.org), as before; the run scripts source
   `/opt/openfoam13/etc/bashrc`. Raise `NP=4` in `cfd/cases/*/run_*.sh` to suit the cores (several cases at once).
 - Rerun all 14 release branches from scratch (precursors too; the old run directories are gone): sofa x3 postures,
@@ -107,7 +107,12 @@ folder), not from a cloud session.
   (`cfd/probe_archive/nose_probes.tar.xz`) over the old window.
 - Bring back: nose-probe series (archive as before) and the `results*.json` from the analyze scripts with windows
   30, 60, 120, 300, 600 s. Run directories stay on the server.
-- Meanwhile (cloud session): item 3 onwards. With the current windows only the elevator bystanders smell
+- Item 3 status: `uq/four_outcomes.py` aggregates per scene (variants and noses averaged inside a scene). The user
+  chose real-frequency scene weights: weight ∝ time per day spent near another person in that setting (passages
+  uniform over waking hours). A literature search for these weights (ATUS / NHAPS time use, elevator trips and ride
+  time, face-to-face standing conversation time; DOIs verified via OpenAlex) was running in the cloud session and
+  does not carry over: rerun it, show the user the weights and sources, and add them to params.yaml after approval.
+- Meanwhile: item 3 onwards. With the current windows only the elevator bystanders smell
   anything (sofa and standing bystanders: pi_s = pi_l = 0), so items 3 and 7 numbers wait for these runs.
 
 ## Data needed
