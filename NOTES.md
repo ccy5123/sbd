@@ -608,3 +608,14 @@ The abstract-only pass was wrong or overstated in several places:
   sensitive), and the culprit-never-reacts assumption alone made identification trivial. Both were corrected.
 - **Manuscript:** Results 4.5 "An elevator" (Table 3, Fig. 15), Methods "Elevator" paragraph, Discussion corner case
   and limitations, abstract sentence, introduction and conclusion lines.
+
+### Headline-definition review (2026-10-18; `HANDOFF.md`, `uq/drafts/`)
+- Four candidate headline definitions (A ratio, B noticed-weighted, C four-outcome, D per-passage smelled rate) were
+  checked against the "real frequency" goal. Seven problems found; the user chose to fix them in order next session
+  (details and numbers in `HANDOFF.md`).
+- Most serious: the memory result (truth 0.32–0.51 → belief 0.68–0.93) uses the unrouted Gate 0 receptor and
+  splits both-unsmelled pairs as half ties, while the headline uses the CFD-routed scenes, so the title's contrast
+  is not like for like. Gate 0, distracted: none 64 %, silent worse 19 %, audible worse 17 %.
+- Withdrawn: the earlier recommendation of D as the headline. C (probability of superiority with a smelled-or-zero
+  intensity, ties not split) is the recommended form for both physics and memory.
+- Nose-probe time series of all 14 release branches archived in `cfd/probe_archive/nose_probes.tar.xz`.
