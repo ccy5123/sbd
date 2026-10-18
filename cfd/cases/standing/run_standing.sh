@@ -27,6 +27,8 @@ if [ ! -f stand_mesh/constant/polyMesh/owner ]; then
   echo "$(date -u +%H:%M) standing mesh done"
 fi
 for vent in still vent; do
+  # with ONLY naming branches, skip the ventilation state (and its precursor) that has none of them
+  if [ "$ONLY" != "none" ] && [[ "stand_${vent}_silent" != $ONLY ]] && [[ "stand_${vent}_audible" != $ONLY ]]; then continue; fi
   v=$([ $vent = vent ] && echo on || echo off)
   tp=$([ $vent = vent ] && echo 90 || echo 30)
   pre=stand_${vent}_pre

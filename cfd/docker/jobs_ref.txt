@@ -1,0 +1,4 @@
+# PLAN v4 E0-5 reference: coupled 10-min branches for the frozen-flow check. sofa_silent and sofa_audible (upright)
+# were started by jobs_item2.txt and keep running; the standing-still branches start from the finished precursor.
+stand_still_silent|[ -f stand_still_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=stand_still_silent|bash cfd/cases/standing/run_standing.sh /sbd/cfd/runs
+stand_still_audible|[ -f stand_still_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=stand_still_audible|bash cfd/cases/standing/run_standing.sh /sbd/cfd/runs
