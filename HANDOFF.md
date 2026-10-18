@@ -92,6 +92,24 @@ supported (`params/params.yaml:128`). State this when quoting it.
 
 Whether "seldom" survives is open: item 2 favours silent, item 5 favours audible.
 
+## Item 2 plan: 10-minute runs on the user's server (decided 2026-10-18)
+
+The user chose new CFD runs (not a well-mixed tail), every scene 10 min after release, residence times as stated
+assumptions plus a headline-vs-window curve. The runs go on the user's own server (36 threads, 251 GB; OpenFOAM is
+CPU-only, the GPUs do not help), from a Claude Code session started there (`claude remote-control` in the repo
+folder), not from a cloud session.
+- Branch `claude/handoff-review-fixes-qkpzin`. OpenFOAM 13 (openfoam.org), as before; the run scripts source
+  `/opt/openfoam13/etc/bashrc`. Raise `NP=4` in `cfd/cases/*/run_*.sh` to suit the cores (several cases at once).
+- Rerun all 14 release branches from scratch (precursors too; the old run directories are gone): sofa x3 postures,
+  elevator x2 layouts, standing x2 ventilations, each silent and audible. Release end time = release start + 600 s
+  (sofa: `make_case.py --t-end`, and the `endTime -set 30/60` lines in the run scripts).
+- Before the full set, check that the rerun of one branch reproduces the archived probe series
+  (`cfd/probe_archive/nose_probes.tar.xz`) over the old window.
+- Bring back: nose-probe series (archive as before) and the `results*.json` from the analyze scripts with windows
+  30, 60, 120, 300, 600 s. Run directories stay on the server.
+- Meanwhile (cloud session): item 3 onwards. With the current windows only the elevator bystanders smell
+  anything (sofa and standing bystanders: pi_s = pi_l = 0), so items 3 and 7 numbers wait for these runs.
+
 ## Data needed
 
 CFD run directories (`cfd/runs/`, gitignored, ~16 GB) are lost when the container is reclaimed. The nose-probe time
