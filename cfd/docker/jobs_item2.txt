@@ -1,0 +1,19 @@
+# HANDOFF item 2: all 14 release branches to 600 s after release (elev_BL_silent runs separately as the reproduction
+# check, container sbd-elev). Precursors first, then branches longest first (elevator, standing, sofa).
+stand_pre||NP=4 ONLY=none|bash cfd/cases/standing/run_standing.sh /sbd/cfd/runs
+sofa_pre||NP=4 ONLY=none|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs 0
+sofa_rec-10_pre||NP=4 ONLY=none|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs -10
+sofa_rec4.5_pre||NP=4 ONLY=none|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs 4.5
+elev_FL_silent|grep -q "elev_pre done" pipeline_elev.log && [ -f elev_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=elev_FL_silent|bash cfd/cases/elevator/run_elevator.sh /sbd/cfd/runs
+elev_FL_audible|grep -q "elev_pre done" pipeline_elev.log && [ -f elev_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=elev_FL_audible|bash cfd/cases/elevator/run_elevator.sh /sbd/cfd/runs
+elev_BL_audible|grep -q "elev_pre done" pipeline_elev.log && [ -f elev_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=elev_BL_audible|bash cfd/cases/elevator/run_elevator.sh /sbd/cfd/runs
+stand_vent_silent|finished stand_pre && [ -f stand_still_pre/30/U ] && [ -f stand_vent_pre/90/U ]|NP=4 T_END=600 PURGE=3 ONLY=stand_vent_silent|bash cfd/cases/standing/run_standing.sh /sbd/cfd/runs
+stand_vent_audible|finished stand_pre && [ -f stand_still_pre/30/U ] && [ -f stand_vent_pre/90/U ]|NP=4 T_END=600 PURGE=3 ONLY=stand_vent_audible|bash cfd/cases/standing/run_standing.sh /sbd/cfd/runs
+stand_still_silent|finished stand_pre && [ -f stand_still_pre/30/U ] && [ -f stand_vent_pre/90/U ]|NP=4 T_END=600 PURGE=3 ONLY=stand_still_silent|bash cfd/cases/standing/run_standing.sh /sbd/cfd/runs
+stand_still_audible|finished stand_pre && [ -f stand_still_pre/30/U ] && [ -f stand_vent_pre/90/U ]|NP=4 T_END=600 PURGE=3 ONLY=stand_still_audible|bash cfd/cases/standing/run_standing.sh /sbd/cfd/runs
+sofa_silent|finished sofa_pre && [ -f sofa_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=sofa_silent|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs 0
+sofa_audible|finished sofa_pre && [ -f sofa_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=sofa_audible|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs 0
+sofa_rec-10_silent|finished sofa_rec-10_pre && [ -f sofa_rec-10_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=sofa_rec-10_silent|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs -10
+sofa_rec-10_audible|finished sofa_rec-10_pre && [ -f sofa_rec-10_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=sofa_rec-10_audible|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs -10
+sofa_rec4.5_silent|finished sofa_rec4.5_pre && [ -f sofa_rec4.5_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=sofa_rec4.5_silent|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs 4.5
+sofa_rec4.5_audible|finished sofa_rec4.5_pre && [ -f sofa_rec4.5_pre/30/U ]|NP=4 T_END=600 PURGE=3 ONLY=sofa_rec4.5_audible|bash cfd/cases/sofa/run_sofa.sh /sbd/cfd/runs 4.5
