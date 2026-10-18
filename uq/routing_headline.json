@@ -1,0 +1,424 @@
+{
+ "n_mc": 20000,
+ "JND_conc_ratio": 1.28,
+ "volume_ratio_median": 0.4729355610578464,
+ "gate0_neighbour_P_R_gt_1": 0.46635,
+ "scenes": [
+  {
+   "OAV_equal_mass": [
+    1.6749268737074787e-13,
+    0.11279540707655447
+   ],
+   "R_equal_mass": 1.484924712023693e-12,
+   "P_R_gt_1": 0.0,
+   "median_R": 7.022737018095861e-13,
+   "P_silent_perceptibly_worse": 0.0,
+   "P_indistinguishable": 0.0,
+   "P_audible_perceptibly_worse": 1.0,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 5.0571330634152714e-113,
+     "audible": 0.0008120564361564322
+    },
+    "distracted (everyday)": {
+     "silent": 5.024444304272644e-47,
+     "audible": 0.0006975920843881723
+    }
+   },
+   "scene": "sofa, upright",
+   "nose": "culprit",
+   "window_s": 30.0
+  },
+  {
+   "OAV_equal_mass": [
+    6.788298673070853e-17,
+    0.014658106712494843
+   ],
+   "R_equal_mass": 4.631088315985843e-15,
+   "P_R_gt_1": 0.0,
+   "median_R": 2.1902063510292012e-15,
+   "P_silent_perceptibly_worse": 0.0,
+   "P_indistinguishable": 0.0,
+   "P_audible_perceptibly_worse": 1.0,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 7.499270514181125e-175,
+     "audible": 2.558485456421166e-06
+    },
+    "distracted (everyday)": {
+     "silent": 3.2815008567897626e-69,
+     "audible": 2.9543571759424604e-05
+    }
+   },
+   "scene": "sofa, upright",
+   "nose": "beside",
+   "window_s": 30.0
+  },
+  {
+   "OAV_equal_mass": [
+    2.7943873087030332e-12,
+    1.5700534804607027
+   ],
+   "R_equal_mass": 1.7798039006181323e-12,
+   "P_R_gt_1": 0.0,
+   "median_R": 8.417325563117798e-13,
+   "P_silent_perceptibly_worse": 0.0,
+   "P_indistinguishable": 0.0,
+   "P_audible_perceptibly_worse": 1.0,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 4.1296761660591835e-94,
+     "audible": 0.08425910515616543
+    },
+    "distracted (everyday)": {
+     "silent": 3.997050078830961e-40,
+     "audible": 0.016129678491301713
+    }
+   },
+   "scene": "sofa, reclined 4.5 deg",
+   "nose": "culprit",
+   "window_s": 30.0
+  },
+  {
+   "OAV_equal_mass": [
+    2.9441846609439407e-18,
+    0.008790378229972607
+   ],
+   "R_equal_mass": 3.349326483933463e-16,
+   "P_R_gt_1": 0.0,
+   "median_R": 1.5840155998449759e-16,
+   "P_silent_perceptibly_worse": 0.0,
+   "P_indistinguishable": 0.0,
+   "P_audible_perceptibly_worse": 1.0,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 1.4626150844762968e-203,
+     "audible": 4.419519886011029e-07
+    },
+    "distracted (everyday)": {
+     "silent": 2.2140141243442582e-79,
+     "audible": 1.2078465085067672e-05
+    }
+   },
+   "scene": "sofa, reclined 4.5 deg",
+   "nose": "beside",
+   "window_s": 30.0
+  },
+  {
+   "OAV_equal_mass": [
+    1.2745357812592638e-08,
+    1.609536148404941e-07
+   ],
+   "R_equal_mass": 0.07918652728131242,
+   "P_R_gt_1": 0.00205,
+   "median_R": 0.03745012470800995,
+   "P_silent_perceptibly_worse": 0.0006,
+   "P_indistinguishable": 0.0047,
+   "P_audible_perceptibly_worse": 0.9947,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 3.920231307865935e-48,
+     "audible": 6.4411554362187465e-37
+    },
+    "distracted (everyday)": {
+     "silent": 6.508162515008059e-23,
+     "audible": 2.6175881150426395e-18
+    }
+   },
+   "scene": "sofa, leaning forward 10 deg",
+   "nose": "culprit",
+   "window_s": 29.8
+  },
+  {
+   "OAV_equal_mass": [
+    1.265369916867785e-06,
+    0.05506469698926913
+   ],
+   "R_equal_mass": 2.2979694542119738e-05,
+   "P_R_gt_1": 0.0,
+   "median_R": 1.086791473121533e-05,
+   "P_silent_perceptibly_worse": 0.0,
+   "P_indistinguishable": 0.0,
+   "P_audible_perceptibly_worse": 1.0,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 9.560738337879845e-30,
+     "audible": 0.00013424582804559958
+    },
+    "distracted (everyday)": {
+     "silent": 1.1005650717150415e-15,
+     "audible": 0.0002472314219628725
+    }
+   },
+   "scene": "sofa, leaning forward 10 deg",
+   "nose": "beside",
+   "window_s": 29.8
+  },
+  {
+   "OAV_equal_mass": [
+    0.8854925589967195,
+    0.4200075778217901
+   ],
+   "R_equal_mass": 2.108277578202257,
+   "P_R_gt_1": 0.4992,
+   "median_R": 0.9970794393127618,
+   "P_silent_perceptibly_worse": 0.42305,
+   "P_indistinguishable": 0.1522,
+   "P_audible_perceptibly_worse": 0.42475,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.018482399772999456,
+     "audible": 0.011975717157405592
+    },
+    "distracted (everyday)": {
+     "silent": 0.004792558474085217,
+     "audible": 0.00380987954652266
+    }
+   },
+   "scene": "sofa, upright (120 s)",
+   "nose": "culprit",
+   "window_s": 119.8
+  },
+  {
+   "OAV_equal_mass": [
+    0.2807234203196348,
+    0.31879986227559787
+   ],
+   "R_equal_mass": 0.8805631794061237,
+   "P_R_gt_1": 0.23825,
+   "median_R": 0.41644964129931616,
+   "P_silent_perceptibly_worse": 0.18195,
+   "P_indistinguishable": 0.12505,
+   "P_audible_perceptibly_worse": 0.693,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.0024432886105226403,
+     "audible": 0.007258829138609434
+    },
+    "distracted (everyday)": {
+     "silent": 0.001187717821948924,
+     "audible": 0.0027270764024331226
+    }
+   },
+   "scene": "sofa, upright (120 s)",
+   "nose": "beside",
+   "window_s": 119.8
+  },
+  {
+   "OAV_equal_mass": [
+    6.6917976826344345,
+    1.9435307765825849
+   ],
+   "R_equal_mass": 3.443113823183692,
+   "P_R_gt_1": 0.6492,
+   "median_R": 1.628370967753406,
+   "P_silent_perceptibly_worse": 0.57445,
+   "P_indistinguishable": 0.1463,
+   "P_audible_perceptibly_worse": 0.27925,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.19834774397213212,
+     "audible": 0.10819795558335404
+    },
+    "distracted (everyday)": {
+     "silent": 0.03559265173387934,
+     "audible": 0.01989157898432735
+    }
+   },
+   "scene": "elevator, front row (person behind)",
+   "nose": "culprit",
+   "window_s": 60.0
+  },
+  {
+   "OAV_equal_mass": [
+    3.552264760764115,
+    0.8170883313252314
+   ],
+   "R_equal_mass": 4.347467249963923,
+   "P_R_gt_1": 0.71685,
+   "median_R": 2.0560718630423005,
+   "P_silent_perceptibly_worse": 0.6452,
+   "P_indistinguishable": 0.14195,
+   "P_audible_perceptibly_worse": 0.21285,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.10927750857653068,
+     "audible": 0.03506172411946491
+    },
+    "distracted (everyday)": {
+     "silent": 0.020178452740373245,
+     "audible": 0.008149171709222617
+    }
+   },
+   "scene": "elevator, front row (person behind)",
+   "nose": "beside",
+   "window_s": 60.0
+  },
+  {
+   "OAV_equal_mass": [
+    27.0052909158881,
+    19.752725058180896
+   ],
+   "R_equal_mass": 1.3671678634894704,
+   "P_R_gt_1": 0.36765,
+   "median_R": 0.6465823005796498,
+   "P_silent_perceptibly_worse": 0.2925,
+   "P_indistinguishable": 0.14845,
+   "P_audible_perceptibly_worse": 0.55905,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.49629173428984724,
+     "audible": 0.6011788453992203
+    },
+    "distracted (everyday)": {
+     "silent": 0.10315828100559779,
+     "audible": 0.12857586333087379
+    }
+   },
+   "scene": "elevator, front row (person behind)",
+   "nose": "behind",
+   "window_s": 60.0
+  },
+  {
+   "OAV_equal_mass": [
+    7.620567928874853,
+    2.6655558003192374
+   ],
+   "R_equal_mass": 2.8589039208866622,
+   "P_R_gt_1": 0.59305,
+   "median_R": 1.3520773298350104,
+   "P_silent_perceptibly_worse": 0.51645,
+   "P_indistinguishable": 0.1501,
+   "P_audible_perceptibly_worse": 0.33345,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.2208494983797097,
+     "audible": 0.15180713772764243
+    },
+    "distracted (everyday)": {
+     "silent": 0.03972471918937972,
+     "audible": 0.026805903910455224
+    }
+   },
+   "scene": "elevator, front row (person behind)",
+   "nose": "diagonal behind",
+   "window_s": 60.0
+  },
+  {
+   "OAV_equal_mass": [
+    4.459773335598249,
+    22.871604101669764
+   ],
+   "R_equal_mass": 0.1949917161810552,
+   "P_R_gt_1": 0.02535,
+   "median_R": 0.09221851669371968,
+   "P_silent_perceptibly_worse": 0.0151,
+   "P_indistinguishable": 0.02745,
+   "P_audible_perceptibly_worse": 0.95745,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.13731789595086347,
+     "audible": 0.6362330959573559
+    },
+    "distracted (everyday)": {
+     "silent": 0.024896194865941367,
+     "audible": 0.14119106500734915
+    }
+   },
+   "scene": "elevator, back row (wall behind)",
+   "nose": "culprit",
+   "window_s": 60.0
+  },
+  {
+   "OAV_equal_mass": [
+    2.333761565907976,
+    5.942195459212851
+   ],
+   "R_equal_mass": 0.3927439920020948,
+   "P_R_gt_1": 0.088,
+   "median_R": 0.18574260020960903,
+   "P_silent_perceptibly_worse": 0.06005,
+   "P_indistinguishable": 0.06395,
+   "P_audible_perceptibly_worse": 0.876,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.06856953724940276,
+     "audible": 0.3057470257738235
+    },
+    "distracted (everyday)": {
+     "silent": 0.01343844943705391,
+     "audible": 0.05363840673934287
+    }
+   },
+   "scene": "elevator, back row (wall behind)",
+   "nose": "beside",
+   "window_s": 60.0
+  },
+  {
+   "OAV_equal_mass": [
+    0.5668869521987587,
+    2.8087202534362157
+   ],
+   "R_equal_mass": 0.2018310479675659,
+   "P_R_gt_1": 0.02745,
+   "median_R": 0.09545307990943389,
+   "P_silent_perceptibly_worse": 0.01595,
+   "P_indistinguishable": 0.02895,
+   "P_audible_perceptibly_worse": 0.9551,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.008975696551169995,
+     "audible": 0.1599955764183937
+    },
+    "distracted (everyday)": {
+     "silent": 0.002851983254581156,
+     "audible": 0.02812479782901492
+    }
+   },
+   "scene": "elevator, back row (wall behind)",
+   "nose": "in front",
+   "window_s": 60.0
+  },
+  {
+   "OAV_equal_mass": [
+    0.41022607784078174,
+    0.738880264511426
+   ],
+   "R_equal_mass": 0.5551996683955794,
+   "P_R_gt_1": 0.14145,
+   "median_R": 0.2625736666717936,
+   "P_silent_perceptibly_worse": 0.10175,
+   "P_indistinguishable": 0.08655,
+   "P_audible_perceptibly_worse": 0.8117,
+   "noticed": {
+    "attentive, Amoore thresholds": {
+     "silent": 0.005057983679749052,
+     "audible": 0.030164009843140105
+    },
+    "distracted (everyday)": {
+     "silent": 0.0019227023163610035,
+     "audible": 0.007294930309021154
+    }
+   },
+   "scene": "elevator, back row (wall behind)",
+   "nose": "diagonal in front",
+   "window_s": 60.0
+  }
+ ],
+ "summary_bystanders": {
+  "n": 9,
+  "P_R_gt_1_range": [
+   0.0,
+   0.71685
+  ],
+  "P_R_gt_1_equal_weight": 0.2149388888888889
+ },
+ "summary_culprit": {
+  "n": 5,
+  "P_R_gt_1_range": [
+   0.0,
+   0.6492
+  ],
+  "P_R_gt_1_equal_weight": 0.13532
+ }
+}

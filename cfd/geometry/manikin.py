@@ -119,9 +119,17 @@ STAND_NOSE = np.array([0.075, 0.0, 1.59])  # standing nose tip (stature ~1.69 m,
 STAND_REL = np.array([-0.195, 0.0, 0.83])  # release point behind the buttocks, as on the sofa relative to the torso
 
 
-def standing(dx: float = 0.0, dy: float = 0.0):
-    """Standing manikin facing +x, centred at (dx, dy). Same torso, head and nose primitives as the seated one,
-    raised by 0.375 m (nose at 1.59 m); straight legs, arms hanging at the sides."""
+def standing(dx: float = 0.0, dy: float = 0.0, facing: int = 1):
+    """Standing manikin facing +x (facing = 1) or -x (facing = -1), centred at (dx, dy). Same torso, head and nose
+    primitives as the seated one, raised by 0.375 m (nose at 1.59 m); straight legs, arms hanging at the sides.
+    The body is mirror-symmetric about its own y = 0, so facing -x is the x-mirror (vertex order reversed)."""
+    t = _standing()
+    if facing < 0:
+        t = [tuple((-p[0], p[1], p[2]) for p in tri[::-1]) for tri in t]
+    return _shift(t, dx=dx, dy=dy)
+
+
+def _standing():
     t = []
     t += cylinder((-0.07, 0, 0.80), (-0.07, 0, 1.425), 0.11, 0.17)               # torso incl. pelvis (elliptic)
     t += ellipsoid((-0.07, 0, 1.425), (0.11, 0.19, 0.07))                         # shoulders cap
@@ -132,7 +140,7 @@ def standing(dx: float = 0.0, dy: float = 0.0):
         t += cylinder((-0.07, s * 0.20, 1.37), (-0.05, s * 0.20, 0.78), 0.045)   # arm, hanging
         t += cylinder((-0.05, s * 0.10, 0.88), (-0.03, s * 0.10, 0.07), 0.065)   # leg
         t += box((-0.08, s * 0.10 - 0.05, 0.0), (0.18, s * 0.10 + 0.05, 0.07))   # foot
-    return _shift(t, dx=dx, dy=dy)
+    return t
 
 
 # Elevator car, rated load 630 kg / 8 persons: inside 1.10 m wide x 1.40 m deep (KONE MonoSpace planning guide;
@@ -147,6 +155,19 @@ def write_elevator(out: Path):
     out.mkdir(parents=True, exist_ok=True)
     for name, (x, y) in OCCUPANTS.items():
         write_stl(out / f"{name}.stl", name, standing(x, y))
+
+
+# Standing pair (scenario D'): two people talking face to face, noses 1.0 m apart, in the sofa room
+# (3.2 x 3.2 x 2.6 m, x in [0, 3.2], y in [-1.6, 1.6]); about 0.8 m of open floor behind each back.
+# culprit C faces +x, neighbour N faces -x; (x centre, y, facing).
+PAIR = {"C": (1.1 - STAND_NOSE[0], 0.0, 1), "N": (2.1 + STAND_NOSE[0], 0.0, -1)}
+
+
+def write_pair(out: Path):
+    """Standing pair: C.stl (culprit), N.stl (neighbour)."""
+    out.mkdir(parents=True, exist_ok=True)
+    for name, (x, y, f) in PAIR.items():
+        write_stl(out / f"{name}.stl", name, standing(x, y, f))
 
 
 def sofa(half_width=0.85):
