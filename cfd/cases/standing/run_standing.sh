@@ -9,7 +9,13 @@ source /opt/openfoam13/etc/bashrc >/dev/null 2>&1
 HERE=$(cd "$(dirname "$0")" && pwd)
 RUN=${1:-$HERE/../../runs}
 cd "$RUN"
-NP=4
+# Environment overrides (defaults reproduce the original runs): NP ranks per case; T_END branch end time (s);
+# PURGE>0 keeps only the last PURGE field writes in the drift stage (purgeWrite; does not change time steps) and
+# removes the decomposed copies afterwards; ONLY a glob on branch names (e.g. "elev_FL_silent").
+NP=${NP:-4}
+T_END=${T_END:-60}
+PURGE=${PURGE:-0}
+ONLY=${ONLY:-*}
 echo "$(date -u +%H:%M) standing pipeline start"
 if [ ! -f stand_mesh/constant/polyMesh/owner ]; then
   python3 "$HERE/make_case.py" stand_mesh --mode precursor --vent on > /dev/null
@@ -37,18 +43,19 @@ for vent in still vent; do
   fi
   for mode in silent audible; do
     c=stand_${vent}_$mode
-    [ -f "$c/60/s" ] && continue
+    [[ "$c" == $ONLY ]] || continue
+    [ -f "$c/$T_END/s" ] && continue
     if [ -f "$c/log.foamRun.drift" ] && [ -d "$c/processor0" ]; then
       ( cd "$c"
         n=$(ls log.foamRun.drift* | wc -l)
         mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.drift.$n 2>&1
         reconstructPar > log.reconstructPar 2>&1
-        [ -f 60/s ] && rm -rf processor[0-9]* )
+        [ -f $T_END/s ] && rm -rf processor[0-9]* )
       echo "$(date -u +%H:%M) $c resumed and done"
       continue
     fi
     rm -rf "$c"
-    python3 "$HERE/make_case.py" "$c" --mode $mode --vent $v --t-release 0.2 --t-end 60 > "$c.make.log"
+    python3 "$HERE/make_case.py" "$c" --mode $mode --vent $v --t-release 0.2 --t-end $T_END > "$c.make.log"
     cp -r stand_mesh/constant/polyMesh "$c/constant/"
     ( cd "$c"
       mapFields ../$pre -sourceTime $tp -consistent > log.mapFields 2>&1
@@ -56,10 +63,11 @@ for vent in still vent; do
       mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.release 2>&1
       foamDictionary system/controlDict -entry maxDeltaT -set 0.1 > /dev/null
       foamDictionary system/controlDict -entry writeInterval -set 15 > /dev/null
-      foamDictionary system/controlDict -entry endTime -set 60 > /dev/null
+      foamDictionary system/controlDict -entry endTime -set $T_END > /dev/null
+      [ "$PURGE" != 0 ] && foamDictionary system/controlDict -entry purgeWrite -set $PURGE > /dev/null
       mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.drift 2>&1
       reconstructPar > log.reconstructPar 2>&1
-      [ -f 60/s ] && rm -rf processor[0-9]* )
+      [ -f $T_END/s ] && rm -rf processor[0-9]* )
     echo "$(date -u +%H:%M) $c done"
   done
 done

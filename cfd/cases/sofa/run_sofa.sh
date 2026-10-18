@@ -10,7 +10,13 @@ RUN=${1:-$HERE/../../runs}
 REC=${2:-0}
 if [ "$REC" = "0" ]; then P=sofa; else P=sofa_rec$REC; fi
 cd "$RUN"
-NP=4
+# Environment overrides (defaults reproduce the original runs): NP ranks per case; T_END branch end time (s);
+# PURGE>0 keeps only the last PURGE field writes in the drift stage (purgeWrite; does not change time steps) and
+# removes the decomposed copies afterwards; ONLY a glob on branch names (e.g. "elev_FL_silent").
+NP=${NP:-4}
+T_END=${T_END:-30}
+PURGE=${PURGE:-0}
+ONLY=${ONLY:-*}
 while ps -eo args | grep -E "run_transient.sh" | grep -vq grep; do sleep 60; done
 echo "$(date -u +%H:%M) ${P} pipeline start"
 while ps -eo args | grep -E "sofa_mesh.sh" | grep -vq grep; do sleep 60; done
@@ -33,9 +39,10 @@ fi
 # branch cases: release at +0.2 s, run to +30 s in two stages (release: small maxDeltaT; drift: maxDeltaT 0.1)
 for mode in silent audible; do
   c=${P}_$mode
-  [ -d "$c/30" ] && continue
+  [[ "$c" == $ONLY ]] || continue
+  [ -d "$c/$T_END" ] && continue
   rm -rf "$c"
-  python3 "$HERE/make_case.py" "$c" --mode $mode --t-release 0.2 --t-end 30 --recline $REC > "$c.make.log"
+  python3 "$HERE/make_case.py" "$c" --mode $mode --t-release 0.2 --t-end $T_END --recline $REC > "$c.make.log"
   cp -r ${P}_pre/constant/polyMesh "$c/constant/"
   ( cd "$c"
     mapFields ../${P}_pre -sourceTime 30 -consistent > log.mapFields 2>&1
@@ -43,9 +50,11 @@ for mode in silent audible; do
     mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.release 2>&1
     foamDictionary system/controlDict -entry maxDeltaT -set 0.1 > /dev/null
     foamDictionary system/controlDict -entry writeInterval -set 5 > /dev/null
-    foamDictionary system/controlDict -entry endTime -set 30 > /dev/null
+    foamDictionary system/controlDict -entry endTime -set $T_END > /dev/null
+    [ "$PURGE" != 0 ] && foamDictionary system/controlDict -entry purgeWrite -set $PURGE > /dev/null
     mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.drift 2>&1
-    reconstructPar > log.reconstructPar 2>&1 )
+    reconstructPar > log.reconstructPar 2>&1
+    [ "$PURGE" != 0 ] && [ -f $T_END/s ] && rm -rf processor[0-9]* )
   echo "$(date -u +%H:%M) $c done"
 done
 echo "$(date -u +%H:%M) ${P} pipeline done"
