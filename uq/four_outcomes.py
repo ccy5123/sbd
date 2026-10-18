@@ -113,6 +113,31 @@ def memory_mass(t, role):
             "_total": t["pi_s"]}
 
 
+def scene_of(row):
+    """Scene a CFD branch belongs to: postures (sofa), layouts (elevator) and ventilation (standing) are variants."""
+    return row["scene"].split(",")[0].split(" ")[0]
+
+
+SCENES = ("sofa", "elevator", "standing")
+
+
+def aggregate(rows, weights):
+    """Physics shares and pooled memory shares over `rows`. weights None: every row (nose) equally; else a dict
+    scene -> weight, with the rows of a scene (its variants and noses) averaged first."""
+    groups = ([([s], 1.0) for s in rows] if weights is None
+              else [([s for s in rows if scene_of(s) == sc], w) for sc, w in weights.items()])
+    out = {}
+    for name in rh.OBS:
+        W = sum(w for g, w in groups if g)
+        mean = lambda key, k: sum(w * np.mean([s["by_observer"][name][key][k] for s in g]) for g, w in groups if g) / W
+        ph = {k: float(mean("physics", k)) for k in OUTCOMES}
+        tot = mean("memory_mass", "_total")
+        me = {k: float(mean("memory_mass", k) / tot) for k in OUTCOMES} if tot > 1e-6 else None  # ~nothing smelled
+        out[name] = {"physics": ph, "memory": me, "pi_s": float(mean("terms", "pi_s")),
+                     "pi_l": float(mean("terms", "pi_l"))}
+    return out
+
+
 def main():
     dists = nose_distances()
     sim = rs.simulate(distances=sorted(set(dists.values())))
@@ -136,17 +161,12 @@ def main():
                                         "memory": {k: mm[k] / mm["_total"] for k in OUTCOMES},
                                         "memory_mass": mm}
         out["rows"].append(row)
+    weights = {"per nose (old)": None, "equal per scene": {k: 1.0 for k in SCENES}}
     for grp, keep in (("bystanders", lambda s: s["nose"] != "culprit"), ("culprit", lambda s: s["nose"] == "culprit")):
         rows = [s for s in out["rows"] if keep(s) and "120 s" not in s["scene"]]
-        summ = {"n": len(rows)}
-        for name in rh.OBS:
-            g = [s["by_observer"][name] for s in rows]
-            ph = {k: float(np.mean([x["physics"][k] for x in g])) for k in OUTCOMES}
-            tot = sum(x["memory_mass"]["_total"] for x in g)
-            me = {k: sum(x["memory_mass"][k] for x in g) / tot for k in OUTCOMES}
-            pis = [float(np.mean([x["terms"][k] for x in g])) for k in ("pi_s", "pi_l")]
-            summ[name] = {"physics": ph, "memory": me, "pi_s": pis[0], "pi_l": pis[1]}
-        out[f"summary_{grp}"] = summ
+        out[f"summary_{grp}"] = {"n": len(rows), "per_scene": {sc: aggregate([s for s in rows if scene_of(s) == sc], None)
+                                                              for sc in SCENES},
+                                 **{tag: aggregate(rows, w) for tag, w in weights.items()}}
     (ROOT / "uq/four_outcomes.json").write_text(json.dumps(out, indent=1))
     pct = lambda d: " / ".join(f"{100 * d[k]:5.1f}" for k in OUTCOMES)
     print("rows: none / silent worse / audible worse / tie (%), physics | memory")
@@ -156,10 +176,14 @@ def main():
             print(f"{s['scene'][:34]:34s} {s['nose'][:16]:16s} {s['distance_m']:.2f} m heard {s['frac_audible']:.2f} "
                   f"{name[:10]:10s} {pct(x['physics'])} | {pct(x['memory'])}")
     for grp in ("bystanders", "culprit"):
-        for name in rh.OBS:
-            x = out[f"summary_{grp}"][name]
-            print(f"{grp:10s} {name[:10]:10s} physics {pct(x['physics'])} | memory {pct(x['memory'])}"
-                  f"   pi_s {x['pi_s']:.3f} pi_l {x['pi_l']:.3f}")
+        summ = out[f"summary_{grp}"]
+        for tag in [*(f"scene {sc}" for sc in SCENES), *weights]:
+            agg = summ["per_scene"][tag[6:]] if tag.startswith("scene ") else summ[tag]
+            for name in rh.OBS:
+                x = agg[name]
+                mem = pct(x["memory"]) if x["memory"] else "  (nothing remembered)"
+                print(f"{grp:10s} {tag:16s} {name[:10]:10s} physics {pct(x['physics'])} | memory {mem}"
+                      f"   pi_s {x['pi_s']:.3f} pi_l {x['pi_l']:.3f}")
 
 
 if __name__ == "__main__":
