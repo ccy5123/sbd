@@ -110,8 +110,9 @@ which reaches the server over SSH; drive the runs from there (repo clone + OpenF
 - Item 3 status: `uq/four_outcomes.py` aggregates per scene (variants and noses averaged inside a scene). The user
   chose real-frequency scene weights: weight ∝ time per day spent near another person in that setting (passages
   uniform over waking hours). A literature search for these weights (ATUS / NHAPS time use, elevator trips and ride
-  time, face-to-face standing conversation time; DOIs verified via OpenAlex) was running in the cloud session and
-  does not carry over: rerun it, show the user the weights and sources, and add them to params.yaml after approval.
+  time, face-to-face standing conversation time; DOIs verified via OpenAlex) finished: `refs/scene_weights_sources.md`
+  (central 0.73 / 0.005 / 0.26 for sofa / elevator / standing, with two bounding cases). Awaiting the user's
+  approval before it goes into params.yaml.
 - Meanwhile: item 3 onwards. With the current windows only the elevator bystanders smell
   anything (sofa and standing bystanders: pi_s = pi_l = 0), so items 3 and 7 numbers wait for these runs.
 
