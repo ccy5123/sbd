@@ -25,6 +25,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+if not hasattr(np, "trapezoid"):  # numpy < 2.0 (the server's OpenFOAM container has 1.26)
+    np.trapezoid = np.trapz
+
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "gate0"))
 from model import load_params, nominal, oav
