@@ -44,9 +44,9 @@ passage (V, T, d):
 
 | id | test | acceptance / use |
 |---|---|---|
-| E0-1 | seated CBL vs Licina 2014 at 20/23/26 C: set-up variants instead of mesh refinement (FluidX3D showed the bias is not a mesh/model effect): clothed surface (skin 30-31 C or a clothing layer), larger room (Licina chamber size) | within 20 %; otherwise the remaining bias is stated and carried as a transport-time factor (as `u_own_eff` does now) |
-| E0-2 + | standing plume | only if a dataset is found (literature search, E0-0) |
-| E0-3 + | near-body source to breathing zone (Licina 2015 / Rim & Novoselac 2009 type data) | only if a dataset with a seat/pelvis-level source is found |
+| E0-1 | seated CBL vs Licina 2014 (B&E 75:79; Indoor Air 2014 HP0127 set-up: NUS chamber 11.1 x 8 x 2.6 m, displacement ventilation at minimum flow, female manikin in summer clothing, total heat output 65 W/m^2; peak 0.185 m/s at mouth height 14 mm from the face, 23 C; nude 0.205 m/s, clothing -17 to -40 %). Set-up variants instead of mesh refinement (FluidX3D showed the bias is not a mesh/model effect): compare at the measured point (mouth height, 14 mm), heat-flux skin instead of a fixed 33 C, larger room. Done in FluidX3D (same plume as the RANS, 30 min per run) and confirmed with one RANS run | within 20 %; otherwise the remaining bias is stated and carried as a transport-time factor (as `u_own_eff` does now) |
+| E0-2 + | standing plume vs Craven & Settles 2006 (J Fluids Eng 128:1251, doi 10.1115/1.2353274; real person, clothed, 0.24 m/s at 0.43 m above the head; clothing surface 26.6 C at 21.3 C room) | within 20 % |
+| E0-3 + | near-body source to breathing zone vs Licina, Tian & Nazaroff 2017 (B&E 123:14, doi 10.1016/j.buildenv.2017.06.037, Table 2: seated heated manikin, groin source at 0.5 m: intake fraction 9.8 per mille vs 1.2 unheated; well mixed 4.2); Rim & Novoselac 2010 Table IV (source accessibility of 12 body positions) as a second check | intake-fraction ratio heated/unheated and groin/well-mixed within a factor 1.5 |
 | E0-4 | free jet (existing `cfd/validation/jet`) | passed |
 | E0-5 | frozen-flow shortcut (E2+E3 on the 30 s precursors) vs coupled 10-min reruns: sofa upright and standing still, silent and audible (4 branches, running) | worst-breath OAV within a factor 1.5 and the same four-outcome class at >= 90 % of noses; else coupled E3 for that scene |
 | E0-6 + | mesh convergence: one E2+E3 case (sofa upright, bare, silent median) on a mesh refined once more | change in nose dose stated as numerical uncertainty |

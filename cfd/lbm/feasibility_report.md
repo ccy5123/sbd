@@ -56,3 +56,12 @@ the CMAQ service). Uniform 5 mm grid, dt 1.25 ms (u_lb 0.1 at 0.4 m/s), D3Q19 TR
   development and its own validation.
 - Kept as a cross-check: the CBL agreement, and the own-nose filament after a silent release as a hypothesis for an
   OpenFOAM LES check.
+
+## E0-1 follow-up: Licina's measuring point (PLAN v4)
+
+Licina's peak is at mouth height 14 mm from the face (Indoor Air 2014 HP0127; 0.185 m/s clothed, 0.205 m/s nude at
+23 C). Time-mean Uz 14 mm in front of the nose tip (faceLine, 60-120 s): 0.314 / 0.278 / 0.242 m/s at 20 / 23 / 26 C
+(skin 33 C), 0.266 (skin 31.5 C) and 0.237 (skin 30 C) at 23 C, i.e. about 6 % below the line maximum. Against the
+nude reference the 33 C skin is +36 %; the 30 C (clothed) surface against the clothed reference +28 %. The remaining
+~30 % (likely the chamber's displacement-ventilation stratification and the manikin shape, neither reproduced here)
+is stated as a limitation and carried as a transport-time factor, as `u_own_eff` does now.
