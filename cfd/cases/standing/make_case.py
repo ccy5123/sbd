@@ -384,7 +384,7 @@ runTimeModifiable true;
 functions
 {{
 {st}    #includeFunc probes(funcName=noses, points=({probes}), fields=({sc} T U))
-    #includeFunc residuals(p_rgh, U, e, k, omega, {sc})
+    #includeFunc residuals(p_rgh, U, e, k, omega, {", ".join(scalars)})
     #includeFunc patchFlowRate(patch=exhaust)
     planes
     {{

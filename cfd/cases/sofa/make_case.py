@@ -433,7 +433,7 @@ runTimeModifiable true;
 functions
 {{
 {"".join(f"    #includeFunc scalarTransport({sc}, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)" + chr(10) for sc in scalars)}    #includeFunc probes(funcName=noses, points=({nose_f} {nose_n}), fields=({" ".join(scalars)} T U))
-    #includeFunc residuals(p_rgh, U, e, k, omega, {" ".join(scalars)})
+    #includeFunc residuals(p_rgh, U, e, k, omega, {", ".join(scalars)})
     planes
     {{
         type            surfaces;
