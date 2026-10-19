@@ -29,6 +29,20 @@
 - **Next:** tail model + validation when the reference runs pass ~300-600 s; analysis script for the multi-release
   probes (s1..s4 per nose, worst-breath OAV, scaling by V/V_rep within a momentum level); E4 LES set-up (sofa bare and
   trousers, standing trousers); headline Monte Carlo; manuscript.
+- **Decided 2026-10-19 (after an independent from-scratch design review):** no new CFD beyond PLAN v4; extra runs only
+  if their error could change the conclusion, not to meet formal standards (no 3-level GCI, no active-breathing
+  manikin, no separate V check run: predict the 92 mL reference runs from the v4 levels instead). "Seldom" is judged on
+  two bases, both reported: the four-outcome shares (headline, C) and, among pairs where both are smelled, the share
+  where silent wins (earlier numbers: 5.5 / (5.5 + 8.5) ~ 39 %, attentive); the title keeps "seldom" only if both
+  support it. The headline Monte Carlo adds a boundary for the sulfur-content correlation with sound and its spread
+  sigma (where the conclusion flips); behavioural response (breath-holding on hearing) and a scaling section were
+  not adopted. `analyze_multi.py` now gives nested windows, 92 mL equal-mass OAV and `nose_oav` (V/V_rep scaling,
+  log-log in M0 between the class's levels, clamped).
+- **Server (2026-10-19 12:30 KST):** reference runs at 149 / 118 s of 600 (~220 wall-s per sim-s, done Tue 20
+  afternoon/evening); v4 sofa bare and rec4.5 precursors done ~17:00 today, multi phase ~20-24 h more; sofa trousers
+  ~6x slower (1.32 M cells, Darcy d = 1.8e10 m^-2 makes p_rgh stiff), ~6 days in all; the user chose to let it run.
+  Both server clones are still on the deleted branch `claude/handoff-review-fixes-qkpzin`: switch them to `main` when
+  their runs finish. Old branches deleted on GitHub; work only on `main`.
 
 # HANDOFF — headline redesign (written 2026-10-18, end of session)
 
@@ -174,6 +188,6 @@ archived; longer windows than simulated need new runs (`cfd/cases/*/run_*.sh`, `
   then latexmk `si.tex` before `main.tex` (xr cross-references, SI- prefix); check
   `grep -E "^! |undefined|multiply"` in both logs.
 - Commits: `git -c user.name="Chan Young Joe" -c user.email="ccy5123ccy@gmail.com" commit`, message ends with the
-  Co-Authored-By and Claude-Session lines; push with `git push -u origin m0-m1-m8-gate0`. No model identifiers in
-  commits or PR text.
+  Co-Authored-By and Claude-Session lines; commit and push on `main` only (no new branches, PRs or forks). No model
+  identifiers in commits or PR text.
 - Publisher PDFs stay out of the repo (`refs/pdfs_incoming/` is gitignored). Literature searches return DOIs only.
