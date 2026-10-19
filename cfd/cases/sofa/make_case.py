@@ -124,6 +124,17 @@ MULTI_RELEASES = [  # (name, V m^3, T s, d m)
     ("S50", 122.1e-6, 4.76, 3.06e-3),
 ]
 MULTI_GAP, MULTI_WINDOW = 30.0, 150.0
+# PLAN v4 E4 (LES, WALE): six releases 30 s apart after 60 s of LES spin-up from the RANS precursor, each followed for
+# 90 s (the early peaks decide detection); the medians are
+# repeated for a second realisation each. Peak factor = breath-sampled LES peak / ensemble mean.
+LES_RELEASES = [MULTI_RELEASES[3], MULTI_RELEASES[1], MULTI_RELEASES[2], MULTI_RELEASES[0],
+                ("S50b",) + MULTI_RELEASES[3][1:], ("A50b",) + MULTI_RELEASES[1][1:]]
+LES_GAP, LES_SPINUP, LES_WINDOW = 30.0, 60.0, 90.0
+
+
+def release_set(turbulence):
+    """(releases, gap) of a multi-release run."""
+    return (LES_RELEASES, LES_GAP) if turbulence == "les" else (MULTI_RELEASES, MULTI_GAP)
 
 
 def block_mesh(dx=0.08):
@@ -220,7 +231,7 @@ mergeTolerance 1e-6;
 """
 
 
-def fields(src, t_rel=T_REL, T=1.0, multi=None):
+def fields(src, t_rel=T_REL, T=1.0, multi=None, turbulence="rans"):
     troom, tskin = T_ROOM + 273.15, T_SKIN + 273.15
     k0, om0 = 1e-5, 0.1
 
@@ -274,7 +285,7 @@ def fields(src, t_rel=T_REL, T=1.0, multi=None):
                        f"type inletOutlet; inletValue uniform {om0}; value uniform {om0};",
                        f"type fixedValue; value uniform {om_in:.6g};")),
         "nut": ("volScalarField", "dimensions [0 2 -1 0 0 0 0];\ninternalField uniform 0;\n"
-                + bc(*["type nutkWallFunction; value uniform 0;"] * 3, *["type calculated; value uniform 0;"] * 2)),
+                + bc(*[("type nutUSpaldingWallFunction; value uniform 0;" if turbulence == "les" else "type nutkWallFunction; value uniform 0;")] * 3, *["type calculated; value uniform 0;"] * 2)),
         "alphat": ("volScalarField", "dimensions [1 -1 -1 0 0 0 0];\ninternalField uniform 0;\n"
                    + bc(*["type compressible::alphatJayatillekeWallFunction; Prt 0.85; value uniform 0;"] * 3,
                         *["type calculated; value uniform 0;"] * 2)),
@@ -317,13 +328,15 @@ def trousers_dicts(inner, outer, a_fabric):
 
 
 def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_REL, t_end: float = T_END,
-         recline: float = 0.0, clothing: str = "bare", a_fabric: float = 0.030, t_pre: float = T_PRE):
+         recline: float = 0.0, clothing: str = "bare", a_fabric: float = 0.030, t_pre: float = T_PRE,
+         turbulence: str = "rans"):
     troom = T_ROOM + 273.15
     rho0 = 101325 * 0.02896 / (8.314 * troom)
     multi = None
     if mode == "multi":
-        multi = [(equivalent_source(Vk, Tk, dk), t_rel + MULTI_GAP * i, Tk) for i, (_, Vk, Tk, dk) in enumerate(MULTI_RELEASES)]
-        t_end = multi[-1][1] + MULTI_WINDOW
+        rels, gap = release_set(turbulence)
+        multi = [(equivalent_source(Vk, Tk, dk), t_rel + gap * i, Tk) for i, (_, Vk, Tk, dk) in enumerate(rels)]
+        t_end = multi[-1][1] + (LES_WINDOW if turbulence == "les" else MULTI_WINDOW)
     src = equivalent_source(V, T, d) if mode not in ("precursor", "multi") else None
     geo = case / "constant/geometry"
     geo.mkdir(parents=True, exist_ok=True)
@@ -348,7 +361,7 @@ def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_R
     }}
 }}
 """)
-    for name, (cls, body) in fields(src, t_rel, T, multi).items():
+    for name, (cls, body) in fields(src, t_rel, T, multi, turbulence).items():
         w(case / "0" / name, body, cls)
     w(case / "constant/g", "dimensions [0 1 -2 0 0 0 0];\nvalue (0 0 -9.81);\n", "uniformDimensionedVectorField", "g")
     w(case / "constant/physicalProperties", f"""thermoType
@@ -364,7 +377,11 @@ mixture
     transport {{ mu 1.81e-05; Pr 0.71; }}
 }}
 """)
-    w(case / "constant/momentumTransport", "simulationType RAS;\nRAS\n{\n    model kOmegaSST;\n    turbulence on;\n}\n")
+    if turbulence == "les":
+        w(case / "constant/momentumTransport", "simulationType LES;\nLES\n{\n    model WALE;\n    turbulence on;\n"
+          "    delta cubeRootVol;\n}\n")
+    else:
+        w(case / "constant/momentumTransport", "simulationType RAS;\nRAS\n{\n    model kOmegaSST;\n    turbulence on;\n}\n")
     (case / "constant/fvModels").unlink(missing_ok=True)
     (case / "system/createZonesDict").unlink(missing_ok=True)
     if clothing == "trousers":
@@ -403,7 +420,7 @@ stopAt endTime;
 endTime {end};
 deltaT 0.01;
 adjustTimeStep yes;
-maxCo 5;
+maxCo {0.8 if turbulence == "les" else 5};
 maxDeltaT {max_dt:.4g};
 writeControl adjustableRunTime;
 writeInterval {write_int};
@@ -451,6 +468,8 @@ divSchemes
     div(phi,s2) Gauss limitedLinear01 1;
     div(phi,s3) Gauss limitedLinear01 1;
     div(phi,s4) Gauss limitedLinear01 1;
+    div(phi,s5) Gauss limitedLinear01 1;
+    div(phi,s6) Gauss limitedLinear01 1;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 }
 laplacianSchemes { default Gauss linear limited corrected 0.5; }
@@ -458,6 +477,9 @@ interpolationSchemes { default linear; }
 snGradSchemes { default limited corrected 0.5; }
 wallDist { method meshWave; }
 """)
+    if turbulence == "les":  # LES: low-dissipation convection of momentum
+        p = case / "system/fvSchemes"
+        p.write_text(p.read_text().replace("div(phi,U) Gauss linearUpwind grad(U);", "div(phi,U) Gauss LUST grad(U);"))
     w(case / "system/fvSolution", """solvers
 {
     "p_rgh.*" { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0.01; }
@@ -492,13 +514,14 @@ if __name__ == "__main__":
     ap.add_argument("--recline", type=float, default=0.0, help="releaser upper-body recline about the hip (deg)")
     ap.add_argument("--clothing", choices=("bare", "trousers"), default="bare", help="long trousers on both occupants")
     ap.add_argument("--t-pre", type=float, default=T_PRE, help="precursor length (s)")
+    ap.add_argument("--turbulence", choices=("rans", "les"), default="rans", help="les: WALE, six releases (PLAN v4 E4)")
     ap.add_argument("--fabric-a", type=float, default=0.030, help="fabric air permeability at 100 Pa (m/s); denim")
     a = ap.parse_args()
     # defaults: silent = 92 mL over 2 s through 8 mm (u0 0.9 m/s, below acoustic onset);
     #           audible = 92 mL over 0.5 s through 2.4 mm (u0 41 m/s, above onset ~30 m/s)
     T = a.T if a.T is not None else (2.0 if a.mode != "audible" else 0.5)
     d = a.d if a.d is not None else (0.008 if a.mode != "audible" else 0.0024)
-    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline, a.clothing, a.fabric_a, a.t_pre)
+    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline, a.clothing, a.fabric_a, a.t_pre, a.turbulence)
     if src:
         src["stage1_end"] = min(a.t_end, math.ceil(a.t_release + T + 0.3))
     print("written", a.case, a.mode, {k: round(v, 5) for k, v in (src or {}).items()})

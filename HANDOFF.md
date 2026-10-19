@@ -9,7 +9,8 @@
   each) and `cfd/docker/queue.sh` (at most 5 containers = 20 cores, the user's cap). Two clones:
   `~/cyjoe/research/sbd` runs the coupled 10-min reference branches `sofa_silent`, `sofa_audible` (old scripts; do
   not `git pull` there while they run, bash reads the running scripts incrementally); `~/cyjoe/research/sbd-v4`
-  runs the v4 jobs (`cfd/docker/jobs_v4.txt`, queue log `cfd/runs/queue_v4.log`). GPUs 1-3 may be used when idle
+  runs the v4 jobs (`cfd/docker/jobs_v4.txt`, queue log `cfd/runs/queue_v4.log`); do not pull there either while its
+  run_multi.sh jobs run. The LES runs (E4, `TURB=les`) go in a third clone when slots free up. GPUs 1-3 may be used when idle
   (GPU 0 belongs to the CMAQ service; Ollama/vLLM services may load models on any GPU).
 - **Reproduction:** the container reproduces the archived elevator run bitwise (checked to 1.2 s).
 - **FluidX3D test** (`cfd/lbm/feasibility_report.md`, fork in `research/FluidX3D-sbd`, branch `sbd`): same body plume

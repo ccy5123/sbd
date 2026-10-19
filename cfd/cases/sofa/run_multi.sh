@@ -11,6 +11,7 @@ REC=${2:-0}
 CLOTH=${3:-bare}
 NP=${NP:-4}
 T_PRE=${T_PRE:-90}
+TURB=${TURB:-rans}  # les: WALE branch with six releases after 60 s of spin-up (PLAN v4 E4), from the same RANS precursor
 if [ "$REC" = "0" ]; then P=sofa; else P=sofa_rec$REC; fi
 [ "$CLOTH" = "trousers" ] && P=${P}_tr
 P=${P}_v4
@@ -34,9 +35,9 @@ if [ ! -f ${P}_pre/$T_PRE/U ]; then
     [ -f $T_PRE/U ] && rm -rf processor[0-9]* )
   echo "$(date -u +%H:%M) ${P}_pre done"
 fi
-c=${P}_multi
+c=${P}_multi; [ "$TURB" = les ] && c=${P}_multi_les
 if [ ! -f "$c/schedule" ]; then
-  python3 "$HERE/make_case.py" "$c" --mode multi --t-release 0.2 --recline $REC --clothing $CLOTH > "$c.make.log"
+  python3 "$HERE/make_case.py" "$c" --mode multi --turbulence $TURB --t-release $([ "$TURB" = les ] && echo 60.2 || echo 0.2) --recline $REC --clothing $CLOTH > "$c.make.log"
   cp -r ${P}_pre/constant/polyMesh "$c/constant/"
   ( cd "$c"
     mapFields ../${P}_pre -sourceTime $T_PRE -consistent > log.mapFields 2>&1
