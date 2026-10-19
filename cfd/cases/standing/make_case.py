@@ -104,8 +104,9 @@ boundary
 """
 
 
-def snappy():
+def snappy(trousers=()):
     geo = "".join(f'    {n} {{ type triSurface; file "{n}.stl"; }}\n' for n in NAMES)
+    geo += "".join(f'    tro{k} {{ type triSurface; file "{f}"; }}\n' for k, f in enumerate(trousers))
     geo += '    emitter { type triSurface; file "emitter.stl"; regions { nozzle { name nozzle; } release { name release; } } }\n'
     boxes = ""
     for n in NAMES:
@@ -120,6 +121,7 @@ def snappy():
              "                nozzle { level (4 4); patchInfo { type wall; } }\n"
              "                release { level (5 5); patchInfo { type patch; } }\n            }\n        }\n")
     reg = "".join(f"        face_{n} {{ mode inside; level 3; }}\n" for n in NAMES)
+    reg += "".join(f"        tro{k} {{ mode inside; level 4; }}\n" for k in range(len(trousers)))
     return f"""castellatedMesh true;
 snap            true;
 addLayers       true;
@@ -194,11 +196,19 @@ def create_patch():
     return "patches\n{\n" + zones + "}\n"
 
 
-def fields(src, vent, t_rel, T):
+def fields(src, vent, t_rel, T, multi=None):
     troom, tskin = T_ROOM + 273.15, T_SKIN + 273.15
     k0, om0 = 1e-5, 0.1
     beta = 1.0 / troom
-    if src:
+    if multi:  # [(src, t_rel, T), ...]: one inlet carrying all pulses, one scalar per release (sofa_case.fields)
+        mpt = sofa_case.multi_pulse_table
+        q_tab = mpt([(tr, Tk, sk["Q_eq"], True) for sk, tr, Tk in multi])
+        t_tab = mpt([(tr, Tk, G_PRIME / (9.81 * beta) / sk["dilution"], False) for sk, tr, Tk in multi], troom)
+        s_tab = "constant 0"
+        k_in = 1.5 * (0.05 * max(sk["u_eq"] for sk, _, _ in multi)) ** 2
+        om_in = math.sqrt(k_in) / (0.09**0.25 * 0.07 * 2 * R_E)
+        src = multi[0][0]  # marks the release patch as an inlet below
+    elif src:
         dT_eq = G_PRIME / (9.81 * beta) / src["dilution"]
         q_tab = pulse_table(t_rel, T, src["Q_eq"], conserve=True)
         t_tab = pulse_table(t_rel, T, dT_eq, troom)
@@ -257,13 +267,28 @@ def fields(src, vent, t_rel, T):
         s.setdefault("nut", calc0), s.setdefault("alphat", calc0), s.setdefault("p", calc0)
         patches[name] = s
 
+    scalars = ["s"]
+    if multi:
+        scalars = [f"s{k}" for k in range(1, len(multi) + 1)]
+        for p, v in patches.items():
+            v = patches[p] = dict(v)
+            for k, sc in enumerate(scalars):
+                v[sc] = v["s"]
+                if p == "release":
+                    sk, tr, Tk = multi[k]
+                    v[sc] = (f"type uniformFixedValue; uniformValue "
+                             f"{sofa_case.multi_pulse_table([(tr, Tk, 1.0 / sk['dilution'], False)])}; value uniform 0;")
+
     def bf(field):
         return "boundaryField\n{\n" + "".join(f"    {p} {{ {v[field]} }}\n" for p, v in patches.items()) + "}\n"
 
-    return {
+    if multi:
+        out = {sc: ("volScalarField", "dimensions [0 0 0 0 0 0 0];\ninternalField uniform 0;\n" + bf(sc)) for sc in scalars}
+    else:
+        out = {"s": ("volScalarField", "dimensions [0 0 0 0 0 0 0];\ninternalField uniform 0;\n" + bf("s"))}
+    return out | {
         "U": ("volVectorField", "dimensions [0 1 -1 0 0 0 0];\ninternalField uniform (0 0 0);\n" + bf("U")),
         "T": ("volScalarField", f"dimensions [0 0 0 1 0 0 0];\ninternalField uniform {troom};\n" + bf("T")),
-        "s": ("volScalarField", "dimensions [0 0 0 0 0 0 0];\ninternalField uniform 0;\n" + bf("s")),
         "p_rgh": ("volScalarField", "dimensions [1 -1 -2 0 0 0 0];\ninternalField uniform 0;\n" + bf("p_rgh")),
         "p": ("volScalarField", "dimensions [1 -1 -2 0 0 0 0];\ninternalField uniform 0;\n" + bf("p")),
         "k": ("volScalarField", f"dimensions [0 2 -2 0 0 0 0];\ninternalField uniform {k0};\n" + bf("k")),
@@ -273,18 +298,35 @@ def fields(src, vent, t_rel, T):
     }
 
 
-def make(case: Path, mode: str, vent: str, V: float, T: float, d: float, t_rel: float, t_end: float):
+def make(case: Path, mode: str, vent: str, V: float, T: float, d: float, t_rel: float, t_end: float,
+         clothing: str = "bare", a_fabric: float = 0.030, t_pre: float = None):
     troom = T_ROOM + 273.15
     rho0 = 101325 * 0.02896 / (8.314 * troom)
-    src = equivalent_source(V, T, d) if mode != "precursor" else None
+    multi = None
+    if mode == "multi":  # PLAN v4 E2': the sofa case's four representative releases, 30 s apart, scalars s1..s4
+        multi = [(equivalent_source(Vk, Tk, dk), t_rel + sofa_case.MULTI_GAP * i, Tk)
+                 for i, (_, Vk, Tk, dk) in enumerate(sofa_case.MULTI_RELEASES)]
+        t_end = multi[-1][1] + sofa_case.MULTI_WINDOW
+    src = equivalent_source(V, T, d) if mode not in ("precursor", "multi") else None
     geo = case / "constant/geometry"
     manikin.write_pair(geo)
     write_emitter(geo / "emitter.stl")
+    inner, outer = [], []
+    if clothing == "trousers":
+        for n, (x, y, f) in manikin.PAIR.items():
+            i, o = manikin.write_trousers(geo, f"tr{n}", "standing", sofa_case.GAP, sofa_case.FABRIC, dx=x, dy=y, facing=f)
+            inner += i; outer += o
     w(case / "system/blockMeshDict", block_mesh())
-    w(case / "system/snappyHexMeshDict", snappy())
+    w(case / "system/snappyHexMeshDict", snappy(outer))
     w(case / "system/createPatchDict", create_patch())
-    for name, (cls, body) in fields(src, vent, t_rel, T).items():
+    for name, (cls, body) in fields(src, vent, t_rel, T, multi).items():
         w(case / "0" / name, body, cls)
+    (case / "constant/fvModels").unlink(missing_ok=True)
+    (case / "system/createZonesDict").unlink(missing_ok=True)
+    if clothing == "trousers":
+        zones, fvm = sofa_case.trousers_dicts(inner, outer, a_fabric)
+        w(case / "system/createZonesDict", zones)
+        w(case / "constant/fvModels", fvm)
     w(case / "constant/g", "dimensions [0 1 -2 0 0 0 0];\nvalue (0 0 -9.81);\n", "uniformDimensionedVectorField", "g")
     w(case / "constant/physicalProperties", f"""thermoType
 {{
@@ -301,12 +343,26 @@ mixture
 """)
     w(case / "constant/momentumTransport", "simulationType RAS;\nRAS\n{\n    model kOmegaSST;\n    turbulence on;\n}\n")
     probes = " ".join("({:.4f} {:.4f} {:.4f})".format(*nose_probe(n)) for n in NAMES)
-    if src:
+    scalars = ["s"]
+    if multi:  # segment schedule for run_multi.sh (as in the sofa case)
+        sched, t_prev = [], 0.0
+        for sk, tr, Tk in multi:
+            if tr - 0.05 > t_prev:
+                sched.append((tr - 0.05, 0.1))
+            t_prev = tr + Tk + 0.3
+            sched.append((t_prev, min(0.01, 4 * 0.0025 / sk["u_eq"])))
+        sched.append((t_end, 0.1))
+        (case / "schedule").write_text("".join(f"{te:.6g} {dt:.4g}\n" for te, dt in sched))
+        end, max_dt, write_int = sched[0][0], sched[0][1], 5
+        scalars = [f"s{k}" for k in range(1, len(multi) + 1)]
+    elif src:
         end = min(t_end, math.ceil(t_rel + T + 0.3))
         max_dt = min(0.01, 4 * 0.0025 / src["u_eq"])
         write_int = 1
     else:
-        end, max_dt, write_int = T_PRE[vent], 0.1, 15
+        end, max_dt, write_int = (t_pre if t_pre else T_PRE[vent]), 0.1, 15
+    sc = " ".join(scalars)
+    st = "".join(f"    #includeFunc scalarTransport({s}, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)\n" for s in scalars)
     nose_z = manikin.STAND_NOSE[2]
     w(case / "system/controlDict", f"""solver fluid;
 startFrom latestTime;
@@ -327,9 +383,8 @@ timeFormat general;
 runTimeModifiable true;
 functions
 {{
-    #includeFunc scalarTransport(s, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)
-    #includeFunc probes(funcName=noses, points=({probes}), fields=(s T U))
-    #includeFunc residuals(p_rgh, U, e, k, omega, s)
+{st}    #includeFunc probes(funcName=noses, points=({probes}), fields=({sc} T U))
+    #includeFunc residuals(p_rgh, U, e, k, omega, {sc})
     #includeFunc patchFlowRate(patch=exhaust)
     planes
     {{
@@ -340,7 +395,7 @@ functions
         surfaceFormat   raw;
         interpolationScheme cell;
         interpolate     false;
-        fields          (s T U);
+        fields          ({sc} T U);
         surfaces
         {{
             midPlane   {{ type cutPlane; planeType pointAndNormal; point (0 0 0); normal (0 1 0); interpolate false; }}
@@ -362,6 +417,10 @@ divSchemes
     div(phi,omega) Gauss upwind;
     div(phi,K) Gauss linear;
     div(phi,s) Gauss limitedLinear01 1;
+    div(phi,s1) Gauss limitedLinear01 1;
+    div(phi,s2) Gauss limitedLinear01 1;
+    div(phi,s3) Gauss limitedLinear01 1;
+    div(phi,s4) Gauss limitedLinear01 1;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 }
 laplacianSchemes { default Gauss linear limited corrected 0.5; }
@@ -373,7 +432,7 @@ wallDist { method meshWave; }
 {
     "p_rgh.*" { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0.01; }
     p_rghFinal { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0; }
-    "(U|e|k|omega|s).*" { solver PBiCGStab; preconditioner DILU; tolerance 1e-8; relTol 0; }
+    "(U|e|k|omega|s[0-9]*).*" { solver PBiCGStab; preconditioner DILU; tolerance 1e-8; relTol 0; }
     "rho.*" { solver diagonal; }
 }
 PIMPLE
@@ -394,8 +453,11 @@ PIMPLE
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("case")
-    ap.add_argument("--mode", choices=("precursor", "silent", "audible"), required=True)
+    ap.add_argument("--mode", choices=("precursor", "silent", "audible", "multi"), required=True)
     ap.add_argument("--vent", choices=("off", "on"), required=True)
+    ap.add_argument("--clothing", choices=("bare", "trousers"), default="bare", help="long trousers on both occupants")
+    ap.add_argument("--fabric-a", type=float, default=0.030, help="fabric air permeability at 100 Pa (m/s); denim")
+    ap.add_argument("--t-pre", type=float, default=None, help="precursor length (s); default 30 (still) / 90 (vent)")
     ap.add_argument("--V", type=float, default=9.2e-5, help="released volume (m^3); median per passage")
     ap.add_argument("--T", type=float, default=None, help="release duration (s)")
     ap.add_argument("--d", type=float, default=None, help="effective orifice diameter (m)")
@@ -405,6 +467,6 @@ if __name__ == "__main__":
     # defaults as in the sofa duet: silent = 92 mL over 2 s through 8 mm; audible = 92 mL over 0.5 s through 2.4 mm
     T = a.T if a.T is not None else (2.0 if a.mode != "audible" else 0.5)
     d = a.d if a.d is not None else (0.008 if a.mode != "audible" else 0.0024)
-    src = make(Path(a.case), a.mode, a.vent, a.V, T, d, a.t_release, a.t_end)
+    src = make(Path(a.case), a.mode, a.vent, a.V, T, d, a.t_release, a.t_end, a.clothing, a.fabric_a, a.t_pre)
     print("written", a.case, a.mode, a.vent, f"supply {1e3 * Q_SUPPLY:.1f} L/s, down {U_DOWN:.3f} m/s",
           {k: round(v, 5) for k, v in (src or {}).items()})

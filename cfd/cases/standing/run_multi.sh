@@ -1,0 +1,59 @@
+#!/bin/bash
+# PLAN v4 E2': developed precursor (T_PRE s, default 90) -> one branch with four releases on separate scalars
+# (make_case.py --mode multi), run through the segments of its 'schedule' file (each pulse with a time step that
+# resolves it, the gaps with maxDeltaT 0.1). Each segment writes exactly at its end (writeInterval = segment length,
+# counted from the segment's start time), so the next segment restarts from there.
+# Usage: run_multi.sh [runs_dir] [still|vent] [clothing]    env: NP (4), T_PRE (90)
+source /opt/openfoam13/etc/bashrc >/dev/null 2>&1
+HERE=$(cd "$(dirname "$0")" && pwd)
+RUN=${1:-$HERE/../../runs}
+VENT=${2:-still}; V=$([ "$VENT" = vent ] && echo on || echo off)
+CLOTH=${3:-bare}
+NP=${NP:-4}
+T_PRE=${T_PRE:-90}
+P=stand_$VENT
+[ "$CLOTH" = "trousers" ] && P=${P}_tr
+P=${P}_v4
+mkdir -p "$RUN" && cd "$RUN"
+echo "$(date -u +%H:%M) ${P} pipeline start"
+if [ ! -f ${P}_pre/constant/polyMesh/owner ]; then
+  python3 "$HERE/make_case.py" ${P}_pre --mode precursor --vent $V --clothing $CLOTH --t-pre $T_PRE > ${P}_pre.make.log
+  ( cd ${P}_pre
+    blockMesh > log.blockMesh 2>&1
+    snappyHexMesh -overwrite > log.snappy 2>&1
+    createPatch -overwrite > log.createPatch 2>&1
+    [ -f system/createZonesDict ] && createZones > log.createZones 2>&1
+    checkMesh > log.checkMesh 2>&1 )
+  echo "$(date -u +%H:%M) ${P} mesh done"
+fi
+if [ ! -f ${P}_pre/$T_PRE/U ]; then
+  ( cd ${P}_pre
+    decomposePar -force > log.decomposePar 2>&1
+    mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun 2>&1
+    reconstructPar -latestTime > log.reconstructPar 2>&1
+    [ -f $T_PRE/U ] && rm -rf processor[0-9]* )
+  echo "$(date -u +%H:%M) ${P}_pre done"
+fi
+c=${P}_multi
+if [ ! -f "$c/schedule" ]; then
+  python3 "$HERE/make_case.py" "$c" --mode multi --t-release 0.2 --vent $V --clothing $CLOTH > "$c.make.log"
+  cp -r ${P}_pre/constant/polyMesh "$c/constant/"
+  ( cd "$c"
+    mapFields ../${P}_pre -sourceTime $T_PRE -consistent > log.mapFields 2>&1
+    decomposePar -force > log.decomposePar 2>&1 )
+fi
+( cd "$c"
+  n=0
+  while read te dt; do
+    n=$((n+1))
+    ts=$(ls -d processor0/[0-9]* | sed 's|processor0/||' | sort -g | tail -1)
+    awk -v a=$ts -v b=$te 'BEGIN{exit !(a >= b-1e-6)}' && continue  # segment already done (restart)
+    foamDictionary system/controlDict -entry endTime -set $te > /dev/null
+    foamDictionary system/controlDict -entry maxDeltaT -set $dt > /dev/null
+    foamDictionary system/controlDict -entry writeInterval -set $(awk -v a=$ts -v b=$te 'BEGIN{print b-a}') > /dev/null
+    mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.seg$n 2>&1
+    grep -q "FOAM FATAL" log.foamRun.seg$n && { echo "$(date -u +%H:%M) $c segment $n FAILED"; exit 1; }
+    echo "$(date -u +%H:%M) $c segment $n to $te s done"
+  done < schedule
+  reconstructPar -latestTime > log.reconstructPar 2>&1 )
+echo "$(date -u +%H:%M) ${P} pipeline done"

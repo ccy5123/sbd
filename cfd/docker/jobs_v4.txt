@@ -1,0 +1,8 @@
+# PLAN v4 E2' (hybrid scheme): developed precursor (90 s) + four releases on s1..s4 to 150 s after the last one.
+# v4_sofa_bare, v4_sofa_tr and v4_sofa_rec4.5 were started by hand; the reference runs sofa_silent/sofa_audible
+# (old clone) share the five slots.
+v4_stand_still||NP=4 T_PRE=90|bash cfd/cases/standing/run_multi.sh /sbd/cfd/runs still bare
+v4_stand_still_tr||NP=4 T_PRE=90|bash cfd/cases/standing/run_multi.sh /sbd/cfd/runs still trousers
+v4_stand_vent||NP=4 T_PRE=90|bash cfd/cases/standing/run_multi.sh /sbd/cfd/runs vent bare
+v4_stand_vent_tr||NP=4 T_PRE=90|bash cfd/cases/standing/run_multi.sh /sbd/cfd/runs vent trousers
+v4_sofa_rec-10||NP=4 T_PRE=90|bash cfd/cases/sofa/run_multi.sh /sbd/cfd/runs -10 bare
