@@ -105,6 +105,27 @@ def pulse_table(t_rel, T, value, base=0.0, conserve=False):
     return "table (" + " ".join(f"({t:.6g} {y:.8g})" for t, y in pts) + ")"
 
 
+def multi_pulse_table(pulses, base=0.0):
+    """Function1 table of non-overlapping pulses [(t_rel, T, value, conserve), ...] on a common base value."""
+    pts = [(0.0, base)]
+    for t_rel, T, value, conserve in sorted(pulses):
+        v = value * T / (T - RAMP) if conserve else value
+        pts += [(t_rel, base), (t_rel + RAMP, base + v), (t_rel + T - RAMP, base + v), (t_rel + T, base)]
+    pts.append((pts[-1][0] + 1e4, base))
+    return "table (" + " ".join(f"({t:.6g} {y:.8g})" for t, y in pts) + ")"
+
+
+# PLAN v4 E2': four releases in one run, one scalar each (s1..s4), 30 s apart, strongest first; representative
+# passages at the 50th/90th percentile of the exit momentum flux M0 within each class (Gate 0 priors, onset 41.9 m/s)
+MULTI_RELEASES = [  # (name, V m^3, T s, d m)
+    ("A90", 278.8e-6, 0.34, 2.54e-3),
+    ("A50", 86.2e-6, 0.42, 1.67e-3),
+    ("S90", 66.4e-6, 0.65, 2.45e-3),
+    ("S50", 122.1e-6, 4.76, 3.06e-3),
+]
+MULTI_GAP, MULTI_WINDOW = 30.0, 150.0
+
+
 def block_mesh(dx=0.08):
     (x0, x1), (y0, y1), (z0, z1) = DOMAIN
     n = [max(1, round((b - a) / dx)) for a, b in DOMAIN]
@@ -123,10 +144,8 @@ boundary
 
 def snappy(trousers=()):
     rx, ry, rz = REL
-    tro_geo = "".join(f'    tro{k} {{ type triSurface; file "{f}"; }}
-' for k, f in enumerate(trousers))
-    tro_ref = "".join(f"        tro{k} {{ mode inside; level 4; }}
-" for k in range(len(trousers)))
+    tro_geo = "".join(f'    tro{k} {{ type triSurface; file "{f}"; }}\n' for k, f in enumerate(trousers))
+    tro_ref = "".join(f"        tro{k} {{ mode inside; level 4; }}\n" for k in range(len(trousers)))
     return f"""castellatedMesh true;
 snap            true;
 addLayers       true;
@@ -201,7 +220,7 @@ mergeTolerance 1e-6;
 """
 
 
-def fields(src, t_rel=T_REL, T=1.0):
+def fields(src, t_rel=T_REL, T=1.0, multi=None):
     troom, tskin = T_ROOM + 273.15, T_SKIN + 273.15
     k0, om0 = 1e-5, 0.1
 
@@ -212,7 +231,14 @@ def fields(src, t_rel=T_REL, T=1.0):
                 + f"    nozzle {{ {sofa} }}\n    vent {{ {vent} }}\n    release {{ {release} }}\n}}\n")
 
     beta = 1.0 / troom
-    if src:
+    if multi:  # [(src, t_rel, T), ...]
+        q_tab = multi_pulse_table([(tr, Tk, sk["Q_eq"], True) for sk, tr, Tk in multi])
+        t_tab = multi_pulse_table([(tr, Tk, G_PRIME / (9.81 * beta) / sk["dilution"], False) for sk, tr, Tk in multi], troom)
+        u_max = max(sk["u_eq"] for sk, _, _ in multi)
+        k_in = 1.5 * (0.05 * u_max) ** 2
+        om_in = math.sqrt(k_in) / (0.09**0.25 * 0.07 * 2 * R_E)
+        s_tab = "constant 0"
+    elif src:
         dT_eq = G_PRIME / (9.81 * beta) / src["dilution"]
         q_tab = pulse_table(t_rel, T, src["Q_eq"], conserve=True)
         t_tab = pulse_table(t_rel, T, dT_eq, troom)
@@ -221,7 +247,7 @@ def fields(src, t_rel=T_REL, T=1.0):
         om_in = math.sqrt(k_in) / (0.09**0.25 * 0.07 * 2 * R_E)
     else:
         q_tab, t_tab, s_tab, k_in, om_in = "constant 0", f"constant {troom}", "constant 0", k0, om0
-    return {
+    out = {
         "U": ("volVectorField", "dimensions [0 1 -1 0 0 0 0];\ninternalField uniform (0 0 0);\n"
               + bc("type noSlip;", "type noSlip;", "type noSlip;",
                    "type pressureInletOutletVelocity; value uniform (0 0 0);",
@@ -253,27 +279,26 @@ def fields(src, t_rel=T_REL, T=1.0):
                    + bc(*["type compressible::alphatJayatillekeWallFunction; Prt 0.85; value uniform 0;"] * 3,
                         *["type calculated; value uniform 0;"] * 2)),
     }
+    if multi:  # one scalar per release, s_k = 1/dilution_k during its own pulse
+        del out["s"]
+        for k, (sk, tr, Tk) in enumerate(multi, 1):
+            tab = multi_pulse_table([(tr, Tk, 1.0 / sk["dilution"], False)])
+            out[f"s{k}"] = ("volScalarField", "dimensions [0 0 0 0 0 0 0];\ninternalField uniform 0;\n"
+                            + bc("type zeroGradient;", "type zeroGradient;", "type zeroGradient;",
+                                 "type inletOutlet; inletValue uniform 0; value uniform 0;",
+                                 f"type uniformFixedValue; uniformValue {tab}; value uniform 0;"))
+    return out
 
 
 def trousers_dicts(inner, outer, a_fabric):
     """createZonesDict (shell = union of outer offsets minus union of inner offsets) and the porosity fvModel. The
     fabric's EN ISO 9237 air permeability a (m/s at DP_FABRIC) is spread over the modelled thickness FABRIC:
     dp = mu*D*u*FABRIC = DP_FABRIC*u/a  ->  D = DP_FABRIC/(a*mu*FABRIC)."""
-    side = lambda name, files: (f"    {name}
-    {{
-        type union;
-        zoneType cell;
-" + "".join(  # noqa: E731
-        f'        {name}{k} {{ type insideSurface; zoneType cell; surface closedTriSurface; file "{f}"; }}
-'
-        for k, f in enumerate(files)) + "    }
-")
-    zones = "trousers
-{
-    type difference;
-    zoneType cell;
-" + side("outer", outer) + side("inner", inner) + "}
-"
+    def side(name, files):
+        parts = "".join(f'        {name}{k} {{ type insideSurface; zoneType cell; surface closedTriSurface; file "{f}"; }}\n'
+                        for k, f in enumerate(files))
+        return f"    {name}\n    {{\n        type union;\n        zoneType cell;\n{parts}    }}\n"
+    zones = "trousers\n{\n    type difference;\n    zoneType cell;\n" + side("outer", outer) + side("inner", inner) + "}\n"
     D = DP_FABRIC / (a_fabric * 1.81e-5 * FABRIC)
     fvm = f"""trousers
 {{
@@ -292,10 +317,14 @@ def trousers_dicts(inner, outer, a_fabric):
 
 
 def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_REL, t_end: float = T_END,
-         recline: float = 0.0, clothing: str = "bare", a_fabric: float = 0.030):
+         recline: float = 0.0, clothing: str = "bare", a_fabric: float = 0.030, t_pre: float = T_PRE):
     troom = T_ROOM + 273.15
     rho0 = 101325 * 0.02896 / (8.314 * troom)
-    src = equivalent_source(V, T, d) if mode != "precursor" else None
+    multi = None
+    if mode == "multi":
+        multi = [(equivalent_source(Vk, Tk, dk), t_rel + MULTI_GAP * i, Tk) for i, (_, Vk, Tk, dk) in enumerate(MULTI_RELEASES)]
+        t_end = multi[-1][1] + MULTI_WINDOW
+    src = equivalent_source(V, T, d) if mode not in ("precursor", "multi") else None
     geo = case / "constant/geometry"
     geo.mkdir(parents=True, exist_ok=True)
     sys.path.insert(0, str(ROOT / "cfd/geometry"))
@@ -319,7 +348,7 @@ def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_R
     }}
 }}
 """)
-    for name, (cls, body) in fields(src, t_rel, T).items():
+    for name, (cls, body) in fields(src, t_rel, T, multi).items():
         w(case / "0" / name, body, cls)
     w(case / "constant/g", "dimensions [0 1 -2 0 0 0 0];\nvalue (0 0 -9.81);\n", "uniformDimensionedVectorField", "g")
     w(case / "constant/physicalProperties", f"""thermoType
@@ -347,12 +376,26 @@ mixture
     nose_n = f"({NOSE_X} {DY_N} {NOSE_Z})"
     # branch cases run in two stages (run_sofa.sh): 'release' up to stage1_end with a time step that resolves the
     # inlet pulse and its ramps, then 'drift' to t_end with maxDeltaT 0.1 and writeInterval 5
-    if src:
+    scalars = ["s"]
+    if multi:
+        # schedule for run_multi.sh: (end time, maxDeltaT) segments; each pulse runs with a time step that resolves
+        # it and its ramps, the gaps with maxDeltaT 0.1
+        sched, t_prev = [], 0.0
+        for sk, tr, Tk in multi:
+            if tr - 0.05 > t_prev:
+                sched.append((tr - 0.05, 0.1))
+            t_prev = tr + Tk + 0.3
+            sched.append((t_prev, min(0.01, 4 * 0.0025 / sk["u_eq"])))
+        sched.append((t_end, 0.1))
+        (case / "schedule").write_text("".join(f"{te:.6g} {dt:.4g}\n" for te, dt in sched))
+        end, max_dt, write_int = sched[0][0], sched[0][1], 5
+        scalars = [f"s{k}" for k in range(1, len(multi) + 1)]
+    elif src:
         end = min(t_end, math.ceil(t_rel + T + 0.3))
         max_dt = min(0.01, 4 * 0.0025 / src["u_eq"])
         write_int = 1
     else:
-        end, max_dt, write_int = T_PRE, 0.1, 5
+        end, max_dt, write_int = t_pre, 0.1, 5
     w(case / "system/controlDict", f"""solver fluid;
 startFrom latestTime;
 startTime 0;
@@ -372,9 +415,8 @@ timeFormat general;
 runTimeModifiable true;
 functions
 {{
-    #includeFunc scalarTransport(s, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)
-    #includeFunc probes(funcName=noses, points=({nose_f} {nose_n}), fields=(s T U))
-    #includeFunc residuals(p_rgh, U, e, k, omega, s)
+{"".join(f"    #includeFunc scalarTransport({sc}, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)" + chr(10) for sc in scalars)}    #includeFunc probes(funcName=noses, points=({nose_f} {nose_n}), fields=({" ".join(scalars)} T U))
+    #includeFunc residuals(p_rgh, U, e, k, omega, {" ".join(scalars)})
     planes
     {{
         type            surfaces;
@@ -384,7 +426,7 @@ functions
         surfaceFormat   raw;
         interpolationScheme cell;
         interpolate     false;
-        fields          (s T U);
+        fields          ({" ".join(scalars)} T U);
         surfaces
         {{
             midFarter  {{ type cutPlane; planeType pointAndNormal; point (0 {DY_F} 0); normal (0 1 0); interpolate false; }}
@@ -405,6 +447,10 @@ divSchemes
     div(phi,omega) Gauss upwind;
     div(phi,K) Gauss linear;
     div(phi,s) Gauss limitedLinear01 1;
+    div(phi,s1) Gauss limitedLinear01 1;
+    div(phi,s2) Gauss limitedLinear01 1;
+    div(phi,s3) Gauss limitedLinear01 1;
+    div(phi,s4) Gauss limitedLinear01 1;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 }
 laplacianSchemes { default Gauss linear limited corrected 0.5; }
@@ -416,7 +462,7 @@ wallDist { method meshWave; }
 {
     "p_rgh.*" { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0.01; }
     p_rghFinal { solver GAMG; smoother DIC; tolerance 1e-7; relTol 0; }
-    "(U|e|k|omega|s).*" { solver PBiCGStab; preconditioner DILU; tolerance 1e-8; relTol 0; }
+    "(U|e|k|omega|s[0-9]*).*" { solver PBiCGStab; preconditioner DILU; tolerance 1e-8; relTol 0; }
     "rho.*" { solver diagonal; }
 }
 PIMPLE
@@ -437,7 +483,7 @@ PIMPLE
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("case")
-    ap.add_argument("--mode", choices=("precursor", "silent", "audible"), required=True)
+    ap.add_argument("--mode", choices=("precursor", "silent", "audible", "multi"), required=True)
     ap.add_argument("--V", type=float, default=9.2e-5, help="released volume (m^3); median per passage")
     ap.add_argument("--T", type=float, default=None, help="release duration (s)")
     ap.add_argument("--d", type=float, default=None, help="effective orifice diameter (m)")
@@ -445,13 +491,14 @@ if __name__ == "__main__":
     ap.add_argument("--t-end", type=float, default=T_END, help="end time (s)")
     ap.add_argument("--recline", type=float, default=0.0, help="releaser upper-body recline about the hip (deg)")
     ap.add_argument("--clothing", choices=("bare", "trousers"), default="bare", help="long trousers on both occupants")
+    ap.add_argument("--t-pre", type=float, default=T_PRE, help="precursor length (s)")
     ap.add_argument("--fabric-a", type=float, default=0.030, help="fabric air permeability at 100 Pa (m/s); denim")
     a = ap.parse_args()
     # defaults: silent = 92 mL over 2 s through 8 mm (u0 0.9 m/s, below acoustic onset);
     #           audible = 92 mL over 0.5 s through 2.4 mm (u0 41 m/s, above onset ~30 m/s)
     T = a.T if a.T is not None else (2.0 if a.mode != "audible" else 0.5)
     d = a.d if a.d is not None else (0.008 if a.mode != "audible" else 0.0024)
-    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline, a.clothing, a.fabric_a)
+    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline, a.clothing, a.fabric_a, a.t_pre)
     if src:
         src["stage1_end"] = min(a.t_end, math.ceil(a.t_release + T + 0.3))
     print("written", a.case, a.mode, {k: round(v, 5) for k, v in (src or {}).items()})
