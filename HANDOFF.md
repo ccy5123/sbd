@@ -1,3 +1,34 @@
+# Status 2026-10-19 (local session; read this first)
+
+- **Plan:** `PLAN_v4_experiments.md` (approved): validation, RANS response map, LES for the peak factor. Target: one
+  complete preprint after these runs (user chose option A: no partial preprint). Venue under discussion: ChemRxiv
+  (chemistry scope; check its AI-use policy) vs arXiv physics.flu-dyn. The J. Immat. Sci. bans all AI-generated
+  content, so a JIS version would have to be written by the author without AI.
+- **Server** (company machine, `ssh user@192.168.50.192` from WSL Ubuntu; all work inside `~/cyjoe/`, see memory):
+  OpenFOAM 13 in the Docker image `sbd-openfoam13` (`cfd/docker/`), runs via `cfd/docker/run.sh` (nice 19, 4 cores
+  each) and `cfd/docker/queue.sh` (at most 5 containers = 20 cores, the user's cap). Two clones:
+  `~/cyjoe/research/sbd` runs the coupled 10-min reference branches `sofa_silent`, `sofa_audible` (old scripts; do
+  not `git pull` there while they run, bash reads the running scripts incrementally); `~/cyjoe/research/sbd-v4`
+  runs the v4 jobs (`cfd/docker/jobs_v4.txt`, queue log `cfd/runs/queue_v4.log`). GPUs 1-3 may be used when idle
+  (GPU 0 belongs to the CMAQ service; Ollama/vLLM services may load models on any GPU).
+- **Reproduction:** the container reproduces the archived elevator run bitwise (checked to 1.2 s).
+- **FluidX3D test** (`cfd/lbm/feasibility_report.md`, fork in `research/FluidX3D-sbd`, branch `sbd`): same body plume
+  as the RANS (0-7 %), so the 40-60 % plume over-prediction is a set-up effect (at Licina's point, 14 mm from the
+  face: +36 % bare, +28 % with a 30 C clothed surface; carried as a transport-time factor). Low-concentration scalar
+  transport is not reliable there (needs a diffusivity floor). Kept as a cross-check only.
+- **E0-5 failed:** frozen-flow transport is 1e3-1e4 too low at the noses because the URANS room flow keeps
+  meandering (0.13-0.33 m/s at the noses). Replaced by the hybrid scheme the user chose: one coupled run per
+  configuration with four releases on scalars s1..s4 (A90, A50, S90, S50: 50th/90th percentile of M0 per class from
+  the Gate 0 priors; `MULTI_RELEASES` in `cfd/cases/sofa/make_case.py`), 30 s apart, to 150 s after the last; the
+  150-600 s tail from a well-mixed model validated on the two sofa reference runs.
+- **Running / queued (v4):** sofa upright bare, sofa upright trousers, sofa reclined +4.5 (running); standing still
+  bare/trousers, standing ventilated bare/trousers, sofa reclined -10 (queued). Precursors 90 s. Trousers = porous
+  shell (`createZones` union-minus-union of offset surfaces, Darcy from denim permeability), 123 k cells for the
+  sofa pair; write_trousers orients each part by its signed volume (inverted normals gave an empty zone).
+- **Next:** tail model + validation when the reference runs pass ~300-600 s; analysis script for the multi-release
+  probes (s1..s4 per nose, worst-breath OAV, scaling by V/V_rep within a momentum level); E4 LES set-up (sofa bare and
+  trousers, standing trousers); headline Monte Carlo; manuscript.
+
 # HANDOFF — headline redesign (written 2026-10-18, end of session)
 
 Branch `m0-m1-m8-gate0`. Last pipeline commit `0ab410e` (literature findings applied, PDFs built clean). This file
