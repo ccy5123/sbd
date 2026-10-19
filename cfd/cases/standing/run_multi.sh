@@ -29,8 +29,8 @@ if [ ! -f ${P}_pre/constant/polyMesh/owner ]; then
 fi
 if [ ! -f ${P}_pre/$T_PRE/U ]; then
   ( cd ${P}_pre
-    decomposePar -force > log.decomposePar 2>&1
-    mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun 2>&1
+    [ -d processor0 ] || decomposePar -force > log.decomposePar 2>&1  # resume an interrupted precursor
+    mpirun --allow-run-as-root -np $NP foamRun -parallel >> log.foamRun 2>&1 < /dev/null
     reconstructPar -latestTime > log.reconstructPar 2>&1
     [ -f $T_PRE/U ] && rm -rf processor[0-9]* )
   echo "$(date -u +%H:%M) ${P}_pre done"
@@ -52,7 +52,7 @@ fi
     foamDictionary system/controlDict -entry endTime -set $te > /dev/null
     foamDictionary system/controlDict -entry maxDeltaT -set $dt > /dev/null
     foamDictionary system/controlDict -entry writeInterval -set $(awk -v a=$ts -v b=$te 'BEGIN{print b-a}') > /dev/null
-    mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.seg$n 2>&1
+    mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.seg$n 2>&1 < /dev/null  # mpirun would otherwise eat the schedule on stdin
     grep -q "FOAM FATAL" log.foamRun.seg$n && { echo "$(date -u +%H:%M) $c segment $n FAILED"; exit 1; }
     echo "$(date -u +%H:%M) $c segment $n to $te s done"
   done < schedule
