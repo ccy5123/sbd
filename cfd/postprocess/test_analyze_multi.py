@@ -18,7 +18,12 @@ def shape(tp):
     return np.exp(-((tp - 10.0) / 3.0) ** 2) + 2.0 * np.exp(-((tp - 45.0) / 5.0) ** 2)
 
 
-def write_case(tmp, name="sofa_v4_multi", t_end=None, scale=None):
+def plateau(tp):
+    """Arrives at 20 s and stays at 1 (a nose that reached the room level)."""
+    return (np.asarray(tp) >= 20.0).astype(float)
+
+
+def write_case(tmp, name="sofa_v4_multi", t_end=None, scale=None, shape=shape):
     """Probe files s1..s4 (releaser, neighbour); release k gives s = c V_k shape(t - t_rel,k) at both noses."""
     rels, t0, gap, window = am.release_plan(Path(name))
     t_end = t_end or t0 + gap * (len(rels) - 1) + window
@@ -95,3 +100,33 @@ def test_nose_oav_zero_level_and_repeats():
     assert np.isclose(am.nose_oav(res, "n", 60, 1e-4, 1e-3, "audible"), 4.0e-4)       # linear when a level is 0
     rep = _result({"L50": (1e-4, 2.0), "L50b": (1e-4, 4.0), "L90": (1e-2, 8.0)})
     assert np.isclose(am.nose_oav(rep, "n", 60, 1e-4, 1e-4, "audible"), 3.0e-4)       # repeats averaged
+
+
+def test_rooms():
+    v, lam = am.room(Path("sofa_v4_multi"))
+    assert np.isclose(v, 3.2 * 3.2 * 2.6) and lam == 0.0
+    v, lam = am.room(Path("stand_still_v4_multi"))
+    assert lam == 0.0
+    v, lam = am.room(Path("stand_vent_tr_v4_multi"))
+    assert np.isclose(lam * 3600, 2.86, atol=0.01)  # 2.9 air changes per hour
+
+
+def test_tail_never_exceeds_the_150_s_window(tmp_path):
+    res = run(write_case(tmp_path))
+    for r in res["releases"].values():
+        w = r["releaser"]["by_window"]
+        assert w["300"]["tail_model"] and w["600"]["tail_model"]
+        for k in ("worst_breath_OAV_mean", "worst_breath_OAV_max"):
+            assert w["300"][k] == w["600"][k] == w["150"][k]
+
+
+def test_tail_level_relative_to_well_mixed(tmp_path):
+    case = write_case(tmp_path, "stand_vent_v4_multi", shape=plateau)
+    res = run(case)
+    v_room, lam = am.room(case)
+    r = res["releases"]["A90"]
+    s_late = 1e-3 * r["V"] / am.V0  # plateau level of release A90 at the releaser's nose
+    f = s_late / (r["V"] / v_room * np.exp(-lam * 120.0))
+    assert np.isclose(r["releaser"]["tail"]["f_mean"], f, rtol=1e-6)
+    assert not r["releaser"]["tail"]["late_rising"]
+    assert r["releaser"]["tail"]["OAV_mean"] < r["releaser"]["by_window"]["150"]["worst_breath_OAV_mean"]  # decays

@@ -38,6 +38,13 @@
   sigma (where the conclusion flips); behavioural response (breath-holding on hearing) and a scaling section were
   not adopted. `analyze_multi.py` now gives nested windows, 92 mL equal-mass OAV and `nose_oav` (V/V_rep scaling,
   log-log in M0 between the class's levels, clamped).
+- **Tail model (2026-10-19):** 92 mL well mixed in the 26.6 m^3 room is OAV ~0.49, far below detection (attentive 50 %
+  at OAV 20); the reference runs' noses sit at 0.2-2x that level already at 80-150 s, so the headline is decided in
+  the first ~150 s. `analyze_multi.py` adds 300/600 s windows from a well-mixed plateau (late level f relative to
+  V/V_room, decay only with ventilation), which by construction equals the 150 s value ("nothing worse arrives after
+  150 s"); `cfd/postprocess/validate_tail.py` checks this on the 10-min reference runs (factor 1.5). To do: run it on
+  the server copies when the runs pass 300 s (tonight) and 600 s (Tue 20 evening); if it fails, discuss an
+  exponential approach from the 150 s value to the room level instead.
 - **Server (2026-10-19 12:30 KST):** reference runs at 149 / 118 s of 600 (~220 wall-s per sim-s, done Tue 20
   afternoon/evening); v4 sofa bare and rec4.5 precursors done ~17:00 today, multi phase ~20-24 h more; sofa trousers
   ~6x slower (1.32 M cells, Darcy d = 1.8e10 m^-2 makes p_rgh stiff), ~6 days in all; the user chose to let it run.
