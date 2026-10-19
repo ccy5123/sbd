@@ -171,7 +171,8 @@ def write_trousers(out: Path, name: str, posture: str, gap: float, thickness: fl
     for side, o in (("in", gap), ("out", gap + thickness)):
         for k, t in enumerate(trouser_parts(posture, o, **kw)):
             fn = f"{name}_{side}_{k}.stl"
-            write_stl(out / fn, f"{name}_{side}_{k}", t)
+            # reversed winding: the primitives' triangles face inwards, and createZones' insideSurface uses the normals
+            write_stl(out / fn, f"{name}_{side}_{k}", [tri[::-1] for tri in t])
             names[side].append(fn)
     return names["in"], names["out"]
 
