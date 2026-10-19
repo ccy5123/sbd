@@ -43,6 +43,9 @@ R_E, L_E = 0.01, 0.03                  # nozzle radius and length; the release f
 RAMP = 0.03                            # s, linear ramp at both ends of the pulse
 VENT_BOX = "(1.6 1.0 2.5) (2.1 1.5 2.7)"  # ceiling faces with centres in this box become the vent patch
 T_ROOM, T_SKIN = 23.0, 33.0
+GAP, FABRIC = 0.02, 0.01               # trousers: air gap between skin and fabric (holds the release point, 1.5 cm behind
+                                       # the back) and the modelled fabric thickness (2 cells at level 4)
+DP_FABRIC = 100.0                      # Pa, EN ISO 9237 test pressure (params.yaml clothing.dp_ref_fabric)
 G_PRIME = 1.70                         # params.yaml source.g_reduced (median)
 T_PRE, T_REL = 30.0, 30.0              # precursor length; release time
 T_END = 60.0
@@ -118,8 +121,12 @@ boundary
 """
 
 
-def snappy():
+def snappy(trousers=()):
     rx, ry, rz = REL
+    tro_geo = "".join(f'    tro{k} {{ type triSurface; file "{f}"; }}
+' for k, f in enumerate(trousers))
+    tro_ref = "".join(f"        tro{k} {{ mode inside; level 4; }}
+" for k in range(len(trousers)))
     return f"""castellatedMesh true;
 snap            true;
 addLayers       true;
@@ -133,7 +140,7 @@ geometry
     plumes    {{ type box; min (-0.35 -0.75 1.0); max (0.40 0.75 2.4); }}
     faces     {{ type box; min (0.0 -0.50 1.05); max (0.35 0.50 1.40); }}
     release   {{ type box; min ({rx - 0.06} {ry - 0.08} 0.45); max ({rx + 0.05} {ry + 0.08} {rz + 0.08}); }}
-}};
+{tro_geo}}};
 castellatedMeshControls
 {{
     maxLocalCells 3000000;
@@ -164,7 +171,7 @@ castellatedMeshControls
         plumes  {{ mode inside; level 1; }}
         faces   {{ mode inside; level 3; }}
         release {{ mode inside; level 4; }}
-    }}
+{tro_ref}    }}
     insidePoint (1.5 1.2 2.0);
     allowFreeStandingZoneFaces false;
 }}
@@ -248,8 +255,44 @@ def fields(src, t_rel=T_REL, T=1.0):
     }
 
 
+def trousers_dicts(inner, outer, a_fabric):
+    """createZonesDict (shell = union of outer offsets minus union of inner offsets) and the porosity fvModel. The
+    fabric's EN ISO 9237 air permeability a (m/s at DP_FABRIC) is spread over the modelled thickness FABRIC:
+    dp = mu*D*u*FABRIC = DP_FABRIC*u/a  ->  D = DP_FABRIC/(a*mu*FABRIC)."""
+    side = lambda name, files: (f"    {name}
+    {{
+        type union;
+        zoneType cell;
+" + "".join(  # noqa: E731
+        f'        {name}{k} {{ type insideSurface; zoneType cell; surface closedTriSurface; file "{f}"; }}
+'
+        for k, f in enumerate(files)) + "    }
+")
+    zones = "trousers
+{
+    type difference;
+    zoneType cell;
+" + side("outer", outer) + side("inner", inner) + "}
+"
+    D = DP_FABRIC / (a_fabric * 1.81e-5 * FABRIC)
+    fvm = f"""trousers
+{{
+    type porosityForce;
+    porosityForceCoeffs
+    {{
+        cellZone trousers;
+        type DarcyForchheimer;
+        d ({D:.4e} {D:.4e} {D:.4e});
+        f (0 0 0);
+        coordinateSystem {{ type cartesian; origin (0 0 0); coordinateRotation {{ type axesRotation; e1 (1 0 0); e2 (0 1 0); }} }}
+    }}
+}}
+"""
+    return zones, fvm
+
+
 def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_REL, t_end: float = T_END,
-         recline: float = 0.0):
+         recline: float = 0.0, clothing: str = "bare", a_fabric: float = 0.030):
     troom = T_ROOM + 273.15
     rho0 = 101325 * 0.02896 / (8.314 * troom)
     src = equivalent_source(V, T, d) if mode != "precursor" else None
@@ -259,8 +302,13 @@ def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_R
     import manikin
     manikin.write_scene(geo, DY_F, DY_N, recline_farter=recline)
     write_emitter(geo / "emitter.stl", manikin)
+    inner, outer = [], []
+    if clothing == "trousers":
+        for who, dy, rec in (("trF", DY_F, recline), ("trN", DY_N, 0.0)):
+            i, o = manikin.write_trousers(geo, who, "seated", GAP, FABRIC, dy=dy, recline_deg=rec)
+            inner += i; outer += o
     w(case / "system/blockMeshDict", block_mesh())
-    w(case / "system/snappyHexMeshDict", snappy())
+    w(case / "system/snappyHexMeshDict", snappy(outer))
     w(case / "system/createPatchDict", f"""patches
 {{
     vent
@@ -289,6 +337,11 @@ mixture
 """)
     w(case / "constant/momentumTransport", "simulationType RAS;\nRAS\n{\n    model kOmegaSST;\n    turbulence on;\n}\n")
     (case / "constant/fvModels").unlink(missing_ok=True)
+    (case / "system/createZonesDict").unlink(missing_ok=True)
+    if clothing == "trousers":
+        zones, fvm = trousers_dicts(inner, outer, a_fabric)
+        w(case / "system/createZonesDict", zones)
+        w(case / "constant/fvModels", fvm)
     nf = manikin.nose_tip(recline)  # releaser's nose moves back when reclined; probe stays 2.5 cm in front of it
     nose_f = f"({nf[0] + NOSE_X - manikin.NOSE[0]:.4f} {DY_F} {nf[2]:.4f})"
     nose_n = f"({NOSE_X} {DY_N} {NOSE_Z})"
@@ -391,12 +444,14 @@ if __name__ == "__main__":
     ap.add_argument("--t-release", type=float, default=T_REL, help="release start time (s)")
     ap.add_argument("--t-end", type=float, default=T_END, help="end time (s)")
     ap.add_argument("--recline", type=float, default=0.0, help="releaser upper-body recline about the hip (deg)")
+    ap.add_argument("--clothing", choices=("bare", "trousers"), default="bare", help="long trousers on both occupants")
+    ap.add_argument("--fabric-a", type=float, default=0.030, help="fabric air permeability at 100 Pa (m/s); denim")
     a = ap.parse_args()
     # defaults: silent = 92 mL over 2 s through 8 mm (u0 0.9 m/s, below acoustic onset);
     #           audible = 92 mL over 0.5 s through 2.4 mm (u0 41 m/s, above onset ~30 m/s)
     T = a.T if a.T is not None else (2.0 if a.mode != "audible" else 0.5)
     d = a.d if a.d is not None else (0.008 if a.mode != "audible" else 0.0024)
-    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline)
+    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline, a.clothing, a.fabric_a)
     if src:
         src["stage1_end"] = min(a.t_end, math.ceil(a.t_release + T + 0.3))
     print("written", a.case, a.mode, {k: round(v, 5) for k, v in (src or {}).items()})

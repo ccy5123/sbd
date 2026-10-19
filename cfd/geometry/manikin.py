@@ -143,6 +143,39 @@ def _standing():
     return t
 
 
+def trouser_parts(posture: str, o: float, dx: float = 0.0, dy: float = 0.0, recline_deg: float = 0.0, facing: int = 1):
+    """Long trousers as offset surfaces: the lower-body primitives they cover, inflated by o (m). posture 'seated'
+    (pelvis section of the torso from the seat to the waist, thighs, lower legs) or 'standing' (pelvis section, legs).
+    Returns one closed surface per primitive; the CFD case takes the union of the parts inflated by the air gap and
+    by gap + fabric thickness, and makes the shell between them a porous zone."""
+    if posture == "seated":
+        parts = [_recline(cylinder((-0.07, 0, SEAT_Z + 0.01 - o), (-0.07, 0, SEAT_Z + 0.22), 0.11 + o, 0.17 + o),
+                          recline_deg)]
+        for s in (-1, 1):
+            parts.append(cylinder((-0.10 - o, s * 0.10, SEAT_Z + 0.08), (0.44 + o, s * 0.10, SEAT_Z + 0.08), 0.08 + o))
+            parts.append(cylinder((0.45, s * 0.10, SEAT_Z + 0.06 + o), (0.45, s * 0.10, 0.07), 0.055 + o))
+    elif posture == "standing":
+        parts = [cylinder((-0.07, 0, 0.80 - o), (-0.07, 0, 1.02), 0.11 + o, 0.17 + o)]
+        for s in (-1, 1):
+            parts.append(cylinder((-0.05, s * 0.10, 0.88), (-0.03, s * 0.10, 0.07), 0.065 + o))
+    else:
+        raise ValueError(posture)
+    if facing < 0:
+        parts = [[tuple((-p[0], p[1], p[2]) for p in tri[::-1]) for tri in t] for t in parts]
+    return [_shift(t, dx=dx, dy=dy) for t in parts]
+
+
+def write_trousers(out: Path, name: str, posture: str, gap: float, thickness: float, **kw):
+    """Write <name>_in_<k>.stl (inflated by gap) and <name>_out_<k>.stl (gap + thickness); returns both name lists."""
+    names = {"in": [], "out": []}
+    for side, o in (("in", gap), ("out", gap + thickness)):
+        for k, t in enumerate(trouser_parts(posture, o, **kw)):
+            fn = f"{name}_{side}_{k}.stl"
+            write_stl(out / fn, f"{name}_{side}_{k}", t)
+            names[side].append(fn)
+    return names["in"], names["out"]
+
+
 # Elevator car, rated load 630 kg / 8 persons: inside 1.10 m wide x 1.40 m deep (KONE MonoSpace planning guide;
 # 1.54 m2 <= EN 81-20 Table 6 maximum 1.66 m2), car height 2.10 m (the lower of the offered 2.10 / 2.20 m).
 # x = depth (door at x = CAR[0]), y = width, z = height. Four occupants in a 2 x 2 grid, all facing the door.
