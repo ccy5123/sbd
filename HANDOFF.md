@@ -11,7 +11,9 @@
   crashes on this PC). Repo copy and run in `/root/sbd` inside that distro, started from the server's precursor case
   (mesh). Resume after a reboot: `powershell -ExecutionPolicy Bypass -File cfd\local\start_local.ps1`
   (`CHECKPOINT=5` splits long segments into 5-s pieces, `KEEP=3` prunes old time directories; a lock prevents a
-  second copy). ~5-6 days; ~8-10 GB on C:. Bring the results back to the server or the repo for analysis.
+  second copy). A shortcut in the Windows Startup folder (`sbd local CFD resume.lnk`, user's request) runs it at
+  every login; delete it when the run is done. Per job about twice as fast as the (oversubscribed) server: ~3 days;
+  ~8-10 GB on C:. Bring the results back to the server or the repo for analysis.
 - **Venue decided 2026-10-20:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); plan in
   `manuscript/preprint/interface_plan.md`. Approved the same day; its "now" tasks 1-9 are done (see its §8):
   article class, appendix A/B, chemistry, acoustics and odour origin moved to the ESM, 47 main-text references,
