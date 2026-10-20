@@ -364,6 +364,7 @@ mixture
     sc = " ".join(scalars)
     st = "".join(f"    #includeFunc scalarTransport({s}, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)\n" for s in scalars)
     nose_z = manikin.STAND_NOSE[2]
+    iso = sofa_case.iso_block(scalars) if multi else ""
     w(case / "system/controlDict", f"""solver fluid;
 startFrom latestTime;
 startTime 0;
@@ -386,7 +387,7 @@ functions
 {st}    #includeFunc probes(funcName=noses, points=({probes}), fields=({sc} T U))
     #includeFunc residuals(p_rgh, U, e, k, omega, {", ".join(scalars)})
     #includeFunc patchFlowRate(patch=exhaust)
-    planes
+{iso}    planes
     {{
         type            surfaces;
         libs            ("libsampling.so");

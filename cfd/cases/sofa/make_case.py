@@ -105,6 +105,21 @@ def pulse_table(t_rel, T, value, base=0.0, conserve=False):
     return "table (" + " ".join(f"({t:.6g} {y:.8g})" for t, y in pts) + ")"
 
 
+# 3D viewer: iso-surfaces of each release's scalar every 1 s at OAV 0.1, 1 and 20 (s = OAV / 1.428e5, the OAV of
+# undiluted flatus from gate0/model.oav with the nominal parameters). Written as VTK surfaces (small next to fields).
+ISO_LEVELS = {"oav0.1": 7.0e-7, "oav1": 7.0e-6, "oav20": 1.4e-4}
+
+
+def iso_block(scalars):
+    """functionObject text writing the iso-surfaces of the given scalars."""
+    surf = "".join(f"            {sc}_{name} {{ type isoSurface; isoField {sc}; isoValue {val:.3g}; interpolate yes; }}\n"
+                   for sc in scalars for name, val in ISO_LEVELS.items())
+    return (f"    isoSurfaces\n    {{\n        type            surfaces;\n        libs            (\"libsampling.so\");\n"
+            f"        writeControl    adjustableRunTime;\n        writeInterval   1;\n        surfaceFormat   vtk;\n"
+            f"        interpolationScheme cellPoint;\n        fields          ({' '.join(scalars)});\n"
+            f"        surfaces\n        {{\n{surf}        }}\n    }}\n")
+
+
 def multi_pulse_table(pulses, base=0.0):
     """Function1 table of non-overlapping pulses [(t_rel, T, value, conserve), ...] on a common base value."""
     pts = [(0.0, base)]
@@ -413,6 +428,7 @@ mixture
         write_int = 1
     else:
         end, max_dt, write_int = t_pre, 0.1, 5
+    iso = iso_block(scalars) if multi else ""
     w(case / "system/controlDict", f"""solver fluid;
 startFrom latestTime;
 startTime 0;
@@ -434,7 +450,7 @@ functions
 {{
 {"".join(f"    #includeFunc scalarTransport({sc}, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)" + chr(10) for sc in scalars)}    #includeFunc probes(funcName=noses, points=({nose_f} {nose_n}), fields=({" ".join(scalars)} T U))
     #includeFunc residuals(p_rgh, U, e, k, omega, {", ".join(scalars)})
-    planes
+{iso}    planes
     {{
         type            surfaces;
         libs            ("libsampling.so");

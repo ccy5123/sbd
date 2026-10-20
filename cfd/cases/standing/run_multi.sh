@@ -51,7 +51,8 @@ fi
     awk -v a=$ts -v b=$te 'BEGIN{exit !(a >= b-1e-6)}' && continue  # segment already done (restart)
     foamDictionary system/controlDict -entry endTime -set $te > /dev/null
     foamDictionary system/controlDict -entry maxDeltaT -set $dt > /dev/null
-    foamDictionary system/controlDict -entry writeInterval -set $(awk -v a=$ts -v b=$te 'BEGIN{print b-a}') > /dev/null
+    # write exactly at the segment end: OpenFOAM writes at multiples of writeInterval counted from t = 0
+    foamDictionary system/controlDict -entry writeInterval -set $te > /dev/null
     mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.seg$n 2>&1 < /dev/null  # mpirun would otherwise eat the schedule on stdin
     grep -q "FOAM FATAL" log.foamRun.seg$n && { echo "$(date -u +%H:%M) $c segment $n FAILED"; exit 1; }
     echo "$(date -u +%H:%M) $c segment $n to $te s done"
