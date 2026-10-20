@@ -1,9 +1,11 @@
 # Status 2026-10-19 (local session; read this first)
 
 - **Plan:** `PLAN_v4_experiments.md` (approved): validation, RANS response map, LES for the peak factor. Target: one
-  complete preprint after these runs (user chose option A: no partial preprint). Venue under discussion: ChemRxiv
+  complete preprint after these runs (user chose option A: no partial preprint). Preprint server still open: ChemRxiv
   (chemistry scope; check its AI-use policy) vs arXiv physics.flu-dyn. The J. Immat. Sci. bans all AI-generated
   content, so a JIS version would have to be written by the author without AI.
+- **Venue decided 2026-10-20:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); plan in
+  `manuscript/preprint/interface_plan.md` (awaiting the user's approval; no manuscript edits before it).
 - **Server** (company machine, `ssh user@192.168.50.192` from WSL Ubuntu; all work inside `~/cyjoe/`, see memory):
   OpenFOAM 13 in the Docker image `sbd-openfoam13` (`cfd/docker/`), runs via `cfd/docker/run.sh` (nice 19, 4 cores
   each) and `cfd/docker/queue.sh` (at most 5 containers = 20 cores, the user's cap). Two clones:
