@@ -14,18 +14,10 @@ worst single inhalation,
   \label{eq:deadliness}
 \end{equation}
 where $\mathrm{OAV} = \sum_i c_i/c_{\mathrm{th},i}$ is the summed odour activity value of hydrogen sulfide,
-methanethiol and dimethyl sulfide at the nose and $n$ is the Stevens exponent.
-
-The breath is the natural unit for three reasons.
-\begin{itemize}
-  \item Perceived intensity saturates within a single natural sniff: one sniff is rated like seven, and the optimum
-  lies between 0.4 and 0.6\,s \cite{laing1983,laing1985}.
-  \item Within that window intensity still integrates: longer \ce{H2S} pulses of 100--300\,ms are rated stronger
-  \cite{frasnelli2006}.
-  \item The sniff is the unit of olfactory processing \cite{uchida2003,kepecs2006}, and regulatory odour-impact
-  assessment also works with per-breath peaks rather than hourly means \cite{schauberger2012}.
-\end{itemize}
-Cumulative exposure is reported as a secondary metric.
+methanethiol and dimethyl sulfide at the nose and $n$ is the Stevens exponent. The breath is the natural unit:
+perceived intensity saturates within one natural sniff \cite{laing1983}, still integrates within it
+\cite{frasnelli2006}, and the sniff is the unit of olfactory processing \cite{kepecs2006}. Cumulative exposure is
+reported as a secondary metric.
 
 Every comparison below states its basis:
 \begin{itemize}
@@ -37,14 +29,15 @@ Folk experience is basis (C). Physics answers (A) and (B).
 
 \subsection{Linear transport bounds the silent advantage}
 \label{sec:thm1}
-Odorants at sub-ppm levels are a passive scalar: the air carries them without being affected by them. Once the release has lost its own momentum and buoyancy, the
-concentration at a fixed nose is a linear functional of the release history $q(t)$ (volume of flatus per unit time):
+Odorants at sub-ppm levels are a passive scalar: the air carries them without being affected by them. Once the
+release has lost its own momentum and buoyancy, the concentration at a fixed nose is a linear functional of the
+release history $q(t)$ (volume of flatus per unit time):
 \begin{equation}
   C(t) = \int G(t-s)\,q(s)\,\mathrm{d}s = (G * q)(t), \qquad \int q\,\mathrm{d}s = V,
   \label{eq:green}
 \end{equation}
-where the Green's function $G$ encodes everything about the room, the bodies, the furniture and the ventilation. Time
-invariance of $G$ requires the flow to be statistically stationary over the release, which holds for the
+where the Green's function $G$ encodes everything about the room, the bodies, the furniture and the ventilation.
+Time invariance of $G$ requires the flow to be statistically stationary over the release, which holds for the
 quasi-steady convective boundary layers and room flows considered here.
 
 \paragraph{Theorem 1.}
@@ -54,16 +47,10 @@ $\kappa \ge 0$ and $\int \kappa = 1$. Then, for any $G$:
   \item[(i)] the time-integrated dose $\int C\,\mathrm{d}t = V\int G$ is the same for both;
   \item[(ii)] the peak concentration of the silent release does not exceed that of the audible one.
 \end{enumerate}
-
-\emph{Proof.} (i) follows from integrating Eq.~\eqref{eq:green} over $t$. For (ii),
-$C_\mathrm{s} = G*q_\mathrm{a}*\kappa = C_\mathrm{a}*\kappa$, and Young's inequality gives
-$\|C_\mathrm{s}\|_\infty \le \|C_\mathrm{a}\|_\infty\,\|\kappa\|_1 = \|C_\mathrm{a}\|_\infty$. \hfill$\square$
-
-A top-hat release lasting $nT$ is a top-hat lasting $T$ convolved with
-$\kappa = n^{-1}\sum_{j=0}^{n-1}\delta(t-jT)$, so stretching a release by an integer factor is covered. The same
-argument applies to the breath-averaged OAV of Eq.~\eqref{eq:deadliness}, which is itself a convolution of $C$ with a
-non-negative kernel. In the linear regime, therefore, a quiet release can never be deadlier than a loud release of the
-same gas, whatever the posture, room or flow.
+The proof (Appendix~\ref{sec:app-proofs}) needs nothing about $G$ beyond linearity, and it covers the
+breath-averaged OAV of Eq.~\eqref{eq:deadliness} and releases stretched by any integer factor. In the linear regime,
+therefore, a quiet release can never be deadlier than a loud release of the same gas, whatever the posture, room or
+flow.
 
 \subsection{Release mode is forgotten}
 \label{sec:thm2}
@@ -74,21 +61,19 @@ release modes is carried by the early, near-field part of $G$, and it decays wit
 
 \subsection{Where the theorems fail: momentum and buoyancy}
 \label{sec:nonlinear}
-Equation~\eqref{eq:green} fails only near the source, where the release still carries its own momentum and buoyancy and
-so changes the flow that carries it. Two effects survive this.
+Equation~\eqref{eq:green} fails only near the source, where the release still carries its own momentum and buoyancy
+and so changes the flow that carries it. Two effects survive this.
 
 \emph{Near-field pre-dilution.} A momentum-dominated release entrains ambient air until its self-induced velocity
 has decayed to the ambient velocity $u_h$ (the body's convective boundary layer or room air). For a starting jet, a
 puff or a steady jet alike, the dilution at that hand-off is
 \begin{equation}
-  D_1 \approx \beta\,\frac{u_0}{u_h} \equiv \beta\,\mathrm{Si}, \qquad \beta = O(1),
+  D_1 \approx \beta\,\frac{u_0}{u_h} \equiv \beta\,\mathrm{Si}, \qquad \beta = O(1)
   \label{eq:silencer}
 \end{equation}
-because entrained mass is inversely proportional to the remaining velocity (Section~\ref{sec:methods}; jet and puff
-coefficients from refs.~\citenum{sangras2002,diez2003}). We call $\mathrm{Si} = u_0/u_h$ the \emph{Silencer number}. A
-audible release (in the analytic model $\mathrm{Si} > 280$) arrives pre-diluted; a silent one ($\mathrm{Si}\approx 5$)
-does not. At equal
-mass, pre-dilution favours the silent release by at most the ratio of the two Silencer numbers.
+(Appendix~\ref{sec:app-nearfield}). We call $\mathrm{Si} = u_0/u_h$ the \emph{Silencer number}. An audible release
+(in the analytic model $\mathrm{Si} > 280$) arrives pre-diluted; a silent one ($\mathrm{Si}\approx 5$) does not. At
+equal mass, pre-dilution favours the silent release by at most the ratio of the two Silencer numbers.
 
 \emph{Routing.} Momentum also sets which flow the release joins, and different flows lead to different noses. This
 effect can favour either release. In the rooms of Section~\ref{sec:res-rooms} it changes the ratio by more than
@@ -105,14 +90,12 @@ Whatever the joint law of $H$ and $S$,
   P(S \mid \lnot H, N) = 1, \qquad P(S \mid H, N) = P(S \mid H).
   \label{eq:berkson}
 \end{equation}
-
-\emph{Proof.} On $\lnot H$, noticing requires smelling, so $\lnot H\cap N = \lnot H \cap S$. On $H$, $N$ is certain, so
-conditioning on $N$ adds nothing. \hfill$\square$
-
-Among remembered passages, then, every silent one stank, while audible ones stank only at the base rate $p_S$, even
-when sound and smell are independent. The gap $1-P(S\mid H)$ is largest when smelly passages are rare. This is
-Berkson's bias \cite{berkson1946,snoep2014}: selecting on an event that either of two causes can produce (here,
-noticing, produced by hearing or by smelling) makes the two causes appear related among the selected cases.
+The proof is two lines (Appendix~\ref{sec:app-proofs}). Among remembered passages, then, every silent one stank, while
+audible ones stank only at the base rate $p_S$, even when sound and smell are independent. The gap $1-P(S\mid H)$ is
+largest when smelly passages are rare. This is Berkson's bias \cite{berkson1946,snoep2014}: selecting on an event that
+either of two causes can produce (here, noticing, produced by hearing or by smelling) makes the two causes appear
+related among the selected cases. Nothing in it is specific to flatus: any event noticed through either of two senses
+is remembered with this bias.
 
 An observer whose noticing does not depend on smell has no such bias. The emitter, who feels every release, has
 $N$ certain for all passages and so compares silent and audible releases at their true frequencies.

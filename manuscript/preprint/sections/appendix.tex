@@ -1,0 +1,28 @@
+\section{Proofs of Theorems 1 and 3}
+\label{sec:app-proofs}
+
+\emph{Theorem 1.} (i) follows from integrating Eq.~\eqref{eq:green} over $t$. For (ii),
+$C_\mathrm{s} = G*q_\mathrm{a}*\kappa = C_\mathrm{a}*\kappa$, and Young's inequality gives
+$\|C_\mathrm{s}\|_\infty \le \|C_\mathrm{a}\|_\infty\,\|\kappa\|_1 = \|C_\mathrm{a}\|_\infty$. \hfill$\square$
+
+A top-hat release lasting $nT$ is a top-hat lasting $T$ convolved with
+$\kappa = n^{-1}\sum_{j=0}^{n-1}\delta(t-jT)$, so stretching a release by an integer factor is covered. The
+breath-averaged OAV of Eq.~\eqref{eq:deadliness} is itself a convolution of $C$ with a non-negative kernel, so the
+same argument bounds it.
+
+\emph{Theorem 3.} On $\lnot H$, noticing requires smelling, so $\lnot H\cap N = \lnot H \cap S$ and
+$P(S\mid\lnot H, N) = 1$. On $H$, $N$ is certain, so conditioning on $N$ adds nothing. \hfill$\square$
+
+\section{Near field of the analytic model}
+\label{sec:app-nearfield}
+The release behaves as a starting jet. Its tip follows $x = \Gamma (\dot Q_0 u_0)^{1/4} t^{1/2}$, and once the source
+stops it follows the puff law $x^4 = C_p^4 Q_0 u_0 t$, with $\Gamma = 2.8$ and $C_p = 2.6$
+\cite{sangras2002,diez2003}. The centreline dilution is $K_c d^*/x$ with $K_c = 5.11$. In parallel, a buoyant thermal
+grows with entrainment coefficient $\alpha = 0.25$ \cite{landeau2014}, and the larger of the two dilutions is kept.
+The near field ends when the self-induced velocity has fallen to the ambient velocity $u_h$
+(0.05--0.25\,m\,s$^{-1}$).
+
+For a steady jet, a starting jet and a puff alike, the momentum carried by the cloud is conserved while it entrains,
+so the entrained mass grows as the inverse of the remaining velocity. At the hand-off velocity $u_h$ the dilution is
+therefore proportional to $u_0/u_h$, which is Eq.~\eqref{eq:silencer}; the prefactor $\beta$ collects the jet or puff
+constants above and is of order one.

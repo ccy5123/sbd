@@ -23,11 +23,153 @@
 \begin{document}
 \maketitle
 
+\section{Odorant chemistry}
+\label{sec:si-chem}
+\subsection{Methods}
+\emph{Odour activity.} Each sulfur gas contributes an odour activity value (OAV), its mole fraction over its detection
+threshold, $\mathrm{OAV}_i = x_i/\theta_i$. The passage's OAV is their sum; we assume additivity and do not model
+mixture suppression. We compare two measured compositions:
+\begin{itemize}
+  \item 87 passages of 16 volunteers \cite{suarez1998}, used throughout the dispersion model;
+  \item 28 passages measured by gas chromatography: \ce{H2S} 149, methanethiol 216 and dimethyl sulfide
+  144\,nmol\,L$^{-1}$ \cite{tangerman2009}.
+\end{itemize}
+Three threshold sets bracket the observer: a trained panel \cite{nagata2003}, population geometric means
+\cite{amoore1983,wilby1969} and the lowest values in the literature, as compiled in ref.~\citenum{tangerman2009}.
+
+\emph{Removal check.} Zinc acetate precipitates \ce{H2S} and thiols; activated charcoal adsorbs all three gases. For both
+treatments, ref.~\citenum{suarez1998} reports the gas concentrations and two judges' ratings before and after. We
+predict the rating ratio as $(\mathrm{OAV}_\mathrm{after}/\mathrm{OAV}_\mathrm{before})^n$ with $n = 0.20$--$0.45$
+\cite{collins2001}, without fitting.
+
+\emph{Buoyancy.} The reduced gravity $g' = g(\rho_a-\rho_g)/\rho_a$ of each of 16 measured compositions
+\cite{suarez1997} is split into a thermal part, $g(1-T_a/T_g)$, for gas at 37\,\textdegree C in air at
+22\,\textdegree C, and a compositional part, $g(M_a-M_g)/M_a$, at equal temperature with air at 50\% relative
+humidity. The water-vapour content of flatus has not been measured, so we bracket dry and saturated gas.
+
+\emph{Gas-phase and surface losses.} Gas-phase losses use IUPAC rate constants at 298\,K for reaction with OH,
+\ce{O3}, \ce{NO3} and Cl \cite{atkinson2004}, with oxidant levels measured in an office: OH
+$0.6$--$9.8\times10^{5}$\,cm$^{-3}$ and \ce{O3} 0.7--2.6\,ppb \cite{fiorentino2023}. Two assumed upper cases add OH
+$10^6$\,cm$^{-3}$ with \ce{O3} 40\,ppb, and Cl $10^6$\,cm$^{-3}$ during hypochlorite cleaning. No deposition velocity
+$v_d$ has been published for these gases on indoor surfaces, so surface loss is bracketed as $k = v_d\,S/V$ with
+$S/V = 3$\,m$^{-1}$.
+
+\emph{Dilution in a panel test.} Ref.~\citenum{tangerman2009} reports the lowest source concentration that every panel
+member detected when 100\,mL was released below the nose. Divided by a detection threshold, it gives the dilution
+between release and nose in that test, which we compare with the breath-averaged dilution of the analytic model.
+
+\subsection{Results}
+\emph{Which molecule.} Over the two measured compositions and three threshold sets, methanethiol carries 43--94\% of
+the summed OAV and never less than \ce{H2S} (Figure~\ref{fig:chem}a).
+\begin{itemize}
+  \item With the composition of ref.~\citenum{suarez1998}, methanethiol and \ce{H2S} carry about equal shares (43--54\%
+  and 43--46\% with trained-panel and population thresholds). Methanethiol is one fifth as concentrated, but its
+  threshold is 5--6 times lower.
+  \item With the composition of ref.~\citenum{tangerman2009}, or with the lowest reported thresholds, methanethiol
+  carries 60--94\%.
+\end{itemize}
+The two datasets disagree on the concentrations themselves: \ce{H2S} is five times methanethiol in one and slightly
+below it in the other, a difference ref.~\citenum{tangerman2009} attributes to the bean-rich diet of the first. In
+that study's panel test, gas mixtures with methanethiol above its flatus threshold smelled like most passages.
+
+Composition does not enter the silent/audible comparison: transport is linear and acts on all three gases alike, so
+every ratio is the same for any composition. Absolute OAVs are 11--38\% lower with the second composition.
+
+\emph{The intensity law with real flatus.} Zinc acetate lowers the summed OAV by a factor of 14. Stevens' law then
+predicts rating ratios of 0.31--0.59, and the two judges gave 0.28 and 0.59 \cite{suarez1998}. Activated charcoal
+lowers the OAV about 260-fold and is rated far weaker than the power law predicts, as power laws fail near threshold.
+The silent/audible comparison uses supra-threshold ratios, where the law held.
+
+\emph{What makes a passage rise or sink.} Composition sets most of the buoyancy (Figure~\ref{fig:chem}b).
+\begin{itemize}
+  \item For the median passage the compositional part of the reduced gravity ($+1.25$\,m\,s$^{-2}$ dry, $+1.40$
+  saturated) is about three times the thermal part ($+0.47$).
+  \item \ce{H2} and \ce{CH4} make flatus light and \ce{CO2} makes it heavy; the compositional part falls with \ce{CO2}
+  content ($r = -0.80$).
+  \item 6--12\% of passages sink even while hot. After cooling to room temperature, 25--38\% are heavier than air.
+\end{itemize}
+The dispersion model uses these signed values of $g'$.
+
+\emph{Losses on the way to the nose} (Table~\ref{tab:reactivity}).
+\begin{itemize}
+  \item In an office, gas-phase oxidation removes at most 0.4\% of any of the three gases in 120\,s, and hypochlorite
+  cleaning less than 4\%.
+  \item Surface deposition is unconstrained by data. It removes 0.7\% in 120\,s at $v_d = 0.002$\,cm\,s$^{-1}$ and 51\%
+  at 0.2\,cm\,s$^{-1}$. Treating the odorants as passive scalars therefore holds against chemistry by two to three
+  orders of magnitude, and against deposition only if $v_d \lesssim 0.01$\,cm\,s$^{-1}$.
+  \item Deposition would remove most from the silent release, which stays close to the body and the seat, and would
+  lower its doses further in the simulated scenes.
+\end{itemize}
+
+\emph{How dilute a passage arrives.} The panel test of ref.~\citenum{tangerman2009} implies a dilution of
+$0.6$--$13\times10^{4}$ between release and nose, depending on the threshold set. The breath-averaged dilution of the
+analytic model at the neighbour has a median of $1.8\times10^{3}$ (10--90\%: $2.5\times10^{2}$--$2.9\times10^{4}$).
+The panel value is biased upwards, because it requires the least sensitive panellist to detect but divides by the
+thresholds of the most sensitive. The analytic model is at the concentrated end of the panel range, as intended for
+an upper bound, and within about an order of magnitude of it.
+
+\emph{Composition and volume.} Larger passages contain more fermentation gas and less nitrogen (per passage,
+$r = +0.56$ for \ce{CO2} and $-0.50$ for \ce{N2}, $n = 87$), while the sulfur concentrations do not change with volume
+($|r| \le 0.22$, not significant); sulfur mass therefore rises with passage volume \cite{suarez1997}. At high
+production rates almost all flatus is fermentation gas \cite{tomlin1991}. The fermentation-gas fraction rises with
+output under bean, fibre and lactulose challenges in every study that measured both ($r = +0.86$ to $+0.99$, computed
+from the published tables \cite{steggerda1966,steggerda1968,calloway1969,odonnell1984,marthinsen1982,hickey1972}; in one
+person from 26\% at 55\,mL to 79\% at 720\,mL per 4\,h \cite{levitt1976}), whereas on an ordinary diet larger outputs
+carry more nitrogen \cite{kirk1949}. The density of the gas does not follow the amount: carbon dioxide and hydrogen
+rise together, and the mean molar mass, 22--32\,g\,mol$^{-1}$ across diets, is set by the substrate's \ce{CO2}:\ce{H2}
+ratio (its correlation with output ranges from $-0.37$ to $+0.90$ across seven studies). Composition therefore cannot
+link audibility to the amount of gas, since it enters audibility only through density (Section~\ref{sec:si-acoustics}).
+
+\begin{table}
+\caption{Gas-phase lifetime of the odorants and the fraction lost in 120\,s. Office oxidant levels are measured
+\cite{fiorentino2023}: low, OH $0.6\times10^{5}$\,cm$^{-3}$ and \ce{O3} 0.7\,ppb; high, OH $9.8\times10^{5}$\,cm$^{-3}$
+and \ce{O3} 2.6\,ppb. The cleaning case assumes Cl $10^{6}$\,cm$^{-3}$. Rate constants from
+ref.~\citenum{atkinson2004}.}
+\label{tab:reactivity}
+\begin{tabular}{lccc}
+\toprule
+scenario & \ce{H2S} & \ce{CH3SH} & DMS \\
+\midrule
+office, low & 40\,d / 0.003\% & 5.7\,d / 0.03\% & 28\,d / 0.005\% \\
+office, high & 2.5\,d / 0.06\% & 8.6\,h / 0.4\% & 1.8\,d / 0.08\% \\
+hypochlorite cleaning & 3.5\,h / 0.9\% & 1.2\,h / 2.8\% & 0.8\,h / 4.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}
-\includegraphics[width=\textwidth]{fig2_chain.png}
-\caption{From release to memory: the quantity each stage passes on, and where Theorems 1--3 apply.}
-\label{fig:chain}
+\includegraphics[width=\textwidth]{fig14_chemistry.png}
+\caption{Odorants and buoyancy. (a) Share of the summed OAV carried by \ce{H2S}, methanethiol and dimethyl sulfide,
+for two measured compositions \cite{suarez1998,tangerman2009} under three threshold sets. (b) Reduced gravity of 16
+measured compositions \cite{suarez1997} against their \ce{CO2} content, at 37\,\textdegree C (dry basis; water
+saturation shifts these values by $-0.04$ to $+0.29$\,m\,s$^{-2}$) and after cooling to room temperature.}
+\label{fig:chem}
 \end{figure}
+
+\section{Acoustics}
+\label{sec:si-acoustics}
+\emph{Duration and orifice.} Flatus passes during an anal relaxation lasting $19 \pm 6$\,s \cite{ronholt1999,corsetti2017}, which bounds the
+duration $T$ from above, and the mid anal canal widens to about 8\,mm only at balloon pressures above those that drive
+flatus \cite{luft2012,sorensen2014,miller1988b}, which bounds the effective diameter $d$.
+
+\emph{Valve.}
+The anal canal is modelled as a lip reed, a soft-tissue valve that self-oscillates in the flow through it, as the
+lips do on a brass instrument. It oscillates when the driving pressure $\tfrac12\rho(u_0/C_\mathrm{d})^2$ exceeds a
+threshold $P_\mathrm{th}$ = 0.6--2.5\,kPa (nominal 1.2\,kPa), with discharge coefficient $C_\mathrm{d} = 0.85$. The
+closest measured soft-tissue sphincter source, the pharyngo-oesophageal segment of oesophageal speech, sustains
+phonation down to 1.1--2.5\,kPa \cite{nagai1993,grolman2007,ng2011}, which bounds the onset from above; lips on a brass
+instrument start at about 0.6\,kPa \cite{matteoli2021}. This gives an onset velocity
+$u_\mathrm{onset} \approx 42$\,m\,s$^{-1}$ (21--71).
+
+An oscillating valve radiates as a harmonic monopole with harmonics falling by 12\,dB per octave. Its fundamental is
+taken as 160\,Hz (60--300\,Hz), between oesophageal speech at 60--150\,Hz \cite{nagai1993,robbins1984,pindzola1989,deschler1999}
+and recordings of flatus near 270\,Hz, which are not peer-reviewed. A release counts as \emph{audible} when at least one harmonic exceeds both the ISO 226 hearing threshold
+\cite{iso226_2023} and the masked threshold of the background, computed from the critical ratio \cite{hawkins1950}.
+Backgrounds range from a 35\,dB(A) living room to a 77\,dB(A) subway car.
+
+\emph{Valve state.} Manometry shows flatus passing through a relaxed sphincter at a rectal pressure rise of
+0--15\,mmHg \cite{miller1988b,ronholt1999} but also against a contracted one \cite{kumar1990}. The 85\% silent share
+treats the onset pressure as a property of the tissue and does not distinguish the two.
 
 \section{CFD validation}
 \label{sec:si-validation}
@@ -213,6 +355,50 @@ Warned: probability of missing the puff (worst breath below 10\% of the peak) an
 breath-hold duration after hearing the release (0.5\,s reaction latency).}
 \label{fig:breath}
 \end{figure}
+
+\section{Origin of the odorants}
+\label{sec:si-origin}
+Two facts the transport model takes as given have chemical explanations in the literature; we did not test them.
+
+\emph{Why sulfur concentration does not follow volume.}
+\begin{itemize}
+  \item \ce{H2S} comes from sulfate-reducing bacteria and from cysteine degradation, whose genes are widespread in the
+  gut microbiome \cite{gibson1993,braccia2021}. Sulfate reducers and methanogens both consume \ce{H2}, but whether
+  they exclude each other is disputed. Sulfidogenic gut contents produced no methane in some studies
+  \cite{gibson1993,gibson1993b}, whereas faecal sulfide did not differ between methane producers and non-producers in
+  others \cite{strocchi1991,florin1991,levine1998}, and methanogenic faeces suppressed sulfide production sixfold in
+  co-incubation \cite{strocchi1994}.
+  \item The caecal mucosa of rats removes both gases quickly: methanethiol is demethylated to \ce{H2S}, and \ce{H2S} is
+  oxidised mainly to thiosulfate \cite{levitt1999}. Rhodanese is the main detoxifying enzyme in human colon
+  \cite{picton2002}, and SELENBP1 oxidises methanethiol with an apparent $K_m$ of 4.8\,nM \cite{pol2018}.
+  \item Only free sulfide can enter the gas, and it is less than 5\% of faecal total sulfide \cite{tangerman2009}.
+\end{itemize}
+The odorants are thus trace products held at a balance of production and fast consumption, whereas passage volume is
+set by \ce{N2}, \ce{CO2}, \ce{H2} and \ce{CH4}. We infer that this is why sulfur concentration and passage volume are
+uncorrelated \cite{suarez1997}. Diet moves the balance: a meat-rich diet raised faecal sulfide from 0.22 to
+3.38\,mmol\,kg$^{-1}$ in five volunteers \cite{magee2000}, although faecal sulfide reflects the binding capacity of the
+stool as much as sulfide production \cite{levitt2002}, and the response to animal and plant diets differs between
+people \cite{teigen2022}.
+
+\emph{Diet can make large passages less sulfurous.} Within one diet, sulfur concentration does not change with passage
+volume (Section~\ref{sec:si-chem}); across diets it can. Rapidly fermented fibres raised gas production up to
+50-fold in faecal incubations while suppressing \ce{H2S} by up to 89\%, and cysteine raised \ce{H2S} 16-fold
+\cite{yao2018}. Dietary sulfate tripled sulfide production and cut methane production fivefold, at unchanged stool
+weight and transit, in three of six subjects \cite{christl1992b}; in sulfidogenic gut contents \ce{H2S} replaced
+\ce{CH4} almost mole for mole \cite{gibson1993b}, diverting hydrogen from gas volume to sulfide \cite{grimble1989}.
+Interventions aimed at sulfur move sulfur alone: bismuth cut faecal \ce{H2S} release 23-fold with total gas unchanged
+\cite{suarez1998b}, and in dogs charcoal, yucca and zinc acetate cut \ce{H2S} by 38--86\% without changing gas
+production or the number of emissions \cite{giffard2001}. Because audible passages are larger, a diet-driven link of
+this kind would make audible passages less sulfurous per millilitre, in the direction of the belief. Its size in vivo
+is unknown: no study has measured sulfur gases and flatus volume together across diets.
+
+\emph{Why methanethiol smells foul.} The human receptor OR2T11 responds to short thiols, including methanethiol, in a
+copper-dependent way, but not to \ce{H2S} \cite{li2016}. Human nasal mucus contains about 2.5\,\textmu M copper
+\cite{block2017}, below the 30\,\textmu M added in the receptor assays, so the receptor's role in vivo is plausible
+but not shown. Other receptors respond to sulfur ligands without copper \cite{duan2012,haag2019,zhang2018}. A
+receptor that responds to methanethiol and not to \ce{H2S} would make methanethiol the characteristic note of flatus
+independently of thresholds; we infer this, it has not been tested.
+
 
 \section{Cross-cultural survey}
 \label{sec:si-culture}

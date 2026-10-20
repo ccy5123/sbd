@@ -7,87 +7,46 @@ Table~\ref{SI-tab:params}. Code and data are archived (Section~\ref{SI-sec:si-da
 \subsection{Source}
 \label{sec:source}
 Passage volumes span 17--375\,mL, with a median of 92\,mL \cite{suarez1997}. In the Monte Carlo analysis, volume $V$,
-duration $T$ (0.3--20\,s) and effective orifice diameter $d$ (1--8\,mm) are drawn log-uniformly. Neither has been
-measured for a passage. The upper bounds come from anorectal physiology: flatus passes during an anal relaxation
-lasting $19 \pm 6$\,s \cite{ronholt1999,corsetti2017}, and the mid anal canal widens to about 8\,mm only at balloon
-pressures above those that drive flatus \cite{luft2012,sorensen2014,miller1988b}. The lower bounds are assumed.
+duration $T$ (0.3--20\,s) and effective orifice diameter $d$ (1--8\,mm) are drawn log-uniformly. Neither duration nor
+diameter has been measured for a passage; their upper bounds come from anorectal physiology
+(Section~\ref{SI-sec:si-acoustics}) and the lower bounds are assumed.
 
 Sulfur gas concentrations are taken from 87 passages of 16 volunteers \cite{suarez1998}: \ce{H2S}
 1.06\,\textmu mol\,L$^{-1}$, methanethiol 0.21\,\textmu mol\,L$^{-1}$ and dimethyl sulfide 0.08\,\textmu mol\,L$^{-1}$.
 They vary between passages by a log-normal factor with $\sigma_{\ln} = 1.1$, derived from the reported standard
 errors, drawn independently of volume because sulfur concentration does not correlate with passage volume
-\cite{suarez1997}. Buoyancy is computed from measured compositions and is signed (Section~\ref{sec:methods-chem}); it
-is drawn independently of volume because, across the 16 subjects of ref.~\citenum{suarez1997}, it does not correlate
-with mean passage volume (Spearman $-0.15$).
+\cite{suarez1997}. Buoyancy is computed from measured compositions and is signed; it is drawn independently of volume
+because, across the 16 subjects of ref.~\citenum{suarez1997}, it does not correlate with mean passage volume
+(Spearman $-0.15$).
 
-\subsection{Odorant chemistry}
+\subsection{Odorants and sound}
 \label{sec:methods-chem}
-\emph{Odour activity.} Each sulfur gas contributes an odour activity value (OAV), its mole fraction over its detection
-threshold, $\mathrm{OAV}_i = x_i/\theta_i$. The passage's OAV is their sum; we assume additivity and do not model
-mixture suppression. We compare two measured compositions:
-\begin{itemize}
-  \item 87 passages of 16 volunteers \cite{suarez1998}, used throughout the dispersion model;
-  \item 28 passages measured by gas chromatography: \ce{H2S} 149, methanethiol 216 and dimethyl sulfide
-  144\,nmol\,L$^{-1}$ \cite{tangerman2009}.
-\end{itemize}
-Three threshold sets bracket the observer: a trained panel \cite{nagata2003}, population geometric means
-\cite{amoore1983,wilby1969} and the lowest values in the literature, as compiled in ref.~\citenum{tangerman2009}.
-
-\emph{Removal check.} Zinc acetate precipitates \ce{H2S} and thiols; activated charcoal adsorbs all three gases. For both
-treatments, ref.~\citenum{suarez1998} reports the gas concentrations and two judges' ratings before and after. We
-predict the rating ratio as $(\mathrm{OAV}_\mathrm{after}/\mathrm{OAV}_\mathrm{before})^n$ with $n = 0.20$--$0.45$
-\cite{collins2001}, without fitting.
-
-\emph{Buoyancy.} The reduced gravity $g' = g(\rho_a-\rho_g)/\rho_a$ of each of 16 measured compositions
-\cite{suarez1997} is split into a thermal part, $g(1-T_a/T_g)$, for gas at 37\,\textdegree C in air at
-22\,\textdegree C, and a compositional part, $g(M_a-M_g)/M_a$, at equal temperature with air at 50\% relative
-humidity. The water-vapour content of flatus has not been measured, so we bracket dry and saturated gas.
-
-\emph{Gas-phase and surface losses.} Gas-phase losses use IUPAC rate constants at 298\,K for reaction with OH,
-\ce{O3}, \ce{NO3} and Cl \cite{atkinson2004}, with oxidant levels measured in an office: OH
-$0.6$--$9.8\times10^{5}$\,cm$^{-3}$ and \ce{O3} 0.7--2.6\,ppb \cite{fiorentino2023}. Two assumed upper cases add OH
-$10^6$\,cm$^{-3}$ with \ce{O3} 40\,ppb, and Cl $10^6$\,cm$^{-3}$ during hypochlorite cleaning. No deposition velocity
-$v_d$ has been published for these gases on indoor surfaces, so surface loss is bracketed as $k = v_d\,S/V$ with
-$S/V = 3$\,m$^{-1}$.
-
-\emph{Dilution in a panel test.} Ref.~\citenum{tangerman2009} reports the lowest source concentration that every panel
-member detected when 100\,mL was released below the nose. Divided by a detection threshold, it gives the dilution
-between release and nose in that test, which we compare with the breath-averaged dilution of the analytic model.
-
-\subsection{Acoustics}
 \label{sec:acoustics}
-The anal canal is modelled as a lip reed, a soft-tissue valve that self-oscillates in the flow through it, as the
-lips do on a brass instrument. It oscillates when the driving pressure $\tfrac12\rho(u_0/C_\mathrm{d})^2$ exceeds a
-threshold $P_\mathrm{th}$ = 0.6--2.5\,kPa (nominal 1.2\,kPa), with discharge coefficient $C_\mathrm{d} = 0.85$. The
-closest measured soft-tissue sphincter source, the pharyngo-oesophageal segment of oesophageal speech, sustains
-phonation down to 1.1--2.5\,kPa \cite{nagai1993,grolman2007,ng2011}, which bounds the onset from above; lips on a brass
-instrument start at about 0.6\,kPa \cite{matteoli2021}. This gives an onset velocity
-$u_\mathrm{onset} \approx 42$\,m\,s$^{-1}$ (21--71).
+Details are in Sections~\ref{SI-sec:si-chem} and \ref{SI-sec:si-acoustics}. Each sulfur gas contributes an odour
+activity value, its mole fraction over its detection threshold; the passage's OAV is their sum (no mixture
+suppression). We compare two measured compositions \cite{suarez1998,tangerman2009} under three threshold sets, from a
+trained panel \cite{nagata2003} to population means \cite{amoore1983}. Buoyancy is split into a thermal and a
+compositional part, and gas-phase losses use IUPAC rate constants \cite{atkinson2004} with oxidant levels measured in
+an office \cite{fiorentino2023}.
 
-An oscillating valve radiates as a harmonic monopole with harmonics falling by 12\,dB per octave. Its fundamental is
-taken as 160\,Hz (60--300\,Hz), between oesophageal speech at 60--150\,Hz \cite{nagai1993,robbins1984,pindzola1989,deschler1999}
-and recordings of flatus near 270\,Hz, which are not peer-reviewed. A release counts as \emph{audible} when at least one harmonic exceeds both the ISO 226 hearing threshold
-\cite{iso226_2023} and the masked threshold of the background, computed from the critical ratio \cite{hawkins1950}.
-Backgrounds range from a 35\,dB(A) living room to a 77\,dB(A) subway car.
+The anal canal is modelled as a lip reed, a soft-tissue valve that self-oscillates in the flow through it, as the
+lips do on a brass instrument \cite{ancalle2021}. It oscillates when the driving pressure
+$\tfrac12\rho(u_0/C_\mathrm{d})^2$ exceeds a threshold of 0.6--2.5\,kPa, bracketed by brass playing
+\cite{matteoli2021} and by oesophageal speech, the closest measured soft-tissue sphincter source \cite{nagai1993}.
+This gives an onset exit velocity of about 42\,m\,s$^{-1}$ (21--71). An oscillating valve radiates as a harmonic
+monopole with a fundamental of 160\,Hz (60--300\,Hz). A release counts as \emph{audible} when a harmonic exceeds both
+the hearing threshold \cite{iso226_2023} and the masked threshold of the background, from a 35\,dB(A) living room to
+a 77\,dB(A) subway car.
 
 \subsection{Analytic dispersion model}
 \label{sec:gate0}
-Dispersion is modelled in two phases.
-\begin{enumerate}
-  \item \emph{Near field.} The release behaves as a starting jet. Its tip follows
-  $x = \Gamma (\dot Q_0 u_0)^{1/4} t^{1/2}$, and once the source stops it follows the puff law
-  $x^4 = C_p^4 Q_0 u_0 t$, with $\Gamma = 2.8$ and $C_p = 2.6$ \cite{sangras2002,diez2003}. The centreline dilution
-  is $K_c d^*/x$ with $K_c = 5.11$. In parallel, a buoyant thermal grows with entrainment coefficient
-  $\alpha = 0.25$ \cite{landeau2014}, and the larger of the two dilutions is kept. This phase ends when the
-  self-induced velocity has fallen to the ambient velocity $u_h$ (0.05--0.25\,m\,s$^{-1}$), which gives
-  Eq.~\eqref{eq:silencer}.
-  \item \emph{Transport.} The cloud is then advected to the nose and spreads as a Gaussian puff,
-  $\sigma^2 = \sigma_0^2 + 2Kt$, with indoor eddy diffusivity $K = 10^{-4}$--$1.3\times10^{-2}$\,m$^2$\,s$^{-1}$
-  \cite{cheng2011}.
-\end{enumerate}
-Two receptors are modelled: the releaser's own nose, reached by the convective boundary layer, the layer of warm air
-rising along the body \cite{licina2014}, at a speed taken from the CFD trajectories below; and a neighbour
-0.8--1.4\,m away, reached by room air. Concentrations are averaged over one inspiration.
+Dispersion is modelled in two phases. In the near field the release behaves as a starting jet and then a puff, or as
+a buoyant thermal, until its self-induced velocity has fallen to the ambient velocity $u_h$
+(Appendix~\ref{sec:app-nearfield}). The cloud is then advected to the nose and spreads as a Gaussian puff,
+$\sigma^2 = \sigma_0^2 + 2Kt$, with indoor eddy diffusivity $K = 10^{-4}$--$1.3\times10^{-2}$\,m$^2$\,s$^{-1}$
+\cite{cheng2011}. Two receptors are modelled: the releaser's own nose, reached by the convective boundary layer, the
+layer of warm air rising along the body \cite{licina2014}, at a speed taken from the CFD trajectories below; and a
+neighbour 0.8--1.4\,m away, reached by room air. Concentrations are averaged over one inspiration.
 
 We draw 20\,000 pairs of silent and audible releases, each classified by the acoustic onset and evaluated with
 environmental parameters drawn from their ranges. Three simplifications favour the silent release: turbulent-jet
