@@ -2,11 +2,13 @@
 s<k>_<level>.vtk, legacy ASCII polydata; levels OAV 0.1 / 1 / 20, see ISO_LEVELS in cfd/cases/sofa/make_case.py).
 
 For each release, picks frames at AFTER s after the release, fan-triangulates the polygons and decimates them by vertex
-clustering (cell H[level]). Writes one gzip-compressed binary per release, <out>/<name>/iso_<release>.bin: for each
-frame and level, vertices as int16 mm (padded to 4 bytes) then triangle indices delta-coded as int32. The block layout
+clustering (cell H[level]). Writes one gzip-compressed binary per release as base64 text (the artifact host serves no
+raw binaries), <out>/<name>/iso_<release>.txt: for each frame and level, vertices as int16 mm (padded to 4 bytes) then
+triangle indices delta-coded as int32. The block layout
 (offset, vertex and triangle counts) goes into <out>/<name>/run.json under "iso", so run export_viewer.py first.
 Usage: python3 cfd/postprocess/export_iso.py <out_dir> <name>=<case_dir> ...
 """
+import base64
 import gzip
 import json
 import re
@@ -91,11 +93,11 @@ def export_run(out, name, case):
             frames.append({"after": a, "t": times[j][0], "surf": surf})
         if not any(fr["surf"] for fr in frames):
             continue
-        fn = f"iso_{rname}.bin"
-        (run_dir / fn).write_bytes(gzip.compress(bytes(buf), 9))
+        fn = f"iso_{rname}.txt"
+        (run_dir / fn).write_text(base64.b64encode(gzip.compress(bytes(buf), 9)).decode())
         index.append({"release": rname, "t_release": t_rel, "file": fn, "frames": frames})
         print(name, rname, len(frames), "frames", f"{len(buf) / 1e6:.1f} MB raw,",
-              f"{(run_dir / fn).stat().st_size / 1e6:.1f} MB gz")
+              f"{(run_dir / fn).stat().st_size / 1e6:.1f} MB base64 gzip")
     meta_f = run_dir / "run.json"
     meta = json.loads(meta_f.read_text())
     meta["iso"] = index
