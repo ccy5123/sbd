@@ -5,7 +5,10 @@
   (chemistry scope; check its AI-use policy) vs arXiv physics.flu-dyn. The J. Immat. Sci. bans all AI-generated
   content, so a JIS version would have to be written by the author without AI.
 - **Venue decided 2026-10-20:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); plan in
-  `manuscript/preprint/interface_plan.md` (awaiting the user's approval; no manuscript edits before it).
+  `manuscript/preprint/interface_plan.md`. Approved the same day; its "now" tasks 1-9 are done (see its §8):
+  article class, appendix A/B, chemistry, acoustics and odour origin moved to the ESM, 47 main-text references,
+  ~7,370 words. Remaining: the "after v4" list (numbers marked `\gap{v4; preprint: ...}`), plus author items
+  (ORCID, AI statement, reviewers, preprint server). `cover_letter.md` is a draft.
 - **Server** (company machine, `ssh user@192.168.50.192` from WSL Ubuntu; all work inside `~/cyjoe/`, see memory):
   OpenFOAM 13 in the Docker image `sbd-openfoam13` (`cfd/docker/`), runs via `cfd/docker/run.sh` (nice 19, 4 cores
   each) and `cfd/docker/queue.sh` (at most 5 containers = 20 cores, the user's cap). Two clones:

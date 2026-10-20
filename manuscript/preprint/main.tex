@@ -1,40 +1,45 @@
-% Preprint. Build si.tex first, then main.tex (main.tex reads si.aux for the S-numbers).
+% Submission version for J. R. Soc. Interface (first submission: any format; the Royal Society template comes at
+% the final submission). Build si.tex first, then main.tex (main.tex reads si.aux for the S-numbers).
 % Build: latexmk -pdf main.tex   (refs.bib is generated: python3 manuscript/preprint/make_bib.py)
-\documentclass[journal=jacsat,manuscript=article]{achemso}
+\documentclass[11pt]{article}
 
+\usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage[version=4]{mhchem}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{siunitx}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{graphicx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{url}
+\newcommand{\doi}[1]{doi:\url{#1}}  % unsrtnat prints DOIs raw otherwise (underscores)
+\usepackage[running]{lineno}
 \usepackage{xr}
-\externaldocument[SI-]{si}  % S-numbers of the Supporting Information (build si.tex first)
+\externaldocument[SI-]{si}  % S-numbers of the electronic supplementary material (build si.tex first)
 \graphicspath{{figs/}{../../figures/}}  % figs/: title-free versions (make_figures.py)
-\SectionNumbersOn
+\renewcommand{\appendixname}{Appendix}
 
 % Skeleton marker: renders as a bracketed note so gaps stay visible in the PDF.
 \newcommand{\gap}[1]{\textbf{[GAP: #1]}}
 \newcommand{\src}[1]{\textsuperscript{\texttt{[#1]}}}  % pointer to the repository file a number comes from
 
-\author{Chan Young Joe}
-\affiliation{Independent Researcher, Incheon, Republic of Korea}
-\email{ccy5123ccy@gmail.com}
-
 \title{Silent but deadly? Physics says seldom, memory says mostly}
-
-\abbreviations{CFD, computational fluid dynamics; OAV, odour activity value; RANS, Reynolds-averaged Navier--Stokes}
-\keywords{flatus, odour dispersion, starting jet, convective boundary layer, Berkson bias, olfactory perception}
+\author{Chan Young Joe\\[2pt]
+  \small Independent Researcher, Incheon, Republic of Korea\\
+  \small \texttt{ccy5123ccy@gmail.com}\quad ORCID \gap{author}}
+\date{}
 
 \begin{document}
-
-\begin{tocentry}
-\includegraphics[width=3.25in]{toc.png}
-\end{tocentry}
+\maketitle
+\linenumbers
 
 \begin{abstract}
 \input{sections/abstract}
 \end{abstract}
+
+\noindent\textbf{Keywords:} convective boundary layer; indoor air; odour dispersion; starting jet; Berkson bias;
+olfactory perception; flatus
 
 \input{sections/introduction}
 \input{sections/theory}
@@ -43,21 +48,12 @@
 \input{sections/discussion}
 \input{sections/conclusion}
 
+\input{sections/declarations}
+
 \appendix
 \input{sections/appendix}
 
-\begin{acknowledgement}
-\gap{AI-use disclosure, required by arXiv and ACS policy: Claude Code (Anthropic) wrote code, ran simulations,
-searched and extracted literature and drafted text; the author reviewed all content and takes responsibility.
-To be written last, per the author.}
-\end{acknowledgement}
-
-\begin{suppinfo}
-Overview diagram; CFD validation; the CFD scenes in detail (sofa postures, elevator, standing pair); breath
-sampling; the cross-cultural survey; source files of every result; and the full parameter table (PDF). Code and data:
-\gap{Zenodo DOI}.
-\end{suppinfo}
-
+\bibliographystyle{unsrtnat}
 \bibliography{refs}
 
 \end{document}

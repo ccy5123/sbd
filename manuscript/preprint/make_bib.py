@@ -80,6 +80,8 @@ def entry(key: str, r: dict) -> str:
         f["howpublished"] = f"Film (director); {f.pop('publisher')}"
     if kind == "techreport":
         f["institution"] = r.get("publisher", r.get("organization", "n.a."))
+    if "title" in f:  # keep the capitalisation of the source; styles such as unsrtnat lowercase titles otherwise
+        f["title"] = "{" + f["title"] + "}"
     body = ",\n".join(f"  {k} = {{{ascii_tex(v.translate(SPECIAL)) if k != 'doi' else v}}}" for k, v in f.items())
     return f"@{kind}{{{key},\n{body}\n}}\n"
 

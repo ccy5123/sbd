@@ -1,7 +1,8 @@
-% Supporting Information for the preprint (main.tex). Build this file first: main.tex reads si.aux (xr) for the
+% Electronic supplementary material for main.tex. Build this file first: main.tex reads si.aux (xr) for the
 % S-numbers of the figures, tables and sections cited from the main text.
-\documentclass[journal=jacsat,manuscript=suppinfo]{achemso}
+\documentclass[11pt]{article}
 
+\usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage[version=4]{mhchem}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -9,16 +10,20 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{url}
+\newcommand{\doi}[1]{doi:\url{#1}}  % unsrtnat prints DOIs raw otherwise (underscores)
 \graphicspath{{figs/}{../../figures/}}
-\SectionNumbersOn
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\bibnumfmt}[1]{[S#1]}
+\renewcommand{\citenumfont}[1]{S#1}
 
-\author{Chan Young Joe}
-\affiliation{Independent Researcher, Incheon, Republic of Korea}
-\email{ccy5123ccy@gmail.com}
-\title{Silent but deadly? Physics says seldom, memory says mostly}
+\title{Electronic supplementary material for\\ ``Silent but deadly? Physics says seldom, memory says mostly''}
+\author{Chan Young Joe\\[2pt] \small Independent Researcher, Incheon, Republic of Korea}
+\date{}
 
 \begin{document}
 \maketitle
@@ -422,33 +427,8 @@ nothing found.}
 
 \section{Code and data}
 \label{sec:si-data}
-The archive contains the code, inputs and outputs of every result; Table~\ref{tab:data} lists where each comes from.
-
-\begin{table}
-\caption{Source files of the results in the archive.}
-\label{tab:data}
-\small
-\begin{tabularx}{\textwidth}{lX}
-\toprule
-result & files \\
-\midrule
-parameters (Table~\ref{tab:params}) & \texttt{params/params.yaml} \\
-odorant shares, buoyancy, losses & \texttt{chem/odorants.py}, \texttt{chem/buoyancy.py}, \texttt{chem/reactivity.py}, \texttt{chem/chem\_report.md} \\
-acoustics & \texttt{acoustics/regime.py}, \texttt{acoustics/run\_m2.py}, \texttt{acoustics/m2\_report.md} \\
-analytic dispersion model & \texttt{gate0/model.py}, \texttt{gate0/run\_gate0.py}, \texttt{gate0/gate0\_report.md} \\
-uncertainty, regime map & \texttt{uq/run\_m7.py}, \texttt{uq/m7\_report.md} \\
-passages as emitted in the scenes & \texttt{uq/routing\_headline.py}, \texttt{uq/routing\_headline.json}, \texttt{uq/fig\_routing.py} \\
-CFD validation & \texttt{cfd/validation/jet}, \texttt{cfd/validation/cbl}, \texttt{cfd/validation/m3\_report.md} \\
-sofa & \texttt{cfd/cases/sofa}, \texttt{cfd/cases/sofa/m4\_report.md} \\
-elevator & \texttt{cfd/cases/elevator}, \texttt{cfd/cases/elevator/m5\_report.md} \\
-standing pair & \texttt{cfd/cases/standing} \\
-geometry & \texttt{cfd/geometry/manikin.py} \\
-breath sampling, perception & \texttt{perception/model.py}, \texttt{perception/run\_m6.py}, \texttt{perception/m6\_report.md} \\
-observer models, memory & \texttt{uq/observer\_ps.py}, \texttt{perception/selection.py}, \texttt{perception/run\_selection.py} \\
-cross-cultural survey & \texttt{culture/cross\_cultural\_table.csv}, \texttt{culture/survey\_summary.md} \\
-\bottomrule
-\end{tabularx}
-\end{table}
+Code, inputs and processed outputs are in the repository named in the Data accessibility statement of the main
+text; its \texttt{README.md} lists the source files of every result. They are not duplicated here.
 
 \section{Parameters}
 \label{sec:si-params}
@@ -456,6 +436,7 @@ cross-cultural survey & \texttt{culture/cross\_cultural\_table.csv}, \texttt{cul
 \input{tables/params}
 }
 
+\bibliographystyle{unsrtnat}
 \bibliography{refs}
 
 \end{document}
