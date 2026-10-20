@@ -33,13 +33,10 @@ can be separated.
 
 Equations and proofs are in appendices, and technical details are in the electronic supplementary material. Code and
 processed data are openly available at https://github.com/ccy5123/sbd; a Zenodo DOI will be added by revision.
-[GAP: preprint server and identifier.] The results have not been reported in the media. The manuscript is not under
-consideration elsewhere. [GAP: AI-use statement, written by the author.]
-
-[GAP: suggested reviewers (indoor airflow and human micro-environment; olfactory psychophysics; selection bias),
-chosen by the author.]
+A preprint is posted on engrXiv ([GAP: DOI after posting]). The results have not been reported in the media. The
+manuscript is not under consideration elsewhere. [GAP: AI-use statement, written by the author last.]
 
 Yours sincerely,
 Chan Young Joe
 Independent Researcher, Incheon, Republic of Korea
-[GAP: ORCID]
+ORCID 0009-0007-5822-6714
