@@ -78,7 +78,7 @@ def export_run(out, name, case):
             if a > window:
                 continue
             j = int(np.argmin(np.abs(tv - (t_rel + a))))
-            if abs(tv[j] - (t_rel + a)) > 0.6:
+            if abs(tv[j] - (t_rel + a)) >= 0.5:
                 continue
             surf = {}
             for lev, h in H.items():
@@ -89,7 +89,7 @@ def export_run(out, name, case):
                         surf[lev] = [len(buf), len(v), len(t)]
                         buf += block(v, t)
             frames.append({"after": a, "t": times[j][0], "surf": surf})
-        if not frames:
+        if not any(fr["surf"] for fr in frames):
             continue
         fn = f"iso_{rname}.bin"
         (run_dir / fn).write_bytes(gzip.compress(bytes(buf), 9))
