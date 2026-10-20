@@ -2,7 +2,8 @@
 
 - **Plan:** `PLAN_v4_experiments.md` (approved): validation, RANS response map, LES for the peak factor. Target: one
   complete preprint after these runs (user chose option A: no partial preprint). Preprint server: engrXiv (user's choice
-  2026-10-20), but its AI policy bans verbatim LLM-generated text; see `interface_plan.md` §8 (unresolved). The J. Immat. Sci. bans all AI-generated
+  2026-10-20), although its AI policy bans verbatim LLM-generated text; the author submits without rewriting,
+  accepting a possible hold or rejection, with full AI disclosure (`interface_plan.md` §8). The J. Immat. Sci. bans all AI-generated
   content, so a JIS version would have to be written by the author without AI.
 - **Venue decided 2026-10-20:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); plan in
   `manuscript/preprint/interface_plan.md`. Approved the same day; its "now" tasks 1-9 are done (see its §8):
