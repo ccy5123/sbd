@@ -3,7 +3,7 @@
 # (make_case.py --mode multi), run through the segments of its 'schedule' file (each pulse with a time step that
 # resolves it, the gaps with maxDeltaT 0.1). Each segment writes exactly at its end (writeInterval = segment length,
 # counted from the segment's start time), so the next segment restarts from there.
-# Usage: run_multi.sh [runs_dir] [still|vent] [clothing]    env: NP (4), T_PRE (90)
+# Usage: run_multi.sh [runs_dir] [still|vent] [clothing]    env: NP (4), T_PRE (90), CHECKPOINT, KEEP
 source /opt/openfoam13/etc/bashrc >/dev/null 2>&1
 HERE=$(cd "$(dirname "$0")" && pwd)
 RUN=${1:-$HERE/../../runs}
@@ -44,6 +44,10 @@ if [ ! -f "$c/schedule" ]; then
     decomposePar -force > log.decomposePar 2>&1 )
 fi
 ( cd "$c"
+  # CHECKPOINT (s, default off): split long segments into pieces of about this length, so an interrupted run
+  # restarts from the last piece; KEEP: keep only the newest KEEP time directories per processor
+  awk -v c=${CHECKPOINT:-0} '{ if (c > 0) while ($1 - p > 1.5 * c) { p += c; printf "%.10g %s\n", p, $2 }
+                              print $1, $2; p = $1 }' schedule > schedule.run
   n=0
   while read te dt; do
     n=$((n+1))
@@ -56,6 +60,8 @@ fi
     mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.seg$n 2>&1 < /dev/null  # mpirun would otherwise eat the schedule on stdin
     grep -q "FOAM FATAL" log.foamRun.seg$n && { echo "$(date -u +%H:%M) $c segment $n FAILED"; exit 1; }
     echo "$(date -u +%H:%M) $c segment $n to $te s done"
-  done < schedule
+    [ -n "$KEEP" ] && for d in processor[0-9]*; do
+      ls -d $d/[0-9]* | grep -v '/0$' | sort -t/ -k2 -g | head -n -$KEEP | xargs -r rm -rf; done
+  done < schedule.run
   reconstructPar -latestTime > log.reconstructPar 2>&1 )
 echo "$(date -u +%H:%M) ${P} pipeline done"
