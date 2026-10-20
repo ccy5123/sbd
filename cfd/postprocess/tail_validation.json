@@ -1,6 +1,6 @@
 {
  "silent": {
-  "reached_s": 333.55,
+  "reached_s": 599.8,
   "releaser": {
    "tail": {
     "f_mean": 1.8761260583503292,
@@ -28,7 +28,7 @@
      "predicted_OAV_max": 1.0210395672573227,
      "actual_OAV_max": 1.0210395672573227,
      "ratio_mean": 0.9977448564880342,
-     "partial": true,
+     "partial": false,
      "pass": true
     }
    }
@@ -56,18 +56,18 @@
     },
     "600": {
      "predicted_OAV_mean": 0.276759524761645,
-     "actual_OAV_mean": 0.31548940777022844,
+     "actual_OAV_mean": 0.4108092353252006,
      "predicted_OAV_max": 0.38349318318781633,
-     "actual_OAV_max": 0.38349244905858504,
-     "ratio_mean": 0.8772387216347038,
-     "partial": true,
+     "actual_OAV_max": 0.4176135769130738,
+     "ratio_mean": 0.6736935320905322,
+     "partial": false,
      "pass": true
     }
    }
   }
  },
  "audible": {
-  "reached_s": 301.85556,
+  "reached_s": 599.8,
   "releaser": {
    "tail": {
     "f_mean": 1.0506126546135373,
@@ -95,7 +95,7 @@
      "predicted_OAV_max": 0.6414718558833091,
      "actual_OAV_max": 0.6414718558833091,
      "ratio_mean": 0.8404338449905374,
-     "partial": true,
+     "partial": false,
      "pass": true
     }
    }
@@ -123,11 +123,11 @@
     },
     "600": {
      "predicted_OAV_mean": 0.3134781253468363,
-     "actual_OAV_mean": 0.3866742448374252,
+     "actual_OAV_mean": 0.44177058032723054,
      "predicted_OAV_max": 0.37878316595484585,
-     "actual_OAV_max": 0.4136509324595911,
-     "ratio_mean": 0.8107034009431795,
-     "partial": true,
+     "actual_OAV_max": 0.4479803517098546,
+     "ratio_mean": 0.7095948424511093,
+     "partial": false,
      "pass": true
     }
    }

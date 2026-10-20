@@ -61,8 +61,10 @@
   **300 s check passed (2026-10-20 00:10, runs at 334 / 302 s):** predicted / actual worst breath 1.00 (silent
   releaser), 0.88 (silent neighbour), 0.84 (audible releaser), 0.81 (audible neighbour); after 150 s the noses stay at
   0.4-1.8x the well-mixed level, with slight growth (up to 1.24x) for the audible branch, so the tail runs at most ~20 %
-  low; all OAV < 1 (92 mL). `tail_validation.json` holds the 300 s check. To do: rerun at 600 s (Tue 20 evening);
-  if it fails, discuss an exponential approach from the 150 s value to the room level instead.
+  low; all OAV < 1 (92 mL). **600 s check passed (2026-10-20 19:45, both runs complete):** ratios 1.00 (silent
+  releaser), 0.67 (silent neighbour), 0.84 (audible releaser), 0.71 (audible neighbour). The neighbours' level
+  keeps creeping up after 300 s (no late peak), so the tail runs up to ~1/3 low at 600 s for a bystander, still
+  within the factor 1.5; state this in the manuscript. `tail_validation.json` holds the 600 s check.
 - **Server (2026-10-19 12:30 KST):** reference runs at 149 / 118 s of 600 (~220 wall-s per sim-s, done Tue 20
   afternoon/evening); v4 sofa bare and rec4.5 precursors done ~17:00 today, multi phase ~20-24 h more; sofa trousers
   ~6x slower (1.32 M cells, Darcy d = 1.8e10 m^-2 makes p_rgh stiff), ~6 days in all; the user chose to let it run.
