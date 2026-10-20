@@ -464,6 +464,8 @@ if __name__ == "__main__":
     ap.add_argument("--d", type=float, default=None, help="effective orifice diameter (m)")
     ap.add_argument("--t-release", type=float, default=0.2, help="release start time (s)")
     ap.add_argument("--t-end", type=float, default=60.0, help="end time (s)")
+    ap.add_argument("--turbulence", choices=("rans",), default="rans",
+                    help="run_multi.sh passes this; the standing LES branch (PLAN v4 E4) is not set up yet")
     a = ap.parse_args()
     # defaults as in the sofa duet: silent = 92 mL over 2 s through 8 mm; audible = 92 mL over 0.5 s through 2.4 mm
     T = a.T if a.T is not None else (2.0 if a.mode != "audible" else 0.5)
