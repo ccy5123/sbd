@@ -70,7 +70,8 @@ def entry(key: str, r: dict) -> str:
         f["author"] = "{" + r["organization"] + "}"
     for src, dst in (("title", "title"), ("journal", "journal"), ("year", "year"), ("volume", "volume"),
                      ("issue", "number"), ("publisher", "publisher"), ("edition", "edition"),
-                     ("booktitle", "booktitle"), ("report", "number"), ("doi", "doi")):
+                     ("booktitle", "booktitle"), ("report", "number"), ("howpublished", "howpublished"),
+                     ("doi", "doi")):
         if r.get(src) not in (None, "", "None"):
             f[dst] = str(r[src])
     if r.get("pages"):
