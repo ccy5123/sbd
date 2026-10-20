@@ -5,6 +5,13 @@
   2026-10-20), although its AI policy bans verbatim LLM-generated text; the author submits without rewriting,
   accepting a possible hold or rejection, with full AI disclosure (`interface_plan.md` §8). The J. Immat. Sci. bans all AI-generated
   content, so a JIS version would have to be written by the author without AI.
+- **Local PC run (2026-10-20, user's offer):** `stand_still_tr` (standing pair, still air, trousers) moved off the
+  server queue (`v4_stand_still_tr2` commented out in the server's jobs_v4.txt) and runs on the user's PC (i7-10700F,
+  4 cores, nice 19) in the WSL distro `sbd-openfoam13`, an import of the server image (`wsl --import`; Docker Desktop
+  crashes on this PC). Repo copy and run in `/root/sbd` inside that distro, started from the server's precursor case
+  (mesh). Resume after a reboot: `powershell -ExecutionPolicy Bypass -File cfd\local\start_local.ps1`
+  (`CHECKPOINT=5` splits long segments into 5-s pieces, `KEEP=3` prunes old time directories; a lock prevents a
+  second copy). ~5-6 days; ~8-10 GB on C:. Bring the results back to the server or the repo for analysis.
 - **Venue decided 2026-10-20:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); plan in
   `manuscript/preprint/interface_plan.md`. Approved the same day; its "now" tasks 1-9 are done (see its §8):
   article class, appendix A/B, chemistry, acoustics and odour origin moved to the ESM, 47 main-text references,
