@@ -12,6 +12,11 @@
   standing A90 1.9 / 0.002, A50 0.26 / <0.001, S90 0.85 / 0.002, S50 0.13 / 0.006. No silent release reaches a
   neighbour above OAV 1. Many noses are still rising at 150 s (`late_rising`), mostly at low levels; the 600 s tail
   check on the reference runs passed. Viewer updated with all four clouds per case.
+- **E4 LES started (2026-10-21 09:44, user's go):** sofa upright bare, `sofa_v4_multi_les` in sbd-v4 from the
+  RANS precursor `sofa_v4_pre` (WALE, maxCo 0.8, dt ~0.0075 s; 60 s spin-up, six releases from 60.2 s, to 300.2 s).
+  Started by hand (queue.sh exits once every job has started): container `sbd-v4_sofa_les`, script
+  `run_multi_v4.sh` (= main's run_multi.sh) with `TURB=les CHECKPOINT=5 KEEP=3`. Roughly 3-4 days. The standing LES
+  branch is not set up yet (`standing/make_case.py` accepts only `--turbulence rans`).
 - **Local PC run (2026-10-20, user's offer):** `stand_still_tr` (standing pair, still air, trousers) moved off the
   server queue (`v4_stand_still_tr2` commented out in the server's jobs_v4.txt) and runs on the user's PC (i7-10700F,
   4 cores, nice 19) in the WSL distro `sbd-openfoam13`, an import of the server image (`wsl --import`; Docker Desktop
