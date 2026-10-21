@@ -28,7 +28,8 @@
   filled by other files):** stopped after the 30.15 s piece (seg9, the A50 pulse, restarts from 30.15 s); the
   shortcut was moved to `C:\Users\EH R&C CY\wsl\` so it does not restart at login. To resume: run
   start_local.ps1 and move the shortcut back into the Startup folder. Resumed 2026-10-21 16:50 from 30.15 s
-  (shortcut back in Startup; C: 101 GB free). Per job about twice as fast as the (oversubscribed) server: ~3 days;
+  (shortcut back in Startup; C: 101 GB free). **Paused again 2026-10-21 17:00 (user):** stopped at once during
+  seg9 (30.20 s, not saved); restarts from 30.15 s. Shortcut again in `C:\Users\EH R&C CY\wsl\`, distro stopped. Per job about twice as fast as the (oversubscribed) server: ~3 days;
   ~8-10 GB on C:. Bring the results back to the server or the repo for analysis.
 - **Venue decided 2026-10-20:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); plan in
   `manuscript/preprint/interface_plan.md`. Approved the same day; its "now" tasks 1-9 are done (see its §8):
