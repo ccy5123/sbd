@@ -16,7 +16,10 @@
 - **E4 LES started (2026-10-21 09:44, user's go):** sofa upright bare, `sofa_v4_multi_les` in sbd-v4 from the
   RANS precursor `sofa_v4_pre` (WALE, maxCo 0.8, dt ~0.0075 s; 60 s spin-up, six releases from 60.2 s, to 300.2 s).
   Started by hand (queue.sh exits once every job has started): container `sbd-v4_sofa_les`, script
-  `run_multi_v4.sh` (= main's run_multi.sh) with `TURB=les CHECKPOINT=5 KEEP=3`. Roughly 3-4 days. The standing LES
+  `run_multi_v4.sh` (= main's run_multi.sh) with `TURB=les CHECKPOINT=5 KEEP=3`. Roughly 3-4 days (later ~5-6
+  with other server load). **Sofa trousers LES started 2026-10-22 04:37 (user's go):** `sofa_tr_v4_multi_les`, container
+  `sbd-v4_sofa_tr_les`, same settings, porous trousers zone present; dt ~0.005 s, first-minutes speed suggests
+  ~2 weeks; reassess after a day. The standing LES
   branch is not set up yet (`standing/make_case.py` accepts only `--turbulence rans`).
 - **Local PC run (2026-10-20, user's offer):** `stand_still_tr` (standing pair, still air, trousers) moved off the
   server queue (`v4_stand_still_tr2` commented out in the server's jobs_v4.txt) and runs on the user's PC (i7-10700F,
