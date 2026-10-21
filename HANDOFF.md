@@ -24,7 +24,10 @@
   (mesh). Resume after a reboot: `powershell -ExecutionPolicy Bypass -File cfd\local\start_local.ps1`
   (`CHECKPOINT=5` splits long segments into 5-s pieces, `KEEP=3` prunes old time directories; a lock prevents a
   second copy). A shortcut in the Windows Startup folder (`sbd local CFD resume.lnk`, user's request) runs it at
-  every login; delete it when the run is done. Per job about twice as fast as the (oversubscribed) server: ~3 days;
+  every login; delete it when the run is done. **Paused 2026-10-21 15:50 at the user's request (C: had 8 GB free,
+  filled by other files):** stopped after the 30.15 s piece (seg9, the A50 pulse, restarts from 30.15 s); the
+  shortcut was moved to `C:\Users\EH R&C CY\wsl\` so it does not restart at login. To resume: run
+  start_local.ps1 and move the shortcut back into the Startup folder. Per job about twice as fast as the (oversubscribed) server: ~3 days;
   ~8-10 GB on C:. Bring the results back to the server or the repo for analysis.
 - **Venue decided 2026-10-20:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); plan in
   `manuscript/preprint/interface_plan.md`. Approved the same day; its "now" tasks 1-9 are done (see its §8):
