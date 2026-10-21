@@ -34,6 +34,8 @@
   start_local.ps1 and move the shortcut back into the Startup folder. Resumed 2026-10-21 16:50 from 30.15 s
   (shortcut back in Startup; C: 101 GB free). **Paused again 2026-10-21 17:00 (user):** stopped at once during
   seg9 (30.20 s, not saved); restarts from 30.15 s. Resumed 17:25 the same day (shortcut back in Startup).
+  Killed 2026-10-22 06:13 when the Claude desktop app updated (the run was a child of the app); restarted 08:57
+  from 90.15 s, and start_local.ps1 now creates the process through WMI so it no longer depends on the app.
   **Server access:** the PC reaches 192.168.50.192 only on the office Wi-Fi "EH R&C" (192.168.50.x); on the wired
   network (192.168.0.x) the route goes to the internet and SSH times out. Per job about twice as fast as the (oversubscribed) server: ~3 days;
   ~8-10 GB on C:. Bring the results back to the server or the repo for analysis.

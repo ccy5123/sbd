@@ -9,5 +9,10 @@ param(
 )
 $sh = "cd /root/sbd && export NP=4 T_PRE=90 CHECKPOINT=5 KEEP=3 && " +
       "flock -n cfd/runs/.local_$Name.lock nice -n 19 $Cmd >> cfd/runs/pipeline_local_$Name.log 2>&1"
-Start-Process wsl.exe -ArgumentList "-d sbd-openfoam13 -- bash -lc `"$sh`"" -WindowStyle Hidden
+# Created through WMI so the run is not a child of the calling app: a process started from the Claude app dies
+# when the app updates or restarts (this killed the run once, 2026-10-22 06:13).
+$si = New-CimInstance -ClassName Win32_ProcessStartup -ClientOnly -Property @{ShowWindow = [uint16]0}
+$r = Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{
+  CommandLine = "wsl.exe -d sbd-openfoam13 -- bash -lc `"$sh`""; ProcessStartupInformation = $si }
+if ($r.ReturnValue -ne 0) { Write-Error "Win32_Process.Create failed: $($r.ReturnValue)"; exit 1 }
 Write-Output "started (or already running): $Name; log /root/sbd/cfd/runs/pipeline_local_$Name.log in sbd-openfoam13"
