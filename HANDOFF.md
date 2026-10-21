@@ -5,6 +5,13 @@
   2026-10-20), although its AI policy bans verbatim LLM-generated text; the author submits without rewriting,
   accepting a possible hold or rejection, with full AI disclosure (`interface_plan.md` §8). The J. Immat. Sci. bans all AI-generated
   content, so a JIS version would have to be written by the author without AI.
+- **E2' bare runs done (2026-10-21):** sofa upright, sofa reclined +4.5, standing still air; `analyze_multi.py`
+  results in `cfd/results_v4/<case>.json`, nose probes in `cfd/results_v4/nose_probes_bare.tar.xz`. Worst breath
+  over 150 s, as emitted (RANS mean), releaser / neighbour: sofa upright A90 48.9 / 16.9, A50 6.3 / 0.16,
+  S90 6.6 / 0.09, S50 0.33 / 0.07; reclined A90 25.2 / 19.4, A50 2.1 / 0.95, S90 19.8 / 0.95, S50 0.26 / 0.12;
+  standing A90 1.9 / 0.002, A50 0.26 / <0.001, S90 0.85 / 0.002, S50 0.13 / 0.006. No silent release reaches a
+  neighbour above OAV 1. Many noses are still rising at 150 s (`late_rising`), mostly at low levels; the 600 s tail
+  check on the reference runs passed. Viewer updated with all four clouds per case.
 - **Local PC run (2026-10-20, user's offer):** `stand_still_tr` (standing pair, still air, trousers) moved off the
   server queue (`v4_stand_still_tr2` commented out in the server's jobs_v4.txt) and runs on the user's PC (i7-10700F,
   4 cores, nice 19) in the WSL distro `sbd-openfoam13`, an import of the server image (`wsl --import`; Docker Desktop
