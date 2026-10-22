@@ -11,7 +11,9 @@
   S90 6.6 / 0.09, S50 0.33 / 0.07; reclined A90 25.2 / 19.4, A50 2.1 / 0.95, S90 19.8 / 0.95, S50 0.26 / 0.12;
   standing A90 1.9 / 0.002, A50 0.26 / <0.001, S90 0.85 / 0.002, S50 0.13 / 0.006. No silent release reaches a
   neighbour above OAV 1. Standing ventilated (done 2026-10-22): A90 6.9 / 0.03, A50 14.5 / 0.02, S90 2.8 / 0.05,
-  S50 0.38 / 0.17 (`stand_vent_v4_multi.json`, `nose_probes_stand_vent.tar.xz`). Many noses are still rising at 150 s (`late_rising`), mostly at low levels; the 600 s tail
+  S50 0.38 / 0.17 (`stand_vent_v4_multi.json`, `nose_probes_stand_vent.tar.xz`). Sofa leaning forward -10 (done
+  2026-10-22 15:17): A90 22.3 / 35.8 (neighbour reached in 2.3 s), A50 0.51 / 0.29, S90 1.2 / 0.26, S50 0.49 / 0.30
+  (`sofa_rec-10_v4_multi.json`, `nose_probes_sofa_rec-10.tar.xz`). Many noses are still rising at 150 s (`late_rising`), mostly at low levels; the 600 s tail
   check on the reference runs passed. Viewer updated with all four clouds per case.
 - **E4 LES started (2026-10-21 09:44, user's go):** sofa upright bare, `sofa_v4_multi_les` in sbd-v4 from the
   RANS precursor `sofa_v4_pre` (WALE, maxCo 0.8, dt ~0.0075 s; 60 s spin-up, six releases from 60.2 s, to 300.2 s).
