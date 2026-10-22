@@ -9,7 +9,10 @@ param(
 )
 $known = @{
   stand_still_tr = "bash cfd/cases/standing/run_multi.sh /root/sbd/cfd/runs still trousers"
-  sofa_les       = "env TURB=les bash cfd/cases/sofa/run_multi.sh /root/sbd/cfd/runs 0 bare"  # moved from the server
+  # the bare sofa LES moved from the server, then the elevator multi-release run (front-left culprit) on the cores it frees
+  sofa_les       = "bash -c 'env TURB=les bash cfd/cases/sofa/run_multi.sh /root/sbd/cfd/runs 0 bare && " +
+                   "bash cfd/cases/elevator/run_multi.sh /root/sbd/cfd/runs FL'"
+  elev_FL        = "bash cfd/cases/elevator/run_multi.sh /root/sbd/cfd/runs FL"
 }
 if (-not $Cmd) { $Cmd = $known[$Name] }
 if (-not $Cmd) { Write-Error "unknown run '$Name' and no -Cmd given"; exit 1 }

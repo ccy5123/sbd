@@ -34,7 +34,13 @@
     `cfd/docker/les_bare_stop.sh` stop the bare LES on the server after its next checkpoint, copies the case to the
     PC and resumes it there (`start_local.ps1 -Name sofa_les`), then switches the login shortcut to it. Needs the
     EH R&C Wi-Fi for the server steps (they retry). Afterwards the server's `sofa_v4_multi_les` is stale: the
-    results live on the PC (`/root/sbd/cfd/runs/sofa_v4_multi_les` in sbd-openfoam13). The standing LES
+    results live on the PC (`/root/sbd/cfd/runs/sofa_v4_multi_les` in sbd-openfoam13).
+  - **Elevator supplement (user's request 2026-10-22, on spare local cores):** `elevator/make_case.py --mode multi`
+    and `elevator/run_multi.sh [runs] FL|BL` (four releases as the sofa case, 90 s precursor, iso-surfaces).
+    Tested on the PC: mesh 908,842 cells (Mesh OK, kept in `/root/sbd/cfd/runs/elev_v4_pre`), precursor and multi
+    steps across the first pulse run clean. `start_local.ps1 -Name sofa_les` now chains the bare LES and then
+    `elev_v4_FL_multi` (front-left culprit, person behind), so it starts on its own when the LES ends (~Mon) and
+    should finish ~Tue evening, before the trousers LES. Analyse with `analyze_multi.py <case> --noses FL,FR,BL,BR`. The standing LES
   branch is not set up yet (`standing/make_case.py` accepts only `--turbulence rans`).
 - **Local PC run (2026-10-20, user's offer):** `stand_still_tr` (standing pair, still air, trousers) moved off the
   server queue (`v4_stand_still_tr2` commented out in the server's jobs_v4.txt) and runs on the user's PC (i7-10700F,

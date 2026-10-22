@@ -11,8 +11,11 @@ inactive one is a closed wall.
 Pressure relief: a 0.20 m x 0.20 m opening at the ceiling centre [ASSUMPTION: stands for the car's ventilation
 apertures; its size and position are not taken from a standard], p_rgh = 0, inflow at car temperature.
 
-Usage: python3 make_case.py <case_dir> --mode {precursor,silent,audible} [--culprit {FL,BL}]
-       [--t-release 0.2 --t-end 60] [--V 9.2e-5 --T .. --d ..]
+PLAN v4 supplement: --mode multi carries the sofa case's four representative releases (MULTI_RELEASES, 30 s apart,
+scalars s1..s4, iso-surfaces for the viewer) and writes the segment 'schedule' that run_multi.sh steps through.
+
+Usage: python3 make_case.py <case_dir> --mode {precursor,silent,audible,multi} [--culprit {FL,BL}]
+       [--t-pre 30] [--t-release 0.2 --t-end 60] [--V 9.2e-5 --T .. --d ..]
 """
 import argparse
 import importlib.util
@@ -162,11 +165,19 @@ mergeTolerance 1e-6;
 """
 
 
-def fields(src, culprit, t_rel, T):
+def fields(src, culprit, t_rel, T, multi=None):
     troom, tskin = T_ROOM + 273.15, T_SKIN + 273.15
     k0, om0 = 1e-5, 0.1
     beta = 1.0 / troom
-    if src:
+    if multi:  # [(src, t_rel, T), ...]: one inlet carrying all pulses, one scalar per release (as the sofa case)
+        mpt = sofa_case.multi_pulse_table
+        q_tab = mpt([(tr, Tk, sk["Q_eq"], True) for sk, tr, Tk in multi])
+        t_tab = mpt([(tr, Tk, G_PRIME / (9.81 * beta) / sk["dilution"], False) for sk, tr, Tk in multi], troom)
+        s_tab = "constant 0"
+        k_in = 1.5 * (0.05 * max(sk["u_eq"] for sk, _, _ in multi)) ** 2
+        om_in = math.sqrt(k_in) / (0.09**0.25 * 0.07 * 2 * R_E)
+        src = multi[0][0]  # marks the culprit's release face as an inlet below
+    elif src:
         dT_eq = G_PRIME / (9.81 * beta) / src["dilution"]
         q_tab = pulse_table(t_rel, T, src["Q_eq"], conserve=True)
         t_tab = pulse_table(t_rel, T, dT_eq, troom)
@@ -200,7 +211,19 @@ def fields(src, culprit, t_rel, T):
     kw, omw = f"type kqRWallFunction; value uniform {k0};", f"type omegaWallFunction; value uniform {om0};"
     nutw = "type nutkWallFunction; value uniform 0;"
     alw = "type compressible::alphatJayatillekeWallFunction; Prt 0.85; value uniform 0;"
-    return {
+
+    def scalar(active):
+        return ("volScalarField", "dimensions [0 0 0 0 0 0 0];\ninternalField uniform 0;\n"
+                + bc("type zeroGradient;", "type zeroGradient;", "type inletOutlet; inletValue uniform 0; value uniform 0;",
+                     "type zeroGradient;", active, idle["s"]))
+
+    if multi:
+        out = {f"s{k}": scalar(f"type uniformFixedValue; uniformValue "
+                                f"{sofa_case.multi_pulse_table([(tr, Tk, 1.0 / sk['dilution'], False)])}; value uniform 0;")
+               for k, (sk, tr, Tk) in enumerate(multi, 1)}
+    else:
+        out = {"s": scalar(act["s"])}
+    return out | {
         "U": ("volVectorField", "dimensions [0 1 -1 0 0 0 0];\ninternalField uniform (0 0 0);\n"
               + bc("type noSlip;", "type noSlip;", "type pressureInletOutletVelocity; value uniform (0 0 0);",
                    "type noSlip;", act["U"], idle["U"])),
@@ -208,9 +231,6 @@ def fields(src, culprit, t_rel, T):
               + bc(f"type fixedValue; value uniform {troom};", f"type fixedValue; value uniform {tskin};",
                    f"type inletOutlet; inletValue uniform {troom}; value uniform {troom};", "type zeroGradient;",
                    act["T"], idle["T"])),
-        "s": ("volScalarField", "dimensions [0 0 0 0 0 0 0];\ninternalField uniform 0;\n"
-              + bc("type zeroGradient;", "type zeroGradient;", "type inletOutlet; inletValue uniform 0; value uniform 0;",
-                   "type zeroGradient;", act["s"], idle["s"])),
         "p_rgh": ("volScalarField", "dimensions [1 -1 -2 0 0 0 0];\ninternalField uniform 0;\n"
                   + bc("type fixedFluxPressure; value uniform 0;", "type fixedFluxPressure; value uniform 0;",
                        "type fixedValue; value uniform 0;", *["type fixedFluxPressure; value uniform 0;"] * 3)),
@@ -226,10 +246,16 @@ def fields(src, culprit, t_rel, T):
     }
 
 
-def make(case: Path, mode: str, culprit: str, V: float, T: float, d: float, t_rel: float, t_end: float):
+def make(case: Path, mode: str, culprit: str, V: float, T: float, d: float, t_rel: float, t_end: float,
+         t_pre: float = None):
     troom = T_ROOM + 273.15
     rho0 = 101325 * 0.02896 / (8.314 * troom)
-    src = equivalent_source(V, T, d) if mode != "precursor" else None
+    multi = None
+    if mode == "multi":  # PLAN v4 E2' (supplement): the sofa case's four releases, 30 s apart, scalars s1..s4
+        multi = [(equivalent_source(Vk, Tk, dk), t_rel + sofa_case.MULTI_GAP * i, Tk)
+                 for i, (_, Vk, Tk, dk) in enumerate(sofa_case.MULTI_RELEASES)]
+        t_end = multi[-1][1] + sofa_case.MULTI_WINDOW
+    src = equivalent_source(V, T, d) if mode not in ("precursor", "multi") else None
     geo = case / "constant/geometry"
     manikin.write_elevator(geo)
     write_emitters(geo / "emitter.stl")
@@ -245,7 +271,7 @@ def make(case: Path, mode: str, culprit: str, V: float, T: float, d: float, t_re
     }}
 }}
 """)
-    for name, (cls, body) in fields(src, culprit, t_rel, T).items():
+    for name, (cls, body) in fields(src, culprit, t_rel, T, multi).items():
         w(case / "0" / name, body, cls)
     w(case / "constant/g", "dimensions [0 1 -2 0 0 0 0];\nvalue (0 0 -9.81);\n", "uniformDimensionedVectorField", "g")
     w(case / "constant/physicalProperties", f"""thermoType
@@ -263,12 +289,28 @@ mixture
 """)
     w(case / "constant/momentumTransport", "simulationType RAS;\nRAS\n{\n    model kOmegaSST;\n    turbulence on;\n}\n")
     probes = " ".join("({:.4f} {:.4f} {:.4f})".format(*nose_probe(n)) for n in NAMES)
-    if src:
+    scalars = ["s"]
+    if multi:  # segment schedule for run_multi.sh (as in the sofa case)
+        sched, t_prev = [], 0.0
+        for sk, tr, Tk in multi:
+            if tr - 0.05 > t_prev:
+                sched.append((tr - 0.05, 0.1))
+            t_prev = tr + Tk + 0.3
+            sched.append((t_prev, min(0.01, 4 * 0.0025 / sk["u_eq"])))
+        sched.append((t_end, 0.1))
+        (case / "schedule").write_text("".join(f"{te:.6g} {dt:.4g}\n" for te, dt in sched))
+        end, max_dt, write_int = sched[0][0], sched[0][1], 5
+        scalars = [f"s{k}" for k in range(1, len(multi) + 1)]
+    elif src:
         end = min(t_end, math.ceil(t_rel + T + 0.3))
         max_dt = min(0.01, 4 * 0.0025 / src["u_eq"])
         write_int = 1
     else:
-        end, max_dt, write_int = T_PRE, 0.1, 5
+        end, max_dt, write_int = (t_pre if t_pre else T_PRE), 0.1, 5
+    sc = " ".join(scalars)
+    st = "".join(f"    #includeFunc scalarTransport({s}, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)\n"
+                 for s in scalars)
+    iso = sofa_case.iso_block(scalars) if multi else ""
     nose_z = manikin.STAND_NOSE[2]
     w(case / "system/controlDict", f"""solver fluid;
 startFrom latestTime;
@@ -289,10 +331,9 @@ timeFormat general;
 runTimeModifiable true;
 functions
 {{
-    #includeFunc scalarTransport(s, diffusivity=viscosity, alphal=1.428571, alphat=1.428571)
-    #includeFunc probes(funcName=noses, points=({probes}), fields=(s T U))
-    #includeFunc residuals(p_rgh, U, e, k, omega, s)
-    planes
+{st}    #includeFunc probes(funcName=noses, points=({probes}), fields=({sc} T U))
+    #includeFunc residuals(p_rgh, U, e, k, omega, {", ".join(scalars)})
+{iso}    planes
     {{
         type            surfaces;
         libs            ("libsampling.so");
@@ -301,7 +342,7 @@ functions
         surfaceFormat   raw;
         interpolationScheme cell;
         interpolate     false;
-        fields          (s T U);
+        fields          ({sc} T U);
         surfaces
         {{
             midLeft    {{ type cutPlane; planeType pointAndNormal; point (0 -0.27 0); normal (0 1 0); interpolate false; }}
@@ -322,6 +363,10 @@ divSchemes
     div(phi,omega) Gauss upwind;
     div(phi,K) Gauss linear;
     div(phi,s) Gauss limitedLinear01 1;
+    div(phi,s1) Gauss limitedLinear01 1;
+    div(phi,s2) Gauss limitedLinear01 1;
+    div(phi,s3) Gauss limitedLinear01 1;
+    div(phi,s4) Gauss limitedLinear01 1;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 }
 laplacianSchemes { default Gauss linear limited corrected 0.5; }
@@ -354,8 +399,10 @@ PIMPLE
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("case")
-    ap.add_argument("--mode", choices=("precursor", "silent", "audible"), required=True)
+    ap.add_argument("--mode", choices=("precursor", "silent", "audible", "multi"), required=True)
     ap.add_argument("--culprit", choices=CULPRITS, default="FL")
+    ap.add_argument("--t-pre", type=float, default=None, help="precursor length (s); default 30")
+    ap.add_argument("--turbulence", choices=("rans",), default="rans", help="run_multi.sh passes this; RANS only")
     ap.add_argument("--V", type=float, default=9.2e-5, help="released volume (m^3); median per passage")
     ap.add_argument("--T", type=float, default=None, help="release duration (s)")
     ap.add_argument("--d", type=float, default=None, help="effective orifice diameter (m)")
@@ -365,7 +412,7 @@ if __name__ == "__main__":
     # defaults as in the sofa duet: silent = 92 mL over 2 s through 8 mm; audible = 92 mL over 0.5 s through 2.4 mm
     T = a.T if a.T is not None else (2.0 if a.mode != "audible" else 0.5)
     d = a.d if a.d is not None else (0.008 if a.mode != "audible" else 0.0024)
-    src = make(Path(a.case), a.mode, a.culprit, a.V, T, d, a.t_release, a.t_end)
+    src = make(Path(a.case), a.mode, a.culprit, a.V, T, d, a.t_release, a.t_end, a.t_pre)
     if src:
         src["stage1_end"] = min(a.t_end, math.ceil(a.t_release + T + 0.3))
     print("written", a.case, a.mode, a.culprit, {k: round(v, 5) for k, v in (src or {}).items()})

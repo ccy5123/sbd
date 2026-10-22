@@ -21,7 +21,8 @@ the tail says nothing worse arrives after 150 s. That is what validate_tail.py c
 reference runs. 'late_rising' flags a nose still climbing at 150 s (cloud not yet arrived), where the tail is too low.
 Writes <case>/multi_result.json.
 Usage: python3 cfd/postprocess/analyze_multi.py <multi_case> [--noses releaser,neighbour]
-(probe order is releaser, neighbour in both the sofa and the standing case)
+(probe order is releaser, neighbour in both the sofa and the standing case; the elevator has four probes, FL FR BL
+BR, so use --noses FL,FR,BL,BR there; FL is the culprit of elev_v4_FL_multi)
 """
 import argparse
 import importlib.util
@@ -54,6 +55,10 @@ def room(case: Path):
         spec.loader.exec_module(st)
         v = float(np.prod([b - a for a, b in st.DOMAIN]))
         return v, (st.Q_SUPPLY / v if case.name.startswith("stand_vent") else 0.0)
+    if case.name.startswith("elev"):  # closed car, fan off: the ceiling opening only relieves pressure
+        sys.path.insert(0, str(ROOT / "cfd/geometry"))
+        import manikin
+        return float(np.prod(manikin.CAR)), 0.0
     return float(np.prod([b - a for a, b in sofa_case.DOMAIN])), 0.0
 
 
