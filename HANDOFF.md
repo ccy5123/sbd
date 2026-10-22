@@ -22,7 +22,17 @@
   ~2 weeks; reassess after a day. **Speed-up (user's choice: move cores, nothing else changed):** a watcher
   (`sbd-main/scratch/les_realloc.sh`, log `cfd/runs/les_realloc.log`, started 2026-10-22 09:16) waits for the
   sofa -10 run to finish, then for the LES's next 5-s checkpoint, stops it, re-decomposes the latest time into 8
-  subdomains (scotch) and restarts it as container `sbd-v4_sofa_tr_les8` with NP=8 (total stays 20 cores). The standing LES
+  subdomains (scotch) and restarts it as container `sbd-v4_sofa_tr_les8` with NP=8 (total stays 20 cores).
+  **Replaced the same day by the full core plan (user approved; target: all runs done ~28-29 Oct instead of ~8 Nov):**
+  - server: `cfd/docker/les_grow.sh` (running from `sbd-main/scratch/`, log `cfd/runs/les_grow.log`) grows the
+    trousers LES onto every 4 cores the other sbd runs free (cap 20), at its next checkpoint each time
+    (expected 4 -> 8 -> 12 -> 16 -> 20 as sofa -10, the bare LES, sofa_tr and stand_vent_tr leave);
+  - local: `cfd/local/move_les_bare.sh` (running in WSL Ubuntu; Startup shortcut "sbd move LES"; log
+    `C:\Users\EH R&C CY\wsl\move_les_bare.log`) waits for the local stand_still_tr run to finish, has
+    `cfd/docker/les_bare_stop.sh` stop the bare LES on the server after its next checkpoint, copies the case to the
+    PC and resumes it there (`start_local.ps1 -Name sofa_les`), then switches the login shortcut to it. Needs the
+    EH R&C Wi-Fi for the server steps (they retry). Afterwards the server's `sofa_v4_multi_les` is stale: the
+    results live on the PC (`/root/sbd/cfd/runs/sofa_v4_multi_les` in sbd-openfoam13). The standing LES
   branch is not set up yet (`standing/make_case.py` accepts only `--turbulence rans`).
 - **Local PC run (2026-10-20, user's offer):** `stand_still_tr` (standing pair, still air, trousers) moved off the
   server queue (`v4_stand_still_tr2` commented out in the server's jobs_v4.txt) and runs on the user's PC (i7-10700F,

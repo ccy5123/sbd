@@ -5,8 +5,14 @@
 # Usage: powershell -ExecutionPolicy Bypass -File cfd\local\start_local.ps1 [name] [command]
 param(
   [string]$Name = "stand_still_tr",
-  [string]$Cmd = "bash cfd/cases/standing/run_multi.sh /root/sbd/cfd/runs still trousers"
+  [string]$Cmd = ""
 )
+$known = @{
+  stand_still_tr = "bash cfd/cases/standing/run_multi.sh /root/sbd/cfd/runs still trousers"
+  sofa_les       = "env TURB=les bash cfd/cases/sofa/run_multi.sh /root/sbd/cfd/runs 0 bare"  # moved from the server
+}
+if (-not $Cmd) { $Cmd = $known[$Name] }
+if (-not $Cmd) { Write-Error "unknown run '$Name' and no -Cmd given"; exit 1 }
 $sh = "cd /root/sbd && export NP=4 T_PRE=90 CHECKPOINT=5 KEEP=3 && " +
       "flock -n cfd/runs/.local_$Name.lock nice -n 19 $Cmd >> cfd/runs/pipeline_local_$Name.log 2>&1"
 # Created through WMI so the run is not a child of the calling app: a process started from the Claude app dies
