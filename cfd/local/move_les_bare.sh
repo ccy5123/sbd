@@ -29,7 +29,7 @@ done
 marked local_done || { mark local_done; say "local stand_still_tr done"; }
 
 if ! marked server_stopped; then
-  until $SSH "test -f ~/$SRV/.les_bare_stopped || pgrep -f les_bare_stop.sh > /dev/null ||
+  until $SSH "test -f ~/$SRV/.les_bare_stopped || pgrep -f '[l]es_bare_stop.sh' > /dev/null ||
               { setsid nohup ~/cyjoe/research/sbd-main/scratch/les_bare_stop.sh > /dev/null 2>&1 < /dev/null & }" 2> /dev/null; do
     sleep 120
   done
