@@ -1,4 +1,74 @@
-# Status 2026-10-19 (local session; read this first)
+# Status 2026-10-24 (read this first; the sections below are the history behind it)
+
+**Session rules:** CLAUDE.md (say local vs cloud first; Korean; clarify with AskUserQuestion, recommended option
+first; no PR watching). Commit on `main` only: `git -c user.name="Chan Young Joe" -c user.email="ccy5123ccy@gmail.com"
+commit`, trailer `Co-Authored-By: Claude <noreply@anthropic.com>`, no model identifiers. Server and local-PC work
+needs a **local** session (Remote Control cannot start new sessions; the desktop app can).
+
+## Where things stand
+
+- **Venue:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); preprint on engrXiv with full AI
+  disclosure. Plan and referee-style work list: `manuscript/preprint/interface_plan.md` §9 (A done, B after the runs).
+- **Finished CFD (v4 multi-release RANS, results in `cfd/results_v4/`):** sofa upright / reclined 4.5 / leaning -10,
+  standing still / ventilated, all bare; standing still with trousers. Summary below ("E2' ... done").
+- **A1-A4 done (2026-10-24, §9.4-9.7):** routing map (`figures/fig_routing_map.png`, OAV vs Pi = M0/m_p); v4
+  headline `uq/four_outcomes_v4.py` (bare, bystanders, frequency-weighted, attentive: physics 0.4% silent worse vs
+  6.8% audible worse, memory 91.5% silent worse); source sensitivity `uq/source_sensitivity.py` (silent share
+  76-94%, direction never flips); A3 text plan. A5 (E0-6 mesh x1.5 run, E0-3 Licina 2017 chamber, heated and
+  unheated) is approved for after ~29 Oct when cores free up.
+
+## Runs in progress (as of 2026-10-24 01:30 KST)
+
+| run | where | state | expected |
+|---|---|---|---|
+| sofa upright, trousers (RANS) | server `sbd-v4_sofa_tr3`, 4 cores | from 95.26 s, ~4.8 s/h | ~25 Oct morning |
+| standing ventilated, trousers (RANS) | server `sbd-v4_stand_vent_tr2`, 4 cores | from 61.15 s | ~25-26 Oct |
+| LES sofa trousers | server `sbd-v4_sofa_tr_les12`, 12 cores | ~32 s of 300 | ~29 Oct (grows to 16, 20 cores) |
+| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | 90.2 s of 300; release segments are slow | ~28 Oct |
+| elevator multi-release, FL culprit | local PC, starts by itself after the bare LES | not started; mesh ready (`elev_v4_pre`) | ~29-30 Oct |
+
+Automation (all committed):
+- server `cfd/docker/les_grow.sh` (runs from `sbd-main/scratch/`, log `sbd-v4/cfd/runs/les_grow.log`): moves every
+  4 freed cores to the trousers LES at its next 5-s checkpoint (cap 20 cores).
+- local `cfd/local/start_local.ps1 -Name sofa_les` chains the bare LES and then the elevator; the Startup shortcut
+  `sbd local CFD resume.lnk` reruns it at login (lock prevents duplicates; launched through WMI so app updates
+  cannot kill it). `move_les_bare.sh` and its shortcut are done/retired. **Delete the Startup shortcut when the
+  local runs finish**, and later `wsl --unregister sbd-openfoam13` (~10 GB) only after copying results out and with
+  the user's OK.
+- all v4 run scripts resume from their latest write; CHECKPOINT=5 / KEEP=3 everywhere now.
+
+Watch-outs:
+- **Server access needs the office Wi-Fi "EH R&C"** (192.168.50.x). On the wired 192.168.0.x network SSH times out.
+  If the server stops answering ARP on Wi-Fi, ask the user to check it.
+- **After a server reboot** (happened 23 Oct 09:35): `docker ps` shows no sbd containers. Restart each run with
+  `cfd/docker/run.sh` and the same env (they resume), re-decompose the LES if its core count changes, restart
+  `les_grow.sh`. Ask the user to warn before rebooting so runs can stop at a checkpoint.
+- Git Bash rewrites `/root/...` arguments to WSL: prefix `MSYS_NO_PATHCONV=1` or feed scripts on stdin.
+- Python for analysis runs in the `sbd-openfoam13` distro (numpy 1.26, scipy, matplotlib):
+  `MSYS_NO_PATHCONV=1 wsl.exe -d sbd-openfoam13 -- bash -c 'cd "/mnt/c/Users/EH R&C CY/research/sbd" && python3 ...'`.
+
+## Next tasks
+
+1. **Robustness analyses for the referee (user asked for them, not started).** Scripts in `uq/`, JSON outputs, a
+   summary as a new section after §9.7 of `interface_plan.md`; no CFD:
+   - psychometric-tail sensitivity: the bystander OAVs sit far below the 50% point, so vary the slope sd (attentive
+     1-4, distracted 2-5 binary steps), the tail shape (probit, logistic, hard floor) and the deterministic Nagata
+     case; report whether audible-worse : silent-worse (~17:1) and the memory share keep their direction;
+   - belief vs detection rate on the v4 population (bystanders, bare, frequency-weighted): sweep the observer scale,
+     plot the remembered "silent seems worse" share and the truth against the share of passages smelled, with the
+     releaser for contrast (answers "91.5% is tautological"; replaces the old Figure 13 basis);
+   - peak-factor break-even: the uniform multiplier, and a silent-only one, that would lift the silent release over
+     OAV 1 and OAV 20 at a bystander in each scene, and that would make silent-worse >= audible-worse in the headline
+     (to compare with the LES peak factors when they land).
+2. As runs finish: `analyze_multi.py` on each (`--noses FL,FR,BL,BR` for the elevator), copy JSON and nose probes to
+   `cfd/results_v4/`, rerun `uq/four_outcomes_v4.py` (clothed share 0.7-1.0 once both trousers runs are in) and
+   `cfd/postprocess/routing_map.py`; refresh the 3D viewer (`export_viewer.py`, `export_iso.py`; artifact
+   https://claude.ai/artifact/5sLUdRH1bG9nksx2vJFcvL, data files under the scratchpad viewer folder).
+3. LES peak factors from the two sofa LES runs, then the headline with peak factors.
+4. A5 validation runs after ~29 Oct; then the B stage (rewrite Methods/Results/figures on v4, fill gaps, title check,
+   Zenodo with the user's OK, AI statement by the author).
+
+# Status 2026-10-19 to 2026-10-23 (history)
 
 - **Plan:** `PLAN_v4_experiments.md` (approved): validation, RANS response map, LES for the peak factor. Target: one
   complete preprint after these runs (user chose option A: no partial preprint). Preprint server: engrXiv (user's choice
