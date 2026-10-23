@@ -46,13 +46,23 @@ CASES = {
 ROLE = {"releaser": "culprit", "neighbour": None}  # bystander role name from nose_distances (beside / facing)
 
 
-def compute(n=rs.N_EVENTS):
-    """All rows and summaries for n passages (dict as written to uq/four_outcomes_v4.json)."""
+def passages(n=rs.N_EVENTS):
+    """The Theorem 3 passage stream with hearing at every nose distance (reusable across compute() calls)."""
+    return rs.simulate(n=n, distances=sorted(set(fo.nose_distances().values())))
+
+
+def compute(n=rs.N_EVENTS, sim=None, detectors=None, gain=(1.0, 1.0)):
+    """All rows and summaries for n passages (dict as written to uq/four_outcomes_v4.json).
+    Robustness hooks (defaults reproduce the headline): sim, a passages() result to reuse; detectors, observer name
+    (rh.OBS) -> function OAV -> detection probability, replacing observer_ps; gain, (silent, audible) multipliers on the
+    OAV of physically silent / audible passages (e.g. a peak factor)."""
     dists = fo.nose_distances()
-    sim = rs.simulate(n=n, distances=sorted(set(dists.values())))
+    sim = passages(n) if sim is None else sim
     J = rh.JND
     V, M0, osc = sim["V"], sim["Q"] * sim["u0"], sim["osc"].astype(bool)
     obs = observers()
+    if detectors is None:
+        detectors = {name: (lambda A, s=obs[name][0], sd=obs[name][1]: detect(s * A, sd)) for name in rh.OBS}
     out = {"n_events": int(V.size), "JND": J, "observers": list(rh.OBS), "windows": WINDOWS, "rows": []}
     for case, (scene, cloth) in CASES.items():
         f = RES / f"{case}.json"
@@ -66,17 +76,17 @@ def compute(n=rs.N_EVENTS):
             for win in WINDOWS:
                 oav = np.where(osc, am.nose_oav(res, nose, win, V, M0, "audible"),
                                am.nose_oav(res, nose, win, V, M0, "silent"))
-                A = sim["sulfur"] * oav
+                A = sim["sulfur"] * oav * np.where(osc, gain[1], gain[0])
                 row = {"case": case, "scene": scene, "clothing": cloth, "nose": role, "window_s": win, "distance_m": r,
                        "frac_audible": float(audible.mean()), "median_OAV_silent": float(np.median(A[~osc])),
                        "median_OAV_audible": float(np.median(A[osc])), "by_observer": {}}
                 for name in rh.OBS:
-                    scale, sd = obs[name][0], obs[name][1]
-                    p = detect(scale * A, sd)
+                    p = detectors[name](A)
                     t = pair_terms(A[~audible], p[~audible], A[audible], p[audible], J)
                     mm = memory_mass(t, role)
                     row["by_observer"][name] = {"terms": t, "physics": physics(t),
-                                                "memory": {k: mm[k] / mm["_total"] for k in OUTCOMES},
+                                                "memory": ({k: mm[k] / mm["_total"] for k in OUTCOMES}
+                                                           if mm["_total"] > 0 else None),  # nothing smelled
                                                 "memory_mass": mm}
                 out["rows"].append(row)
     weights = {"equal per scene": {k: 1.0 for k in fo.SCENES}, **frequency_weights()}

@@ -1,0 +1,1002 @@
+{
+ "m50_OAV": [
+  1e-05,
+  1.584893192461114e-05,
+  2.5118864315095822e-05,
+  3.9810717055349695e-05,
+  6.309573444801929e-05,
+  0.0001,
+  0.00015848931924611142,
+  0.0002511886431509582,
+  0.00039810717055349735,
+  0.000630957344480193,
+  0.001,
+  0.001584893192461114,
+  0.002511886431509582,
+  0.003981071705534973,
+  0.006309573444801936,
+  0.01,
+  0.01584893192461114,
+  0.025118864315095822,
+  0.039810717055349734,
+  0.06309573444801936,
+  0.1,
+  0.15848931924611143,
+  0.25118864315095824,
+  0.39810717055349776,
+  0.6309573444801942,
+  1.0,
+  1.584893192461114,
+  2.5118864315095824,
+  3.9810717055349776,
+  6.309573444801943,
+  10.0,
+  15.848931924611142,
+  25.11886431509582,
+  39.81071705534978,
+  63.09573444801943,
+  100.0,
+  158.48931924611142,
+  251.18864315095823,
+  398.1071705534977,
+  630.9573444801943,
+  1000.0,
+  1584.8931924611175,
+  2511.886431509582,
+  3981.071705534969,
+  6309.573444801943,
+  10000.0
+ ],
+ "group": "bare, 600 s, frequency-weighted central",
+ "n_events": 20000,
+ "attentive, Amoore thresholds": {
+  "sd": 2.0,
+  "m50_baseline": 20.0,
+  "sweep": [
+   {
+    "m50": 1e-05,
+    "smelled_bystander": 0.9988136703176026,
+    "smelled_releaser": 0.9999987965604188,
+    "memory_silent_worse": 0.29187919058975126,
+    "truth_silent_worse": 0.29168395269128344,
+    "truth_among_smelled": 0.2916897919200538,
+    "releaser_among_smelled": 0.18572514634262632,
+    "releaser_silent_worse": 0.18572514634261747
+   },
+   {
+    "m50": 1.584893192461114e-05,
+    "smelled_bystander": 0.9978621680267818,
+    "smelled_releaser": 0.9999961771104909,
+    "memory_silent_worse": 0.2920381263988254,
+    "truth_silent_worse": 0.29165422056118095,
+    "truth_among_smelled": 0.29167303646305553,
+    "releaser_among_smelled": 0.18572514729529824,
+    "releaser_silent_worse": 0.18572514729519077
+   },
+   {
+    "m50": 2.5118864315095822e-05,
+    "smelled_bystander": 0.996302328175936,
+    "smelled_releaser": 0.9999886902078796,
+    "memory_silent_worse": 0.2922857458917018,
+    "truth_silent_worse": 0.2915681062560227,
+    "truth_among_smelled": 0.2916229868393765,
+    "releaser_among_smelled": 0.18572515130494435,
+    "releaser_silent_worse": 0.18572515130383302
+   },
+   {
+    "m50": 3.9810717055349695e-05,
+    "smelled_bystander": 0.993855045130274,
+    "smelled_releaser": 0.9999687248116963,
+    "memory_silent_worse": 0.292629376675122,
+    "truth_silent_worse": 0.29135136439238757,
+    "truth_among_smelled": 0.29149656832897297,
+    "releaser_among_smelled": 0.18572516701288536,
+    "releaser_silent_worse": 0.1857251670029858
+   },
+   {
+    "m50": 6.309573444801929e-05,
+    "smelled_bystander": 0.9901751439513683,
+    "smelled_releaser": 0.999918872795671,
+    "memory_silent_worse": 0.29303921680081896,
+    "truth_silent_worse": 0.29086602295210656,
+    "truth_among_smelled": 0.29121526136004966,
+    "releaser_among_smelled": 0.18572522435366196,
+    "releaser_silent_worse": 0.18572522427705956
+   },
+   {
+    "m50": 0.0001,
+    "smelled_bystander": 0.984860101995561,
+    "smelled_releaser": 0.9998019430415583,
+    "memory_silent_worse": 0.29342525452371526,
+    "truth_silent_worse": 0.2898881097940666,
+    "truth_among_smelled": 0.29065333685359435,
+    "releaser_among_smelled": 0.1857254195186148,
+    "releaser_silent_worse": 0.1857254189994988
+   },
+   {
+    "m50": 0.00015848931924611142,
+    "smelled_bystander": 0.9774625170074779,
+    "smelled_releaser": 0.9995435904435924,
+    "memory_silent_worse": 0.29362905163270636,
+    "truth_silent_worse": 0.2881041254745577,
+    "truth_among_smelled": 0.28963520549578425,
+    "releaser_among_smelled": 0.185726038990026,
+    "releaser_silent_worse": 0.18572603588578346
+   },
+   {
+    "m50": 0.0002511886431509582,
+    "smelled_bystander": 0.9674989873948158,
+    "smelled_releaser": 0.9990046849340217,
+    "memory_silent_worse": 0.2934509979835453,
+    "truth_silent_worse": 0.2851458306878731,
+    "truth_among_smelled": 0.2879506825120584,
+    "releaser_among_smelled": 0.18572787241918565,
+    "releaser_silent_worse": 0.1857278559284455
+   },
+   {
+    "m50": 0.00039810717055349735,
+    "smelled_bystander": 0.9544476915437324,
+    "smelled_releaser": 0.9979416626032698,
+    "memory_silent_worse": 0.2927262458312959,
+    "truth_silent_worse": 0.28067273484178246,
+    "truth_among_smelled": 0.28539296228103583,
+    "releaser_among_smelled": 0.18573292997421234,
+    "releaser_silent_worse": 0.18573285168965795
+   },
+   {
+    "m50": 0.000630957344480193,
+    "smelled_bystander": 0.9377321345296561,
+    "smelled_releaser": 0.9959564784114076,
+    "memory_silent_worse": 0.29144010438744344,
+    "truth_silent_worse": 0.2744862503931067,
+    "truth_among_smelled": 0.2818150647398074,
+    "releaser_among_smelled": 0.18574592364857612,
+    "releaser_silent_worse": 0.18574558983749898
+   },
+   {
+    "m50": 0.001,
+    "smelled_bystander": 0.9166993375106621,
+    "smelled_releaser": 0.9924439103528573,
+    "memory_silent_worse": 0.2898449944322532,
+    "truth_silent_worse": 0.2666300236787926,
+    "truth_among_smelled": 0.2771895455446304,
+    "releaser_among_smelled": 0.18577698310030008,
+    "releaser_silent_worse": 0.1857756986535017
+   },
+   {
+    "m50": 0.001584893192461114,
+    "smelled_bystander": 0.8906132730044911,
+    "smelled_releaser": 0.9865519505802655,
+    "memory_silent_worse": 0.2885251474405137,
+    "truth_silent_worse": 0.2574190004006295,
+    "truth_among_smelled": 0.2716478432518013,
+    "releaser_among_smelled": 0.18584596875091583,
+    "releaser_silent_worse": 0.18584148969100406
+   },
+   {
+    "m50": 0.002511886431509582,
+    "smelled_bystander": 0.8586911654853533,
+    "smelled_releaser": 0.9771778906020167,
+    "memory_silent_worse": 0.2883684463312717,
+    "truth_silent_worse": 0.24736166218782268,
+    "truth_among_smelled": 0.2654746416682547,
+    "releaser_among_smelled": 0.18598811359875383,
+    "releaser_silent_worse": 0.18597389926314195
+   },
+   {
+    "m50": 0.003981071705534973,
+    "smelled_bystander": 0.8202039336695837,
+    "smelled_releaser": 0.9630238506147312,
+    "memory_silent_worse": 0.29044471246503456,
+    "truth_silent_worse": 0.2369897880532233,
+    "truth_among_smelled": 0.2590440107413499,
+    "releaser_among_smelled": 0.18625930191858633,
+    "releaser_silent_worse": 0.1862180772731011
+   },
+   {
+    "m50": 0.006309573444801936,
+    "smelled_bystander": 0.7746403716232828,
+    "smelled_releaser": 0.9427266422807443,
+    "memory_silent_worse": 0.2958324908215367,
+    "truth_silent_worse": 0.22665978473547435,
+    "truth_among_smelled": 0.2527088203169514,
+    "releaser_among_smelled": 0.18673725218023324,
+    "releaser_silent_worse": 0.18662752036943708
+   },
+   {
+    "m50": 0.01,
+    "smelled_bystander": 0.7219042571938478,
+    "smelled_releaser": 0.9150569551191504,
+    "memory_silent_worse": 0.30545471179944395,
+    "truth_silent_worse": 0.21640862566884006,
+    "truth_among_smelled": 0.24668265202671402,
+    "releaser_among_smelled": 0.18751336562173238,
+    "releaser_silent_worse": 0.18724413313469332
+   },
+   {
+    "m50": 0.01584893192461114,
+    "smelled_bystander": 0.662488221533432,
+    "smelled_releaser": 0.8791563136822634,
+    "memory_silent_worse": 0.31996935627702344,
+    "truth_silent_worse": 0.20592556645061644,
+    "truth_among_smelled": 0.2409639813546392,
+    "releaser_among_smelled": 0.18867119490969786,
+    "releaser_silent_worse": 0.18805971134466173
+   },
+   {
+    "m50": 0.025118864315095822,
+    "smelled_bystander": 0.5975620034917786,
+    "smelled_releaser": 0.834756714701967,
+    "memory_silent_worse": 0.33972892909512353,
+    "truth_silent_worse": 0.19465216917123307,
+    "truth_among_smelled": 0.23533331261788393,
+    "releaser_among_smelled": 0.19025315933456202,
+    "releaser_silent_worse": 0.18896240857319452
+   },
+   {
+    "m50": 0.039810717055349734,
+    "smelled_bystander": 0.5289317677135961,
+    "smelled_releaser": 0.7823190037587194,
+    "memory_silent_worse": 0.36479336844154436,
+    "truth_silent_worse": 0.18197295725380994,
+    "truth_among_smelled": 0.22941688860621776,
+    "releaser_among_smelled": 0.1922260251332624,
+    "releaser_silent_worse": 0.1896846631815481
+   },
+   {
+    "m50": 0.06309573444801936,
+    "smelled_bystander": 0.45886534668495704,
+    "smelled_releaser": 0.7230400719346615,
+    "memory_silent_worse": 0.39496815091725934,
+    "truth_silent_worse": 0.16742900347982898,
+    "truth_among_smelled": 0.2227827460272745,
+    "releaser_among_smelled": 0.1944622154565827,
+    "releaser_silent_worse": 0.18978016798539396
+   },
+   {
+    "m50": 0.1,
+    "smelled_bystander": 0.38981991418130346,
+    "smelled_releaser": 0.6587149345961795,
+    "memory_silent_worse": 0.4298449525843757,
+    "truth_silent_worse": 0.15088622918871591,
+    "truth_among_smelled": 0.21503257406943801,
+    "releaser_among_smelled": 0.1967516030541597,
+    "releaser_silent_worse": 0.18865686197485423
+   },
+   {
+    "m50": 0.15848931924611143,
+    "smelled_bystander": 0.3241366913728046,
+    "smelled_releaser": 0.5914855397973494,
+    "memory_silent_worse": 0.4688387724211446,
+    "truth_silent_worse": 0.13261269375047413,
+    "truth_among_smelled": 0.20586875521967937,
+    "releaser_among_smelled": 0.1988457865338967,
+    "releaser_silent_worse": 0.18567466907281124
+   },
+   {
+    "m50": 0.25118864315095824,
+    "smelled_bystander": 0.26377196341634485,
+    "smelled_releaser": 0.5235445372589904,
+    "memory_silent_worse": 0.5112283479186589,
+    "truth_silent_worse": 0.113249773585381,
+    "truth_among_smelled": 0.1951322164167013,
+    "releaser_among_smelled": 0.2005208353769216,
+    "releaser_silent_worse": 0.1802861649616508
+   },
+   {
+    "m50": 0.39810717055349776,
+    "smelled_bystander": 0.21011614705181325,
+    "smelled_releaser": 0.4568727349271693,
+    "memory_silent_worse": 0.5562041263007972,
+    "truth_silent_worse": 0.09369085638696902,
+    "truth_among_smelled": 0.18281404741067195,
+    "releaser_among_smelled": 0.20163522962184557,
+    "releaser_silent_worse": 0.17217246782183396
+   },
+   {
+    "m50": 0.6309573444801942,
+    "smelled_bystander": 0.16392286415150592,
+    "smelled_releaser": 0.3930694358088759,
+    "memory_silent_worse": 0.6029131075364855,
+    "truth_silent_worse": 0.07490516517141657,
+    "truth_among_smelled": 0.16904568756007304,
+    "releaser_among_smelled": 0.20216240568845237,
+    "releaser_silent_worse": 0.16132365077519054
+   },
+   {
+    "m50": 1.0,
+    "smelled_bystander": 0.12534046404728072,
+    "smelled_releaser": 0.3332959812351221,
+    "memory_silent_worse": 0.6504802889661682,
+    "truth_silent_worse": 0.05775866382547208,
+    "truth_among_smelled": 0.15407484958971812,
+    "releaser_among_smelled": 0.2021889741951891,
+    "releaser_silent_worse": 0.14803761579401606
+   },
+   {
+    "m50": 1.584893192461114,
+    "smelled_bystander": 0.09401831163497011,
+    "smelled_releaser": 0.2783134489544001,
+    "memory_silent_worse": 0.6979976380059569,
+    "truth_silent_worse": 0.04288034604289881,
+    "truth_among_smelled": 0.13823710571547937,
+    "releaser_among_smelled": 0.20188311933858996,
+    "releaser_silent_worse": 0.132849196773382
+   },
+   {
+    "m50": 2.5118864315095824,
+    "smelled_bystander": 0.0692524374306326,
+    "smelled_releaser": 0.22857158257337365,
+    "memory_silent_worse": 0.7444986083067596,
+    "truth_silent_worse": 0.030600039864007673,
+    "truth_among_smelled": 0.12193151178595336,
+    "releaser_among_smelled": 0.2014473578049987,
+    "releaser_silent_worse": 0.11642876821704563
+   },
+   {
+    "m50": 3.9810717055349776,
+    "smelled_bystander": 0.05013771379375252,
+    "smelled_releaser": 0.1843034098732109,
+    "memory_silent_worse": 0.7889552315531208,
+    "truth_silent_worse": 0.02095584813937692,
+    "truth_among_smelled": 0.10560113675593844,
+    "releaser_among_smelled": 0.2010735974776484,
+    "releaser_silent_worse": 0.09949138324937348
+   },
+   {
+    "m50": 6.309573444801943,
+    "smelled_bystander": 0.03570218452932198,
+    "smelled_releaser": 0.14559397987772663,
+    "memory_silent_worse": 0.8303260738652837,
+    "truth_silent_worse": 0.013750702047212975,
+    "truth_among_smelled": 0.08971126131418206,
+    "releaser_among_smelled": 0.20091569950059976,
+    "releaser_silent_worse": 0.08273596525275946
+   },
+   {
+    "m50": 10.0,
+    "smelled_bystander": 0.02500945237168372,
+    "smelled_releaser": 0.11241230490816642,
+    "memory_silent_worse": 0.8676530322208548,
+    "truth_silent_worse": 0.008632918680585647,
+    "truth_among_smelled": 0.07471691011452443,
+    "releaser_among_smelled": 0.20108581077722718,
+    "releaser_silent_worse": 0.0668070914158473
+   },
+   {
+    "m50": 15.848931924611142,
+    "smelled_bystander": 0.017224488693691514,
+    "smelled_releaser": 0.08461358337037048,
+    "memory_silent_worse": 0.9001780320486047,
+    "truth_silent_worse": 0.005179553258761362,
+    "truth_among_smelled": 0.06101888860820529,
+    "releaser_among_smelled": 0.2016689978925412,
+    "releaser_silent_worse": 0.0522597257858097
+   },
+   {
+    "m50": 25.11886431509582,
+    "smelled_bystander": 0.011645538151401713,
+    "smelled_releaser": 0.06192864942373213,
+    "memory_silent_worse": 0.9274436106515598,
+    "truth_silent_worse": 0.0029674004049091334,
+    "truth_among_smelled": 0.04891756391434753,
+    "releaser_among_smelled": 0.20274291980517573,
+    "releaser_silent_worse": 0.0395169706662708
+   },
+   {
+    "m50": 39.81071705534978,
+    "smelled_bystander": 0.007709392305905059,
+    "smelled_releaser": 0.04395836697056795,
+    "memory_silent_worse": 0.9493501408645482,
+    "truth_silent_worse": 0.001622707594113742,
+    "truth_among_smelled": 0.038578796312092684,
+    "releaser_among_smelled": 0.20439051874810202,
+    "releaser_silent_worse": 0.028830319039108335
+   },
+   {
+    "m50": 63.09573444801943,
+    "smelled_bystander": 0.004979183610077578,
+    "smelled_releaser": 0.03018472536725601,
+    "memory_silent_worse": 0.9661561236758941,
+    "truth_silent_worse": 0.0008470030776194386,
+    "truth_among_smelled": 0.030023684445208403,
+    "releaser_among_smelled": 0.20670226840575573,
+    "releaser_silent_worse": 0.02026162828218287
+   },
+   {
+    "m50": 100.0,
+    "smelled_bystander": 0.0031234804667591475,
+    "smelled_releaser": 0.020001616146069653,
+    "memory_silent_worse": 0.9784217526779515,
+    "truth_silent_worse": 0.000422092436733888,
+    "truth_among_smelled": 0.02314519687094045,
+    "releaser_among_smelled": 0.2097733171455528,
+    "releaser_silent_worse": 0.013698473528757235
+   },
+   {
+    "m50": 158.48931924611142,
+    "smelled_bystander": 0.0018936289923983803,
+    "smelled_releaser": 0.012760375582444593,
+    "memory_silent_worse": 0.9869088761716825,
+    "truth_silent_worse": 0.00020084641945826068,
+    "truth_among_smelled": 0.017745153990666205,
+    "releaser_among_smelled": 0.21370401099269787,
+    "releaser_silent_worse": 0.008898591961516683
+   },
+   {
+    "m50": 251.18864315095823,
+    "smelled_bystander": 0.0011037788458116227,
+    "smelled_releaser": 0.007820508900404958,
+    "memory_silent_worse": 0.9924602979467674,
+    "truth_silent_worse": 9.121820986561452e-05,
+    "truth_among_smelled": 0.013579200229404542,
+    "releaser_among_smelled": 0.2186092790499012,
+    "releaser_silent_worse": 0.005548007743141662
+   },
+   {
+    "m50": 398.1071705534977,
+    "smelled_bystander": 0.0006154967118537973,
+    "smelled_releaser": 0.004595243771081669,
+    "memory_silent_worse": 0.9958854269477303,
+    "truth_silent_worse": 3.9488110066474244e-05,
+    "truth_among_smelled": 0.01039752226785164,
+    "releaser_among_smelled": 0.22463667959514905,
+    "releaser_silent_worse": 0.003316374316225087
+   },
+   {
+    "m50": 630.9573444801943,
+    "smelled_bystander": 0.00032683976235558864,
+    "smelled_releaser": 0.002584027249224489,
+    "memory_silent_worse": 0.9978760076693366,
+    "truth_silent_worse": 1.6250767436150915e-05,
+    "truth_among_smelled": 0.007973695008258326,
+    "releaser_among_smelled": 0.23198816159737343,
+    "releaser_silent_worse": 0.001898786408968701
+   },
+   {
+    "m50": 1000.0,
+    "smelled_bystander": 0.0001646148744636794,
+    "smelled_releaser": 0.0013883438919489557,
+    "memory_silent_worse": 0.9989647522597258,
+    "truth_silent_worse": 6.332729629032936e-06,
+    "truth_among_smelled": 0.006119804458154574,
+    "releaser_among_smelled": 0.24093832428031187,
+    "releaser_silent_worse": 0.0010403472304570782
+   },
+   {
+    "m50": 1584.8931924611175,
+    "smelled_bystander": 7.837116137870314e-05,
+    "smelled_releaser": 0.0007116594223718157,
+    "memory_silent_worse": 0.9995246367350852,
+    "truth_silent_worse": 2.325093158932807e-06,
+    "truth_among_smelled": 0.0046901556133906435,
+    "releaser_among_smelled": 0.25184174585186986,
+    "releaser_silent_worse": 0.0005449747540009523
+   },
+   {
+    "m50": 2511.886431509582,
+    "smelled_bystander": 3.516956279981452e-05,
+    "smelled_releaser": 0.0003475494587720497,
+    "memory_silent_worse": null,
+    "truth_silent_worse": 7.997759353186496e-07,
+    "truth_among_smelled": 0.003577551613050411,
+    "releaser_among_smelled": 0.26512289142366174,
+    "releaser_silent_worse": 0.0002726599904958681
+   },
+   {
+    "m50": 3981.071705534969,
+    "smelled_bystander": 1.4840707933073327e-05,
+    "smelled_releaser": 0.0001614712450492668,
+    "memory_silent_worse": null,
+    "truth_silent_worse": 2.56243127064284e-07,
+    "truth_among_smelled": 0.0027059312589373095,
+    "releaser_among_smelled": 0.2812440738344996,
+    "releaser_silent_worse": 0.00013011313580059606
+   },
+   {
+    "m50": 6309.573444801943,
+    "smelled_bystander": 5.8759217803588495e-06,
+    "smelled_releaser": 7.124710220134636e-05,
+    "memory_silent_worse": null,
+    "truth_silent_worse": 7.604577145467835e-08,
+    "truth_among_smelled": 0.0020221239259665077,
+    "releaser_among_smelled": 0.3006506567409317,
+    "releaser_silent_worse": 5.9106945955651856e-05
+   },
+   {
+    "m50": 10000.0,
+    "smelled_bystander": 2.178243767170799e-06,
+    "smelled_releaser": 2.979250981988756e-05,
+    "memory_silent_worse": null,
+    "truth_silent_worse": 2.0798922017738208e-08,
+    "truth_among_smelled": 0.0014883930862207401,
+    "releaser_among_smelled": 0.32369861419851154,
+    "releaser_silent_worse": 2.5492181213266394e-05
+   }
+  ],
+  "baseline": {
+   "smelled_bystander": 0.0141690431784809,
+   "smelled_releaser": 0.07253714881122966,
+   "memory_silent_worse": 0.9146235250294739,
+   "truth_silent_worse": 0.003931962977356609,
+   "truth_among_smelled": 0.05469253066986492,
+   "releaser_among_smelled": 0.20214514839557565,
+   "releaser_silent_worse": 0.04557701634429057
+  }
+ },
+ "distracted (everyday)": {
+  "sd": 3.5,
+  "m50_baseline": 520.0,
+  "sweep": [
+   {
+    "m50": 1e-05,
+    "smelled_bystander": 0.9929012236759526,
+    "smelled_releaser": 0.999613847666773,
+    "memory_silent_worse": 0.29269111486644334,
+    "truth_silent_worse": 0.29092326184448236,
+    "truth_among_smelled": 0.2910541129738581,
+    "releaser_among_smelled": 0.1857303523553785,
+    "releaser_silent_worse": 0.18573034837658808
+   },
+   {
+    "m50": 1.584893192461114e-05,
+    "smelled_bystander": 0.9898097416472471,
+    "smelled_releaser": 0.9993236137356369,
+    "memory_silent_worse": 0.29305112853544346,
+    "truth_silent_worse": 0.2904453659739832,
+    "truth_among_smelled": 0.2906919299427572,
+    "releaser_among_smelled": 0.18573571859372798,
+    "releaser_silent_worse": 0.18573570572990347
+   },
+   {
+    "m50": 2.5118864315095822e-05,
+    "smelled_bystander": 0.9856284382580826,
+    "smelled_releaser": 0.9988445028806521,
+    "memory_silent_worse": 0.293495299867275,
+    "truth_silent_worse": 0.289726850682544,
+    "truth_among_smelled": 0.29017059823346536,
+    "releaser_among_smelled": 0.18574604206655698,
+    "releaser_silent_worse": 0.18574600247752085
+   },
+   {
+    "m50": 3.9810717055349695e-05,
+    "smelled_bystander": 0.9800734086609684,
+    "smelled_releaser": 0.9980743046382895,
+    "memory_silent_worse": 0.2940325149265239,
+    "truth_silent_worse": 0.28868150842528256,
+    "truth_among_smelled": 0.2894449725085086,
+    "releaser_among_smelled": 0.18576533936171133,
+    "releaser_silent_worse": 0.18576522330892
+   },
+   {
+    "m50": 6.309573444801929e-05,
+    "smelled_bystander": 0.9728192870808173,
+    "smelled_releaser": 0.9968684254371702,
+    "memory_silent_worse": 0.2946771372543286,
+    "truth_silent_worse": 0.2872116489943401,
+    "truth_among_smelled": 0.28846870248370343,
+    "releaser_among_smelled": 0.18580037674702155,
+    "releaser_silent_worse": 0.18580005247094042
+   },
+   {
+    "m50": 0.0001,
+    "smelled_bystander": 0.9635025071493967,
+    "smelled_releaser": 0.9950293535792891,
+    "memory_silent_worse": 0.2954573361708771,
+    "truth_silent_worse": 0.28521637738692573,
+    "truth_among_smelled": 0.28719971730346094,
+    "releaser_among_smelled": 0.1858621403486205,
+    "releaser_silent_worse": 0.18586127603128197
+   },
+   {
+    "m50": 0.00015848931924611142,
+    "smelled_bystander": 0.9517281281500537,
+    "smelled_releaser": 0.992296916154959,
+    "memory_silent_worse": 0.29642709017058777,
+    "truth_silent_worse": 0.2826038923419021,
+    "truth_among_smelled": 0.2856073045016064,
+    "releaser_among_smelled": 0.18596778530315886,
+    "releaser_silent_worse": 0.18596558605568853
+   },
+   {
+    "m50": 0.0002511886431509582,
+    "smelled_bystander": 0.9370811749010721,
+    "smelled_releaser": 0.9883411823758707,
+    "memory_silent_worse": 0.2976807845236629,
+    "truth_silent_worse": 0.2793061193253825,
+    "truth_among_smelled": 0.28368001562436873,
+    "releaser_among_smelled": 0.18614300298122632,
+    "releaser_silent_worse": 0.18613765621765907
+   },
+   {
+    "m50": 0.00039810717055349735,
+    "smelled_bystander": 0.9191433916059253,
+    "smelled_releaser": 0.9827602718127111,
+    "memory_silent_worse": 0.29936805354073825,
+    "truth_silent_worse": 0.27529235600515894,
+    "truth_among_smelled": 0.28143308007618273,
+    "releaser_among_smelled": 0.18642456148005293,
+    "releaser_silent_worse": 0.18641212968267903
+   },
+   {
+    "m50": 0.000630957344480193,
+    "smelled_bystander": 0.8975160045041037,
+    "smelled_releaser": 0.9750854388615037,
+    "memory_silent_worse": 0.3017055423155152,
+    "truth_silent_worse": 0.27057747877983374,
+    "truth_among_smelled": 0.2789135108586863,
+    "releaser_among_smelled": 0.18686251275924504,
+    "releaser_silent_worse": 0.18683483982264523
+   },
+   {
+    "m50": 0.001,
+    "smelled_bystander": 0.8718484373784087,
+    "smelled_releaser": 0.9647954749464307,
+    "memory_silent_worse": 0.3049820092938383,
+    "truth_silent_worse": 0.26522034017307355,
+    "truth_among_smelled": 0.27620080882547227,
+    "releaser_among_smelled": 0.18752126095473182,
+    "releaser_silent_worse": 0.18746222019286898
+   },
+   {
+    "m50": 0.001584893192461114,
+    "smelled_bystander": 0.8418719147559205,
+    "smelled_releaser": 0.9513416034158333,
+    "memory_silent_worse": 0.3095538934967254,
+    "truth_silent_worse": 0.2593097218784948,
+    "truth_among_smelled": 0.2734013624267707,
+    "releaser_among_smelled": 0.1884784484718915,
+    "releaser_silent_worse": 0.1883575662935476
+   },
+   {
+    "m50": 0.002511886431509582,
+    "smelled_bystander": 0.8074356210800643,
+    "smelled_releaser": 0.9341826524168864,
+    "memory_silent_worse": 0.3158300338638504,
+    "truth_silent_worse": 0.2529384767698246,
+    "truth_among_smelled": 0.27063555907147924,
+    "releaser_among_smelled": 0.1898205926022522,
+    "releaser_silent_worse": 0.18958276960105794
+   },
+   {
+    "m50": 0.003981071705534973,
+    "smelled_bystander": 0.768541787118821,
+    "smelled_releaser": 0.9128285331735873,
+    "memory_silent_worse": 0.32424624278881814,
+    "truth_silent_worse": 0.2461705005222305,
+    "truth_among_smelled": 0.2680183576271591,
+    "releaser_among_smelled": 0.1916347638636762,
+    "releaser_silent_worse": 0.19118456730622893
+   },
+   {
+    "m50": 0.006309573444801936,
+    "smelled_bystander": 0.7253750686540364,
+    "smelled_releaser": 0.8868882204471812,
+    "memory_silent_worse": 0.3352323379495416,
+    "truth_silent_worse": 0.23900863037946096,
+    "truth_among_smelled": 0.2656362831976881,
+    "releaser_among_smelled": 0.19399643365439034,
+    "releaser_silent_worse": 0.1931754004263457
+   },
+   {
+    "m50": 0.01,
+    "smelled_bystander": 0.6783212078196674,
+    "smelled_releaser": 0.8561169185295426,
+    "memory_silent_worse": 0.3491755359438469,
+    "truth_silent_worse": 0.23137312657359066,
+    "truth_among_smelled": 0.26352566704716046,
+    "releaser_among_smelled": 0.1969548437264096,
+    "releaser_silent_worse": 0.19551064131737309
+   },
+   {
+    "m50": 0.01584893192461114,
+    "smelled_bystander": 0.6279704833416107,
+    "smelled_releaser": 0.8204562968697288,
+    "memory_silent_worse": 0.36638456495854854,
+    "truth_silent_worse": 0.22309916640753524,
+    "truth_among_smelled": 0.26165747134023903,
+    "releaser_among_smelled": 0.20051851938825108,
+    "releaser_silent_worse": 0.19806595910296532
+   },
+   {
+    "m50": 0.025118864315095822,
+    "smelled_bystander": 0.5751029431731456,
+    "smelled_releaser": 0.7800618886280096,
+    "memory_silent_worse": 0.38705850761868643,
+    "truth_silent_worse": 0.2139577445517897,
+    "truth_among_smelled": 0.25993268327813357,
+    "releaser_among_smelled": 0.20464432596469662,
+    "releaser_silent_worse": 0.20062036115228382
+   },
+   {
+    "m50": 0.039810717055349734,
+    "smelled_bystander": 0.5206547174610855,
+    "smelled_releaser": 0.7353130554354514,
+    "memory_silent_worse": 0.4112634876891726,
+    "truth_silent_worse": 0.2036984533564024,
+    "truth_among_smelled": 0.25818944886206296,
+    "releaser_among_smelled": 0.20923325746909055,
+    "releaser_silent_worse": 0.2028512216760347
+   },
+   {
+    "m50": 0.06309573444801936,
+    "smelled_bystander": 0.4656674507856004,
+    "smelled_releaser": 0.6868031691532671,
+    "memory_silent_worse": 0.4389191708799444,
+    "truth_silent_worse": 0.19210645480470692,
+    "truth_among_smelled": 0.25622003634617163,
+    "releaser_among_smelled": 0.21413480056429482,
+    "releaser_silent_worse": 0.20434670535262286
+   },
+   {
+    "m50": 0.1,
+    "smelled_bystander": 0.41122554149456786,
+    "smelled_releaser": 0.6353104440378303,
+    "memory_silent_worse": 0.4697959020676402,
+    "truth_silent_worse": 0.179061403177877,
+    "truth_among_smelled": 0.25379362168892383,
+    "releaser_among_smelled": 0.21915961474117365,
+    "releaser_silent_worse": 0.20463814585176263
+   },
+   {
+    "m50": 0.15848931924611143,
+    "smelled_bystander": 0.35838788465414023,
+    "smelled_releaser": 0.5817526182114456,
+    "memory_silent_worse": 0.5035222786067738,
+    "truth_silent_worse": 0.16458460036539818,
+    "truth_among_smelled": 0.25068036806341437,
+    "releaser_among_smelled": 0.22409818621288283,
+    "releaser_silent_worse": 0.20325054212745985
+   },
+   {
+    "m50": 0.25118864315095824,
+    "smelled_bystander": 0.308121757159339,
+    "smelled_releaser": 0.5271308694676027,
+    "memory_silent_worse": 0.5396021037222173,
+    "truth_silent_worse": 0.14886284562240254,
+    "truth_among_smelled": 0.24667309971029316,
+    "releaser_among_smelled": 0.2287418230506229,
+    "releaser_silent_worse": 0.1997644708510888
+   },
+   {
+    "m50": 0.39810717055349776,
+    "smelled_bystander": 0.26124616376031573,
+    "smelled_releaser": 0.47246953294376437,
+    "memory_silent_worse": 0.5774389847864199,
+    "truth_silent_worse": 0.13224274925894733,
+    "truth_among_smelled": 0.24160434875640488,
+    "releaser_among_smelled": 0.23290223747223399,
+    "releaser_silent_worse": 0.19387886046126057
+   },
+   {
+    "m50": 0.6309573444801942,
+    "smelled_bystander": 0.21839046318181657,
+    "smelled_releaser": 0.4187581900770443,
+    "memory_silent_worse": 0.6163663600161373,
+    "truth_silent_worse": 0.11519621687882711,
+    "truth_among_smelled": 0.23535799827107576,
+    "releaser_among_smelled": 0.2364268493702062,
+    "releaser_silent_worse": 0.18546258350798278
+   },
+   {
+    "m50": 1.0,
+    "smelled_bystander": 0.17997174359961027,
+    "smelled_releaser": 0.3669016255376551,
+    "memory_silent_worse": 0.6556804936676495,
+    "truth_silent_worse": 0.09826439325029261,
+    "truth_among_smelled": 0.22787576321203848,
+    "releaser_among_smelled": 0.23920833339194852,
+    "releaser_silent_worse": 0.17458437687183032
+   },
+   {
+    "m50": 1.584893192461114,
+    "smelled_bystander": 0.14619170101078477,
+    "smelled_releaser": 0.317681343254864,
+    "memory_silent_worse": 0.6946740048663615,
+    "truth_silent_worse": 0.08199177441061223,
+    "truth_among_smelled": 0.21915925663706048,
+    "releaser_among_smelled": 0.24118827828079098,
+    "releaser_silent_worse": 0.16151488301921085
+   },
+   {
+    "m50": 2.5118864315095824,
+    "smelled_bystander": 0.11705120808359257,
+    "smelled_releaser": 0.2717302602182811,
+    "memory_silent_worse": 0.7326677732298428,
+    "truth_silent_worse": 0.06686340869907224,
+    "truth_among_smelled": 0.20926848289811226,
+    "releaser_among_smelled": 0.24235579084555245,
+    "releaser_silent_worse": 0.14670040657647843
+   },
+   {
+    "m50": 3.9810717055349776,
+    "smelled_bystander": 0.09237877315539698,
+    "smelled_releaser": 0.2295203115582775,
+    "memory_silent_worse": 0.7690395163929469,
+    "truth_silent_worse": 0.0532561153302374,
+    "truth_among_smelled": 0.1983174503238261,
+    "releaser_among_smelled": 0.24274236932537874,
+    "releaser_silent_worse": 0.13071364265445953
+   },
+   {
+    "m50": 6.309573444801943,
+    "smelled_bystander": 0.07186793817287786,
+    "smelled_releaser": 0.19136132848497425,
+    "memory_silent_worse": 0.8032478362717106,
+    "truth_silent_worse": 0.0414103885400832,
+    "truth_among_smelled": 0.18646736672025446,
+    "releaser_among_smelled": 0.24241447413861764,
+    "releaser_silent_worse": 0.11419067184408795
+   },
+   {
+    "m50": 10.0,
+    "smelled_bystander": 0.05511841073131887,
+    "smelled_releaser": 0.15740882726777086,
+    "memory_silent_worse": 0.8348509606168788,
+    "truth_silent_worse": 0.03142456500696557,
+    "truth_among_smelled": 0.17391770260043618,
+    "releaser_among_smelled": 0.24146507783124785,
+    "releaser_silent_worse": 0.09776510549666287
+   },
+   {
+    "m50": 15.848931924611142,
+    "smelled_bystander": 0.041676251775046406,
+    "smelled_releaser": 0.12767821989936967,
+    "memory_silent_worse": 0.8635196964596347,
+    "truth_silent_worse": 0.023268321299966085,
+    "truth_among_smelled": 0.16089536533740903,
+    "releaser_among_smelled": 0.24000520379747264,
+    "releaser_silent_worse": 0.08200939894287004
+   },
+   {
+    "m50": 25.11886431509582,
+    "smelled_bystander": 0.031069509877981447,
+    "smelled_releaser": 0.10206324164530907,
+    "memory_silent_worse": 0.8890442766810529,
+    "truth_silent_worse": 0.016809599231640757,
+    "truth_among_smelled": 0.14764235293033853,
+    "releaser_among_smelled": 0.23815614985326325,
+    "releaser_silent_worse": 0.06739067493756631
+   },
+   {
+    "m50": 39.81071705534978,
+    "smelled_bystander": 0.02283702055114493,
+    "smelled_releaser": 0.08035685605090732,
+    "memory_silent_worse": 0.9113349042826099,
+    "truth_silent_worse": 0.011847970421574955,
+    "truth_among_smelled": 0.1344025152096348,
+    "releaser_among_smelled": 0.2360427926977242,
+    "releaser_silent_worse": 0.054244856121288744
+   },
+   {
+    "m50": 63.09573444801943,
+    "smelled_bystander": 0.016549408820225337,
+    "smelled_releaser": 0.062273344383551386,
+    "memory_silent_worse": 0.9304159888438082,
+    "truth_silent_worse": 0.008148028059547186,
+    "truth_among_smelled": 0.12140834965029344,
+    "releaser_among_smelled": 0.23378812001615562,
+    "releaser_silent_worse": 0.04276939009554626
+   },
+   {
+    "m50": 100.0,
+    "smelled_bystander": 0.011822445217454385,
+    "smelled_releaser": 0.04747059625031079,
+    "memory_silent_worse": 0.946414400324394,
+    "truth_silent_worse": 0.005468067456018493,
+    "truth_among_smelled": 0.10886897179208714,
+    "releaser_among_smelled": 0.23150896258214324,
+    "releaser_silent_worse": 0.033032012022405174
+   },
+   {
+    "m50": 158.48931924611142,
+    "smelled_bystander": 0.008323696376249072,
+    "smelled_releaser": 0.035571768122086365,
+    "memory_silent_worse": 0.9595425364880938,
+    "truth_silent_worse": 0.003581421469761777,
+    "truth_among_smelled": 0.09696041316845457,
+    "releaser_among_smelled": 0.22931280707913487,
+    "releaser_silent_worse": 0.024991173116223404
+   },
+   {
+    "m50": 251.18864315095823,
+    "smelled_bystander": 0.005773853784696639,
+    "smelled_releaser": 0.026185517281023325,
+    "memory_silent_worse": 0.9700775306961708,
+    "truth_silent_worse": 0.002289784499441822,
+    "truth_among_smelled": 0.08581916156530334,
+    "releaser_among_smelled": 0.22729555052130743,
+    "releaser_silent_worse": 0.01852304697356419
+   },
+   {
+    "m50": 398.1071705534977,
+    "smelled_bystander": 0.003944256536517695,
+    "smelled_releaser": 0.018924035008276347,
+    "memory_silent_worse": 0.9783383839920637,
+    "truth_silent_worse": 0.001429328750645754,
+    "truth_among_smelled": 0.07553940732116521,
+    "releaser_among_smelled": 0.2255400827795221,
+    "releaser_silent_worse": 0.013450282191425593
+   },
+   {
+    "m50": 630.9573444801943,
+    "smelled_bystander": 0.0026520244446118324,
+    "smelled_releaser": 0.013418172659007648,
+    "memory_silent_worse": 0.9846630551327012,
+    "truth_silent_worse": 0.0008712558009123269,
+    "truth_among_smelled": 0.06617391014503032,
+    "releaser_among_smelled": 0.22411562261603413,
+    "releaser_silent_worse": 0.009568631626060108
+   },
+   {
+    "m50": 1000.0,
+    "smelled_bystander": 0.0017539780921414867,
+    "smelled_releaser": 0.009329120421548955,
+    "memory_silent_worse": 0.98938749809618,
+    "truth_silent_worse": 0.0005186855042518587,
+    "truth_among_smelled": 0.05773789913120523,
+    "releaser_among_smelled": 0.2230777579572877,
+    "releaser_silent_worse": 0.006668917908329568
+   },
+   {
+    "m50": 1584.8931924611175,
+    "smelled_bystander": 0.0011402258782585233,
+    "smelled_releaser": 0.006356358771919599,
+    "memory_silent_worse": 0.9928282895790099,
+    "truth_silent_worse": 0.00030162163067348687,
+    "truth_among_smelled": 0.05021508375958806,
+    "releaser_among_smelled": 0.22246913930599188,
+    "releaser_silent_worse": 0.004553159603362408
+   },
+   {
+    "m50": 2511.886431509582,
+    "smelled_bystander": 0.0007280079867181826,
+    "smelled_releaser": 0.004241917218102019,
+    "memory_silent_worse": 0.9952699087833996,
+    "truth_silent_worse": 0.0001713398356510559,
+    "truth_among_smelled": 0.04356473978782533,
+    "releaser_among_smelled": 0.2223207476749871,
+    "releaser_silent_worse": 0.0030448266373119563
+   },
+   {
+    "m50": 3981.071705534969,
+    "smelled_bystander": 0.00045614183396426437,
+    "smelled_releaser": 0.002771285209218904,
+    "memory_silent_worse": 0.9969570425136637,
+    "truth_silent_worse": 9.50843951030613e-05,
+    "truth_among_smelled": 0.037728923235597435,
+    "releaser_among_smelled": 0.22265361770263292,
+    "releaser_silent_worse": 0.001993978186948642
+   },
+   {
+    "m50": 6309.573444801943,
+    "smelled_bystander": 0.00028022877134652624,
+    "smelled_releaser": 0.0017715693098475063,
+    "memory_silent_worse": 0.99809163015948,
+    "truth_silent_worse": 5.154796264232151e-05,
+    "truth_among_smelled": 0.03263909048076155,
+    "releaser_among_smelled": 0.22348085906120227,
+    "releaser_silent_worse": 0.0012784399785916512
+   },
+   {
+    "m50": 10000.0,
+    "smelled_bystander": 0.00016865690167733853,
+    "smelled_releaser": 0.0011076402969473406,
+    "memory_silent_worse": 0.9988338526121293,
+    "truth_silent_worse": 2.7298576169631217e-05,
+    "truth_among_smelled": 0.028221679509118944,
+    "releaser_among_smelled": 0.22480979831665876,
+    "releaser_silent_worse": 0.0008022654949137863
+   }
+  ],
+  "baseline": {
+   "smelled_bystander": 0.0031393032175677815,
+   "smelled_releaser": 0.015539246839802387,
+   "memory_silent_worse": 0.9822208025491884,
+   "truth_silent_worse": 0.0010756950272098333,
+   "truth_among_smelled": 0.06999413866463997,
+   "releaser_among_smelled": 0.22466968473600757,
+   "releaser_silent_worse": 0.011067308138906917
+  }
+ }
+}
