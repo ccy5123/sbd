@@ -11,6 +11,7 @@ plus the peak upward speed. Faces inside bodies or furniture are not on the plan
 Usage (OpenFOAM environment): python3 cfd/postprocess/plume_flux.py <out.json> <name>=<case>:<x>,<y>,<z>[:<time>] ...
 """
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -18,7 +19,7 @@ from pathlib import Path
 import numpy as np
 
 DZ = (0.05, 0.15, 0.30)  # m above the release point
-HALF = 0.30              # m, half-width of the integration square
+HALF = float(os.environ.get("HALF", 0.30))  # m, half-width of the integration square (env HALF for sensitivity)
 G, T_ROOM = 9.81, 296.15
 
 
@@ -26,14 +27,17 @@ def sample(case: Path, z_list, time):
     """Write cut planes at heights z_list for `time`; return {z: path of the VTK file}."""
     surf = "".join(f"        z{k} {{ type cutPlane; planeType pointAndNormal; point (0 0 {z:.4f}); normal (0 0 1); "
                    f"interpolate false; }}\n" for k, z in enumerate(z_list))
+    out = case / "postProcessing/plumeFlux" / f"{time:g}"
+    files = {z: out / f"z{k}.vtk" for k, z in enumerate(z_list)}
+    if all(f.exists() for f in files.values()):  # already sampled (e.g. a HALF sensitivity rerun)
+        return files
     d = case / "system/plumeFluxDict"
     d.write_text("FoamFile { format ascii; class dictionary; object plumeFluxDict; }\n"
                  "plumeFlux\n{\n    type surfaces;\n    libs (\"libsampling.so\");\n    surfaceFormat vtk;\n"
                  "    interpolationScheme cell;\n    fields (U T);\n    surfaces\n    {\n" + surf + "    }\n}\n")
     subprocess.run(["foamPostProcess", "-case", str(case), "-dict", "system/plumeFluxDict", "-time", str(time)],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-    out = case / "postProcessing/plumeFlux" / f"{time:g}"
-    return {z: out / f"z{k}.vtk" for k, z in enumerate(z_list)}
+    return files
 
 
 def read_vtk_cells(path: Path):

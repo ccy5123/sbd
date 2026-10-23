@@ -54,7 +54,7 @@ def simulate(n=N_EVENTS, seed=SEED, distances=()):
         r = g0.draw_release(rng)
         m = float(np.exp(sig * rng.standard_normal() - 0.5 * sig**2))  # sulfur multiplier, mean 1
         Q = r.V / r.T
-        row = {"V": r.V, "u0": r.u0, "osc": r.u0 >= p["u_audible"], "sulfur": m,
+        row = {"V": r.V, "u0": r.u0, "Q": Q, "osc": r.u0 >= p["u_audible"], "sulfur": m,
                "OAV_nb": m * oav(receptor(r, p, p["L_neighbour"], p["u_room"])["phi_inh"], p),
                "OAV_own": m * oav(receptor(r, p, p["L_own"], p["u_own_eff"])["phi_inh"], p)}
         for bg in BACKGROUNDS:
