@@ -13,7 +13,10 @@
   neighbour above OAV 1. Standing ventilated (done 2026-10-22): A90 6.9 / 0.03, A50 14.5 / 0.02, S90 2.8 / 0.05,
   S50 0.38 / 0.17 (`stand_vent_v4_multi.json`, `nose_probes_stand_vent.tar.xz`). Sofa leaning forward -10 (done
   2026-10-22 15:17): A90 22.3 / 35.8 (neighbour reached in 2.3 s), A50 0.51 / 0.29, S90 1.2 / 0.26, S50 0.49 / 0.30
-  (`sofa_rec-10_v4_multi.json`, `nose_probes_sofa_rec-10.tar.xz`). Many noses are still rising at 150 s (`late_rising`), mostly at low levels; the 600 s tail
+  (`sofa_rec-10_v4_multi.json`, `nose_probes_sofa_rec-10.tar.xz`). Standing still air, **trousers** (local PC, done
+  2026-10-23 03:43): A90 40.2 / 0.02, A50 12.9 / 0.003, S90 0.07 / 0.01, S50 0.04 / 0.01 - against bare 1.9 / 0.26 /
+  0.85 / 0.13 at the releaser: trousers raise the audible releases at the releaser's own nose and lower the silent ones
+  (`stand_still_tr_v4_multi.json`, `nose_probes_stand_still_tr.tar.xz`). Many noses are still rising at 150 s (`late_rising`), mostly at low levels; the 600 s tail
   check on the reference runs passed. Viewer updated with all four clouds per case.
 - **E4 LES started (2026-10-21 09:44, user's go):** sofa upright bare, `sofa_v4_multi_les` in sbd-v4 from the
   RANS precursor `sofa_v4_pre` (WALE, maxCo 0.8, dt ~0.0075 s; 60 s spin-up, six releases from 60.2 s, to 300.2 s).
