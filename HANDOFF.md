@@ -38,6 +38,14 @@
     PC and resumes it there (`start_local.ps1 -Name sofa_les`), then switches the login shortcut to it. Needs the
     EH R&C Wi-Fi for the server steps (they retry). Afterwards the server's `sofa_v4_multi_les` is stale: the
     results live on the PC (`/root/sbd/cfd/runs/sofa_v4_multi_les` in sbd-openfoam13).
+  - **Server reboot 2026-10-23 09:35** (while the user checked the server's power and cable; it had been unreachable
+    from the PC that morning): all sbd containers and both watchers stopped (`--rm` containers do not come back).
+    Restarted 23:48 the same day from the latest writes: `sbd-v4_sofa_tr3` (from 95.26 s), `sbd-v4_stand_vent_tr2`
+    (from 61.15 s, new `standing/run_multi_v4.sh` = main's script), both with CHECKPOINT=5 now; the trousers LES
+    re-decomposed onto 12 cores (`sbd-v4_sofa_tr_les12`, from 30 s); `les_grow.sh` restarted. The bare LES (stopped
+    at 90.15 s) was handed to the local mover, which copied it and started it on the PC at 23:52. About 14 h of
+    server time lost; new estimate: everything done ~29 Oct. After any server reboot: check `docker ps`, restart the
+    sbd runs from their scripts (they resume) and restart `les_grow.sh`.
   - **Elevator supplement (user's request 2026-10-22, on spare local cores):** `elevator/make_case.py --mode multi`
     and `elevator/run_multi.sh [runs] FL|BL` (four releases as the sofa case, 90 s precursor, iso-surfaces).
     Tested on the PC: mesh 908,842 cells (Mesh OK, kept in `/root/sbd/cfd/runs/elev_v4_pre`), precursor and multi
