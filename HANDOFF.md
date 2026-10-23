@@ -49,8 +49,10 @@ Watch-outs:
 
 ## Next tasks
 
-1. **Robustness analyses for the referee (user asked for them, not started).** Scripts in `uq/`, JSON outputs, a
-   summary as a new section after §9.7 of `interface_plan.md`; no CFD:
+1. **[DONE 2026-10-24, `interface_plan.md` §9.8]** `uq/tail_sensitivity.py` (audible:silent 4-111, memory 62-100 %,
+   never flips), `uq/belief_vs_detection.py` + `figures/fig_belief_vs_detection.png` (memory falls to the truth, 29 %,
+   at full detection), `uq/peak_breakeven.py` (a silent-only factor ~14 flips the headline, a uniform one never;
+   compare with the LES in task 3). Rerun all three when the remaining runs land. Original brief:
    - psychometric-tail sensitivity: the bystander OAVs sit far below the 50% point, so vary the slope sd (attentive
      1-4, distracted 2-5 binary steps), the tail shape (probit, logistic, hard floor) and the deterministic Nagata
      case; report whether audible-worse : silent-worse (~17:1) and the memory share keep their direction;
