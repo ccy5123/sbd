@@ -17,15 +17,17 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   76-94%, direction never flips); A3 text plan. A5 (E0-6 mesh x1.5 run, E0-3 Licina 2017 chamber, heated and
   unheated) is approved for after ~29 Oct when cores free up.
 
-## Runs in progress (as of 2026-10-24 01:30 KST)
+## Runs in progress (as of 2026-10-24 16:22 KST, all healthy)
+
+RANS multi-release runs end at 240.2 s, the LES at 300.2 s. Pipeline log times are UTC (`date -u`): 06:54 = 15:54 KST.
 
 | run | where | state | expected |
 |---|---|---|---|
-| sofa upright, trousers (RANS) | server `sbd-v4_sofa_tr3`, 4 cores | from 95.26 s, ~4.8 s/h | ~25 Oct morning |
-| standing ventilated, trousers (RANS) | server `sbd-v4_stand_vent_tr2`, 4 cores | from 61.15 s | ~25-26 Oct |
-| LES sofa trousers | server `sbd-v4_sofa_tr_les12`, 12 cores | ~32 s of 300 | ~29 Oct (grows to 16, 20 cores) |
-| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | 90.2 s of 300; release segments are slow | ~28 Oct |
-| elevator multi-release, FL culprit | local PC, starts by itself after the bare LES | not started; mesh ready (`elev_v4_pre`) | ~29-30 Oct |
+| sofa upright, trousers (RANS) | server `sbd-v4_sofa_tr3`, 4 cores | 177.6 s of 240.2, ~4.8 s/h | ~25 Oct 06:00 KST |
+| standing ventilated, trousers (RANS) | server `sbd-v4_stand_vent_tr2`, 4 cores | 133.9 s of 240.2, ~5.5 s/h | ~25 Oct 12:00 KST |
+| LES sofa trousers | server `sbd-v4_sofa_tr_les12`, 12 cores | 62.4 s of 300.2, ~2.2 s/h | ~28-29 Oct (grows to 16, 20 cores) |
+| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | 120.3 s of 300.2, ~5 s/h lately | ~26-27 Oct |
+| elevator multi-release, FL culprit | local PC, starts by itself after the bare LES | not started; mesh ready (`elev_v4_pre`) | ~28 Oct |
 
 Automation (all committed):
 - server `cfd/docker/les_grow.sh` (runs from `sbd-main/scratch/`, log `sbd-v4/cfd/runs/les_grow.log`): moves every
