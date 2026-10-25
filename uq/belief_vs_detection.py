@@ -13,7 +13,9 @@ point:
   * releaser for contrast: the releaser keeps every passage, so memory = truth; shown among smelled pairs.
 Baseline observers sit at m50 = 20 (attentive, Amoore) and 520 (distracted). This replaces the basis of the old
 Figure 13 (Gate 0 receptor).
-Usage (repo root): python3 uq/belief_vs_detection.py -> uq/belief_vs_detection.json, figures/fig_belief_vs_detection.png
+Figure in FIGSTYLE v1.2 (paper, double column).
+Usage (repo root, figure venv, see HANDOFF): /root/figenv/bin/python uq/belief_vs_detection.py
+  -> uq/belief_vs_detection.json, figures/belief_vs_detection_paper.svg/.png
 """
 import json
 import sys
@@ -23,9 +25,11 @@ import matplotlib
 import numpy as np
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from figstyle import *  # noqa: E402,F401,F403  (FIGSTYLE v1.2, verbatim)
+
 sys.path.insert(0, str(ROOT / "uq"))
 import four_outcomes_v4 as fv  # noqa: E402
 from tail_sensitivity import probit  # noqa: E402
@@ -61,39 +65,38 @@ def point(out, name):
             "releaser_among_smelled": among(cu["physics"]), "releaser_silent_worse": cu["physics"]["silent_worse"]}
 
 
-def figure(res, path):
-    c_mem, c_truth, c_rel, ink, muted = "#2a78d6", "#eb6834", "#1baf7a", "#0b0b0b", "#52514e"
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4.2), sharey=True)
-    for ax, name, title in zip(axes, (ATT, DIS), (f"attentive spread (sd {SD[ATT]:g})", f"distracted spread (sd {SD[DIS]:g})")):
+SERIES = (  # (key, x key, label); colour, marker and line style follow the index (FIGSTYLE v1.2)
+    ("memory_silent_worse", "smelled_bystander", "Bystander, remembered"),
+    ("truth_among_smelled", "smelled_bystander", "Bystander, truth (pairs where anything is smelled)"),
+    ("truth_silent_worse", "smelled_bystander", "Bystander, truth (all pairs)"),
+    ("releaser_among_smelled", "smelled_releaser", "Releaser (remembers all), pairs where anything is smelled"),
+)
+
+
+def figure(res):
+    apply_style("paper")
+    fig, axes = new_figure("double", aspect=0.42, ncols=2, sharex=True, sharey=True)
+    nan = lambda v: np.nan if v is None else v
+    for ax, name, who in zip(axes, (ATT, DIS), ("Attentive", "Distracted")):
         pts = res[name]["sweep"]
-        xb = [p["smelled_bystander"] for p in pts]
-        xr = [p["smelled_releaser"] for p in pts]
-        nan = lambda v: np.nan if v is None else v
-        ax.plot(xb, [nan(p["memory_silent_worse"]) for p in pts], color=c_mem, lw=2, label="bystander, remembered")
-        ax.plot(xb, [nan(p["truth_among_smelled"]) for p in pts], color=c_truth, lw=2,
-                label="bystander, truth (pairs where anything is smelled)")
-        ax.plot(xb, [p["truth_silent_worse"] for p in pts], color=c_truth, lw=2, ls="--",
-                label="bystander, truth (all pairs)")
-        ax.plot(xr, [nan(p["releaser_among_smelled"]) for p in pts], color=c_rel, lw=2,
-                label="releaser (remembers all), pairs where anything is smelled")
-        b = res[name]["baseline"]
-        ax.plot([b["smelled_bystander"]], [b["memory_silent_worse"]], "o", ms=8, color=c_mem, mec="#fcfcfb", mew=2)
-        ax.plot([b["smelled_bystander"]], [b["truth_among_smelled"]], "o", ms=8, color=c_truth, mec="#fcfcfb", mew=2)
-        ax.annotate(f"baseline (50 % at OAV {M50_BASE[name]:g})", (b["smelled_bystander"], b["memory_silent_worse"]),
-                    xytext=(8, -14), textcoords="offset points", fontsize=7, color=muted)
+        for i, (key, xkey, label) in enumerate(SERIES):
+            ax.plot([p[xkey] for p in pts], [nan(p[key]) for p in pts], color=PALETTE[i], ls=LINESTYLES[i],
+                    marker=MARKERS[i], markevery=(i, 5), label=label)
+        xb = res[name]["baseline"]["smelled_bystander"]
+        ax.axvline(xb, color=MUTED, lw=0.6, ls=LINESTYLES[3], zorder=0)
+        # labels in the empty middle-left band (the remembered curve runs along the top, the truths along the bottom)
+        ax.text(xb / 1.25, 0.45, f"Baseline\n(50 % at OAV {M50_BASE[name]:g})", ha="right", va="center", color=MUTED)
+        ax.text(0.03, 0.68, f"{who} spread\nsd {SD[name]:g} binary steps", transform=ax.transAxes,
+                ha="left", va="center")
         ax.set_xscale("log")
         ax.set_xlim(1e-4, 1.5)
-        ax.set_ylim(0, 1.02)
-        ax.set_title(title, fontsize=9, color=ink)
-        ax.set_xlabel("share of passages smelled", fontsize=9, color=ink)
-        ax.grid(color="#e6e6e3", lw=0.6)
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        ax.tick_params(labelsize=8, colors=muted)
-    axes[0].set_ylabel('share "the silent one was worse"', fontsize=9, color=ink)
-    axes[1].legend(fontsize=7, frameon=False, loc="center left")
-    fig.tight_layout()
-    fig.savefig(path, dpi=200)
+        ax.set_ylim(0, 1.05)
+        ax.set_xlabel(axis_label("Share of passages smelled"))
+    axes[0].set_ylabel(axis_label('Share judged "silent was worse"'))
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="outside lower center", ncol=2)
+    panel_labels(axes)
+    return save_figure(fig, "belief_vs_detection_paper", outdir=ROOT / "figures")
 
 
 def main():
@@ -113,7 +116,7 @@ def main():
                   f"  truth|smelled {f(p['truth_among_smelled'])}  truth {f(p['truth_silent_worse'])}  "
                   f"releaser|smelled {f(p['releaser_among_smelled'])} (smelled {100 * p['smelled_releaser']:5.1f} %)")
     (ROOT / "uq/belief_vs_detection.json").write_text(json.dumps(res, indent=1))
-    figure(res, ROOT / "figures/fig_belief_vs_detection.png")
+    figure(res)
 
 
 if __name__ == "__main__":

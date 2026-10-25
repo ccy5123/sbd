@@ -19,7 +19,7 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   bystanders, frequency-weighted, attentive: physics 0.1 % silent worse vs 11.1 % audible worse, memory 88.0 %.
   Not yet done: the clothed-share mixture (0.7-1.0) in `four_outcomes_v4.py` (decide how passages mix: per passage
   or linear).
-- **A1-A4 done (2026-10-24, §9.4-9.7):** routing map (`figures/fig_routing_map.png`, OAV vs Pi = M0/m_p); v4
+- **A1-A4 done (2026-10-24, §9.4-9.7):** routing map (`figures/routing_map_paper.svg/.png`, OAV vs Pi = M0/m_p); v4
   headline `uq/four_outcomes_v4.py` (bare, bystanders, frequency-weighted, attentive: physics 0.4% silent worse vs
   6.8% audible worse, memory 91.5% silent worse); source sensitivity `uq/source_sensitivity.py` (silent share
   76-94%, direction never flips); A3 text plan. A5 (E0-6 mesh x1.5 run, E0-3 Licina 2017 chamber, heated and
@@ -68,7 +68,7 @@ Watch-outs:
 ## Next tasks
 
 1. **[DONE 2026-10-24, `interface_plan.md` §9.8]** `uq/tail_sensitivity.py` (audible:silent 4-111, memory 62-100 %,
-   never flips), `uq/belief_vs_detection.py` + `figures/fig_belief_vs_detection.png` (memory falls to the truth, 29 %,
+   never flips), `uq/belief_vs_detection.py` + `figures/belief_vs_detection_paper.svg/.png` (memory falls to the truth, 29 %,
    at full detection), `uq/peak_breakeven.py` (a silent-only factor ~14 flips the headline, a uniform one never;
    compare with the LES in task 3). Rerun all three when the remaining runs land. Original brief:
    - psychometric-tail sensitivity: the bystander OAVs sit far below the 50% point, so vary the slope sd (attentive

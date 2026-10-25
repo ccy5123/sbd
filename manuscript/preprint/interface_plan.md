@@ -465,7 +465,7 @@ v4 결과와 모순되고, 일반 교훈이 정성적인 수준에 머문다.
 - 자료: `cfd/postprocess/plume_flux.py`가 각 장면 예열장(90 s)에서 방출점 위 5/15/30 cm 수평 단면을
   잘라, 방출점 주위 ±30 cm에서 위로 흐르는 공기의 운동량 플럭스 m_p (= Σ w² A)를 구한다 →
   `cfd/results_v4/plume_flux.json`. 앉은 자세 m_p ≈ 2×10⁻⁴ m⁴/s² (+15 cm), 서 있는 자세 ≈ 2×10⁻³.
-- 지도: `cfd/postprocess/routing_map.py` → `figures/fig_routing_map.png`, `cfd/results_v4/routing_map.json`.
+- 지도: `cfd/postprocess/routing_map.py` → `figures/routing_map_paper.svg/.png`, `cfd/results_v4/routing_map.json`.
   가로축 Π = M0/m_p (+15 cm), 세로축 같은 질량(92 mL) 150 s worst-breath OAV, 이웃과 방출자 두 패널.
   Richardson 형 수 Ri_p = B_p Q_p / m_p²는 표에만 둔다 (앉음 ~20, 서 있음 ~3-7).
 - 첫 결과:
@@ -549,7 +549,7 @@ v4 결과와 모순되고, 일반 교훈이 정성적인 수준에 머문다.
   "17:1 (4:1 to 110:1 over the tail assumptions)".
 
 **2. 믿음 대 탐지율** (`uq/belief_vs_detection.py` → `uq/belief_vs_detection.json`,
-`figures/fig_belief_vs_detection.png`; 옛 그림 13의 근거를 대신한다). 관찰자 50% 탐지점을 OAV 10⁻⁵–10⁴에서
+`figures/belief_vs_detection_paper.svg/.png`; 옛 그림 13의 근거를 대신한다). 관찰자 50% 탐지점을 OAV 10⁻⁵–10⁴에서
 훑었다 (sd 2와 3.5). 가로축은 방관자 코에서 냄새 맡은 통과의 비율이다.
 
 | 냄새 맡은 비율 | 기억된 조용 우세 | 실제 (무언가 맡은 쌍 중) | 실제 (전체 쌍) |
