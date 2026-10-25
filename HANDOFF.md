@@ -36,7 +36,13 @@ all (u0 162 m/s, dt 2.9e-5 s at Co 0.8): bare LES on 4 local cores ~17 h for its
 |---|---|---|---|
 | LES sofa trousers | server `sbd-v4_sofa_tr_les18`, 18 cores (only sbd run on the server) | restarted 25 Oct 15:53 KST from 90.92 s; 94.1 s at 16:40 | ~28 Oct night to 29 Oct |
 | LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | in the A90 pulse, 150.48 s of 300.2 (jet ends 150.54) | ~27 Oct evening |
-| elevator multi-release, FL culprit | local PC, starts by itself after the bare LES | not started; mesh ready (`elev_v4_pre`) | ~29 Oct |
+| elevator multi-release, FL culprit | local PC, 3 cores beside the bare LES (user's choice, 25 Oct 21:50 KST; one physical core left free): `start_local.ps1 -Name elev_FL -NP 3`, log `pipeline_local_elev_FL.log` | precursor started, ~8 s/h at first | ~27-28 Oct |
+
+The chain `sofa_les` still calls the elevator after the bare LES; `elevator/run_multi.sh` now holds a lock
+(`cfd/runs/.elev_FL.lock`), so that call exits if the elevator is still running, and a resumed case keeps its own
+decomposition (3). After a reboot only the chain restarts (Startup shortcut): rerun
+`start_local.ps1 -Name elev_FL -NP 3` by hand. Check whether the bare LES slowed with 7 cores busy (25 Oct 21:50:
+2.2 s/h just after the A90 pulse; PC load 70 %).
 
 **25 Oct incident:** at 13:32 KST `les_grow.sh` moved the trousers LES from 16 to 20 cores; mpirun refused 20 ranks
 (the server has 18 physical cores: "not enough slots"), `run_multi.sh` only checked "FOAM FATAL", so it marked

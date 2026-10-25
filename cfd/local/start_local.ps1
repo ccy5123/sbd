@@ -2,10 +2,12 @@
 # image sbd-openfoam13 imported with `wsl --import` (Docker Desktop does not start on this PC). The repo copy lives in
 # /root/sbd inside the distro. The pipeline skips finished steps and, with CHECKPOINT, resumes long segments from the
 # last 5-s piece, so after a reboot or crash run this script again. A lock file stops a second copy from starting.
-# Usage: powershell -ExecutionPolicy Bypass -File cfd\local\start_local.ps1 [name] [command]
+# Usage: powershell -ExecutionPolicy Bypass -File cfd\local\start_local.ps1 [name] [command] [-NP cores]
+# (e.g. -Name elev_FL -NP 3 runs the elevator beside the 4-core bare LES on the 8-core PC, leaving one core free)
 param(
   [string]$Name = "stand_still_tr",
-  [string]$Cmd = ""
+  [string]$Cmd = "",
+  [int]$NP = 4
 )
 $known = @{
   stand_still_tr = "bash cfd/cases/standing/run_multi.sh /root/sbd/cfd/runs still trousers"
@@ -16,7 +18,7 @@ $known = @{
 }
 if (-not $Cmd) { $Cmd = $known[$Name] }
 if (-not $Cmd) { Write-Error "unknown run '$Name' and no -Cmd given"; exit 1 }
-$sh = "cd /root/sbd && export NP=4 T_PRE=90 CHECKPOINT=5 KEEP=3 && " +
+$sh = "cd /root/sbd && export NP=$NP T_PRE=90 CHECKPOINT=5 KEEP=3 && " +
       "flock -n cfd/runs/.local_$Name.lock nice -n 19 $Cmd >> cfd/runs/pipeline_local_$Name.log 2>&1"
 # Created through WMI so the run is not a child of the calling app: a process started from the Claude app dies
 # when the app updates or restarts (this killed the run once, 2026-10-22 06:13).
