@@ -61,6 +61,9 @@ Watch-outs:
 - Git Bash rewrites `/root/...` arguments to WSL: prefix `MSYS_NO_PATHCONV=1` or feed scripts on stdin.
 - Python for analysis runs in the `sbd-openfoam13` distro (numpy 1.26, scipy, matplotlib):
   `MSYS_NO_PATHCONV=1 wsl.exe -d sbd-openfoam13 -- bash -c 'cd "/mnt/c/Users/EH R&C CY/research/sbd" && python3 ...'`.
+  **Figures (FIGSTYLE v1.2, `~/.claude/FIGSTYLE.md`):** run figure scripts with `/root/figenv/bin/python` (venv with
+  system site packages + matplotlib 3.11.2; Arial installed in the distro). The system matplotlib 3.6.3 sets
+  superscripts too high with Arial (kg⁻¹, m²), so do not draw figures with plain `python3`.
 
 ## Next tasks
 
