@@ -58,7 +58,8 @@ fi
     # write exactly at the segment end: OpenFOAM writes at multiples of writeInterval counted from t = 0
     foamDictionary system/controlDict -entry writeInterval -set $te > /dev/null
     mpirun --allow-run-as-root -np $NP foamRun -parallel > log.foamRun.seg$n 2>&1 < /dev/null  # mpirun would otherwise eat the schedule on stdin
-    grep -q "FOAM FATAL" log.foamRun.seg$n && { echo "$(date -u +%H:%M) $c segment $n FAILED"; exit 1; }
+    rc=$?  # nonzero also when mpirun cannot start (e.g. NP above the physical cores: "not enough slots")
+    { [ $rc -ne 0 ] || grep -q "FOAM FATAL" log.foamRun.seg$n; } && { echo "$(date -u +%H:%M) $c segment $n FAILED (rc $rc)"; exit 1; }
     echo "$(date -u +%H:%M) $c segment $n to $te s done"
     [ -n "$KEEP" ] && for d in processor[0-9]*; do
       ls -d $d/[0-9]* | grep -v '/0$' | sort -t/ -k2 -g | head -n -$KEEP | xargs -r rm -rf; done

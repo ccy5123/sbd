@@ -5,6 +5,7 @@
 # container sbd-v4_sofa_tr_les<N> with NP=N; the pipeline skips finished pieces. Exits when the LES is done.
 # Runs on the server host: setsid nohup cfd/docker/les_grow.sh &   (log: cfd/runs/les_grow.log in sbd-v4)
 CAP=20
+MAXNP=18  # physical cores (i9-10980XE): mpirun refuses more slots ("not enough slots"), 25 Oct
 R=$HOME/cyjoe/research/sbd-v4
 RUNS=$R/cfd/runs
 LOG=$RUNS/les_grow.log
@@ -25,13 +26,13 @@ while true; do
   P=$RUNS/pipeline_${L#sbd-}.log
   grep -q 'pipeline done' $P && { say "LES done; exit"; exit 0; }
   cur=$(cores $L)
-  free=$((CAP - $(others)))
+  free=$((CAP - $(others))); [ $free -gt $MAXNP ] && free=$MAXNP
   if [ $free -ge $((cur + 4)) ]; then
     n0=$(pieces $P)
     say "$free cores free, LES has $cur: waiting for its next checkpoint"
     until [ "$(pieces $P)" -gt "$n0" ] || grep -q 'pipeline done' $P; do sleep 30; done
     grep -q 'pipeline done' $P && { say "LES done; exit"; exit 0; }
-    free=$((CAP - $(others)))
+    free=$((CAP - $(others))); [ $free -gt $MAXNP ] && free=$MAXNP
     [ $free -ge $((cur + 4)) ] || { say "cores taken meanwhile; LES stays on $cur"; continue; }
     say "checkpoint: $(grep 'segment .* done' $P | tail -1); stopping $L"
     docker stop -t 20 $L > /dev/null; sleep 5

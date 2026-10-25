@@ -134,6 +134,50 @@
    "neighbour": 0.2257974830867583
   },
   {
+   "scene": "sofa_tr",
+   "label": "sofa, upright, trousers",
+   "release": "A90",
+   "M0": 0.13269983723106255,
+   "m_p": 0.00019486060762215646,
+   "Pi": 680.9987860059101,
+   "Ri_p": 19.75325388478222,
+   "releaser": 37.90296956389588,
+   "neighbour": 14.224678718535907
+  },
+  {
+   "scene": "sofa_tr",
+   "label": "sofa, upright, trousers",
+   "release": "A50",
+   "M0": 0.019230612957924515,
+   "m_p": 0.00019486060762215646,
+   "Pi": 98.68907416738402,
+   "Ri_p": 19.75325388478222,
+   "releaser": 68.18806555278519,
+   "neighbour": 1.0676913193877637
+  },
+  {
+   "scene": "sofa_tr",
+   "label": "sofa, upright, trousers",
+   "release": "S90",
+   "M0": 0.0022135401070680284,
+   "m_p": 0.00019486060762215646,
+   "Pi": 11.359607947852563,
+   "Ri_p": 19.75325388478222,
+   "releaser": 1.449459316023112,
+   "neighbour": 0.09690807913946514
+  },
+  {
+   "scene": "sofa_tr",
+   "label": "sofa, upright, trousers",
+   "release": "S50",
+   "M0": 8.947149376145528e-05,
+   "m_p": 0.00019486060762215646,
+   "Pi": 0.4591563931430644,
+   "Ri_p": 19.75325388478222,
+   "releaser": 3.747370275867075,
+   "neighbour": 0.083180318036716
+  },
+  {
    "scene": "stand_still",
    "label": "standing, still air",
    "release": "A90",
@@ -264,6 +308,50 @@
    "Ri_p": 6.727686626678031,
    "releaser": 0.03152959247199631,
    "neighbour": 0.010851181481548454
+  },
+  {
+   "scene": "stand_vent_tr",
+   "label": "standing, ventilated, trousers",
+   "release": "A90",
+   "M0": 0.13269983723106255,
+   "m_p": 0.0011908620074803102,
+   "Pi": 111.43174977244928,
+   "Ri_p": 6.475821859201367,
+   "releaser": 6.64801178194174,
+   "neighbour": 0.1834198489407561
+  },
+  {
+   "scene": "stand_vent_tr",
+   "label": "standing, ventilated, trousers",
+   "release": "A50",
+   "M0": 0.019230612957924515,
+   "m_p": 0.0011908620074803102,
+   "Pi": 16.148481383341533,
+   "Ri_p": 6.475821859201367,
+   "releaser": 41.10932344968404,
+   "neighbour": 0.10601111947051028
+  },
+  {
+   "scene": "stand_vent_tr",
+   "label": "standing, ventilated, trousers",
+   "release": "S90",
+   "M0": 0.0022135401070680284,
+   "m_p": 0.0011908620074803102,
+   "Pi": 1.8587712876587235,
+   "Ri_p": 6.475821859201367,
+   "releaser": 30.173315022593346,
+   "neighbour": 0.09193166619876757
+  },
+  {
+   "scene": "stand_vent_tr",
+   "label": "standing, ventilated, trousers",
+   "release": "S50",
+   "M0": 8.947149376145528e-05,
+   "m_p": 0.0011908620074803102,
+   "Pi": 0.07513170560438305,
+   "Ri_p": 6.475821859201367,
+   "releaser": 0.11991021838606239,
+   "neighbour": 0.11058254382723148
   }
  ]
 }

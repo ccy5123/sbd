@@ -1,4 +1,4 @@
-# Status 2026-10-24 (read this first; the sections below are the history behind it)
+# Status 2026-10-25 (read this first; the sections below are the history behind it)
 
 **Session rules:** CLAUDE.md (say local vs cloud first; Korean; clarify with AskUserQuestion, recommended option
 first; no PR watching). Commit on `main` only: `git -c user.name="Chan Young Joe" -c user.email="ccy5123ccy@gmail.com"
@@ -10,28 +10,41 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
 - **Venue:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); preprint on engrXiv with full AI
   disclosure. Plan and referee-style work list: `manuscript/preprint/interface_plan.md` §9 (A done, B after the runs).
 - **Finished CFD (v4 multi-release RANS, results in `cfd/results_v4/`):** sofa upright / reclined 4.5 / leaning -10,
-  standing still / ventilated, all bare; standing still with trousers. Summary below ("E2' ... done").
+  standing still / ventilated, all bare; trousers: standing still, sofa upright and standing ventilated (the last
+  two done 25 Oct 05:05 / 11:40 KST, analysed the same day). Summary below ("E2' ... done"). Trousers, as emitted,
+  150 s worst breath releaser / neighbour: sofa upright A90 115 / 43.1, A50 63.9 / 1.0, S90 1.05 / 0.07, S50 4.97 /
+  0.11 (bare 48.9 / 16.9, 6.3 / 0.16, 6.6 / 0.09, 0.33 / 0.07); standing ventilated A90 20.1 / 0.56, A50 38.5 / 0.10,
+  S90 21.8 / 0.07, S50 0.16 / 0.15 (bare 6.9 / 0.03, 14.5 / 0.02, 2.8 / 0.05, 0.38 / 0.17). Trousers raise the
+  audible releases at both noses; silent ones at the neighbour stay ~0.1. v4 headline, trousers only (three scenes),
+  bystanders, frequency-weighted, attentive: physics 0.1 % silent worse vs 11.1 % audible worse, memory 88.0 %.
+  Not yet done: the clothed-share mixture (0.7-1.0) in `four_outcomes_v4.py` (decide how passages mix: per passage
+  or linear).
 - **A1-A4 done (2026-10-24, §9.4-9.7):** routing map (`figures/fig_routing_map.png`, OAV vs Pi = M0/m_p); v4
   headline `uq/four_outcomes_v4.py` (bare, bystanders, frequency-weighted, attentive: physics 0.4% silent worse vs
   6.8% audible worse, memory 91.5% silent worse); source sensitivity `uq/source_sensitivity.py` (silent share
   76-94%, direction never flips); A3 text plan. A5 (E0-6 mesh x1.5 run, E0-3 Licina 2017 chamber, heated and
   unheated) is approved for after ~29 Oct when cores free up.
 
-## Runs in progress (as of 2026-10-24 16:22 KST, all healthy)
+## Runs in progress (as of 2026-10-25 16:00 KST)
 
 RANS multi-release runs end at 240.2 s, the LES at 300.2 s. Pipeline log times are UTC (`date -u`): 06:54 = 15:54 KST.
+The LES release pulses are slow (16 cores: 6.4 h for the 0.77-s pulse at 90.2 s; releases at 60.2 + 30 k s).
 
 | run | where | state | expected |
 |---|---|---|---|
-| sofa upright, trousers (RANS) | server `sbd-v4_sofa_tr3`, 4 cores | 177.6 s of 240.2, ~4.8 s/h | ~25 Oct 06:00 KST |
-| standing ventilated, trousers (RANS) | server `sbd-v4_stand_vent_tr2`, 4 cores | 133.9 s of 240.2, ~5.5 s/h | ~25 Oct 12:00 KST |
-| LES sofa trousers | server `sbd-v4_sofa_tr_les12`, 12 cores | 62.4 s of 300.2, ~2.2 s/h | ~28-29 Oct (grows to 16, 20 cores) |
-| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | 120.3 s of 300.2, ~5 s/h lately | ~26-27 Oct |
+| LES sofa trousers | server `sbd-v4_sofa_tr_les18`, 18 cores (only sbd run on the server) | restarted 25 Oct 15:53 KST from 90.92 s | ~29 Oct |
+| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | 150.5 s of 300.2, ~5 s/h between pulses | ~27 Oct |
 | elevator multi-release, FL culprit | local PC, starts by itself after the bare LES | not started; mesh ready (`elev_v4_pre`) | ~28 Oct |
 
+**25 Oct incident:** at 13:32 KST `les_grow.sh` moved the trousers LES from 16 to 20 cores; mpirun refused 20 ranks
+(the server has 18 physical cores: "not enough slots"), `run_multi.sh` only checked "FOAM FATAL", so it marked
+segments 20-64 done in seconds and exited; no data lost (90.92 s intact). ~2.3 h idle. Restarted by hand on 18 cores
+(user's choice). Fixed: `run_multi.sh` now also fails on a nonzero mpirun exit (copied to the server's
+`run_multi_v4.sh`; the local WSL copy is unchanged while it runs), `les_grow.sh` caps one run at MAXNP=18.
+
 Automation (all committed):
-- server `cfd/docker/les_grow.sh` (runs from `sbd-main/scratch/`, log `sbd-v4/cfd/runs/les_grow.log`): moves every
-  4 freed cores to the trousers LES at its next 5-s checkpoint (cap 20 cores).
+- server `cfd/docker/les_grow.sh`: done (exited 25 Oct; the LES now has all 18 physical cores). It moved every 4 freed
+  cores to the trousers LES at its next 5-s checkpoint.
 - local `cfd/local/start_local.ps1 -Name sofa_les` chains the bare LES and then the elevator; the Startup shortcut
   `sbd local CFD resume.lnk` reruns it at login (lock prevents duplicates; launched through WMI so app updates
   cannot kill it). `move_les_bare.sh` and its shortcut are done/retired. **Delete the Startup shortcut when the
@@ -64,7 +77,9 @@ Watch-outs:
    - peak-factor break-even: the uniform multiplier, and a silent-only one, that would lift the silent release over
      OAV 1 and OAV 20 at a bystander in each scene, and that would make silent-worse >= audible-worse in the headline
      (to compare with the LES peak factors when they land).
-2. As runs finish: `analyze_multi.py` on each (`--noses FL,FR,BL,BR` for the elevator), copy JSON and nose probes to
+2. **Figures: follow FIGSTYLE v1.2 (user's rules, 25 Oct; see memory and `figstyle.py` once the full code block is
+   in).** As runs finish: `analyze_multi.py` on each (fetch `postProcessing/noses` from the server as a tar.xz,
+   extract into `cfd/runs/`, run in the WSL distro) (`--noses FL,FR,BL,BR` for the elevator), copy JSON and nose probes to
    `cfd/results_v4/`, rerun `uq/four_outcomes_v4.py` (clothed share 0.7-1.0 once both trousers runs are in) and
    `cfd/postprocess/routing_map.py`; refresh the 3D viewer (`export_viewer.py`, `export_iso.py`; artifact
    https://claude.ai/artifact/5sLUdRH1bG9nksx2vJFcvL, data files under the scratchpad viewer folder).
