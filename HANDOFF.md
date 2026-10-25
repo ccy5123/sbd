@@ -25,16 +25,18 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   76-94%, direction never flips); A3 text plan. A5 (E0-6 mesh x1.5 run, E0-3 Licina 2017 chamber, heated and
   unheated) is approved for after ~29 Oct when cores free up.
 
-## Runs in progress (as of 2026-10-25 16:00 KST)
+## Runs in progress (as of 2026-10-25 16:40 KST)
 
 RANS multi-release runs end at 240.2 s, the LES at 300.2 s. Pipeline log times are UTC (`date -u`): 06:54 = 15:54 KST.
-The LES release pulses are slow (16 cores: 6.4 h for the 0.77-s pulse at 90.2 s; releases at 60.2 + 30 k s).
+LES releases: S50 60.2, A50 90.2, S90 120.2, A90 150.2, S50b 180.2, A50b 210.2 s. The pulses are slow, A90 most of
+all (u0 162 m/s, dt 2.9e-5 s at Co 0.8): bare LES on 4 local cores ~17 h for its 0.69-s pulse piece, S50 (4.8-s jet)
+~10 h, A50 ~8 h, S90 ~4 h; gaps ~5 s/h. Trousers LES on 18 server cores: ~4.2 s/h in the gaps.
 
 | run | where | state | expected |
 |---|---|---|---|
-| LES sofa trousers | server `sbd-v4_sofa_tr_les18`, 18 cores (only sbd run on the server) | restarted 25 Oct 15:53 KST from 90.92 s | ~29 Oct |
-| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | 150.5 s of 300.2, ~5 s/h between pulses | ~27 Oct |
-| elevator multi-release, FL culprit | local PC, starts by itself after the bare LES | not started; mesh ready (`elev_v4_pre`) | ~28 Oct |
+| LES sofa trousers | server `sbd-v4_sofa_tr_les18`, 18 cores (only sbd run on the server) | restarted 25 Oct 15:53 KST from 90.92 s; 94.1 s at 16:40 | ~28 Oct night to 29 Oct |
+| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | in the A90 pulse, 150.48 s of 300.2 (jet ends 150.54) | ~27 Oct evening |
+| elevator multi-release, FL culprit | local PC, starts by itself after the bare LES | not started; mesh ready (`elev_v4_pre`) | ~29 Oct |
 
 **25 Oct incident:** at 13:32 KST `les_grow.sh` moved the trousers LES from 16 to 20 cores; mpirun refused 20 ranks
 (the server has 18 physical cores: "not enough slots"), `run_multi.sh` only checked "FOAM FATAL", so it marked
