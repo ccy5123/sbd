@@ -25,7 +25,7 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   76-94%, direction never flips); A3 text plan. A5 (E0-6 mesh x1.5 run, E0-3 Licina 2017 chamber, heated and
   unheated) is approved for after ~29 Oct when cores free up.
 
-## Runs in progress (as of 2026-10-25 16:40 KST)
+## Runs in progress (as of 2026-10-26 09:20 KST)
 
 RANS multi-release runs end at 240.2 s, the LES at 300.2 s. Pipeline log times are UTC (`date -u`): 06:54 = 15:54 KST.
 LES releases: S50 60.2, A50 90.2, S90 120.2, A90 150.2, S50b 180.2, A50b 210.2 s. The pulses are slow, A90 most of
@@ -34,15 +34,22 @@ all (u0 162 m/s, dt 2.9e-5 s at Co 0.8): bare LES on 4 local cores ~17 h for its
 
 | run | where | state | expected |
 |---|---|---|---|
-| LES sofa trousers | server `sbd-v4_sofa_tr_les18`, 18 cores (only sbd run on the server) | restarted 25 Oct 15:53 KST from 90.92 s; 94.1 s at 16:40 | ~28 Oct night to 29 Oct |
-| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | in the A90 pulse, 150.48 s of 300.2 (jet ends 150.54) | ~27 Oct evening |
-| elevator multi-release, FL culprit | local PC, 3 cores beside the bare LES (user's choice, 25 Oct 21:50 KST; one physical core left free): `start_local.ps1 -Name elev_FL -NP 3`, log `pipeline_local_elev_FL.log` | precursor started, ~8 s/h at first | ~27-28 Oct |
+| LES sofa trousers | server `sbd-v4_sofa_tr_les18`, 18 cores (only sbd run on the server) | in the A90 pulse since 07:22 KST, 150.26 s at 08:51 | ~28 Oct morning |
+| LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | restarted 26 Oct 09:09 KST from 175.84 s (see below) | ~28 Oct 03:00 |
+| elevator multi-release, FL culprit | stopped (plan C) | precursor written to 45 s of 90 (`elev_v4_pre`, 3 subdomains) | ~28 Oct night |
 
-The chain `sofa_les` still calls the elevator after the bare LES; `elevator/run_multi.sh` now holds a lock
-(`cfd/runs/.elev_FL.lock`), so that call exits if the elevator is still running, and a resumed case keeps its own
-decomposition (3). After a reboot only the chain restarts (Startup shortcut): rerun
-`start_local.ps1 -Name elev_FL -NP 3` by hand. Check whether the bare LES slowed with 7 cores busy (25 Oct 21:50:
-2.2 s/h just after the A90 pulse; PC load 70 %).
+**Elevator, plan C (user's choice 26 Oct):** run beside the bare LES on 3 local cores (25 Oct 21:50), it doubled the
+LES's time per step (5.7 -> 11.8 s, same dt and steps: memory-bandwidth contention on the 8-core PC), so running both
+gained nothing. Stopped 26 Oct ~09:05 at the 45-s write. When the trousers LES ends (~28 Oct morning) move the elevator
+to the server (copy `elev_v4_pre` + elevator scripts; the server clone may lack `make_case.py --mode multi`) and run it
+on several cores there, next to the A5 runs. The local chain `sofa_les` still calls the elevator after the bare LES
+(~28 Oct 03:00, alone, 3 subdomains kept), so by then it may have advanced locally: move it from wherever it is, or
+keep it local if that is faster. `elevator/run_multi.sh` holds a lock (`cfd/runs/.elev_FL.lock`) against a second copy.
+
+**26 Oct incident (local):** stopping the elevator with `pgrep -f 'elevator/run_multi.sh'` also matched the bare-LES
+chain (its command line names the elevator script) and killed its parent shells; WSL then ended the whole session,
+LES included. Lost the 175.84-177.37 s piece (~30 min); restarted with `start_local.ps1 -Name sofa_les`. Stop runs by
+exact PID (or by the case name in the mpirun working directory), never by a pattern that the chain's command matches.
 
 **25 Oct incident:** at 13:32 KST `les_grow.sh` moved the trousers LES from 16 to 20 cores; mpirun refused 20 ranks
 (the server has 18 physical cores: "not enough slots"), `run_multi.sh` only checked "FOAM FATAL", so it marked
