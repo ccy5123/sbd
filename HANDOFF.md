@@ -121,7 +121,13 @@ finals 19 Nov 10:00 (absence = elimination); eligibility: Korean nationality, 14
    extract into `cfd/runs/`, run in the WSL distro) (`--noses FL,FR,BL,BR` for the elevator), copy JSON and nose probes to
    `cfd/results_v4/`, rerun `uq/four_outcomes_v4.py` (clothed share 0.7-1.0 once both trousers runs are in) and
    `cfd/postprocess/routing_map.py`; refresh the 3D viewer (`export_viewer.py`, `export_iso.py`; artifact
-   https://claude.ai/artifact/5sLUdRH1bG9nksx2vJFcvL, data files under the scratchpad viewer folder).
+   https://claude.ai/artifact/5sLUdRH1bG9nksx2vJFcvL). **Viewer refreshed 26 Oct (version 7): all 8 finished RANS
+   runs + 2 reference runs.** How: run both exports in the `sbd-openfoam13` container from the `sbd-main` clone
+   (server runs) or in the WSL distro (local runs), then inline each run's plane PNGs into its run.json as
+   `img: {file: data URI}` (the page reads `run.img`, the host serves no loose PNGs), merge `data/manifest.json`,
+   add a `RUN_LABELS` entry in index.html, and publish only the new files (<= 64 MB per publish; use the long
+   `C:\Users\EH R&C CY\...` path, the 8.3 short path is refused). `sofa_tr_v4_multi` wrote no iso-surfaces, so it
+   has planes only.
 3. LES peak factors from the two sofa LES runs, then the headline with peak factors.
 4. A5 validation runs after ~29 Oct; then the B stage (rewrite Methods/Results/figures on v4, fill gaps, title check,
    Zenodo with the user's OK, AI statement by the author).
