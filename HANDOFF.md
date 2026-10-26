@@ -94,7 +94,7 @@ finals 19 Nov 10:00 (absence = elimination); eligibility: Korean nationality, 14
 - Draft: `manuscript/liner_contest/draft_ko.md` (user's choices: the silent-but-deadly belief; literature in three
   topics, composition / dispersion / perception and memory, with the v4 CFD and Monte Carlo folded into each as
   "unpublished simulation"; conclusion "wrong for bystanders' real exposure, the memory filter makes the belief").
-  Length: `python manuscript/liner_contest/count_chars.py` (9,251 with spaces on 26 Oct). Placeholders `[ ]`: name,
+  Length: `python manuscript/liner_contest/count_chars.py` (9,251 with spaces on 26 Oct). Placeholders filled 26 Oct (조찬영, 27 Oct, Liner Scholar for the early literature search); was: name,
   date, the user's actual Liner Scholar steps (the methods section also discloses Claude use; keep it truthful).
 - Figure 1 (comic, from the 3D viewer): the user picks scenes and puts screenshots in `manuscript/liner_contest/raw/`;
   annotate with speech bubbles and labels, FIGSTYLE v1.2 paper `onehalf`, except the font: Batang (user's choice

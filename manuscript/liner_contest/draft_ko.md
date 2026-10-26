@@ -1,8 +1,8 @@
 # 소리 없는 방귀가 더 독한가: 성분·확산·지각 연구와 실내 기류 시뮬레이션으로 본 통념 검증
 
-[이름] · 작성일 2026년 [월] [일]
+조찬영 · 작성일 2026년 10월 27일
 
-<!-- 제출 전 지울 것: [ ] 표시는 저자가 채울 자리. 본문(초록~결론) 분량은 count_chars.py로 확인. -->
+<!-- 본문(초록~결론) 분량은 count_chars.py로 확인. -->
 
 ## 초록
 
@@ -22,7 +22,7 @@
 
 **연구의 범위.** 건강한 성인의 방귀 성분과 양, 소리의 발생 기제, 사람 몸 주변의 대류 기류와 근접 오염원의 노출, 냄새의 탐지 역치와 주의, 착각 상관과 선택 편향에 관한 동료 심사 문헌을 대상으로 하였다. 출판 연도는 제한하지 않았다(1946–2021). 방귀 소리와 냄새를 함께 기록한 자료는 비공식 자료 1건뿐이어서 별도로 표시하고 포함하였다. 동물 연구와 구강 악취 연구는 측정 방법을 비교하는 데에만 사용하였다.
 
-**연구의 방법.** 문헌은 OpenAlex와 PubMed에서 "flatus odour", "flatus composition", "human convective boundary layer", "odor threshold", "olfactory attention", "illusory correlation", "Berkson bias" 등의 검색어로 찾았다(검색 기간 2026년 10월). 모든 문헌은 DOI로 서지정보를 대조하고, 인용한 수치는 초록이나 원문에서 확인하였다. [라이너 스콜라 활용: 저자가 실제로 사용한 단계와 용도를 적는다. 예: 문헌 탐색 보완, 연구 간 결과 비교, 초안 다듬기.] 문헌 정리와 초안 작성에는 Claude(Anthropic)도 사용하였으며, 문헌의 실재와 인용 내용, 해석과 결론은 저자가 직접 확인하였다.
+**연구의 방법.** 문헌은 OpenAlex와 PubMed에서 "flatus odour", "flatus composition", "human convective boundary layer", "odor threshold", "olfactory attention", "illusory correlation", "Berkson bias" 등의 검색어로 찾았다(검색 기간 2026년 10월). 모든 문헌은 DOI로 서지정보를 대조하고, 인용한 수치는 초록이나 원문에서 확인하였다. 연구 초기의 문헌 탐색에는 라이너 스콜라를 사용하였다. 문헌 정리와 초안 작성에는 Claude(Anthropic)도 사용하였으며, 문헌의 실재와 인용 내용, 해석과 결론은 저자가 직접 확인하였다.
 
 문헌이 직접 답하지 못하는 연결 고리, 즉 "방출된 가스가 옆 사람 코에 얼마나 닿는가"는 저자의 미출간 시뮬레이션으로 보완하였다. 오픈소스 CFD 코드 OpenFOAM으로 소파에 나란히 앉은 두 사람(세 가지 자세)과 마주 선 두 사람(정지 공기, 사무실 환기)을 계산하였다. 소리 나는 방출 두 종류와 조용한 방출 두 종류를 넣고, 각 코에서 방출 후 150초 동안의 최대 호흡 농도를 구하였다. 농도는 냄새 활성값(OAV, 탐지 역치의 배수)으로 나타냈다. 이어서 문헌의 분포로 방귀 2만 건을 생성하고, 장면은 실제로 머무는 시간(시간 사용 조사)으로 가중하였다. 관찰자는 냄새를 기다리는 사람(50% 탐지가 OAV 20)과 다른 일에 몰두한 사람(OAV 520)의 두 종류로 두었다. 이 결과는 동료 심사를 거치지 않았고 난류의 평균값(RANS)이므로, 문헌 근거와 구분하여 "시뮬레이션"으로 표시한다.
 
@@ -128,4 +128,4 @@
 - Tangerman, A. (2009). Measurement and biological significance of the volatile sulfur compounds hydrogen sulfide, methanethiol and dimethyl sulfide in various biological matrices. *Journal of Chromatography B*, 877, 3366–3377. https://doi.org/10.1016/j.jchromb.2009.05.026
 - Tomlin, J., Lowis, C., & Read, N. W. (1991). Investigation of normal flatus production in healthy volunteers. *Gut*, 32(6), 665–669. https://doi.org/10.1136/gut.32.6.665
 - Whisman, M. L., Goetzinger, J. W., & Cotton, F. O. (1978). Odorant evaluation: a study of ethanethiol and tetrahydrothiophene as warning agents in propane. *Environmental Science & Technology*, 12, 1285–1288. https://doi.org/10.1021/es60147a003
-- [저자] (2026). 미출간 시뮬레이션: 소파와 서 있는 두 사람의 방귀 확산 CFD(OpenFOAM 13, RANS)와 몬테카를로 계산. 동료 심사 전. [공개 저장소나 프리프린트가 생기면 주소 기입]
+- 조찬영 (2026). 미출간 시뮬레이션: 소파와 서 있는 두 사람의 방귀 확산 CFD(OpenFOAM 13, RANS)와 몬테카를로 계산. 동료 심사 전.
