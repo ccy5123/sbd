@@ -34,7 +34,13 @@ all (u0 162 m/s, dt 2.9e-5 s at Co 0.8): bare LES on 4 local cores ~17 h for its
 
 | run | where | state | expected |
 |---|---|---|---|
-| LES sofa trousers | server `sbd-v4_sofa_tr_les18`, 18 cores (only sbd run on the server) | in the A90 pulse since 07:22 KST, 150.26 s at 08:51 | ~28 Oct morning |
+| LES sofa trousers | server `sbd-v4_sofa_tr_les18`, 18 cores; moves to 12 cores (`sbd-v4_sofa_tr_les12r`) at the 150.84-s checkpoint | in the A90 pulse since 07:22 KST, 150.46 s at 15:34 | ~28 Oct, may slip |
+
+**26 Oct, server shared:** from 09:20 KST another session on the `user` account (from 192.168.50.213) runs a `python3`
+job on ~5 cores; load 26 on 18 physical cores slowed the 18-rank LES ~2.4x (A90 pulse 0.07 -> 0.03 s/h). User's choice:
+re-decompose to 12 cores at the next checkpoint. Watcher `cfd/docker/les_resize.sh 12` (running from
+`sbd-main/scratch/`, started 15:40, log `les_grow.log`). When that job ends, grow back with `les_resize.sh 18`. (A
+`python3` job in the local `Ubuntu` distro, user cyjoe, also competed with the local LES for a while on 26 Oct.)
 | LES sofa bare | local PC (WSL `sbd-openfoam13`, `/root/sbd/cfd/runs/sofa_v4_multi_les`), 4 cores | restarted 26 Oct 09:09 KST from 175.84 s (see below) | ~28 Oct 03:00 |
 | elevator multi-release, FL culprit | stopped (plan C) | precursor written to 45 s of 90 (`elev_v4_pre`, 3 subdomains) | ~28 Oct night |
 
