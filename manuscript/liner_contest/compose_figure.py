@@ -24,9 +24,9 @@ mpl.rcParams["mathtext.rm"] = mpl.rcParams["mathtext.sf"] = "Batang"
 pts = json.loads((render / "points_px.json").read_text())["points"]
 CLOUD = {"OAV 1 (훈련된 판정단의 탐지 역치)": "#74C476", "OAV 20 (주의하면 절반이 알아챔)": "#006D2C"}
 PANELS = {
-    "A90": {"header": "소리 나는 방귀 (A90, 279 mL)", "sound": "뿡!", "releaser": 3.8, "neighbour": 15.1,
+    "A90": {"header": "소리 나는 방귀 (279 mL)", "sound": "뿡!", "releaser": 3.8, "neighbour": 15.1,
             "say": ("neighbour", "윽!")},
-    "S90": {"header": "조용한 방귀 (S90, 66 mL)", "sound": "……", "releaser": 22.3, "neighbour": 0.0,
+    "S90": {"header": "조용한 방귀 (66 mL)", "sound": "……", "releaser": 22.3, "neighbour": 0.0,
             "say": ("releaser", "아무도 모르겠지?")},
 }
 
