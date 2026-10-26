@@ -86,6 +86,21 @@ Watch-outs:
   system site packages + matplotlib 3.11.2; Arial installed in the distro). The system matplotlib 3.6.3 sets
   superscripts too high with Arial (kg⁻¹, m²), so do not draw figures with plain `python3`.
 
+## Side task: 1st Liner Scholar research contest (user registered; submission 26 Oct - 8 Nov 23:59 KST)
+
+Literature comparison of a common belief; written and exported as PDF in Liner Scholar (~10,000 characters with
+spaces, references excluded); file name `제1회 라이너 스콜라 연구공모전_논문 제목_이름`; finalists 13 Nov 18:00, on-site
+finals 19 Nov 10:00 (absence = elimination); eligibility: Korean nationality, 14+. Guideline docx: Batang body text.
+- Draft: `manuscript/liner_contest/draft_ko.md` (user's choices: the silent-but-deadly belief; literature in three
+  topics, composition / dispersion / perception and memory, with the v4 CFD and Monte Carlo folded into each as
+  "unpublished simulation"; conclusion "wrong for bystanders' real exposure, the memory filter makes the belief").
+  Length: `python manuscript/liner_contest/count_chars.py` (9,251 with spaces on 26 Oct). Placeholders `[ ]`: name,
+  date, the user's actual Liner Scholar steps (the methods section also discloses Claude use; keep it truthful).
+- Figure 1 (comic, from the 3D viewer): the user picks scenes and puts screenshots in `manuscript/liner_contest/raw/`;
+  annotate with speech bubbles and labels, FIGSTYLE v1.2 paper `onehalf`, except the font: Batang (user's choice
+  "the docs' font", from the guideline docx; one-line override note in the script). Batang is installed in the
+  sbd-openfoam13 distro (`/usr/local/share/fonts/korean/batang.ttc`). No images of the film's characters.
+
 ## Next tasks
 
 1. **[DONE 2026-10-24, `interface_plan.md` §9.8]** `uq/tail_sensitivity.py` (audible:silent 4-111, memory 62-100 %,
