@@ -88,6 +88,10 @@ Watch-outs:
 
 ## Side task: 1st Liner Scholar research contest (user registered; submission 26 Oct - 8 Nov 23:59 KST)
 
+**Submitted by the user on 26 Oct 2026** (final text: `draft_ko.md` at commit c694165, title "소리 없는 방귀는 정말 더
+독한가"). Next: finalists announced 13 Nov 18:00; on-site finals 19 Nov 10:00 at the Liner office (attendance required);
+a presentation would be needed only if selected.
+
 Literature comparison of a common belief; written and exported as PDF in Liner Scholar (~10,000 characters with
 spaces, references excluded); file name `제1회 라이너 스콜라 연구공모전_논문 제목_이름`; finalists 13 Nov 18:00, on-site
 finals 19 Nov 10:00 (absence = elimination); eligibility: Korean nationality, 14+. Guideline docx: Batang body text.
