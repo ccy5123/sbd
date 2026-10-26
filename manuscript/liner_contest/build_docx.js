@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, ShadingType, AlignmentType,
-  BorderStyle, Header, Footer, PageNumber, HeadingLevel,
+  BorderStyle, Header, Footer, PageNumber, HeadingLevel, ImageRun,
 } = require("docx");
 
 const src = process.argv[2] || path.join(__dirname, "draft_ko.md");
@@ -96,6 +96,16 @@ for (let i = 0; i < lines.length; i++) {
                                 spacing: { line: 300, after: 80 } }, { size: PT(9) }));
   } else if (/^\*\*표 \d+\.\*\*/.test(l)) {
     body.push(para(l, { alignment: AlignmentType.LEFT, keepNext: true, spacing: { before: 120, after: 80 } }, { size: PT(9) }));
+  } else if (/^!\[[^\]]*\]\((.+)\)$/.test(l)) {
+    // figure: inserted at its saved size (FIGSTYLE paper onehalf = 5.5 in wide; docx-js sizes are 96 px per inch)
+    const file = path.join(path.dirname(src), l.match(/\((.+)\)$/)[1]);
+    const buf = fs.readFileSync(file);
+    const pw = buf.readUInt32BE(16), ph = buf.readUInt32BE(20);   // PNG IHDR width, height
+    const w = 5.5 * 96;
+    body.push(new Paragraph({ alignment: AlignmentType.CENTER, keepNext: true, spacing: { before: 160, after: 80 },
+      children: [new ImageRun({ type: "png", data: buf, transformation: { width: w, height: Math.round((w * ph) / pw) } })] }));
+  } else if (/^\*\*그림 \d+\.\*\*/.test(l)) {
+    body.push(para(l, { alignment: AlignmentType.LEFT, spacing: { before: 40, after: 200 } }, { size: PT(9) }));
   } else if (/^\[그림 \d/.test(l)) {
     body.push(para(l, { alignment: AlignmentType.CENTER, spacing: { before: 120, after: 160 } }, { size: PT(9) }));
   } else if (i < 6 && !l.startsWith("#")) {

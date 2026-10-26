@@ -100,6 +100,12 @@ finals 19 Nov 10:00 (absence = elimination); eligibility: Korean nationality, 14
   annotate with speech bubbles and labels, FIGSTYLE v1.2 paper `onehalf`, except the font: Batang (user's choice
   "the docs' font", from the guideline docx; one-line override note in the script). Batang is installed in the
   sbd-openfoam13 distro (`/usr/local/share/fonts/korean/batang.ttc`). No images of the film's characters.
+- **Figure 1 done (26 Oct):** `render_clouds.py` (ParaView 6.1 pvbatch, OSPRay path tracer; full-resolution iso
+  surfaces + case STLs copied from the server case sofa_rec4.5_v4_multi; A90 at t = 30.66 s, S90 at 90 s; `project`
+  mode writes the nose pixels) -> `compose_figure.py` (figenv, FIGSTYLE + Batang) -> `figures/fig1_sbd_clouds_paper`.
+  Gotchas: render once before setting the camera (the first render resets it); `Backgroundmode = "Backplate"` for a
+  white background; Batang has embedded bitmaps that render blank at ~200 dpi but fine at 600; draw label arrows
+  as separate empty annotations or the overlap check counts them as text.
 
 ## Next tasks
 
