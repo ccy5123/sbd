@@ -3,7 +3,9 @@
 # (make_case.py --mode multi), run through the segments of its 'schedule' file (each pulse with a time step that
 # resolves it, the gaps with maxDeltaT 0.1). Each segment writes exactly at its end (writeInterval = segment length,
 # counted from the segment's start time), so the next segment restarts from there.
-# Usage: run_multi.sh [runs_dir] [recline_deg] [clothing]    env: NP (4), T_PRE (90), CHECKPOINT, KEEP
+# Usage: run_multi.sh [runs_dir] [recline_deg] [clothing]    env: NP (4), T_PRE (90), CHECKPOINT, KEEP,
+#   REFINE (mesh refinement factor, e.g. 1.5: own precursor sofa_m1.5_v4_pre), RELEASES (e.g. S50: only those
+#   releases, case <P>_S50_multi; PLAN v4 E0-6)
 source /opt/openfoam13/etc/bashrc >/dev/null 2>&1
 HERE=$(cd "$(dirname "$0")" && pwd)
 RUN=${1:-$HERE/../../runs}
@@ -14,11 +16,13 @@ T_PRE=${T_PRE:-90}
 TURB=${TURB:-rans}  # les: WALE branch with six releases after 60 s of spin-up (PLAN v4 E4), from the same RANS precursor
 if [ "$REC" = "0" ]; then P=sofa; else P=sofa_rec$REC; fi
 [ "$CLOTH" = "trousers" ] && P=${P}_tr
+REFINE=${REFINE:-1}
+[ "$REFINE" != 1 ] && P=${P}_m$REFINE
 P=${P}_v4
 mkdir -p "$RUN" && cd "$RUN"
 echo "$(date -u +%H:%M) ${P} pipeline start"
 if [ ! -f ${P}_pre/constant/polyMesh/owner ]; then
-  python3 "$HERE/make_case.py" ${P}_pre --mode precursor --recline $REC --clothing $CLOTH --t-pre $T_PRE > ${P}_pre.make.log
+  python3 "$HERE/make_case.py" ${P}_pre --mode precursor --recline $REC --clothing $CLOTH --t-pre $T_PRE --refine $REFINE > ${P}_pre.make.log
   ( cd ${P}_pre
     blockMesh > log.blockMesh 2>&1
     snappyHexMesh -overwrite > log.snappy 2>&1
@@ -29,18 +33,20 @@ if [ ! -f ${P}_pre/constant/polyMesh/owner ]; then
 fi
 if [ ! -f ${P}_pre/$T_PRE/U ]; then
   ( cd ${P}_pre
+    foamDictionary system/decomposeParDict -entry numberOfSubdomains -set $NP > /dev/null
     [ -d processor0 ] || decomposePar -force > log.decomposePar 2>&1  # resume an interrupted precursor
     mpirun --allow-run-as-root -np $NP foamRun -parallel >> log.foamRun 2>&1 < /dev/null
     reconstructPar -latestTime > log.reconstructPar 2>&1
     [ -f $T_PRE/U ] && rm -rf processor[0-9]* )
   echo "$(date -u +%H:%M) ${P}_pre done"
 fi
-c=${P}_multi; [ "$TURB" = les ] && c=${P}_multi_les
+c=${P}_multi; [ -n "$RELEASES" ] && c=${P}_${RELEASES//,/}_multi; [ "$TURB" = les ] && c=${c}_les
 if [ ! -f "$c/schedule" ]; then
-  python3 "$HERE/make_case.py" "$c" --mode multi --turbulence $TURB --t-release $([ "$TURB" = les ] && echo 60.2 || echo 0.2) --recline $REC --clothing $CLOTH > "$c.make.log"
+  python3 "$HERE/make_case.py" "$c" --mode multi --turbulence $TURB --t-release $([ "$TURB" = les ] && echo 60.2 || echo 0.2) --recline $REC --clothing $CLOTH --refine $REFINE ${RELEASES:+--releases $RELEASES} > "$c.make.log"
   cp -r ${P}_pre/constant/polyMesh "$c/constant/"
   ( cd "$c"
     mapFields ../${P}_pre -sourceTime $T_PRE -consistent > log.mapFields 2>&1
+    foamDictionary system/decomposeParDict -entry numberOfSubdomains -set $NP > /dev/null
     decomposePar -force > log.decomposePar 2>&1 )
 fi
 ( cd "$c"

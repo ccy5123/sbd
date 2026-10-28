@@ -43,7 +43,9 @@ CASES = {
     "stand_still_tr_v4_multi": ("standing pair, still air", "trousers"),
     "stand_vent_tr_v4_multi": ("standing pair, office ventilation", "trousers"),
 }
-ROLE = {"releaser": "culprit", "neighbour": None}  # bystander role name from nose_distances (beside / facing)
+ROLE = {"releaser": "culprit", "neighbour": None}
+CLOTHED_SHARES = (0.7, 0.85)  # share of passages in long trousers; 1.0 is the trousers set
+MIX_SEED = 20261029  # bystander role name from nose_distances (beside / facing)
 
 
 def passages(n=rs.N_EVENTS):
@@ -64,19 +66,14 @@ def compute(n=rs.N_EVENTS, sim=None, detectors=None, gain=(1.0, 1.0)):
     if detectors is None:
         detectors = {name: (lambda A, s=obs[name][0], sd=obs[name][1]: detect(s * A, sd)) for name in rh.OBS}
     out = {"n_events": int(V.size), "JND": J, "observers": list(rh.OBS), "windows": WINDOWS, "rows": []}
-    for case, (scene, cloth) in CASES.items():
-        f = RES / f"{case}.json"
-        if not f.exists():
-            continue
-        res = json.loads(f.read_text())
+    def add_rows(case, scene, cloth, oav_of):
+        """Rows of one scene variant; oav_of(nose, win) -> OAV of every passage at that nose."""
         for nose in ("releaser", "neighbour"):
             role = "culprit" if nose == "releaser" else ("beside" if scene.startswith("sofa") else "facing")
             r = dists[scene, role]
             audible = osc if role == "culprit" else sim[f"heard_living@{r:.3f}"].astype(bool)
             for win in WINDOWS:
-                oav = np.where(osc, am.nose_oav(res, nose, win, V, M0, "audible"),
-                               am.nose_oav(res, nose, win, V, M0, "silent"))
-                A = sim["sulfur"] * oav * np.where(osc, gain[1], gain[0])
+                A = sim["sulfur"] * oav_of(nose, win) * np.where(osc, gain[1], gain[0])
                 row = {"case": case, "scene": scene, "clothing": cloth, "nose": role, "window_s": win, "distance_m": r,
                        "frac_audible": float(audible.mean()), "median_OAV_silent": float(np.median(A[~osc])),
                        "median_OAV_audible": float(np.median(A[osc])), "by_observer": {}}
@@ -89,13 +86,30 @@ def compute(n=rs.N_EVENTS, sim=None, detectors=None, gain=(1.0, 1.0)):
                                                            if mm["_total"] > 0 else None),  # nothing smelled
                                                 "memory_mass": mm}
                 out["rows"].append(row)
+
+    route = lambda res: (lambda nose, win: np.where(osc, am.nose_oav(res, nose, win, V, M0, "audible"),  # noqa: E731
+                                                    am.nose_oav(res, nose, win, V, M0, "silent")))
+    results = {case: json.loads((RES / f"{case}.json").read_text()) for case in CASES if (RES / f"{case}.json").exists()}
+    for case, res in results.items():
+        add_rows(case, *CASES[case], route(res))
+    # clothed share: each passage is clothed with probability q, independently (user's choice 29 Oct: per passage),
+    # so a silent and an audible passage of a pair may differ; variants with a trousers twin only
+    clothed_draw = np.random.default_rng(MIX_SEED).random(V.size)
+    for case, (scene, cloth) in CASES.items():
+        twin = next((c for c, (sc, cl) in CASES.items() if sc == scene and cl == "trousers"), None)
+        if cloth != "bare" or case not in results or twin not in results:
+            continue
+        bare, tro = route(results[case]), route(results[twin])
+        for q in CLOTHED_SHARES:
+            add_rows(case, scene, f"mixed {q:.2f}",
+                     lambda nose, win, q=q: np.where(clothed_draw < q, tro(nose, win), bare(nose, win)))
     weights = {"equal per scene": {k: 1.0 for k in fo.SCENES}, **frequency_weights()}
-    for cloth in ("bare", "trousers"):
+    for cloth in ("bare", "trousers", *(f"mixed {q:.2f}" for q in CLOTHED_SHARES)):
         for win in WINDOWS:
             for grp, keep in (("bystanders", lambda s: s["nose"] != "culprit"), ("culprit", lambda s: s["nose"] == "culprit")):
                 rows = [s for s in out["rows"] if keep(s) and s["clothing"] == cloth and s["window_s"] == win]
                 if rows:
-                    out[f"summary_{cloth}_{win}s_{grp}"] = {
+                    out[f"summary_{cloth.replace(' ', '')}_{win}s_{grp}"] = {
                         "n": len(rows), "scenes": sorted({s["scene"] for s in rows}),
                         "per_scene": {sc: aggregate([s for s in rows if fo.scene_of(s) == sc], None)
                                       for sc in fo.SCENES if any(fo.scene_of(s) == sc for s in rows)},

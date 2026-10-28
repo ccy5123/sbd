@@ -26,6 +26,7 @@ therefore a boundary inlet.
 
 Usage: python3 make_case.py <case_dir> --mode {precursor,silent,audible} [--V 9.2e-5 --T 2.0 --d 0.008]
        [--t-release 30 --t-end 60]   (branch cases mapped from the precursor use --t-release 1 --t-end 31)
+       [--refine 1.5] (finer background mesh)  [--releases S50] (multi: only these releases)
 """
 import argparse
 import math
@@ -147,9 +148,13 @@ LES_RELEASES = [MULTI_RELEASES[3], MULTI_RELEASES[1], MULTI_RELEASES[2], MULTI_R
 LES_GAP, LES_SPINUP, LES_WINDOW = 30.0, 60.0, 90.0
 
 
-def release_set(turbulence):
-    """(releases, gap) of a multi-release run."""
-    return (LES_RELEASES, LES_GAP) if turbulence == "les" else (MULTI_RELEASES, MULTI_GAP)
+def release_set(turbulence, only=None):
+    """(releases, gap) of a multi-release run; `only` (names) keeps just those releases, in order, the first at
+    t_release (PLAN v4 E0-6: S50 alone on the refined mesh and on the base mesh)."""
+    rels, gap = (LES_RELEASES, LES_GAP) if turbulence == "les" else (MULTI_RELEASES, MULTI_GAP)
+    if only:
+        rels = [r for r in rels if r[0] in only]
+    return rels, gap
 
 
 def block_mesh(dx=0.08):
@@ -344,12 +349,14 @@ def trousers_dicts(inner, outer, a_fabric):
 
 def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_REL, t_end: float = T_END,
          recline: float = 0.0, clothing: str = "bare", a_fabric: float = 0.030, t_pre: float = T_PRE,
-         turbulence: str = "rans"):
+         turbulence: str = "rans", refine: float = 1.0, only=None):
     troom = T_ROOM + 273.15
     rho0 = 101325 * 0.02896 / (8.314 * troom)
     multi = None
     if mode == "multi":
-        rels, gap = release_set(turbulence)
+        rels, gap = release_set(turbulence, only)
+        (case / "releases").parent.mkdir(parents=True, exist_ok=True)
+        (case / "releases").write_text("".join(r[0] + "\n" for r in rels))  # read by analyze_multi.py
         multi = [(equivalent_source(Vk, Tk, dk), t_rel + gap * i, Tk) for i, (_, Vk, Tk, dk) in enumerate(rels)]
         t_end = multi[-1][1] + (LES_WINDOW if turbulence == "les" else MULTI_WINDOW)
     src = equivalent_source(V, T, d) if mode not in ("precursor", "multi") else None
@@ -364,7 +371,9 @@ def make(case: Path, mode: str, V: float, T: float, d: float, t_rel: float = T_R
         for who, dy, rec in (("trF", DY_F, recline), ("trN", DY_N, 0.0)):
             i, o = manikin.write_trousers(geo, who, "seated", GAP, FABRIC, dy=dy, recline_deg=rec)
             inner += i; outer += o
-    w(case / "system/blockMeshDict", block_mesh())
+    # refine: background cell size / refine with the same snappy levels, so every cell shrinks by that factor
+    # (PLAN v4 E0-6 uses 1.5)
+    w(case / "system/blockMeshDict", block_mesh(0.08 / refine))
     w(case / "system/snappyHexMeshDict", snappy(outer))
     w(case / "system/createPatchDict", f"""patches
 {{
@@ -532,12 +541,15 @@ if __name__ == "__main__":
     ap.add_argument("--t-pre", type=float, default=T_PRE, help="precursor length (s)")
     ap.add_argument("--turbulence", choices=("rans", "les"), default="rans", help="les: WALE, six releases (PLAN v4 E4)")
     ap.add_argument("--fabric-a", type=float, default=0.030, help="fabric air permeability at 100 Pa (m/s); denim")
+    ap.add_argument("--refine", type=float, default=1.0, help="mesh refinement factor (background cell 0.08 m / refine)")
+    ap.add_argument("--releases", default=None, help="multi: comma-separated release names to keep (e.g. S50)")
     a = ap.parse_args()
     # defaults: silent = 92 mL over 2 s through 8 mm (u0 0.9 m/s, below acoustic onset);
     #           audible = 92 mL over 0.5 s through 2.4 mm (u0 41 m/s, above onset ~30 m/s)
     T = a.T if a.T is not None else (2.0 if a.mode != "audible" else 0.5)
     d = a.d if a.d is not None else (0.008 if a.mode != "audible" else 0.0024)
-    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline, a.clothing, a.fabric_a, a.t_pre, a.turbulence)
+    src = make(Path(a.case), a.mode, a.V, T, d, a.t_release, a.t_end, a.recline, a.clothing, a.fabric_a, a.t_pre, a.turbulence,
+               a.refine, a.releases.split(",") if a.releases else None)
     if src:
         src["stage1_end"] = min(a.t_end, math.ceil(a.t_release + T + 0.3))
     print("written", a.case, a.mode, {k: round(v, 5) for k, v in (src or {}).items()})

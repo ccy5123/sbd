@@ -15,6 +15,10 @@ $known = @{
   sofa_les       = "bash -c 'env TURB=les bash cfd/cases/sofa/run_multi.sh /root/sbd/cfd/runs 0 bare && " +
                    "bash cfd/cases/elevator/run_multi.sh /root/sbd/cfd/runs FL'"
   elev_FL        = "bash cfd/cases/elevator/run_multi.sh /root/sbd/cfd/runs FL"
+  # PLAN v4 E0-3 / E0-6 (A5): Licina 2017 chamber with the manikin unheated, then S50 alone on the base sofa mesh
+  # (needs the server's sofa_v4_pre copied to /root/sbd/cfd/runs); the server runs the heated chamber and the x1.5 mesh
+  a5_local       = "bash -c 'env T_PRE=600 bash cfd/cases/licina2017/run_licina.sh /root/sbd/cfd/runs unheated && " +
+                   "env RELEASES=S50 bash cfd/cases/sofa/run_multi.sh /root/sbd/cfd/runs 0 bare'"
 }
 if (-not $Cmd) { $Cmd = $known[$Name] }
 if (-not $Cmd) { Write-Error "unknown run '$Name' and no -Cmd given"; exit 1 }

@@ -77,11 +77,14 @@ def tail(t, s, t_rel, V, v_room, lam):
 
 
 def release_plan(case: Path):
-    """(releases, first release time, gap, window) of a multi-release case; '_les' cases use the LES set."""
+    """(releases, first release time, gap, window) of a multi-release case; '_les' cases use the LES set. A case
+    written with make_case.py --releases keeps only the releases named in its 'releases' file."""
+    f = case / "releases"
+    only = f.read_text().split() if f.exists() else None
     if case.name.endswith("_les"):
-        rels, gap = sofa_case.release_set("les")
+        rels, gap = sofa_case.release_set("les", only)
         return rels, 0.2 + sofa_case.LES_SPINUP, gap, sofa_case.LES_WINDOW
-    rels, gap = sofa_case.release_set("rans")
+    rels, gap = sofa_case.release_set("rans", only)
     return rels, 0.2, gap, sofa_case.MULTI_WINDOW
 
 
