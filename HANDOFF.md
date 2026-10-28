@@ -5,6 +5,54 @@ first; no PR watching). Commit on `main` only: `git -c user.name="Chan Young Joe
 commit`, trailer `Co-Authored-By: Claude <noreply@anthropic.com>`, no model identifiers. Server and local-PC work
 needs a **local** session (Remote Control cannot start new sessions; the desktop app can).
 
+## Brief for the next session (written 2026-10-29 04:00 KST; user's choices in brackets)
+
+Goal: finish the last CFD run, analyse it, start the A5 validation runs, and write the **first-submission PDF** of
+the J. R. Soc. Interface paper [user: draft up to the first-submission PDF; run A5 while writing]. Work in this
+order; steps 3 and 4 overlap (A5 computes for 2-3 days while you write).
+
+1. **Elevator (server `sbd-v4_elev_FL`, 18 cores, started 29 Oct 03:20 KST from 61.15 s; ~6 min per 5 s, expected
+   end ~29 Oct 07:00-08:30 KST at 240.2 s).** Check `pipeline_v4_elev_FL.log` for `pipeline done` (or `FAILED`). Then,
+   as for the LES (see "Runs" below): tar `elev_v4_FL_multi/postProcessing/noses` on the server ->
+   `cfd/results_v4/nose_probes_elev_FL.tar.xz`, extract into `cfd/runs/`, run
+   `cfd/postprocess/analyze_multi.py cfd/runs/elev_v4_FL_multi --noses FL,FR,BL,BR` in the `sbd-openfoam13` distro
+   (write a script file and run it with `wsl -d sbd-openfoam13 -e bash <file>`: inline `bash -c` with the
+   `EH R&C CY` path breaks in PowerShell), copy `multi_result.json` to `cfd/results_v4/elev_v4_FL_multi.json`.
+2. **Rerun the analysis with the elevator in:** add the elevator v4 case to `CASES` in `uq/four_outcomes_v4.py`
+   (it still waits for it, docstring line 12), then rerun `four_outcomes_v4.py`, `cfd/postprocess/routing_map.py`,
+   `uq/tail_sensitivity.py`, `uq/belief_vs_detection.py`, `uq/peak_breakeven.py`, `uq/les_peak_factor.py`; figures
+   with `/root/figenv/bin/python` (FIGSTYLE v1.2). Update the numbers in `interface_plan.md` §9.5-9.9 where they move.
+   **Ask the user** (AskUserQuestion) for the one open modelling choice: the clothed-share mixture 0.7-1.0 (per
+   passage or linear). Optional: add the elevator to the 3D viewer (task 2 below says how).
+3. **A5 validation runs on the server once the elevator is done [user: run both, 29 Oct]** (PLAN_v4_experiments.md
+   E0-6 and E0-3; `interface_plan.md` §9.3 decision 3). Split the 18 cores, e.g. 9 + 9.
+   - E0-6 mesh convergence: sofa upright, bare, silent median (S50) on a mesh refined 1.5x (now 722k cells).
+     `cfd/cases/sofa/make_case.py` has no refinement option yet: add one (blockMesh cell size / 1.5, same
+     snappy levels), run precursor + one release to the 150 s window, compare nose worst breath with
+     `sofa_v4_multi` S50; state the change as numerical uncertainty. Rough estimate 1-2 days.
+   - E0-3 Licina, Tian & Nazaroff 2017 (B&E 123:14): new case `cfd/cases/licina2017/` (seated heated manikin,
+     groin source; check the paper's chamber, ventilation and source), heated and unheated, intake fraction ratio
+     vs the paper (9.8 vs 1.2 per mille, well mixed 4.2); acceptance within a factor 1.5. Half a day to a day to
+     build, 1-2 days to run.
+   - Start them with `cfd/docker/run.sh` (detached, nice 19); the server clone `sbd-v4` is at an old commit, so copy
+     new scripts in (as `*_v4.sh`), never `git pull` there while runs read their scripts.
+4. **Manuscript, B stage (`interface_plan.md` §9.2 B1-B6), to a first-submission PDF** in `manuscript/preprint/`
+   (`main.tex` + `sections/*.tex`, `si.tex`; build with latexmk). Follow
+   `manuscript/preprint/interface_author_guidelines.md`: checklist §1 (Research article, 2,500-8,000 words incl.
+   references; abstract <= 200 words; title <= 150 characters; Vancouver references; end sections: data
+   accessibility, AI use, competing interests, funding, authors' contributions) and the 16 conflicts in §4 (C1 ESM
+   references kept minimal, C3 no main-text figure files in Zenodo/ESM, C8 AI statement in manuscript and system,
+   C13 British spelling, C15 declarations). Word budget and placement: `interface_plan.md` §2-§3. Content: v4
+   methods (multi-release, windows and tail, scene weights, trousers, elevator), headline with the LES peak-factor
+   range (§9.9: report a range, not one factor), the robustness analyses (§9.8), limitations (B3: LES with six
+   releases, plume speed bias, standing plume unvalidated, trousers model, mesh), A5 results when they land
+   (leave a marked gap until then). Figures: FIGSTYLE v1.2 (Arial; journal may restyle, C14). Writing: no run
+   labels or working terms for readers outside the project; define symbols at first use.
+   **Stop and ask the user before:** Zenodo DOI, engrXiv posting, the AI-use statement text (the author writes it),
+   anything about the Liner contest (user decided 26 Oct not to disclose it; guideline conflict C6 is for the user
+   to weigh), the title change (B5).
+5. Update this file and commit as you go (rules above).
+
 ## Where things stand
 
 - **Venue:** J. R. Soc. Interface (fallback The Science of Nature, EPJ Plus); preprint on engrXiv with full AI
