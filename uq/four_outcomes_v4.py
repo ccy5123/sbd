@@ -9,8 +9,10 @@ route changes:
     not on V).
 Windows: 150 s from the run, 300 and 600 s from the well-mixed tail (validated on the 10-minute reference runs).
 Scenes: sofa (three postures) and standing pair (still air, ventilated), bare; clothed variants are reported
-separately as they arrive (standing, still air, trousers so far). The elevator waits for its v4 run; scene weights are
-renormalised over the scenes present. RANS mean doses: the LES peak factor is not applied yet.
+separately (sofa upright, standing still and ventilated); mixed clothed shares draw each passage's clothing
+independently. Elevator: the front-row layout only (culprit front left, a person behind; v4 run elev_v4_FL_multi, four
+noses), bare. Scene weights are renormalised over the scenes present. RANS mean doses: the LES peak factor is not
+applied here (uq/les_peak_factor.py).
 Usage (repo root): python3 uq/four_outcomes_v4.py -> uq/four_outcomes_v4.json
 """
 import importlib.util
@@ -42,7 +44,10 @@ CASES = {
     "sofa_tr_v4_multi": ("sofa, upright", "trousers"),
     "stand_still_tr_v4_multi": ("standing pair, still air", "trousers"),
     "stand_vent_tr_v4_multi": ("standing pair, office ventilation", "trousers"),
+    "elev_v4_FL_multi": ("elevator, front row (person behind)", "bare"),
 }
+# probe -> role (as in four_outcomes.nose_distances); sofa and standing cases have releaser and neighbour probes
+ELEVATOR_NOSES = {"FL": "culprit", "FR": "beside", "BL": "behind", "BR": "diagonal behind"}
 ROLE = {"releaser": "culprit", "neighbour": None}
 CLOTHED_SHARES = (0.7, 0.85)  # share of passages in long trousers; 1.0 is the trousers set
 MIX_SEED = 20261029  # bystander role name from nose_distances (beside / facing)
@@ -68,8 +73,9 @@ def compute(n=rs.N_EVENTS, sim=None, detectors=None, gain=(1.0, 1.0)):
     out = {"n_events": int(V.size), "JND": J, "observers": list(rh.OBS), "windows": WINDOWS, "rows": []}
     def add_rows(case, scene, cloth, oav_of):
         """Rows of one scene variant; oav_of(nose, win) -> OAV of every passage at that nose."""
-        for nose in ("releaser", "neighbour"):
-            role = "culprit" if nose == "releaser" else ("beside" if scene.startswith("sofa") else "facing")
+        noses = (ELEVATOR_NOSES if scene.startswith("elevator") else
+                 {"releaser": "culprit", "neighbour": "beside" if scene.startswith("sofa") else "facing"})
+        for nose, role in noses.items():
             r = dists[scene, role]
             audible = osc if role == "culprit" else sim[f"heard_living@{r:.3f}"].astype(bool)
             for win in WINDOWS:

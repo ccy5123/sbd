@@ -35,12 +35,16 @@ def per_scene():
         if not f.exists():
             continue
         rel = json.loads(f.read_text())["releases"]
-        row = {"scene": scene, "clothing": cloth}
-        for lvl, r in rel.items():
-            o = r["neighbour"]["by_window"]["150"]["worst_breath_OAV_mean"]
-            row[lvl] = {"OAV": o, **({f"k_to_OAV{t:g}": (t / o if o > 0 else None) for t in TARGETS}
-                                    if r["class"] == "silent" else {})}
-        out[case] = row
+        # bystander probes: the neighbour, or each non-culprit nose of the elevator (one row per nose)
+        noses = ([n for n, role in fv.ELEVATOR_NOSES.items() if role != "culprit"] if scene.startswith("elevator")
+                 else ["neighbour"])
+        for nose in noses:
+            row = {"scene": scene, "clothing": cloth, "nose": nose}
+            for lvl, r in rel.items():
+                o = r[nose]["by_window"]["150"]["worst_breath_OAV_mean"]
+                row[lvl] = {"OAV": o, **({f"k_to_OAV{t:g}": (t / o if o > 0 else None) for t in TARGETS}
+                                        if r["class"] == "silent" else {})}
+            out[case if nose == "neighbour" else f"{case} {nose}"] = row
     return out
 
 
@@ -87,7 +91,7 @@ def main():
     for case, row in out["scenes_bystander_150s"].items():
         lv = "  ".join(f"{l} {row[l]['OAV']:.3g}" + (f" (k {row[l]['k_to_OAV1']:.3g} / {row[l]['k_to_OAV20']:.3g})"
                                                    if "k_to_OAV1" in row[l] else "") for l in ("A90", "A50", "S90", "S50"))
-        print(f"  {case:24s} {lv}")
+        print(f"  {case:27s} {lv}")
     print("(b) smallest k with silent-worse >= audible-worse (None: not reached up to 1e4)")
     for mode in ("uniform", "silent only"):
         res, curve = breakeven(sim, mode)

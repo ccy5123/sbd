@@ -5,6 +5,31 @@ first; no PR watching). Commit on `main` only: `git -c user.name="Chan Young Joe
 commit`, trailer `Co-Authored-By: Claude <noreply@anthropic.com>`, no model identifiers. Server and local-PC work
 needs a **local** session (Remote Control cannot start new sessions; the desktop app can).
 
+## Progress 2026-10-29 (session after the brief below)
+
+- **Elevator done** (server, 07:47 KST, 240.2 s); analysed: `cfd/results_v4/elev_v4_FL_multi.json`, probes
+  `nose_probes_elev_FL.tar.xz`. Every nose passes OAV 1 within 150 s; the person behind (BL) gets the most (S50 at
+  92 mL: 196). Added to `uq/four_outcomes_v4.py` (four noses: FL culprit, FR beside, BL behind, BR diagonal behind).
+  Routing map left without the elevator: its 0.3-m flux square around the release would take in the neighbours'
+  boundary layers in the 1.1-m-wide car.
+- **Clothed share (user: per passage):** each passage clothed with probability 0.70 / 0.85, independently; only
+  variants with a trousers twin (sofa upright, standing still / ventilated; user's choice), summaries
+  `summary_mixed0.70_*`, `summary_mixed0.85_*`.
+- **A5 running** (user: mesh 12 + Licina 6 on the server; base-mesh control and the unheated chamber on the local PC):
+  - server `sbd-main` (pulled to 7c4f956): container `sbd-a5_mesh15` (12 cores: `REFINE=1.5 RELEASES=S50`, case
+    `sofa_m1.5_v4_pre` + `sofa_m1.5_v4_S50_multi`, 2.22 M cells, Mesh OK) and `sbd-a5_licina_heated` (6 cores,
+    `licina2017_heated`), both started 08:11 KST; logs `sbd-main/cfd/runs/pipeline_a5_*.log`.
+  - local PC: `start_local.ps1 -Name a5_local` (WMI, 4 cores): `licina2017_unheated`, then S50 alone on the base mesh
+    (`sofa_v4_S50_multi` from the local `sofa_v4_pre`, md5-identical to the server's). Log
+    `/root/sbd/cfd/runs/pipeline_local_a5_local.log` in sbd-openfoam13. No Startup shortcut (rerun the script after a
+    reboot). The distro copy `/root/sbd` is not a git clone: new scripts were copied in (CR stripped).
+  - Licina set-up from the authors' manuscript (eScholarship qt4xc5n6hr; PDF in the user's Downloads, not in the
+    repo): chamber 4.6 x 4.6 x 2.36 m, 115 m^3/h, two ceiling supplies, exhaust at 1.8 m, 100-W seated manikin,
+    groin source 0.5 m, 10 min; assumptions in `cfd/cases/licina2017/make_case.py`. Analyse with
+    `analyze_licina.py <runs_dir>` once both chamber cases are in one runs dir (copy the probes).
+  - E0-6 compare: `analyze_multi.py` on `sofa_m1.5_v4_S50_multi` and `sofa_v4_S50_multi` (S50 at 0.2 s in both).
+- **Network:** the PC was on the wired network; `netsh wlan connect name="EH R&C"` restored the server route.
+
 ## Brief for the next session (written 2026-10-29 04:00 KST; user's choices in brackets)
 
 Goal: finish the last CFD run, analyse it, start the A5 validation runs, and write the **first-submission PDF** of
