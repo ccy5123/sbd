@@ -1,0 +1,394 @@
+{
+ "case": "sofa_tr_v4_multi_les",
+ "V0": 9.2e-05,
+ "windows": [
+  "30",
+  "60",
+  "120",
+  "150",
+  "300",
+  "600"
+ ],
+ "V_room": 26.624000000000006,
+ "lambda_per_s": 0.0,
+ "releases": {
+  "S50": {
+   "class": "silent",
+   "level": "S50",
+   "V": 0.0001221,
+   "T": 4.76,
+   "d": 0.00306,
+   "u0": 3.487995989390066,
+   "M0": 8.947149376145528e-05,
+   "u_eq": 0.53366338637668,
+   "dilution": 6.535947712418302,
+   "t_release": 60.2,
+   "window_end": 89.99958,
+   "releaser": {
+    "peak_s": 0.000371958,
+    "peak_OAV": 53.12555021279256,
+    "t_peak_s": 9.882539999999992,
+    "t_arrival_s": 9.654670999999993,
+    "time_above_OAV1_s": 11.487883499999995,
+    "exposure_s_dt": 0.00039048184080991136,
+    "worst_breath_OAV_mean": 5.040200053008299,
+    "worst_breath_OAV_max": 11.328478247880646,
+    "s_end": 8.932242574828451e-08,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 5.040200053008299,
+      "worst_breath_OAV_max": 11.328478247880646,
+      "worst_breath_OAV_mean_at_V0": 3.7976937336344263,
+      "worst_breath_OAV_max_at_V0": 8.535790326003434
+     },
+     "60": {
+      "worst_breath_OAV_mean": 5.040200053008299,
+      "worst_breath_OAV_max": 11.328478247880646,
+      "worst_breath_OAV_mean_at_V0": 3.7976937336344263,
+      "worst_breath_OAV_max_at_V0": 8.535790326003434
+     }
+    }
+   },
+   "neighbour": {
+    "peak_s": 3.0656366e-06,
+    "peak_OAV": 0.4378548952502021,
+    "t_peak_s": 80.88382,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 9.155483891881857e-06,
+    "worst_breath_OAV_mean": 0.1371508464462008,
+    "worst_breath_OAV_max": 0.22359079230594897,
+    "s_end": 6.11382939427615e-07,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 2.005140836170804e-06,
+      "worst_breath_OAV_max": 3.7875389229932835e-06,
+      "worst_breath_OAV_mean_at_V0": 1.5108350280730054e-06,
+      "worst_breath_OAV_max_at_V0": 2.8538376815346606e-06
+     },
+     "60": {
+      "worst_breath_OAV_mean": 0.0008827951133673934,
+      "worst_breath_OAV_max": 0.0013366294947584328,
+      "worst_breath_OAV_mean_at_V0": 0.0006651691271891907,
+      "worst_breath_OAV_max_at_V0": 0.0010071245988351825
+     }
+    }
+   }
+  },
+  "A50": {
+   "class": "audible",
+   "level": "A50",
+   "V": 8.62e-05,
+   "T": 0.42,
+   "d": 0.00167,
+   "u0": 93.69904225438859,
+   "M0": 0.019230612957924515,
+   "u_eq": 7.823870028241448,
+   "dilution": 11.976047904191615,
+   "t_release": 90.2,
+   "window_end": 89.99719,
+   "releaser": {
+    "peak_s": 0.0011534357,
+    "peak_OAV": 164.74146596545185,
+    "t_peak_s": 4.423894000000004,
+    "t_arrival_s": 2.230435,
+    "time_above_OAV1_s": 53.67665000000001,
+    "exposure_s_dt": 0.0034176442653912715,
+    "worst_breath_OAV_mean": 36.15788963213901,
+    "worst_breath_OAV_max": 60.026725317702045,
+    "s_end": 3.065863156720203e-06,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 36.15788963213901,
+      "worst_breath_OAV_max": 60.026725317702045,
+      "worst_breath_OAV_mean_at_V0": 38.59078707838503,
+      "worst_breath_OAV_max_at_V0": 64.0656465107725
+     },
+     "60": {
+      "worst_breath_OAV_mean": 36.15788963213901,
+      "worst_breath_OAV_max": 60.026725317702045,
+      "worst_breath_OAV_mean_at_V0": 38.59078707838503,
+      "worst_breath_OAV_max_at_V0": 64.0656465107725
+     }
+    }
+   },
+   "neighbour": {
+    "peak_s": 4.822045e-05,
+    "peak_OAV": 6.8871698894994955,
+    "t_peak_s": 9.706603000000001,
+    "t_arrival_s": 5.58294699999999,
+    "time_above_OAV1_s": 23.447172000000016,
+    "exposure_s_dt": 0.0004984718893926601,
+    "worst_breath_OAV_mean": 3.267558118859329,
+    "worst_breath_OAV_max": 4.570275126529605,
+    "s_end": 4.6509057134404064e-07,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 2.61246933377208,
+      "worst_breath_OAV_max": 4.570275126529605,
+      "worst_breath_OAV_mean_at_V0": 2.7882503330282065,
+      "worst_breath_OAV_max_at_V0": 4.877787838059439
+     },
+     "60": {
+      "worst_breath_OAV_mean": 3.267558118859329,
+      "worst_breath_OAV_max": 4.570275126529605,
+      "worst_breath_OAV_mean_at_V0": 3.487417017808101,
+      "worst_breath_OAV_max_at_V0": 4.877787838059439
+     }
+    }
+   }
+  },
+  "S90": {
+   "class": "silent",
+   "level": "S90",
+   "V": 6.64e-05,
+   "T": 0.65,
+   "d": 0.00245,
+   "u0": 21.668690807141846,
+   "M0": 0.0022135401070680284,
+   "u_eq": 2.6544146238748763,
+   "dilution": 8.16326530612245,
+   "t_release": 120.2,
+   "window_end": 89.99981999999999,
+   "releaser": {
+    "peak_s": 0.00010917473,
+    "peak_OAV": 15.593071262301311,
+    "t_peak_s": 13.660359999999983,
+    "t_arrival_s": 4.2733499999999935,
+    "time_above_OAV1_s": 36.15218999999998,
+    "exposure_s_dt": 0.0010002627714478206,
+    "worst_breath_OAV_mean": 6.873276326168518,
+    "worst_breath_OAV_max": 11.404371347135655,
+    "s_end": 3.510155545218945e-06,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 7.230832823647169,
+      "worst_breath_OAV_max": 13.931588288533419,
+      "worst_breath_OAV_mean_at_V0": 10.018623791800294,
+      "worst_breath_OAV_max_at_V0": 19.30280305037763
+     },
+     "60": {
+      "worst_breath_OAV_mean": 6.873276326168518,
+      "worst_breath_OAV_max": 11.404371347135655,
+      "worst_breath_OAV_mean_at_V0": 9.523214186859994,
+      "worst_breath_OAV_max_at_V0": 15.801237408681931
+     }
+    }
+   },
+   "neighbour": {
+    "peak_s": 2.8107555e-06,
+    "peak_OAV": 0.40145105751491533,
+    "t_peak_s": 17.935140000000004,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 3.232161794127244e-06,
+    "worst_breath_OAV_mean": 0.059382410863148376,
+    "worst_breath_OAV_max": 0.12658529368121355,
+    "s_end": 6.950000772537979e-08,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 0.052438156863861524,
+      "worst_breath_OAV_max": 0.12658529368121355,
+      "worst_breath_OAV_mean_at_V0": 0.07265527758245874,
+      "worst_breath_OAV_max_at_V0": 0.17538926232939225
+     },
+     "60": {
+      "worst_breath_OAV_mean": 0.052438156863861524,
+      "worst_breath_OAV_max": 0.12658529368121355,
+      "worst_breath_OAV_mean_at_V0": 0.07265527758245874,
+      "worst_breath_OAV_max_at_V0": 0.17538926232939225
+     }
+    }
+   }
+  },
+  "A90": {
+   "class": "audible",
+   "level": "A90",
+   "V": 0.0002788,
+   "T": 0.34,
+   "d": 0.00254,
+   "u0": 161.82906979397873,
+   "M0": 0.13269983723106255,
+   "u_eq": 20.5522918638353,
+   "dilution": 7.8740157480314945,
+   "t_release": 150.2,
+   "window_end": 89.99626,
+   "releaser": {
+    "peak_s": 0.003706212,
+    "peak_OAV": 529.3461942080944,
+    "t_peak_s": 7.713860000000011,
+    "t_arrival_s": 1.2189900000000193,
+    "time_above_OAV1_s": 85.46802,
+    "exposure_s_dt": 0.010452766133159394,
+    "worst_breath_OAV_mean": 124.81988203654393,
+    "worst_breath_OAV_max": 300.3979945978694,
+    "s_end": 1.260705704457944e-05,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 124.81988203654393,
+      "worst_breath_OAV_max": 300.3979945978694,
+      "worst_breath_OAV_mean_at_V0": 41.18877025596141,
+      "worst_breath_OAV_max_at_V0": 99.12702834649923
+     },
+     "60": {
+      "worst_breath_OAV_mean": 124.81988203654393,
+      "worst_breath_OAV_max": 300.3979945978694,
+      "worst_breath_OAV_mean_at_V0": 41.18877025596141,
+      "worst_breath_OAV_max_at_V0": 99.12702834649923
+     }
+    }
+   },
+   "neighbour": {
+    "peak_s": 0.0001983777,
+    "peak_OAV": 28.33364106283048,
+    "t_peak_s": 20.574489999999997,
+    "t_arrival_s": 7.070830000000001,
+    "time_above_OAV1_s": 58.287530000000004,
+    "exposure_s_dt": 0.0025196223548679493,
+    "worst_breath_OAV_mean": 14.001553924524584,
+    "worst_breath_OAV_max": 22.54614474339682,
+    "s_end": 2.3417035329906542e-06,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 13.77096911359323,
+      "worst_breath_OAV_max": 22.54614474339682,
+      "worst_breath_OAV_mean_at_V0": 4.544222232606087,
+      "worst_breath_OAV_max_at_V0": 7.439904291221332
+     },
+     "60": {
+      "worst_breath_OAV_mean": 14.001553924524584,
+      "worst_breath_OAV_max": 22.54614474339682,
+      "worst_breath_OAV_mean_at_V0": 4.620311911966506,
+      "worst_breath_OAV_max_at_V0": 7.439904291221332
+     }
+    }
+   }
+  },
+  "S50b": {
+   "class": "silent",
+   "level": "S50b",
+   "V": 0.0001221,
+   "T": 4.76,
+   "d": 0.00306,
+   "u0": 3.487995989390066,
+   "M0": 8.947149376145528e-05,
+   "u_eq": 0.53366338637668,
+   "dilution": 6.535947712418302,
+   "t_release": 180.2,
+   "window_end": 89.99903,
+   "releaser": {
+    "peak_s": 0.00065764925,
+    "peak_OAV": 93.92990136865015,
+    "t_peak_s": 8.910090000000025,
+    "t_arrival_s": 7.634630000000016,
+    "time_above_OAV1_s": 8.577024999999978,
+    "exposure_s_dt": 0.0013243165742175364,
+    "worst_breath_OAV_mean": 26.114285527331607,
+    "worst_breath_OAV_max": 54.3640053813442,
+    "s_end": 2.83651199068484e-07,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 26.114285527331607,
+      "worst_breath_OAV_max": 54.3640053813442,
+      "worst_breath_OAV_mean_at_V0": 19.67661153574535,
+      "worst_breath_OAV_max_at_V0": 40.962231736966956
+     },
+     "60": {
+      "worst_breath_OAV_mean": 26.114285527331607,
+      "worst_breath_OAV_max": 54.3640053813442,
+      "worst_breath_OAV_mean_at_V0": 19.67661153574535,
+      "worst_breath_OAV_max_at_V0": 40.962231736966956
+     }
+    }
+   },
+   "neighbour": {
+    "peak_s": 7.6586099e-08,
+    "peak_OAV": 0.010938543190431185,
+    "t_peak_s": 31.11748,
+    "t_arrival_s": null,
+    "time_above_OAV1_s": 0.0,
+    "exposure_s_dt": 1.9832862231895392e-07,
+    "worst_breath_OAV_mean": 0.002958835627902766,
+    "worst_breath_OAV_max": 0.005110334944073369,
+    "s_end": 1.7619029116347033e-08,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 0.00013462012079188957,
+      "worst_breath_OAV_max": 0.00022466263595915202,
+      "worst_breath_OAV_mean_at_V0": 0.00010143367004794298,
+      "worst_breath_OAV_max_at_V0": 0.00016927897222147406
+     },
+     "60": {
+      "worst_breath_OAV_mean": 0.0017104561820023272,
+      "worst_breath_OAV_max": 0.004154461418821728,
+      "worst_breath_OAV_mean_at_V0": 0.0012887958128109261,
+      "worst_breath_OAV_max_at_V0": 0.0031303067201605152
+     }
+    }
+   }
+  },
+  "A50b": {
+   "class": "audible",
+   "level": "A50b",
+   "V": 8.62e-05,
+   "T": 0.42,
+   "d": 0.00167,
+   "u0": 93.69904225438859,
+   "M0": 0.019230612957924515,
+   "u_eq": 7.823870028241448,
+   "dilution": 11.976047904191615,
+   "t_release": 210.2,
+   "window_end": 90.0,
+   "releaser": {
+    "peak_s": 0.0015745284,
+    "peak_OAV": 224.88476541885896,
+    "t_peak_s": 4.128290000000021,
+    "t_arrival_s": 2.0177300000000002,
+    "time_above_OAV1_s": 32.98978499999997,
+    "exposure_s_dt": 0.002343969439886328,
+    "worst_breath_OAV_mean": 43.304883452367655,
+    "worst_breath_OAV_max": 121.77196665521483,
+    "s_end": 1.3205838627169827e-06,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 43.304883452367655,
+      "worst_breath_OAV_max": 121.77196665521483,
+      "worst_breath_OAV_mean_at_V0": 46.21866911389588,
+      "worst_breath_OAV_max_at_V0": 129.96544004964923
+     },
+     "60": {
+      "worst_breath_OAV_mean": 43.304883452367655,
+      "worst_breath_OAV_max": 121.77196665521483,
+      "worst_breath_OAV_mean_at_V0": 46.21866911389588,
+      "worst_breath_OAV_max_at_V0": 129.96544004964923
+     }
+    }
+   },
+   "neighbour": {
+    "peak_s": 5.6055229e-05,
+    "peak_OAV": 8.006185867568613,
+    "t_peak_s": 5.147540000000021,
+    "t_arrival_s": 4.429150000000021,
+    "time_above_OAV1_s": 4.219694999999973,
+    "exposure_s_dt": 0.00011633110381693798,
+    "worst_breath_OAV_mean": 1.540245444179067,
+    "worst_breath_OAV_max": 2.651202788985924,
+    "s_end": 1.1163344527547826e-06,
+    "by_window": {
+     "30": {
+      "worst_breath_OAV_mean": 1.540245444179067,
+      "worst_breath_OAV_max": 2.651202788985924,
+      "worst_breath_OAV_mean_at_V0": 1.6438814485437838,
+      "worst_breath_OAV_max_at_V0": 2.8295899836044667
+     },
+     "60": {
+      "worst_breath_OAV_mean": 1.540245444179067,
+      "worst_breath_OAV_max": 2.651202788985924,
+      "worst_breath_OAV_mean_at_V0": 1.6438814485437838,
+      "worst_breath_OAV_max_at_V0": 2.8295899836044667
+     }
+    }
+   }
+  }
+ }
+}

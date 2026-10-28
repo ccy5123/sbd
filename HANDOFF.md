@@ -1,4 +1,4 @@
-# Status 2026-10-25 (read this first; the sections below are the history behind it)
+# Status 2026-10-29 (read this first; the sections below are the history behind it)
 
 **Session rules:** CLAUDE.md (say local vs cloud first; Korean; clarify with AskUserQuestion, recommended option
 first; no PR watching). Commit on `main` only: `git -c user.name="Chan Young Joe" -c user.email="ccy5123ccy@gmail.com"
@@ -25,7 +25,25 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   76-94%, direction never flips); A3 text plan. A5 (E0-6 mesh x1.5 run, E0-3 Licina 2017 chamber, heated and
   unheated) is approved for after ~29 Oct when cores free up.
 
-## Runs in progress (as of 2026-10-26 09:20 KST)
+## Runs (as of 2026-10-29 03:25 KST)
+
+**Both sofa LES done:** bare (local) 28 Oct 07:01 KST, trousers (server) 28 Oct 12:54 KST, both to 300.2 s; analysed
+29 Oct (`cfd/results_v4/sofa_v4_multi_les.json`, `sofa_tr_v4_multi_les.json`, nose probes `nose_probes_sofa_les.tar.xz`,
+`nose_probes_sofa_tr_les.tar.xz`; peak factors in next task 3). Full LES cases (iso-surfaces 12 GB on the server) stay
+where they ran.
+
+**Elevator moved to the server (user's request, 29 Oct):** the local chain ran it after the bare LES (precursor to
+90 s, then the multi run on 4 cores, ~29 s/step, to 61.15 s). At the 61.15-s checkpoint (03:18 KST) the scratchpad
+script `move_elev.sh` killed its mpirun by working directory, reconstructed 61.15, copied the case without
+processor dirs plus `elev_v4_pre/constant/polyMesh` and `90/` (695 MB tar) to `sbd-v4/cfd/runs/`, copied the local
+`elevator/run_multi.sh` as `sbd-v4/cfd/cases/elevator/run_multi_v4.sh` (md5 7c178930), decomposed into 18 and started
+container `sbd-v4_elev_FL` (NP=18 T_PRE=90 CHECKPOINT=5 KEEP=3; log `pipeline_v4_elev_FL.log`) at 03:20. On 18 cores
+~8.3 s/step (3.5x local): expected end **~29 Oct 08:30 KST** (240.2 s; one more pulse at 90.15 s). The local copy
+(`/root/sbd/cfd/runs/elev_v4_FL_multi`, stopped at 61.15) is stale; do not resume it. The Startup shortcut `sbd local
+CFD resume.lnk` was deleted 29 Oct (it would have resumed the elevator locally). Nothing runs on the local PC now.
+Analyse the elevator with `analyze_multi.py <case> --noses FL,FR,BL,BR`. After it ends the server is free for A5.
+
+History of the runs below (26 Oct state).
 
 RANS multi-release runs end at 240.2 s, the LES at 300.2 s. Pipeline log times are UTC (`date -u`): 06:54 = 15:54 KST.
 LES releases: S50 60.2, A50 90.2, S90 120.2, A90 150.2, S50b 180.2, A50b 210.2 s. The pulses are slow, A90 most of
@@ -138,7 +156,12 @@ finals 19 Nov 10:00 (absence = elimination); eligibility: Korean nationality, 14
    add a `RUN_LABELS` entry in index.html, and publish only the new files (<= 64 MB per publish; use the long
    `C:\Users\EH R&C CY\...` path, the 8.3 short path is refused). `sofa_tr_v4_multi` wrote no iso-surfaces, so it
    has planes only.
-3. LES peak factors from the two sofa LES runs, then the headline with peak factors.
+3. **[DONE 2026-10-29, `interface_plan.md` §9.9]** LES peak factors (`uq/les_peak_factor.py`, LES / RANS worst
+   breath, 60 s window): near the thresholds (RANS >= OAV 0.01) silent 2.2 [1.0-6.6], audible 1.3 [0.27-64], ratio
+   ~1.7 << the break-even 14; headline with them 1.0 / 8.1 %, memory 90.5 %. All-level silent geomean 13.9 (from
+   RANS levels ~0) nearly ties (office bound flips); adverse combination (6.6 / 0.27) flips physics (3.4 / 2.3 %),
+   memory stays >= 90 % everywhere. Realisation spread (S50 vs S50b etc.) is ~20x, so treat the factor as a
+   distribution. Still open: per-passage factor draws (PLAN §5) and the trousers mix.
 4. A5 validation runs after ~29 Oct; then the B stage (rewrite Methods/Results/figures on v4, fill gaps, title check,
    Zenodo with the user's OK, AI statement by the author).
 

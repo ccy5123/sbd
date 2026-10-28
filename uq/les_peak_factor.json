@@ -1,0 +1,1079 @@
+{
+ "level_min": 0.01,
+ "rows": [
+  {
+   "clothing": "bare",
+   "release": "S50",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 2.4185279253136607e-06,
+   "RANS": 0.001082153587433025,
+   "factor": 0.0022349211363339354
+  },
+  {
+   "clothing": "bare",
+   "release": "S50",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 0.36828342939812486,
+   "RANS": 0.001082153587433025,
+   "factor": 340.32454697279104
+  },
+  {
+   "clothing": "bare",
+   "release": "S50",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 6.378892543210106e-12,
+   "RANS": 5.919702573127671e-08,
+   "factor": 0.00010775697705095718
+  },
+  {
+   "clothing": "bare",
+   "release": "S50",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 0.09585752529690153,
+   "RANS": 8.756290550756645e-06,
+   "factor": 10947.275531945239
+  },
+  {
+   "clothing": "bare",
+   "release": "A50",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 3.364927952885985,
+   "RANS": 6.259928390397478,
+   "factor": 0.5375345759621903
+  },
+  {
+   "clothing": "bare",
+   "release": "A50",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 5.917711666934571,
+   "RANS": 6.259928390397478,
+   "factor": 0.945332166420968
+  },
+  {
+   "clothing": "bare",
+   "release": "A50",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 6.823781914799212,
+   "RANS": 0.10666288334786343,
+   "factor": 63.97522456377417
+  },
+  {
+   "clothing": "bare",
+   "release": "A50",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 6.823781914799212,
+   "RANS": 0.10666288334786343,
+   "factor": 63.97522456377417
+  },
+  {
+   "clothing": "bare",
+   "release": "S90",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 7.18885384202583,
+   "RANS": 4.9090041791385906,
+   "factor": 1.4644220252603855
+  },
+  {
+   "clothing": "bare",
+   "release": "S90",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 7.18885384202583,
+   "RANS": 6.580619618338265,
+   "factor": 1.0924281084402134
+  },
+  {
+   "clothing": "bare",
+   "release": "S90",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 0.005016110704258979,
+   "RANS": 0.017266899084013024,
+   "factor": 0.29050443162103534
+  },
+  {
+   "clothing": "bare",
+   "release": "S90",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 0.058120399555742074,
+   "RANS": 0.021968116971037482,
+   "factor": 2.645670524804987
+  },
+  {
+   "clothing": "bare",
+   "release": "A90",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 18.22620365146976,
+   "RANS": 48.85956334100995,
+   "factor": 0.3730324711308199
+  },
+  {
+   "clothing": "bare",
+   "release": "A90",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 18.22620365146976,
+   "RANS": 48.85956334100995,
+   "factor": 0.3730324711308199
+  },
+  {
+   "clothing": "bare",
+   "release": "A90",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 28.473909314285105,
+   "RANS": 16.86366054809708,
+   "factor": 1.688477376135168
+  },
+  {
+   "clothing": "bare",
+   "release": "A90",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 29.061854388734137,
+   "RANS": 16.86366054809708,
+   "factor": 1.7233419936227024
+  },
+  {
+   "clothing": "bare",
+   "release": "S50b",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 2.571509713512112e-07,
+   "RANS": 0.001082153587433025,
+   "factor": 0.00023762890437872011
+  },
+  {
+   "clothing": "bare",
+   "release": "S50b",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 0.0036063441134184574,
+   "RANS": 0.001082153587433025,
+   "factor": 3.3325621753683423
+  },
+  {
+   "clothing": "bare",
+   "release": "S50b",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 2.0387941807928057e-10,
+   "RANS": 5.919702573127671e-08,
+   "factor": 0.0034440821233956186
+  },
+  {
+   "clothing": "bare",
+   "release": "S50b",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 0.005340382451678485,
+   "RANS": 8.756290550756645e-06,
+   "factor": 609.8909601871324
+  },
+  {
+   "clothing": "bare",
+   "release": "A50b",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 1.5992670924551122,
+   "RANS": 6.259928390397478,
+   "factor": 0.2554768988904625
+  },
+  {
+   "clothing": "bare",
+   "release": "A50b",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 1.7089465995063973,
+   "RANS": 6.259928390397478,
+   "factor": 0.2729977873433607
+  },
+  {
+   "clothing": "bare",
+   "release": "A50b",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 0.3437762479677058,
+   "RANS": 0.10666288334786343,
+   "factor": 3.223016640629676
+  },
+  {
+   "clothing": "bare",
+   "release": "A50b",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 0.3437762479677058,
+   "RANS": 0.10666288334786343,
+   "factor": 3.223016640629676
+  },
+  {
+   "clothing": "trousers",
+   "release": "S50",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 5.040200053008299,
+   "RANS": 4.973412072645325,
+   "factor": 1.0134290059595745
+  },
+  {
+   "clothing": "trousers",
+   "release": "S50",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 5.040200053008299,
+   "RANS": 4.973412072645325,
+   "factor": 1.0134290059595745
+  },
+  {
+   "clothing": "trousers",
+   "release": "S50",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 2.005140836170804e-06,
+   "RANS": 1.5744401702409004e-05,
+   "factor": 0.12735579757622695
+  },
+  {
+   "clothing": "trousers",
+   "release": "S50",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 0.0008827951133673934,
+   "RANS": 0.0001659793630183165,
+   "factor": 5.318704068468882
+  },
+  {
+   "clothing": "trousers",
+   "release": "A50",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 36.15788963213901,
+   "RANS": 63.889252724457414,
+   "factor": 0.5659463538896179
+  },
+  {
+   "clothing": "trousers",
+   "release": "A50",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 36.15788963213901,
+   "RANS": 63.889252724457414,
+   "factor": 0.5659463538896179
+  },
+  {
+   "clothing": "trousers",
+   "release": "A50",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 2.61246933377208,
+   "RANS": 1.000380344904622,
+   "factor": 2.6114760721544936
+  },
+  {
+   "clothing": "trousers",
+   "release": "A50",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 3.267558118859329,
+   "RANS": 1.000380344904622,
+   "factor": 3.2663157922908446
+  },
+  {
+   "clothing": "trousers",
+   "release": "S90",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 7.230832823647169,
+   "RANS": 1.0461315063471155,
+   "factor": 6.911973093034745
+  },
+  {
+   "clothing": "trousers",
+   "release": "S90",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 6.873276326168518,
+   "RANS": 1.0461315063471155,
+   "factor": 6.57018384827032
+  },
+  {
+   "clothing": "trousers",
+   "release": "S90",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 0.052438156863861524,
+   "RANS": 0.04301292294706099,
+   "factor": 1.2191256318107195
+  },
+  {
+   "clothing": "trousers",
+   "release": "S90",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 0.052438156863861524,
+   "RANS": 0.04301292294706099,
+   "factor": 1.2191256318107195
+  },
+  {
+   "clothing": "trousers",
+   "release": "A90",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 124.81988203654393,
+   "RANS": 114.8624773305888,
+   "factor": 1.0866897958094397
+  },
+  {
+   "clothing": "trousers",
+   "release": "A90",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 124.81988203654393,
+   "RANS": 114.8624773305888,
+   "factor": 1.0866897958094397
+  },
+  {
+   "clothing": "trousers",
+   "release": "A90",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 13.77096911359323,
+   "RANS": 43.1069611600849,
+   "factor": 0.31946044775581456
+  },
+  {
+   "clothing": "trousers",
+   "release": "A90",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 14.001553924524584,
+   "RANS": 43.1069611600849,
+   "factor": 0.3248095794210006
+  },
+  {
+   "clothing": "trousers",
+   "release": "S50b",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 26.114285527331607,
+   "RANS": 4.973412072645325,
+   "factor": 5.250778569297514
+  },
+  {
+   "clothing": "trousers",
+   "release": "S50b",
+   "class": "silent",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 26.114285527331607,
+   "RANS": 4.973412072645325,
+   "factor": 5.250778569297514
+  },
+  {
+   "clothing": "trousers",
+   "release": "S50b",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 0.00013462012079188957,
+   "RANS": 1.5744401702409004e-05,
+   "factor": 8.550348456320938
+  },
+  {
+   "clothing": "trousers",
+   "release": "S50b",
+   "class": "silent",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 0.0017104561820023272,
+   "RANS": 0.0001659793630183165,
+   "factor": 10.305234041737897
+  },
+  {
+   "clothing": "trousers",
+   "release": "A50b",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "30",
+   "LES": 43.304883452367655,
+   "RANS": 63.889252724457414,
+   "factor": 0.6778117070665022
+  },
+  {
+   "clothing": "trousers",
+   "release": "A50b",
+   "class": "audible",
+   "nose": "releaser",
+   "window": "60",
+   "LES": 43.304883452367655,
+   "RANS": 63.889252724457414,
+   "factor": 0.6778117070665022
+  },
+  {
+   "clothing": "trousers",
+   "release": "A50b",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "30",
+   "LES": 1.540245444179067,
+   "RANS": 1.000380344904622,
+   "factor": 1.5396598424031578
+  },
+  {
+   "clothing": "trousers",
+   "release": "A50b",
+   "class": "audible",
+   "nose": "neighbour",
+   "window": "60",
+   "LES": 1.540245444179067,
+   "RANS": 1.000380344904622,
+   "factor": 1.5396598424031578
+  }
+ ],
+ "summary": {
+  "30": {
+   "silent releaser": {
+    "all": {
+     "n": 6,
+     "geomean": 0.17488039772106342,
+     "min": 0.00023762890437872011,
+     "max": 6.911973093034745
+    },
+    "near_threshold": {
+     "n": 4,
+     "geomean": 2.7090768889462233,
+     "min": 1.0134290059595745,
+     "max": 6.911973093034745
+    }
+   },
+   "silent neighbour": {
+    "all": {
+     "n": 6,
+     "geomean": 0.07232477802051952,
+     "min": 0.00010775697705095718,
+     "max": 8.550348456320938
+    },
+    "near_threshold": {
+     "n": 2,
+     "geomean": 0.5951146097549687,
+     "min": 0.29050443162103534,
+     "max": 1.2191256318107195
+    }
+   },
+   "audible releaser": {
+    "all": {
+     "n": 6,
+     "geomean": 0.526723182348374,
+     "min": 0.2554768988904625,
+     "max": 1.0866897958094397
+    },
+    "near_threshold": {
+     "n": 6,
+     "geomean": 0.526723182348374,
+     "min": 0.2554768988904625,
+     "max": 1.0866897958094397
+    }
+   },
+   "audible neighbour": {
+    "all": {
+     "n": 6,
+     "geomean": 2.7653467158942213,
+     "min": 0.31946044775581456,
+     "max": 63.97522456377417
+    },
+    "near_threshold": {
+     "n": 6,
+     "geomean": 2.7653467158942213,
+     "min": 0.31946044775581456,
+     "max": 63.97522456377417
+    }
+   },
+   "silent both noses": {
+    "all": {
+     "n": 12,
+     "geomean": 0.11246415404614969,
+     "min": 0.00010775697705095718,
+     "max": 8.550348456320938
+    },
+    "near_threshold": {
+     "n": 6,
+     "geomean": 1.63461102928735,
+     "min": 0.29050443162103534,
+     "max": 6.911973093034745
+    }
+   },
+   "audible both noses": {
+    "all": {
+     "n": 12,
+     "geomean": 1.2068853394139931,
+     "min": 0.2554768988904625,
+     "max": 63.97522456377417
+    },
+    "near_threshold": {
+     "n": 12,
+     "geomean": 1.2068853394139931,
+     "min": 0.2554768988904625,
+     "max": 63.97522456377417
+    }
+   }
+  },
+  "60": {
+   "silent releaser": {
+    "all": {
+     "n": 6,
+     "geomean": 5.926202578223457,
+     "min": 1.0134290059595745,
+     "max": 340.32454697279104
+    },
+    "near_threshold": {
+     "n": 4,
+     "geomean": 2.4859755655537703,
+     "min": 1.0134290059595745,
+     "max": 6.57018384827032
+    }
+   },
+   "silent neighbour": {
+    "all": {
+     "n": 6,
+     "geomean": 32.508806500107895,
+     "min": 1.2191256318107195,
+     "max": 10947.275531945239
+    },
+    "near_threshold": {
+     "n": 2,
+     "geomean": 1.7959411878221063,
+     "min": 1.2191256318107195,
+     "max": 2.645670524804987
+    }
+   },
+   "audible releaser": {
+    "all": {
+     "n": 6,
+     "geomean": 0.5851223494488685,
+     "min": 0.2729977873433607,
+     "max": 1.0866897958094397
+    },
+    "near_threshold": {
+     "n": 6,
+     "geomean": 0.5851223494488685,
+     "min": 0.2729977873433607,
+     "max": 1.0866897958094397
+    }
+   },
+   "audible neighbour": {
+    "all": {
+     "n": 6,
+     "geomean": 2.888193391982491,
+     "min": 0.3248095794210006,
+     "max": 63.97522456377417
+    },
+    "near_threshold": {
+     "n": 6,
+     "geomean": 2.888193391982491,
+     "min": 0.3248095794210006,
+     "max": 63.97522456377417
+    }
+   },
+   "silent both noses": {
+    "all": {
+     "n": 12,
+     "geomean": 13.879977409776536,
+     "min": 1.0134290059595745,
+     "max": 10947.275531945239
+    },
+    "near_threshold": {
+     "n": 6,
+     "geomean": 2.2306354882718304,
+     "min": 1.0134290059595745,
+     "max": 6.57018384827032
+    }
+   },
+   "audible both noses": {
+    "all": {
+     "n": 12,
+     "geomean": 1.2999794241369715,
+     "min": 0.2729977873433607,
+     "max": 63.97522456377417
+    },
+    "near_threshold": {
+     "n": 12,
+     "geomean": 1.2999794241369715,
+     "min": 0.2729977873433607,
+     "max": 63.97522456377417
+    }
+   }
+  }
+ },
+ "realisation_spread": {
+  "30": {
+   "S50 bare releaser": 0.10632540921265614,
+   "S50 bare neighbour": 31.961569613881682,
+   "S50 trousers releaser": 5.18120020092159,
+   "S50 trousers neighbour": 67.13748898006195,
+   "A50 bare releaser": 0.4752752851910172,
+   "A50 bare neighbour": 0.05037913758968971,
+   "A50 trousers releaser": 1.1976607012450202,
+   "A50 trousers neighbour": 0.5895745547202824
+  },
+  "60": {
+   "S50 bare releaser": 0.00979230621185483,
+   "S50 bare neighbour": 0.05571166619561277,
+   "S50 trousers releaser": 5.18120020092159,
+   "S50 trousers neighbour": 1.9375460467580607,
+   "A50 bare releaser": 0.2887850398415317,
+   "A50 bare neighbour": 0.05037913758968971,
+   "A50 trousers releaser": 1.1976607012450202,
+   "A50 trousers neighbour": 0.4713750721951201
+  }
+ },
+ "silent_bystander_max_LES": {
+  "bare": {
+   "S50": {
+    "60": 0.09585752529690153,
+    "90": 0.44199131574852113,
+    "peak": 1.1804239369312726
+   },
+   "S90": {
+    "60": 0.058120399555742074,
+    "90": 0.08535035541381568,
+    "peak": 0.29045166768735653
+   },
+   "S50b": {
+    "60": 0.005340382451678485,
+    "90": 0.021662097344050352,
+    "peak": 0.04695784576792232
+   }
+  },
+  "trousers": {
+   "S50": {
+    "60": 0.0008827951133673934,
+    "90": 0.1371508464462008,
+    "peak": 0.4378548952502021
+   },
+   "S90": {
+    "60": 0.052438156863861524,
+    "90": 0.059382410863148376,
+    "peak": 0.40145105751491533
+   },
+   "S50b": {
+    "60": 0.0017104561820023272,
+    "90": 0.002958835627902766,
+    "peak": 0.010938543190431185
+   }
+  }
+ },
+ "headline": {
+  "none": {
+   "gain_silent_audible": [
+    1.0,
+    1.0
+   ],
+   "attentive, | frequency, central": {
+    "physics": {
+     "none": 0.9281078617281265,
+     "silent_worse": 0.003931962977356609,
+     "audible_worse": 0.06792325800217727,
+     "tie": 3.691729233956387e-05
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9146235250294739,
+     "audible_worse": 0.0767890533064353,
+     "tie": 0.0085874216640909
+    }
+   },
+   "attentive, | frequency, home": {
+    "physics": {
+     "none": 0.9114067905028406,
+     "silent_worse": 0.004752968292082115,
+     "audible_worse": 0.08379469458528412,
+     "tie": 4.5546619793084234e-05
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9130140227491399,
+     "audible_worse": 0.07823677043852251,
+     "tie": 0.008749206812337597
+    }
+   },
+   "attentive, | frequency, office": {
+    "physics": {
+     "none": 0.9658264646161516,
+     "silent_worse": 0.002077760153036925,
+     "audible_worse": 0.032078346878493896,
+     "tie": 1.7428352317724392e-05
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9230299377718546,
+     "audible_worse": 0.06922764261740158,
+     "tie": 0.00774241961074379
+    }
+   },
+   "distracted | frequency, central": {
+    "physics": {
+     "none": 0.9846316413383731,
+     "silent_worse": 0.0010756950272098333,
+     "audible_worse": 0.014291329570530774,
+     "tie": 1.334063886449261e-06
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9822208025491884,
+     "audible_worse": 0.016561059160631875,
+     "tie": 0.001218138290179598
+    }
+   },
+   "distracted | frequency, home": {
+    "physics": {
+     "none": 0.9810921878531935,
+     "silent_worse": 0.001281666945683991,
+     "audible_worse": 0.017624499563701258,
+     "tie": 1.6456374211503406e-06
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9816020224251993,
+     "audible_worse": 0.01713761814506013,
+     "tie": 0.0012603594297406877
+    }
+   },
+   "distracted | frequency, office": {
+    "physics": {
+     "none": 0.992625334595964,
+     "silent_worse": 0.0006105169021534629,
+     "audible_worse": 0.006763518112524968,
+     "tie": 6.303893575953723e-07
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9851652156525735,
+     "audible_worse": 0.013817551793782128,
+     "tie": 0.0010172325536442312
+    }
+   }
+  },
+  "near-threshold geomean": {
+   "gain_silent_audible": [
+    2.2306354882718304,
+    1.2999794241369715
+   ],
+   "attentive, | frequency, central": {
+    "physics": {
+     "none": 0.9086733585688904,
+     "silent_worse": 0.010194023593997417,
+     "audible_worse": 0.08100927463723422,
+     "tie": 0.0001233431998778659
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9049287725224805,
+     "audible_worse": 0.0841219875198843,
+     "tie": 0.010949239957635165
+    }
+   },
+   "attentive, | frequency, home": {
+    "physics": {
+     "none": 0.8877158896586069,
+     "silent_worse": 0.012197438205508315,
+     "audible_worse": 0.09993449918147673,
+     "tie": 0.00015217295440792263
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9022597086932633,
+     "audible_worse": 0.08648386817904404,
+     "tie": 0.011256423127692632
+    }
+   },
+   "attentive, | frequency, office": {
+    "physics": {
+     "none": 0.9560048402865597,
+     "silent_worse": 0.005669403638048892,
+     "audible_worse": 0.038267523553015007,
+     "tie": 5.8232522376409226e-05
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9181256762089501,
+     "audible_worse": 0.07244391851431539,
+     "tie": 0.00943040527673441
+    }
+   },
+   "distracted | frequency, central": {
+    "physics": {
+     "none": 0.9800816712304622,
+     "silent_worse": 0.00249448382295044,
+     "audible_worse": 0.017419593922905256,
+     "tie": 4.251023682165286e-06
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.97970874243162,
+     "audible_worse": 0.018621667640642662,
+     "tie": 0.001669589927737099
+    }
+   },
+   "distracted | frequency, home": {
+    "physics": {
+     "none": 0.975561677437701,
+     "silent_worse": 0.002952640148722639,
+     "audible_worse": 0.021480438563849652,
+     "tie": 5.243849726652598e-06
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9788688553139748,
+     "audible_worse": 0.01939268658723244,
+     "tie": 0.0017384580987925558
+    }
+   },
+   "distracted | frequency, office": {
+    "physics": {
+     "none": 0.9902898697720846,
+     "silent_worse": 0.0014597587876919713,
+     "audible_worse": 0.008248362668598462,
+     "tie": 2.008771625170994e-06
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.983563878152834,
+     "audible_worse": 0.015082641240208685,
+     "tie": 0.0013534806069572809
+    }
+   }
+  },
+  "all-level geomean": {
+   "gain_silent_audible": [
+    13.879977409776536,
+    1.2999794241369715
+   ],
+   "attentive, | frequency, central": {
+    "physics": {
+     "none": 0.8595900437097375,
+     "silent_worse": 0.061785258119107345,
+     "audible_worse": 0.07785261764891038,
+     "tie": 0.0007720805222447568
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9294347106390168,
+     "audible_worse": 0.05895089365190916,
+     "tie": 0.011614395709073785
+    }
+   },
+   "attentive, | frequency, home": {
+    "physics": {
+     "none": 0.831204402281892,
+     "silent_worse": 0.07180270893775771,
+     "audible_worse": 0.09604033400350298,
+     "tie": 0.0009525547768471913
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9254097934312131,
+     "audible_worse": 0.06231346196799178,
+     "tie": 0.012276744600795038
+    }
+   },
+   "attentive, | frequency, office": {
+    "physics": {
+     "none": 0.9236977121518521,
+     "silent_worse": 0.03916130518326654,
+     "audible_worse": 0.03677649496402131,
+     "tie": 0.00036448770086003216
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9464809938237898,
+     "audible_worse": 0.04470978289490921,
+     "tie": 0.008809223281300651
+    }
+   },
+   "distracted | frequency, central": {
+    "physics": {
+     "none": 0.9692177037969981,
+     "silent_worse": 0.013468769415592309,
+     "audible_worse": 0.01728524641881325,
+     "tie": 2.828036859637237e-05
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9849022666719378,
+     "audible_worse": 0.013029734517373694,
+     "tie": 0.0020679988106886856
+    }
+   },
+   "distracted | frequency, home": {
+    "physics": {
+     "none": 0.9629683001022274,
+     "silent_worse": 0.01568204888821607,
+     "audible_worse": 0.021314761533271533,
+     "tie": 3.48894762848957e-05
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9840164615266669,
+     "audible_worse": 0.01379429526645979,
+     "tie": 0.002189243206873275
+    }
+   },
+   "distracted | frequency, office": {
+    "physics": {
+     "none": 0.9833316952332555,
+     "silent_worse": 0.0084701793022995,
+     "audible_worse": 0.008184771462246823,
+     "tie": 1.3354002198378858e-05
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.988623511454804,
+     "audible_worse": 0.00981783434507165,
+     "tie": 0.0015586542001244713
+    }
+   }
+  },
+  "adverse (max silent, min audible, near threshold)": {
+   "gain_silent_audible": [
+    6.57018384827032,
+    0.2729977873433607
+   ],
+   "attentive, | frequency, central": {
+    "physics": {
+     "none": 0.9428430295584473,
+     "silent_worse": 0.03375441178141965,
+     "audible_worse": 0.023268705352217076,
+     "tie": 0.0001338533079159014
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9811324401999298,
+     "audible_worse": 0.014976873643996875,
+     "tie": 0.0038906861560731223
+    }
+   },
+   "attentive, | frequency, home": {
+    "physics": {
+     "none": 0.9312721269417582,
+     "silent_worse": 0.03985484355397152,
+     "audible_worse": 0.02870788582664589,
+     "tie": 0.00016514367762429267
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.980301637135047,
+     "audible_worse": 0.015636356767291096,
+     "tie": 0.004062006097661979
+    }
+   },
+   "attentive, | frequency, office": {
+    "physics": {
+     "none": 0.9689753820864773,
+     "silent_worse": 0.01997686659461772,
+     "audible_worse": 0.010984565874944265,
+     "tie": 6.318544396095974e-05
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9848933470321366,
+     "audible_worse": 0.011991503597882206,
+     "tie": 0.0031151493699811635
+    }
+   },
+   "distracted | frequency, central": {
+    "physics": {
+     "none": 0.9880490156714058,
+     "silent_worse": 0.00712934668421895,
+     "audible_worse": 0.004817119438784908,
+     "tie": 4.5182055904702595e-06
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9963884981318878,
+     "audible_worse": 0.002980043155001261,
+     "tie": 0.0006314587131110965
+    }
+   },
+   "distracted | frequency, home": {
+    "physics": {
+     "none": 0.9856869274935035,
+     "silent_worse": 0.008365286513394854,
+     "audible_worse": 0.005942211608275723,
+     "tie": 5.574384825987887e-06
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9962032817697385,
+     "audible_worse": 0.0031328771952171333,
+     "tie": 0.0006638410350445871
+    }
+   },
+   "distracted | frequency, office": {
+    "physics": {
+     "none": 0.9933836834161849,
+     "silent_worse": 0.0043380333019013865,
+     "audible_worse": 0.0022761504086546832,
+     "tie": 2.1328732590476007e-06
+    },
+    "memory": {
+     "none": 0.0,
+     "silent_worse": 0.9971959396777484,
+     "audible_worse": 0.0023137707357613314,
+     "tie": 0.0004902895864901
+    }
+   }
+  }
+ }
+}
