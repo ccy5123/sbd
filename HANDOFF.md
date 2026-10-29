@@ -36,7 +36,11 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   88.4 %; the elevator alone 22.3 / 20.4 % (silent ahead: the person behind gets OAV 260 from S50), kept out of the
   headline direction only by its 0.5 % frequency weight; equal scene weights 7.6 / 9.9 %. Write "seldom" as a
   statement about real-life frequency and name the elevator as the counter-example.
-- Not done: manuscript stage B; 3D viewer without the elevator (optional).
+- Not done: manuscript stage B (**user, 29 Oct: start it after the A5 results are analysed**, not before); 3D viewer
+  without the elevator (optional).
+- **Next:** when the four A5 runs end, fetch the probes (server `sbd-main/cfd/runs/`, local `/root/sbd/cfd/runs/`),
+  run `analyze_licina.py` (both chamber cases in one runs dir) and `analyze_multi.py` on the two S50 cases, write the
+  numbers into interface_plan §9 (new subsection), commit, then begin stage B (brief step 4 below).
 - **Network:** the PC was on the wired network; `netsh wlan connect name="EH R&C"` restored the server route.
 
 ## Brief for the next session (written 2026-10-29 04:00 KST; user's choices in brackets)
