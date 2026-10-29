@@ -44,8 +44,9 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   room is nearly still (|U| ~ 2 mm/s at the face): the modelled supply (straight down at 0.07 m/s, no throw, no
   lights, walls = supply temperature) gives almost no mixing, so the 3.5-L/min source air rises and pools at the
   face. Their room was mixed by diffuser jets and < 100 W of lights that we do not know. Room mean iF 2.4 vs well
-  mixed 4.2 (mass balance fine: exhaust 0.0320 m^3/s, 2.30 /h). Decide with the user: limitation only (compare the
-  heated case with the measurement and with well mixed), or rerun with an assumed mixing supply.
+  mixed 4.2 (mass balance fine: exhaust 0.0320 m^3/s, 2.30 /h). **User's decision (30 Oct): compare the heated case
+  only and state in one sentence why the unheated case is not compared** (no information on the near-body flow
+  without body heat; every scene has heated occupants). Sentence and wording rule in interface_plan §9.10.
   Measured unheated 10-min iF 0.05 means breathing-zone s ~3 % of the room mean during the release: their stream
   must have left the breathing zone (sinking, probably cooled by the nebulizer's alcohol evaporation, or swept to
   the exhaust). No mixing assumption with a room-temperature release gets below the room mean, so reproducing it

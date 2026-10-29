@@ -608,6 +608,21 @@ v4 결과와 모순되고, 일반 교훈이 정성적인 수준에 머문다.
   방출보다 약 14배 커야 헤드라인이 뒤집힌다. LES에서 두 클래스의 피크 계수 비가 이 값보다 훨씬 작으면, RANS
   평균으로 낸 헤드라인은 피크 계수에 대해 강건하다.
 
+### 9.10 A5 E0-3 Licina 2017 챔버: 비가열 케이스를 다루지 않는 이유 (2026-10-30, 사용자 결정)
+
+- 비교는 **가열 마네킹만** 한다 (측정 iF 10 / 22 / 100분, 그리고 완전 혼합 대비 비). 결과는 런이 끝나면 여기에 적는다.
+- 비가열(마네킹 끔)은 비교에서 뺀다. 이유를 원고에 그대로 한 문장으로 쓴다 (Methods의 검증 단락, 가열 비교 바로
+  뒤). 본문에 한계 단락은 따로 두지 않는다.
+  - 근거: 체온이 없으면 몸 가까운 흐름은 급기구 분사, 조명 발열, 분무 기류의 온도가 정하는데, 논문에 셋 다 없다.
+    가정으로 채운 계산은 호흡 영역 iF를 측정보다 수천 배 높게 냈다 (거의 정지한 방에서 방출 공기가 얼굴 앞에
+    고임; 실제로는 호흡 영역 농도가 방 평균의 약 3%). 우리 장면에는 언제나 체온이 있는 사람이 있으므로, 논문의
+    주장이 기대는 경로는 가열 케이스다.
+  - 문장안: "Licina et al. also report the manikin switched off. Without body heat the flow near the source is set
+    by the supply diffusers, the lighting load and the temperature of the aerosol stream, none of which is reported,
+    and every scene in this study contains heated occupants; we therefore compare the heated case only."
+- 사실 관계: 비가열 케이스는 가정값으로 계산했다 (`licina2017_unheated`, 로컬). "계산하지 않았다"고 쓰지 않고
+  "비교하지 않았다"로 쓴다.
+
 ### 9.9 LES 피크 계수 (2026-10-29, HANDOFF 다음 작업 3)
 
 `uq/les_peak_factor.py` → `uq/les_peak_factor.json`. 소파 upright LES 두 개(맨몸 `sofa_v4_multi_les`, 바지
