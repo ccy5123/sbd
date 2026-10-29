@@ -36,6 +36,11 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   88.4 %; the elevator alone 22.3 / 20.4 % (silent ahead: the person behind gets OAV 260 from S50), kept out of the
   headline direction only by its 0.5 % frequency weight; equal scene weights 7.6 / 9.9 %. Write "seldom" as a
   statement about real-life frequency and name the elevator as the counter-example.
+- **Cores (30 Oct 00:12):** server 18 / 18 physical cores busy (mesh 12 + Licina 6); local PC 4 of 8 (base-mesh S50
+  only, ends ~02:40). Watcher `sbd-main/scratch/licina_resize.sh 18` (= `cfd/docker/licina_resize.sh`, started
+  00:18, log `sbd-main/cfd/runs/licina_resize.log`): when `sbd-a5_mesh15` ends (~13:00) it stops the Licina chamber
+  after its next 60-s write, re-decomposes onto 18 cores and restarts it as `sbd-a5_licina_heated18` (expected end
+  ~15:30 instead of ~19:00).
 - **Status 29 Oct 23:48 KST:** Licina unheated done locally 20:31 KST; base-mesh S50 at 60 / 150 s (~11 min per
   5 s, done ~30 Oct 03:00); server mesh x1.5 S50 at 37.5 / 150 s (~35 min per 5 s, ~30 Oct 13:00); Licina heated
   871 / 1920 s (~30 Oct 19:00).
