@@ -28,6 +28,15 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
     groin source 0.5 m, 10 min; assumptions in `cfd/cases/licina2017/make_case.py`. Analyse with
     `analyze_licina.py <runs_dir>` once both chamber cases are in one runs dir (copy the probes).
   - E0-6 compare: `analyze_multi.py` on `sofa_m1.5_v4_S50_multi` and `sofa_v4_S50_multi` (S50 at 0.2 s in both).
+  - Speed at 10:38 KST: mesh x1.5 precursor 23.9 / 90 s, dt 0.022 s (Courant-limited), 10.7 s/step -> precursor
+    ~19:30, S50 run ~7,000 steps -> done ~30 Oct 17:00 KST; Licina heated 142.9 / 1920.2 s, dt 0.042, 2.9 s/step
+    -> ~30 Oct 21:00; local Licina unheated 604.7 / 1920.2 s (source on), dt 0.069, 2.9 s/step -> ~30 Oct 01:30,
+    then the base-mesh S50 locally (~20 h?) -> ~30 Oct night.
+- **Robustness rerun with the elevator** (interface_plan §9.5, 9.8, 9.9 updated): headline 0.5 / 6.9 %, memory
+  88.4 %; the elevator alone 22.3 / 20.4 % (silent ahead: the person behind gets OAV 260 from S50), kept out of the
+  headline direction only by its 0.5 % frequency weight; equal scene weights 7.6 / 9.9 %. Write "seldom" as a
+  statement about real-life frequency and name the elevator as the counter-example.
+- Not done: manuscript stage B; 3D viewer without the elevator (optional).
 - **Network:** the PC was on the wired network; `netsh wlan connect name="EH R&C"` restored the server route.
 
 ## Brief for the next session (written 2026-10-29 04:00 KST; user's choices in brackets)
