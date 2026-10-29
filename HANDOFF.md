@@ -46,6 +46,13 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   face. Their room was mixed by diffuser jets and < 100 W of lights that we do not know. Room mean iF 2.4 vs well
   mixed 4.2 (mass balance fine: exhaust 0.0320 m^3/s, 2.30 /h). Decide with the user: limitation only (compare the
   heated case with the measurement and with well mixed), or rerun with an assumed mixing supply.
+  Measured unheated 10-min iF 0.05 means breathing-zone s ~3 % of the room mean during the release: their stream
+  must have left the breathing zone (sinking, probably cooled by the nebulizer's alcohol evaporation, or swept to
+  the exhaust). No mixing assumption with a room-temperature release gets below the room mean, so reproducing it
+  needs the stream temperature and diffuser throw, which the paper does not give (fitting, not validation).
+- **Licina heated, partial (277 s of the 600-s release, 29 Oct 23:55):** breathing-zone s 2.48e-3, flat after the
+  first minute; the measured 10-min iF 5.5 per mille means 2.31e-3 (iF x Q_src / Qb). Projected 10-min iF ~5.9 vs
+  5.5 (+7 %). Pre-release plume at the face: w 0.20 m/s (BZ), 0.27 m/s (nose).
 - Not done: manuscript stage B (**user, 29 Oct: start it after the A5 results are analysed**, not before); 3D viewer
   without the elevator (optional).
 - **Next:** when the four A5 runs end, fetch the probes (server `sbd-main/cfd/runs/`, local `/root/sbd/cfd/runs/`),
