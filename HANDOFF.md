@@ -43,8 +43,14 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   robustness paragraph, memory with the belief-vs-detection figure), discussion (limitations list replaced by a
   three-sentence "Scope"), conclusion, abstract (200 words). ESM CFD sections rewritten (validation, scenes, release
   table, dose table, scene weights, robustness). Words: text ~6,200 + references ~1,380 (47) = ~7,600.
-  Still open: AI-use statement (author), Figure 6 is the old 92-mL plane figure (B6: keep or replace with the 3D
-  clouds), cover letter not updated, rest of the ESM not re-read against v4, a full read-through.
+  Still open: AI-use statement (author), cover letter not updated, rest of the ESM not re-read against v4, a full
+  read-through.
+- **30 Oct, figures done (user: replace Figure 6, restyle every old figure):** all 11 manuscript/ESM figures are now
+  FIGSTYLE v1.2 `*_paper` files in `figures/`, each passing the overlap check and a visual review. Figure 6 =
+  `clouds_routing_paper` (path-traced v4 clouds via `manuscript/preprint/render_fig6.py` + `compose_fig6.py`, ParaView
+  6.1 pvbatch on Windows; sofa leaning forward A90 5 s / S50 15 s, lift S50 16 s; iso data copied from the server
+  cases). Jet validation rerun locally (`/root/jetval` in sbd-openfoam13) matches the committed results.json to
+  round-off; boundary-layer figure drawn from results.json. Old `fig*.png` files are no longer included anywhere.
 - **30 Oct 13:20 KST: A5 complete.** Licina heated ended 13:15 (18 cores); breathing-zone iF 8.1 / 9.1 / 11.0 per
   mille vs measured 5.5 / 7.7 / 9.8 (x1.47 / 1.18 / 1.12), heated / well mixed x1.48 (10 min), x1.11 (100 min): all
   within 1.5 (interface_plan §9.10). Model body convection 79 W. Server and local PC idle; no sbd containers. Next:
