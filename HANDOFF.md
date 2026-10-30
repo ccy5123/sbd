@@ -36,6 +36,15 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   88.4 %; the elevator alone 22.3 / 20.4 % (silent ahead: the person behind gets OAV 260 from S50), kept out of the
   headline direction only by its 0.5 % frequency weight; equal scene weights 7.6 / 9.9 %. Write "seldom" as a
   statement about real-life frequency and name the elevator as the counter-example.
+- **30 Oct, manuscript stage B, first pass done** (main.pdf 18 pp., si.pdf 15 pp., no LaTeX errors or undefined
+  references): theory (deadliness 0 when not smelled; four outcomes), methods CFD and as-emitted passages on v4
+  (scenes, four releases, tail, LES peak factor, validation incl. Licina heated and mesh, scene weights, clothed
+  share), results (routing map as Figure 5, new section "How often a silent passage is worse" with Table 2 and a
+  robustness paragraph, memory with the belief-vs-detection figure), discussion (limitations list replaced by a
+  three-sentence "Scope"), conclusion, abstract (200 words). ESM CFD sections rewritten (validation, scenes, release
+  table, dose table, scene weights, robustness). Words: text ~6,200 + references ~1,380 (47) = ~7,600.
+  Still open: AI-use statement (author), Figure 6 is the old 92-mL plane figure (B6: keep or replace with the 3D
+  clouds), cover letter not updated, rest of the ESM not re-read against v4, a full read-through.
 - **30 Oct 13:20 KST: A5 complete.** Licina heated ended 13:15 (18 cores); breathing-zone iF 8.1 / 9.1 / 11.0 per
   mille vs measured 5.5 / 7.7 / 9.8 (x1.47 / 1.18 / 1.12), heated / well mixed x1.48 (10 min), x1.11 (100 min): all
   within 1.5 (interface_plan §9.10). Model body convection 79 W. Server and local PC idle; no sbd containers. Next:

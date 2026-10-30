@@ -12,11 +12,9 @@ silent/audible comparison, because transport is linear and acts on all three gas
 OAVs predicts the judges' ratings of zinc-acetate-treated flatus (0.31--0.59 predicted, 0.28 and 0.59 rated) without
 fitting.
 
-Composition, not temperature, sets most of the buoyancy: \ce{H2} and \ce{CH4} make flatus light and \ce{CO2} makes it
-heavy, and after cooling to room temperature 25--38\% of passages are heavier than air. In an office, gas-phase
-oxidation removes at most 0.4\% of any odorant within 120\,s, so the odorants travel with the air unchanged; surface
-deposition is unconstrained by data and would lower the doses of the silent release, which stays close to the body,
-further (Table~\ref{SI-tab:reactivity}).
+Composition, not temperature, sets most of the buoyancy: after cooling to room temperature 25--38\% of passages are
+heavier than air. Gas-phase oxidation removes at most 0.4\% of any odorant within 120\,s
+(Table~\ref{SI-tab:reactivity}).
 
 \subsection{Most releases are physically silent}
 \label{sec:res-acoustics}
@@ -26,10 +24,8 @@ room: the smallest oscillating release, about 33\,mL\,s$^{-1}$ through a 1\,mm o
 sofa distance (0.6\,m), against an 18\,dB hearing threshold at 160\,Hz. A release that is not heard is therefore either physically silent or masked by
 background noise.
 
-Masking needs loud backgrounds. In a restaurant or a subway car an oscillating release must exceed
-0.36--0.60\,L\,s$^{-1}$ at 0.6\,m (1.8--3.0\,L\,s$^{-1}$ at 3\,m) to be heard, so only near-maximal passages are: 2--4\%
-of all releases at a 160\,Hz fundamental, none at 100\,Hz and 6--13\% at 250--300\,Hz. Audible releases are fast, with a
-median exit velocity of 90\,m\,s$^{-1}$ through a 1.5\,mm orifice.
+Masking needs loud backgrounds: in a restaurant or a subway car only near-maximal passages are heard (0--13\% of
+releases, depending on pitch). Audible releases are fast, with a median exit velocity of 90\,m\,s$^{-1}$.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{fig3_acoustic_regimes.png}
@@ -43,7 +39,8 @@ jet Reynolds number. (b) Minimum audible flow rate of an oscillating release for
 
 \subsection{The ratio in the analytic model}
 \label{sec:res-ratio}
-Table~\ref{tab:ratio} gives the breath-averaged ratio $R = C_\mathrm{silent}/C_\mathrm{audible}$ for 20\,000 random
+The analytic model sends every cloud to the nose, so it bounds what dilution alone can do. Table~\ref{tab:ratio}
+gives the breath-averaged ratio $R = C_\mathrm{silent}/C_\mathrm{audible}$ for 20\,000 random
 pairs.
 
 \begin{table}
@@ -70,10 +67,8 @@ ratio of 1.28, the silent release is perceptibly stronger in 59\% of pairs and i
 perceptibly stronger in 39\%, perceptibly weaker in 42\%. Trousers remove the jet momentum of both releases and lower
 $P(R>1)$ to 0.31.
 
-\emph{Which inputs matter.} As emitted, the two passage volumes account for about 0.6 of the variance of
-$\log_{10} R$ at the neighbour; at equal mass, the eddy diffusivity $K$ accounts for 0.37. Sphincter pressure,
-discharge coefficient, buoyancy and inhalation time each account for less than 0.5\%: the valve parameters set
-whether a passage is heard, but hardly how strongly it smells.
+\emph{Which inputs matter} (Figure~\ref{fig:uq}b). The two passage volumes explain about 0.6 of the variance of
+$\log_{10} R$ as emitted; the valve parameters set whether a passage is heard, but hardly how strongly it smells.
 
 \emph{Regime map} (Figure~\ref{fig:uq}a). The silent release is perceptibly stronger only at short travel times and
 high Silencer numbers of the audible release. At equal mass even a barely audible release is perceptibly
@@ -95,33 +90,26 @@ silent release is perceptibly stronger, indistinguishable, or perceptibly weaker
 \subsection{Real rooms: where the release goes}
 \label{sec:res-rooms}
 The analytic model carries every cloud straight to the nose. In the simulated rooms the warm air rising along the
-body takes the silent release with it, while the audible jet leaves it, and the two then reach different noses.
+body takes a slow release with it, while a fast jet leaves it, and the two then reach different noses.
 
 \emph{Sofa.} The silent release rises in the gap between the releaser's back and the backrest, over the head and to
-the ceiling (Figure~\ref{fig:planes}). Within 30\,s its breathing-zone OAV stays at or below $10^{-10}$ at both
-noses. The audible jet hits the corner between seat and backrest, spreads sideways along the gap and reaches both
-breathing zones at OAV 0.2--0.6. With the releaser reclined by 4.5\,\textdegree\ or leaning forward by
-10\,\textdegree, the silent release again reaches neither breathing zone (at most $10^{-4}$;
-Section~\ref{SI-sec:si-sofa}). After about 70\,s both clouds have returned from the ceiling, and at the neighbour the
-two traces are indistinguishable (worst breath 0.39 for both), as Theorem~2 requires; at the releaser's own nose the
-mixed silent cloud is 1.5--2 times higher and touches the trained-panel threshold for about a second near 100\,s.
+the ceiling (Figure~\ref{fig:planes}). At the neighbour, the worst breath over 150\,s (volumes as emitted) is 0.07
+and 0.09 for the two silent releases and 0.16 and 16.9 for the audible ones; reclining or leaning forward moves the
+silent values to 0.12--0.95, still below the trained-panel threshold. The dose rises with the ratio of the release's
+momentum flux to that of the boundary layer it enters, $\Pi = M_0/m_\mathrm{p}$: a release must break out of the
+boundary layer to reach a neighbour (Figure~\ref{fig:routing}a).
 
-\emph{Elevator.} In a closed car with four standing occupants, the result depends on what stands behind the
-releaser. With a person behind (front row), the silent release rises in the 0.2\,m gap into that person's breathing
-zone and is stronger at every nose ($R = 1.4$--$4.3$ at equal mass), reaching OAV 27 for the person behind. With the
-car wall behind (back row), it rises between back and wall, and the audible release is stronger at every nose
-($R = 0.20$--$0.55$). With a front-row releaser the person behind reaches threshold first (8.8\,s, against 17.6\,s at
-the releaser's own nose), so the rule that whoever smells it first produced it holds for back-row releasers only.
-Onlookers who see only who reacts identify the releaser at 0.28--0.52, against 0.25 by chance
-(Section~\ref{SI-sec:si-elevator}).
+\emph{Standing pair.} Face to face and bare, the neighbour stays below OAV 0.2 for every release, in still air and
+with ventilation, whatever $\Pi$: the body plumes carry both clouds upwards between the two people. Momentum is therefore
+not the only variable; the arrangement of the bodies is the second.
 
-\emph{Standing pair.} \gap{standing pair face to face, still air and office ventilation: results pending}
+\emph{Elevator.} In a closed car with a person behind the releaser, the silent release rises in the 0.2\,m gap into
+that person's breathing zone: worst breath 260 for the median silent release, against 36 for the strongest audible
+one. Every nose in the car passes OAV 1.
 
-\emph{Passages as emitted.} Scaling each scene's equal-mass doses by the volumes of passages as emitted
-(Section~\ref{sec:uq}) gives Figure~\ref{fig:routing}. Silent passages are also smaller (median volume ratio 0.45),
-which lowers the silent advantage where the flow favours the silent release: for the person behind a front-row
-releaser, a silent passage is stronger in 35\% of pairs. Over the nine bystander noses $P(R>1)$ is 0--0.70, with an
-equal-weight mean of 0.21, against 0.48 in the analytic model.
+\emph{Releaser.} At the releaser's own nose the relation is not monotonic (Figure~\ref{fig:routing}b): the highest
+doses at equal mass, up to OAV 70, come from releases with $\Pi \approx 10$--100, which leave the seat region but stay close to the
+body.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{fig6_sofa_duet_planes.png}
@@ -131,15 +119,51 @@ starts, silent (top) and audible (bottom). The black contour is the odour thresh
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=\textwidth]{fig16_routing.png}
-\caption{Silent versus audible in the simulated scenes. (a) Ratio of the expected worst-breath OAV (the most
-concentrated single inhalation) at each nose for the same 92\,mL: sofa (30\,s, three postures) and elevator (60\,s,
-front-row and back-row releaser). Triangles: the silent release has not reached the nose within the window. The grey
-band is the just-noticeable ratio. (b) The same flow paths with passages as emitted (20\,000 silent/audible volume
-pairs): shares of pairs in which the silent passage is perceptibly stronger, indistinguishable, or perceptibly
-weaker, and $P(R>1)$. The dotted line is the analytic model.}
+\includegraphics[width=\textwidth]{routing_map_paper.png}
+\caption{Routing map. Worst-breath OAV over 150\,s for the same 92\,mL at (a) the neighbour and (b) the releaser,
+against the ratio of the release's momentum flux to the upward momentum flux of the boundary layer 15\,cm above the
+release point. Each line joins the four representative releases of one scene (left to right: the two silent and the
+two audible levels); filled symbols bare, open symbols trousers.}
 \label{fig:routing}
 \end{figure}
+
+\subsection{How often a silent passage is worse}
+\label{sec:res-headline}
+Table~\ref{tab:headline} gives the four outcomes for passages as emitted, weighted by how often people are in each
+setting. For a bystander, nothing is smelled in 93\% of pairs (attentive) or 98\% (distracted). When something is,
+the audible passage is worse about 13 times as often as the silent one: 6.9\% against 0.5\% for an attentive
+bystander. The releaser smells more and still finds the audible passage worse four times as often. The elevator is
+the exception: with a person behind the releaser, the silent passage is worse in 22\% of pairs and the audible one
+in 20\%. It weighs little because people spend minutes a day in shared lifts, against hours on a sofa.
+
+\begin{table}
+\caption{Four outcomes for one silent and one audible passage as emitted (bare, weighted by time spent in each
+setting; \%). Remembered: the same outcomes among pairs whose silent passage was smelled (Theorem~3).}
+\label{tab:headline}
+\begin{tabular}{llcccc}
+\toprule
+nose & observer & none & silent worse & audible worse & tie \\
+\midrule
+bystander & attentive & 92.6 & 0.5 & 6.9 & 0.0 \\
+ & \quad remembered & -- & 88.4 & 9.5 & 2.0 \\
+bystander & distracted & 98.4 & 0.1 & 1.5 & 0.0 \\
+ & \quad remembered & -- & 97.4 & 2.1 & 0.4 \\
+releaser & attentive & 77.4 & 4.6 & 17.9 & 0.1 \\
+releaser & distracted & 95.1 & 1.1 & 3.8 & 0.0 \\
+elevator bystanders & attentive & 55.7 & 22.3 & 20.4 & 1.5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Robustness} (Section~\ref{SI-sec:si-robust}). The order of the two physical shares holds under every variation
+we tried. Home- and office-centred days give 0.5 and 1.1\% silent worse against 8.4 and 3.9\% audible worse. The
+psychometric tail (slope, logistic or floored shape, or a deterministic threshold) moves the ratio between 4 and 25.
+In trousers the audible passage is worse more often (9.3 and 10.2\% when 70 and 85\% of passages are clothed; silent
+worse 0.1\%). The large-eddy peak factors near threshold are 2.2 (1.0--6.6) for silent and 1.3 (0.27--64) for audible
+releases; applied by class they give 1.2 against 8.2\%. A silent-only factor of about 14 would be needed to reverse
+the order; only the adverse pairing of the highest silent with the lowest audible factor does so (3.6 against
+2.3\%). Scaling every silent dose by the mesh-refinement factors (0.55 or 3.0) gives 0.3 or 1.6 against 6.8--6.9\%. The
+source assumptions move the share of silent passages between 76 and 94\% without changing the order.
 
 \subsection{Perception}
 \label{sec:res-perception}
@@ -147,48 +171,24 @@ weaker, and $P(R>1)$. The dotted line is the analytic model.}
 listener warned by the sound needs about 25\,s of breath-hold for an even chance of missing the cloud
 (Figure~\ref{SI-fig:breath}).
 
-\emph{Silent versus audible.} Through Stevens' law, the median physical difference at the neighbour becomes a 1\%
-difference in perceived intensity, below the olfactory just-noticeable difference of about 7\% in intensity.
-
-\emph{Expectation.} An expectation effect would have to exceed 1\% in intensity to change which release seems
-stronger. Measured label effects for brief exposures are 0--3\%, and their sign for an unwarned listener has not been
-established \cite{herz2001,djordjevic2008,dalton1999}. We do not include expectation in the model.
+\emph{Expectation.} Measured label effects for brief exposures are 0--3\% in intensity, and their sign for an unwarned
+listener has not been established \cite{herz2001,djordjevic2008,dalton1999}. We do not include expectation in the
+model.
 
 \subsection{Memory}
 \label{sec:res-memory}
-Applying Theorem~3 to the simulated passages gives Table~\ref{tab:observers} and Figure~\ref{fig:memory}. Each base
-rate $p_S$ assumes the cloud is centred on the neighbour's nose, so it is an upper bound.
-
-\begin{table}
-\caption{Share of passages smelled, $p_S$, and the remembered belief $P(\text{a silent passage seems stronger})$, for
-literature observer models; ``truth'' is the same probability over all passages.}
-\label{tab:observers}
-\begin{tabular}{lccc}
-\toprule
-observer & $p_S$ & belief & truth \\
-\midrule
-trained panel & 0.93 & 0.53 & 0.49 \\
-attentive, population thresholds & 0.59--0.68 & 0.68--0.73 & 0.50--0.51 \\
-distracted (everyday) & 0.21 & 0.92 & 0.51 \\
-distracted, clothed releaser & 0.19 & 0.93 & 0.51 \\
-distracted, sound cues attention & 0.27 & 0.81 & 0.32 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The fewer passages are smelled, the further the remembered belief departs from the truth. When a sound makes the
-bystander attentive, audible passages are smelled more often and the belief falls to 0.81; the truth for that
-observer is also lower (0.32), because they do smell audible passages more often. The releaser, who notices every
-release, shows no selection (Figure~\ref{fig:memory}a). In loud backgrounds only the largest passages are heard, and
-this alone weakens the belief, so masking does not isolate the selection mechanism.
+A bystander remembers a silent passage only if it was smelled. Among remembered pairs, the silent passage seems
+worse in 88\% (attentive) and 97\% (distracted) of comparisons (Table~\ref{tab:headline}), while over all pairs it is
+worse in 0.5 and 0.1\%. Among pairs where anything is smelled the truth is 6.9 and 9.1\%. The remembered share is not
+fixed by definition: it falls as more passages are smelled and meets the truth, 29\%, when every passage is smelled
+(Figure~\ref{fig:memory}). The releaser, who notices every release, shows no selection: memory equals the physical
+shares, 19--24\% among pairs where anything is smelled, at any detection rate.
 
 \begin{figure}
-\includegraphics[width=\textwidth]{fig13_memory_filter.png}
-\caption{Memory, for 20\,000 simulated passages. (a) Probability that a silent or audible passage was smelled: at the
-neighbour's nose over all passages, in a bystander's memory, and at the releaser's own nose. (b) Probability that a
-remembered silent passage seems stronger than a remembered audible one, against the share of passages smelled:
-bystander memory (orange), all passages (grey, dashed) and the releaser (green). Markers show the observer models of
-Table~\ref{tab:observers}; the dotted line is the analytic model's nominal share. (c) Belief in four backgrounds, with
-the fraction of oscillating releases still heard.}
+\includegraphics[width=\textwidth]{belief_vs_detection_paper.png}
+\caption{Memory against detection. Share of comparisons in which ``the silent passage was worse'', against the share
+of passages smelled at a bystander's nose, as the observer's 50\% detection point is varied: bystander memory,
+bystander truth among pairs where anything is smelled and over all pairs, and the releaser. (a) Attentive spread of
+the psychometric function (2 binary steps), (b) distracted (3.5). The dotted line marks the literature observer.}
 \label{fig:memory}
 \end{figure}

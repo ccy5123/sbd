@@ -3,15 +3,16 @@
 
 \subsection{Why the belief exists}
 The physics we model does not make silent passages generally worse. At equal mass the silent advantage at a
-neighbour is a median factor of 1.45, often below the just-noticeable ratio. As emitted, a silent passage is the
-stronger one in 48\% of pairs in the analytic model and in \gap{v4; preprint: 21\% (0--70\%)} of bystander pairs in
-the simulated scenes, where on a sofa it misses both noses on its first pass.
+neighbour is a median factor of 1.45 in the analytic model, often below the just-noticeable ratio, and that model
+sends every cloud to the nose. In the simulated rooms, with passages as emitted and settings weighted by how often
+people share them, a bystander finds the silent passage worse in 0.5\% of pairs and the audible one in 6.9\%; even
+among pairs where something is smelled, the silent one is worse in only 7\%.
 
 The belief is nevertheless documented across languages. Theorem~3 can explain it without any physical difference: a
 passage enters memory if it is heard or smelled, so every remembered silent passage was smelled, whereas audible
-passages are remembered whether or not they smelled. With literature observer models this selection turns a truth of
-\gap{v4; preprint: 0.32--0.51} into a remembered belief of \gap{v4; preprint: 0.68--0.93}
-(Table~\ref{tab:observers}). This shows that selection is sufficient for the belief, not that it is its cause; the
+passages are remembered whether or not they smelled. On the same simulated passages this selection turns a truth of
+0.5\% into a remembered 88\% (Table~\ref{tab:headline}), and the gap closes only as detection approaches certainty
+(Figure~\ref{fig:memory}). This shows that selection is sufficient for the belief, not that it is its cause; the
 predictions below can decide. Documented memory biases act in the same direction: distinctive pairings are
 over-remembered \cite{hamilton1976}, and judgements built from biased samples are rarely corrected
 \cite{fiedler2000}. The phrase itself can also pass the belief on
@@ -31,7 +32,7 @@ If selection is the cause, the belief should follow who notices what, and a surv
   \item \emph{People without a sense of smell.} As bystanders they can notice a passage only by hearing it, so they
   never remember a silent passage. If they hold the belief, it came from the phrase, not from experience.
   \item \emph{Background noise.} Masking makes the quieter audible passages seem silent, so they enter memory only
-  when smelled, but the passages still heard are the largest ones (Section~\ref{sec:res-memory}). The two act in
+  when smelled, but the passages still heard are the largest ones. The two act in
   opposite directions, so the effect of noise on the belief should be ambiguous and is not a clean test.
 \end{itemize}
 
@@ -45,24 +46,12 @@ direction of the belief; no study has measured sulfur gases and flatus volume to
 
 \subsection{When a silent release is worse}
 At equal mass, at the releaser's own nose, in still air and within a few seconds, a silent release is perceptibly
-stronger than a loud one (Figure~\ref{fig:uq}a). In the elevator, a silent release is also stronger for the person
-standing behind a front-row releaser, who smells it first. In these two cases the saying holds.
+stronger than a loud one (Figure~\ref{fig:uq}a). In a closed lift with someone standing behind the releaser, the slow
+release rises straight into that person's breathing zone, and silent and audible passages are worse about equally
+often (22 and 20\% of pairs). In these settings the saying holds; they are rare in a day.
 
-\subsection{Limitations}
-\begin{itemize}
-  \item \emph{Mean flow only.} The CFD resolves the mean flow; instantaneous peaks of a meandering cloud can exceed the
-  mean by an order of magnitude. This can lift the sub-threshold audible doses on the sofa (OAV 0.2--0.6) above
-  threshold, but not the silent ones ($10^{-10}$). In the forward-leaning posture the mean silent cloud passes within
-  25\,cm of the neighbour's face, where a filament could reach the nose.
-  \item \emph{Body plume.} The seated body plume is 40--56\% too fast, which shortens the travel times of the silent
-  release by about 30\% in the seated case; the arrival times in the elevator (8.8 and 17.6\,s) are likely short by a
-  similar amount. Standing plumes were not validated separately.
-  \item \emph{Scenes and weights.} The as-emitted shares of Figure~\ref{fig:routing} weight the simulated scenes
-  equally and assume the flow path does not depend on the passage volume. They describe these scenes, not how often
-  each arises.
-  \item \emph{Base rate.} The share of passages smelled has never been measured; the remembered belief of
-  \gap{v4; preprint: 0.68--0.93} spans the observer models that bracket it.
-  \item \emph{Valve state.} The 85\% silent share treats the onset pressure as a property of the tissue and does not
-  distinguish flatus passing a relaxed sphincter from flatus passing a contracted one
-  (Section~\ref{SI-sec:si-acoustics}).
-\end{itemize}
+\subsection{Scope}
+The four rooms are representative rather than exhaustive, and the time spent in each is partly assumed; the bounds
+used for the weights do not change the order of the outcomes. The share of passages a bystander smells has never been
+measured, so the remembered share is reported against it (Figure~\ref{fig:memory}). The flow path of a passage is
+taken to depend on its momentum and not on its volume.

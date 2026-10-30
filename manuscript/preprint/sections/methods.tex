@@ -15,9 +15,8 @@ Sulfur gas concentrations are taken from 87 passages of 16 volunteers \cite{suar
 1.06\,\textmu mol\,L$^{-1}$, methanethiol 0.21\,\textmu mol\,L$^{-1}$ and dimethyl sulfide 0.08\,\textmu mol\,L$^{-1}$.
 They vary between passages by a log-normal factor with $\sigma_{\ln} = 1.1$, derived from the reported standard
 errors, drawn independently of volume because sulfur concentration does not correlate with passage volume
-\cite{suarez1997}. Buoyancy is computed from measured compositions and is signed; it is drawn independently of volume
-because, across the 16 subjects of ref.~\citenum{suarez1997}, it does not correlate with mean passage volume
-(Spearman $-0.15$).
+\cite{suarez1997}. Buoyancy, computed from measured compositions, is likewise drawn independently of volume
+(Spearman $-0.15$ across the 16 subjects).
 
 \subsection{Odorants and sound}
 \label{sec:methods-chem}
@@ -25,9 +24,8 @@ because, across the 16 subjects of ref.~\citenum{suarez1997}, it does not correl
 Details are in Sections~\ref{SI-sec:si-chem} and \ref{SI-sec:si-acoustics}. Each sulfur gas contributes an odour
 activity value, its mole fraction over its detection threshold; the passage's OAV is their sum (no mixture
 suppression). We compare two measured compositions \cite{suarez1998,tangerman2009} under three threshold sets, from a
-trained panel \cite{nagata2003} to population means \cite{amoore1983}. Buoyancy is split into a thermal and a
-compositional part, and gas-phase losses use IUPAC rate constants \cite{atkinson2004} with oxidant levels measured in
-an office \cite{fiorentino2023}.
+trained panel \cite{nagata2003} to population means \cite{amoore1983}. Gas-phase losses use IUPAC rate
+constants \cite{atkinson2004} and office oxidant levels \cite{fiorentino2023}.
 
 The anal canal is modelled as a lip reed, a soft-tissue valve that self-oscillates in the flow through it, as the
 lips do on a brass instrument \cite{ancalle2021}. It oscillates when the driving pressure
@@ -58,28 +56,43 @@ concentration is used.
 We use OpenFOAM 13 with transient Reynolds-averaged Navier--Stokes equations (RANS), the $k$--$\omega$ SST turbulence
 model, the Boussinesq approximation for buoyancy and the energy equation in internal-energy form.
 
-\emph{Validation} (Section~\ref{SI-sec:si-validation}). A free round jet at $\mathrm{Re} = 6700$ reproduces the
-canonical decay constants (velocity 5.0, scalar $K_c = 4.3$--4.6) with a grid uncertainty of at most 3.7\%. The
-convective boundary layer of a seated manikin is 40--56\% faster than thermal-manikin data \cite{licina2014} and
-follows their trend with room temperature. Both biases favour the silent release: excess jet spreading over-dilutes
-audible releases by about 15\%, and the fast boundary layer shortens travel times to the releaser's own nose by about
-30\%, which the analytic model corrects.
-
 \emph{Scenes} (Section~\ref{SI-sec:si-scenes}). Manikins built from geometric primitives, with skin at
 33\,\textdegree C, stand or sit in rooms at 23\,\textdegree C:
 \begin{itemize}
   \item a sofa: two seated people 0.6\,m apart in a 3.2 $\times$ 3.2 $\times$ 2.6\,m living room, with the releaser
-  upright, reclined by 4.5\,\textdegree\ or leaning forward by 10\,\textdegree, over 30\,s (upright also 120\,s);
-  \item an elevator: four standing people in a closed 630\,kg car, fan off, over 60\,s, with the releaser in the front
-  or the back row;
+  upright, reclined by 4.5\,\textdegree\ or leaning forward by 10\,\textdegree;
+  \item an elevator: four standing people in a closed 1.4 $\times$ 1.1 $\times$ 2.1\,m car, fan off, with the releaser
+  in the front row and a person behind;
   \item a standing pair: two people face to face, noses 1.0\,m apart, in the same living room, in still air and with
-  office ceiling ventilation at 2.9 air changes per hour (EN 16798-1 Category II \cite{olesen2024}), over 60\,s.
+  office ceiling ventilation at 2.9 air changes per hour (EN 16798-1 Category II \cite{olesen2024}).
 \end{itemize}
-Each scene is first run without a release until the body plumes have developed. From that flow field, the same
-92\,mL is released behind the releaser's buttocks, as an inlet that matches the release's volume flow and momentum:
-silent, 2\,s through 8\,mm at $u_0 = 0.9$\,m\,s$^{-1}$; audible, 0.5\,s through 2.4\,mm at 41\,m\,s$^{-1}$. The
-odorant is a passive scalar, sampled 2.5\,cm in front of each nose, over 5\,cm discs at nose height and over
-sinusoidal breathing cycles.
+The upright sofa and both standing rooms are also run with long trousers on everyone: a porous shell over pelvis and
+thighs, 2\,cm from the skin, with the air permeability of denim and open at the waist and hems.
+
+\emph{Releases.} Each room first runs 90\,s without a release, until the body plumes have developed. Four
+representative passages are then released behind the releaser's buttocks, 30\,s apart, each carried by its own
+passive scalar so that their doses can be read separately: the median and 90th percentile of the exit momentum flux
+$M_0 = Q_0u_0$ within each class of the source model (silent: 122\,mL over 4.8\,s at $u_0 = 3.5$\,m\,s$^{-1}$, and
+66\,mL at 22\,m\,s$^{-1}$; audible: 86\,mL at 94\,m\,s$^{-1}$, and 279\,mL at 162\,m\,s$^{-1}$). Each enters as an
+inlet that carries the release's momentum and odorant flux, with its buoyancy as an equivalent temperature excess,
+and is followed for 150\,s. Later exposure is taken from the well-mixed room level (Theorem~2), which predicts 0.67--1.00 times
+the 600-s worst breath of two coupled 10-minute runs. The odorant is sampled 2.5\,cm in front
+of each nose over sinusoidal breathing cycles.
+
+\emph{Peak factor.} RANS gives the ensemble-mean concentration, while a nose meets filaments. Large-eddy simulations
+(WALE subgrid model) of the upright sofa, bare and in trousers, repeat the releases six times (the medians twice) and
+give the ratio of the large-eddy to the RANS worst breath for each release and nose.
+
+\emph{Validation} (Section~\ref{SI-sec:si-validation}). A free round jet reproduces the canonical decay constants
+within a grid uncertainty of 3.7\%. The
+convective boundary layer of a seated manikin is 40--56\% faster than thermal-manikin data \cite{licina2014} and
+follows their trend with room temperature. For a source at a seated manikin's groin \cite{licina2017}, the scene
+settings give a breathing-zone intake fraction of 8.1, 9.1 and 11.0 per mille over 10, 22 and 100\,min, against
+5.5, 7.7 and 9.8 measured. Licina et al.\ also report the manikin switched off; without body heat the flow near the
+source is set by the supply diffusers, the lighting load and the temperature of the aerosol stream, none of which is
+reported, and every scene here contains heated occupants, so we compare the heated case only. Refining the sofa mesh
+by 1.5 in every direction (0.72 to 2.2 million cells) changes the median silent dose by a factor 0.55 at the
+neighbour and 3.0 at the releaser's own nose.
 
 \subsection{Perception and observers}
 \label{sec:perception}
@@ -103,16 +116,20 @@ sound can make a distracted bystander attentive for that passage.
 
 \subsection{Uncertainty analysis}
 \label{sec:uq}
-Uncertainty is propagated through the analytic model; one CFD run of 30--60\,s costs 1--3\,h on four cores, too many
-for a sampling design. First-order Sobol indices (the share of the variance of $\log_{10} R$ explained by one input
+Input uncertainty is propagated through the analytic model; one multi-release CFD run costs one to several days on
+four to eighteen cores, too many for a sampling design. First-order Sobol indices (the share of the variance of $\log_{10} R$ explained by one input
 alone) are estimated by binning the Monte Carlo sample, with bootstrap 90\% intervals. Because the silent and audible
 releases of a pair are drawn by rejection, the inputs are dependent and the indices are descriptive. The regime map
 shows $\log_{10} R$ at equal mass against the audible release's Silencer number and the travel time.
 
-\emph{Passages as emitted in the simulated scenes.} Each CFD scene gives the doses of one release volume at equal mass.
-The OAV is linear in concentration, so a passage of volume $V$ following the same flow path gives
-$\mathrm{OAV}\times V/92$\,mL. For each of the 20\,000 Monte Carlo pairs we scale the silent and the audible CFD doses
-by the pair's two volumes, and report $P(R>1)$ and the shares above and below the just-noticeable ratio per scene and
-nose. In the analytic model this scaling is exact ($R_\text{as emitted} = R_\text{equal mass}\,V_s/V_l$). Applied to
-the CFD it assumes that the flow path does not depend on the volume: close for silent releases, whose momentum is
-negligible against the body plume, and an approximation for audible ones.
+\emph{Passages as emitted in the simulated scenes.} The 20\,000 passages of the source model each have a volume
+$V$, an exit momentum flux $M_0$ and a class. At each nose a passage gets the dose per unit volume of the
+representative releases of its class, interpolated in $\log M_0$ and held constant outside their range, times $V$:
+the odorant is a passive scalar, so the dose is linear in volume, and the flow path is assumed to depend on the
+momentum but not on the volume. Its hearing at each nose comes from the acoustic model. Pairs of one silent and one
+audible passage then fall into four outcomes: neither smelled; silent worse (only the silent one smelled, or both and
+the silent one above the just-noticeable ratio); audible worse (the reverse); and a tie. A bystander remembers a
+silent passage only if smelled (Theorem~3), so the remembered shares are the same outcomes among pairs whose silent
+passage was smelled. Scenes are weighted by the time an adult spends close to another person in each setting
+(sofa 0.73, elevator 0.005, standing 0.26; Section~\ref{SI-sec:si-weights}), with home- and office-centred days as
+bounds. In the clothed variants each passage is in trousers with probability 0.7 or 0.85, independently.
