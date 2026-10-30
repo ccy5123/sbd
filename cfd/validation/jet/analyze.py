@@ -4,20 +4,21 @@ Fits on 20 <= x/d <= 90 (the Dowling & Dimotakis / Hussein measurement window):
   U0/Uc = (x - x0)/(B_u d),   s0/sc = (x - x0)/(K_c d*)   (d* = d here: same density)
 Spreading rate S = d r_1/2 / dx from radial velocity profiles at x/d = 40..90.
 
-Usage: python3 analyze.py <runs_dir>  -> writes cfd/validation/jet/results.json and figures/fig4_jet_validation.png
+Usage: python3 analyze.py [runs_dir] [results_json] [--no-plot]
+  -> writes results_json (default cfd/validation/jet/results.json) and figures/jet_validation_paper.{svg,png}
+     (FIGSTYLE v1.2, paper, double); --no-plot skips the figure.
 """
 import json
 import re
 import sys
 from pathlib import Path
 
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT))
+from figstyle import *  # noqa: E402,F401,F403  (FIGSTYLE v1.2, verbatim)
+
 D, U0 = 0.01, 10.0
 EXP = {"B_u": 5.8, "K_c": 5.11, "S": 0.094}  # Hussein et al. 1994; Dowling & Dimotakis 1990
 CASES = [("jet_sst_coarse", "SST coarse"), ("jet_sst_medium", "SST medium"), ("jet_sst_fine", "SST fine"),
@@ -69,7 +70,8 @@ def fit_decay(x, q, q0):
     return 1.0 / slope, -icpt / slope  # constant, x0/d
 
 
-def spreading(dat, xc, uc):
+def half_widths(dat, xc, uc):
+    """Velocity half-width r_1/2 at x/d = 40..90."""
     rh = []
     xs = [40, 50, 60, 70, 80, 90]
     for xd in xs:
@@ -83,6 +85,11 @@ def spreading(dat, xc, uc):
             rh.append(np.nan); continue
         k = k[0]
         rh.append(np.interp(half, [u[k], u[k - 1]], [r[k], r[k - 1]]))
+    return xs, rh
+
+
+def spreading(dat, xc, uc):
+    xs, rh = half_widths(dat, xc, uc)
     return float(np.polyfit(np.array(xs) * D, rh, 1)[0])
 
 
@@ -99,7 +106,7 @@ def gci(f1, f2, f3, r=2.0, Fs=1.25):
             "extrapolated": float(ext)}
 
 
-def main(runs: Path):
+def main(runs: Path, out: Path = ROOT / "cfd/validation/jet/results.json", draw: bool = True):
     res, curves = {}, {}
     for name, label in CASES:
         dat = load(runs / name) if (runs / name).exists() else None
@@ -113,40 +120,67 @@ def main(runs: Path):
                      "K_c": float(K), "x0_s_over_d": float(x0s), "S": S,
                      "err_B_u_pct": 100 * (B / EXP["B_u"] - 1), "err_K_c_pct": 100 * (K / EXP["K_c"] - 1),
                      "err_S_pct": 100 * (S / EXP["S"] - 1)}
-        curves[name] = (label, xc / D, U0 / uc, 1.0 / sc)
+        xs, rh = half_widths(dat, xc, uc)
+        curves[name] = (label, xc / D, U0 / uc, 1.0 / sc, np.array(xs), np.array(rh) / D)
     if all(c in res for c in ("jet_sst_fine", "jet_sst_medium", "jet_sst_coarse")):
         for q in ("B_u", "K_c", "S"):
             res[f"GCI_{q}"] = gci(res["jet_sst_fine"][q], res["jet_sst_medium"][q], res["jet_sst_coarse"][q])
     res["experiment"] = EXP
-    (ROOT / "cfd/validation/jet/results.json").write_text(json.dumps(res, indent=2))
-    plot(curves, res)
+    out.write_text(json.dumps(res, indent=2))
+    if draw:
+        plot(curves, res)
     print(json.dumps(res, indent=1))
 
 
+KE = r"$\mathit{k}$–$\mathit{\varepsilon}$"
+STYLE = {  # case -> (display label, PALETTE / MARKERS / LINESTYLES index)
+    "jet_sst_coarse": ("SST, coarse", 0), "jet_sst_medium": ("SST, medium", 1), "jet_sst_fine": ("SST, fine", 2),
+    "jet_ke_medium": (KE + ", medium", 3),
+    "jet_ke_pope_medium": (KE + ", medium, " + var("C", r"\varepsilon 1") + " = 1.6", 4)}
+
+
 def plot(curves, res):
-    SURFACE, INK, INK2 = "#fcfcfb", "#0b0b0b", "#52514e"
-    cols = {"jet_sst_coarse": "#86b6ef", "jet_sst_medium": "#2a78d6", "jet_sst_fine": "#104281",
-            "jet_ke_medium": "#eb6834", "jet_ke_pope_medium": "#1baf7a"}
-    plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "font.size": 9,
-                         "axes.spines.top": False, "axes.spines.right": False, "axes.titleweight": "bold"})
-    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.2), constrained_layout=True)
+    apply_style("paper")
+    fig, axes = new_figure("double", aspect=0.36, ncols=3)
     xd = np.linspace(0, 100, 200)
-    for ax, idx, key, lab in ((axes[0], 2, "B_u", "U₀ / U_c"), (axes[1], 3, "K_c", "s₀ / s_c")):
+    xlab = axis_label(var("x") + "/" + var("d"))
+    # (a, b) centreline velocity and scalar decay; experiment = correlation line (Hussein 1994; Dowling & Dimotakis 1990)
+    for ax, idx, key, lab in ((axes[0], 2, "B_u", var("U", "0") + "/" + var("U", "c")),
+                              (axes[1], 3, "K_c", var("s", "0") + "/" + var("s", "c"))):
+        ax.axvspan(20, 90, color=MUTED, alpha=0.15, lw=0, zorder=0, label="Fit window")
         x0 = 4.0 if key == "B_u" else -3.7
-        ax.plot(xd, (xd - x0) / EXP[key], color=INK, lw=2.2, ls=(0, (5, 3)),
-                label=f"experiment: {key} = {EXP[key]} ({'Hussein 1994' if key == 'B_u' else 'Dowling & Dimotakis 1990'})")
+        ax.plot(xd, (xd - x0) / EXP[key], color=INK, ls=(0, (5, 3)), label="Experiment", zorder=3)
         for name, c in curves.items():
-            ax.plot(c[1], c[idx], color=cols[name], lw=1.8, label=f"{c[0]}: {key} = {res[name][key]:.2f}")
-        ax.axvspan(20, 90, color="#e4e3df", alpha=0.5, lw=0)
-        ax.set_xlim(0, 100); ax.set_ylim(0, 22)
-        ax.set_xlabel("x / d"); ax.set_ylabel(lab)
-        ax.legend(frameon=False, fontsize=7.5, loc="upper left")
-    axes[0].set_title("a  Centreline velocity decay", loc="left")
-    axes[1].set_title("b  Centreline scalar decay", loc="left")
-    fig.suptitle("Fig. 4 · Free round jet validation (Re = 6 700, RANS, axisymmetric); grey = fit window",
-                 x=0.01, ha="left", fontsize=10, fontweight="bold")
-    fig.savefig(ROOT / "figures/fig4_jet_validation.png", dpi=200)
+            lbl, i = STYLE[name]
+            ax.plot(c[1], c[idx], color=PALETTE[i], ls=LINESTYLES[i], marker=MARKERS[i],
+                    markevery=(0.03 + 0.035 * i, 0.18), label=lbl)
+        ax.set_xlim(0, 100)
+        ax.set_ylim(0, 22)
+        ax.set_xlabel(xlab)
+        ax.set_ylabel(axis_label(lab))
+    # (c) spreading: velocity half-width with the fitted slope S, experiment slope drawn through the SST fine fit
+    ax = axes[2]
+    for name, c in curves.items():
+        lbl, i = STYLE[name]
+        ax.plot(c[4], c[5], color=PALETTE[i], ls=LINESTYLES[i], marker=MARKERS[i])
+    if "jet_sst_fine" in curves:
+        c = curves["jet_sst_fine"]
+        xm, rm = np.mean(c[4]), np.mean(c[5])
+        xe = np.array([35, 95])
+        ax.plot(xe, rm + EXP["S"] * (xe - xm), color=INK, ls=(0, (5, 3)), zorder=3)
+    ax.set_xlim(30, 100)
+    ax.set_ylim(2, 12.5)
+    ax.set_xlabel(xlab)
+    ax.set_ylabel(axis_label(var("r", "1/2") + "/" + var("d")))
+    handles, labels = axes[0].get_legend_handles_labels()
+    order = sorted(range(len(labels)), key=lambda k: labels[k] == "Fit window")  # shaded window listed last
+    fig.legend([handles[k] for k in order], [labels[k] for k in order], loc="outside lower center", ncol=4)
+    panel_labels(axes)
+    return save_figure(fig, "jet_validation_paper", outdir=ROOT / "figures")
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "cfd/runs")
+    args = [a for a in sys.argv[1:] if a != "--no-plot"]
+    main(Path(args[0]) if args else ROOT / "cfd/runs",
+         Path(args[1]) if len(args) > 1 else ROOT / "cfd/validation/jet/results.json",
+         draw="--no-plot" not in sys.argv[1:])

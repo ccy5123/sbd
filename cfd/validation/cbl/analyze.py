@@ -2,21 +2,21 @@
 
 Reads postProcessing/{faceLine,noseColumn,headTop}/<time>/line.xy from each transient cbl_t*_tr case (sampled every
 0.5 s; statistics over the second half of the run). The steady cbl_t*_coarse runs did not converge and are skipped.
-Writes cfd/validation/cbl/results.json and figures/fig4_cbl_validation.png.
+Writes cfd/validation/cbl/results.json and figures/cbl_validation_paper.{svg,png} (FIGSTYLE v1.2, paper, double).
 Usage: python3 analyze.py [runs_dir]
+       python3 analyze.py --from-json   (redraw the figure from the committed results.json; no analysis, no write)
 """
 import json
 import re
 import sys
 from pathlib import Path
 
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT))
+from figstyle import *  # noqa: E402,F401,F403  (FIGSTYLE v1.2, verbatim)
+
 LICINA = {20.0: 0.24, 26.0: 0.16}  # CBL mean peak velocity in front of the seated manikin (Licina et al. 2014)
 
 
@@ -67,37 +67,52 @@ def main(runs: Path):
             print(k, {a: (round(b, 3) if isinstance(b, float) else b) for a, b in v.items() if not a.startswith("profile")})
 
 
+TEMP_COLOR = {20.0: PALETTE[0], 23.0: PALETTE[1], 26.0: PALETTE[2]}  # room temperature -> colour, marker, line
+TEMP_IDX = {20.0: 0, 23.0: 1, 26.0: 2}
+
+
 def plot(res):
-    SURFACE, INK, INK2 = "#fcfcfb", "#0b0b0b", "#52514e"
-    plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "font.size": 9,
-                         "axes.spines.top": False, "axes.spines.right": False, "axes.titleweight": "bold"})
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10.5, 4.2), constrained_layout=True)
-    a1.plot(list(LICINA), list(LICINA.values()), color=INK, lw=2, ls=(0, (5, 3)), marker="s", ms=7,
-            label="Licina et al. 2014 (thermal manikin)")
-    for level, col, mk in (("tr", "#2a78d6", "o"),):
-        pts = sorted((v["T_room_C"], v["peak_Uz_face_mean"], v["peak_Uz_face_sd"]) for k, v in res.items()
-                     if k.startswith("cbl") and v["level"] == level)
-        if pts:
-            t, m_, e = zip(*pts)
-            a1.errorbar(t, m_, yerr=e, color=col, lw=1.6, marker=mk, ms=8, mec=SURFACE, mew=2, capsize=3,
-                        label="CFD, transient RANS, coarse mesh (mean ± sd, 30–60 s)")
-    a1.set_xlabel("room temperature (°C), skin 33 °C"); a1.set_ylabel("peak upward CBL velocity in front of face (m/s)")
-    a1.set_ylim(0, 0.45); a1.set_xlim(19, 27)
-    a1.set_title("a  Breathing-zone CBL peak velocity", loc="left")
-    a1.legend(frameon=False, fontsize=8)
-    for k, v in res.items():
-        if k.startswith("cbl") and v["level"] == "tr":
-            a2.plot((np.array(v["profile_x"]) - 0.06) * 100, v["profile_Uz"], lw=1.8,
-                    color={20.0: "#104281", 23.0: "#2a78d6", 26.0: "#86b6ef"}.get(v["T_room_C"], INK2),
-                    label=f"{v['T_room_C']:.0f} °C")
-    a2.axhline(0, color=INK2, lw=0.6)
-    a2.set_xlabel("distance in front of the face at nose height (cm)"); a2.set_ylabel("U_z (m/s)")
-    a2.set_title("b  Time-mean vertical velocity profile at nose height", loc="left")
-    a2.legend(frameon=False, fontsize=8, title="room")
-    fig.suptitle("Fig. 4 (cont.) · Human convective boundary layer validation (simplified seated manikin, RANS k-ω SST)",
-                 x=0.01, ha="left", fontsize=10, fontweight="bold")
-    fig.savefig(ROOT / "figures/fig4_cbl_validation.png", dpi=200)
+    apply_style("paper")
+    fig, axes = new_figure("double", aspect=0.36, ncols=2)
+    a1, a2 = axes
+    cases = sorted((v for k, v in res.items() if k.startswith("cbl") and v["level"] == "tr"),
+                   key=lambda v: v["T_room_C"])
+    # (a) peak upward velocity in front of the face vs room temperature
+    a1.plot(list(LICINA), list(LICINA.values()), color=INK, ls=(0, (5, 3)), marker="s",
+            markerfacecolor="white", label="Licina et al. (2014)")
+    a1.plot([v["T_room_C"] for v in cases], [v["peak_Uz_face_mean"] for v in cases], color=MUTED, lw=0.6,
+            zorder=1)
+    for v in cases:
+        i = TEMP_IDX[v["T_room_C"]]
+        a1.errorbar(v["T_room_C"], v["peak_Uz_face_mean"], yerr=v["peak_Uz_face_sd"], color=TEMP_COLOR[v["T_room_C"]],
+                    marker=MARKERS[i], ls="none", zorder=3)
+    a1.text(0.03, 0.04, "Skin 33 °C; CFD mean ± sd over 30–60 s", transform=a1.transAxes, ha="left", va="bottom")
+    a1.set_xlim(19, 27)
+    a1.set_ylim(0, 0.45)
+    a1.set_xlabel(axis_label("Room temperature", "°C"))
+    a1.set_ylabel(axis_label("Peak " + var("U", "z") + " in front of the face", "m s-1"))
+    # (b) time-mean vertical velocity profile at nose height
+    a2.axhline(0, color=MUTED, lw=0.6, zorder=0)
+    for v in cases:
+        i = TEMP_IDX[v["T_room_C"]]
+        a2.plot((np.array(v["profile_x"]) - 0.06) * 100, v["profile_Uz"], color=TEMP_COLOR[v["T_room_C"]],
+                ls=LINESTYLES[i], marker=MARKERS[i], markevery=(0.04 + 0.05 * i, 0.16),
+                label=f"CFD, room {v['T_room_C']:.0f} °C")
+    a2.set_xlim(0, 35)
+    a2.set_ylim(-0.05, 0.45)
+    a2.set_xlabel(axis_label("Distance in front of the face at nose height", "cm"))
+    a2.set_ylabel(axis_label("Time-mean " + var("U", "z"), "m s-1"))
+    handles, labels = [], []
+    for ax in (a1, a2):
+        h, l = ax.get_legend_handles_labels()
+        handles += h; labels += l
+    fig.legend(handles, labels, loc="outside lower center", ncol=4)
+    panel_labels(axes)
+    return save_figure(fig, "cbl_validation_paper", outdir=ROOT / "figures")
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "cfd/runs")
+    if "--from-json" in sys.argv[1:]:  # redraw only: read the committed results, never rewrite them
+        plot(json.loads((ROOT / "cfd/validation/cbl/results.json").read_text()))
+    else:
+        main(Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "cfd/runs")
