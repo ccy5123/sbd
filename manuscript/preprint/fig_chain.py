@@ -1,67 +1,110 @@
 """Fig. 2 of the preprint: the mechanistic chain from release to memory, with the quantity each stage hands on and
 where each theorem acts. Pure drawing, no data.
-Usage (repo root): python3 manuscript/preprint/fig_chain.py -> manuscript/preprint/figs/fig2_chain.png
+Figure in FIGSTYLE v1.2 (paper, double column). Colour = part of the chain (physics, perception, memory), in PALETTE
+order; box text sits on the boxes on purpose (allow_overlap), and a check below keeps every line inside its box.
+Usage (repo root, figure venv, see HANDOFF): /root/figenv/bin/python manuscript/preprint/fig_chain.py
+  -> figures/mechanism_chain_paper.svg/.png
 """
+import sys
 from pathlib import Path
 
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
+from matplotlib.colors import to_rgba  # noqa: E402
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-SURFACE, INK, INK2, MUTED = "#fcfcfb", "#0b0b0b", "#52514e", "#8a8984"
-PHYS, PERC, MIND = "#e4eefb", "#fde9d6", "#e3f4ec"  # stage tints: physics, perception, memory
-EDGE = {"phys": "#2a78d6", "perc": "#eb6834", "mind": "#1baf7a"}
+sys.path.insert(0, str(ROOT))
+from figstyle import *  # noqa: E402,F401,F403  (FIGSTYLE v1.2, verbatim)
+
+COLOR_MAP = {"phys": PALETTE[0], "perc": PALETTE[1], "mind": PALETTE[2]}
 
 STAGES = [  # (title, detail, kind)
-    ("Release", "volume $V$, duration $T$,\norifice $d$ → $u_0$", "phys"),
-    ("Sound", "lip-reed onset\n$u_0 > u_\\mathrm{onset}$ ≈ 30 m/s\n79 % never oscillate", "phys"),
-    ("Near field", "momentum\npre-dilution\n$D_1 \\approx \\beta\\,\\mathrm{Si}$", "phys"),
-    ("Transport", "$C = G * q$ (linear)\nrouting by body\nplumes, furniture", "phys"),
-    ("Nose", "worst breath\n$I = k\\,\\mathrm{OAV}_b^{\\,n}$", "perc"),
-    ("Noticing", "heard ($H$)\nor smelled ($S$)?", "perc"),
-    ("Memory", "$N = H \\cup S$:\nonly noticed\npassages count", "mind"),
+    ("Release", "volume " + var("V") + ",\nduration " + var("T") + ",\norifice " + var("d") + " → " + var("u", "0"),
+     "phys"),
+    ("Sound", "lip-reed onset\n" + var("u", "0") + " > " + var("u", "onset") + "\n≈ 42 " + unit("m s-1")
+     + "\n85 % never\noscillate", "phys"),
+    ("Near field", "momentum\npre-dilution\n" + var("D", "1") + " ≈ " + var(r"\beta") + " Si", "phys"),
+    ("Transport", r"$\mathit{C} = \mathit{G} * \mathit{q}$" + "\n(linear)\nrouting by\nbody plumes,\nfurniture",
+     "phys"),
+    ("Nose", "worst breath\n" + r"$\mathit{I} = \mathit{k}\,\mathrm{OAV}_{\mathrm{b}}^{\,\mathit{n}}$", "perc"),
+    ("Noticing", "heard (" + var("H") + ")\nor smelled\n(" + var("S") + ")?", "perc"),
+    ("Memory", r"$\mathit{N} = \mathit{H} \cup \mathit{S}$:" + "\nonly noticed\npassages\ncount", "mind"),
 ]
 NOTES = {  # stage index -> annotation under the box
-    2: "the only exception\nto Theorem 1",
-    3: "Theorems 1–2: no\nhigher peak; release\nmode forgotten",
+    2: "the only\nexception to\nTheorem 1",
+    3: "Theorems 1–2:\nno higher peak;\nrelease mode\nforgotten",
     4: "JND: ratio 1.28",
-    6: "Theorem 3: every\nremembered silent\npassage stank",
+    6: "Theorem 3:\nevery\nremembered\nsilent passage\nstank",
 }
+SPANS = ((0, 3, "Physics: Sections 2.2–2.4, 4.1–4.4", "phys"),  # (first stage, last stage, label, kind)
+         (4, 5, "Perception: Sections 4.5–4.6", "perc"),
+         (6, 6, "Memory: 2.5, 4.7", "mind"))
+W, H, Y0 = 0.9, 0.98, 0.76  # box width, height, bottom (data units; one stage per unit)
+Y_BAR = Y0 + H + 0.13
+SMALL = MEDIA["paper"]["small"]
+PITCH = 1.3  # baseline-to-baseline distance in units of the font size
+
+
+def stack(ax, x, y, text, size=SMALL, **kw):
+    """Centred lines with their first baseline at data (x, y), one Text per line at a fixed pitch. (Multi-line Text
+    in matplotlib 3.11 Agg raises lines with descenders, so the spacing came out uneven.)"""
+    return [ax.annotate(line, (x, y), xytext=(0, -k * PITCH * size), textcoords="offset points", ha="center",
+                        va="baseline", fontsize=size, annotation_clip=False, **kw)
+            for k, line in enumerate(text.split("\n"))]
+
+
+def figure():
+    apply_style("paper")
+    fig, ax = new_figure("double", aspect=0.3)
+    ax.set_xlim(0, 7)
+    ax.set_ylim(0.0, Y_BAR + 0.22)
+    ax.axis("off")
+    inside = []
+    for i, (title, detail, kind) in enumerate(STAGES):
+        x = i + (1 - W) / 2
+        col = COLOR_MAP[kind]
+        box = FancyBboxPatch((x, Y0), W, H, boxstyle="round,pad=0,rounding_size=0.05", fc=to_rgba(col, 0.15),
+                             ec=col, lw=MEDIA["paper"]["line"])
+        ax.add_patch(box)
+        texts = stack(ax, x + W / 2, Y0 + H - 0.16, title, size=MEDIA["paper"]["base"], fontweight="bold")
+        texts += stack(ax, x + W / 2, Y0 + H - 0.33, detail)
+        allow_overlap(*texts)  # text written on its box on purpose
+        inside += [(t, box) for t in texts]
+        if i < len(STAGES) - 1:
+            ax.add_patch(FancyArrowPatch((x + W, Y0 + H / 2), (x + 1, Y0 + H / 2), arrowstyle="->",
+                                         mutation_scale=6, color=MUTED, lw=MEDIA["paper"]["axis"],
+                                         shrinkA=0, shrinkB=0))
+        if i in NOTES:
+            stack(ax, x + W / 2, Y0 - 0.15, NOTES[i])
+    for first, last, label, kind in SPANS:
+        x0, x1 = first + (1 - W) / 2, last + (1 + W) / 2
+        ax.plot([x0, x1], [Y_BAR, Y_BAR], color=COLOR_MAP[kind], lw=2 * MEDIA["paper"]["line"],
+                solid_capstyle="butt")
+        ax.text(x1 if first == last else (x0 + x1) / 2, Y_BAR + 0.06, label, ha="right" if first == last else "center",
+                va="bottom")
+    return fig, inside
+
+
+def check_inside(fig, inside):
+    """The overlap check exempts text on its box, so check here that every box text stays inside its box."""
+    fig.draw_without_rendering()
+    r = fig.canvas.get_renderer()
+    bad = []
+    for t, box in inside:
+        tb, bb = t.get_window_extent(r), box.get_window_extent(r)
+        if tb.x0 < bb.x0 or tb.x1 > bb.x1 or tb.y0 < bb.y0 or tb.y1 > bb.y1:
+            bad.append(t.get_text().replace("\n", " / "))
+    if bad:
+        raise FigstyleLayoutError("text outside its box:\n  " + "\n  ".join(bad))
 
 
 def main():
-    plt.rcParams.update({"figure.facecolor": SURFACE, "savefig.facecolor": SURFACE, "font.size": 9, "text.color": INK})
-    fig, ax = plt.subplots(figsize=(12.5, 3.2))
-    ax.set_xlim(0, 7)
-    ax.set_ylim(0.55, 3.15)
-    ax.axis("off")
-    w, h, y0 = 0.86, 1.25, 1.35
-    fill = {"phys": PHYS, "perc": PERC, "mind": MIND}
-    for i, (title, detail, kind) in enumerate(STAGES):
-        x = i + 0.07
-        ax.add_patch(FancyBboxPatch((x, y0), w, h, boxstyle="round,pad=0.02,rounding_size=0.06", fc=fill[kind],
-                                    ec=EDGE[kind], lw=1.4))
-        ax.text(x + w / 2, y0 + h - 0.2, title, ha="center", va="center", fontsize=10, fontweight="bold")
-        ax.text(x + w / 2, y0 + h / 2 - 0.12, detail, ha="center", va="center", fontsize=7.4, color=INK2,
-                linespacing=1.25)
-        if i < len(STAGES) - 1:
-            ax.add_patch(FancyArrowPatch((x + w + 0.005, y0 + h / 2), (x + 1 - 0.005, y0 + h / 2),
-                                         arrowstyle="-|>", mutation_scale=11, color=MUTED, lw=1.2))
-        if i in NOTES:
-            ax.text(x + w / 2, y0 - 0.12, NOTES[i], ha="center", va="top", fontsize=7.2, color=INK2,
-                    style="italic", linespacing=1.2)
-    for x0, x1, label, kind in ((0.07, 3.93, "physics: Sections 2.2–2.4, 4.1–4.4, 4.6", "phys"),
-                                (4.07, 5.93, "perception: Section 4.5", "perc"),
-                                (6.07, 6.93, "memory: 2.5, 4.7", "mind")):
-        ax.plot([x0, x1], [2.86, 2.86], color=EDGE[kind], lw=2.2, solid_capstyle="butt")
-        ax.text((x0 + x1) / 2, 2.97, label, ha="center", va="bottom", fontsize=8, color=EDGE[kind])
-    out = ROOT / "manuscript/preprint/figs/fig2_chain.png"
-    out.parent.mkdir(exist_ok=True)
-    fig.savefig(out, dpi=200, bbox_inches="tight", pad_inches=0.05)
-    print("wrote", out)
+    fig, inside = figure()
+    check_inside(fig, inside)
+    out = save_figure(fig, "mechanism_chain_paper", outdir=ROOT / "figures")
+    print("wrote", *out)
 
 
 if __name__ == "__main__":
