@@ -1,7 +1,10 @@
 """M2: acoustic regime map (Fig. 3) and regime statistics over the release prior.
 
-Usage (repo root):  python3 acoustics/run_m2.py
-Writes: figures/fig3_acoustic_regimes.png, acoustics/results.json
+Figure in FIGSTYLE v1.2 (paper, double column): (a) regimes over flow rate and orifice diameter for a sofa neighbour
+(0.6 m) in a 35 dB(A) living room; (b) minimum audible flow rate of an oscillating release for five backgrounds at
+0.6 m and 3 m.
+Usage (repo root, figure venv, see HANDOFF): /root/figenv/bin/python acoustics/run_m2.py
+Writes: figures/acoustic_regimes_paper.svg/.png, acoustics/results.json
 """
 import json
 import sys
@@ -10,7 +13,6 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Patch, Rectangle
@@ -21,15 +23,17 @@ sys.path.insert(0, str(ROOT / "acoustics"))
 from model import load_params, nominal, prior_range  # noqa: E402
 import regime as ac  # noqa: E402
 
-INK, INK2, MUTED, SURFACE = "#0b0b0b", "#52514e", "#8a8984", "#fcfcfb"
-REG_COLORS = ["#cde2fb", "#86b6ef", "#3987e5", "#104281"]  # S1, S2, S3, audible (ordinal)
+sys.path.insert(0, str(ROOT))
+from figstyle import *  # noqa: E402,F401,F403  (FIGSTYLE v1.2, verbatim)
+
+# S1, S2, S3, audible (ordinal): CMAP_SEQ samples, light = silent, dark = audible
+REG_COLORS = [matplotlib.colormaps[CMAP_SEQ](x) for x in (0.92, 0.66, 0.40, 0.14)]
 BG_ORDER = ["library", "living", "office", "restaurant", "subway"]
-BG_LABEL = {"library": "library", "living": "living room", "office": "open-plan office",
-            "restaurant": "restaurant / café", "subway": "subway car"}
-plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "savefig.facecolor": SURFACE,
-                     "axes.edgecolor": MUTED, "axes.labelcolor": INK2, "xtick.color": INK2, "ytick.color": INK2,
-                     "text.color": INK, "font.size": 9, "axes.titlesize": 10, "axes.titleweight": "bold",
-                     "axes.spines.top": False, "axes.spines.right": False})
+BG_LABEL = {"library": "Library", "living": "Living room", "office": "Open-plan office",
+            "restaurant": "Restaurant / café", "subway": "Subway car"}
+REG_LABEL = {ac.S1: "No oscillation (physically silent)", ac.S2: "Oscillating, below hearing threshold",
+             ac.S3: "Audible in quiet, masked here", ac.AUDIBLE: "Audible"}
+DIST = ((0.6, "Sofa neighbour, 0.6 m"), (3.0, "Across the room, 3 m"))  # colour, marker follow the index
 P = nominal(load_params())
 NU = P["nu_gas"]
 SEED = 20261015
@@ -45,65 +49,77 @@ def prior_samples(n=200000):
 
 
 def regime_map():
+    apply_style("paper")
     Q = np.geomspace(5e-7, 2e-3, 300)            # 0.5 mL/s .. 2 L/s
     d = np.geomspace(1e-3, 1.5e-2, 240)
     QQ, DD = np.meshgrid(Q, d)
-    fig, axes = plt.subplots(1, 2, figsize=(11.2, 4.9), constrained_layout=True)
+    fig, axes = new_figure("double", aspect=0.5, ncols=2)
     cmap = ListedColormap(REG_COLORS)
+    q_label = var("Q")
     # (a) living room, sofa neighbour
     ax = axes[0]
     reg = ac.classify(QQ, DD, P, "living")
     ax.pcolormesh(Q * 1e6, d * 1e3, reg, cmap=cmap, vmin=-0.5, vmax=3.5, shading="auto", rasterized=True)
-    for Re, ls in ((300, ":"), (1000, "--"), (3000, "-."), (10000, "-")):
+    re_lines = []
+    for i, Re in enumerate((300, 1000, 3000, 10000)):
         dd = 4 * Q / (np.pi * NU * Re)
         m = (dd >= 1e-3) & (dd <= 1.5e-2)
-        ax.plot(Q[m] * 1e6, dd[m] * 1e3, color=INK2, lw=0.9, ls=ls)
-        j = np.where(m)[0]
-        if j.size:
-            k = j[int(0.55 * j.size)]
-            ax.text(Q[k] * 1e6, dd[k] * 1e3 * 1.06, f"Re {Re:,}", fontsize=7, color=INK2, rotation=33, ha="center")
-    qs, ds = prior_samples(20000)
-    ax.add_patch(Rectangle((PRIOR["V"][0] / PRIOR["T"][1] * 1e6, PRIOR["d"][0] * 1e3), (PRIOR["V"][1] / PRIOR["T"][0] -
-                 PRIOR["V"][0] / PRIOR["T"][1]) * 1e6, (PRIOR["d"][1] - PRIOR["d"][0]) * 1e3,
-                 fill=False, ec=INK, lw=0.8, ls=(0, (4, 2))))
-    ax.text(PRIOR["V"][0] / PRIOR["T"][1] * 1e6 * 1.1, PRIOR["d"][1] * 1e3 * 0.93, "sampled releases\n(Suarez 1997 volumes)", fontsize=7,
-            color=INK, va="top")
-    ax.set_xscale("log"); ax.set_yscale("log")
-    ax.set_xlabel("volume flow rate Q (mL/s)"); ax.set_ylabel("effective orifice diameter d (mm)")
-    ax.set_title("a  Regimes for a sofa neighbour (0.6 m), living room 35 dB(A)", loc="left")
-    ax.legend(handles=[Patch(fc=REG_COLORS[i], label=ac.LABELS[i]) for i in range(4)], loc="lower right",
-              frameon=True, facecolor=SURFACE, edgecolor="none", fontsize=7.5)
+        ax.plot(Q[m] * 1e6, dd[m] * 1e3, color=MUTED, lw=0.8, ls=LINESTYLES[(3, 1, 2, 0)[i]])
+        re_lines.append((Re, Q[m] * 1e6, dd[m] * 1e3))
+    qlo, qhi = PRIOR["V"][0] / PRIOR["T"][1] * 1e6, PRIOR["V"][1] / PRIOR["T"][0] * 1e6
+    ax.add_patch(Rectangle((qlo, PRIOR["d"][0] * 1e3), qhi - qlo, (PRIOR["d"][1] - PRIOR["d"][0]) * 1e3,
+                           fill=False, ec=INK, lw=0.8, ls=LINESTYLES[1]))
+    allow_overlap(ax.text(0.6, PRIOR["d"][1] * 1e3 * 1.04, "Sampled releases\n(Suarez 1997 volumes)",
+                          va="bottom", ha="left"))  # just above the top left of the dashed box
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_ylim(1, 15)
+    ax.set_yticks([1, 2, 3, 5, 10])
+    ax.set_yticklabels(["1", "2", "3", "5", "10"])
+    ax.set_xlabel(axis_label("Volume flow rate " + q_label, "mL s-1"))
+    ax.set_ylabel(axis_label("Effective orifice diameter " + var("d"), "mm"))
     # (b) minimum audible flow rate Q* per background (SPL depends on Q only, so each edge is a single number)
     ax = axes[1]
     Qf = np.geomspace(1e-7, 1e-1, 4000)
-    qlo, qhi = PRIOR["V"][0] / PRIOR["T"][1] * 1e6, PRIOR["V"][1] / PRIOR["T"][0] * 1e6
-    ax.axvspan(qlo, qhi, color="#e4e3df", lw=0)
-    ax.text(np.sqrt(qlo * qhi), len(BG_ORDER) - 0.35, "flow-rate range of the sampled releases", ha="center",
-            fontsize=7.5, color=INK2)
-    for r, col, lab in ((0.6, "#2a78d6", "sofa neighbour, 0.6 m"), (3.0, "#eb6834", "across the room, 3 m")):
+    ax.axvspan(qlo, qhi, color=MUTED, alpha=0.2, lw=0)
+    allow_overlap(ax.text(np.sqrt(qlo * qhi), len(BG_ORDER) - 0.15, "Flow-rate range of\nthe sampled releases",
+                          ha="center", va="center"))
+    y = np.arange(len(BG_ORDER))[::-1]
+    for i, (r, lab) in enumerate(DIST):
         qstar = []
         for bg in BG_ORDER:
             reg_b = ac.classify(Qf, np.full_like(Qf, 1e-4), P, bg, r=r)  # tiny d: always oscillating
             idx = np.where(reg_b == ac.AUDIBLE)[0]
             qstar.append(Qf[idx[0]] * 1e6 if idx.size else np.nan)
-        y = np.arange(len(BG_ORDER))[::-1]
-        ax.plot(qstar, y, "o", ms=8, color=col, mec=SURFACE, mew=2, label=lab, zorder=3)
-        for qq, yy in zip(qstar, y):
-            ax.text(qq * 1.25, yy + (0.16 if r < 1 else -0.2), f"{qq:,.0f}", fontsize=7, color=INK2, va="center")
-    ax.set_yticks(np.arange(len(BG_ORDER))[::-1])
-    ax.set_yticklabels([f"{BG_LABEL[b]}  {P['bg_' + b]:.0f} dB(A)" for b in BG_ORDER])
-    ax.set_ylim(-0.6, len(BG_ORDER) - 0.1)
-    ax.set_xscale("log"); ax.set_xlim(1, 3e4)
-    ax.set_xlabel("minimum audible flow rate Q* of an oscillating release (mL/s)")
-    ax.set_title("b  Audible to the right of each dot; masked to the left", loc="left")
-    ax.legend(frameon=False, fontsize=8, loc="upper left")
+        ax.plot(qstar, y, ls="none", marker=MARKERS[i], color=PALETTE[i], label=lab, zorder=3)
+        for qq, yy in zip(qstar, y):  # direct value labels beside each marker (on the grey band)
+            allow_overlap(ax.text(qq, yy + (0.3 if i == 0 else -0.3), f"{qq:,.0f}", ha="center", va="center"))
+    ax.set_yticks(y)
+    ax.set_yticklabels([f"{BG_LABEL[b]}, {P['bg_' + b]:.0f} dB(A)" for b in BG_ORDER])
+    ax.set_ylim(-0.6, len(BG_ORDER) + 0.2)
+    ax.set_xscale("log")
+    ax.set_xlim(1, 3e4)
+    ax.set_xlabel(axis_label("Minimum audible flow rate " + r"$\mathit{Q}^{*}$", "mL s-1"))
     ax.tick_params(axis="y", length=0)
-    axes[0].set_ylim(1, 15)
-    axes[0].set_yticks([1, 2, 3, 5, 10, 15]); axes[0].set_yticklabels(["1", "2", "3", "5", "10", "15"])
-    fig.suptitle(f"Fig. 3 · Acoustic regime map (onset P_th = {P['P_th']:.0f} Pa, f₀ = {P['f0_flatus']:.0f} Hz, "
-                 f"{int(P['n_harm'])} harmonics)", x=0.01, ha="left", fontsize=10, fontweight="bold")
-    fig.savefig(ROOT / "figures" / "fig3_acoustic_regimes.png", dpi=200)
+    ax.spines["left"].set_visible(False)
+    fig.legend(handles=[Patch(fc=REG_COLORS[k], label=REG_LABEL[k]) for k in range(4)], loc="outside lower left",
+               ncol=2)
+    fig.legend(*ax.get_legend_handles_labels(), loc="outside lower right", ncol=1)
+    # Reynolds-number labels along their lines, rotated to the on-screen slope (needs the final layout)
+    fig.draw_without_rendering()
+    ax = axes[0]
+    for n, (Re, qq, dd) in enumerate(re_lines):  # start at d = 4.6 mm (first 3.2), half a decade apart, in the silent region
+        if qq.size < 2:
+            continue
+        k = int(np.argmin(abs(dd - (3.2 if n == 0 else 4.6))))  # the longer first label starts lower
+        p0, p1 = ax.transData.transform([(qq[0], dd[0]), (qq[-1], dd[-1])])
+        ang = np.degrees(np.arctan2(p1[1] - p0[1], p1[0] - p0[0]))
+        allow_overlap(ax.text(qq[k], dd[k] * 1.08, f"Re = {Re:,}" if n == 0 else f"{Re:,}", rotation=ang,
+                              rotation_mode="anchor", ha="left", va="bottom", color=INK))
+    panel_labels(axes)
+    out = save_figure(fig, "acoustic_regimes_paper", outdir=ROOT / "figures")
     plt.close(fig)
+    return out
 
 
 def prior_stats():

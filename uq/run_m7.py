@@ -12,7 +12,9 @@ Outputs
       (the rejection sampling of silent/audible pairs rules out a Saltelli design), with bootstrap intervals.
   (c) headline P(SBD) in three layers: physical (P(R > 1)), perceptual (silent perceptibly worse / indistinguishable /
       audible perceptibly worse at the JND), and the memory layer from perception/selection.json.
-Usage (repo root): python3 uq/run_m7.py -> figures/fig10_regime_uq.png, uq/results.json
+Figure in FIGSTYLE v1.2 (paper, double column): (a) and (b) on top, (c) across the bottom.
+Usage (repo root, figure venv, see HANDOFF): /root/figenv/bin/python uq/run_m7.py
+  -> figures/regime_uq_paper.svg/.png, uq/results.json
 """
 import json
 import sys
@@ -21,7 +23,6 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import TwoSlopeNorm
 
@@ -32,9 +33,10 @@ import run_gate0 as g0
 from model import Release, phase1, ratio  # gate0 model
 from regime import u_onset
 
+sys.path.insert(0, str(ROOT))
+from figstyle import *  # noqa: E402,F401,F403  (FIGSTYLE v1.2, verbatim)
+
 P0 = g0.P0
-SURFACE, INK, INK2, MUTED = "#fcfcfb", "#0b0b0b", "#52514e", "#8a8984"
-SILENT_C, AUDIBLE_C, NEUTRAL_C = "#2a78d6", "#eb6834", "#c3c2b7"
 JND = 1.0 + P0["weber_C"]  # concentration ratio at the olfactory just-noticeable difference
 SEED = 20261016
 
@@ -111,86 +113,107 @@ def memory_layer():
     return out
 
 
-def figure(rm, sob, heads, out):
-    plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "savefig.facecolor": SURFACE,
-                         "axes.edgecolor": MUTED, "axes.labelcolor": INK2, "xtick.color": INK2,
-                         "ytick.color": INK2, "text.color": INK, "font.size": 9, "axes.titlesize": 10,
-                         "axes.titleweight": "bold", "axes.spines.top": False, "axes.spines.right": False})
-    fig, axes = plt.subplots(1, 3, figsize=(14.5, 4.9), constrained_layout=True,
-                             gridspec_kw={"width_ratios": [1.25, 1.0, 1.05]})
+PLOT_LABELS = {  # figure labels for SOBOL_INPUTS (the JSON keeps the SOBOL_INPUTS labels)
+    "K_turb": "Eddy diffusivity " + var("K"), "u_room": "Room air speed", "L_neighbour": "Neighbour distance",
+    "u_handoff": "Hand-off speed " + var("u", "h"), "P_th": "Sphincter onset pressure", "C_d": "Discharge coefficient",
+    "g_reduced": "Buoyancy " + var("g") + "′", "T_insp": "Inhalation time",
+    "V_s": "Silent: volume", "T_s": "Silent: duration", "d_s": "Silent: orifice",
+    "V_l": "Audible: volume", "T_l": "Audible: duration", "d_l": "Audible: orifice",
+}
+SOBOL_SERIES = (("nb_conc", "As emitted"), ("nb_mass", "Equal mass"))  # colour, hatch follow the index
+LAYERS = (("P_silent_perceptibly_worse", "Silent perceptibly stronger", 0.85),
+          ("P_indistinguishable", "Indistinguishable (below the JND)", 0.5),
+          ("P_audible_perceptibly_worse", "Silent perceptibly weaker", 0.15))  # CMAP_DIV position: sign of log10 R
+HEAD_NAMES = (("nb_conc", "Neighbour, as emitted"), ("nb_mass", "Neighbour, equal mass"),
+              ("own_conc", "Own nose, as emitted"), ("own_mass", "Own nose, equal mass"),
+              ("nb_conc_denim", "Neighbour, as emitted, denim"))
+
+
+def figure(rm, sob, heads):
+    """Fig. 10 in FIGSTYLE v1.2 (paper, double column): (a) regime map and (b) Sobol indices on top, (c) layers below."""
+    apply_style("paper")
+    fig, axs = new_figure("double", aspect=0.78, nrows=2, ncols=2, gridspec_kw={"height_ratios": [1.45, 1]})
+    gs = axs[1, 0].get_gridspec()
+    for a in axs[1]:
+        a.remove()
+    axes = [axs[0, 0], axs[0, 1], fig.add_subplot(gs[1, :])]
+    cmap = matplotlib.colormaps[CMAP_DIV]
+    r_lab = var("R")
     # (a) regime map
     ax = axes[0]
     j = np.log10(JND)
     norm = TwoSlopeNorm(vmin=-1.0, vcenter=0.0, vmax=1.0)
-    m = ax.pcolormesh(rm["Si"], rm["t"], rm["log10R"], cmap=g0.DIVERGING, norm=norm, shading="auto",
-                      rasterized=True)
-    cs = ax.contour(rm["Si"], rm["t"], rm["log10R"], levels=[-j, j], colors=INK, linewidths=[0.9, 0.9],
-                    linestyles=[(0, (3, 2))] * 2)
-    ax.clabel(cs, fmt={-j: "JND", j: "JND"}, fontsize=7)
-    ax.axvline(rm["Si_onset"], color=INK, lw=1.4)
-    ax.text(rm["Si_onset"] * 1.06, 0.6, "acoustic onset\n(audible →)", fontsize=7.5, color=INK, va="bottom")
-    ax.axvspan(rm["Si"].min(), rm["Si_onset"], color=SURFACE, alpha=0.6, lw=0, zorder=1.5)
-    ax.text(rm["Si"].min() * 1.2, 40.0, "comparison release not audible:\nonly the right of the onset\nline is a "
-            "silent-vs-audible pair", fontsize=7, color=INK2, va="top")
-    for t_nom, lab in ((P0["L_own"] / P0["u_own_eff"], "own nose (nominal)"),
-                       (P0["L_neighbour"] / P0["u_room"], "neighbour (nominal)")):
-        ax.axhline(t_nom, color=INK, lw=0.9, ls=(0, (1, 1.5)), zorder=3)
-        ax.text(rm["Si"].min() * 1.2, t_nom * 1.06, lab, fontsize=7.5, color=INK, va="bottom", zorder=3)
-    ax.set_xscale("log"); ax.set_yscale("log")
-    ax.set_xlabel("Silencer number of the audible release, Si = u₀/u_h")
-    ax.set_ylabel("travel time to the nose (s)")
-    ax.set_title("a  Regime map (equal mass, room air)", loc="left")
-    cb = fig.colorbar(m, ax=ax, shrink=0.9, pad=0.01)
-    cb.set_label("log₁₀ (C_silent / C_audible)")
-    cb.ax.text(1.0, 1.02, "silent\ndeadlier", transform=cb.ax.transAxes, ha="center", va="bottom", fontsize=7,
-               color="#9e2322")
-    cb.ax.text(1.0, -0.02, "audible\nworse", transform=cb.ax.transAxes, ha="center", va="top", fontsize=7,
-               color="#104281")
+    m = ax.pcolormesh(rm["Si"], rm["t"], rm["log10R"], cmap=CMAP_DIV, norm=norm, shading="auto", rasterized=True)
+    cs = ax.contour(rm["Si"], rm["t"], rm["log10R"], levels=[-j, j], colors=INK, linewidths=0.8,
+                    linestyles=[LINESTYLES[1]] * 2)
+    ax.axvline(rm["Si_onset"], color=INK, lw=1.2)
+    ax.axvspan(rm["Si"].min(), rm["Si_onset"], color=MUTED, alpha=0.3, lw=0, zorder=1.5)  # grey: not a pair
+    for t_nom in (P0["L_own"] / P0["u_own_eff"], P0["L_neighbour"] / P0["u_room"]):
+        ax.axhline(t_nom, color=INK, lw=0.8, ls=LINESTYLES[3], zorder=3)
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_xlabel(axis_label("Silencer number of the audible release, Si = " + var("u", "0") + "/" + var("u", "h")))
+    ax.set_ylabel(axis_label("Travel time to the nose", "s"))
+    cb = fig.colorbar(m, ax=ax, pad=0.02, ticks=[-1, -0.5, 0, 0.5, 1])
+    cb.set_label("log$_{10}$ " + r_lab + " (positive: silent stronger)")
+    # labels sit on the map (pale region, high contrast); placed after the layout so the JND label follows the line
+    fig.draw_without_rendering()
+    x0 = rm["Si"].min() * 1.15
+    allow_overlap(ax.text(x0, 50.0, "Comparison release\nnot audible", va="top"))
+    allow_overlap(ax.text(rm["Si_onset"] * 0.93, 0.62, "Acoustic\nonset", ha="right", va="bottom"))
+    for t_nom, lab in ((P0["L_own"] / P0["u_own_eff"], "Releaser's nose (nominal)"),
+                       (P0["L_neighbour"] / P0["u_room"], "Neighbour (nominal)")):
+        allow_overlap(ax.text(x0, t_nom * 1.08, lab, va="bottom"))
+    seg = max((p for lv, segs in zip(cs.levels, cs.allsegs) if lv > 0 for p in segs), key=len, default=None)
+    if seg is not None and len(seg) > 1:  # "JND" along the longest stretch of the contour, rotated to its slope
+        k = int(0.6 * len(seg))
+        p0, p1 = ax.transData.transform([seg[k - 1], seg[min(k + 1, len(seg) - 1)]])
+        ang = (np.degrees(np.arctan2(p1[1] - p0[1], p1[0] - p0[0])) + 90) % 180 - 90  # keep the text upright
+        allow_overlap(ax.text(*seg[k], "JND", rotation=ang, rotation_mode="anchor", ha="center", va="bottom"))
     # (b) Sobol first-order
     ax = axes[1]
     keys = sorted(sob["nb_conc"], key=lambda k: -sob["nb_conc"][k]["S1"])[:9]
     y = np.arange(len(keys))
-    for off, tag, col, lab in ((0.2, "nb_conc", AUDIBLE_C, "as emitted"), (-0.2, "nb_mass", SILENT_C, "equal mass")):
+    for i, (tag, lab) in enumerate(SOBOL_SERIES):
+        off = 0.2 if i == 0 else -0.2
         v = [max(sob[tag][k]["S1"], 0.0) for k in keys]
         lo = [max(sob[tag][k]["S1"], 0) - max(sob[tag][k]["CI90"][0], 0) for k in keys]
         hi = [max(sob[tag][k]["CI90"][1], 0) - max(sob[tag][k]["S1"], 0) for k in keys]
-        ax.barh(y + off, v, 0.38, color=col, label=lab, zorder=2)
-        ax.errorbar(v, y + off, xerr=[np.maximum(lo, 0), np.maximum(hi, 0)], fmt="none", ecolor=INK2,
-                    elinewidth=0.8, capsize=2, zorder=3)
-    ax.set_yticks(y, [SOBOL_INPUTS[k][0] for k in keys])
+        ax.barh(y - off, v, 0.38, color=PALETTE[i], label=lab, hatch=None if i == 0 else "////",
+                edgecolor="white", lw=0, zorder=2)
+        ax.errorbar(v, y - off, xerr=[np.maximum(lo, 0), np.maximum(hi, 0)], fmt="none", ecolor=INK,
+                    elinewidth=0.6, capsize=1.5, zorder=3)
+    ax.set_yticks(y, [PLOT_LABELS[k] for k in keys])
     ax.invert_yaxis()
-    ax.set_xlabel("first-order Sobol index of log₁₀ R (neighbour)")
-    ax.set_title("b  What decides the ratio", loc="left")
-    ax.legend(frameon=False, fontsize=8, loc="lower right")
+    ax.tick_params(axis="y", length=0)
+    ax.set_xlabel(axis_label("First-order Sobol index of log$_{10}$ " + r_lab))
+    ax.legend(loc="lower right")
     # (c) layered headline
     ax = axes[2]
-    names = [("nb_conc", "neighbour · as emitted"), ("nb_mass", "neighbour · equal mass"),
-             ("own_conc", "own nose · as emitted"), ("own_mass", "own nose · equal mass"),
-             ("nb_conc_denim", "neighbour · as emitted · denim")]
-    y = np.arange(len(names))
-    left = np.zeros(len(names))
-    for key, col, lab in (("P_silent_perceptibly_worse", "#e34948", "silent perceptibly worse"),
-                          ("P_indistinguishable", NEUTRAL_C, "indistinguishable (< JND)"),
-                          ("P_audible_perceptibly_worse", SILENT_C, "audible perceptibly worse")):
-        v = np.array([heads[n][key] for n, _ in names])
-        ax.barh(y, v, 0.6, left=left, color=col, label=lab, zorder=2, edgecolor=SURFACE, linewidth=1.5)
+    y = np.arange(len(HEAD_NAMES))
+    left = np.zeros(len(HEAD_NAMES))
+    for key, lab, pos in LAYERS:
+        v = np.array([heads[n][key] for n, _ in HEAD_NAMES])
+        ax.barh(y, v, 0.62, left=left, color=cmap(pos), label=lab, zorder=2, edgecolor=INK, linewidth=0.5)
         for yy, l0, vv in zip(y, left, v):
-            if vv > 0.07:
-                ax.text(l0 + vv / 2, yy, f"{vv:.2f}", ha="center", va="center", fontsize=7.5,
-                        color=SURFACE if col != NEUTRAL_C else INK)
+            if vv > 0.07:  # value labels inside the bars
+                allow_overlap(ax.text(l0 + vv / 2, yy, f"{vv:.2f}", ha="center", va="center"))
         left += v
-    for yy, (n, _) in zip(y, names):
-        ax.text(1.02, yy, f"P(R>1) = {heads[n]['P_SBD']:.2f}", va="center", fontsize=7.5, color=INK2)
-    ax.set_yticks(y, [lab for _, lab in names])
+    for yy, (n, _) in zip(y, HEAD_NAMES):
+        ax.text(1.02, yy, var("P") + "(" + r_lab + f" > 1) = {heads[n]['P_SBD']:.2f}", va="center")
+    ax.set_yticks(y, [lab for _, lab in HEAD_NAMES])
     ax.invert_yaxis()
-    ax.set_xlim(0, 1.32)
+    ax.tick_params(axis="y", length=0)
+    ax.set_xlim(0, 1.17)
     ax.set_xticks([0, 0.25, 0.5, 0.75, 1.0])
-    ax.set_xlabel("share of random silent/audible pairs")
-    ax.set_title("c  Physics, then the nose", loc="left")
-    ax.legend(frameon=False, fontsize=7.5, loc="upper center", bbox_to_anchor=(0.45, -0.13), ncol=2)
-    fig.suptitle("Fig. 10 · Uncertainty and regimes: where a silent release could be deadlier, and how often a nose "
-                 "could tell", x=0.01, ha="left", fontsize=10.5, fontweight="bold")
-    fig.savefig(out, dpi=200)
+    ax.spines["bottom"].set_bounds(0, 1)
+    ax.set_xlabel(axis_label("Share of random silent/audible pairs"))
+    ax.legend(loc="upper center", bbox_to_anchor=(0.45, -0.3), ncol=3)
+    for ax, letter in zip(axes, "abc"):  # one call each: panel_labels takes an array or a single axes
+        panel_labels(ax, start=letter)
+    out = save_figure(fig, "regime_uq_paper", outdir=ROOT / "figures")
+    plt.close(fig)
+    return out
 
 
 def main():
@@ -218,8 +241,7 @@ def main():
            "memory_layer": memory_layer()}
     (ROOT / "uq").mkdir(exist_ok=True)
     (ROOT / "uq/results.json").write_text(json.dumps(res, indent=1))
-    figure(rm, {k: {kk: vv for kk, vv in v.items() if not kk.startswith("_")} for k, v in sob.items()}, heads,
-           ROOT / "figures/fig10_regime_uq.png")
+    figure(rm, {k: {kk: vv for kk, vv in v.items() if not kk.startswith("_")} for k, v in sob.items()}, heads)
     for k, v in heads.items():
         print(k, {a: (round(b, 3) if isinstance(b, float) else b) for a, b in v.items()})
     for tag in sob:

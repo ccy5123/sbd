@@ -6,8 +6,10 @@ Fig. 11 'The expectation break-even' - how large an expectation amplification ga
                                        survive the physics; gamma* = R^-n. gamma is an auxiliary hypothesis (2026-10-16):
                                        its sign for unwarned exposure is not established; the main account of the belief
                                        is selection (perception/run_selection.py, Fig. 13).
-Usage (repo root): python3 perception/run_m6.py  -> figures/fig7_breath_hold.png, figures/fig11_gamma.png,
-                                                    perception/results.json
+Fig. 7 is drawn in FIGSTYLE v1.2 (paper, double column) as figures/breath_hold_paper.svg/.png; Fig. 11 and the
+supplementary lift-car figure keep their old style.
+Usage (repo root, figure venv, see HANDOFF): /root/figenv/bin/python perception/run_m6.py
+  -> figures/breath_hold_paper.svg/.png, figures/fig11_gamma.png, figures/figS_adaptation.png, perception/results.json
 """
 import json
 import sys
@@ -23,7 +25,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "gate0"))
 sys.path.insert(0, str(ROOT / "perception"))
 import run_gate0 as g0  # noqa: E402
+
 from model import load_params, nominal  # noqa: E402  (gate0 model)
+sys.path.append(str(ROOT))
+from figstyle import (MARKERS, LINESTYLES, MUTED as FS_MUTED, PALETTE, allow_overlap, apply_style,  # noqa: E402
+                      axis_label, new_figure, panel_labels, save_figure, var)
 import importlib.util  # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("perc", ROOT / "perception/model.py")
@@ -53,41 +59,48 @@ def worst_ratio(ta, st, phase, hold=None, gain=1.0, t_end=None):
 
 
 def fig7(mc):
+    """Breath sampling figure in FIGSTYLE v1.2 (paper, double column); returns the same numbers as before."""
+    apply_style("paper")
     audible_nb = np.c_[mc["ta_nb_l"], mc["st_nb_l"]]
     ta_med, st_med = np.median(audible_nb, axis=0)
     st_lo, st_hi = np.percentile(mc["st_nb_l"], [10, 90])
     phases = np.linspace(0, 1, 60, endpoint=False)
-    fig, axes = plt.subplots(1, 3, figsize=(12.5, 4.1), constrained_layout=True,
-                             gridspec_kw={"width_ratios": [1.25, 1, 1.15]})
-    # (a) time series
+    fig, axes = new_figure("double", aspect=0.5, ncols=3, gridspec_kw={"width_ratios": [1.25, 1, 1.15]})
+    sig = var(r"\sigma", "t")
+    ratio_lab = var("C") + "/" + var("C", "peak")
+    # (a) time series: the typical puff (colour 0, the median passage of (b)); three breathing phases (colours 3-5)
     ax = axes[0]
     t = np.arange(0, ta_med + 5 * st_med, DT)
     c = pm.puff_series(t, 1.0, ta_med, st_med)
-    ax.plot(t, c, color=INK, lw=2, label="concentration at the nose")
-    for k, (ph, col) in enumerate(((0.0, BLUE), (0.35, ORANGE), (0.7, AQUA))):
+    ax.plot(t, c, color=PALETTE[0], label=f"Concentration at the nose (arrival {ta_med:.0f} s, {sig} {st_med:.1f} s)")
+    for k, ph in enumerate((0.0, 0.35, 0.7)):
+        col = PALETTE[3 + k]
         q = pm.inspiratory_flow(t, PERIOD, TI, VT, ph)
         on = q > 0
         ax.fill_between(t, -0.08 - 0.07 * k, -0.02 - 0.07 * k, where=on, color=col, lw=0, step="mid")
         w = worst_ratio(ta_med, st_med, ph)
-        ax.axhline(w, color=col, lw=1.2, ls=(0, (4, 2)))
-        ax.text(t[-1] * 1.02, 0.80 - 0.09 * k, f"worst breath {w:.2f}", color=col, fontsize=7.5, va="center")
-    ax.text(0.3, -0.27, "inhalations for three breathing phases", fontsize=7.5, color=INK2)
-    ax.set_ylim(-0.32, 1.08); ax.set_xlim(0, t[-1] * 1.32)
-    ax.set_xlabel("time after the release (s)"); ax.set_ylabel("C / C_peak")
-    ax.set_title(f"a  A typical audible puff at the neighbour\n(arrival {ta_med:.0f} s, passage σ_t = {st_med:.1f} s)",
-                 loc="left")
+        ax.axhline(w, color=col, lw=0.8, ls=LINESTYLES[1 + k], label=f"Worst breath, release at phase {ph:.2f}: {w:.2f}")
+    ax.text(0.3, -0.34, "Inhalations for the three phases", va="bottom")
+    ax.set_ylim(-0.37, 1.08)
+    ax.set_xlim(0, t[-1])
+    ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
+    ax.set_xlabel(axis_label("Time after the release", "s"))
+    ax.set_ylabel(axis_label(ratio_lab))
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2))
     # (b) worst breath vs phase (unwarned)
     ax = axes[1]
     out = {}
-    for st, col, lab in ((st_lo, AQUA, "short passage (10th pct)"), (st_med, INK, "median passage"),
-                         (st_hi, BLUE, "long passage (90th pct)")):
+    for i, (st, lab, ci) in enumerate(((st_lo, "short passage (10th pct)", 1), (st_med, "median passage", 0),
+                                       (st_hi, "long passage (90th pct)", 2))):
         r = np.array([worst_ratio(ta_med, st, ph) for ph in phases])
-        ax.plot(phases, r, color=col, lw=1.8, label=f"{lab}, σ_t {st:.1f} s")
+        ax.plot(phases, r, color=PALETTE[ci], ls=LINESTYLES[ci], marker=MARKERS[ci], markevery=(2 * i, 6),
+                label=f"{lab[0].upper() + lab[1:]}, {sig} {st:.1f} s")
         out[lab] = {"sigma_t": float(st), "mean_worst_ratio": float(r.mean()), "P_worst_below_half": float(np.mean(r < 0.5))}
-    ax.set_ylim(0, 1.02); ax.set_xlim(0, 1)
-    ax.set_xlabel("breathing phase at the moment of release (cycles)"); ax.set_ylabel("worst breath / C_peak")
-    ax.set_title("b  Unwarned: luck of the breathing phase", loc="left")
-    ax.legend(frameon=False, fontsize=7.5, loc="lower left")
+    ax.set_ylim(0, 1.05)
+    ax.set_xlim(0, 1)
+    ax.set_xlabel(axis_label("Breathing phase at release, fraction of a cycle"))
+    ax.set_ylabel(axis_label("Worst breath " + ratio_lab))
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2))
     # (c) warned breath-hold over the Monte Carlo of audible releases
     ax = axes[2]
     rng = np.random.default_rng(7)
@@ -103,19 +116,22 @@ def fig7(mc):
             rs.append(worst_ratio(ta, st, ph, hold, P["recovery_gain"]))
         rs = np.array(rs)
         p_dodge.append(np.mean(rs < 0.1)); med_ratio.append(np.median(rs))
-    ax.plot(holds, p_dodge, color=ORANGE, lw=2, marker="o", ms=4, label="P(dodge): worst breath < 10 % of peak")
-    ax.plot(holds, med_ratio, color=INK, lw=1.6, ls=(0, (4, 2)), label="median worst breath / C_peak")
-    ax.axvspan(24, 35, color="#e4e3df", lw=0)
-    ax.axvspan(35, 60, color="#f0efec", lw=0)
-    ax.text(24.5, 0.97, "typical max\nbreath-hold\n(32–35 s)", fontsize=7.2, color=INK2, va="top")
-    ax.text(36, 0.97, "requires a deep\nbreath first", fontsize=7.2, color=INK2, va="top")
-    ax.set_xlim(0, 60); ax.set_ylim(0, 1.02)
-    ax.set_xlabel("breath-hold duration H after hearing it (s)")
-    ax.set_title("c  Warned: hold your breath (audible releases only)", loc="left")
-    ax.legend(frameon=False, fontsize=7.5, loc="center left", bbox_to_anchor=(0.0, 0.45))
-    fig.suptitle("Fig. 7 · The breath-hold strategy — the nose samples only while inhaling; the ear buys time to stop",
-                 x=0.01, ha="left", fontsize=10, fontweight="bold")
-    fig.savefig(ROOT / "figures/fig7_breath_hold.png", dpi=200)
+    ax.axvspan(24, 35, color=FS_MUTED, alpha=0.3, lw=0)
+    ax.axvspan(35, 60, color=FS_MUTED, alpha=0.12, lw=0)
+    ax.plot(holds, p_dodge, color=PALETTE[0], ls=LINESTYLES[0], marker=MARKERS[0],
+            label=var("P") + "(dodge): worst breath < 10 % of peak")
+    ax.plot(holds, med_ratio, color=PALETTE[1], ls=LINESTYLES[1], marker=MARKERS[1], label="Median worst breath " + ratio_lab)
+    # band labels sit on their grey bands, clear of the curves (top of the dark band; empty middle of the light one)
+    allow_overlap(ax.text(24.6, 1.2, "Typical\nmaximum\nhold\n(32–35 s)", va="top"))
+    allow_overlap(ax.text(37, 0.36, "Needs a\ndeep breath\nfirst", va="center"))
+    ax.set_xlim(0, 60)
+    ax.set_ylim(0, 1.22)
+    ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
+    ax.set_xlabel(axis_label("Breath-hold after hearing it, " + var("H"), "s"))
+    ax.set_ylabel(axis_label("Probability or worst breath " + ratio_lab))
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2))
+    panel_labels(axes)
+    save_figure(fig, "breath_hold_paper", outdir=ROOT / "figures")
     plt.close(fig)
     h_half = float(np.interp(0.5, p_dodge, holds)) if max(p_dodge) >= 0.5 else None
     return {"neighbour_audible_median_arrival_s": float(ta_med), "median_sigma_t_s": float(st_med),
@@ -207,7 +223,9 @@ def fig_adaptation():
 
 def main():
     mc = g0.monte_carlo(n=6000)
-    res = {"fig7": fig7(mc), "fig11": fig11(mc), "adaptation": fig_adaptation(), "n_mc": int(mc["V_s"].size)}
+    with plt.rc_context():  # fig7 is in FIGSTYLE v1.2; the restored rcParams keep fig11 and the supplement as before
+        r7 = fig7(mc)
+    res = {"fig7": r7, "fig11": fig11(mc), "adaptation": fig_adaptation(), "n_mc": int(mc["V_s"].size)}
     (ROOT / "perception/results.json").write_text(json.dumps(res, indent=2))
     print(json.dumps(res, indent=1))
 
