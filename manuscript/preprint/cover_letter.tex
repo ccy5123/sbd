@@ -1,0 +1,60 @@
+% Cover letter for J. R. Soc. Interface; same text as cover_letter.md (keep the two in step).
+% Bracketed bold items are for the author to decide or write before submission.
+% Build: latexmk -pdf cover_letter.tex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{url}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\newcommand{\byauthor}[1]{\textbf{[#1]}}
+\pagestyle{empty}
+\begin{document}
+
+Dear Editor,
+
+Please consider our manuscript ``Silent but deadly? Physics says seldom, memory says mostly'' for publication as a
+Research Article in \emph{Journal of the Royal Society Interface}.
+
+The belief that a silent release of flatus smells worse than an audible one is recorded in many languages, yet no
+mechanistic test of it exists. The closest prior work is a conference abstract on the physics of flatulence (Ancalle
+et al.\ 2021). We follow one passage through a single chain: chemistry, sound, dispersion, perception and memory.
+Three results reach beyond the topic.
+
+\begin{enumerate}
+  \item \textbf{Routing by the human convective boundary layer.} In simulations of a sofa, a standing pair and a closed
+  lift, the warm air rising along a body takes a slow release next to it and lets a fast one pass, so the momentum of
+  the release, relative to that of the boundary layer, decides which nearby nose it reaches. The same set-up
+  reproduces measured breathing-zone intake from a source at a seated manikin's groin within a factor of 1.5. This
+  bears on any near-body source, such as respiratory, skin and clothing emissions in shared indoor spaces.
+  \item \textbf{A peak bound for linear transport.} We prove that a slower release of the same substance cannot give a
+  higher peak concentration, in any room or flow. Only the non-linear near field lets it win, by a factor bounded by a
+  velocity ratio, which we call the Silencer number.
+  \item \textbf{Selection across two senses.} With passages as emitted and settings weighted by how often people share
+  them, a bystander finds the silent passage worse in 0.5\% of pairs and the audible one in 6.9\%; only in a closed
+  lift, for the person behind the releaser, are the two about equal. Yet because a silent passage is noticed only if
+  it is smelled, a remembered silent passage seems the worse one in 88\% of comparisons. When an event can be noticed
+  through either of two senses, selection on noticing alone can create a false sensory belief. The explanation makes
+  testable predictions: releasers should hold the belief less firmly than bystanders, and people without a sense of
+  smell should never remember a silent passage.
+\end{enumerate}
+
+The work joins fluid dynamics, chemistry, acoustics, sensory science and cognition. We think it suits
+\emph{Interface} because each part can be read on its own, and because the question shows how a physical and a
+cognitive explanation can be separated. The headline is checked against the scene weights, the observer models,
+large-eddy peak factors, mesh refinement and clothing; its direction holds in every case but one adverse pairing of
+peak factors, and the remembered share stays above 80\% in all of them.
+
+Equations and proofs are in appendices, and technical details are in the electronic supplementary material. Code and
+processed data are openly available at \url{https://github.com/ccy5123/sbd}; an archived release with a DOI (Zenodo)
+will accompany the revised manuscript. \byauthor{A preprint is posted on engrXiv (DOI \dots).} The results have not been
+reported in the media. The manuscript is not under consideration elsewhere. \byauthor{AI-use statement, written by the
+author.}
+
+Yours sincerely,\\[0.4em]
+Chan Young Joe\\
+Independent Researcher, Incheon, Republic of Korea\\
+ORCID 0009-0007-5822-6714
+
+\end{document}

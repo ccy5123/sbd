@@ -4,3 +4,10 @@ __pycache__/
 # CFD run directories (regenerate with cfd/validation/*/run_all.sh)
 cfd/runs/
 refs/pdfs_incoming/
+
+# submission package (rebuilt from the PDFs; not versioned)
+manuscript/preprint/submission/*.pdf
+manuscript/preprint/submission/*.txt
+!manuscript/preprint/submission/SUBMISSION_INFO.txt
+manuscript/preprint/submission/figures/
+manuscript/preprint/jrsi_submission_*.zip

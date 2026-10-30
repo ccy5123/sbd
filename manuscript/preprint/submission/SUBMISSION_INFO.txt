@@ -1,0 +1,62 @@
+J. R. Soc. Interface - first submission package (prepared 2026-10-30)
+ScholarOne: https://mc.manuscriptcentral.com/jrsi
+=====================================================================
+
+BEFORE YOU SUBMIT (author)
+- Write the AI-use statement. 01_manuscript.pdf still shows a bold [GAP] in "Declaration of AI use"
+  (sections/declarations.tex); the cover letter has the same placeholder. Rebuild the PDFs afterwards
+  (latexmk -pdf si.tex, then main.tex, then cover_letter.tex).
+- Preprint: if the engrXiv preprint is posted before submission, put its DOI in the cover letter and the
+  system's preprint field; otherwise delete the bracketed preprint sentence.
+- Your ScholarOne account must have your ORCID linked (required for the submitting author).
+
+FILES IN THIS PACKAGE
+- 01_manuscript.pdf      Main text with figures, tables, declarations and references (one PDF, as the
+                         journal asks for a first submission). Line numbers are on for reviewers.
+- 02_ESM.pdf             Electronic supplementary material (16 pages).
+- 03_cover_letter.pdf    Cover letter (upload as file); 03_cover_letter.txt is the same text for the text box.
+- figures/               The six main-text figures, figure1_ ... figure6_ in text order (PNG, 600 dpi). Optional at first
+                         submission; the journal wants separate files only for the final version.
+
+SYSTEM FIELDS
+Article type:      Research article
+Title (58 chars):  Silent but deadly? Physics says seldom, memory says mostly
+Abstract:          paste from below (200 words; limit 200)
+Keywords (3-10):   convective boundary layer; indoor air; odour dispersion; starting jet; Berkson bias;
+                   olfactory perception; flatus
+Subject areas:     choose in the system (suggested: biophysics, environmental science, biomedical engineering)
+Word count:        about 7,600 (main text about 6,200 including captions and declarations, references about
+                   1,380); limit 8,000
+Figures / tables:  6 figures, 2 tables in the main text; ESM 4 figures, 4 tables (incl. the parameter table)
+Third-party material: none (all figures made by the author; map borders from Natural Earth, public domain)
+Author:            Chan Young Joe, Independent Researcher, Incheon, Republic of Korea; ORCID 0009-0007-5822-6714
+CRediT (sole author): Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software,
+                   Validation, Visualization, Writing - original draft, Writing - review and editing
+Funding:           No funding has been received for this article.
+Competing interests: I declare I have no competing interests.
+Ethics:            This work involved no human or animal participants. The cross-cultural survey uses published
+                   sources only.
+Data accessibility: Code, parameters with their sources, processed data such as the archived nose-probe series,
+                   and the scripts behind every figure and table are openly available at
+                   https://github.com/ccy5123/sbd. An archived release with a DOI (Zenodo) will accompany the
+                   revised manuscript.
+AI use:            [author writes; same text as in the manuscript]
+Suggested / opposed reviewers: optional (see the note in the chat); leave empty if you keep the earlier decision
+                   of no suggestions.
+ESM file title:    Electronic supplementary material
+ESM caption:       Supplementary text, figures and tables: odorant chemistry, acoustics, CFD validation and
+                   scene set-up, scene doses, scene weights, robustness of the headline, breath sampling, origin
+                   of the odorants, the cross-cultural survey and the parameter table.
+
+ABSTRACT (plain text)
+The belief that a silent passage of flatus smells worse than an audible one appears in many languages but has not
+been tested. We follow a passage from sound through dispersion to a bystander's memory with a lip-reed model of the
+anal valve, dispersion models and literature observer models. Most releases, 85%, never set the valve oscillating.
+We prove that under linear transport a slower release of the same gas cannot give a higher peak, in any room or
+flow. In computational fluid dynamics of seated and standing people, the warm air rising along the body takes a slow
+release and lets a fast one pass, so momentum decides which nose a release reaches. With passages as emitted and
+settings weighted by how often people share them, a bystander finds the silent passage worse in 0.5% of pairs and
+the audible one in 6.9%; only in a closed lift are the two about equal. A silent passage is noticed only if smelled,
+and this selection alone can explain the belief: among remembered pairs the silent passage seems worse in 88%. It
+predicts that releasers hold the belief less firmly than bystanders and that anosmic people never remember a silent
+passage.
