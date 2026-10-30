@@ -623,6 +623,25 @@ v4 결과와 모순되고, 일반 교훈이 정성적인 수준에 머문다.
 - 사실 관계: 비가열 케이스는 가정값으로 계산했다 (`licina2017_unheated`, 로컬). "계산하지 않았다"고 쓰지 않고
   "비교하지 않았다"로 쓴다.
 
+### 9.11 A5 E0-6 메시 수렴 (2026-10-30)
+
+- 소파 upright 맨몸, 무음 중앙값(S50)만 단독 방출 (0.2 s), 150 s. 기본 메시 72만 셀(`sofa_v4_S50_multi`, 기존
+  프리커서) 대 1.5배 세분 222만 셀(`sofa_m1.5_v4_S50_multi`, 같은 snappy 수준, 자체 프리커서 90 s). 결과
+  `cfd/results_v4/<case>.json`, 프로브 `nose_probes_sofa_S50.tar.xz`, `nose_probes_sofa_m1.5_S50.tar.xz`.
+- 150 s worst breath OAV (실제 부피): 방출자 0.42 → **1.28 (×3.0)**, 이웃 0.17 → **0.094 (×0.55)**. 세분 메시에서
+  방출자 본인 코에 26 s에 필라멘트가 닿는다 (30 s 창 0.19 → 1.28). 이웃은 60 s까지 둘 다 ~0.001이고 그 뒤 차이.
+- 앞선 방출의 영향 (같은 기본 메시, 4방출 런의 네 번째 S50 대 단독): 방출자 0.33 대 0.42, 이웃 0.071 대 0.17.
+  즉 방출 순서 효과(×1.3–2.4)도 메시 효과와 같은 크기다.
+- 헤드라인 민감도 (무음 OAV에 배율, `four_outcomes_v4.compute(gain=...)`, 맨몸·빈도 가중·attentive):
+  - 방관자: 기준 0.51 / 6.86 (기억 88.4) · ×0.55 (이웃 변화) 0.26 / 6.89 (84.6) · ×3.0 (방출자 변화를 모든 코에)
+    1.63 / 6.79 (92.1)
+  - 방출자: 기준 4.6 / 17.9 · ×3.0 9.6 / 17.1
+  - 손익분기(무음에만 약 14배, §9.8)보다 한참 작아서 방향은 어느 경우에도 그대로다.
+- 원고 문장 (Methods 검증 단락, 한 문장 + 숫자): "Refining the mesh by 1.5 in every direction (0.72 to 2.2 million
+  cells) changed the silent-median dose by a factor 0.55 at the neighbour and 3.0 at the releaser's own nose; scaling
+  every silent dose by either factor leaves the headline's direction unchanged (break-even ≈ 14)." 한계 단락으로
+  쓰지 않는다 (사용자 방침).
+
 ### 9.9 LES 피크 계수 (2026-10-29, HANDOFF 다음 작업 3)
 
 `uq/les_peak_factor.py` → `uq/les_peak_factor.json`. 소파 upright LES 두 개(맨몸 `sofa_v4_multi_les`, 바지

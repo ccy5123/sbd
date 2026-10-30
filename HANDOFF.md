@@ -36,6 +36,11 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   88.4 %; the elevator alone 22.3 / 20.4 % (silent ahead: the person behind gets OAV 260 from S50), kept out of the
   headline direction only by its 0.5 % frequency weight; equal scene weights 7.6 / 9.9 %. Write "seldom" as a
   statement about real-life frequency and name the elevator as the counter-example.
+- **30 Oct 11:30 KST:** E0-6 done and analysed (interface_plan §9.11: silent median x0.55 at the neighbour, x3.0 at
+  the releaser on the x1.5 mesh; headline direction unchanged). The watcher worked: mesh run ended 11:08, Licina
+  re-decomposed at its 1560-s write and restarted on 18 cores at 11:31 (`sbd-a5_licina_heated18`, ~3.7x faster),
+  expected end ~13:15. Local PC idle (base-mesh S50 ended 02:36). Then: fetch the heated probes, put both chamber
+  cases in one runs dir, `analyze_licina.py`, compare the heated case only (§9.10).
 - **Cores (30 Oct 00:12):** server 18 / 18 physical cores busy (mesh 12 + Licina 6); local PC 4 of 8 (base-mesh S50
   only, ends ~02:40). Watcher `sbd-main/scratch/licina_resize.sh 18` (= `cfd/docker/licina_resize.sh`, started
   00:18, log `sbd-main/cfd/runs/licina_resize.log`): when `sbd-a5_mesh15` ends (~13:00) it stops the Licina chamber
