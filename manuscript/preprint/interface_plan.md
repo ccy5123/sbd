@@ -622,6 +622,26 @@ v4 결과와 모순되고, 일반 교훈이 정성적인 수준에 머문다.
     and every scene in this study contains heated occupants; we therefore compare the heated case only."
 - 사실 관계: 비가열 케이스는 가정값으로 계산했다 (`licina2017_unheated`, 로컬). "계산하지 않았다"고 쓰지 않고
   "비교하지 않았다"로 쓴다.
+- **결과 (2026-10-30, 가열):** `cfd/results_v4/licina2017_result.json`, 프로브 `nose_probes_licina2017_heated.tar.xz`
+  (비가열 프로브도 보관: `nose_probes_licina2017_unheated.tar.xz`). 호흡 영역 iF (‰), CFD / 측정 (비):
+
+  | 기간 | CFD | 측정 | CFD / 측정 |
+  |---|---|---|---|
+  | 방출 중 10분 | 8.1 | 5.5 | 1.47 |
+  | 22분 | 9.1 | 7.7 | 1.18 |
+  | 100분 (22분 뒤 완전 혼합 감쇠) | 11.0 | 9.8 | 1.12 |
+  | 가열 / 완전 혼합, 10분 | 11.0 | 7.4 | 1.48 |
+  | 가열 / 완전 혼합, 100분 | 2.6 | 2.3 | 1.11 |
+
+  - **모두 판정 기준(1.5배) 안이다.** 몸 가까운 방출원 → 체온 상승기류 → 호흡 영역 경로의 크기를 우리 장면 설정이
+    재현한다. 방출 중 10분 값이 가장 높게(×1.47) 나오는 것은 장면 설정의 피부 33 °C가 대류로 79 W를 내기 때문으로
+    보인다 (100 W 마네킹은 대류로 그 절반 정도). 앉은 자세 plume이 빠르다는 기존 결과(40–56%)와 같은 방향이다.
+  - 완전 혼합 대비 100분 비 2.6은 측정 2.3과 맞는다. 측정은 입자 침착을 포함하므로(완전 혼합 4.2 → 3.2) 가스 기준으로
+    바꾸면 측정 쪽 비가 조금 더 커져 차이는 더 작아진다.
+  - 방 평균 iF 3.8 (완전 혼합 4.2): 질량 수지 정상 (배기 시간당 2.30회).
+  - 원고 문장 (Methods 검증 단락): "In the chamber of Licina et al., with our scene settings, the simulated
+    breathing-zone intake fraction of the groin source was 8.1, 9.1 and 11.0 per mille over 10, 22 and 100 min,
+    against 5.5, 7.7 and 9.8 measured (ratios 1.47, 1.18, 1.12)." 이어서 비가열 문장 (위 문장안).
 
 ### 9.11 A5 E0-6 메시 수렴 (2026-10-30)
 

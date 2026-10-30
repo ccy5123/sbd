@@ -36,6 +36,10 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   88.4 %; the elevator alone 22.3 / 20.4 % (silent ahead: the person behind gets OAV 260 from S50), kept out of the
   headline direction only by its 0.5 % frequency weight; equal scene weights 7.6 / 9.9 %. Write "seldom" as a
   statement about real-life frequency and name the elevator as the counter-example.
+- **30 Oct 13:20 KST: A5 complete.** Licina heated ended 13:15 (18 cores); breathing-zone iF 8.1 / 9.1 / 11.0 per
+  mille vs measured 5.5 / 7.7 / 9.8 (x1.47 / 1.18 / 1.12), heated / well mixed x1.48 (10 min), x1.11 (100 min): all
+  within 1.5 (interface_plan §9.10). Model body convection 79 W. Server and local PC idle; no sbd containers. Next:
+  manuscript stage B (user: after the A5 results, i.e. now).
 - **30 Oct 11:30 KST:** E0-6 done and analysed (interface_plan §9.11: silent median x0.55 at the neighbour, x3.0 at
   the releaser on the x1.5 mesh; headline direction unchanged). The watcher worked: mesh run ended 11:08, Licina
   re-decomposed at its 1560-s write and restarted on 18 cores at 11:31 (`sbd-a5_licina_heated18`, ~3.7x faster),

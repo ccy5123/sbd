@@ -1,0 +1,158 @@
+{
+ "measured": {
+  "heated": {
+   "source_10min": 5.5,
+   "unmixed_22min": 7.7,
+   "full_100min": 9.8
+  },
+  "unheated": {
+   "source_10min": 0.05,
+   "unmixed_22min": 0.1,
+   "full_100min": 1.2
+  },
+  "well_mixed": {
+   "source_10min": 0.74,
+   "full_100min": 4.2
+  }
+ },
+ "runs": {
+  "heated": {
+   "case": "licina2017_heated",
+   "t_end_after_release_s": 1320.0131,
+   "exhaust_m3_s": 0.031991776124291646,
+   "a_per_h": 2.303358128413425,
+   "released_m3": 0.034999417028953574,
+   "room_mean_s_at_end": 0.000326306431,
+   "well_mixed": {
+    "source_10min": 0.7361766471309512,
+    "unmixed_22min": 2.067007111317051,
+    "full_100min": 4.227518652456139
+   },
+   "iF_per_mille": {
+    "bz": {
+     "source_10min": 8.072874627061326,
+     "unmixed_22min": 9.08502118583341,
+     "full_100min": 11.007589376321581
+    },
+    "nose": {
+     "source_10min": 7.219228089473448,
+     "unmixed_22min": 8.266144609297623,
+     "full_100min": 10.188713109786306
+    },
+    "exhaust": {
+     "source_10min": 0.8045056451934017,
+     "unmixed_22min": 1.9695502397635096,
+     "full_100min": 3.892109844379843
+    },
+    "stationary1": {
+     "source_10min": 0.14241604964072005,
+     "unmixed_22min": 1.368657828683739,
+     "full_100min": 3.2912446208840085
+    },
+    "stationary2": {
+     "source_10min": 0.4783031922476148,
+     "unmixed_22min": 1.5885508114789135,
+     "full_100min": 3.511106767504316
+    },
+    "stationary3": {
+     "source_10min": 1.1034782121686137,
+     "unmixed_22min": 2.393929376500838,
+     "full_100min": 4.316491404440034
+    },
+    "room_mean": {
+     "source_10min": 0.6687825543684801,
+     "unmixed_22min": 1.8444786574312557,
+     "full_100min": 3.7670442255822634
+    }
+   }
+  },
+  "unheated": {
+   "case": "licina2017_unheated",
+   "t_end_after_release_s": 1320.0,
+   "exhaust_m3_s": 0.03198575885714989,
+   "a_per_h": 2.30292489453707,
+   "released_m3": 0.034999417028953574,
+   "room_mean_s_at_end": 0.000141199265,
+   "well_mixed": {
+    "source_10min": 0.73619326229966,
+    "unmixed_22min": 2.06712195584533,
+    "full_100min": 4.228236055541741
+   },
+   "iF_per_mille": {
+    "bz": {
+     "source_10min": 125.89677890057588,
+     "unmixed_22min": 141.576186319952,
+     "full_100min": 142.4082207588543
+    },
+    "nose": {
+     "source_10min": 423.32451088233444,
+     "unmixed_22min": 452.6416828865917,
+     "full_100min": 453.47371732549396
+    },
+    "exhaust": {
+     "source_10min": 1.6357723495252525,
+     "unmixed_22min": 4.511692829988697,
+     "full_100min": 5.3437272688909685
+    },
+    "stationary1": {
+     "source_10min": 0.005067302486902173,
+     "unmixed_22min": 0.2478327694263746,
+     "full_100min": 1.0798672083286447
+    },
+    "stationary2": {
+     "source_10min": 0.004306434446848541,
+     "unmixed_22min": 0.08084226445378184,
+     "full_100min": 0.9128767033560518
+    },
+    "stationary3": {
+     "source_10min": 0.002199036584831157,
+     "unmixed_22min": 0.07241799020241058,
+     "full_100min": 0.9044524291046805
+    },
+    "room_mean": {
+     "source_10min": 0.7499493803480073,
+     "unmixed_22min": 1.5855829485049284,
+     "full_100min": 2.4176173874071987
+    }
+   }
+  }
+ },
+ "checks": {
+  "source_10min": {
+   "heated_over_unheated": {
+    "cfd": 0.0641229640468935,
+    "measured": 110.0,
+    "cfd_over_measured": 0.0005829360367899408,
+    "within_1.5": false
+   },
+   "heated_over_well_mixed": {
+    "cfd": 10.9659477226331,
+    "measured": 7.4324324324324325,
+    "cfd_over_measured": 1.4754184208633625,
+    "within_1.5": true
+   }
+  },
+  "unmixed_22min": {
+   "heated_over_unheated": {
+    "cfd": 0.06417054606416588,
+    "measured": 77.0,
+    "cfd_over_measured": 0.0008333837151190374,
+    "within_1.5": false
+   }
+  },
+  "full_100min": {
+   "heated_over_unheated": {
+    "cfd": 0.07729602489003205,
+    "measured": 8.166666666666668,
+    "cfd_over_measured": 0.009464819374289639,
+    "within_1.5": false
+   },
+   "heated_over_well_mixed": {
+    "cfd": 2.603794396016751,
+    "measured": 2.3333333333333335,
+    "cfd_over_measured": 1.115911884007179,
+    "within_1.5": true
+   }
+  }
+ }
+}
