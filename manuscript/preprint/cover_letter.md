@@ -38,6 +38,11 @@ can be separated. The headline is checked against the scene weights, the observe
 mesh refinement and clothing; its direction holds in every case but one adverse pairing of peak factors, and the
 remembered share stays above 80% in all of them.
 
+Because the work spans several fields, our suggested reviewers cover them one each: indoor plume and ventilation
+modelling (H. C. Burridge), the human thermal plume and CFD validation (I. Năstase), turbulent puffs and jets
+(S. S. Diwan), olfactory perception (A. Oleszkiewicz) and judgement from selective samples (H. Alves). We have no
+collaboration with any of them.
+
 Equations and proofs are in appendices, and technical details are in the electronic supplementary material. Code and
 processed data are openly available at https://github.com/ccy5123/sbd; an archived release with a DOI (Zenodo) will
 accompany the revised manuscript. [A preprint is posted on engrXiv (DOI ...).] The results have not been reported in

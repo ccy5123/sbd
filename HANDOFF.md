@@ -45,6 +45,11 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   table, dose table, scene weights, robustness). Words: text ~6,200 + references ~1,380 (47) = ~7,600.
   Still open: AI-use statement (author), cover letter not updated, rest of the ESM not re-read against v4, a full
   read-through.
+- **30 Oct, submission package:** `manuscript/preprint/jrsi_submission_2026-10-30.zip` (not versioned; rebuild from
+  `submission/`): manuscript PDF, ESM PDF, cover letter PDF/txt, six figures, `SUBMISSION_INFO.txt` (all system
+  fields). Suggested reviewers (user's choice, `submission/suggested_reviewers.md`): Burridge, Nastase, Diwan,
+  Oleszkiewicz, Alves; none opposed; the cover letter gives the reason. Still the author's: AI-use statement and the
+  preprint sentence; rebuild PDFs and the zip after writing them.
 - **30 Oct, figures done (user: replace Figure 6, restyle every old figure):** all 11 manuscript/ESM figures are now
   FIGSTYLE v1.2 `*_paper` files in `figures/`, each passing the overlap check and a visual review. Figure 6 =
   `clouds_routing_paper` (path-traced v4 clouds via `manuscript/preprint/render_fig6.py` + `compose_fig6.py`, ParaView
