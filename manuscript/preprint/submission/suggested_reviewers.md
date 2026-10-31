@@ -9,11 +9,11 @@ Academy notices).
 | # | Name | Area | Position, institution | Stage / region | Email |
 |---|---|---|---|---|---|
 | 1 | Dusan Licina | near-body plume, personal exposure | Associate Professor, HOBEL, EPFL, Switzerland | mid-career / W. Europe | dusan.licina@epfl.ch |
-| 2 | Ilinca Năstase | human thermal plume, CFD validation | Professor, Technical University of Civil Engineering Bucharest (UTCB), Romania | senior / E. Europe; woman | not public |
+| 2 | Ilinca Năstase | human thermal plume, CFD validation | Professor, Technical University of Civil Engineering Bucharest (UTCB), Romania | senior / E. Europe; woman | ilinca.nastase@utcb.ro (her CV on the UTCB site) |
 | 3 | Nesreen Ghaddar | body microenvironment CFD, personalised ventilation | Professor, Endowed Qatar Chair in Energy Studies, American University of Beirut, Lebanon | senior / global South; woman | farah@aub.edu.lb (listed; ownership not confirmed) |
 | 4 | Henry C. Burridge | analytic plume/ventilation models, exposure | Associate Professor, Environmental Fluid Mechanics, Imperial College London | mid-career / UK | h.burridge@imperial.ac.uk |
 | 5 | Sourabh S. Diwan | turbulent puffs and jets carrying scalars | Associate Professor, Aerospace Engineering, Indian Institute of Science, Bangalore | mid-career / global South | sdiwan@iisc.ac.in |
-| 6 | Anna Oleszkiewicz | olfactory thresholds, variation between people | dr hab., prof. UWr, Institute of Psychology, University of Wrocław, Poland | early-career / C. Europe; woman | not confirmed |
+| 6 | Anna Oleszkiewicz | olfactory thresholds, variation between people | dr hab., prof. UWr, Institute of Psychology, University of Wrocław, Poland | early-career / C. Europe; woman | anna.oleszkiewicz@uwr.edu.pl (affiliation in Psychol. Res. 2025, doi:10.1007/s00426-025-02127-y) |
 | 7 | Hans Alves | illusory correlation from selective samples | Professor of Social Cognition, Ruhr-Universität Bochum, Germany | early-career (PhD 2016) / W. Europe | hans.alves@rub.de (job advert, not a staff page) |
 | 8 | Patricia Yang | biological fluid mechanics of excretion | Assistant Professor, Power Mechanical Engineering, National Tsing Hua University, Taiwan | early-career / East Asia; woman | peijyang@pme.nthu.edu.tw |
 

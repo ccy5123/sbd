@@ -3,11 +3,8 @@ ScholarOne: https://mc.manuscriptcentral.com/jrsi
 =====================================================================
 
 BEFORE YOU SUBMIT (author)
-- Write the AI-use statement. 01_manuscript.pdf still shows a bold [GAP] in "Declaration of AI use"
-  (sections/declarations.tex); the cover letter has the same placeholder. Rebuild the PDFs afterwards
-  (latexmk -pdf si.tex, then main.tex, then cover_letter.tex).
-- Preprint: if the engrXiv preprint is posted before submission, put its DOI in the cover letter and the
-  system's preprint field; otherwise delete the bracketed preprint sentence.
+- Preprint: after posting on engrXiv, put its DOI in the cover letter (the bracketed sentence) and in the system's
+  preprint field, then rebuild cover_letter.pdf and this zip.
 - Your ScholarOne account must have your ORCID linked (required for the submitting author).
 
 FILES IN THIS PACKAGE
@@ -40,19 +37,22 @@ Data accessibility: Code, parameters with their sources, processed data such as 
                    and the scripts behind every figure and table are openly available at
                    https://github.com/ccy5123/sbd. An archived release with a DOI (Zenodo) will accompany the
                    revised manuscript.
-AI use:            [author writes; same text as in the manuscript]
+AI use:            Yes. I have used AI-assisted technologies (Claude Code, Anthropic) in creating this article for
+                   code, simulations, literature search and drafting; I checked all content and take
+                   responsibility for it. (Same text as in the manuscript.)
 Suggested reviewers (author's choice 2026-10-30; details and sources in suggested_reviewers.md):
   1. Henry C. Burridge, Imperial College London, UK - h.burridge@imperial.ac.uk
      (analytic plume and ventilation models, indoor exposure)
-  2. Ilinca Nastase (Năstase), Technical University of Civil Engineering Bucharest, Romania - email not public
+  2. Ilinca Nastase (Năstase), Technical University of Civil Engineering Bucharest, Romania - ilinca.nastase@utcb.ro
      (human thermal plume, CFD validation)
   3. Sourabh S. Diwan, Indian Institute of Science, Bangalore, India - sdiwan@iisc.ac.in
      (turbulent puffs and jets carrying scalars)
-  4. Anna Oleszkiewicz, University of Wroclaw, Poland - email not confirmed on an official page
+  4. Anna Oleszkiewicz, University of Wroclaw, Poland - anna.oleszkiewicz@uwr.edu.pl
      (olfactory thresholds and individual differences)
   5. Hans Alves, Ruhr-Universitaet Bochum, Germany - hans.alves@rub.de (from a job advert)
      (illusory correlation from selective samples)
-  If the system requires an email for each, look it up on the institutional page before entering it.
+  Email sources: Nastase from her CV on the UTCB site (sd.utcb.ro); Oleszkiewicz from her affiliation line in
+  Psychol. Res. 2025 (doi:10.1007/s00426-025-02127-y); Alves from an RUB job advert; others from staff pages.
 Opposed reviewers: none.
 ESM file title:    Electronic supplementary material
 ESM caption:       Supplementary text, figures and tables: odorant chemistry, acoustics, CFD validation and

@@ -46,7 +46,8 @@ collaboration with any of them.
 Equations and proofs are in appendices, and technical details are in the electronic supplementary material. Code and
 processed data are openly available at https://github.com/ccy5123/sbd; an archived release with a DOI (Zenodo) will
 accompany the revised manuscript. [A preprint is posted on engrXiv (DOI ...).] The results have not been reported in
-the media. The manuscript is not under consideration elsewhere. [AI-use statement, written by the author.]
+the media. The manuscript is not under consideration elsewhere. AI-assisted technologies (Claude Code, Anthropic) were used for code, simulations,
+literature search and drafting, as declared in the manuscript.
 
 Yours sincerely,
 Chan Young Joe
