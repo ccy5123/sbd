@@ -107,7 +107,7 @@ def plot(res):
         h, l = ax.get_legend_handles_labels()
         handles += h; labels += l
     fig.legend(handles, labels, loc="outside lower center", ncol=4)
-    panel_labels(axes)
+    panel_labels(axes, start="d")  # continues (a)-(c) of the jet panel above it in Figure S2
     return save_figure(fig, "cbl_validation_paper", outdir=ROOT / "figures")
 
 

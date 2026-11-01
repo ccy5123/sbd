@@ -28,7 +28,10 @@ def tex(s) -> str:
 def num(x) -> str:
     if x is None:
         return ""
-    if isinstance(x, float) and (abs(x) >= 1e5 or (x != 0 and abs(x) < 1e-3)):
+    if isinstance(x, (int, float)) and x < 0:  # proper minus sign; a hyphen reads as a range dash
+        return "$-$" + num(-x)
+    if isinstance(x, float) and (abs(x) >= 1e5 or (x != 0 and abs(x) < 1e-3)
+                                 or (abs(x) < 1e-2 and len(f"{x:g}") > 6)):
         m, e = f"{x:.2e}".split("e")
         return rf"${float(m):g}\times10^{{{int(e)}}}$"
     return f"{x:g}" if isinstance(x, float) else str(x)
@@ -43,7 +46,8 @@ def main():
             if k in SKIP or not isinstance(v, dict) or not isinstance(v.get("value"), (int, float)):
                 continue
             lo, hi = v.get("low"), v.get("high")
-            rng = f"{num(lo)}--{num(hi)}" if lo is not None and hi is not None and (lo, hi) != (v["value"],) * 2 else ""
+            sep = " to " if lo is not None and hi is not None and min(lo, hi) < 0 else "--"
+            rng = f"{num(lo)}{sep}{num(hi)}" if lo is not None and hi is not None and (lo, hi) != (v["value"],) * 2 else ""
             units = UNITS.get(str(v.get("units", "")), tex(v.get("units", "")))
             rows.append(rf"\texttt{{{tex(k)}}} & {num(v['value'])} & {rng} & {units} & {BASIS.get(v.get('status', ''), tex(v.get('status', '')))} \\")
     body = "\n".join(rows)
