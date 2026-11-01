@@ -11,3 +11,4 @@ manuscript/preprint/submission/*.txt
 !manuscript/preprint/submission/SUBMISSION_INFO.txt
 manuscript/preprint/submission/figures/
 manuscript/preprint/jrsi_submission_*.zip
+manuscript/preprint/submission/engrxiv/*.pdf
