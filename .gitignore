@@ -12,3 +12,5 @@ manuscript/preprint/submission/*.txt
 manuscript/preprint/submission/figures/
 manuscript/preprint/jrsi_submission_*.zip
 manuscript/preprint/submission/engrxiv/*.pdf
+manuscript/preprint/submission/latex/
+manuscript/preprint/jrsi_latex_source_*.zip
