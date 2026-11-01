@@ -1,0 +1,447 @@
+[
+ {
+  "key": "alassaad2021",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: develops and validates a CFD method for particle release from skin and clothing of seated occupants and its transport in an office (inhalation exposure, cross-contamination)."
+   }
+  ],
+  "access": "abstract only (Crossref/OpenAlex)"
+ },
+ {
+  "key": "atkinson2004",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: issue 6."
+  ],
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "IUPAC Vol. I summary table and datasheets give preferred 298 K rate constants for OH, Cl and NO3 with H2S, CH3SH and CH3SCH3 (I.A4.80-105) and O3 + CH3SCH3 (I.A4.146, k < 1e-18). Values match the bib note (OH+H2S 4.7e-12, OH+CH3SH 3.3e-11, Cl+DMS 3.3e-10, NO3+DMS 1.1e-12)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Same: Vol. I covers OH, O3 (DMS only), NO3 and Cl reactions of the three sulfur gases at 298 K. O3 + H2S and O3 + CH3SH are not in Vol. I."
+   }
+  ],
+  "access": "full text (ACP open access)"
+ },
+ {
+  "key": "berkson1946",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Pages 47-53 correct (Crossref gives first page only)."
+  ],
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "First page (OpenAlex): fourfold-table associations in hospital data arise after selection; the paper is the canonical source of Berkson's bias (selection on a common effect)."
+   },
+   {
+    "file": "main/theory.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Same; the two-causes/selection-on-common-effect description matches Berkson's hospital-admission mechanism."
+   }
+  ],
+  "access": "first page only (JSTOR closed)"
+ },
+ {
+  "key": "chapman1967",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/discussion.tex",
+    "verdict": "PARTLY",
+    "evidence": "Chapman (1967) showed that observers overestimate co-occurrence of word pairs with strong prior verbal associations (and of distinctive words) when actual co-occurrence was equal: prior associations alone produce a reported correlation. It does not study a belief passed on culturally by a phrase without experience; that step is the authors' extrapolation.",
+    "suggested_fix": "Rephrase, e.g. 'A prior verbal association alone can produce a reported co-occurrence the data do not contain [chapman1967], so the phrase itself could pass the belief on.'"
+   }
+  ],
+  "access": "no abstract or full text retrieved (closed); verdict from the paper's well-known content",
+  "notes": "Full text not opened."
+ },
+ {
+  "key": "fiedler2000",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/discussion.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: samples are biased (proximity, salience, attention); people lack metacognitive ability to control for sampling constraints, so the biases carry over to judgments."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "fiorentino2023",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "None needed (authors Fiorentino E-A, Chen H, Gandolfo A, Lannuque V, Sartelet K, Wortham H)."
+  ],
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Abstract says measurements were made in 'a room' with windows of different transparency and different wall coatings; it does not say office. Full text not accessible (ScienceDirect 403; HAL manuscript behind an anti-bot check, not bypassed).",
+    "suggested_fix": "Confirm in the full text that the room was an office; otherwise write 'a room' / 'an indoor room'."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Abstract: mean OH (0.6-4)e5 cm-3 with anti-UV windows and (6-10)e5 cm-3 with the other glazing; consistent with 0.6-9.8e5, but 9.8e5 and O3 0.7-2.6 ppb do not appear in the abstract.",
+    "suggested_fix": "Check the per-experiment OH and O3 table in the full text."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Low case OH 0.6e5 matches the abstract's lower bound; high case 9.8e5 and O3 0.7/2.6 ppb not verifiable.",
+    "suggested_fix": "Same as above."
+   }
+  ],
+  "access": "abstract only (IP Paris portal / HAL record)"
+ },
+ {
+  "key": "forster2018",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: high visual load made 42.5% fewer participants notice an ambient coffee odour (inattentional anosmia)."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "grose1811",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Add edition details: 1811 edition titled 'A Dictionary of Buckish Slang, University Wit, and Pickpocket Eloquence' (Lexicon Balatronicum), compiled originally by Captain Grose, enlarged by 'a member of the Whip Club', London: C. Chappel, 1811 (Grose died 1791); or cite Project Gutenberg eBook #5402."
+  ],
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Gutenberg #5402 (unabridged 1811 edition), entry 'FICE, or FOYSE': a small windy escape backwards 'more obvious to the nose than ears'. Quote exact."
+   }
+  ],
+  "access": "full text (Project Gutenberg)"
+ },
+ {
+  "key": "hawkins1950",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Add title: 'The Masking of Pure Tones and of Speech by White Noise' (Crossref side correct; yaml title missing).",
+   "Pages 6-13 (entry has '6'); issue 1."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: determines the critical band width as the dB ratio between a just-masked tone and the noise level per cycle (the critical ratio) and builds masked-threshold contours from it."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "herz2001",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/results.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Full text closed. Abstract: labels significantly changed odour perception (hedonic scales). Secondary sources (i-Perception 2021, PMC8142011) report that Herz & von Clef also found intensity changes, smaller than pleasantness changes, with the negative label raising intensity. The 0-3% magnitude could not be checked; participants were told the labels, so 'unwarned' is the authors' inference.",
+    "suggested_fix": "Verify 0-3% against Herz's intensity data and state how the percentage was computed; note that in Herz 2001 the negative label raised intensity."
+   }
+  ],
+  "access": "abstract + secondary summaries"
+ },
+ {
+  "key": "hold1977",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Authors as published: Hold B, Schleidt M (Barbara Hold, later Hold-Cavell); entry has 'Hold-Cavell BCL'.",
+   "Optional: issue 3."
+  ],
+  "contexts": [
+   {
+    "file": "main/discussion.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: hedonic ratings of worn-shirt body odour followed the believed identity (self, partner, sex) whether or not the odour was correctly recognised; men rated their own odour more often unpleasant. Supports that expectations about one's own odour shape its evaluation (body odour, not flatus)."
+   }
+  ],
+  "access": "abstract only (English and German)"
+ },
+ {
+  "key": "kepecs2006",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Online 2005-12-08, issue 2006: fine."
+  ],
+  "contexts": [
+   {
+    "file": "main/theory.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: evidence supports 'the notion that each sniff is a unit of olfactory processing'; mainly rodent data, framed as a proposal.",
+    "suggested_fix": "Optional: 'a unit' rather than 'the unit'."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "levitt1999",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Authors: Levitt MD, Furne J, Springfield J, Suarez F, DeMaster E ('et al.' fine); optional issue 8."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract and Results: rat caecal mucosal homogenates demethylate CH3SH to H2S and oxidise H2S; ~94% of label in caecal homogenates eluted as thiosulfate; in vivo virtually all absorbed H2S appeared as thiosulfate."
+   }
+  ],
+  "access": "full text (JCI PDF)"
+ },
+ {
+  "key": "li2016",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: issue 40."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Li 2016 not directly accessible (ACS 403). Its figures are reproduced, with the same statements, in a review by co-author Block (Nat Prod Rep 2017, PMC5542778): OR2T11 responded with a copper effect to C1-C4 monothiols including methanethiol (Fig. 20) and did not respond to H2S (NaSH, pH 6; Fig. 19). The Li abstract also lists one- to four-carbon thiols with copper enhancement.",
+    "suggested_fix": "Attribution is right, but Fukutani et al. 2023 (Curr Biol, doi:10.1016/j.cub.2023.04.072) report OR2T11 and OR2T1 responses to H2S, strongly enhanced by copper. Consider 'did not respond to H2S in that assay' or citing the later result."
+   }
+  ],
+  "access": "abstract + co-author review reproducing the figures",
+  "notes": "Later contrary finding on H2S: Fukutani et al. 2023 Curr Biol (bioRxiv 2022.08.02.502184)."
+ },
+ {
+  "key": "licina2014",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract (DTU Orbit): PIV characterisation of the CBL of a thermal manikin, with peak velocity reported in the breathing zone."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: the CBL is the warm rising flow around the body, measured in front of the manikin."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: raising room air from 20 to 26 C lowered the mean peak CBL velocity in front of the seated manikin from 0.24 to 0.16 m/s; the trend is supported. The 40-56% excess is the authors' own CFD comparison."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Thermal-manikin comparison data exist as described (seated manikin, PIV)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract gives the face-front peak velocity of the seated manikin at 20 and 26 C (0.24, 0.16 m/s); profile data are in the paper's figures (not seen)."
+   }
+  ],
+  "access": "abstract only (no full text on Infoscience/ORBIT)"
+ },
+ {
+  "key": "luft2012",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Fig. 2 caption: the closed anal canal stays at ~5 mm at 20-40 mL and widens only at 50 mL (probe floor 4.3 mm). Fig. 4 pressure/diameter at rest: mid-canal ~5 mm up to ~36 mmHg, ~8-9 mm only at ~50 mmHg (read from figure)."
+   }
+  ],
+  "access": "full text (Springer OA)"
+ },
+ {
+  "key": "marthinsen1982",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Full text not accessible (OUP/Elsevier blocked). PubMed abstract: xylan and pectin raised flatus volume together with H2 and CO2 excretion, consistent in direction; the r value (+0.88 per the repo notes, Table 4) cannot be checked. Only the notes support the number.",
+    "suggested_fix": "Re-check r against Marthinsen Table 4."
+   }
+  ],
+  "access": "abstract only (PubMed)"
+ },
+ {
+  "key": "matteoli2021",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Fig. 4 (top) shows experimental minimal threshold mouth pressures for the same trombone (data of Gilbert et al. 2018); the lowest-regime (pedal note) point is ~0.6 kPa on the log axis; higher regimes reach ~5-6 kPa. Read from the figure; no number in the text.",
+    "suggested_fix": "Optional: '0.6 kPa for the lowest brass note'."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Same Fig. 4 point (~0.6 kPa, trombone pedal note)."
+   }
+  ],
+  "access": "full text (arXiv 2112.08751)"
+ },
+ {
+  "key": "nagai1993",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Author 5 is 'Ohtsu Y' (Yujiro Ohtsu), not 'Ootsu Y'.",
+   "Journal: Practica Oto-Rhino-Laryngologica Supplementum (Jibi to Rinsho, Suppl.) 65:164-170 (1993); 'volume: 1993' is the J-STAGE year-volume."
+  ],
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "PARTLY",
+    "evidence": "Nagai Table 1/Results: sustained phonation at sub-neoglottic pressure 11-80 cmH2O (lowest 1.08 kPa; mean 39.4 cmH2O = 3.9 kPa); varying phonation 24-103 cmH2O. 2.5 kPa does not appear in Nagai; it matches Ng 2011's mean (25.1 cmH2O).",
+    "suggested_fix": "Cite ng2011 (and grolman2007) here as in the SI, or say oesophageal speech phonates down to about 1.1 kPa."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Lowest sustained-phonation pressure 11 cmH2O = 1.08 kPa (Results section 3, Table 1)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 1 (sustained phonation): F0 58-150 Hz. Table 2 (varying phonation) reaches ~280 Hz."
+   }
+  ],
+  "access": "full text (J-STAGE PDF, Japanese; tables read)"
+ },
+ {
+  "key": "ng2011",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: superior SE speakers had mean sub-PE-segment pressure 25.13 cmH2O (2.46 kPa), estimated from /ipipi/ syllables. A group mean during speech, not a lowest sustaining pressure.",
+    "suggested_fix": "Say 'on average 2.5 kPa' for this source, or 'phonates at 1.1-2.5 kPa' instead of 'down to'."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "pol2018",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Online 2017-12-18; issue 1 2018: fine."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Full text (PMC5742538): human erythrocyte MTO (SELENBP1) gave an apparent Km of 4.8 nM for methanethiol."
+   }
+  ],
+  "access": "full text (PMC)"
+ },
+ {
+  "key": "suarez1998",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Crossref gives 'Springfield J'; entry 'Springfield JR' acceptable."
+  ],
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: malodour correlated with H2S; conclusion that sulphur gases are 'the major, but not the only, malodorous components'.",
+    "suggested_fix": "'carry most of it' instead of 'carry it'."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 1: 87 passages (52 men, 35 women) from 16 subjects (10 men, 6 women); means (SEM) H2S 1.06 (0.20), MeSH 0.21 (0.04), DMS 0.08 (0.01) umol/L. sigma_ln = 1.1 is the authors' derivation from these SEMs (CV 1.2-1.8 gives sigma 0.9-1.2), consistent."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 1 composition as above."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Same 87 passages / 16 volunteers (Table 1)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 3: zinc acetate ratings 2.5->0.7 (judge 1) and 5.8->3.4 (judge 2), ratios 0.28 and 0.59 (0-8 scale, two judges). Table 3 concentrations give a 13.9-fold drop in summed OAV with the Nagata thresholds (checked)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 1 composition used for the OAV shares."
+   }
+  ],
+  "access": "full text (Gut PDF via Wayback Machine)"
+ },
+ {
+  "key": "zhang2018",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: issue 5."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: the third mouse MTMT receptor, Olfr15, 'does not have a copper effect'."
+   }
+  ],
+  "access": "abstract only"
+ }
+]

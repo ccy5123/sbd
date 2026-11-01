@@ -1,0 +1,391 @@
+[
+ {
+  "key": "amoore1983",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "full text (scan with OCR text layer on toxicdocs.org; Table 2 columns partly scrambled)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 2 col. 3 gives air odour thresholds as geometric means of compiled literature values, used as the 50% detection level of attentive people (Fig. 2). Reasonable to call them population means."
+   },
+   {
+    "file": "main/methods.tex (10-23x)",
+    "verdict": "SUPPORTED",
+    "evidence": "Amoore's part only. Table 2: H2S 0.0081 ppm, methyl mercaptan 0.0016 ppm. Against Nagata (0.00041, 0.000070 ppm) that is about 20x and 23x. This is the author's calculation, not a number in the source. Dimethyl sulfide is not among Amoore's 214 compounds, so Amoore gives no DMS ratio."
+   },
+   {
+    "file": "main/methods.tex (sigma = 2 binary steps)",
+    "verdict": "SUPPORTED",
+    "evidence": "Section on population variability: average SD 1.97 binary steps, rounded to two. Note: this is the spread between people. Treating it as one observer's per-passage spread rests on stevens1988, not on Amoore."
+   },
+   {
+    "file": "main/methods.tex (26x, sigma 3.5)",
+    "verdict": "SUPPORTED",
+    "evidence": "Section on distracted attention (from Whisman et al.): misdirected/directed 50% threshold ratios of 28.3 and 24.5, geometric mean rounded to 26; warning-line slope 3.5 binary steps per SD unit; 50% of distracted subjects need 26 times the attentive 50% threshold."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "As for context 1: Table 2 thresholds are geometric means."
+   }
+  ]
+ },
+ {
+  "key": "corsetti2017",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract only (Nottingham accepted manuscript is behind a bot check)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: pan-colonic pressurisations of 15 +/- 3 mmHg lasting 24 +/- 4 s, linked to anal sphincter relaxation and correlated with the urge to pass gas. Gas passage itself was not measured. The figure '19 +/- 6 s' is not in this abstract (repo notes give anal relaxation as 23 +/- 4 s), nor in Ronholt's abstract (16-19 s). It looks pooled or derived.",
+    "suggested_fix": "Give the sources' own figures, e.g. 'anal relaxations lasting 16-19 s (ambulatory manometry) to about 24 s (HRM)', or explain in the SI how 19 +/- 6 s was pooled."
+   }
+  ]
+ },
+ {
+  "key": "dalton1999",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "add title: 'Cognitive influences on health symptoms from acute chemical exposure'",
+   "issue 6",
+   "pages 579-590 (entry has only 579)"
+  ],
+  "access": "abstract only (OpenAlex)",
+  "contexts": [
+   {
+    "file": "main/results.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: 180 participants, three odorants, each with a harmful, healthful or neutral label. A harmful label gave significantly MORE intense odour and irritation ratings, and more symptoms. Every participant was told something about the odour, so none was unwarned. The abstract gives no effect size, so '0-3%' cannot be checked. A significant intensity effect may not fit '0-3%'. The exposure was an ambient session exposure (duration not in abstract), not a single brief pulse.",
+    "suggested_fix": "Check the full text for the size of the intensity effect. If it exceeds 3%, cite Dalton only for the direction of the label effect in warned participants, not for the 0-3% range."
+   }
+  ]
+ },
+ {
+  "key": "diez2003",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "optional: issue 1. The yaml title is fine; Crossref only adds the bracketed citation of the original paper. Neither side is wrong."
+  ],
+  "access": "full erratum text (OpenAlex abstract field holds the whole erratum)",
+  "contexts": [
+   {
+    "file": "main/appendix.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Erratum: corrected compact laws are (x_p - x_o)/[(Q0dot u0)^(1/2) (t - t_d)]^(1/2) = C_x for starting jets and (x_p - x_o)/[Q0 u0 (t - t_d)]^(1/4) = C_x for puffs. That is x = C (Q0dot u0)^(1/4) t^(1/2) and x^4 = C^4 Q0 u0 t, with C_x = 2.8 +/- 0.06 (jet) and 2.6 +/- 0.06 (puff), matching Gamma = 2.8 and C_p = 2.6. The manuscript drops the puff virtual origin (x_o/d = 8.5) and t_d, which is fine far field. The original sangras2002 formulas were wrong, so citing the erratum is essential."
+   }
+  ]
+ },
+ {
+  "key": "duan2012",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "optional: issue 9; full author list has 16 names"
+  ],
+  "access": "full text (PMC3295281)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Results/Fig. S5B: MOR256-17 responds to MTMT and its responses were not modulated by copper. Fig. S2D: random OR-ligand pairs, including a human thiol-responsive OR, unchanged with or without Cu2+. Septal-organ cells: copper changed only some MTMT responses."
+   }
+  ]
+ },
+ {
+  "key": "fallon2018",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "optional: issue 5"
+  ],
+  "access": "full text (PMC6061002)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "PARTLY",
+    "evidence": "Results: maximum intensity in the first 10 s was 4.85 +/- 1.48 focused vs 4.32 +/- 2.11 distracted, t(18) = 1.13, p = .22, not significant (n = 19). The Discussion notes a trend toward lower peak perception under distraction. A pleasant fragrance was used over 10 min of continuous exposure. A non-significant result in 19 people does not show 'no reduction'.",
+    "suggested_fix": "Say 'did not significantly reduce the peak rated intensity (n = 19)'."
+   }
+  ]
+ },
+ {
+  "key": "florin1991",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "optional: author initials THJ"
+  ],
+  "access": "abstract",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: no significant difference between methanogenic and non-methanogenic faeces. Both made sulfide in vitro."
+   }
+  ]
+ },
+ {
+  "key": "frasnelli2006",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract",
+  "contexts": [
+   {
+    "file": "main/theory.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: with olfactometer pulses of 100, 200 and 300 ms (H2S and PEA), longer stimuli gave higher intensity ratings. That is temporal integration at durations well inside one sniff. Caveat: olfactometer pulses, not natural sniffs."
+   }
+  ]
+ },
+ {
+  "key": "gibson1993",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "optional: issue 4"
+  ],
+  "access": "none (PMC scanned PDF only, no abstract; download blocked by bot protection)",
+  "contexts": [
+   {
+    "file": "si.tex (H2S sources)",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Not accessed. A leading article/review on sulphate-reducing bacteria and colonic H2 metabolism, so it plausibly covers SRB as an H2S source. The cysteine-degradation part is cited to braccia2021.",
+    "suggested_fix": "Check pp. 437-439 by hand."
+   },
+   {
+    "file": "si.tex (no methane in sulfidogenic contents)",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Not accessed. The reference list includes Gibson 1988 papers on SRB/methanogen competition and their relation in faeces, which fits the claim but is not proof.",
+    "suggested_fix": "Check pp. 437-439 by hand."
+   }
+  ]
+ },
+ {
+  "key": "grolman2007",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "note: published online 2006-11-24; print 2007 69(2) is correct"
+  ],
+  "access": "abstract only",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "The abstract gives no phonation pressures, only that the PE segment takes most of the pressure drop and the prosthesis about 27%. Grolman measured tracheoesophageal (prosthesis) voice, not classic oesophageal speech, although the PE segment is the source in both. 1.1-2.5 kPa could not be checked.",
+    "suggested_fix": "Check the full text for the onset or minimum driving pressure. If the values are tracheal pressures with a prosthesis, say 'tracheo-oesophageal'."
+   }
+  ]
+ },
+ {
+  "key": "hickey1972",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "journal: 'The American Journal of Digestive Diseases' (Crossref is right; renamed Digestive Diseases and Sciences only in 1979)"
+  ],
+  "access": "none (no abstract; Springer paywall)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Table data not accessed, so r could not be recomputed. Note: Hickey 1972 tested fruits and fruit juices (Semantic Scholar TLDR: grape juice, raisins, bananas raised H2), not beans, fibre or lactulose.",
+    "suggested_fix": "Recheck r from the tables. Widen the wording, e.g. 'under bean, fruit, fibre and lactulose challenges'."
+   }
+  ]
+ },
+ {
+  "key": "magee2000",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "optional: issue 6; authors Magee EA, Richardson CJ, Hughes R, Cummings JH"
+  ],
+  "access": "abstract",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: five healthy men on 0-600 g/d meat; faecal sulfide 0.22 +/- 0.02 to 3.38 +/- 0.31 mmol/kg (P < 0.001)."
+   }
+  ]
+ },
+ {
+  "key": "odonnell1984",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract only (OUP page behind bot check)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "The abstract confirms a bean challenge (100 g/d red kidney beans, 12 men, 23 days) with gas excretion measured. It gives no composition or volume table, so r could not be recomputed.",
+    "suggested_fix": "Check the tables by hand."
+   }
+  ]
+ },
+ {
+  "key": "pindzola1989",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract only",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "The abstract compares 5 TE, 5 oesophageal and 15 laryngeal speakers. Average F0 did not differ significantly between TE and oesophageal speech, but no Hz values are given, so 60-150 Hz could not be checked.",
+    "suggested_fix": "Check the oesophageal-speaker F0 values in the full-text table."
+   }
+  ]
+ },
+ {
+  "key": "rim2009",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "full text (author PDF, UT Austin)",
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract and sec. 3.3.2: in stratified flow, a floor-level source near the occupant gave inhaled particle levels up to four times ambient, and the plume carried pollutants from floor level to the breathing zone. SF6 behaved similarly. Caveat: in well-mixed flow, concentrations near the occupant were uniform, and a source in front of the face was kept out by the plume. Optional: add 'in weakly mixed rooms'."
+   }
+  ]
+ },
+ {
+  "key": "ronholt1999",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract only",
+  "contexts": [
+   {
+    "file": "si.tex (duration)",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: each relaxation lasted 16-19 s, and flatus passage usually coincided with a relaxation. '19 +/- 6 s' is not in the abstract (see corsetti2017).",
+    "suggested_fix": "Give 16-19 s for Ronholt, or state how 19 +/- 6 s was derived."
+   },
+   {
+    "file": "si.tex (valve state)",
+    "verdict": "PARTLY",
+    "evidence": "Abstract supports flatus usually passing with a simultaneous anal relaxation. The rectal pressure rise of 0-15 mmHg is not in the abstract; the abstract gives only the 26-29 mmHg anal pressure fall.",
+    "suggested_fix": "Check the 0-15 mmHg figure in the full text (or check whether it comes from miller1988b only)."
+   }
+  ]
+ },
+ {
+  "key": "snyder2020",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "optional: author 'Wilbur Snyder'; posted 2020-10-01, page also shows 2022-11-29"
+  ],
+  "access": "full text (web page)",
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Blog: 1,619 recorded farts; smell as log VOC count; R^2 = 0.0155, positive, p < 0.000005; no truly silent fart recorded. Not peer reviewed, as the sentence says."
+   }
+  ]
+ },
+ {
+  "key": "stone1965",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "add title: 'Olfactory discrimination and Weber's law'",
+   "issue 2",
+   "pages 657-665 (entry has only 657)"
+  ],
+  "access": "abstract (OpenAlex)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: a linear plot of difference limens gave K = 0.28 for human olfactory discrimination. Caveat: measured with acetic and propionic acid, not sulfur odorants."
+   }
+  ]
+ },
+ {
+  "key": "strocchi1994",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: co-incubating sulphate-reducing faeces with methanogenic faeces gave a sixfold reduction in sulphide production."
+   }
+  ]
+ },
+ {
+  "key": "suarez1998b",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "optional: third author is 'Springfield J' (John) in PubMed/Crossref/article, not 'JR'"
+  ],
+  "access": "full text (gastrojournal.org)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 3 (24-h incubation): faecal H2S release 5740 +/- 711 before vs 249 +/- 161 nmol/g dry wt after 3 days, about 23-fold. Results: CO2, H2 and CH4 not significantly changed, and total gas volume not significantly altered."
+   }
+  ]
+ },
+ {
+  "key": "wilby1969",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract only (OpenAlex; T&F bronze-OA PDF blocked)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Abstract: recognition thresholds of 18 sulfur compounds, untrained panel of 35, 10^0.2 steps. No values in the abstract. Repo notes (params.yaml) cite Table V medians H2S 4.1 and CH3SH 0.80 ppb, giving about 10x and 11x vs Nagata. Only the notes support the lower bound of 10. Per repo chem/odorants.py, Wilby DMS is 2.0 ppb, BELOW Nagata's 3.0 ppb (about 0.7x), so '10-23 times higher' holds only for H2S and methanethiol.",
+    "suggested_fix": "Check Table V. Say the 10-23x range is for H2S and methanethiol only (DMS has no population excess)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: Wilby measured RECOGNITION thresholds in a panel of 35. Repo notes describe medians, not detection geometric means. Calling them 'population geometric means' alongside Amoore mixes recognition with detection thresholds.",
+    "suggested_fix": "Say e.g. 'population geometric means (detection) [amoore1983] and recognition medians [wilby1969]'."
+   }
+  ]
+ },
+ {
+  "key": "wysocki2006",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "add title: 'Chaotic dynamics of resting ventilatory flow in humans assessed through noise titration'",
+   "authors: Wysocki M, Fiamma MN, Straus C, Poon CS, Similowski T",
+   "issue 1"
+  ],
+  "access": "full text (arXiv nlin/0606032)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "PARTLY",
+    "evidence": "Results: 10.1 +/- 3.0 breaths/min (Ttot 6.51 s); TI/TTOT = 0.42 +/- 0.08, which supports 0.42. 12 breaths/min is not reported, though it is within 1 SD. Sinusoidal flow is a modelling choice, not from the source.",
+    "suggested_fix": "Use 10 breaths/min (10.1 +/- 3.0), or keep 12 and say it lies within the measured 10.1 +/- 3.0."
+   }
+  ]
+ }
+]

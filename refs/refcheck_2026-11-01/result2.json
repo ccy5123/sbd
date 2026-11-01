@@ -1,0 +1,425 @@
+[
+ {
+  "key": "block2017",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: issue 5; full author list Block E, Batista VS, Matsunami H, Zhuang H, Ahmed L (5 authors; 'et al.' acceptable)."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Section 3 (role of mucus): human nasal mucus Cu given as 16 ug/dL (cited to its ref 23d); 16 ug/dL = 160 ug/L / 63.5 g/mol = 2.5 uM. The paper gives the mass concentration, not uM; the 2.5 uM is a correct conversion. Block also reports ~40 uM Cu in mouse mucus and Fig. 8 assays with 30 uM exogenous copper (MOR244-3)."
+   }
+  ],
+  "access": "full text (PMC5542778 author manuscript)"
+ },
+ {
+  "key": "calloway1969",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table I (p.181; 6 men, control/bean +/- silicone, 22 rows). My recomputation of r(volume, %CO2+%CH4+%H2): +0.86 using the 12 control and bean rows without silicone; +0.84 if the 10 silicone rows are included (reading the misprinted '46' %CO2 for subject B as 4.6). So +0.86 is reproducible, but only for the non-silicone rows; worth stating which rows were used."
+   }
+  ],
+  "access": "full text (PMC1552812 scanned page images)"
+ },
+ {
+  "key": "deschler1999",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: 11 TRACHEOESOPHAGEAL (TE) speakers, sustained phonations at 4 levels; F0 tracked SPL (explains only 9% more variance). It is about TE voice, not oesophageal speech, and the abstract gives no F0 values (the repository notes give 82-116 Hz; I could not check this).",
+    "suggested_fix": "Write 'oesophageal and tracheoesophageal (pharyngo-oesophageal segment) phonation at 60-150 Hz', or cite Deschler only for TE voice."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "djordjevic2008",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Second author is Lundström (diacritic). Print year 2008 (vol 99 issue 1, Jan 2008); online Oct 2007, which is why OpenAlex lists 2007."
+  ],
+  "contexts": [
+   {
+    "file": "main/results.tex",
+    "verdict": "PARTLY",
+    "evidence": "Exp. 1, Fig. 1B (100-mm VAS, 2-s presentation, labels read aloud): intensity was about 66 (positive), 65 (neutral) and 68 (negative), so positive-neutral was about 1 point (n.s., P=0.65) and negative-neutral about 3 points (P<0.001). '0-3%' holds as % of scale range, but relative to the neutral mean the negative-label effect is ~5%. Labels were explicit, so the study does not address unwarned listeners (consistent with the sentence).",
+    "suggested_fix": "Say '0-3 points on a 100-point scale' (or '<=5% of the neutral rating') so the unit is unambiguous."
+   }
+  ],
+  "access": "full text (author's local PDF in Downloads/02_참고문헌)"
+ },
+ {
+  "key": "gibson1993b",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Flag resolved: the yaml is right. The paper has 3 authors (Gibson GR, Macfarlane S, Macfarlane GT; confirmed on the PDF title page and in OpenAlex). Crossref's record is incomplete."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract and Table 1: Group C (n=57, high SRB) had no methanogenesis in breath or faeces. Table 2: sulphidogenic Subject B's gut contents gave CH4 'ND' after 48-h incubation."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Table 2 compares two different autopsy subjects (n=1 each). Methanogenic A: CH4 1.8 (proximal) / 3.8 (distal) umol/g, H2S trace. Sulphidogenic B: CH4 ND, H2S 2.7 / 3.3 umol/g. Text (p.121): in Subject B, H2S replaced CH4 as a major end product. 'Almost mole for mole' is an inference from comparing distal values (3.3 vs 3.8); proximal values do not match (2.7 vs 1.8). Nothing was measured within a single subject.",
+    "suggested_fix": "'In gut contents of a sulfidogenic person, H2S (2.7-3.3 umol/g) took the place of the CH4 (1.8-3.8 umol/g) formed by a methanogenic person's contents', or drop 'almost mole for mole'."
+   }
+  ],
+  "access": "full text (OUP bronze OA PDF)"
+ },
+ {
+  "key": "grimble1989",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "p.11 (end of SRB section): SRB colonisation diverts H2 away from CH4, and thus from flatus production, towards non-volatile sulphide."
+   }
+  ],
+  "access": "full text (PMC1378222 scanned page images)"
+ },
+ {
+  "key": "hirani2009",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: Vidhu Vinod Chopra is producer (company Vinod Chopra Films); release 25 Dec 2009. Director Rajkumar Hirani is correct."
+  ],
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Film Companion character profile confirms that Chatur Ramalingam's nickname 'Silencer' comes from silent, smelly flatulence (a side effect of memory pills). I found no written source for the scene where he declares the silent release the deadliest; this needs checking against the film itself.",
+    "suggested_fix": "Author to confirm the scene from the film (timestamp). Otherwise keep only the nickname and silent, foul flatulence."
+   }
+  ],
+  "access": "secondary sources (Wikipedia, Film Companion); film not viewed"
+ },
+ {
+  "key": "iso226_2023",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Third edition, published 2023 (standards-store records say March 2023), replaces ISO 226:2003. Metadata fine."
+  ],
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "ISO 226 defines equal-loudness contours for otologically normal 18-25-year-olds (free field, binaural, 20 Hz-12.5 kHz) and tabulates the hearing threshold T_f, which is tied to ISO 389-7. I saw scope records and could not open the 2023 text; T_f is in Table 1 of the 2003 edition."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "As above. Note: tabulated only from 20 Hz to 12.5 kHz, which covers the 60-300 Hz harmonics used."
+   }
+  ],
+  "access": "standards-store scope records; full standard not accessed"
+ },
+ {
+  "key": "kirk1949",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Paywalled (Elsevier, no OA copy; Unpaywall closed). Only the repository notes support the claim: Table 2, 20 normal subjects, computed r(mL/min, fermentation %) = -0.41. I could not see the table.",
+    "suggested_fix": "Author to re-check Kirk 1949 Table 2 by hand."
+   }
+  ],
+  "access": "none (metadata only)"
+ },
+ {
+  "key": "levitt2002",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: <1% of faecal sulfide was free, the rest bound, so faecal sulfide concentrations may reflect binding capacity rather than toxic potential. Note this is rat data, applied in the sentence to human faecal sulfide."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "miller1988b",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: when flatus was SENSED, sphincter pressure fell 30 (20-50) mmHg and rectal pressure rose 7 (0-15) mmHg, with RP >= SP in 80% of 144 events. The abstract gives no pressures for flatus passage. The repository notes (author's full-text reading) give rectal +8 (-10 to 88) mmHg during passage, so some passages exceed 40-55 mmHg. 'Only at balloon pressures above those that drive flatus' therefore holds for typical (median) pressures but not for the whole range.",
+    "suggested_fix": "'...above the typical rectal pressures that accompany flatus (median 7-8 mmHg)'."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "The 0-15 mmHg range in the abstract is for flatus SENSATION (sampling, with sphincter relaxation), not passage. Per the notes, passage values were +8 (-10 to 88) mmHg.",
+    "suggested_fix": "'Manometry shows the sphincter relaxing and rectal pressure rising 0-15 mmHg (median 7) when flatus is sensed' (Miller), or quote the passage values from the full text."
+   }
+  ],
+  "access": "abstract only (BJS/OUP paywalled)"
+ },
+ {
+  "key": "nagata2003",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Confirmed: Yoshio Nagata (Japan Environmental Sanitation Center), Odor Measurement Review, MoE Japan, pp. 118-127 (env.go.jp/content/900450144.pdf)."
+  ],
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Sec. 2.3: a 6-member panel who passed the T&T olfactometer screening, and 'All panelists are trained'. Table 2 gives H2S 0.00041, MeSH 0.000070 and DMS 0.0030 ppm."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "As above (trained-panel detection thresholds)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "As above."
+   }
+  ],
+  "access": "full text (MoE Japan PDF)"
+ },
+ {
+  "key": "rim2010",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "NOT SUPPORTED",
+    "evidence": "Sources were placed on the floor, at 1 m in a heat-source plume (Table 4 'S2: occupant source') and as a 'momentum' source in the breathing plane (cough-like). Exposure is normalised breathing-plane concentration CN. The highest CN came from the breathing-plane momentum source (up to 45 and 72.6). The occupant-plume source S2 gave breathing-plane CN of 0.04-2.9, not consistently higher than the floor source. Main conclusion: with good mixing, source location matters little; for 7 um particles, source location and local airflow dominate. The paper does not show that near-body sources give far higher exposure per unit mass.",
+    "suggested_fix": "Cite Rim 2010 only for 'source location and local airflow govern exposure when mixing is poor', and rest the near-body claim on licina2017 (personal cloud), or add a study that compares body-adjacent and remote sources directly."
+   }
+  ],
+  "access": "full text (author PDF, utexas.edu)"
+ },
+ {
+  "key": "robbins1984",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "The abstract gives no F0 values (15 TE, 15 oesophageal, 15 laryngeal speakers). A secondary review cites Robbins 1984 for a mean of about 65 Hz in oesophageal speakers, which fits 60-150 Hz. The primary table was not accessed (repository notes: 65-83 Hz).",
+    "suggested_fix": "Author to confirm the F0 values in the Robbins tables."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "sangras2002",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Add issue 3 (J. Heat Transfer 124(3):460-469)."
+  ],
+  "contexts": [
+   {
+    "file": "main/appendix.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Abstract confirms the self-preserving scalings: penetration ~ t^(1/2) for starting jets and t^(1/4) for puffs and interrupted jets (beyond 20-30 diameters). The coefficients Gamma=2.8 and C_p=2.6 are not in the abstract and the paper is closed. I could not confirm them, or that the two are not swapped.",
+    "suggested_fix": "Author to check the coefficient values (and which belongs to jet vs puff) in Sangras 2002 / Diez 2003 by hand."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "sorensen2014",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Online 2013, print 2014 (26(2):255-263); fine."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Abstract: FLIP distension in 21 healthy subjects and 22 IFI patients; the proximal canal was most distensible, and the mid/distal canal was larger in IFI. No diameters or pressures appear in the abstract. Only the repository notes give mid-canal ~5 mm up to 30-36 mmHg and 8.5-13 mm at 40-55 mmHg. The green-OA record (vbn.aau.dk) has no file.",
+    "suggested_fix": "Author to confirm diameter vs pressure in the healthy group (figures/tables)."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "steggerda1966",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Second author Dimmick JF (yaml has 'DIMMICK J')."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "The abstract (via Scilit/Semantic Scholar) says flatus volume rose with the bean share of the diet (from about 27% beans), and the increase was mainly CO2. So the direction is supported. The r value from Table III is backed only by the repository notes (r(vol, CO2%) = +0.97). The full text is closed (AJCN now on Elsevier).",
+    "suggested_fix": "Author to re-check Table III by hand."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "strocchi1991",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: faecal sulphide concentrations were similar in CH4-producing and non-producing homogenates, both before and after 24 h incubation."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "suarez1997",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "main/discussion.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "The abstract says nothing about sulfur concentration vs volume (it says sulfur gases were measured, and that CH4 and H2S did not correlate negatively). Full text closed (APS 403, Unpaywall closed). The mucosal-consumption mechanism is the author's own inference, and is not attributed to this ref.",
+    "suggested_fix": "Author to confirm the 'no correlation' statement in the full text."
+   },
+   {
+    "file": "main/introduction.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "As above; not in the abstract."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Passage volumes 17-375 mL, median 92 mL: not in the abstract. The abstract gives 16 subjects, every passage over 4 h.",
+    "suggested_fix": "Confirm in Results/Table."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Independence of sulfur concentration from volume: not in the abstract."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "16 compositions: the abstract confirms 16 subjects analysed for N2, O2, H2, CO2 and CH4 (predominant gas CO2/H2/N2 in 7/6/3). I could not check whether per-subject compositions are tabulated."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "r=+0.56 (CO2), -0.50 (N2), n=87, |r|<=0.22 for sulfur: not in the abstract. The abstract says rapid CO2 and H2 production drove high passage RATES (rate, not volume) and that ~74% of flatus was intraluminal gas.",
+    "suggested_fix": "Confirm the r values in the full text."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Same as the buoyancy item (16 compositions)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Same as the 'no correlation' item."
+   }
+  ],
+  "access": "abstract only"
+ },
+ {
+  "key": "teigen2022",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: issue 6."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: median ex vivo H2S production was higher after the animal-based diet, but 2 of 11 subjects produced more on the plant-based diet. Responsiveness was not uniform."
+   }
+  ],
+  "access": "abstract (PMC11082741 available)"
+ },
+ {
+  "key": "tomlin1991",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "p.667: all collections over 80 mL/h were almost entirely fermentation gases (median 98.9%, mostly H2 at a median 86.4%). Subjects ate their normal diet plus 200 g baked beans."
+   }
+  ],
+  "access": "full text (PMC1378885 scanned page images)"
+ },
+ {
+  "key": "whisman1978",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Flag resolved: Crossref is right. There are 4 authors: Whisman ML, Goetzinger JW, Cotton FO, Brinkman DW (ACS page via OpenAlex; Semantic Scholar). Add Brinkman DW and issue 12 (Environ. Sci. Technol. 12(12):1285-1288)."
+  ],
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Paywalled, no abstract. A secondary description (scite) says odour awareness was tested in four modes, from directed to deliberately misdirected (distracted), and that distraction and unfamiliar settings reduced awareness. That fits the topic. I could not verify the 26x threshold for 50% response or sigma = 3.5 binary steps (these may come from Amoore 1983).",
+    "suggested_fix": "Author to confirm which numbers come from Whisman and which from Amoore."
+   }
+  ],
+  "access": "none (metadata and secondary description)"
+ },
+ {
+  "key": "yao2018",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Flag resolved: the yaml is right. Gut Microbes 9(6):510-522 is the issue pagination (Europe PMC/PubMed). Crossref's 1-13 is the online-first article pagination."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Table 1: total gas 40.2 (FOS), 18.0 (RS), 3.0 (psyllium), 0.8 (sterculia) mL/g. The 50-fold is FOS vs sterculia (rapidly vs minimally fermented fibre), not a rise over unspiked baseline. H2S suppression of up to 89% (RS 89.0%, FOS 82.2%): supported. Cysteine +1557% (abstract) is ~16.6x: '16-fold' supported.",
+    "suggested_fix": "'Rapidly fermented fibres produced up to 50 times more gas than poorly fermented ones (40 vs 0.8 mL/g) while suppressing H2S by up to 89%'."
+   }
+  ],
+  "access": "full text (PMC6287689 HTML)"
+ }
+]

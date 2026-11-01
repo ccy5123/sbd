@@ -1,0 +1,405 @@
+[
+ {
+  "key": "ancalle2021",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (JASA page + Crossref)",
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: the sound is produced by vibration of the anal skin, compared to a trumpet player's lips buzzing in the mouthpiece. It is a meeting abstract (JASA 150(4_Suppl):A164), not a peer-reviewed paper, so 'no peer-reviewed study has measured it' is consistent."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract makes the anal-skin vibration / brass-lip buzzing analogy, which is what a lip-reed model is. No frequencies or model parameters are given."
+   }
+  ]
+ },
+ {
+  "key": "braccia2021",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: the full author list is Braccia DJ, Jiang X, Pop M, Hall AB (4 authors)."
+  ],
+  "access": "abstract (Europe PMC)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: gut H2S is usually attributed to sulfate reducers; putative cysteine-degrading bacteria were found in the metagenomes of all 6,623 healthy subjects and were more abundant than sulfate reducers. These are genome-based predictions; the authors say experimental validation is still needed."
+   }
+  ]
+ },
+ {
+  "key": "cheng2011",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Add issue 9 (Environ Sci Technol 45(9):4016-4022). The 7-author list in the entry is complete and correct (Cheng, Acevedo-Bolton, Jiang, Klepeis, Ott, Fringer, Hildemann), so the 'to be confirmed' note can go."
+  ],
+  "access": "abstract (Europe PMC, PMID 21456572)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: across 11 experiments in two naturally ventilated houses (<0.2 to >5 ACH), the turbulent diffusion coefficients 'ranged from 0.001 to 0.013 m2 s-1'. The upper bound 1.3e-2 matches, but the lower bound in the source is 1e-3, not 1e-4.",
+    "suggested_fix": "Write K = 10^-3 to 1.3x10^-2 m2 s-1, or cite a separate source for the 10^-4 still-air end of the range."
+   }
+  ]
+ },
+ {
+  "key": "christl1992b",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "full text (PMC1379493 scanned PDF)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table III, responders (n=3 of 6): sulphide production rate 0.35 to 0.99 umol/g/h (x2.8) and methane production rate 1.43 to 0.29 umol/g/h (x4.9), both measured in faecal slurry incubations. Table II: faecal weight and transit time did not differ. Abstract: no change in the other three subjects. 'Tripled' rounds x2.8 up, which is acceptable. Optional: say these are faecal-slurry rates."
+   }
+  ]
+ },
+ {
+  "key": "collins2001",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (Europe PMC); the AVMA full-text PDF is behind a reCAPTCHA and was not opened",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: one odour judge rated flatus from 8 dogs; ratings were predicted by 1.51 x [H2S]^0.28, so n = 0.28 is correct. The source is dog flatus rated by a single human judge, which the sentence does not say.",
+    "suggested_fix": "Add the condition, e.g. 'n = 0.28 measured for H2S in dog flatus rated by a human judge'."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Collins 2001 reports only n = 0.28 (abstract; no confidence interval or range seen). The range 0.20-0.45 does not appear in what was read.",
+    "suggested_fix": "Cite the source of the 0.20-0.45 range (e.g. the Stevens-exponent literature for H2S) next to collins2001, or state that 0.28 is the measured value and the range is an assumed bracket."
+   }
+  ]
+ },
+ {
+  "key": "giffard2001",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (Europe PMC and AVMA page); full-text PDF behind a reCAPTCHA",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Abstract: the 71%, 38% and 58% cuts in H2S production (charcoal, Yucca, zinc acetate) and 86% for all three combined were measured IN VITRO, in a faecal fermentation system, which is also where total gas production was unaffected. In the dogs (in vivo), the number and frequency of flatulence episodes were unchanged, and the share of episodes with bad or unbearable odour fell by 86%. The abstract gives no in vivo H2S reduction. The sentence attributes the 38-86% H2S cut to 'dogs' in vivo.",
+    "suggested_fix": "E.g. '...in dog faecal incubations charcoal, yucca and zinc acetate cut H2S production by 38-86% without changing total gas production, and fed to dogs they did not change the number of emissions while making malodorous episodes 86% rarer \\cite{giffard2001}.'"
+   }
+  ]
+ },
+ {
+  "key": "haag2019",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Issue year is 2020: Cell Mol Life Sci 77(11):2157-2179 (2020); published online 21 Aug 2019. Either use year 2020 and add issue 11, or keep 2019 only if the journal style uses the online year.",
+   "Author list: Haag F, Ahmed L, Reiss K, Block E, Batista VS, Krautwurst D."
+  ],
+  "access": "abstract (Europe PMC); full text in PMC7256108 available but not needed",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: in two broadly tuned receptors, OR1A1 and OR2W1, activation by sulfur-containing key food odorants did not depend on copper; copper potentiation was tied to a motif in OR2M3."
+   }
+  ]
+ },
+ {
+  "key": "hamilton1976",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "original closed (no abstract via Crossref, OpenAlex or S2); verified from multiple secondary summaries of the study",
+  "contexts": [
+   {
+    "file": "main/discussion.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "The classic finding: people overestimate how often the minority group performed the infrequent (undesirable) behaviours, i.e. a distinctive pairing, and this is explained by the greater memorability of distinctive co-occurrences. Checked from secondary summaries, not the original text."
+   }
+  ]
+ },
+ {
+  "key": "kumar1990",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (Europe PMC)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: passage of flatus came with transient anal-canal relaxation in 19% of episodes, and with a contractile episode without preceding relaxation in 75%. So flatus also passes against a contracted sphincter."
+   }
+  ]
+ },
+ {
+  "key": "laing1983",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (Europe PMC/OpenAlex)",
+  "contexts": [
+   {
+    "file": "main/theory.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: a single natural sniff gives as much information about the presence and intensity of an odour as seven or more sniffs; extra sniffs are confirmatory."
+   }
+  ]
+ },
+ {
+  "key": "landeau2014",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Add the title: 'Experiments on the fragmentation of a buoyant liquid volume in another liquid' (the Crossref title is correct). Authors Landeau M, Deguen R, Olson P; J Fluid Mech 749:478-518 (2014)."
+  ],
+  "access": "full text (arXiv 1410.7997 accepted version)",
+  "contexts": [
+   {
+    "file": "main/appendix.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Sec. 6.1: in miscible thermals the entrainment coefficient is typically alpha_T = 0.25 +/- 0.1. Table 2 / Sec. 6.2.1: they measured 0.24 +/- 0.05 (miscible) and 0.23 +/- 0.06 (immiscible). alpha = 0.25 is consistent. Note that their alpha is defined with the equivalent radius (alpha = c2/c1)."
+   }
+  ]
+ },
+ {
+  "key": "levine1998",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "The DOI 10.1016/S0002-9270(97)00028-2 is an alias that redirects to the primary DOI 10.1111/j.1572-0241.1998.083_c.x. Use the primary one.",
+   "Author 'Springfield JR' appears as 'Springfield J' in PubMed (minor)."
+  ],
+  "access": "abstract only (PubMed/Europe PMC); full text closed",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Abstract: H2S release from ulcerative-colitis faeces was 3-4x higher than from controls, while CH4 (and H2) release did not differ between groups. The abstract does not compare faecal sulfide between methane producers and non-producers. The earlier reading notes cite Fig. 3 (CH4 vs H2S, r = 0.112), but this could not be checked; only the notes support it.",
+    "suggested_fix": "Check Fig. 3 in the full text, or rephrase to what the abstract shows (H2S release varied 3-4x between groups while CH4 release did not)."
+   }
+  ]
+ },
+ {
+  "key": "levitt1976",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "first-page snippet only (OpenAlex); NEJM full text closed / Cloudflare-blocked",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Only the opening paragraph was accessible (a 28-year-old man who recorded every passage). The figures 26% at 55 mL and 79% at 720 mL per 4 h are not in what was read; only the reading notes (Table 1) support them.",
+    "suggested_fix": "Check Table 1 by hand."
+   }
+  ]
+ },
+ {
+  "key": "licina2015",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (Europe PMC)",
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: PIV of a thermal manikin shows the convective boundary layer reaching the breathing zone (peak velocity 0.185 m/s at the nose in quiescent conditions, disturbed by downward flow of 0.30 m/s). This supports the 'rises to the breathing zone' part."
+   }
+  ]
+ },
+ {
+  "key": "licina2017",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "full text (eScholarship submitted manuscript)",
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: particles released next to the human envelope gave a total inhalation intake fraction of 7-10 per thousand, 1.5-16x higher than other indoor release locations."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 2, ID 1 (heated manikin, groin): iF = 5.5 +/- 0.7, 7.7 +/- 0.8 and 9.8 +/- 0.9 per thousand for the source-active (10 min), unmixed (22 min) and full (100 min) periods. The source sat 'proximate to manikin's groin (at 0.5 m height)' with the manikin seated."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Methods: floor 4.6 x 4.6 m, volume ~50 m3 (2.36 m height is implied, not stated); 115 m3/h (2.3 h-1) through two ceiling diffusers; exhaust through a wall opening at 1.8 m; constant release for 10 min; groin source at 0.5 m; Collison nebulizer at 3.5 LPM (equipment list)."
+   }
+  ]
+ },
+ {
+  "key": "liuzza2016",
+  "exists": true,
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Add volume, issue and pages: Chem Senses 42(6):499-508. Issue year 2017 (online 18 Oct 2016).",
+   "Erratum: Chem Senses 2017;42(6):509, doi:10.1093/chemse/bjx001. It only corrects the number of female participants in the CFA sample (168 to 128) and does not affect the cited item means."
+  ],
+  "access": "abstract only; OUP full text paywalled, no OA copy found (Unpaywall: closed)",
+  "contexts": [
+   {
+    "file": "main/discussion.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "The abstract confirms the scale and its own-odour vs others'-odour factors (n = 528), but gives no item means. The values 2.51 (own) and 3.71 (stranger) on a 1-5 scale, and the item wording, are supported only by the reading notes (Table 4).",
+    "suggested_fix": "Check Table 4 by hand (item wording, means and scale)."
+   }
+  ]
+ },
+ {
+  "key": "ohge2005",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (Europe PMC)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: with no device, the subjects' garments removed 22.0 +/- 5.3% of the instilled sulfide gases (H2S and methylmercaptan)."
+   }
+  ]
+ },
+ {
+  "key": "olesen2024",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: the author's full name is Bjarne W. Olesen; REHVA Journal issue 06/2024, pp. 12-16 is confirmed."
+  ],
+  "access": "full text (REHVA Journal web page)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "EN 16798-1 Category II: 7 L/s per person (Table 2) plus 0.7 L/(s m2) for a low-polluting building (Table 3). For 2 people in 3.2 x 3.2 m: 14 + 7.2 = 21.2 L/s; divided by 26.6 m3 that is 2.87 h-1, about 2.9 ACH. The ACH is computed from the tables, not stated in the source."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Same tables give 21.2 L/s and 2.9 ACH for two people in a low-polluting 10.24 m2 room."
+   }
+  ]
+ },
+ {
+  "key": "picton2002",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (Europe PMC)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract conclusion: rhodanese, in the colonic submucosa and crypts, is the principal enzyme of H2S detoxication; TMT does not take part."
+   }
+  ]
+ },
+ {
+  "key": "snoep2014",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "full text (PMC3997377 HTML)",
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "The commentary frames Berkson's fallacy as conditioning on a collider (hospitalisation caused by both diseases), which makes independent causes associated among the selected."
+   },
+   {
+    "file": "main/theory.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Same: selection on a common effect of two causes induces an association between them among the selected (collider H = 1)."
+   }
+  ]
+ },
+ {
+  "key": "steggerda1968",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "none beyond metadata (Wiley, closed; no abstract)",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Full text not accessible. The correlation computed from Table 1 (r about +0.999 for volume vs CO2%) is supported only by the reading notes. It falls within the stated +0.86 to +0.99 range only if rounded to 0.99.",
+    "suggested_fix": "Check Table 1 by hand."
+   }
+  ]
+ },
+ {
+  "key": "stevens1988",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [],
+  "access": "abstract (OUP page)",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: 3 subjects tested 60 times over 30 days; each subject's own variability was about as large as that of large groups tested once, and the main source of threshold variability is the fluctuation of an individual's threshold over time."
+   }
+  ]
+ },
+ {
+  "key": "tangerman2009",
+  "exists": true,
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Optional: add issue 28 (J Chromatogr B 877(28):3366-3377)."
+  ],
+  "access": "abstract only (Europe PMC); Elsevier full text closed. A secondary record (BioNumbers 112381) confirms that Table 2 (p. 3376) gives flatus VSC concentrations measured by GC on bathtub-collected flatus, plus odour thresholds.",
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract: the foul odour of H2S, methanethiol and dimethyl sulfide plays a major role in bad breath, faeces and flatus."
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Per the secondary record, Table 2 holds a measured flatus composition, but it could not be read directly.",
+    "suggested_fix": "Check Table 2 by hand."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "'28 passages', 'H2S 149, methanethiol 216, DMS 144 nmol/L' and 'lowest literature thresholds compiled' are not in the abstract. Table 2 could not be read (the secondary record shows thresholds there, partly taken from Verschueren 1983).",
+    "suggested_fix": "Check the numbers, n = 28, and the threshold compilation in Table 2 by hand."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "Figure caption; depends on the same Table 2 composition, which could not be checked.",
+    "suggested_fix": "Check Table 2 by hand."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "UNVERIFIABLE",
+    "evidence": "The abstract mentions free, acid-labile and DTT-labile sulfide forms, but no '<5% of faecal total sulfide' figure.",
+    "suggested_fix": "Find the page or table that gives the free/total faecal sulfide ratio and check it."
+   }
+  ]
+ }
+]

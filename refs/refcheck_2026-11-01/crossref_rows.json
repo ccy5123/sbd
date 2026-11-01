@@ -1,0 +1,3112 @@
+[
+ {
+  "key": "alassaad2021",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Al Assaad D",
+    "Shen Y",
+    "Licina D"
+   ],
+   "year": 2021,
+   "title": "Particle release and transport from human skin and clothing: A CFD modeling methodology",
+   "journal": "Indoor Air",
+   "volume": 31,
+   "issue": 5,
+   "pages": "1377-1390",
+   "doi": "10.1111/ina.12840",
+   "openalex": "W3157557069"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Particle release and transport from human skin and clothing: A CFD modeling methodology",
+   "authors": [
+    "Al Assaad",
+    "Yang",
+    "Licina"
+   ],
+   "year": 2021,
+   "journal": "Indoor Air",
+   "volume": "31",
+   "page": "1377-1390",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "amoore1983",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Amoore JE",
+    "Hautala E"
+   ],
+   "year": 1983,
+   "title": "Odor as an aid to chemical safety: odor thresholds compared with threshold limit values and volatilities for 214 industrial chemicals in air and water dilution",
+   "journal": "Journal of Applied Toxicology",
+   "volume": 3,
+   "issue": 6,
+   "pages": "272-290",
+   "doi": "10.1002/jat.2550030603"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Odor as an ald to chemical safety: Odor thresholds compared with threshold limit values and volatilities for 214 industrial chemicals in air and water dilution",
+   "authors": [
+    "Amoore",
+    "Hautala"
+   ],
+   "year": 1983,
+   "journal": "Journal of Applied Toxicology",
+   "volume": "3",
+   "page": "272-290",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "ancalle2021",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Ancalle DS",
+    "Finn CL",
+    "Jiang N",
+    "Stewart SA",
+    "Hu DL"
+   ],
+   "year": 2021,
+   "title": "Physics of flatulence",
+   "journal": "Journal of the Acoustical Society of America",
+   "volume": 150,
+   "issue": "4_Supplement",
+   "pages": "A164",
+   "note": "Conference abstract",
+   "doi": "10.1121/10.0007996",
+   "openalex": "W3215270251"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Physics of flatulence",
+   "authors": [
+    "Ancalle",
+    "Finn",
+    "Jiang",
+    "Stewart",
+    "Hu"
+   ],
+   "year": 2021,
+   "journal": "The Journal of the Acoustical Society of America",
+   "volume": "150",
+   "page": "A164-A164",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "atkinson2004",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Atkinson R",
+    "Baulch DL",
+    "Cox RA",
+    "et al."
+   ],
+   "year": 2004,
+   "title": "Evaluated kinetic and photochemical data for atmospheric chemistry: Volume I - gas phase reactions of Ox, HOx, NOx and SOx species",
+   "journal": "Atmospheric Chemistry and Physics",
+   "volume": 4,
+   "pages": "1461-1738",
+   "doi": "10.5194/acp-4-1461-2004",
+   "openalex": "W2102468142",
+   "note": "IUPAC k(298 K): OH+H2S 4.7e-12, OH+CH3SH 3.3e-11, OH+DMS 4.8e-12 (abstr.) + 1.7e-12 (add., 1 bar air), Cl+H2S 7.4e-11, Cl+CH3SH 2.0e-10, Cl+DMS 3.3e-10, NO3+CH3SH 9.2e-13, NO3+DMS 1.1e-12, O3+DMS < 1e-18"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Evaluated kinetic and photochemical data for atmospheric chemistry: Volume I - gas phase reactions of O\n                    <sub>x</sub>\n                    , HO\n                    <sub>x</sub>\n                    , NO\n                    <sub>x</sub>\n                    and SO\n                    <sub>x</sub>\n                    species",
+   "authors": [
+    "Atkinson",
+    "Baulch",
+    "Cox",
+    "Crowley",
+    "Hampson",
+    "Hynes",
+    "Jenkin",
+    "Rossi",
+    "Troe"
+   ],
+   "year": 2004,
+   "journal": "Atmospheric Chemistry and Physics",
+   "volume": "4",
+   "page": "1461-1738",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "berkson1946",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Berkson J"
+   ],
+   "year": 1946,
+   "title": "Limitations of the Application of Fourfold Table Analysis to Hospital Data",
+   "journal": "Biometrics Bulletin",
+   "volume": 2,
+   "issue": 3,
+   "pages": "47-53",
+   "doi": "10.2307/3002000",
+   "openalex": "W2400892929"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Limitations of the Application of Fourfold Table Analysis to Hospital Data",
+   "authors": [
+    "Berkson"
+   ],
+   "year": 1946,
+   "journal": "Biometrics Bulletin",
+   "volume": "2",
+   "page": "47",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "block2017",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Block E",
+    "Batista VS",
+    "Matsunami H",
+    "et al."
+   ],
+   "year": 2017,
+   "title": "The role of metals in mammalian olfaction of low molecular weight organosulfur compounds",
+   "journal": "Natural Product Reports",
+   "volume": "34",
+   "pages": "529-557",
+   "doi": "10.1039/c7np00016b",
+   "openalex": "W2611793986"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "The role of metals in mammalian olfaction of low molecular weight organosulfur compounds",
+   "authors": [
+    "Block",
+    "Batista",
+    "Matsunami",
+    "Zhuang",
+    "Ahmed"
+   ],
+   "year": 2017,
+   "journal": "Natural Product Reports",
+   "volume": "34",
+   "page": "529-557",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "braccia2021",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Braccia DJ",
+    "Jiang X",
+    "Pop M",
+    "et al."
+   ],
+   "year": 2021,
+   "title": "The Capacity to Produce Hydrogen Sulfide (H2S) via Cysteine Degradation Is Ubiquitous in the Human Gut Microbiome",
+   "journal": "Frontiers in Microbiology",
+   "volume": "12",
+   "pages": "705583",
+   "doi": "10.3389/fmicb.2021.705583",
+   "openalex": "W3206512327"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "The Capacity to Produce Hydrogen Sulfide (H2S) via Cysteine Degradation Is Ubiquitous in the Human Gut Microbiome",
+   "authors": [
+    "Braccia",
+    "Jiang",
+    "Pop",
+    "Hall"
+   ],
+   "year": 2021,
+   "journal": "Frontiers in Microbiology",
+   "volume": "12",
+   "page": null,
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "calloway1969",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Calloway DH",
+    "Burroughs SE"
+   ],
+   "year": 1969,
+   "title": "Effect of dried beans and silicone on intestinal hydrogen and methane production in man",
+   "journal": "Gut",
+   "volume": 10,
+   "issue": 3,
+   "pages": "180-184",
+   "doi": "10.1136/gut.10.3.180",
+   "openalex": "W1966304843"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Effect of dried beans and silicone on intestinal hydrogen and methane production in man.",
+   "authors": [
+    "Calloway",
+    "Burroughs"
+   ],
+   "year": 1969,
+   "journal": "Gut",
+   "volume": "10",
+   "page": "180-184",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "chapman1967",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Chapman LJ"
+   ],
+   "year": 1967,
+   "title": "Illusory correlation in observational report",
+   "journal": "Journal of Verbal Learning and Verbal Behavior",
+   "volume": 6,
+   "issue": 1,
+   "pages": "151-155",
+   "doi": "10.1016/s0022-5371(67)80066-5",
+   "openalex": "W2030859284"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Illusory correlation in observational report",
+   "authors": [
+    "Chapman"
+   ],
+   "year": 1967,
+   "journal": "Journal of Verbal Learning and Verbal Behavior",
+   "volume": "6",
+   "page": "151-155",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "cheng2011",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Cheng K-C",
+    "Acevedo-Bolton V",
+    "Jiang R-T",
+    "Klepeis NE",
+    "Ott WR",
+    "Fringer OB",
+    "Hildemann LM"
+   ],
+   "year": 2011,
+   "title": "Modeling exposure close to air pollution sources in naturally ventilated residences: association of turbulent diffusion coefficient with air change rate",
+   "journal": "Environmental Science & Technology",
+   "volume": 45,
+   "pages": "4016-4022",
+   "doi": "10.1021/es103080p",
+   "note": "author list beyond first three to be confirmed"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Modeling Exposure Close to Air Pollution Sources in Naturally Ventilated Residences: Association of Turbulent Diffusion Coefficient with Air Change Rate",
+   "authors": [
+    "Cheng",
+    "Acevedo-Bolton",
+    "Jiang",
+    "Klepeis",
+    "Ott",
+    "Fringer",
+    "Hildemann"
+   ],
+   "year": 2011,
+   "journal": "Environmental Science &amp; Technology",
+   "volume": "45",
+   "page": "4016-4022",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "christl1992b",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Christl SU",
+    "Gibson GR",
+    "Cummings JH"
+   ],
+   "year": 1992,
+   "title": "Role of dietary sulphate in the regulation of methanogenesis in the human large intestine",
+   "journal": "Gut",
+   "volume": 33,
+   "issue": 9,
+   "pages": "1234-1238",
+   "doi": "10.1136/gut.33.9.1234",
+   "openalex": "W2021446345"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Role of dietary sulphate in the regulation of methanogenesis in the human large intestine.",
+   "authors": [
+    "Christl",
+    "Gibson",
+    "Cummings"
+   ],
+   "year": 1992,
+   "journal": "Gut",
+   "volume": "33",
+   "page": "1234-1238",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "collins2001",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Collins SB",
+    "Perez-Camargo G",
+    "Gettinby G",
+    "Butterwick RF",
+    "Batt RM",
+    "Giffard CJ"
+   ],
+   "year": 2001,
+   "title": "Development of a technique for the in vivo assessment of flatulence in dogs",
+   "journal": "American Journal of Veterinary Research",
+   "volume": 62,
+   "issue": 7,
+   "pages": "1014-1019",
+   "doi": "10.2460/ajvr.2001.62.1014",
+   "openalex": "W2160689292"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Development of a technique for the in vivo assessment of flatulence in dogs",
+   "authors": [
+    "Collins",
+    "Perez-Camargo",
+    "Gettinby",
+    "Butterwick",
+    "Batt",
+    "Giffard"
+   ],
+   "year": 2001,
+   "journal": "American Journal of Veterinary Research",
+   "volume": "62",
+   "page": "1014-1019",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "corsetti2017",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Corsetti M",
+    "Pagliaro G",
+    "Demedts I",
+    "Deloose E",
+    "Gevers A",
+    "Scheerens C",
+    "Rommel N",
+    "Tack JF"
+   ],
+   "year": 2017,
+   "title": "Pan-Colonic Pressurizations Associated With Relaxation of the Anal Sphincter in Health and Disease: A New Colonic Motor Pattern Identified Using High-Resolution Manometry",
+   "journal": "The American Journal of Gastroenterology",
+   "volume": 112,
+   "issue": 3,
+   "pages": "479-489",
+   "doi": "10.1038/ajg.2016.341",
+   "openalex": "W2511092059"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Pan-Colonic Pressurizations Associated With Relaxation of the Anal Sphincter in Health and Disease: A New Colonic Motor Pattern Identified Using High-Resolution Manometry",
+   "authors": [
+    "Corsetti",
+    "Pagliaro",
+    "Demedts",
+    "Deloose",
+    "Gevers",
+    "Scheerens",
+    "Rommel",
+    "Tack"
+   ],
+   "year": 2017,
+   "journal": "American Journal of Gastroenterology",
+   "volume": "112",
+   "page": "479-489",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "dalton1999",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Dalton P"
+   ],
+   "year": 1999,
+   "journal": "Health Psychology",
+   "volume": 18,
+   "pages": "579",
+   "doi": "10.1037/0278-6133.18.6.579"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "title missing in yaml; crossref='Cognitive influences on health symptoms from acute chemical exposure.'"
+  ],
+  "crossref": {
+   "title": "Cognitive influences on health symptoms from acute chemical exposure.",
+   "authors": [
+    "Dalton"
+   ],
+   "year": 1999,
+   "journal": "Health Psychology",
+   "volume": "18",
+   "page": "579-590",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "deschler1999",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Deschler DG",
+    "Doherty ET",
+    "Reed CG",
+    "Singer MI"
+   ],
+   "year": 1999,
+   "title": "Effects of sound pressure levels on fundamental frequency in tracheoesophageal speakers",
+   "journal": "Otolaryngology - Head and Neck Surgery",
+   "volume": 121,
+   "issue": 1,
+   "pages": "23-26",
+   "doi": "10.1016/s0194-5998(99)70117-8",
+   "openalex": "W2102096836"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Effects of sound pressure levels on fundamental frequency in tracheoesophageal speakers",
+   "authors": [
+    "Deschler",
+    "Doherty",
+    "Reed",
+    "Singer"
+   ],
+   "year": 1999,
+   "journal": "Otolaryngology–Head and Neck Surgery",
+   "volume": "121",
+   "page": "23-26",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "diez2003",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Diez FJ",
+    "Sangras R",
+    "Kwon OC",
+    "Faeth GM"
+   ],
+   "year": 2003,
+   "title": "Erratum: Self-preserving properties of unsteady round nonbuoyant turbulent starting jets and puffs in still fluids",
+   "journal": "Journal of Heat Transfer",
+   "volume": 125,
+   "pages": "204-205",
+   "doi": "10.1115/1.1532019"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "title: yaml='Erratum: Self-preserving properties of unsteady round nonbuoyant turbulent starting jets and puffs in still fluids' | crossref='Erratum: “Self-Preserving Properties of Unsteady Round Nonbuoyant Turbulent Starting Jets and Puffs in Still Fluids” [ASME J. Heat Transfer, 124, pp. 460–469 (2002)]'"
+  ],
+  "crossref": {
+   "title": "Erratum: “Self-Preserving Properties of Unsteady Round Nonbuoyant Turbulent Starting Jets and Puffs in Still Fluids” [ASME J. Heat Transfer, 124, pp. 460–469 (2002)]",
+   "authors": [
+    "Diez,",
+    "Sangras,",
+    "Kwon, and",
+    "Faeth"
+   ],
+   "year": 2003,
+   "journal": "Journal of Heat Transfer",
+   "volume": "125",
+   "page": "204-205",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "djordjevic2008",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Djordjevic J",
+    "Lundstrom JN",
+    "Clément F",
+    "Boyle JA",
+    "Pouliot S",
+    "Jones-Gotman M"
+   ],
+   "year": 2008,
+   "title": "A rose by any other name: would it smell as sweet?",
+   "journal": "Journal of Neurophysiology",
+   "volume": 99,
+   "issue": 1,
+   "pages": "386-393",
+   "doi": "10.1152/jn.00896.2007",
+   "openalex": "W2035439200",
+   "si": "Table S1 (neutral-name means) NOT obtained; Fig 1B can be digitised instead"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "A Rose by Any Other Name: Would it Smell as Sweet?",
+   "authors": [
+    "Djordjevic",
+    "Lundstrom",
+    "Clément",
+    "Boyle",
+    "Pouliot",
+    "Jones-Gotman"
+   ],
+   "year": 2008,
+   "journal": "Journal of Neurophysiology",
+   "volume": "99",
+   "page": "386-393",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "duan2012",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Duan XF",
+    "Block E",
+    "Li Z",
+    "et al."
+   ],
+   "year": 2012,
+   "title": "Crucial role of copper in detection of metal-coordinating odorants",
+   "journal": "Proceedings of the National Academy of Sciences",
+   "volume": 109,
+   "pages": "3492-3497",
+   "doi": "10.1073/pnas.1111297109",
+   "openalex": "W2082201973",
+   "note": "mouse MOR244-3 + MTMT: 30 uM Cu2+ lowers EC50 >20-fold; methanethiol copper effect only at much higher concentrations; octanethiol none"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Crucial role of copper in detection of metal-coordinating odorants",
+   "authors": [
+    "Duan",
+    "Block",
+    "Li",
+    "Connelly",
+    "Zhang",
+    "Huang",
+    "Su",
+    "Pan",
+    "Wu",
+    "Chi",
+    "Thomas",
+    "Zhang",
+    "Ma",
+    "Matsunami",
+    "Chen",
+    "Zhuang"
+   ],
+   "year": 2012,
+   "journal": "Proceedings of the National Academy of Sciences",
+   "volume": "109",
+   "page": "3492-3497",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "fallon2018",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Fallon NB",
+    "Giesbrecht T",
+    "Stančák A"
+   ],
+   "year": 2018,
+   "title": "Attentional modulation of desensitization to odor",
+   "journal": "Attention Perception & Psychophysics",
+   "volume": "80",
+   "pages": "1064-1071",
+   "doi": "10.3758/s13414-018-1539-2",
+   "openalex": "W2804059362",
+   "note": "n = 19; peak intensity (first 10 s) focused 4.85 vs distracted 4.32 ns; 15-65 s 3.12 vs 2.02 (p = .035)"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Attentional modulation of desensitization to odor",
+   "authors": [
+    "Fallon",
+    "Giesbrecht",
+    "Stancak"
+   ],
+   "year": 2018,
+   "journal": "Attention, Perception, &amp; Psychophysics",
+   "volume": "80",
+   "page": "1064-1071",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "fiedler2000",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Fiedler K"
+   ],
+   "year": 2000,
+   "title": "Beware of samples! A cognitive-ecological sampling approach to judgment biases",
+   "journal": "Psychological Review",
+   "volume": 107,
+   "issue": 4,
+   "pages": "659-676",
+   "doi": "10.1037/0033-295x.107.4.659",
+   "openalex": "W2064226402"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Beware of samples! A cognitive-ecological sampling approach to judgment biases.",
+   "authors": [
+    "Fiedler"
+   ],
+   "year": 2000,
+   "journal": "Psychological Review",
+   "volume": "107",
+   "page": "659-676",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "fiorentino2023",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Fiorentino EA",
+    "Chen H",
+    "Gandolfo A",
+    "et al."
+   ],
+   "year": 2023,
+   "title": "Measurements and Modelling of OH and Peroxy Radicals in an Indoor Environment Under Different Light Conditions and VOC Levels",
+   "journal": "Atmospheric Environment",
+   "volume": "292",
+   "pages": "119398",
+   "doi": "10.1016/j.atmosenv.2022.119398",
+   "openalex": "W4298009139"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Measurements and Modelling of OH and Peroxy Radicals in an Indoor Environment Under Different Light Conditions and VOC Levels",
+   "authors": [
+    "Fiorentino",
+    "Chen",
+    "Gandolfo",
+    "Lannuque",
+    "Sartelet",
+    "Wortham"
+   ],
+   "year": 2023,
+   "journal": "Atmospheric Environment",
+   "volume": "292",
+   "page": "119398",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "florin1991",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Florin TH"
+   ],
+   "year": 1991,
+   "title": "Hydrogen sulphide and total acid-volatile sulphide in faeces, determined with a direct spectrophotometric method",
+   "journal": "Clinica Chimica Acta",
+   "volume": 196,
+   "issue": "2-3",
+   "pages": "127-134",
+   "doi": "10.1016/0009-8981(91)90065-K",
+   "openalex": "W2018333553"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Hydrogen sulphide and total acid-volatile sulphide in faeces, determined with a direct spectrophotometric method",
+   "authors": [
+    "Florin"
+   ],
+   "year": 1991,
+   "journal": "Clinica Chimica Acta",
+   "volume": "196",
+   "page": "127-134",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "forster2018",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Forster S",
+    "Spence C"
+   ],
+   "year": 2018,
+   "title": "\"What Smell?\" Temporarily Loading Visual Attention Induces a Prolonged Loss of Olfactory Awareness",
+   "journal": "Psychological Science",
+   "volume": 29,
+   "issue": 10,
+   "pages": "1642-1652",
+   "doi": "10.1177/0956797618781325",
+   "openalex": "W2804252495",
+   "note": "noticing a suprathreshold ambient odour: 60 % low load vs 20 % high visual load (Exp 1, phi = .41); full text read by the literature agent"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "“What Smell?” Temporarily Loading Visual Attention Induces a Prolonged Loss of Olfactory Awareness",
+   "authors": [
+    "Forster",
+    "Spence"
+   ],
+   "year": 2018,
+   "journal": "Psychological Science",
+   "volume": "29",
+   "page": "1642-1652",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "frasnelli2006",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Frasnelli J",
+    "Wohlgemuth C",
+    "Hummel T"
+   ],
+   "year": 2006,
+   "title": "The influence of stimulus duration on odor perception",
+   "journal": "International Journal of Psychophysiology",
+   "volume": 62,
+   "issue": 1,
+   "pages": "24-29",
+   "doi": "10.1016/j.ijpsycho.2005.11.006",
+   "openalex": "W2009525129"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "The influence of stimulus duration on odor perception",
+   "authors": [
+    "Frasnelli",
+    "Wohlgemuth",
+    "Hummel"
+   ],
+   "year": 2006,
+   "journal": "International Journal of Psychophysiology",
+   "volume": "62",
+   "page": "24-29",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "gibson1993",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Gibson GR",
+    "Macfarlane GT",
+    "Cummings JH"
+   ],
+   "year": 1993,
+   "title": "Sulphate reducing bacteria and hydrogen metabolism in the human large intestine",
+   "journal": "Gut",
+   "volume": "34",
+   "pages": "437-439",
+   "doi": "10.1136/gut.34.4.437",
+   "openalex": "W2114630563"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Sulphate reducing bacteria and hydrogen metabolism in the human large intestine.",
+   "authors": [
+    "Gibson",
+    "Macfarlane",
+    "Cummings"
+   ],
+   "year": 1993,
+   "journal": "Gut",
+   "volume": "34",
+   "page": "437-439",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "gibson1993b",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Gibson GR",
+    "Macfarlane S",
+    "Macfarlane G"
+   ],
+   "year": 1993,
+   "title": "Metabolic interactions involving sulphate-reducing and methanogenic bacteria in the human large intestine",
+   "journal": "FEMS Microbiology Ecology",
+   "volume": 12,
+   "issue": 2,
+   "pages": "117-125",
+   "doi": "10.1016/0168-6496(93)90006-S",
+   "openalex": "W2150151465"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "author count: yaml=3 | crossref=1 ['Gibson']"
+  ],
+  "crossref": {
+   "title": "Metabolic interactions involving sulphate-reducing and methanogenic bacteria in the human large intestine",
+   "authors": [
+    "Gibson"
+   ],
+   "year": 1993,
+   "journal": "FEMS Microbiology Ecology",
+   "volume": "12",
+   "page": "117-125",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "giffard2001",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Giffard CJ",
+    "Collins SB",
+    "Stoodley NC",
+    "Butterwick RF",
+    "Batt RM"
+   ],
+   "year": 2001,
+   "title": "Administration of charcoal, Yucca schidigera, and zinc acetate to reduce malodorous flatulence in dogs",
+   "journal": "Journal of the American Veterinary Medical Association",
+   "volume": 218,
+   "issue": 6,
+   "pages": "892-896",
+   "doi": "10.2460/javma.2001.218.892",
+   "openalex": "W2023954632"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Administration of charcoal, Yucca schidigera, and zinc acetate to reduce malodorous flatulence in dogs",
+   "authors": [
+    "Giffard",
+    "Collins",
+    "Stoodley",
+    "Butterwick",
+    "Batt"
+   ],
+   "year": 2001,
+   "journal": "Journal of the American Veterinary Medical Association",
+   "volume": "218",
+   "page": "892-896",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "grimble1989",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Grimble GK"
+   ],
+   "year": 1989,
+   "title": "Fibre, fermentation, flora, and flatus",
+   "journal": "Gut",
+   "volume": 30,
+   "issue": 1,
+   "pages": "6-13",
+   "doi": "10.1136/gut.30.1.6",
+   "openalex": "W2006951688"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Fibre, fermentation, flora, and flatus.",
+   "authors": [
+    "Grimble"
+   ],
+   "year": 1989,
+   "journal": "Gut",
+   "volume": "30",
+   "page": "6-13",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "grolman2007",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Grolman W",
+    "Eerenstein SEJ",
+    "Tan FM",
+    "Tange RA",
+    "Schouwenburg PF"
+   ],
+   "year": 2007,
+   "title": "Aerodynamic and Sound Intensity Measurements in Tracheoesophageal Voice",
+   "journal": "ORL",
+   "volume": 69,
+   "issue": 2,
+   "pages": "68-76",
+   "doi": "10.1159/000097401",
+   "openalex": "W1996379441"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Aerodynamic and Sound Intensity Measurements in Tracheoesophageal Voice",
+   "authors": [
+    "Grolman",
+    "Eerenstein",
+    "Tan",
+    "Tange",
+    "Schouwenburg"
+   ],
+   "year": 2007,
+   "journal": "ORL",
+   "volume": "69",
+   "page": "68-76",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "grose1811",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Grose F"
+   ],
+   "year": 1811,
+   "title": "Dictionary of the Vulgar Tongue",
+   "note": "entry 'fice'; public domain"
+  },
+  "status": "NO_DOI"
+ },
+ {
+  "key": "haag2019",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Haag F",
+    "Ahmed L",
+    "Reiss KM",
+    "et al."
+   ],
+   "year": 2019,
+   "title": "Copper-mediated thiol potentiation and mutagenesis-guided modeling suggest a highly conserved copper-binding motif in human OR2M3",
+   "journal": "Cellular and Molecular Life Sciences",
+   "volume": 77,
+   "pages": "2157-2179",
+   "doi": "10.1007/s00018-019-03279-y",
+   "openalex": "W2969526607",
+   "note": "OR2M3 + 3MMP: Cu 10 uM ~4-fold potentiation, EC50 0.45 -> 0.29 uM; OR1A1 and OR2W1 copper-independent; copper not a general explanation"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Copper-mediated thiol potentiation and mutagenesis-guided modeling suggest a highly conserved copper-binding motif in human OR2M3",
+   "authors": [
+    "Haag",
+    "Ahmed",
+    "Reiss",
+    "Block",
+    "Batista",
+    "Krautwurst"
+   ],
+   "year": 2020,
+   "journal": "Cellular and Molecular Life Sciences",
+   "volume": "77",
+   "page": "2157-2179",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "hamilton1976",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Hamilton DL",
+    "Gifford RK"
+   ],
+   "year": 1976,
+   "title": "Illusory correlation in interpersonal perception: A cognitive basis of stereotypic judgments",
+   "journal": "Journal of Experimental Social Psychology",
+   "volume": 12,
+   "issue": 4,
+   "pages": "392-407",
+   "doi": "10.1016/s0022-1031(76)80006-6",
+   "openalex": "W2019737291"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Illusory correlation in interpersonal perception: A cognitive basis of stereotypic judgments",
+   "authors": [
+    "Hamilton",
+    "Gifford"
+   ],
+   "year": 1976,
+   "journal": "Journal of Experimental Social Psychology",
+   "volume": "12",
+   "page": "392-407",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "hawkins1950",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Hawkins JE",
+    "Stevens SS"
+   ],
+   "year": 1950,
+   "journal": "Journal of the Acoustical Society of America",
+   "volume": 22,
+   "pages": "6",
+   "doi": "10.1121/1.1906581"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "title missing in yaml; crossref='The Masking of Pure Tones and of Speech by White Noise'"
+  ],
+  "crossref": {
+   "title": "The Masking of Pure Tones and of Speech by White Noise",
+   "authors": [
+    "Hawkins",
+    "Stevens"
+   ],
+   "year": 1950,
+   "journal": "The Journal of the Acoustical Society of America",
+   "volume": "22",
+   "page": "6-13",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "herz2001",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Herz RS",
+    "von Clef J"
+   ],
+   "year": 2001,
+   "title": "The Influence of Verbal Labeling on the Perception of Odors: Evidence for Olfactory Illusions?",
+   "journal": "Perception",
+   "volume": 30,
+   "issue": 3,
+   "pages": "381-391",
+   "doi": "10.1068/p3179",
+   "openalex": "W2048151543"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "The Influence of Verbal Labeling on the Perception of Odors: Evidence for Olfactory Illusions?",
+   "authors": [
+    "Herz",
+    "von Clef"
+   ],
+   "year": 2001,
+   "journal": "Perception",
+   "volume": "30",
+   "page": "381-391",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "hickey1972",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Hickey CA",
+    "Calloway DH",
+    "Murphy EL"
+   ],
+   "year": 1972,
+   "title": "Intestinal gas production following ingestion of fruits and fruit juices",
+   "journal": "Digestive Diseases and Sciences",
+   "volume": 17,
+   "issue": 5,
+   "pages": "383-388",
+   "doi": "10.1007/BF02231287",
+   "openalex": "W2006527392"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "journal: yaml='Digestive Diseases and Sciences' | crossref='The American Journal of Digestive Diseases'"
+  ],
+  "crossref": {
+   "title": "Intestinal gas production following ingestion of fruits and fruit juices",
+   "authors": [
+    "Hickey",
+    "Calloway",
+    "Murphy"
+   ],
+   "year": 1972,
+   "journal": "The American Journal of Digestive Diseases",
+   "volume": "17",
+   "page": "383-388",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "hirani2009",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Hirani R"
+   ],
+   "year": 2009,
+   "title": "3 Idiots",
+   "medium": "film",
+   "publisher": "Vinod Chopra Films"
+  },
+  "status": "NO_DOI"
+ },
+ {
+  "key": "hold1977",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Hold-Cavell BCL",
+    "Schleidt M"
+   ],
+   "year": 1977,
+   "title": "The Importance of Human Odour in Non‐verbal Communication",
+   "journal": "Zeitschrift für Tierpsychologie",
+   "volume": "43",
+   "pages": "225-238",
+   "doi": "10.1111/j.1439-0310.1977.tb00072.x",
+   "openalex": "W1974311800",
+   "note": "31 % identified own shirt; categorical hedonics; men's 'supposed self' rated more pleasant than real self"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "The Importance of Human Odour in Non‐verbal Communication",
+   "authors": [
+    "Hold",
+    "Schleidt"
+   ],
+   "year": 1977,
+   "journal": "Zeitschrift für Tierpsychologie",
+   "volume": "43",
+   "page": "225-238",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "iso226_2023",
+  "in": "main+si",
+  "entry": {
+   "organization": "ISO",
+   "year": 2023,
+   "title": "ISO 226:2023 Acoustics - Normal equal-loudness-level contours",
+   "edition": 3,
+   "publisher": "International Organization for Standardization, Geneva",
+   "note": "Replaces ISO 226:2003"
+  },
+  "status": "NO_DOI"
+ },
+ {
+  "key": "kepecs2006",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Kepecs Á",
+    "Uchida N",
+    "Mainen ZF"
+   ],
+   "year": 2006,
+   "title": "The Sniff as a Unit of Olfactory Processing",
+   "journal": "Chemical Senses",
+   "volume": 31,
+   "issue": 2,
+   "pages": "167-179",
+   "doi": "10.1093/chemse/bjj016",
+   "openalex": "W2113348447"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "The Sniff as a Unit of Olfactory Processing",
+   "authors": [
+    "Kepecs",
+    "Uchida",
+    "Mainen"
+   ],
+   "year": 2006,
+   "journal": "Chemical Senses",
+   "volume": "31",
+   "page": "167-179",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "kirk1949",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Kirk E"
+   ],
+   "year": 1949,
+   "title": "The Quantity and Composition of Human Colonic Flatus",
+   "journal": "Gastroenterology",
+   "volume": 12,
+   "issue": 5,
+   "pages": "782-794",
+   "doi": "10.1016/s0016-5085(49)80154-5",
+   "openalex": "W1425011716"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "The Quantity and Composition of Human Colonic Flatus",
+   "authors": [
+    "Kirk"
+   ],
+   "year": 1949,
+   "journal": "Gastroenterology",
+   "volume": "12",
+   "page": "782-794",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "kumar1990",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Kumar D",
+    "Waldron DJ",
+    "Williams NS",
+    "Browning C",
+    "Hutton MRE",
+    "Wingate DL"
+   ],
+   "year": 1990,
+   "title": "Prolonged anorectal manometry and external anal sphincter electromyography in ambulant human subjects",
+   "journal": "Digestive Diseases and Sciences",
+   "volume": 35,
+   "issue": 5,
+   "pages": "641-648",
+   "doi": "10.1007/bf01540414",
+   "openalex": "W2045971099"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Prolonged anorectal manometry and external anal sphincter electromyography in ambulant human subjects",
+   "authors": [
+    "Kumar",
+    "Waldron",
+    "Williams",
+    "Browning",
+    "Hutton",
+    "Wingate"
+   ],
+   "year": 1990,
+   "journal": "Digestive Diseases and Sciences",
+   "volume": "35",
+   "page": "641-648",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "laing1983",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Laing DG"
+   ],
+   "year": 1983,
+   "title": "Natural Sniffing Gives Optimum Odour Perception for Humans",
+   "journal": "Perception",
+   "volume": 12,
+   "issue": 2,
+   "pages": "99-117",
+   "doi": "10.1068/p120099",
+   "openalex": "W2002868751"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Natural Sniffing Gives Optimum Odour Perception for Humans",
+   "authors": [
+    "Laing"
+   ],
+   "year": 1983,
+   "journal": "Perception",
+   "volume": "12",
+   "page": "99-117",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "landeau2014",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Landeau M",
+    "Deguen R",
+    "Olson P"
+   ],
+   "year": 2014,
+   "journal": "Journal of Fluid Mechanics",
+   "volume": 749,
+   "pages": "478-518",
+   "doi": "10.1017/jfm.2014.202"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "title missing in yaml; crossref='Experiments on the fragmentation of a buoyant liquid volume in another liquid'"
+  ],
+  "crossref": {
+   "title": "Experiments on the fragmentation of a buoyant liquid volume in another liquid",
+   "authors": [
+    "Landeau",
+    "Deguen",
+    "Olson"
+   ],
+   "year": 2014,
+   "journal": "Journal of Fluid Mechanics",
+   "volume": "749",
+   "page": "478-518",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "levine1998",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Levine J",
+    "Ellis CJ",
+    "Furne JK",
+    "Springfield JR",
+    "Levitt MD"
+   ],
+   "year": 1998,
+   "title": "Fecal Hydrogen Sulfide Production in Ulcerative Colitis",
+   "journal": "The American Journal of Gastroenterology",
+   "volume": 93,
+   "issue": 1,
+   "pages": "83-87",
+   "doi": "10.1016/S0002-9270(97)00028-2",
+   "openalex": "W2088153059"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Fecal Hydrogen Sulfide Production in Ulcerative Colitis",
+   "authors": [
+    "Levine",
+    "Ellis",
+    "Furne",
+    "Springfield",
+    "Levitt"
+   ],
+   "year": 1998,
+   "journal": "American Journal of Gastroenterology",
+   "volume": "93",
+   "page": "83-87",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "levitt1976",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Levitt MD",
+    "Lasser RB",
+    "Schwartz JSJ",
+    "Bond JH"
+   ],
+   "year": 1976,
+   "title": "Studies of a Flatulent Patient",
+   "journal": "New England Journal of Medicine",
+   "volume": 295,
+   "issue": 5,
+   "pages": "260-262",
+   "doi": "10.1056/NEJM197607292950507",
+   "openalex": "W2002934008"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Studies of a Flatulent Patient",
+   "authors": [
+    "Levitt",
+    "Lasser",
+    "Schwartz",
+    "Bond"
+   ],
+   "year": 1976,
+   "journal": "New England Journal of Medicine",
+   "volume": "295",
+   "page": "260-262",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "levitt1999",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Levitt MD",
+    "Furne JK",
+    "Springfield JR",
+    "et al."
+   ],
+   "year": 1999,
+   "title": "Detoxification of hydrogen sulfide and methanethiol in the cecal mucosa",
+   "journal": "Journal of Clinical Investigation",
+   "volume": 104,
+   "pages": "1107-1114",
+   "doi": "10.1172/JCI7712",
+   "openalex": "W2059820718",
+   "note": "caecal H2S oxidation Vmax ~21 nmol/min/mg, Km ~25 ppm; 94 % to thiosulfate; CH3SH demethylated to H2S, no DMS formed; the paper's '10,000x faster than methylation' conflicts with its own rates (~165x)"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Detoxification of hydrogen sulfide and methanethiol in the cecal mucosa",
+   "authors": [
+    "Levitt",
+    "Furne",
+    "Springfield",
+    "Suarez",
+    "DeMaster"
+   ],
+   "year": 1999,
+   "journal": "Journal of Clinical Investigation",
+   "volume": "104",
+   "page": "1107-1114",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "levitt2002",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Levitt MD",
+    "Springfield JR",
+    "Furne JK",
+    "Koenig TW",
+    "Suarez FL"
+   ],
+   "year": 2002,
+   "title": "Physiology of sulfide in the rat colon: use of bismuth to assess colonic sulfide production",
+   "journal": "Journal of Applied Physiology",
+   "volume": 92,
+   "issue": 4,
+   "pages": "1655-1660",
+   "doi": "10.1152/japplphysiol.00907.2001",
+   "openalex": "W1973536402"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Physiology of sulfide in the rat colon: use of  bismuth to assess colonic sulfide production",
+   "authors": [
+    "Levitt",
+    "Springfield",
+    "Furne",
+    "Koenig",
+    "Suarez"
+   ],
+   "year": 2002,
+   "journal": "Journal of Applied Physiology",
+   "volume": "92",
+   "page": "1655-1660",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "li2016",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Li S",
+    "Ahmed L",
+    "Zhang R",
+    "et al."
+   ],
+   "year": 2016,
+   "title": "Smelling Sulfur: Copper and Silver Regulate the Response of Human Odorant Receptor OR2T11 to Low-Molecular-Weight Thiols",
+   "journal": "Journal of the American Chemical Society",
+   "volume": "138",
+   "pages": "13281-13288",
+   "doi": "10.1021/jacs.6b06983",
+   "openalex": "W2522489454"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Smelling Sulfur: Copper and Silver Regulate the Response of Human Odorant Receptor OR2T11 to Low-Molecular-Weight Thiols",
+   "authors": [
+    "Li",
+    "Ahmed",
+    "Zhang",
+    "Pan",
+    "Matsunami",
+    "Burger",
+    "Block",
+    "Batista",
+    "Zhuang"
+   ],
+   "year": 2016,
+   "journal": "Journal of the American Chemical Society",
+   "volume": "138",
+   "page": "13281-13288",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "licina2014",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Licina D",
+    "Pantelic J",
+    "Melikov A",
+    "Sekhar C",
+    "Tham KW"
+   ],
+   "year": 2014,
+   "title": "Experimental investigation of the human convective boundary layer in a quiescent indoor environment",
+   "journal": "Building and Environment",
+   "volume": 75,
+   "pages": "79-91",
+   "doi": "10.1016/j.buildenv.2014.01.016",
+   "openalex": "W2020095872"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Experimental investigation of the human convective boundary layer in a quiescent indoor environment",
+   "authors": [
+    "Licina",
+    "Pantelic",
+    "Melikov",
+    "Sekhar",
+    "Tham"
+   ],
+   "year": 2014,
+   "journal": "Building and Environment",
+   "volume": "75",
+   "page": "79-91",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "licina2015",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Licina D",
+    "Melikov A",
+    "Sekhar C",
+    "Tham KW"
+   ],
+   "year": 2015,
+   "title": "Human convective boundary layer and its interaction with room ventilation flow",
+   "journal": "Indoor Air",
+   "volume": 25,
+   "issue": 1,
+   "pages": "21-35",
+   "doi": "10.1111/ina.12120",
+   "openalex": "W2040751867",
+   "note": "Online 2014-04-19"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Human convective boundary layer and its interaction with room ventilation flow",
+   "authors": [
+    "Licina",
+    "Melikov",
+    "Sekhar",
+    "Tham"
+   ],
+   "year": 2015,
+   "journal": "Indoor Air",
+   "volume": "25",
+   "page": "21-35",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "licina2017",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Licina D",
+    "Tian Y",
+    "Nazaroff WW"
+   ],
+   "year": 2017,
+   "title": "Inhalation intake fraction of particulate matter from localized indoor emissions",
+   "journal": "Building and Environment",
+   "volume": 123,
+   "pages": "14-22",
+   "doi": "10.1016/j.buildenv.2017.06.037",
+   "openalex": "W2657491057"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Inhalation intake fraction of particulate matter from localized indoor emissions",
+   "authors": [
+    "Licina",
+    "Tian",
+    "Nazaroff"
+   ],
+   "year": 2017,
+   "journal": "Building and Environment",
+   "volume": "123",
+   "page": "14-22",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "liuzza2016",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Liuzza MT",
+    "Lindholm T",
+    "Hawley C",
+    "Gustafsson Sendén M",
+    "Ekström I",
+    "Olsson MJ",
+    "Larsson MU",
+    "Olofsson JK"
+   ],
+   "year": 2016,
+   "title": "The Body Odor Disgust Scale (BODS): Development and Validation of a Novel Olfactory Disgust Assessment",
+   "journal": "Chemical Senses",
+   "doi": "10.1093/chemse/bjw107",
+   "note": "BODS development (n = 528); Table 4 gas items: self 2.51 (1.15) vs stranger 3.71 (1.05), 1-5 scale"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "The Body Odor Disgust Scale (BODS): Development and Validation of a Novel Olfactory Disgust Assessment",
+   "authors": [
+    "Liuzza",
+    "Lindholm",
+    "Hawley",
+    "Sendén",
+    "Ekström",
+    "Olsson",
+    "Larsson",
+    "Olofsson"
+   ],
+   "year": 2016,
+   "journal": "Chemical Senses",
+   "volume": null,
+   "page": "bjw107",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "luft2012",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Luft F",
+    "Fynne LV",
+    "Gregersen HN",
+    "Lundager FH",
+    "Buntzen S",
+    "Lundby L",
+    "Laurberg S",
+    "Krogh K"
+   ],
+   "year": 2012,
+   "title": "Functional luminal imaging probe: a new technique for dynamic evaluation of mechanical properties of the anal canal",
+   "journal": "Techniques in Coloproctology",
+   "volume": 16,
+   "issue": 6,
+   "pages": "451-457",
+   "doi": "10.1007/s10151-012-0871-0",
+   "openalex": "W2100707438"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Functional luminal imaging probe: a new technique for dynamic evaluation of mechanical properties of the anal canal",
+   "authors": [
+    "Luft",
+    "Fynne",
+    "Gregersen",
+    "Lundager",
+    "Buntzen",
+    "Lundby",
+    "Laurberg",
+    "Krogh"
+   ],
+   "year": 2012,
+   "journal": "Techniques in Coloproctology",
+   "volume": "16",
+   "page": "451-457",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "magee2000",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Magee EA",
+    "Richardson CJ",
+    "Hughes R",
+    "et al."
+   ],
+   "year": 2000,
+   "title": "Contribution of dietary protein to sulfide production in the large intestine: an in vitro and a controlled feeding study in humans",
+   "journal": "American Journal of Clinical Nutrition",
+   "volume": "72",
+   "pages": "1488-1494",
+   "doi": "10.1093/ajcn/72.6.1488",
+   "openalex": "W1879953056"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Contribution of dietary protein to sulfide production in the large intestine: an in vitro and a controlled feeding study in humans",
+   "authors": [
+    "Magee",
+    "Richardson",
+    "Hughes",
+    "Cummings"
+   ],
+   "year": 2000,
+   "journal": "The American Journal of Clinical Nutrition",
+   "volume": "72",
+   "page": "1488-1494",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "marthinsen1982",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Marthinsen D",
+    "Fleming SE"
+   ],
+   "year": 1982,
+   "title": "Excretion of Breath and Flatus Gases by Humans Consuming High-Fiber Diets",
+   "journal": "Journal of Nutrition",
+   "volume": 112,
+   "issue": 6,
+   "pages": "1133-1143",
+   "doi": "10.1093/jn/112.6.1133",
+   "openalex": "W1497616154"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Excretion of Breath and Flatus Gases by Humans Consuming High-Fiber Diets",
+   "authors": [
+    "Marthinsen",
+    "Fleming"
+   ],
+   "year": 1982,
+   "journal": "The Journal of Nutrition",
+   "volume": "112",
+   "page": "1133-1143",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "matteoli2021",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Mattéoli R",
+    "Gilbert J",
+    "Vergez C",
+    "Dalmont J",
+    "Maugeais S",
+    "Terrien S",
+    "Ablitzer F"
+   ],
+   "year": 2021,
+   "title": "Minimal blowing pressure allowing periodic oscillations in a model of bass brass instruments",
+   "journal": "Acta Acustica",
+   "volume": 5,
+   "pages": "57",
+   "doi": "10.1051/aacus/2021049",
+   "openalex": "W4205250950"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Minimal blowing pressure allowing periodic oscillations in a model of bass brass instruments",
+   "authors": [
+    "Mattéoli",
+    "Gilbert",
+    "Vergez",
+    "Dalmont",
+    "Maugeais",
+    "Terrien",
+    "Ablitzer"
+   ],
+   "year": 2021,
+   "journal": "Acta Acustica",
+   "volume": "5",
+   "page": "57",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "miller1988b",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Miller RC",
+    "Lewis GTR",
+    "Bartolo DCC",
+    "Cerveró F",
+    "Mortensen NJM"
+   ],
+   "year": 1988,
+   "title": "Sensory discrimination and dynamic activity in the anorectum: Evidence using a new ambulatory technique",
+   "journal": "British Journal of Surgery",
+   "volume": 75,
+   "issue": 10,
+   "pages": "1003-1007",
+   "doi": "10.1002/bjs.1800751018",
+   "openalex": "W2135275635"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Sensory discrimination and dynamic activity in the anorectum: Evidence using a new ambulatory technique",
+   "authors": [
+    "Miller",
+    "Lewis",
+    "Bartolo",
+    "Cervero",
+    "Mortensen"
+   ],
+   "year": 1988,
+   "journal": "Journal of British Surgery",
+   "volume": "75",
+   "page": "1003-1007",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "nagai1993",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Nagai K",
+    "Iwata S",
+    "Takasu A",
+    "Miwa M",
+    "Ootsu Y",
+    "Takeuchi K",
+    "Ochi M",
+    "Takeuchi M"
+   ],
+   "year": 1993,
+   "title": "Aerodynamic Study of Esophageal Speech",
+   "journal": "Practica Oto-Rhino-Laryngologica, Supplement",
+   "volume": 1993,
+   "issue": "Supplement65",
+   "pages": "164-170",
+   "doi": "10.5631/jibirinsuppl1986.1993.supplement65_164",
+   "openalex": "W2333260046"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Aerodynamic Study of Esophageal Speech",
+   "authors": [
+    "Nagai",
+    "Iwata",
+    "Takasu",
+    "Miwa",
+    "Ohtsu",
+    "Takeuchi",
+    "Ochi",
+    "Takeuchi"
+   ],
+   "year": 1993,
+   "journal": "Practica oto-rhino-laryngologica. Suppl.",
+   "volume": "1993",
+   "page": "164-170",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "nagata2003",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Nagata Y"
+   ],
+   "year": 2003,
+   "title": "Measurement of odor threshold by triangle odor bag method",
+   "booktitle": "Odor Measurement Review",
+   "publisher": "Office of Odor, Noise and Vibration, Environmental Management Bureau, Ministry of the Environment, Government of Japan",
+   "pages": "118-127"
+  },
+  "status": "NO_DOI"
+ },
+ {
+  "key": "ng2011",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Ng ML"
+   ],
+   "year": 2011,
+   "title": "Aerodynamic characteristics associated with oesophageal and tracheoesophageal speech of Cantonese",
+   "journal": "International Journal of Speech-Language Pathology",
+   "volume": 13,
+   "issue": 2,
+   "pages": "137-144",
+   "doi": "10.3109/17549507.2011.534176",
+   "openalex": "W1979949630"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Aerodynamic characteristics associated with oesophageal and tracheoesophageal speech of Cantonese",
+   "authors": [
+    "Ng"
+   ],
+   "year": 2011,
+   "journal": "International Journal of Speech-Language Pathology",
+   "volume": "13",
+   "page": "137-144",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "odonnell1984",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "O'Donnell AU",
+    "Fleming SE"
+   ],
+   "year": 1984,
+   "title": "Influence of frequent and long-term consumption of legume seeds on excretion of intestinal gases",
+   "journal": "American Journal of Clinical Nutrition",
+   "volume": 40,
+   "issue": 1,
+   "pages": "48-57",
+   "doi": "10.1093/ajcn/40.1.48",
+   "openalex": "W2144796666"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Influence of frequent and long-term consumption of legume seeds on excretion of intestinal gases",
+   "authors": [
+    "O'Donnell",
+    "Fleming"
+   ],
+   "year": 1984,
+   "journal": "The American Journal of Clinical Nutrition",
+   "volume": "40",
+   "page": "48-57",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "ohge2005",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Ohge H",
+    "Furne JK",
+    "Springfield JR",
+    "Ringwala S",
+    "Levitt MD"
+   ],
+   "year": 2005,
+   "title": "Effectiveness of devices purported to reduce flatus odor",
+   "journal": "American Journal of Gastroenterology",
+   "volume": 100,
+   "issue": 2,
+   "pages": "397-400",
+   "doi": "10.1111/j.1572-0241.2005.40631.x",
+   "note": "garments alone remove H2S 14.8 +- 5.1 % (5 s), 22.0 +- 5.3 % (30 s); CH3SH 18.3 / 24.8 %; instrumental, no human judges"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Effectiveness of Devices Purported to Reduce Flatus Odor",
+   "authors": [
+    "Ohge",
+    "Furne",
+    "Springfield",
+    "Ringwala",
+    "Levitt"
+   ],
+   "year": 2005,
+   "journal": "The American Journal of Gastroenterology",
+   "volume": "100",
+   "page": "397-400",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "olesen2024",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Olesen BW"
+   ],
+   "year": 2024,
+   "title": "European standardisation on indoor air quality",
+   "journal": "REHVA Journal",
+   "issue": 6,
+   "pages": "12-16",
+   "url": "https://www.rehva.eu/rehva-journal/chapter/european-standardisation-on-indoor-air-quality",
+   "note": "EN 16798-1 ventilation rates, Tables 2-3"
+  },
+  "status": "NO_DOI"
+ },
+ {
+  "key": "picton2002",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Picton R",
+    "Eggo MC",
+    "Merrill GA",
+    "et al."
+   ],
+   "year": 2002,
+   "title": "Mucosal protection against sulphide: importance of the enzyme rhodanese",
+   "journal": "Gut",
+   "volume": "50",
+   "pages": "201-205",
+   "doi": "10.1136/gut.50.2.201",
+   "openalex": "W1995171060"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Mucosal protection against sulphide: importance of the enzyme rhodanese",
+   "authors": [
+    "Picton",
+    "Eggo",
+    "Merrill",
+    "Langman",
+    "Singh"
+   ],
+   "year": 2002,
+   "journal": "Gut",
+   "volume": "50",
+   "page": "201-205",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "pindzola1989",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Pindzola RH",
+    "Cain BH"
+   ],
+   "year": 1989,
+   "title": "Duration and Frequency Characteristics of Tracheoesophageal Speech",
+   "journal": "Annals of Otology Rhinology & Laryngology",
+   "volume": 98,
+   "issue": 12,
+   "pages": "960-964",
+   "doi": "10.1177/000348948909801208",
+   "openalex": "W2323546622"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Duration and Frequency Characteristics of Tracheoesophageal Speech",
+   "authors": [
+    "Pindzola",
+    "Cain"
+   ],
+   "year": 1989,
+   "journal": "Annals of Otology, Rhinology &amp; Laryngology",
+   "volume": "98",
+   "page": "960-964",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "pol2018",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Pol A",
+    "Renkema GH",
+    "Tangerman A",
+    "et al."
+   ],
+   "year": 2018,
+   "title": "Mutations in SELENBP1, encoding a novel human methanethiol oxidase, cause extraoral halitosis",
+   "journal": "Nature Genetics",
+   "volume": "50",
+   "pages": "120-129",
+   "doi": "10.1038/s41588-017-0006-7",
+   "openalex": "W2771155712"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Mutations in SELENBP1, encoding a novel human methanethiol oxidase, cause extraoral halitosis",
+   "authors": [
+    "Pol",
+    "Renkema",
+    "Tangerman",
+    "Winkel",
+    "Engelke",
+    "de Brouwer",
+    "Lloyd",
+    "Araiza",
+    "van den Heuvel",
+    "Omran",
+    "Olbrich",
+    "Oude Elberink",
+    "Gilissen",
+    "Rodenburg",
+    "Sass",
+    "Schwab",
+    "Schäfer",
+    "Venselaar",
+    "Sequeira",
+    "Op den Camp",
+    "Wevers"
+   ],
+   "year": 2018,
+   "journal": "Nature Genetics",
+   "volume": "50",
+   "page": "120-129",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "rim2009",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Rim D",
+    "Novoselac A"
+   ],
+   "year": 2009,
+   "title": "Transport of particulate and gaseous pollutants in the vicinity of a human body",
+   "journal": "Building and Environment",
+   "volume": 44,
+   "issue": 9,
+   "pages": "1840-1849",
+   "doi": "10.1016/j.buildenv.2008.12.009"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Transport of particulate and gaseous pollutants in the vicinity of a human body",
+   "authors": [
+    "Rim",
+    "Novoselac"
+   ],
+   "year": 2009,
+   "journal": "Building and Environment",
+   "volume": "44",
+   "page": "1840-1849",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "rim2010",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Rim D",
+    "Novoselac A"
+   ],
+   "year": 2010,
+   "title": "Ventilation effectiveness as an indicator of occupant exposure to particles from indoor sources",
+   "journal": "Building and Environment",
+   "volume": 45,
+   "issue": 5,
+   "pages": "1214-1224",
+   "doi": "10.1016/j.buildenv.2009.11.004",
+   "openalex": "W2153659242",
+   "note": "Online 2009"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Ventilation effectiveness as an indicator of occupant exposure to particles from indoor sources",
+   "authors": [
+    "Rim",
+    "Novoselac"
+   ],
+   "year": 2010,
+   "journal": "Building and Environment",
+   "volume": "45",
+   "page": "1214-1224",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "robbins1984",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Robbins J",
+    "Fisher HB",
+    "Blom EC",
+    "Singer MI"
+   ],
+   "year": 1984,
+   "title": "A Comparative Acoustic Study of Normal, Esophageal, and Tracheoesophageal Speech Production",
+   "journal": "Journal of Speech and Hearing Disorders",
+   "volume": 49,
+   "issue": 2,
+   "pages": "202-210",
+   "doi": "10.1044/jshd.4902.202",
+   "openalex": "W2062923610"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "A Comparative Acoustic Study of Normal, Esophageal, and Tracheoesophageal Speech Production",
+   "authors": [
+    "Robbins",
+    "Fisher",
+    "Blom",
+    "Singer"
+   ],
+   "year": 1984,
+   "journal": "Journal of Speech and Hearing Disorders",
+   "volume": "49",
+   "page": "202-210",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "ronholt1999",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Rønholt C",
+    "Rasmussen OØ",
+    "Christiansen J"
+   ],
+   "year": 1999,
+   "title": "Ambulatory manometric recording of anorectal activity",
+   "journal": "Diseases of the Colon & Rectum",
+   "volume": 42,
+   "issue": 12,
+   "pages": "1551-1558",
+   "doi": "10.1007/bf02236205",
+   "openalex": "W2026561494"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Ambulatory manometric recording of anorectal activity",
+   "authors": [
+    "Rønholt",
+    "Rasmussen",
+    "Christiansen"
+   ],
+   "year": 1999,
+   "journal": "Diseases of the Colon &amp; Rectum",
+   "volume": "42",
+   "page": "1551-1558",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "sangras2002",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Sangras R",
+    "Kwon OC",
+    "Faeth GM"
+   ],
+   "year": 2002,
+   "title": "Self-preserving properties of unsteady round nonbuoyant turbulent starting jets and puffs in still fluids",
+   "journal": "Journal of Heat Transfer",
+   "volume": 124,
+   "pages": "460-469",
+   "doi": "10.1115/1.1421047"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Self-Preserving Properties of Unsteady Round Nonbuoyant Turbulent\n                    Starting Jets and Puffs in Still Fluids",
+   "authors": [
+    "Sangras",
+    "Kwon",
+    "Faeth"
+   ],
+   "year": 2002,
+   "journal": "Journal of Heat Transfer",
+   "volume": "124",
+   "page": "460-469",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "snoep2014",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Snoep JD",
+    "Morabia A",
+    "Hernández-Díaz S",
+    "Hernán MA",
+    "Vandenbroucke JP"
+   ],
+   "year": 2014,
+   "title": "Commentary: A structural approach to Berkson's fallacy and a guide to a history of opinions about it",
+   "journal": "International Journal of Epidemiology",
+   "volume": 43,
+   "issue": 2,
+   "pages": "515-521",
+   "doi": "10.1093/ije/dyu026",
+   "openalex": "W2150533355",
+   "si": "online Appendix (Boyd formulas) obtained"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Commentary: A structural approach to Berkson’s fallacy and a guide to a history of opinions about it",
+   "authors": [
+    "Snoep",
+    "Morabia",
+    "Hernández-Díaz",
+    "Hernán",
+    "Vandenbroucke"
+   ],
+   "year": 2014,
+   "journal": "International Journal of Epidemiology",
+   "volume": "43",
+   "page": "515-521",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "snyder2020",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Snyder W"
+   ],
+   "year": 2020,
+   "title": "The sound of stink",
+   "howpublished": "Blog post, flatology.com (Invisible College of Experimental Flatology); not peer reviewed",
+   "url": "https://flatology.com/the-sound-of-stink/",
+   "note": "NON-PEER-REVIEWED. 1,619 recorded passages; smell as log VOC sensor count; loudness-smell R2 = 0.0155, positive, p < 5e-6; no silent passage recorded. Updated 2022-11-29."
+  },
+  "status": "NO_DOI"
+ },
+ {
+  "key": "sorensen2014",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Sørensen G",
+    "Liao D",
+    "Lundby L",
+    "Fynne LV",
+    "Buntzen S",
+    "Gregersen HN",
+    "Laurberg S",
+    "Krogh K"
+   ],
+   "year": 2014,
+   "title": "Distensibility of the anal canal in patients with idiopathic fecal incontinence: a study with the Functional Lumen Imaging Probe",
+   "journal": "Neurogastroenterology & Motility",
+   "volume": 26,
+   "issue": 2,
+   "pages": "255-263",
+   "doi": "10.1111/nmo.12258",
+   "openalex": "W1993974201"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Distensibility of the anal canal in patients with idiopathic fecal incontinence: a study with the Functional Lumen Imaging Probe",
+   "authors": [
+    "Sørensen",
+    "Liao",
+    "Lundby",
+    "Fynne",
+    "Buntzen",
+    "Gregersen",
+    "Laurberg",
+    "Krogh"
+   ],
+   "year": 2014,
+   "journal": "Neurogastroenterology &amp; Motility",
+   "volume": "26",
+   "page": "255-263",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "steggerda1966",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Steggerda FR",
+    "DIMMICK J"
+   ],
+   "year": 1966,
+   "title": "Effects of Bean Diets on Concentration of Carbon Dioxide in Flatus",
+   "journal": "American Journal of Clinical Nutrition",
+   "volume": 19,
+   "issue": 2,
+   "pages": "120-124",
+   "doi": "10.1093/ajcn/19.2.120",
+   "openalex": "W2188406851"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Effects of Bean Diets on Concentration of Carbon Dioxide in Flatus",
+   "authors": [
+    "STEGGERDA",
+    "DIMMICK"
+   ],
+   "year": 1966,
+   "journal": "The American Journal of Clinical Nutrition",
+   "volume": "19",
+   "page": "120-124",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "steggerda1968",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Steggerda FR"
+   ],
+   "year": 1968,
+   "title": "GASTROINTESTINAL GAS FOLLOWING FOOD CONSUMPTION",
+   "journal": "Annals of the New York Academy of Sciences",
+   "volume": 150,
+   "issue": 1,
+   "pages": "57-66",
+   "doi": "10.1111/j.1749-6632.1968.tb19031.x",
+   "openalex": "W2154198556"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "GASTROINTESTINAL GAS FOLLOWING FOOD CONSUMPTION",
+   "authors": [
+    "Steggerda"
+   ],
+   "year": 1968,
+   "journal": "Annals of the New York Academy of Sciences",
+   "volume": "150",
+   "page": "57-66",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "stevens1988",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Stevens JC",
+    "Cain WS",
+    "Burke RJ"
+   ],
+   "year": 1988,
+   "title": "Variability of olfactory thresholds",
+   "journal": "Chemical Senses",
+   "volume": 13,
+   "issue": 4,
+   "pages": "643-653",
+   "doi": "10.1093/chemse/13.4.643"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Variability of olfactory thresholds",
+   "authors": [
+    "Stevens",
+    "Cain",
+    "Burke"
+   ],
+   "year": 1988,
+   "journal": "Chemical Senses",
+   "volume": "13",
+   "page": "643-653",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "stone1965",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Stone H",
+    "Bosley JJ"
+   ],
+   "year": 1965,
+   "journal": "Perceptual and Motor Skills",
+   "volume": 20,
+   "pages": "657",
+   "doi": "10.2466/pms.1965.20.2.657"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "title missing in yaml; crossref=\"Olfactory Discrimination and Weber's Law\""
+  ],
+  "crossref": {
+   "title": "Olfactory Discrimination and Weber's Law",
+   "authors": [
+    "Stone",
+    "Bosley"
+   ],
+   "year": 1965,
+   "journal": "Perceptual and Motor Skills",
+   "volume": "20",
+   "page": "657-665",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "strocchi1991",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Strocchi A",
+    "Furne JK",
+    "Ellis CJ",
+    "Levitt MD"
+   ],
+   "year": 1991,
+   "title": "Competition for hydrogen by human faecal bacteria: evidence for the predominance of methane producing bacteria",
+   "journal": "Gut",
+   "volume": 32,
+   "issue": 12,
+   "pages": "1498-1501",
+   "doi": "10.1136/gut.32.12.1498",
+   "openalex": "W2104131124"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Competition for hydrogen by human faecal bacteria: evidence for the predominance of methane producing bacteria.",
+   "authors": [
+    "Strocchi",
+    "Furne",
+    "Ellis",
+    "Levitt"
+   ],
+   "year": 1991,
+   "journal": "Gut",
+   "volume": "32",
+   "page": "1498-1501",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "strocchi1994",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Strocchi A",
+    "Furne JK",
+    "Ellis C",
+    "Levitt MD"
+   ],
+   "year": 1994,
+   "title": "Methanogens outcompete sulphate reducing bacteria for H2 in the human colon",
+   "journal": "Gut",
+   "volume": 35,
+   "issue": 8,
+   "pages": "1098-1101",
+   "doi": "10.1136/gut.35.8.1098",
+   "openalex": "W2088289743"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Methanogens outcompete sulphate reducing bacteria for H2 in the human colon.",
+   "authors": [
+    "Strocchi",
+    "Furne",
+    "Ellis",
+    "Levitt"
+   ],
+   "year": 1994,
+   "journal": "Gut",
+   "volume": "35",
+   "page": "1098-1101",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "suarez1997",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Suarez FL",
+    "Furne JK",
+    "Springfield J",
+    "Levitt MD"
+   ],
+   "year": 1997,
+   "title": "Insights into human colonic physiology obtained from the study of flatus composition",
+   "journal": "American Journal of Physiology - Gastrointestinal and Liver Physiology",
+   "volume": 272,
+   "issue": 5,
+   "pages": "G1028-G1033",
+   "doi": "10.1152/ajpgi.1997.272.5.G1028",
+   "openalex": "W1938646308"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Insights into human colonic physiology obtained from the study of flatus composition",
+   "authors": [
+    "Suarez",
+    "Furne",
+    "Springfield",
+    "Levitt"
+   ],
+   "year": 1997,
+   "journal": "American Journal of Physiology-Gastrointestinal and Liver Physiology",
+   "volume": "272",
+   "page": "G1028-G1033",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "suarez1998",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Suarez FL",
+    "Springfield JR",
+    "Levitt MD"
+   ],
+   "year": 1998,
+   "title": "Identification of gases responsible for the odour of human flatus and evaluation of a device purported to reduce this odour",
+   "journal": "Gut",
+   "volume": 43,
+   "issue": 1,
+   "pages": "100-104",
+   "doi": "10.1136/gut.43.1.100",
+   "openalex": "W2140831098"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Identification of gases responsible for the odour of human flatus and evaluation of a device purported to reduce this odour",
+   "authors": [
+    "Suarez",
+    "Springfield",
+    "Levitt"
+   ],
+   "year": 1998,
+   "journal": "Gut",
+   "volume": "43",
+   "page": "100-104",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "suarez1998b",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Suarez FL",
+    "Furne JK",
+    "Springfield JR",
+    "Levitt MD"
+   ],
+   "year": 1998,
+   "title": "Bismuth subsalicylate markedly decreases hydrogen sulfide release in the human colon",
+   "journal": "Gastroenterology",
+   "volume": 114,
+   "issue": 5,
+   "pages": "923-929",
+   "doi": "10.1016/S0016-5085(98)70311-7",
+   "openalex": "W2025364295"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Bismuth subsalicylate markedly decreases hydrogen sulfide release in the human colon☆☆☆",
+   "authors": [
+    "Suarez",
+    "Furne",
+    "Springfield",
+    "Levitt"
+   ],
+   "year": 1998,
+   "journal": "Gastroenterology",
+   "volume": "114",
+   "page": "923-929",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "tangerman2009",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Tangerman A"
+   ],
+   "year": 2009,
+   "title": "Measurement and biological significance of the volatile sulfur compounds hydrogen sulfide, methanethiol and dimethyl sulfide in various biological matrices",
+   "journal": "Journal of Chromatography B",
+   "volume": "877",
+   "pages": "3366-3377",
+   "doi": "10.1016/j.jchromb.2009.05.026",
+   "openalex": "W1972890330"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Measurement and biological significance of the volatile sulfur compounds hydrogen sulfide, methanethiol and dimethyl sulfide in various biological matrices",
+   "authors": [
+    "Tangerman"
+   ],
+   "year": 2009,
+   "journal": "Journal of Chromatography B",
+   "volume": "877",
+   "page": "3366-3377",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "teigen2022",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Teigen LM",
+    "Mathai PP",
+    "Lopez S",
+    "et al."
+   ],
+   "year": 2022,
+   "title": "Differential hydrogen sulfide production by a human cohort in response to animal- and plant-based diet interventions",
+   "journal": "Clinical Nutrition",
+   "volume": "41",
+   "pages": "1153-1162",
+   "doi": "10.1016/j.clnu.2022.03.028",
+   "openalex": "W4223939224"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Differential hydrogen sulfide production by a human cohort in response to animal- and plant-based diet interventions",
+   "authors": [
+    "Teigen",
+    "Mathai",
+    "Lopez",
+    "Matson",
+    "Elkin",
+    "Kozysa",
+    "Kabage",
+    "Hamilton",
+    "Vaughn",
+    "Sadowsky",
+    "Khoruts"
+   ],
+   "year": 2022,
+   "journal": "Clinical Nutrition",
+   "volume": "41",
+   "page": "1153-1162",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "tomlin1991",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Tomlin J",
+    "Lowis C",
+    "Read NW"
+   ],
+   "year": 1991,
+   "title": "Investigation of normal flatus production in healthy volunteers",
+   "journal": "Gut",
+   "volume": 32,
+   "issue": 6,
+   "pages": "665-669",
+   "doi": "10.1136/gut.32.6.665",
+   "openalex": "W1982023010"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Investigation of normal flatus production in healthy volunteers.",
+   "authors": [
+    "Tomlin",
+    "Lowis",
+    "Read"
+   ],
+   "year": 1991,
+   "journal": "Gut",
+   "volume": "32",
+   "page": "665-669",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "whisman1978",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Whisman ML",
+    "Goetzinger JW",
+    "Cotton FO"
+   ],
+   "year": 1978,
+   "title": "Odorant evaluation: a study of ethanethiol and tetrahydrothiophene as warning agents in propane",
+   "journal": "Environmental Science & Technology",
+   "volume": 12,
+   "pages": "1285-1288",
+   "doi": "10.1021/es60147a003"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "author count: yaml=3 | crossref=4 ['Whisman', 'Goetzinger', 'Cotton', 'Brinkman']"
+  ],
+  "crossref": {
+   "title": "Odorant evaluation: a study of ethanethiol and tetrahydrothiophene as warning agents in propane",
+   "authors": [
+    "Whisman",
+    "Goetzinger",
+    "Cotton",
+    "Brinkman"
+   ],
+   "year": 1978,
+   "journal": "Environmental Science &amp; Technology",
+   "volume": "12",
+   "page": "1285-1288",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "wilby1969",
+  "in": "main+si",
+  "entry": {
+   "authors": [
+    "Wilby FV"
+   ],
+   "year": 1969,
+   "title": "Variation in recognition odor threshold of a panel",
+   "journal": "Journal of the Air Pollution Control Association",
+   "volume": 19,
+   "issue": 2,
+   "pages": "96-100",
+   "doi": "10.1080/00022470.1969.10466466"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "Variation in Recognition Odor Threshold of a Panel",
+   "authors": [
+    "Wilby"
+   ],
+   "year": 1969,
+   "journal": "Journal of the Air Pollution Control Association",
+   "volume": "19",
+   "page": "96-100",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "wysocki2006",
+  "in": "main",
+  "entry": {
+   "authors": [
+    "Wysocki M",
+    "et al."
+   ],
+   "year": 2006,
+   "journal": "Respiratory Physiology & Neurobiology",
+   "volume": 153,
+   "pages": "54-65",
+   "doi": "10.1016/j.resp.2005.09.008"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "title missing in yaml; crossref='Chaotic dynamics of resting ventilatory flow in humans assessed through noise titration'"
+  ],
+  "crossref": {
+   "title": "Chaotic dynamics of resting ventilatory flow in humans assessed through noise titration",
+   "authors": [
+    "Wysocki",
+    "Fiamma",
+    "Straus",
+    "Poon",
+    "Similowski"
+   ],
+   "year": 2006,
+   "journal": "Respiratory Physiology &amp; Neurobiology",
+   "volume": "153",
+   "page": "54-65",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "yao2018",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Yao CK",
+    "Rotbart A",
+    "Ou JZ",
+    "Kalantar‐Zadeh K",
+    "Muir JG",
+    "Gibson PR"
+   ],
+   "year": 2018,
+   "title": "Modulation of colonic hydrogen sulfide production by diet and mesalazine utilizing a novel gas-profiling technology",
+   "journal": "Gut Microbes",
+   "volume": 9,
+   "issue": 6,
+   "pages": "510-522",
+   "doi": "10.1080/19490976.2018.1451280",
+   "openalex": "W2792438492"
+  },
+  "status": "ISSUES",
+  "issues": [
+   "pages: yaml=510-522 | crossref=1-13"
+  ],
+  "crossref": {
+   "title": "Modulation of colonic hydrogen sulfide production by diet and mesalazine utilizing a novel gas-profiling technology",
+   "authors": [
+    "Yao",
+    "Rotbart",
+    "Ou",
+    "Kalantar-Zadeh",
+    "Muir",
+    "Gibson"
+   ],
+   "year": 2018,
+   "journal": "Gut Microbes",
+   "volume": null,
+   "page": "1-13",
+   "type": "journal-article"
+  }
+ },
+ {
+  "key": "zhang2018",
+  "in": "si",
+  "entry": {
+   "authors": [
+    "Zhang R",
+    "Pan Y",
+    "Ahmed L",
+    "et al."
+   ],
+   "year": 2018,
+   "title": "A Multispecific Investigation of the Metal Effect in Mammalian Odorant Receptors for Sulfur-Containing Compounds",
+   "journal": "Chemical Senses",
+   "volume": "43",
+   "pages": "357-366",
+   "doi": "10.1093/chemse/bjy022",
+   "openalex": "W2804339705"
+  },
+  "status": "OK",
+  "issues": [],
+  "crossref": {
+   "title": "A Multispecific Investigation of the Metal Effect in Mammalian Odorant Receptors for Sulfur-Containing Compounds",
+   "authors": [
+    "Zhang",
+    "Pan",
+    "Ahmed",
+    "Block",
+    "Zhang",
+    "Batista",
+    "Zhuang"
+   ],
+   "year": 2018,
+   "journal": "Chemical Senses",
+   "volume": "43",
+   "page": "357-366",
+   "type": "journal-article"
+  }
+ }
+]
