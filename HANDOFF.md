@@ -53,6 +53,16 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   fixes (B) are NOT applied yet; section C is the author's hand-check list (DOIs given to the author). engrXiv not
   used (AI policy forbids verbatim AI text); Research Square / Preprints.org allow it with a Methods statement.
   Zip: `manuscript/preprint/jrsi_submission_2026-11-01.zip`.
+- **1 Nov, server cleanup stages 1-2 (user's go):** sbd footprint 88 -> 20 GB (disk 565 GB free). Deleted: the old
+  clone `research/sbd` (its noses and logs in `research/sbd-archive/sbd_old_clone_noses_logs.tar.xz`), processor*
+  of every finished run (last time reconstructed), intermediate reconstructed times (kept 0 and the last), the stale
+  `sofa_v4_multi_les`, `elev_move.tgz`, viewer/lbm/docker dirs, `sbd-main/scratch` (small files in the archive dir).
+  Every run's `postProcessing/isoSurfaces` and `planes` are now `postProcessing/<name>.tar.xz` (29 archives, xz-tested,
+  file counts matched; log `research/sbd-archive/compress_pp.log`); unpacked iso times kept for Figure 6
+  (sofa_rec-10 t = 5, 105; elev t = 106) and the liner contest (sofa_rec4.5 t = 30.66, 90). Unpack with
+  `tar -C postProcessing -xJf postProcessing/isoSurfaces.tar.xz`. Stage 3 after acceptance: delete the runs except
+  `*_pre`, after diffing the uncommitted `run_multi_v*.sh` / `make_case.py` in the `sbd-v4` clone against the repo.
+  `sbd-v4/cfd/runs/zt` (182 MB, unknown) left alone.
 - **30 Oct, submission package:** `manuscript/preprint/jrsi_submission_2026-10-30.zip` (not versioned; rebuild from
   `submission/`): manuscript PDF, ESM PDF, cover letter PDF/txt, six figures, `SUBMISSION_INFO.txt` (all system
   fields). Suggested reviewers (user's choice, `submission/suggested_reviewers.md`): Burridge, Nastase, Diwan,
