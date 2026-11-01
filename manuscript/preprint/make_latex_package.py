@@ -1,7 +1,7 @@
 """Build a self-contained LaTeX source package of the manuscript and the ESM for journal upload.
 
 Output: manuscript/preprint/submission/latex/ with main.tex and si.tex (every \\input inlined), refs.bib (only the
-cited entries), main.bbl and si.bbl, and figures/ (only the images used). Build si.tex first, then main.tex: main.tex
+cited entries), main.bbl, si.bbl and si.aux, and figures/ (only the images used). Build si.tex first, then main.tex: main.tex
 reads si.aux for the S-numbers. Run from the repository root after building main.pdf and si.pdf (needs main.aux,
 si.aux and the two .bbl files): python3 manuscript/preprint/make_latex_package.py
 """
@@ -65,11 +65,14 @@ def main():
         (OUT / f"{stem}.tex").write_text(tex, encoding="utf-8")
         shutil.copy2(PRE / f"{stem}.bbl", OUT / f"{stem}.bbl")
         keys |= cited_keys(PRE / f"{stem}.aux")
+    shutil.copy2(PRE / "si.aux", OUT / "si.aux")  # main.tex reads it via xr; Overleaf compiles only main.tex
     (OUT / "refs.bib").write_text(bib_subset(keys), encoding="utf-8")
     (OUT / "README.txt").write_text(
         "LaTeX source of the manuscript (main.tex) and the electronic supplementary material (si.tex).\n"
         "Build order: pdflatex si, bibtex si, pdflatex si (x2); then pdflatex main, bibtex main, pdflatex main (x2).\n"
-        "main.tex reads si.aux (package xr) for the numbers of ESM sections, figures and tables.\n"
+        "main.tex reads si.aux (package xr) for the numbers of ESM sections, figures and tables. A ready si.aux is\n"
+        "included so that main.tex compiles on its own (e.g. on Overleaf, which compiles only the main document);\n"
+        "if si.tex changes, recompile it and replace si.aux.\n"
         "Or: latexmk -pdf si.tex && latexmk -pdf main.tex\n", encoding="utf-8")
     print(f"{OUT}: main.tex, si.tex, refs.bib ({len(keys)} cited), .bbl, "
           f"{len(list((OUT / 'figures').iterdir()))} figures")
