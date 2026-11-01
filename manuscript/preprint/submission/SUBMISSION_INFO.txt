@@ -10,7 +10,7 @@ BEFORE YOU SUBMIT (author)
 FILES IN THIS PACKAGE
 - 01_manuscript.pdf      Main text with figures, tables, declarations and references (one PDF, as the
                          journal asks for a first submission). Line numbers are on for reviewers.
-- 02_ESM.pdf             Electronic supplementary material (16 pages).
+- 02_ESM.pdf             Electronic supplementary material (17 pages, with a contents list).
 - 03_cover_letter.pdf    Cover letter (upload as file); 03_cover_letter.txt is the same text for the text box.
 - figures/               The six main-text figures, figure1_ ... figure6_ in text order (PNG, 600 dpi). Optional at first
                          submission; the journal wants separate files only for the final version.

@@ -11,6 +11,7 @@
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{etoolbox}  % \patchcmd for the width of the S-numbers in the contents
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{url}
 \newcommand{\doi}[1]{doi:\url{#1}}  % unsrtnat prints DOIs raw otherwise (underscores)
@@ -27,6 +28,10 @@
 
 \begin{document}
 \maketitle
+
+\setcounter{tocdepth}{1}  % sections only
+{\makeatletter\patchcmd{\l@section}{1.5em}{2.4em}{}{}\makeatother  % room for "S10"-"S12"
+\tableofcontents}
 
 \section{Odorant chemistry}
 \label{sec:si-chem}
