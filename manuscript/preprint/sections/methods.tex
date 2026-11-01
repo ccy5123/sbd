@@ -6,7 +6,8 @@ Table~\ref{SI-tab:params}. Code and data are openly archived (Data accessibility
 
 \subsection{Source}
 \label{sec:source}
-Passage volumes span 17--375\,mL, with a median of 92\,mL \cite{suarez1997}. In the Monte Carlo analysis, volume $V$,
+Passage volumes span 17--375\,mL \cite{suarez1997}; the median of the 16 subjects' mean passage volumes,
+computed from the same data, is 92\,mL. In the Monte Carlo analysis, volume $V$,
 duration $T$ (0.3--20\,s) and effective orifice diameter $d$ (1--8\,mm) are drawn log-uniformly. Neither duration nor
 diameter has been measured for a passage; their upper bounds come from anorectal physiology
 (Section~\ref{SI-sec:si-acoustics}) and the lower bounds are assumed.
@@ -30,7 +31,8 @@ constants \cite{atkinson2004} and office oxidant levels \cite{fiorentino2023}.
 The anal canal is modelled as a lip reed, a soft-tissue valve that self-oscillates in the flow through it, as the
 lips do on a brass instrument \cite{ancalle2021}. It oscillates when the driving pressure
 $\tfrac12\rho(u_0/C_\mathrm{d})^2$ exceeds a threshold of 0.6--2.5\,kPa, bracketed by brass playing
-\cite{matteoli2021} and by oesophageal speech, the closest measured soft-tissue sphincter source \cite{nagai1993}.
+\cite{matteoli2021} and by oesophageal and tracheo-oesophageal speech, the closest measured soft-tissue sphincter
+source \cite{nagai1993,grolman2007,ng2011}.
 This gives an onset exit velocity of about 42\,m\,s$^{-1}$ (21--71). An oscillating valve radiates as a harmonic
 monopole with a fundamental of 160\,Hz (60--300\,Hz). A release counts as \emph{audible} when a harmonic exceeds both
 the hearing threshold \cite{iso226_2023} and the masked threshold of the background, from a 35\,dB(A) living room to
@@ -41,8 +43,8 @@ a 77\,dB(A) subway car.
 Dispersion is modelled in two phases. In the near field the release behaves as a starting jet and then a puff, or as
 a buoyant thermal, until its self-induced velocity has fallen to the ambient velocity $u_h$
 (Appendix~\ref{sec:app-nearfield}). The cloud is then advected to the nose and spreads as a Gaussian puff,
-$\sigma^2 = \sigma_0^2 + 2Kt$, with indoor eddy diffusivity $K = 10^{-4}$--$1.3\times10^{-2}$\,m$^2$\,s$^{-1}$
-\cite{cheng2011}. Two receptors are modelled: the releaser's own nose, reached by the convective boundary layer, the
+$\sigma^2 = \sigma_0^2 + 2Kt$, with indoor eddy diffusivity $K = 10^{-4}$--$1.3\times10^{-2}$\,m$^2$\,s$^{-1}$ (measured in
+residences down to $10^{-3}$ \cite{cheng2011}; the lowest decade is assumed for still air). Two receptors are modelled: the releaser's own nose, reached by the convective boundary layer, the
 layer of warm air rising along the body \cite{licina2014}, at a speed taken from the CFD trajectories below; and a
 neighbour 0.8--1.4\,m away, reached by room air. Concentrations are averaged over one inspiration.
 
@@ -89,9 +91,8 @@ within a grid uncertainty of 3.7\%. The
 convective boundary layer of a seated manikin is 40--56\% faster than thermal-manikin data \cite{licina2014} and
 follows their trend with room temperature. For a source at a seated manikin's groin \cite{licina2017}, the scene
 settings give a breathing-zone intake fraction of 8.1, 9.1 and 11.0 per mille over 10, 22 and 100\,min, against
-5.5, 7.7 and 9.8 measured. Licina et al.\ also report the manikin switched off; without body heat the flow near the
-source is set by the supply diffusers, the lighting load and the temperature of the aerosol stream, none of which is
-reported, and every scene here contains heated occupants, so we compare the heated case only. Refining the sofa mesh
+5.5, 7.7 and 9.8 measured. Their unheated case is not compared: without body heat the flow near the source is set by
+supply, lighting and aerosol temperatures that are not reported, and every scene here has heated occupants. Refining the sofa mesh
 by 1.5 in every direction (0.72 to 2.2 million cells) changes the median silent dose by a factor 0.55 at the
 neighbour and 3.0 at the releaser's own nose. A boundary layer that is too fast raises its momentum flux
 $m_\mathrm{p}$, lowers $\Pi = M_0/m_\mathrm{p}$ (Section~\ref{sec:res-rooms}) and so lets it capture slow releases
@@ -100,24 +101,24 @@ person behind the releaser in the lift, whom the captured release reaches (Secti
 
 \subsection{Perception and observers}
 \label{sec:perception}
-The nose samples only during inhalation: sinusoidal flow at 12 breaths per minute, inspiratory fraction 0.42
-\cite{wysocki2006}. Perceived intensity follows Stevens' power law, $I \propto \mathrm{OAV}^n$, with $n = 0.28$
+The nose samples only during inhalation: sinusoidal flow at 12 breaths per minute (measured at rest:
+$10.1\pm3.0$), inspiratory fraction 0.42 \cite{wysocki2006}. Perceived intensity follows Stevens' power law, $I \propto \mathrm{OAV}^n$, with $n = 0.28$
 measured for the \ce{H2S} of flatus (canine flatus, rated by an odour judge) \cite{collins2001}. Two passages are
 distinguishable when their concentrations differ by more than the olfactory Weber fraction of 0.28
 \cite{stone1965} (coincidentally equal to $n$), i.e.\ a just-noticeable ratio of 1.28.
 
 The OAVs of the dispersion model use trained-panel thresholds \cite{nagata2003}. For untrained observers:
 \begin{itemize}
-  \item population thresholds are 10--23 times higher \cite{amoore1983,wilby1969};
+  \item population thresholds for \ce{H2S} and methanethiol are 10--23 times higher \cite{amoore1983,wilby1969};
   \item detection is a per-passage probability $\Phi(\log_2\mathrm{OAV}/\sigma)$ with $\sigma = 2$ binary steps
   \cite{amoore1983}, since one person's threshold varies over time about as much as thresholds vary across people
   \cite{stevens1988};
   \item a bystander who is not expecting an odour needs 26 times the threshold for a 50\% response, with
-  $\sigma = 3.5$ binary steps \cite{amoore1983,whisman1978}.
+  $\sigma = 3.5$ binary steps (Amoore's analysis \cite{amoore1983} of the tests of ref.~\citenum{whisman1978}).
 \end{itemize}
 With the population thresholds, the attentive bystander's 50\% point lies at a trained-panel OAV of 20, and the
 distracted bystander's at $20\times26 = 520$.
-Distraction reduces noticing \cite{forster2018} but not the peak rated intensity \cite{fallon2018}, so intensity is
+Distraction reduces noticing \cite{forster2018} but did not significantly reduce the peak rated intensity \cite{fallon2018}, so intensity is
 computed from the attentive OAV. Two variants follow: clothing removes 22\% of the sulfide gas \cite{ohge2005}, and a
 sound can make a distracted bystander attentive for that passage.
 

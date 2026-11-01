@@ -56,6 +56,17 @@ reading notes only. These are the author's hand-check list (section C).
   diez2003 title.
 - Style: 15 entries end the author list in "et al." after three names; others list all authors.
 
+## Status (2026-11-01, author's go-ahead): sections A, B and D applied
+
+All fixes below are in the manuscript, ESM and `refs/references.yaml`, with these choices:
+- cheng2011: the model keeps K down to 1e-4; the text now says 1e-3 is the lowest measured and the lowest decade is
+  assumed (params table: "partly sourced"). wysocki2006: 12/min kept, measured 10.1 +- 3.0 stated.
+- suarez1997: the 92-mL median is described as the median of the subjects' mean passage volumes (params table:
+  "derived").
+- li2016: narrowed to "in that assay". The later contrary result suggested by one agent (Fukutani et al. 2023,
+  doi:10.1016/j.cub.2023.04.072) was NOT added: that DOI is a paper on odorant antagonism, not on OR2T11 and H2S.
+- Wording was tightened in four places to stay under 8,000 words with references (now about 7,920).
+
 ## D. Full-text pass (29 papers supplied by the author, 2026-11-01)
 
 `refcheck_2026-11-01/handresult1-3.json`; 50 citing sentences: 28 supported, 20 partly, 2 not supported, none still
