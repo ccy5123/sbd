@@ -1,0 +1,155 @@
+[
+ {
+  "key": "amoore1983",
+  "metadata_ok": true,
+  "metadata_fixes": "None. First page: Amoore JE, Hautala E; J Appl Toxicol 1983;3(6):272-290; title matches.",
+  "contexts": [
+   {
+    "file": "main/methods.tex (trained panel to population means)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 2(a) col. 3 (p. 278): air odour thresholds are geometric means of the accepted literature values (1054 thresholds for 214 compounds, p. 285). Amoore calls col. 3 the most favourable, attentive laboratory condition and uses it as the average (50%) detection threshold in Fig. 2.",
+    "suggested_fix": ""
+   },
+   {
+    "file": "main/methods.tex (10-23 times higher)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 2(a) p. 278: H2S 0.0081 ppm (SE x/1.5), methyl mercaptan 0.0016 ppm (SE x/2.0). Against Nagata's values (0.00041, 0.000070 ppm) that is 19.8x and 22.9x. The ratio is the author's own calculation; Amoore states no ratio. Dimethyl sulfide is not among the 214 compounds. Aside (wilby1969, not in this batch): Wilby's medians give H2S 4.1 ppb (10x) and MeSH 0.80 ppb (11x), so the lower end of 10 comes from Wilby. Wilby's DMS median of 2.1 ppb is below Nagata's 3.0 ppb, so the range covers H2S and MeSH only.",
+    "suggested_fix": "Optional: 'population thresholds for H2S and methanethiol are 10-23 times higher'. That makes it explicit that the range does not apply to DMS."
+   },
+   {
+    "file": "main/methods.tex (sigma = 2 binary steps)",
+    "verdict": "SUPPORTED",
+    "evidence": "p. 286: SD of individual sensitivity across 7 odorants (18-443 observers each) averaged +/-1.97 binary steps, rounded to 2. The Fig. 2 detection line has a slope of 2.0 binary steps per SD. This is the spread between people. Applying it within one person rests on stevens1988, as the sentence already says.",
+    "suggested_fix": ""
+   },
+   {
+    "file": "main/methods.tex (26 times, sigma 3.5)",
+    "verdict": "SUPPORTED",
+    "evidence": "pp. 286-287: Whisman directed vs misdirected 50% thresholds: ethyl mercaptan 0.17 vs 4.8 ppb (28x), thiophane 0.35 vs 8.7 ppb (24x). Exact ratios 28.3 and 24.5, geometric mean 26.3, rounded to 26. Warning-line slope 3.5 binary steps per SD unit. 50% of distracted subjects needed 26 times the concentration that 50% of attentive subjects detect. The 'misdirected' subjects were deliberately distracted (reading print in dim light, judging room temperature) and never told about odour. So 'not expecting an odour' is right, but they were also distracted.",
+    "suggested_fix": "Optional, for precision: 'a distracted bystander who is not expecting an odour needs 26 times...'."
+   },
+   {
+    "file": "si.tex (population geometric means)",
+    "verdict": "SUPPORTED",
+    "evidence": "As above: Table 2(a) col. 3 values are geometric means of the literature thresholds.",
+    "suggested_fix": ""
+   }
+  ]
+ },
+ {
+  "key": "whisman1978",
+  "metadata_ok": false,
+  "metadata_fixes": "Four authors, not three: Whisman ML, Goetzinger JW, Cotton FO, Brinkman DW. Add issue 12 (Environ Sci Technol 1978;12(12):1285-1288, November 1978). Title and pages are correct.",
+  "contexts": [
+   {
+    "file": "main/methods.tex (26 times, sigma 3.5)",
+    "verdict": "PARTLY",
+    "evidence": "The ES&T paper describes the four modes (directed, semidirected, undirected, misdirected; >1600 undirected and >1700 misdirected participants). It concludes that unfamiliar surroundings and distraction cut detection: about 10% did not notice odour near 100 ppb. Directed 50% thresholds (trained panel, p. 1286): EtSH 0.3 ppb, THT 0.6 ppb. Table II (p. 1287) gives only % positive at 20-160 ppb (misdirected EtSH 69-93% corrected, THT 65-84%). The paper contains neither the factor 26 nor sigma 3.5, and no misdirected 50% threshold. Those numbers are Amoore's regression of Whisman et al.'s data. Amoore cites the 1977 report (Whisman, Goetzinger, Cotton, Brinkman, Thompson, 'A New Look at Odorization Levels for Propane Gas', BERC/RI-77/1), whose directed thresholds (0.17/0.35 ppb) differ from the ES&T values (0.3/0.6 ppb).",
+    "suggested_fix": "'... needs 26 times the threshold for a 50% response, with sigma = 3.5 binary steps (Amoore's analysis \\cite{amoore1983} of the misdirected-observer tests of \\cite{whisman1978})'. Or cite whisman1978 only for the qualitative point that distraction and unfamiliar surroundings lower detection."
+   }
+  ]
+ },
+ {
+  "key": "fiorentino2023",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Atmos Environ 292 (2023) 119398. Authors: Fiorentino E-A, Chen H, Gandolfo A, Lannuque V, Sartelet K, Wortham H ('et al.' is fine).",
+  "contexts": [
+   {
+    "file": "main/methods.tex (office oxidant levels)",
+    "verdict": "SUPPORTED",
+    "evidence": "Sec. 2.1: measurements in October 2016 in an office room of a new building in Martigues, France (32.8 m3), under 5 experimental conditions (anti-UV or borosilicate glazing; bare walls, reference paint or 3.5% TiO2 photocatalytic paint).",
+    "suggested_fix": ""
+   },
+   {
+    "file": "si.tex (OH 0.6-9.8e5 cm-3, O3 0.7-2.6 ppb, office)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 2: weighted-mean OH (1e5 cm-3) Exp1 0.62, Exp2 1.61, Exp3 3.97, Exp4 9.79, Exp5 5.55, so the range is 0.6-9.8. Table 11: daily simple-mean O3 0.7, 0.8, 0.9, 1.5, 2.6 ppb, so 0.7-2.6. Both are daily means, not instantaneous extremes (OH max up to 15.7e5). The 9.8e5 day combined borosilicate glass with direct sun and photocatalytic paint that released VOCs.",
+    "suggested_fix": "Optional: 'daily mean OH 0.6-9.8e5 cm-3 and O3 0.7-2.6 ppb'."
+   },
+   {
+    "file": "si.tex (low/high cases)",
+    "verdict": "PARTLY",
+    "evidence": "Low case is one real day: Exp 1 (27 Oct): OH 0.62e5 (Table 2), O3 0.7 ppb (Table 11). The high case pairs values from two different days: OH 9.79e5 is Exp 4 (30 Oct), when mean O3 was 1.5 ppb; O3 2.6 ppb is Exp 5 (31 Oct), when OH was 5.55e5. So 'high' is an envelope of each oxidant's maximum, not a measured pair.",
+    "suggested_fix": "'... high, OH 9.8e5 cm-3 and O3 2.6 ppb (the highest daily means of each, measured on different days)'. Or use a measured pair: 'OH 9.8e5 cm-3 with O3 1.5 ppb'."
+   }
+  ]
+ },
+ {
+  "key": "kirk1949",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Gastroenterology 1949;12(5):782-794 (May 1949); sole author Esben Kirk; title matches.",
+  "contexts": [
+   {
+    "file": "si.tex (ordinary diet: larger outputs carry more nitrogen)",
+    "verdict": "PARTLY",
+    "evidence": "Table 2 (20 normal subjects, ordinary cabbage-free diet), rows 1-20, rate (mL/min) vs composition. Recomputed: r(rate, CO2+H2+CH4 %) = -0.41; r(rate, N2 %) = +0.31; r(rate, N2+O2 %) = +0.42. So the N2 trend is weak (n = 20, not significant). The other ordinary-diet baselines differ. Table 5 'a' rows (15 subjects): r(rate, N2) = +0.26, r(rate, fermentation) = -0.45. Table 6 'a' rows (10 subjects): r(rate, N2) = -0.49, r(rate, fermentation) = +0.53. Pooled over all 45 baseline subjects: r(rate, N2) = +0.15, r(rate, fermentation) = -0.29. Kirk himself states no such correlation. His only text on nitrogen concerns the brussels-sprouts challenge (Table 4, 12 subjects): output rose from 1.55 to 2.34 mL/min while N2 rose from 61.9 to 64.3% and CO2+H2+CH4 fell from 33.7 to 28.8% (recomputed from rows 8a-20b); per-subject r(change in rate, change in fermentation %) = -0.73. Kirk reads this as more swallowed air from livelier peristalsis. This vegetable/fibre challenge goes against the sentence's first clause ('rises with output under bean, fibre and lactulose challenges in every study that measured both'). Lactose (50 g) and milk (1 L) changed neither volume nor composition (Tables 5, 6).",
+    "suggested_fix": "'... whereas on an ordinary diet the fermentation fraction does not rise with output (r = -0.41 across 20 people; -0.29 across all 45 baseline collections), and after brussels sprouts the extra gas was mostly nitrogen \\cite{kirk1949}'. If kept, narrow the first clause to the bean, purified-fibre and lactulose studies and drop 'every study that measured both', since Kirk's brussels-sprouts challenge measured both and went the other way."
+   }
+  ]
+ },
+ {
+  "key": "odonnell1984",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Am J Clin Nutr 1984;40(1):48-57 (July 1984); O'Donnell AU, Fleming SE; title matches.",
+  "contexts": [
+   {
+    "file": "si.tex (r = +0.86 to +0.99 from published tables)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 3 (p. 53), mean 6-h flatus volume and CO2, H2, CH4 (mL/6 h), control vs 100 g/day red kidney beans. Fermentation fraction (CO2+H2+CH4)/volume: NB control 23.2/206.6 = 11.2%; NB bean 203.7/408.4 = 49.9%; B control 113.4/348.8 = 32.5%; B bean 284.0/540.4 = 52.6%; all control 24.0%; all bean 50.5%. Recomputed r(volume, fraction) = +0.94 over the 4 group rows (NB/B x diet), +0.95 including the two all-subject rows. Both fall within +0.86 to +0.99. This is a correlation over group means (n = 4), not over individuals. Text p. 55: CO2 rose more than H2 or CH4 on beans, and every subject excreted more of each gas on beans.",
+    "suggested_fix": ""
+   }
+  ]
+ },
+ {
+  "key": "corsetti2017",
+  "metadata_ok": true,
+  "metadata_fixes": "Supplied PDF is the advance-online version (Am J Gastroenterol AOP 6 Sep 2016, doi 10.1038/ajg.2016.341). Authors and title match the entry. Vol 112(3):479-489 (2017) cannot be read off this PDF but agrees with the DOI.",
+  "contexts": [
+   {
+    "file": "si.tex (anal relaxation 19 +/- 6 s)",
+    "verdict": "PARTLY",
+    "evidence": "Main study (10 healthy subjects, colonic HRM): pan-colonic pressurizations 15 +/- 3 mmHg lasting 24 +/- 4 s. The associated anal sphincter relaxations began 5 +/- 1 s after onset and lasted 23 +/- 4 s, with 56 +/- 23% relaxation (Results). Passage of flatus was not measured: pressurizations correlated with feeling of gas and desire to evacuate gas, and only one flatus episode was noted (after prostigmine). The figure 19 +/- 6 s is not in Corsetti. It is exactly Ronholt 1999 Table 1, row 'Passage of flatus' (ACR duration 19 +/- 6 s; other ACRs 16-17 s).",
+    "suggested_fix": "'Flatus passes during an anal relaxation lasting 19 +/- 6 s \\cite{ronholt1999} (relaxations accompanying pan-colonic pressurizations last 23 +/- 4 s \\cite{corsetti2017}), which bounds the duration T from above'. Or keep only ronholt1999 for the number."
+   }
+  ]
+ },
+ {
+  "key": "ng2011",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Int J Speech-Language Pathol 2011;13(2):137-144; Ng ML (Manwa L. Ng); title matches.",
+  "contexts": [
+   {
+    "file": "si.tex (sustains phonation down to 1.1-2.5 kPa)",
+    "verdict": "PARTLY",
+    "evidence": "Speakers: 10 standard oesophageal (SE) and 12 tracheo-oesophageal (TE) superior Cantonese male speakers. 25.13 cmH2O (2.46 kPa) is the SE group mean (SD 5.56) of each speaker's average peak sub-neoglottal pressure, estimated from intra-oral pressure during the /p/ closures of /iphiphi/ (Table IV). It is not a minimum or phonation threshold. Individual SE means 10.56-31.00 cmH2O (1.04-3.04 kPa). TE mean 22.61 cmH2O (2.22 kPa). The SE attribution is correct, but 'down to' implies a lowest sustaining pressure, which Ng did not measure. As an operating pressure during speech it still bounds onset from above.",
+    "suggested_fix": "'... the pharyngo-oesophageal segment of oesophageal speech phonates at sub-neoglottal pressures of 1.1-2.5 kPa (in ref. ng2011, a group mean of 2.5 kPa, individual speakers 1.0-3.0 kPa during connected syllables), which bounds the onset from above'. Or keep 'down to' only for the sources that report minimum sustaining pressures and add 'about 2.5 kPa on average during speech \\cite{ng2011}'."
+   }
+  ]
+ },
+ {
+  "key": "robbins1984",
+  "metadata_ok": true,
+  "metadata_fixes": "None. J Speech Hear Disord 1984;49(2):202-210 (May 1984); Robbins J, Fisher HB, Blom EC, Singer MI; title matches.",
+  "contexts": [
+   {
+    "file": "si.tex (oesophageal speech 60-150 Hz)",
+    "verdict": "SUPPORTED",
+    "evidence": "15 standard oesophageal speakers (plus 15 TE, 15 laryngeal). Mean F0: reading 77.1 Hz (SD 18.2 across speakers; Table 2 / Fig. 1), sustained /a/ 65.3 Hz (SD 30.5; Table 3). In Fig. 1 individual oesophageal means span about 55-105 Hz. TE speakers 101.7 Hz (reading) and 82.8 Hz (/a/). The figures are for oesophageal, not TE, speakers. Robbins supports the lower part of 60-150 Hz; the 150 Hz upper end must come from the co-cited sources.",
+    "suggested_fix": ""
+   }
+  ]
+ },
+ {
+  "key": "dalton1999",
+  "metadata_ok": false,
+  "metadata_fixes": "Entry lacks title, issue and full pages. Add: title 'Cognitive influences on health symptoms from acute chemical exposure', Health Psychology 1999;18(6):579-590.",
+  "contexts": [
+   {
+    "file": "main/results.tex (label effects for brief exposures 0-3% in intensity; sign for unwarned listener not established)",
+    "verdict": "NOT SUPPORTED",
+    "evidence": "180 healthy adults, 20-min continuous chamber exposure (not a brief exposure) to methyl salicylate, isobornyl acetate or butanol, rated every minute on the Labeled Magnitude Scale (0-100). Every participant got a characterization beforehand: natural relaxing extracts, industrial solvents, or neutral ('approved for olfactory research'). All were also told the intensity might rise, fall or stay the same, so no group was unwarned. Main effect of bias on odour intensity F(2,171) = 14.75; on irritation F(2,171) = 11.73. Table 1 means (neutral / positive / negative): IBA 20.90 / 20.66 / 28.17; MS 17.93 / 16.84 / 28.85; BUT 27.67 / 25.38 / 32.66. Harmful vs neutral: +35%, +61%, +18% (+7.3, +10.9, +5.0 scale points, i.e. 5-11% of the full scale). Healthful vs neutral: -1%, -6%, -8% (0.2-2.3 points). Bias x time interaction: differences grew in the second half. But read from Figs 1-3, the first-minute ratings already sit about 6-14 points higher with the harmful label. Only the healthful-label effect is anywhere near '0-3%'. The second half of the sentence is consistent: Dalton had no unwarned group.",
+    "suggested_fix": "'Expectation. Labels shift rated intensity: a harmful label raised mean rated odour intensity by 18-61% over a 20-min exposure, a healthful one lowered it by 1-8% \\cite{dalton1999}. Every such study told participants something about the odour, so the sign for an unwarned listener has not been established \\cite{herz2001,djordjevic2008,dalton1999}.' If the 0-3% comes from herz2001/djordjevic2008, cite only them for it and add that Dalton's longer, labelled exposure gave larger effects."
+   }
+  ]
+ }
+]

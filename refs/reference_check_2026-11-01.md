@@ -56,7 +56,38 @@ reading notes only. These are the author's hand-check list (section C).
   diez2003 title.
 - Style: 15 entries end the author list in "et al." after three names; others list all authors.
 
-## C. Hand-check list (full text closed; numbers rest on reading notes)
+## D. Full-text pass (29 papers supplied by the author, 2026-11-01)
+
+`refcheck_2026-11-01/handresult1-3.json`; 50 citing sentences: 28 supported, 20 partly, 2 not supported, none still
+unverifiable. Section C below is now settled. Findings that change or add to section A:
+
+| Key | Problem (full text) | Suggested fix |
+|---|---|---|
+| dalton1999 | **Not supported.** "Harmful" label raised rated intensity by 18--61% over a 20-min exposure; "healthful" lowered it 1--8%; all subjects were told something. | Rewrite the results l.178 sentence (with herz2001, djordjevic2008): effects are small for most odours (herz2001 ~2--3%, djordjevic2008 a few points on 100) but large after a harm warning (dalton1999 18--61%); all with the label announced, so the sign for an unwarned listener is not established. |
+| herz2001 | Four odours 2.1--2.5% (n.s.), violet leaf 12.5% (p < 0.01); labels announced at every sniff. | As above. |
+| sangras2002, diez2003 | Original tables: C_x = 2.6 jet, 8.0 puff (diameter-normalised); Gamma = 2.8 converts from the jet value. C_p = 2.6 in the manuscript's form is in the erratum (diez2003, checked in the first pass). | Cite the constants to the corrected analysis: "Gamma = 2.8 and C_p = 2.6 (corrected analysis \cite{diez2003} of \cite{sangras2002})". |
+| kirk1949 | No support for "fermentation fraction rises with output in every study": ordinary diet r = -0.41; after brussels sprouts output rose while the fermentation fraction fell (extra gas mostly N2). | Drop "every study that measured both"; cite Kirk as the exception. |
+| whisman1978 | Factor 26 and sigma 3.5 are not in Whisman; they are Amoore's analysis of Whisman's 1977 report. | "(Amoore's analysis \cite{amoore1983} of the tests of \cite{whisman1978})". |
+| corsetti2017, ronholt1999 | 19 +- 6 s is Ronholt Table 1 (flatus passage); Corsetti's relaxations 23 +- 4 s. 0--15 mmHg is not in Ronholt (Miller). | "19 +- 6 s \cite{ronholt1999}"; move 0--15 mmHg to miller1988b. |
+| miller1988b | 0--15 mmHg (median 7) when flatus is sensed; passing: median 8, range -10 to 88; a third of passages without a rectal rise. | "median rise 8 mmHg (range -10 to 88; 0--15 when only sensed)". |
+| suarez1997 | 17--375 mL verbatim; r values exact (Table 3); median 92 mL is not stated (median of the 16 subjects' mean passage volumes, from Table 1); the production/consumption mechanism in the discussion is our inference. | "median 92 mL (of the subjects' mean passage volumes, from \cite{suarez1997})"; mark the mechanism as ours. |
+| hickey1972 | Fruits and juices only; r = +0.857 from Table 2 (rounds to the stated lower bound). | "bean, fibre, fruit and lactulose challenges". |
+| levine1998 | r = 0.112 is H2S release vs CH4 release of incubated faeces, not faecal sulfide in producers vs non-producers. | Keep strocchi1991/florin1991 for "did not differ"; cite levine1998 for the non-correlation. |
+| cheng2011 | Lowest K in the paper 1.07e-3 m2/s; nothing near 1e-4. | 1e-3--1.3e-2, or justify 1e-4 separately as still air. |
+| wilby1969 | Recognition medians (panel of 35): 4.1, 0.80, 2.0 ppb; DMS below Nagata. | "10--23 times higher for H2S and methanethiol"; ESM: recognition medians. |
+| tangerman2009 | Composition exact (Table 2); thresholds are the lowest in Verschueren's handbook, not "the literature". | Name the source. |
+| fiorentino2023 | Office confirmed; the high case pairs OH (30 Oct) and O3 (31 Oct) from different days. | Say so, or use the same-day pair (OH 9.8e5, O3 1.5 ppb). |
+| ng2011 | 2.46 kPa is a group mean of peak pressure in speech; individuals 1.0--3.0 kPa. | "about 2.5 kPa on average (1.0--3.0)". |
+| grolman2007, deschler1999 | Tracheo-oesophageal speakers (Grolman 1.8/2.2/5.1 kPa; Deschler F0 82--116 Hz). | "oesophageal and tracheo-oesophageal". |
+| gibson1993 | Review; supports the sulphate-reducing route only. | Leave cysteine/gene prevalence to braccia2021. |
+
+Confirmed: levitt1976 (26 to 79%, r = +0.98), steggerda1966 (r = +0.98), steggerda1968 (+0.94; the earlier +0.999 was CO2
+alone), odonnell1984 (+0.94), marthinsen1982 (+0.880 from diet means), liuzza2016, pindzola1989, robbins1984,
+sorensen2014, amoore1983 (20x and 23x; factor 26, sigma 3.5), tangerman2009 free sulfide < 5% (H2S only).
+Metadata: ronholt1999 pages 1551--1559; grolman2007 Tan FML; levitt1976 Schwartz JS; steggerda1966 Dimmick JF;
+whisman1978 add Brinkman DW; liuzza2016 final pagination (Chem. Senses 42(6):499--508); sangras2002 issue 3.
+
+## C. Hand-check list (full text closed; numbers rest on reading notes) — settled by section D
 
 Highest weight first:
 1. **suarez1997** (8 sentences): 17--375 mL (median 92); r = +0.56, -0.50, |r| <= 0.22, n = 87; sulphur concentration vs

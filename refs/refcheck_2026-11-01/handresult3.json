@@ -1,0 +1,168 @@
+[
+ {
+  "key": "tangerman2009",
+  "metadata_ok": true,
+  "metadata_fixes": "None. First page: Tangerman A, J Chromatogr B 877 (2009) 3366-3377, review, title matches (issue 28 not printed in the PDF; optional).",
+  "contexts": [
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Abstract and Sec. 3.6 (p. 3375): the foul odour of H2S, MT and DMS plays a major role in flatus; H2S, MT and DMS were present in most emissions; MT is concluded to be mainly responsible for the pungent odour.",
+    "suggested_fix": ""
+   },
+   {
+    "file": "main/methods.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 2 (p. 3376) gives a measured flatus composition (n = 28, GC) that serves as the second composition.",
+    "suggested_fix": ""
+   },
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Numbers confirmed. Table 2 (p. 3376), Concentration (n = 28): H2S 149 +/- 56 (0-995), MT 216 +/- 44 (3-1066), DMS 144 +/- 24 (4-166) nM, mean +/- SEM. Passages collected with the bathtub method and measured by GC (p. 3375). 28 = 7 morning + 21 daytime passages. The 'Perception threshold' row (0.01, 0.0004, 0.008 nM = 0.24, 0.0096, 0.19 ppb) is footnoted 'The lowest threshold from Ref. [40]', and ref. 40 is a single handbook (Verschueren, Handbook of Environmental Data on Organic Chemicals, 2nd ed.). So it is the lowest value in one handbook, not a compilation of the whole literature by Tangerman. Wilby part: see wilby1969.",
+    "suggested_fix": "...and the lowest thresholds listed in Verschueren's handbook, as tabulated in ref.~\\citenum{tangerman2009} (Table 2)."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Figure caption; the composition in Table 2 is confirmed (see above).",
+    "suggested_fix": ""
+   },
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "p. 3374: free H2S in faeces is under 5% of total H2S (mean total 0.8 umol/g, so free < 0.04 umol/g). This is a secondary statement citing Tangerman's refs 97 and 98 (his own dynamic-GC work). Sec. 2 (p. 3369): breath and flatus contain only free VSCs. Note: free MT is 22-54% of total MT, so the < 5% applies to sulfide (H2S) only, as the manuscript says.",
+    "suggested_fix": ""
+   }
+  ]
+ },
+ {
+  "key": "wilby1969",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Wilby FV, J Air Pollut Control Assoc 19(2):96-100, 1969, title matches.",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "PARTLY",
+    "evidence": "Table V (p. 100), recognition odour thresholds of an untrained panel of 35 (33-34 observers per gas). Medians / means: H2S 4.1 / 4.5 ppb, methyl mercaptan 0.80 / 0.99 ppb, dimethyl sulfide 2.0 / 2.5 ppb (the Fig. 3 label gives DMS median 2.1). Against Nagata (0.41, 0.070, 3.0 ppb), medians give H2S x10.0, CH3SH x11.4 and DMS x0.67; means give x11.0, x14.1 and x0.83. So Wilby supports the low end (x10-11) for H2S and methanethiol only. For DMS the untrained-panel value is LOWER than the trained panel's. Method (p. 97): panelists first smelled the odour at a strong concentration, then the threshold was the lowest concentration consistently detected outdoors in 10^0.2 steps, with each gas tested on 3 days.",
+    "suggested_fix": "\\item population thresholds for \\ce{H2S} and methanethiol are 10--23 times higher (recognition medians of an untrained panel, $\\times$10--11 \\cite{wilby1969}; detection geometric means, $\\times$20--23 \\cite{amoore1983}); for dimethyl sulfide the untrained-panel median (2.0\\,ppb) is not above the trained-panel value \\cite{wilby1969};"
+   },
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Wilby gives RECOGNITION thresholds (after familiarisation with the odour), reported as medians and arithmetic means of an untrained panel of 35 (Table V). It gives no geometric means and no detection thresholds. In the repository, Wilby supplies only the DMS value (2.0 ppb, the Table V median) of the 'population' set.",
+    "suggested_fix": "...a trained panel \\cite{nagata2003}, population thresholds (geometric means of detection thresholds for \\ce{H2S} and methanethiol \\cite{amoore1983}; for dimethyl sulfide, the median recognition threshold of an untrained panel of 35, 2.0\\,ppb \\cite{wilby1969}) and..."
+   }
+  ]
+ },
+ {
+  "key": "miller1988b",
+  "metadata_ok": true,
+  "metadata_fixes": "None. First page: Miller R, Lewis GT, Bartolo DCC, Cervero F, Mortensen NJMcC, Br J Surg 1988;75(10):1003-1007, title matches (the middle initial 'C' of Miller is not printed). Note: the local file is named miller1988a.pdf but its content is this BJS paper (the miller1988b entry).",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Miller gives no diameters, only the pressures at which flatus is felt and passed (p. 1005). Passing flatus (54 events): sphincter pressure fell 35 mmHg (0-88), rectal pressure rose 8 mmHg (range -10 to 88). In one-third of passages there was no rectal rise at all (p. 1006). In the ambulatory traces (Figs 4-8, zeroed to atmosphere) resting rectal pressure is about 15-30 mmHg and peaks near 40 mmHg on passage (Fig. 8). So typical driving pressures (about 20-40 mmHg absolute; rise median 8) lie below the 40-55 mmHg FLIP pressures at which the mid canal reaches about 8 mm (sorensen2014). The range of rises (up to 88 mmHg) means some passages exceed them, so 'only at balloon pressures above those that drive flatus' holds for typical passages, not all. The settings also differ: ambulatory vs supine FLIP.",
+    "suggested_fix": "...the mid anal canal widens to about 8\\,mm only at balloon pressures (40--55\\,mmHg) \\cite{luft2012,sorensen2014} above the rectal pressures at which flatus usually passes (a median rise of 8\\,mmHg; range $-10$ to 88) \\cite{miller1988b}, which bounds..."
+   },
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "The 0-15 mmHg range is for flatus SENSATION (144 events: sphincter -30 mmHg (20-50), rectal +7 mmHg (0-15), rectal >= sphincter in 80%). For PASSAGE (54 events) the rectal rise was 8 mmHg (range -10 to 88), with sphincter pressure falling 35 mmHg (0-88) and equalising with rectal pressure. These were not statistically different from sensation. Passage through a relaxed sphincter is supported (Discussion, p. 1006, which also contrasts with Finlay's closed-sphincter finding).",
+    "suggested_fix": "Manometry shows flatus passing through a relaxed sphincter at a median rectal pressure rise of 8\\,mmHg (range $-10$ to 88; 0--15\\,mmHg when flatus was only sensed) \\cite{miller1988b,ronholt1999}, but also against a contracted one \\cite{kumar1990}."
+   }
+  ]
+ },
+ {
+  "key": "levine1998",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Levine J, Ellis CJ, Furne JK, Springfield J(R), Levitt MD, Am J Gastroenterol 1998;93(1):83-87, title matches. PII on the first page is consistent with the DOI.",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Fig. 3 (p. 86) and Results: 42 faecal samples (25 UC, 17 controls) incubated in 4 L containers. Samples segregated into low or high CH4 production (about 2 logs apart), but CH4 release and H2S release did not correlate (r = 0.112, p > 0.5). Two differences from the manuscript: (i) the variable is H2S RELEASE from incubated whole faeces (mL/g dry wt/24 h), not faecal sulfide content (the paper stresses that faecal sulfide is mostly inert bound sulfide); (ii) it is a correlation, not a producer vs non-producer group comparison. The direction (no inverse relation) is supported.",
+    "suggested_fix": "...whereas faecal sulfide did not differ between methane producers and non-producers in others \\cite{strocchi1991,florin1991}, and \\ce{H2S} release from incubated faeces did not correlate with their \\ce{CH4} release ($r = 0.11$) \\cite{levine1998}, and..."
+   }
+  ]
+ },
+ {
+  "key": "levitt1976",
+  "metadata_ok": false,
+  "metadata_fixes": "Author 'Schwartz JSJ' should be 'Schwartz JS' (first page: J.S. Schwartz, M.A.). The rest matches: Levitt MD, Lasser RB, Schwartz JS, Bond JH, N Engl J Med 1976;295(5):260-262 (July 29, 1976).",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 1 (p. 261), one 28-year-old man, total rectal gas mL/4 h and % composition. Elemental diet: 55 mL, H2 17.0 + CO2 9.0 + CH4 0.01 = 26.0%. 50 g lactose: 720 mL, H2 41.0 + CO2 38.0 + CH4 0.003 = 79.0%. Both endpoints are confirmed. Other rows: test meal 806 mL 72%, 727 mL 68%, meal without milk 120 mL 32%. Across all 5 patient rows r(volume, H2+CO2+CH4 %) = +0.98 (my computation). Note: the largest output (806 mL) is not the highest fraction, so the wording 'from 26% at 55 mL to 79% at 720 mL' is correct as stated.",
+    "suggested_fix": ""
+   }
+  ]
+ },
+ {
+  "key": "steggerda1966",
+  "metadata_ok": false,
+  "metadata_fixes": "Second author 'DIMMICK J' should be 'Dimmick JF' (first page: J. F. Dimmick, Ph.D.). The rest matches: Am J Clin Nutr 1966;19(2):120-124.",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Table III (p. 123), mean hourly flatus volume and % composition in 5 subjects. Basal: 17.6 mL/h, CO2 11, CH4 20, H2 19 (fermentation gases 50%). 27% beans (3 pooled diets): 67.0 mL/h, 25+26+15 = 66%. 28% mature lima: 127.0 mL/h, 31+16+29 = 76%. 59% pork and beans / 51% Boston baked beans: 171.5 mL/h, 51+16+15 = 82%. Over these 4 rows, r(volume, CO2+CH4+H2 %) = +0.98 (r with CO2 alone +0.97; with N2 -0.98). This lies within the +0.86 to +0.99 range quoted. Text: flatus rose about fourfold on 27% bean diets and tenfold on 51-59%, mainly as CO2.",
+    "suggested_fix": ""
+   }
+  ]
+ },
+ {
+  "key": "sorensen2014",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Sorensen G, Liao D, Lundby L, Fynne L, Buntzen S, Gregersen H, Laurberg S, Krogh K, Neurogastroenterol Motil 2014;26(2):255-263, title matches (the middle initials in the entry, 'Fynne LV' and 'Gregersen HN', are not printed in the paper; harmless).",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "Fig. 2A (p. 259), healthy volunteers (n = 21) at rest: mid anal canal diameter about 5.3-5.5 mm at 20-30 mL distension, about 8.3 mm at 40 mL and about 13 mm at 50 mL. Text (p. 258): the middle canal had the greatest resistance and usually yielded only at 50 mL. Fig. 4 (p. 260), pressure vs diameter stretch ratio: the healthy mid canal reaches a stretch ratio of 1.5 at about 43 mmHg and 1.8 at about 53 mmHg, with about 1.25 at 30 mmHg. So 'about 8 mm only at about 40+ mmHg' is supported. Caveats: Fig. 2 is plotted against volume, not pressure; subjects were supine after an enema; IFI patients distend about twice as much at >= 30 mmHg. For the 'above those that drive flatus' part, see miller1988b.",
+    "suggested_fix": ""
+   }
+  ]
+ },
+ {
+  "key": "deschler1999",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Deschler DG, Doherty ET, Reed CG, Singer MI, Otolaryngol Head Neck Surg 1999;121(1):23-26, title matches.",
+  "contexts": [
+   {
+    "file": "si.tex",
+    "verdict": "PARTLY",
+    "evidence": "Subjects are 11 TRACHEO-OESOPHAGEAL speakers after total laryngectomy (10 men, 1 woman; Blom-Singer prosthesis), sustained /a/. Results (p. 24): mean F0 for the high-pitch task was 82.0 Hz (soft voice, 57.7 dB) and 116.4 Hz (loud voice, 64.6 dB). SPL explained 9% of F0 variance (r = 0.30). The values lie inside 60-150 Hz, but the speaker type is TE, not oesophageal speech. They are also high-pitch-task means, so the low-pitch F0 is not reported.",
+    "suggested_fix": "...between oesophageal and tracheo-oesophageal speech at 60--150\\,Hz \\cite{nagai1993,robbins1984,pindzola1989,deschler1999} (or keep 'oesophageal speech' and move deschler1999 to a separate clause: 'and tracheo-oesophageal voice at 82--116\\,Hz \\cite{deschler1999}')."
+   }
+  ]
+ },
+ {
+  "key": "cheng2011",
+  "metadata_ok": true,
+  "metadata_fixes": "Author list confirmed from the first page: Cheng K-C, Acevedo-Bolton V, Jiang R-T, Klepeis NE, Ott WR, Fringer OB, Hildemann LM. Environ Sci Technol 2011;45:4016-4022 (issue 9 not printed in the PDF). Remove the note 'author list beyond first three to be confirmed'.",
+  "contexts": [
+   {
+    "file": "main/methods.tex",
+    "verdict": "PARTLY",
+    "evidence": "Table 1 (p. 4018), 11 experiments in two naturally ventilated rooms at ACH 0.17-5.40 h^-1, K = 0.00190, 0.00401, 0.00449, 0.00515, 0.00688, 0.00260 (revised to 0.00107 excluding the 0.25 m monitors), 0.00463, 0.00223, 0.00197, 0.00684 and 0.0129 m^2/s. The lowest value anywhere in the full text is 0.00107 m^2/s. Text: room 1 0.002-0.007, room 2 up to 0.013; occupational literature 0.001-0.2. The regression K/L^2 = 0.52 ACH + 0.31 h^-1 has a positive intercept: even at ACH -> 0 it implies K ~ 8e-4 m^2/s for L = 3 m (5e-4 for L = 2.5 m), still above 1e-4. Single-direction, 10-min estimates 'varied by two orders of magnitude', but no values are given. So 1.3e-2 is supported, while the 1e-4 lower bound is 10x below anything Cheng reports.",
+    "suggested_fix": "...with indoor eddy diffusivity $K = 10^{-3}$--$1.3\\times10^{-2}$\\,m$^2$\\,s$^{-1}$ \\cite{cheng2011}. If the model keeps $10^{-4}$, add: '(measured 1.1$\\times10^{-3}$--1.3$\\times10^{-2}$ in naturally ventilated rooms at 0.2--5.4 air changes per hour \\cite{cheng2011}; extended to $10^{-4}$ for still air)' and justify the extension separately."
+   }
+  ]
+ },
+ {
+  "key": "herz2001",
+  "metadata_ok": true,
+  "metadata_fixes": "None. Herz RS, von Clef J, Perception 2001;30(3):381-391, doi 10.1068/p3179, title matches.",
+  "contexts": [
+   {
+    "file": "main/results.tex",
+    "verdict": "PARTLY",
+    "evidence": "Table 4 (p. 387), intensity on a 9-point scale, positive vs negative label (n = 80). I-B acid 7.31 vs 7.46 (+2.1%), pine oil 7.22 vs 7.04 (-2.5%), menthol 7.09 vs 7.24 (+2.1%), violet leaf 6.00 vs 6.75 (+12.5%, p < 0.01), patchouli 6.29 vs 6.45 (+2.5%). Odour x Label interaction F(4,380) = 3.70, p < 0.01. Other intensity effects: label order (negative first 7.00 vs positive first 6.76, +3.6%, p < 0.05); men given positive labels rated odours weaker (6.60 vs about 6.97, about -5%). So 0-3% holds for 4 of 5 odours, but the one significant odour effect was about 12%, and the order and gender effects exceed 3%. Labels were spoken by the experimenter at every presentation ('this is ...'), with a sniff of a few seconds and unlimited re-sniffs. Participants were told the labels, so the 'sign for an unwarned listener not established' clause is consistent. A negative label raised intensity for 4 of 5 odours, while pine oil went the other way.",
+    "suggested_fix": "\\emph{Expectation.} Measured label effects on rated intensity are small for most odours (about 2--3\\%) but reach about 12\\% for one \\cite{herz2001}; all were measured with the label announced, and their sign for an unwarned listener has not been established \\cite{herz2001,djordjevic2008,dalton1999}."
+   }
+  ]
+ }
+]

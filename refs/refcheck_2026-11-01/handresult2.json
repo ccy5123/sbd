@@ -1,0 +1,206 @@
+[
+ {
+  "key": "suarez1997",
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "First page confirms: Suarez F, Furne J, Springfield J, Levitt M. 'Insights into human colonic physiology obtained from the study of flatus composition.' Am J Physiol 272 (Gastrointest Liver Physiol 35): G1028-G1033, 1997. Authors, year, title, journal, volume 272, issue 5 and pages all match the entry."
+  ],
+  "contexts": [
+   {
+    "file": "main/discussion.tex",
+    "verdict": "PARTLY",
+    "evidence": "p.G1031 Table 3 (n = 87 passages, Pearson with Bonferroni correction): passage volume vs [H2S] r = 0.195 (P = 1.0), vs [MES] r = -0.206 (P = 1.0), vs [DMS] r = 0.223 (P = 1.0), i.e. no significant correlation, so 'sulfur concentration and volume are uncorrelated' is supported by the table, though the paper nowhere states it in words. The mechanism in the sentence (trace products held at a balance of production and fast mucosal consumption; volume set by the bulk gases) is NOT in this paper: Suarez explains the volume/CO2 behaviour by rapid transit reducing CO2 absorption (p.G1032) and mentions mucosal H2S detoxification only in passing, as a possible route to methanethiol (his ref 22). The mechanism is the authors' own inference.",
+    "suggested_fix": "The sulfur odorants are trace products held at a balance of production and fast mucosal consumption, whereas passage volume is set by the bulk gases; this would explain why passage volume shows no significant correlation with any sulfur concentration (|r| <= 0.22, n = 87, all P = 1.0 after Bonferroni correction) \\cite{suarez1997}."
+   },
+   {
+    "file": "main/introduction.tex",
+    "verdict": "SUPPORTED",
+    "evidence": "p.G1031 Table 3: volume vs [H2S] 0.195, vs [MES] -0.206, vs [DMS] 0.223, none significant (P = 1.0), n = 87. 'The volume of a passage does not predict its sulfur content' follows directly.",
+    "suggested_fix": null
+   },
+   {
+    "file": "main/methods.tex (passage volumes 17-375 mL, median 92 mL)",
+    "verdict": "PARTLY",
+    "evidence": "The range is verbatim: p.G1030, right column, 'the volume of individual passages ranged from 17 to 375 ml'. The median of 92 mL is NOT in the paper. Recomputed from Table 1 (p.G1030): per-subject mean passage volume = (4-h volume)/(frequency) for each of the 16 subjects gives 32.2, 35.3, 56.3, 68.4, 75.7, 82.0, 85.8, 86.2, 97.9, 100.0, 101.0, 112.1, 116.7, 169.2, 206.6, 207.1 mL, median 92.0 mL. So 92 mL is the median of the 16 per-subject mean passage volumes, not the median of the 87 individual passages (that distribution is not published). The pooled mean is 9266/87 = 106.5 mL, and weighting subject means by passage count gives a median of 97.9 mL.",
+    "suggested_fix": "Passage volumes span 17--375\\,mL \\cite{suarez1997}; the median of the 16 subjects' mean passage volumes, computed from their reported 4-h volumes and passage counts, is 92\\,mL."
+   },
+   {
+    "file": "main/methods.tex (sulfur concentration drawn independently of volume)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 3, p.G1031: volume vs each sulfur concentration is non-significant (0.195, -0.206, 0.223; all P = 1.0, n = 87), which justifies drawing concentration independently of volume. Incidental finding: the three mean concentrations in this same sentence, attributed to suarez1998 (H2S 1.06, methanethiol 0.21, dimethyl sulfide 0.08 umol/L), are printed verbatim in suarez1997 p.G1032 ('1.06 +/- 0.2', '0.21 +/- 0.03', '0.08 +/- 0.01' umol/l) for the same 87 passages of 16 subjects. Worth confirming that suarez1998 is the intended source for them.",
+    "suggested_fix": null
+   },
+   {
+    "file": "si.tex (buoyancy, 16 measured compositions)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 1, p.G1030, gives per-subject percentage composition for each of the 16 subjects (H2, CO2, CH4, O2, N2 in %, plus H2S/MES/DMS in 1e-3 %); the five major gases sum to 100.0% for every subject, so 16 complete compositions are available for a reduced-gravity calculation.",
+    "suggested_fix": null
+   },
+   {
+    "file": "si.tex (composition and volume, r = +0.56 / -0.50, |r| <= 0.22, n = 87)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 3, p.G1031 (n = 87 flatus passages, Pearson with Bonferroni): volume vs [CO2] = 0.559 (P < 0.001) -> +0.56; volume vs [N2] = -0.503 (P < 0.001) -> -0.50 (the text repeats it on p.G1032: 'the concentration of N2 ... correlated negatively (r = -0.503, P < 0.001) with the volume of the passage'); volume vs [H2S] 0.195, [MES] -0.206, [DMS] 0.223, all P = 1.0 -> |r| <= 0.22, not significant. All three manuscript numbers reproduce exactly. One caveat: volume vs [H2] is 0.047 (n.s.), so 'larger passages contain more fermentation gas' holds for CO2, not for H2.",
+    "suggested_fix": null
+   },
+   {
+    "file": "si.tex (figure caption, reduced gravity of 16 compositions vs CO2)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 1, p.G1030, supplies the 16 compositions including each subject's CO2 percentage (range 9.0-62.8%).",
+    "suggested_fix": null
+   },
+   {
+    "file": "si.tex (we infer that this is why sulfur concentration and passage volume are uncorrelated)",
+    "verdict": "SUPPORTED",
+    "evidence": "Framed explicitly as the authors' own inference; the lack of correlation it explains is in Table 3 (|r| <= 0.22, n.s., n = 87).",
+    "suggested_fix": null
+   }
+  ]
+ },
+ {
+  "key": "gibson1993",
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "First page confirms: Gut 1993; 34: 437-439, G R Gibson, G T Macfarlane, J H Cummings, 'Sulphate reducing bacteria and hydrogen metabolism in the human large intestine'. Note it is a 'Leading article' (invited review), not a primary research paper, which matters if the manuscript implies primary data."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex (H2S sources)",
+    "verdict": "PARTLY",
+    "evidence": "p.437 gives the SRB pathway explicitly (4H2 + SO4(2-) + H+ -> HS- + 4H2O) and states that SRB occur at ca 1e8-1e10 per g dry weight of gut contents in non-methanogenic individuals, and that people harbouring SRB have higher faecal sulphide. So Gibson supports H2S from sulfate-reducing bacteria. It does NOT mention cysteine degradation, and as a 1993 review it says nothing about gene prevalence in the microbiome; both of those rest on braccia2021 alone.",
+    "suggested_fix": "\\ce{H2S} comes from sulfate-reducing bacteria \\cite{gibson1993} and from cysteine degradation, whose genes are widespread in the gut microbiome \\cite{braccia2021}."
+   },
+   {
+    "file": "si.tex (no methane in sulfidogenic contents)",
+    "verdict": "SUPPORTED",
+    "evidence": "p.437: SRB 'occur in large numbers ... in non-methanogenic but not in methanogenic individuals'; p.438: 'viable sulphate reducing bacteria were present and active in all non-methanogenic samples tested' in two geographically and nutritionally diverse populations, and adding dietary sulphate to methanogenic individuals competitively displaces methanogens so that SRB appear within a few days (in about 50% of them). Direction and sense match the manuscript. Caveat: as a review it restates the authors' own earlier primary work (its refs 12, 14, 18), so pairing it with gibson1993b is appropriate.",
+    "suggested_fix": null
+   }
+  ]
+ },
+ {
+  "key": "ronholt1999",
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Authors, year, title, journal, volume 42 and issue 12 confirmed on the first page. Page range: the paper's own citation line reads 'Dis Colon Rectum 1999;42:1551-1559' whereas the entry says 1551-1558. The article text ends on p.1558 and an Invited Editorial follows, which probably explains the difference; check the publisher record and prefer 1551-1559 if Crossref agrees."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex (duration 19 +/- 6 s)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 1, p.1553 ('Frequency, Amplitude of Pressure Fall, and Duration of Anal Canal Relaxations'), row 'Passage of flatus': frequency 1.5 +/- 1 per hour, amplitude 29 +/- 8 mmHg, duration 19 +/- 6 s (mean +/- SD, 10 healthy subjects, 20-24 h ambulatory recordings). The 19 +/- 6 s is specifically the flatus-passage row, not the 16 +/- 3 s of unconscious relaxations, so the manuscript's use is correct and specific.",
+    "suggested_fix": null
+   },
+   {
+    "file": "si.tex (valve state, rectal pressure rise 0-15 mmHg)",
+    "verdict": "PARTLY",
+    "evidence": "The relaxed sphincter is supported: p.1553, 'An ACR was associated with 93 percent of passages of flatus'; Table 2 shows flatus passage went with a Type B relaxation (accompanying rectal pressure increase) in a median 70% (range 46-80) of cases and a Type A relaxation (NO rectal pressure increase) in 23% (4-50). The figure '0-15 mmHg' is NOT in this paper. Ronholt reports the anal pressure FALL (29 +/- 8 mmHg at flatus passage; Fig. 3 bins 0-10 up to >40 mmHg), mean rectal pressures (midrectum 30 +/- 2, lower rectum 42 +/- 3 mmHg) and wave amplitudes (slow 3-5, intermediate 5-10, ultraslow 5-20, within-RMC 13-17 mmHg), but no 0-15 mmHg rectal pressure rise at flatus passage. That number must come from miller1988b.",
+    "suggested_fix": "Manometry shows flatus passing through a relaxed sphincter, with an accompanying rectal pressure rise in about 70\\% of passages and none in about 23\\% \\cite{ronholt1999}, the rise being 0--15\\,mmHg \\cite{miller1988b}, but also against a contracted one \\cite{kumar1990}."
+   }
+  ]
+ },
+ {
+  "key": "hickey1972",
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Authors (C A Hickey, D H Calloway, E L Murphy), year 1972, title, volume 17, issue 5 and pages 383-388 confirmed (running foot: 'Digestive Diseases, Vol. 17, No. 5 (May 1972)'). Journal name: in 1972 the journal was 'The American Journal of Digestive Diseases' (the running foot shortens it to 'Digestive Diseases'); 'Digestive Diseases and Sciences' is the later name under which Springer now indexes DOI 10.1007/BF02231287. Either use the contemporaneous title or keep the Springer form knowingly."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex (r = +0.86 to +0.99 range; bean, fibre and lactulose challenges)",
+    "verdict": "PARTLY",
+    "evidence": "Correlation recomputed from Table 2, p.385, using the 8 treatment-group means that have flatus data (prune juice excluded: diarrhoea prevented flatus collection). Rows used: 'Flatus volume (ml/6 hr) Total volume' and the fermentation components 'CO2 volume' + 'H2 volume'. Volumes: formula A 153, apple juice 344, apricot nectar 106, grape juice 184, raisins 286, formula B 119, orange juice 128, banana 170 mL. Fermentation fraction (CO2+H2)/total = 0.092, 0.567, 0.132, 0.516, 0.605, 0.029, 0.063, 0.112. Pearson r = +0.857, which rounds to the manuscript's lower bound +0.86; Group A alone +0.83, Group B alone +0.97. Direction and magnitude hold. The problem is the description of the challenge: Hickey fed five fruit juices and two fruits (apple juice, apricot nectar, grape juice, prune juice, orange juice, raisins, bananas) to healthy young men. No beans, no purified fibre, no lactulose.",
+    "suggested_fix": "The fermentation-gas fraction rises with output under bean, fibre, fruit and lactulose challenges in every study that measured both ($r = +0.86$ to $+0.99$, computed from the published tables \\cite{steggerda1966,steggerda1968,calloway1969,odonnell1984,marthinsen1982,hickey1972}; ...). Alternatively keep the original list and move \\cite{hickey1972} into a clause naming fruit and fruit-juice loads."
+   }
+  ]
+ },
+ {
+  "key": "marthinsen1982",
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "First page confirms: Diana Marthinsen and S. E. Fleming, 'Excretion of Breath and Flatus Gases by Humans Consuming High-Fiber Diets', J. Nutr. 112: 1133-1143, 1982 (volume 112, issue 6). All entry fields match."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex (r = +0.86 to +0.99 range)",
+    "verdict": "SUPPORTED",
+    "evidence": "Recomputed from Table 4, p.1140 ('Influence of diet on flatus gas excretion'), using the six 'X Diet' mean rows. Flatus volume (mL/2 h): basal 84.5, 85% energy 102.7, cellulose 77.6, pectin 120.9, xylan 123.7, corn bran 85.0. Flatus CO2: 3.0, 4.4, 2.1, 12.8, 16.0, 1.4. Flatus H2: 9.0, 9.6, 5.7, 11.4, 15.1, 3.2. Flatus CH4: 0.7, 1.7, 1.0, 2.0, 5.2, 1.2. Fermentation fraction (CO2+H2+CH4)/volume = 0.150, 0.153, 0.113, 0.217, 0.293, 0.068; Pearson r with volume = +0.880, so the +0.88 in the repo notes reproduces exactly. Using (CO2+H2)/volume gives +0.872. Caveat the manuscript should not hide: the relation lives in the diet means. Over all 30 subject-by-diet cells the correlation collapses to r = +0.06 (CO2+H2+CH4) or +0.10 (CO2+H2), and per-subject r runs from -0.58 to +0.90. Five subjects (5701, 5702, 5703, 5705, 5706).",
+    "suggested_fix": null
+   }
+  ]
+ },
+ {
+  "key": "steggerda1968",
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Confirmed: F. R. Steggerda, 'Gastrointestinal Gas Following Food Consumption', Ann. N.Y. Acad. Sci. 150(1): 57-66, 1968 (running head 'Annals New York Academy of Sciences', Table 1 on p.58, text continuing p.59; Suarez 1997 cites it in exactly this form as his ref 14). Entry fields match."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex (r = +0.86 to +0.99 range)",
+    "verdict": "SUPPORTED",
+    "evidence": "Recomputed from Table 1, p.58 ('Effects of Various Bean Diets on Flatus Volume and Composition in Male Subjects'), 5 adult male subjects, 5 diet rows. Volume (cc/h) and % composition (CO2, O2, CH4, N2, H2): basal 15 (8.1, 3.6, 7.3, 61.2, 19.8); pork and beans 57% of diet 176 (51.4, 1.3, 17.2, 19.1, 11.0); pork and beans 27% 66 (23.1, 1.1, 13.9, 37.7, 24.2); green lima beans 28% 127 (37.7, 0.8, 14.3, 20.2, 27.0); Boston baked beans 51% 168 (49.1, 1.1, 22.4, 19.4, 8.0). Each row sums to 100%. Fermentation fraction CO2+CH4+H2 = 35.2, 79.6, 61.2, 79.0, 79.5%; Pearson r with volume = +0.943, inside the manuscript's +0.86 to +0.99 range. For reference, volume vs CO2% alone is r = +0.9994 (the '+0.999' of the earlier reading notes) and volume vs N2% is -0.950. So the earlier note's +0.999 was the CO2-only figure; the fermentation-fraction figure the manuscript actually needs is +0.94, and the stated upper bound of +0.99 is not violated.",
+    "suggested_fix": null
+   }
+  ]
+ },
+ {
+  "key": "grolman2007",
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Confirmed: Grolman W, Eerenstein SEJ, Tan FML, Tange RA, Schouwenburg PF, 'Aerodynamic and Sound Intensity Measurements in Tracheoesophageal Voice', ORL 2007;69:68-76, DOI 10.1159/000097401, issue 2. One fix: the third author is Frederique M. L. Tan, so the initials should be 'Tan FML', not 'Tan FM'."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex (1.1-2.5 kPa, pharyngo-oesophageal segment)",
+    "verdict": "PARTLY",
+    "evidence": "Table 2, p.71 (manual tracheostoma occlusion, 8 laryngectomees): endoesophageal pressure, i.e. the pressure immediately below the PE segment that drives the sound source, is 18 (SD 7.8) cm H2O at minimum, 22 (9.5) at comfortable and 52 (21) at maximum phonation = 1.8, 2.2 and 5.1 kPa. Table 4, p.73 (tracheostoma valve, n = 7): 20.1, 24.2, 54.2 cm H2O = 2.0, 2.4, 5.3 kPa. So the lowest sustained-phonation pressure at the source here is about 1.8 kPa, inside the manuscript's 1.1-2.5 kPa band but not establishing its lower bound (1.1 kPa must come from nagai1993 or ng2011). If 'phonation pressure' instead means the driving endotracheal pressure, Table 2 gives 27, 33 and 67 cm H2O = 2.6, 3.2 and 6.6 kPa, all at or above the top of the quoted band. Subject type: every participant was a laryngectomee phonating through a voice prosthesis (Provox 2 or Voice Master), i.e. tracheo-oesophageal, NOT classic oesophageal speech, which Grolman explicitly contrasts with it (p.69: oesophageal speech 'relies on air swallowed into the esophagus', about 75 mL per charge, airflow 27-72 mL/s). The PE segment is the source in both, which makes the citation defensible, but 'the pharyngo-oesophageal segment of oesophageal speech' misdescribes this study.",
+    "suggested_fix": "The closest measured soft-tissue sphincter source, the pharyngo-oesophageal segment that drives both oesophageal and tracheo-oesophageal speech, sustains phonation down to 1.1--2.5\\,kPa \\cite{nagai1993,ng2011} (sub-segmental pressure 1.8\\,kPa at minimum and 2.2\\,kPa at comfortable loudness in tracheo-oesophageal speakers \\cite{grolman2007}), which bounds the onset from above."
+   }
+  ]
+ },
+ {
+  "key": "pindzola1989",
+  "metadata_ok": true,
+  "metadata_fixes": [
+   "Confirmed: Rebekah H. Pindzola and Blanche H. Cain, 'Duration and Frequency Characteristics of Tracheoesophageal Speech', Ann Otol Rhinol Laryngol 98:960-964, 1989, volume 98, issue 12. All entry fields match."
+  ],
+  "contexts": [
+   {
+    "file": "si.tex (oesophageal speech 60-150 Hz)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 2, p.961 ('Data From Individual Subjects for Study Measures'), column 'Fundamental Frequency (Hz)'. The five oesophageal speakers E-1 to E-5 measured 89.7, 81.2, 100.0, 80.4 and 69.1 Hz, average 84.1 Hz (SD 10.3, Results p.962), not significantly different from the other groups. Every value falls inside the manuscript's 60-150 Hz band for oesophageal speech, so the citation is sound, though on its own Pindzola supports a narrower 69-100 Hz. For completeness: the five tracheo-oesophageal speakers averaged 107.7 Hz (73.5-158.4) and the 15 laryngeal speakers 128.4 Hz. The separate 'Frequency Range' column (oesophageal mean 177.1 Hz, TE 169.6 Hz) is the min-max span within connected speech, a different quantity that should not be confused with the 60-300 Hz band quoted for flatus.",
+    "suggested_fix": null
+   }
+  ]
+ },
+ {
+  "key": "sangras2002",
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Confirmed from the first page: R. Sangras, O. C. Kwon, G. M. Faeth (Department of Aerospace Engineering, University of Michigan), 'Self-Preserving Properties of Unsteady Round Nonbuoyant Turbulent Starting Jets and Puffs in Still Fluids', Journal of Heat Transfer, June 2002, Vol. 124, pp. 460-469. Entry matches; it carries no issue number (June 2002 is issue 3) and no note that the coefficients were revised by the 2003 erratum (diez2003), which would be worth adding."
+  ],
+  "contexts": [
+   {
+    "file": "main/appendix.tex (Gamma = 2.8 jet, C_p = 2.6 puff)",
+    "verdict": "NOT SUPPORTED",
+    "evidence": "The scaling laws check out but the constants do not, and as printed in this paper the value 2.6 belongs to the JET, not the puff. Eqs. (1)-(2), p.462: (x_p - x_0)/d = C_x [(t - t_d)/t*]^n with t* = d/u_0; Eq. (4): n = 1/2 for nonbuoyant starting jets, n = 1/4 for puffs and interrupted jets. Table 2, p.463 ('Summary of properties of starting round nonbuoyant turbulent jets'), row 'Present': Re_0 3000-12,000, (x_p-x_0)/d = 140, n = 1/2, C_x = 2.6, C_r = 0.16 (other studies: Lahbabi et al. 2.9, Witze 2.5-3.2). Table 3, p.464 ('...puffs, interrupted jets, and vortex rings'), row 'Present': Re_0 3000-12,000, (x_p-x_0)/d = 100, n = 1/4, C_x = 8.0, C_r = 0.18, Q_0/(A_0 d) = 30-191 (Grigg and Stewart 4.0; Glezer and Coles vortex rings 3.2). So this paper gives 2.6 for the starting jet and 8.0 for the puff, and its puff coefficient is normalised on the source diameter d, not on the injected volume Q_0 that the manuscript's x^4 = C_p^4 Q_0 u_0 t uses, so the two are not the same constant. The manuscript's jet form is also not the paper's: converting with Qdot_0 = (pi/4) d^2 u_0 gives Gamma = C_x/(pi/4)^(1/4) = 2.6/0.940 = 2.77, i.e. 2.8. So Gamma = 2.8 IS consistent with this paper's jet C_x = 2.6 after the change of normalisation, while C_p = 2.6 is not traceable to this paper at all. The erratum (diez2003, reported to give C = 2.8 jet and 2.6 puff) was not supplied, so the puff constant stays unverified and the possibility that the two were swapped cannot be closed from sangras2002 alone.",
+    "suggested_fix": "Either (a) attribute the constants to the corrected analysis: 'with $\\Gamma = 2.8$ and $C_p = 2.6$, from the corrected coefficients \\cite{diez2003}; the original tables give $C_x = 2.6$ for the starting jet and $C_x = 8.0$ for the puff, both normalised on the source diameter \\cite{sangras2002}'; or (b) state them in the paper's own normalisation, $(x_p-x_0)/d = C_x[(t-t_d)u_0/d]^n$ with $C_x = 2.6$, $n = 1/2$ for the starting jet and $C_x = 8.0$, $n = 1/4$ for the puff \\cite{sangras2002}. Before submission, read diez2003 and confirm which coefficient belongs to which flow and under which normalisation."
+   }
+  ]
+ },
+ {
+  "key": "liuzza2016",
+  "metadata_ok": false,
+  "metadata_fixes": [
+   "Authors, title and DOI (10.1093/chemse/bjw107) confirmed on the first page; eight authors in the order given in the entry. The supplied PDF is the Advance Access version ('Chemical Senses Advance Access published October 18, 2016'; header 'Chemical Senses, 2016, Vol 00, 1-10'), so it carries no final volume, issue or page numbers, which is why the entry has none. The article was later paginated in an issue of Chemical Senses; check the publisher/Crossref record and add volume, issue and pages (and the issue year, if it differs from 2016) rather than leaving the entry unpaginated."
+  ],
+  "contexts": [
+   {
+    "file": "main/discussion.tex (2.51 vs 3.71 on a 1-5 scale)",
+    "verdict": "SUPPORTED",
+    "evidence": "Table 4 ('BODS items characteristics'), p.7 of the Advance Access PDF: 'You are alone at home and pass gas. It is silent but smells strongly' mean 2.51; 'You are sitting next to a stranger and they pass gas. It is silent but smells strongly' mean 3.71. The table footnote fixes the scale: '1-5%, frequencies of answers (1 = not disgusting at all, 5 = extremely disgusting)'. Both numbers, the 1-5 scale and the manuscript's quoted item wording 'silent but smells strongly' are exact. Total n = 528 across 3 studies (abstract). The own-versus-other gap is the paper's own headline finding (Discussion: external-source scenarios 'evoke a remarkably higher disgust response' than internal-source ones) and holds for all six odour pairs (e.g. feces 2.99 vs 3.78, sweat 2.64 vs 3.33, feet 2.75 vs 3.42, breath 2.70 vs 3.30, urine 2.84 vs 3.33).",
+    "suggested_fix": null
+   }
+  ]
+ }
+]
