@@ -3,8 +3,7 @@ ScholarOne: https://mc.manuscriptcentral.com/jrsi
 =====================================================================
 
 BEFORE YOU SUBMIT (author)
-- Preprint: after posting on engrXiv, put its DOI in the cover letter (the bracketed sentence) and in the system's
-  preprint field, then rebuild cover_letter.pdf and this zip.
+- Preprint: none posted (engrXiv's AI policy excludes AI-drafted text). Answer "no" to the preprint question.
 - Your ScholarOne account must have your ORCID linked (required for the submitting author).
 
 FILES IN THIS PACKAGE
