@@ -71,4 +71,5 @@ Highest weight first:
    (Fig. 3, r = 0.112); steggerda1968 (+0.999 from Table 1 vs "+0.86 to +0.99"); marthinsen1982 (r = +0.88,
    Table 4); hickey1972 and odonnell1984 (r values); kirk1949, steggerda1966, sorensen2014, robbins1984,
    pindzola1989, grolman2007, whisman1978 (factor 26, sigma 3.5), gibson1993.
-7. hirani2009: the scene in *3 Idiots* where the silent release is called the deadliest.
+7. ~~hirani2009: the scene in *3 Idiots* where the silent release is called the deadliest.~~ Confirmed by the author
+   (2026-11-01); sentence kept.
