@@ -69,6 +69,12 @@ All fixes below are in the manuscript, ESM and `refs/references.yaml`, with thes
 
 ## D. Full-text pass (29 papers supplied by the author, 2026-11-01)
 
+The 29 PDFs are kept locally in `refs/pdfs_incoming/<key>.pdf` (gitignored: the repository is public, so publisher
+PDFs are never committed). Keys: amoore1983, cheng2011, corsetti2017, dalton1999, deschler1999, fiorentino2023,
+gibson1993, grolman2007, herz2001, hickey1972, kirk1949, levine1998, levitt1976, liuzza2016, marthinsen1982,
+miller1988b, ng2011, odonnell1984, pindzola1989, robbins1984, ronholt1999, sangras2002, sorensen2014, steggerda1966,
+steggerda1968, suarez1997, tangerman2009, whisman1978, wilby1969.
+
 `refcheck_2026-11-01/handresult1-3.json`; 50 citing sentences: 28 supported, 20 partly, 2 not supported, none still
 unverifiable. Section C below is now settled. Findings that change or add to section A:
 
