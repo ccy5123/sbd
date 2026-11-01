@@ -1,7 +1,8 @@
 # Cover letter (draft for J. R. Soc. Interface)
 
-*Updated 2026-11-01: no preprint is posted (the engrXiv AI policy excludes AI-drafted text), so the preprint sentence
-is removed. The author signs the final letter.*
+*Draft updated 2026-10-30 with the v4 results. Square brackets mark what the author decides or writes: the preprint
+sentence (only if the engrXiv preprint is posted before submission) and the AI-use statement. The author edits and
+signs the final letter.*
 
 ---
 
@@ -44,7 +45,7 @@ collaboration with any of them.
 
 Equations and proofs are in appendices, and technical details are in the electronic supplementary material. Code and
 processed data are openly available at https://github.com/ccy5123/sbd; an archived release with a DOI (Zenodo) will
-accompany the revised manuscript. The results have not been reported in
+accompany the revised manuscript. [A preprint is posted on engrXiv (DOI ...).] The results have not been reported in
 the media. The manuscript is not under consideration elsewhere. AI-assisted technologies (Claude Code, Anthropic) were used for code, simulations,
 literature search and drafting, as declared in the manuscript.
 
