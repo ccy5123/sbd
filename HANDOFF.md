@@ -45,6 +45,14 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   table, dose table, scene weights, robustness). Words: text ~6,200 + references ~1,380 (47) = ~7,600.
   Still open: AI-use statement (author), cover letter not updated, rest of the ESM not re-read against v4, a full
   read-through.
+- **1 Nov, review pass + reference check:** reviewer notes applied (Theorem 2 proof in Appendix A; m_p, d*, Q̇0/V
+  defined; lift and trousers throughout; Si ≈ 5 explained as the Fig 3a reference release; Theorem 1 exception
+  stated in 4.3; canine n = 0.28; validation direction + Scope; Table 2 bystander rows to two decimals; Green's
+  Dictionary cited for 1970; URL fixed; missing bib titles). Abstract trimmed back to 200 words; ~7,900 words.
+  Reference double-check in `refs/reference_check_2026-11-01.md`: claim fixes (section A) and the remaining metadata
+  fixes (B) are NOT applied yet; section C is the author's hand-check list (DOIs given to the author). engrXiv not
+  used (AI policy forbids verbatim AI text); Research Square / Preprints.org allow it with a Methods statement.
+  Zip: `manuscript/preprint/jrsi_submission_2026-11-01.zip`.
 - **30 Oct, submission package:** `manuscript/preprint/jrsi_submission_2026-10-30.zip` (not versioned; rebuild from
   `submission/`): manuscript PDF, ESM PDF, cover letter PDF/txt, six figures, `SUBMISSION_INFO.txt` (all system
   fields). Suggested reviewers (user's choice, `submission/suggested_reviewers.md`): Burridge, Nastase, Diwan,

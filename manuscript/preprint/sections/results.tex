@@ -55,13 +55,15 @@ own nose & equal mass & 1.94 & 0.94--16.4 & 0.93 \\
 own nose & as emitted & 1.23 & 0.20--6.1 & 0.59 \\
 neighbour & equal mass & 1.45 & 0.97--10.3 & 0.93 \\
 neighbour & as emitted & 0.96 & 0.15--4.8 & 0.48 \\
-neighbour, denim & as emitted & 0.62 & 0.11--3.3 & 0.31 \\
+neighbour, trousers & as emitted & 0.62 & 0.11--3.3 & 0.31 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \emph{Equal mass.} At equal mass the audible release arrives pre-diluted by its own momentum
-(Eq.~\eqref{eq:silencer}), and the silent one is stronger at the neighbour in 93\% of pairs. At the just-noticeable
+(Eq.~\eqref{eq:silencer}), and the silent one is stronger at the neighbour in 93\% of pairs. This is the
+near-field exception of Section~\ref{sec:nonlinear}, not a violation of Theorem~1, which holds only once the
+release has lost its own momentum. At the just-noticeable
 ratio of 1.28, the silent release is perceptibly stronger in 59\% of pairs and indistinguishable in 39\%.
 
 \emph{As emitted.} Audible passages are larger, and at the neighbour a silent passage is stronger in 48\% of pairs:
@@ -79,7 +81,8 @@ weaker than a silent one, at the releaser's own nose (6.7\,s; $R = 1.61$ at the 
 \begin{figure}
 \includegraphics[width=\textwidth]{regime_uq_paper.png}
 \caption{The ratio in the analytic model. (a) $\log_{10} R$ at equal mass and room-air mixing
-($K = 10^{-3}$\,m$^2$\,s$^{-1}$), over the Silencer number of the audible release and the travel time to the nose. The
+($K = 10^{-3}$\,m$^2$\,s$^{-1}$), over the Silencer number of the audible release and the travel time to the nose; the silent release is a reference
+40\,mL over 2\,s through a 6-mm orifice ($\mathrm{Si}\approx5$). The
 vertical line is the acoustic onset ($\mathrm{Si} = 279$); to its left the comparison release is not audible (grey).
 The dashed contour is the just-noticeable ratio 1.28. Dotted lines mark the nominal travel times to the releaser's
 (6.7\,s) and the neighbour's (12.5\,s) nose. (b) First-order Sobol indices of $\log_{10} R$ at the neighbour, as
@@ -97,14 +100,15 @@ body takes a slow release with it, while a fast jet leaves it, and the two then 
 jet spreads along the seat to the neighbour (Figure~\ref{fig:planes}a,b). At the neighbour, the worst breath over 150\,s (volumes as emitted) is 0.07
 and 0.09 for the two silent releases and 0.16 and 16.9 for the audible ones; reclining or leaning forward moves the
 silent values to 0.12--0.95, still below the trained-panel threshold. The dose rises with the ratio of the release's
-momentum flux to that of the boundary layer it enters, $\Pi = M_0/m_\mathrm{p}$: a release must break out of the
+momentum flux to that of the boundary layer it enters, $\Pi = M_0/m_\mathrm{p}$, where $m_\mathrm{p}$ is the
+upward momentum flux of the boundary layer 15\,cm above the release point: a release must break out of the
 boundary layer to reach a neighbour (Figure~\ref{fig:routing}a).
 
 \emph{Standing pair.} Face to face and bare, the neighbour stays below OAV 0.2 for every release, in still air and
 with ventilation, whatever $\Pi$: the body plumes carry both clouds upwards between the two people. Momentum is therefore
 not the only variable; the arrangement of the bodies is the second.
 
-\emph{Elevator.} In a closed car with a person behind the releaser, the silent release rises in the 0.2\,m gap into
+\emph{Lift.} In a closed car with a person behind the releaser, the silent release rises in the 0.2\,m gap into
 that person's breathing zone (Figure~\ref{fig:planes}c): worst breath 260 for the median silent release, against 36 for the strongest audible
 one. Every nose in the car passes OAV 1.
 
@@ -136,25 +140,26 @@ two audible levels); filled symbols bare, open symbols trousers.}
 Table~\ref{tab:headline} gives the four outcomes for passages as emitted, weighted by how often people are in each
 setting. For a bystander, nothing is smelled in 93\% of pairs (attentive) or 98\% (distracted). When something is,
 the audible passage is worse about 13 times as often as the silent one: 6.9\% against 0.5\% for an attentive
-bystander. The releaser smells more and still finds the audible passage worse four times as often. The elevator is
+bystander. The releaser smells more and still finds the audible passage worse four times as often. The lift is
 the exception: with a person behind the releaser, the silent passage is worse in 22\% of pairs and the audible one
 in 20\%. It weighs little because people spend minutes a day in shared lifts, against hours on a sofa.
 
 \begin{table}
 \caption{Four outcomes for one silent and one audible passage as emitted (bare, weighted by time spent in each
-setting; \%). Remembered: the same outcomes among pairs whose silent passage was smelled (Theorem~3).}
+setting; \%). Remembered: the same outcomes among pairs whose silent passage was smelled (Theorem~3). Bystander
+shares are given to two decimals; ratios quoted in the text use the unrounded shares.}
 \label{tab:headline}
 \begin{tabular}{llcccc}
 \toprule
 nose & observer & none & silent worse & audible worse & tie \\
 \midrule
-bystander & attentive & 92.6 & 0.5 & 6.9 & 0.0 \\
+bystander & attentive & 92.62 & 0.51 & 6.86 & 0.01 \\
  & \quad remembered & -- & 88.4 & 9.5 & 2.0 \\
-bystander & distracted & 98.4 & 0.1 & 1.5 & 0.0 \\
+bystander & distracted & 98.40 & 0.15 & 1.45 & 0.00 \\
  & \quad remembered & -- & 97.4 & 2.1 & 0.4 \\
 releaser & attentive & 77.4 & 4.6 & 17.9 & 0.1 \\
 releaser & distracted & 95.1 & 1.1 & 3.8 & 0.0 \\
-elevator bystanders & attentive & 55.7 & 22.3 & 20.4 & 1.5 \\
+lift bystanders & attentive & 55.7 & 22.3 & 20.4 & 1.5 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -183,7 +188,8 @@ model.
 \label{sec:res-memory}
 A bystander remembers a silent passage only if it was smelled. Among remembered pairs, the silent passage seems
 worse in 88\% (attentive) and 97\% (distracted) of comparisons (Table~\ref{tab:headline}), while over all pairs it is
-worse in 0.5 and 0.1\%. Among pairs where anything is smelled the truth is 6.9 and 9.1\%. The remembered share is not
+worse in 0.5 and 0.15\%. Among pairs where anything is smelled the truth is 6.9 and 9.1\% (0.51 of 7.38\% and
+0.146 of 1.60\%). The remembered share is not
 fixed by definition: it falls as more passages are smelled and meets the truth, 29\%, when every passage is smelled
 (Figure~\ref{fig:memory}). The releaser, who notices every release, shows no selection: memory equals the physical
 shares, 19--24\% among pairs where anything is smelled, at any detection rate.

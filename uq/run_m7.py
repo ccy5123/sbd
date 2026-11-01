@@ -126,7 +126,7 @@ LAYERS = (("P_silent_perceptibly_worse", "Silent perceptibly stronger", 0.85),
           ("P_audible_perceptibly_worse", "Silent perceptibly weaker", 0.15))  # CMAP_DIV position: sign of log10 R
 HEAD_NAMES = (("nb_conc", "Neighbour, as emitted"), ("nb_mass", "Neighbour, equal mass"),
               ("own_conc", "Own nose, as emitted"), ("own_mass", "Own nose, equal mass"),
-              ("nb_conc_denim", "Neighbour, as emitted, denim"))
+              ("nb_conc_denim", "Neighbour, as emitted, trousers"))
 
 
 def figure(rm, sob, heads):
@@ -161,7 +161,7 @@ def figure(rm, sob, heads):
     x0 = rm["Si"].min() * 1.15
     allow_overlap(ax.text(x0, 50.0, "Comparison release\nnot audible", va="top"))
     allow_overlap(ax.text(rm["Si_onset"] * 0.93, 0.62, "Acoustic\nonset", ha="right", va="bottom"))
-    for t_nom, lab in ((P0["L_own"] / P0["u_own_eff"], "Releaser's nose (nominal)"),
+    for t_nom, lab in ((P0["L_own"] / P0["u_own_eff"], "Releaser (nominal)"),
                        (P0["L_neighbour"] / P0["u_room"], "Neighbour (nominal)")):
         allow_overlap(ax.text(x0, t_nom * 1.08, lab, va="bottom"))
     seg = max((p for lv, segs in zip(cs.levels, cs.allsegs) if lv > 0 for p in segs), key=len, default=None)

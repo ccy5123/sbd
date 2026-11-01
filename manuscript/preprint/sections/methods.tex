@@ -61,7 +61,7 @@ model, the Boussinesq approximation for buoyancy and the energy equation in inte
 \begin{itemize}
   \item a sofa: two seated people 0.6\,m apart in a 3.2 $\times$ 3.2 $\times$ 2.6\,m living room, with the releaser
   upright, reclined by 4.5\,\textdegree\ or leaning forward by 10\,\textdegree;
-  \item an elevator: four standing people in a closed 1.4 $\times$ 1.1 $\times$ 2.1\,m car, fan off, with the releaser
+  \item a lift: four standing people in a closed 1.4 $\times$ 1.1 $\times$ 2.1\,m car, fan off, with the releaser
   in the front row and a person behind;
   \item a standing pair: two people face to face, noses 1.0\,m apart, in the same living room, in still air and with
   office ceiling ventilation at 2.9 air changes per hour (EN 16798-1 Category II \cite{olesen2024}).
@@ -72,16 +72,17 @@ thighs, 2\,cm from the skin, with the air permeability of denim and open at the 
 \emph{Releases.} Each room first runs 90\,s without a release, until the body plumes have developed. Four
 representative passages are then released behind the releaser's buttocks, 30\,s apart, each carried by its own
 passive scalar so that their doses can be read separately: the median and 90th percentile of the exit momentum flux
-$M_0 = Q_0u_0$ within each class of the source model (silent: 122\,mL over 4.8\,s at $u_0 = 3.5$\,m\,s$^{-1}$, and
+$M_0 = \dot Q_0u_0$ (volume flow rate $\dot Q_0 = V/T$) within each class of the source model (silent: 122\,mL over 4.8\,s at $u_0 = 3.5$\,m\,s$^{-1}$, and
 66\,mL at 22\,m\,s$^{-1}$; audible: 86\,mL at 94\,m\,s$^{-1}$, and 279\,mL at 162\,m\,s$^{-1}$). Each enters as an
 inlet that carries the release's momentum and odorant flux, with its buoyancy as an equivalent temperature excess,
-and is followed for 150\,s. Later exposure is taken from the well-mixed room level (Theorem~2), which predicts 0.67--1.00 times
-the 600-s worst breath of two coupled 10-minute runs. The odorant is sampled 2.5\,cm in front
+and is followed for 150\,s. Exposure after 150\,s is taken from the well-mixed room level (Theorem~2). In two
+10-minute runs of the sofa (one silent and one audible 92-mL release), this level is 0.67--1.00 times the worst
+breath found over the full 600\,s. The odorant is sampled 2.5\,cm in front
 of each nose over sinusoidal breathing cycles.
 
 \emph{Peak factor.} RANS gives the ensemble-mean concentration, while a nose meets filaments. Large-eddy simulations
-(WALE subgrid model) of the upright sofa, bare and in trousers, repeat the releases six times (the medians twice) and
-give the ratio of the large-eddy to the RANS worst breath for each release and nose.
+(WALE subgrid model) of the upright sofa, bare and in trousers, release the four representative passages once each
+and the two medians a second time, and give the ratio of the large-eddy to the RANS worst breath for each release and nose.
 
 \emph{Validation} (Section~\ref{SI-sec:si-validation}). A free round jet reproduces the canonical decay constants
 within a grid uncertainty of 3.7\%. The
@@ -92,14 +93,19 @@ settings give a breathing-zone intake fraction of 8.1, 9.1 and 11.0 per mille ov
 source is set by the supply diffusers, the lighting load and the temperature of the aerosol stream, none of which is
 reported, and every scene here contains heated occupants, so we compare the heated case only. Refining the sofa mesh
 by 1.5 in every direction (0.72 to 2.2 million cells) changes the median silent dose by a factor 0.55 at the
-neighbour and 3.0 at the releaser's own nose.
+neighbour and 3.0 at the releaser's own nose. A boundary layer that is too fast raises its momentum flux
+$m_\mathrm{p}$, lowers $\Pi = M_0/m_\mathrm{p}$ (Section~\ref{sec:res-rooms}) and so lets it capture slow releases
+too readily; the simulations may therefore understate silent doses at the neighbour. Reversing the order of the
+headline would take a silent-only factor of about 14 (Section~\ref{sec:res-headline}), against the factors of 1.5
+(intake fraction) and 3.0 (mesh) found here.
 
 \subsection{Perception and observers}
 \label{sec:perception}
 The nose samples only during inhalation: sinusoidal flow at 12 breaths per minute, inspiratory fraction 0.42
 \cite{wysocki2006}. Perceived intensity follows Stevens' power law, $I \propto \mathrm{OAV}^n$, with $n = 0.28$
-measured for flatus \ce{H2S} \cite{collins2001}. Two passages are distinguishable when their concentrations differ by
-more than the olfactory Weber fraction of 0.28 \cite{stone1965}, i.e.\ a just-noticeable ratio of 1.28.
+measured for the \ce{H2S} of flatus (canine flatus, one human judge) \cite{collins2001}. Two passages are
+distinguishable when their concentrations differ by more than the olfactory Weber fraction of 0.28
+\cite{stone1965} (coincidentally equal to $n$), i.e.\ a just-noticeable ratio of 1.28.
 
 The OAVs of the dispersion model use trained-panel thresholds \cite{nagata2003}. For untrained observers:
 \begin{itemize}
@@ -110,6 +116,8 @@ The OAVs of the dispersion model use trained-panel thresholds \cite{nagata2003}.
   \item a bystander who is not expecting an odour needs 26 times the threshold for a 50\% response, with
   $\sigma = 3.5$ binary steps \cite{amoore1983,whisman1978}.
 \end{itemize}
+With the population thresholds, the attentive bystander's 50\% point lies at a trained-panel OAV of 20, and the
+distracted bystander's at $20\times26 = 520$.
 Distraction reduces noticing \cite{forster2018} but not the peak rated intensity \cite{fallon2018}, so intensity is
 computed from the attentive OAV. Two variants follow: clothing removes 22\% of the sulfide gas \cite{ohge2005}, and a
 sound can make a distracted bystander attentive for that passage.
@@ -131,5 +139,5 @@ audible passage then fall into four outcomes: neither smelled; silent worse (onl
 the silent one above the just-noticeable ratio); audible worse (the reverse); and a tie. A bystander remembers a
 silent passage only if smelled (Theorem~3), so the remembered shares are the same outcomes among pairs whose silent
 passage was smelled. Scenes are weighted by the time an adult spends close to another person in each setting
-(sofa 0.73, elevator 0.005, standing 0.26; Section~\ref{SI-sec:si-weights}), with home- and office-centred days as
+(sofa 0.73, lift 0.005, standing 0.26; Section~\ref{SI-sec:si-weights}), with home- and office-centred days as
 bounds. In the clothed variants each passage is in trousers with probability 0.7 or 0.85, independently.

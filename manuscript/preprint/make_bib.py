@@ -71,7 +71,7 @@ def entry(key: str, r: dict) -> str:
     for src, dst in (("title", "title"), ("journal", "journal"), ("year", "year"), ("volume", "volume"),
                      ("issue", "number"), ("publisher", "publisher"), ("edition", "edition"),
                      ("booktitle", "booktitle"), ("report", "number"), ("howpublished", "howpublished"),
-                     ("doi", "doi")):
+                     ("doi", "doi"), ("url", "url")):
         if r.get(src) not in (None, "", "None"):
             f[dst] = str(r[src])
     if r.get("pages"):
@@ -82,7 +82,7 @@ def entry(key: str, r: dict) -> str:
         f["institution"] = r.get("publisher", r.get("organization", "n.a."))
     if "title" in f:  # keep the capitalisation of the source; styles such as unsrtnat lowercase titles otherwise
         f["title"] = "{" + f["title"] + "}"
-    body = ",\n".join(f"  {k} = {{{ascii_tex(v.translate(SPECIAL)) if k != 'doi' else v}}}" for k, v in f.items())
+    body = ",\n".join(f"  {k} = {{{ascii_tex(v.translate(SPECIAL)) if k not in ('doi', 'url') else v}}}" for k, v in f.items())
     return f"@{kind}{{{key},\n{body}\n}}\n"
 
 
