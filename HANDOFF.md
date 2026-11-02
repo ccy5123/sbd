@@ -63,6 +63,12 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   `tar -C postProcessing -xJf postProcessing/isoSurfaces.tar.xz`. Stage 3 after acceptance: delete the runs except
   `*_pre`, after diffing the uncommitted `run_multi_v*.sh` / `make_case.py` in the `sbd-v4` clone against the repo.
   `sbd-v4/cfd/runs/zt` (182 MB, unknown) left alone.
+- **2 Nov, local runs moved to the server:** the PC-only runs (bare LES `sofa_v4_multi_les`, `stand_still_tr_v4_multi`
+  -> server `sbd-v4/cfd/runs`; A5 `sofa_v4_S50_multi`, `licina2017_unheated` -> `sbd-main/cfd/runs`) shrunk the same
+  way and unpacked there (md5-checked). Kept packed in `research/sbd-archive/local_pc/`: the PC's partial
+  `elev_v4_FL_multi` (0-61 s), its `elev_v4_pre`, `sofa_v4_pre`, `stand_still_tr_v4_pre`, licina heated monitors,
+  and `/root/plume`, `/root/a5test`, `/root/jetval`. Second copy of all 12 tars on the PC: `D:\sbd_transfer`.
+  The sbd-openfoam13 distro now holds only `/root/sbd` scripts and logs (2.4 GB used); its vhdx is not compacted yet.
 - **30 Oct, submission package:** `manuscript/preprint/jrsi_submission_2026-10-30.zip` (not versioned; rebuild from
   `submission/`): manuscript PDF, ESM PDF, cover letter PDF/txt, six figures, `SUBMISSION_INFO.txt` (all system
   fields). Suggested reviewers (user's choice, `submission/suggested_reviewers.md`): Burridge, Nastase, Diwan,
