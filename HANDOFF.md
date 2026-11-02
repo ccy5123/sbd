@@ -68,7 +68,9 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   way and unpacked there (md5-checked). Kept packed in `research/sbd-archive/local_pc/`: the PC's partial
   `elev_v4_FL_multi` (0-61 s), its `elev_v4_pre`, `sofa_v4_pre`, `stand_still_tr_v4_pre`, licina heated monitors,
   and `/root/plume`, `/root/a5test`, `/root/jetval`. Second copy of all 12 tars on the PC: `D:\sbd_transfer`.
-  The sbd-openfoam13 distro now holds only `/root/sbd` scripts and logs (2.4 GB used); its vhdx is not compacted yet.
+  The sbd-openfoam13 distro now holds only `/root/sbd` scripts and logs; shrunk by export, unregister and re-import
+  in place (vhdx 29.3 -> 2.5 GB; default user root; export kept at `D:\sbd_transfer\sbd-openfoam13_export.tar`).
+  Ubuntu was left running (other projects active), so no `wsl --shutdown`.
 - **30 Oct, submission package:** `manuscript/preprint/jrsi_submission_2026-10-30.zip` (not versioned; rebuild from
   `submission/`): manuscript PDF, ESM PDF, cover letter PDF/txt, six figures, `SUBMISSION_INFO.txt` (all system
   fields). Suggested reviewers (user's choice, `submission/suggested_reviewers.md`): Burridge, Nastase, Diwan,
