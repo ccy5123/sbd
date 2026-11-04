@@ -27,7 +27,8 @@ Funding:      No funding has been received for this article.
 Journal status (if asked): Submitted to Journal of the Royal Society Interface (not yet peer reviewed).
 
 AFTER POSTING
-Send the DOI (10.31224/...) back; it goes into the cover letter, the ScholarOne preprint field and the zip.
+Posted 2026-11-04: https://doi.org/10.31224/8708. In the cover letter and SUBMISSION_INFO.txt (ScholarOne
+preprint field).
 
 ABSTRACT (plain text)
 The belief that a silent passage of flatus smells worse than an audible one appears in many languages but is untested.

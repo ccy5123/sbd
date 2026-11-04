@@ -3,8 +3,8 @@ ScholarOne: https://mc.manuscriptcentral.com/jrsi
 =====================================================================
 
 BEFORE YOU SUBMIT (author)
-- Preprint: after posting on engrXiv, put its DOI in the cover letter (the bracketed sentence) and in the system's
-  preprint field, then rebuild cover_letter.pdf and this zip.
+- Preprint: posted on engrXiv 2026-11-04, https://doi.org/10.31224/8708 (CC BY 4.0). The cover letter already
+  gives it; enter the DOI in the system's preprint field.
 - Your ScholarOne account must have your ORCID linked (required for the submitting author).
 
 FILES IN THIS PACKAGE
@@ -54,6 +54,7 @@ Suggested reviewers (author's choice 2026-10-30; details and sources in suggeste
   Email sources: Nastase from her CV on the UTCB site (sd.utcb.ro); Oleszkiewicz from her affiliation line in
   Psychol. Res. 2025 (doi:10.1007/s00426-025-02127-y); Alves from an RUB job advert; others from staff pages.
 Opposed reviewers: none.
+Preprint:          Yes, engrXiv, doi:10.31224/8708 (https://doi.org/10.31224/8708), posted 2026-11-04.
 ESM file title:    Electronic supplementary material
 ESM caption:       Supplementary text, figures and tables: odorant chemistry, acoustics, CFD validation and
                    scene set-up, scene doses, scene weights, robustness of the headline, breath sampling, origin

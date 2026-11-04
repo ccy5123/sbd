@@ -3,6 +3,9 @@
 A fluid-dynamical, perceptual and cross-cultural test of the folk belief that *the less audible a fart, the
 worse it smells* ("silent but deadly", the "Silencer conjecture").
 
+Preprint: C. Y. Joe, *Silent but deadly? Physics says seldom, memory says mostly*, engrXiv (2026),
+[doi:10.31224/8708](https://doi.org/10.31224/8708).
+
 Deadpan rigour: the physics, units, validation and statistics are serious; the humour lives in the scenarios.
 
 - `PLAN.md` — research & simulation plan (v3), the governing document

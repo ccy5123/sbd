@@ -5,6 +5,13 @@ first; no PR watching). Commit on `main` only: `git -c user.name="Chan Young Joe
 commit`, trailer `Co-Authored-By: Claude <noreply@anthropic.com>`, no model identifiers. Server and local-PC work
 needs a **local** session (Remote Control cannot start new sessions; the desktop app can).
 
+## 5 Nov: preprint posted
+
+- **engrXiv, posted 4 Nov 2026:** https://doi.org/10.31224/8708 (CC BY 4.0; title and abstract as in main.tex). Filled
+  into the cover letter (tex, PDF, txt), `submission/SUBMISSION_INFO.txt` (new "Preprint" system field) and
+  `submission/engrxiv/ENGRXIV.txt`; README links it. New zip `manuscript/preprint/jrsi_submission_2026-11-05.zip`
+  (not versioned). Left for the author: the ScholarOne preprint field, then submit.
+
 ## Progress 2026-10-29 (session after the brief below)
 
 - **Elevator done** (server, 07:47 KST, 240.2 s); analysed: `cfd/results_v4/elev_v4_FL_multi.json`, probes
@@ -50,8 +57,8 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   stated in 4.3; canine n = 0.28; validation direction + Scope; Table 2 bystander rows to two decimals; Green's
   Dictionary cited for 1970; URL fixed; missing bib titles). Abstract trimmed back to 200 words; ~7,900 words.
   Reference double-check in `refs/reference_check_2026-11-01.md`: claim fixes (section A) and the remaining metadata
-  fixes (B) are NOT applied yet; section C is the author's hand-check list (DOIs given to the author). engrXiv not
-  used (AI policy forbids verbatim AI text); Research Square / Preprints.org allow it with a Methods statement.
+  fixes (B) are NOT applied yet; section C is the author's hand-check list (DOIs given to the author). (engrXiv was
+  then judged against its AI policy, but the author posted there on 4 Nov; see the 5 Nov entry.)
   Zip: `manuscript/preprint/jrsi_submission_2026-11-01.zip`.
 - **1 Nov, server cleanup stages 1-2 (user's go):** sbd footprint 88 -> 20 GB (disk 565 GB free). Deleted: the old
   clone `research/sbd` (its noses and logs in `research/sbd-archive/sbd_old_clone_noses_logs.tar.xz`), processor*
@@ -74,8 +81,8 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
 - **30 Oct, submission package:** `manuscript/preprint/jrsi_submission_2026-10-30.zip` (not versioned; rebuild from
   `submission/`): manuscript PDF, ESM PDF, cover letter PDF/txt, six figures, `SUBMISSION_INFO.txt` (all system
   fields). Suggested reviewers (user's choice, `submission/suggested_reviewers.md`): Burridge, Nastase, Diwan,
-  Oleszkiewicz, Alves; none opposed; the cover letter gives the reason. Still the author's: AI-use statement and the
-  preprint sentence; rebuild PDFs and the zip after writing them.
+  Oleszkiewicz, Alves; none opposed; the cover letter gives the reason. Preprint sentence filled 5 Nov (zip
+  `jrsi_submission_2026-11-05.zip`).
 - **30 Oct, figures done (user: replace Figure 6, restyle every old figure):** all 11 manuscript/ESM figures are now
   FIGSTYLE v1.2 `*_paper` files in `figures/`, each passing the overlap check and a visual review. Figure 6 =
   `clouds_routing_paper` (path-traced v4 clouds via `manuscript/preprint/render_fig6.py` + `compose_fig6.py`, ParaView
