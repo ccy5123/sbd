@@ -6,7 +6,7 @@
 
 Dear Editor,
 
-Please consider the manuscript "Silent but deadly? Physics says seldom, memory says mostly" for publication as a
+Please consider the manuscript "Silent but deadly? Physics says it depends, memory says mostly" for publication as a
 Regular Article in *The European Physical Journal Plus*.
 
 The belief that a silent release of flatus smells worse than an audible one is recorded in many languages, yet no
@@ -24,16 +24,18 @@ Three results reach beyond the topic.
    peak concentration while both are carried passively by the same flow, whatever that flow is. A slower release can
    win only near the source: through less pre-dilution, by at most the jet-to-ambient velocity ratio, or by being
    carried to a different nose.
-3. **Selection across two senses.** With passages as emitted and driving pressures within the measured physiological
-   range, a bystander on a sofa, where people spend most of their shared time, finds the silent passage worse in 0.5%
-   of pairs and the audible one in 4.1%; only in a closed lift, for the person behind the releaser, is the silent one
-   worse as often. Yet because a silent passage is noticed only if it is smelled, a remembered silent passage seems
-   the worse one in 91% of comparisons. When an event can be noticed through either of two senses, selection on
-   noticing alone can create a false sensory belief, with testable predictions.
+3. **Selection across two senses.** Comparing intensity when both passages are smelled, at driving pressures within
+   the measured physiological range, the answer depends on where the noses are: on a sofa the audible passage is the
+   stronger twice as often as the silent one, while in a closed lift the person standing behind the releaser finds the
+   silent one stronger (55 against 33% of pairs). Yet because a silent passage is noticed only if it is smelled, a
+   remembered silent passage seems the worse one in 91% of comparisons. When an event can be noticed through either of
+   two senses, selection on noticing alone can create a sensory belief stronger than the physics supports, with
+   testable predictions.
 
 The work is applied fluid physics with an interdisciplinary reach into acoustics, sensory science and cognition, the
 kind of topic *EPJ Plus* welcomes. The outcomes are reported per setting and checked against the scene weights, the
-observer models, large-eddy peak factors, mesh refinement, clothing and the driving-pressure limit.
+observer models, large-eddy peak factors, mesh refinement, release order, clothing and the driving-pressure limit; the
+online resource reports where the sofa comparison reverses.
 
 Suggested reviewers, with no collaboration with any of them: H. C. Burridge (indoor plume and ventilation modelling,
 h.burridge@imperial.ac.uk), I. Năstase (human thermal plume and CFD validation, ilinca.nastase@utcb.ro), D. Licina

@@ -22,7 +22,7 @@
 \renewcommand{\bibnumfmt}[1]{[S#1]}
 \renewcommand{\citenumfont}[1]{S#1}
 
-\title{Online Resource 1 for\\ ``Silent but deadly? Physics says seldom, memory says mostly''\\[4pt]
+\title{Online Resource 1 for\\ ``Silent but deadly? Physics says it depends, memory says mostly''\\[4pt]
   \large The European Physical Journal Plus}
 \author{Chan Young Joe\\[2pt] \small Independent Researcher, Incheon, Republic of Korea\\
   \small Corresponding author: \texttt{ccy5123ccy@gmail.com}}
@@ -373,62 +373,71 @@ postures and ventilation variants count equally.
 
 \section{Robustness of the headline}
 \label{sec:si-robust}
-Bystanders, bare, frequency-weighted, with the 88-mmHg driving-pressure limit; silent worse / audible worse (\%),
-attentive observer unless stated.
-\begin{itemize}
-  \item \emph{Driving-pressure limit} (Section~3.1 of the main text): without it 0.51 / 6.9 (sofa 0.52 / 9.2, lift
-  22.3 / 20.4, equal per scene 7.6 / 9.9, remembered 88.4\%). Other limits, by slowing the passage (or by discarding
-  it): 72\,mmHg, the upper end of intrarectal pressure in simulated defecation \cite{lee2016}, 0.52 / 2.8 (0.53 / 2.1);
-  108 and 171\,mmHg, the peak intra-abdominal pressures of a cough and a jump \cite{cobb2005}, 0.52 / 3.4 and 0.52 /
-  4.3 (0.53 / 2.5 and 0.53 / 3.1). No passage changes class: the limit is far above the valve onset.
-  \item \emph{Scene weights:} central 0.5 / 3.1; home 0.5 / 3.7; office 1.1 / 2.2; equal per scene 7.4 / 8.4.
-  Remembered silent worse 91.1, 95.7, 79.8 and 77.2\%.
-  \item \emph{Psychometric tail:} slope 1--4 binary steps (attentive) or 2--5 (distracted), logistic tail, zero
-  detection below the trained-panel threshold, or deterministic detection at it: audible-to-silent ratio 2.7--7.4
-  (0.70--16 with the home and office bounds); remembered silent worse 70--99\%.
-  \item \emph{Peak factor} (large-eddy over RANS worst breath, 60\,s, releases with RANS OAV $\ge 0.01$): silent 2.2
-  (1.0--6.6, $n = 6$), audible 1.3 (0.27--64, $n = 12$); applied by class 1.2 / 3.9. Two realisations of the same
-  release differ by up to a factor of 20, so the factor is a distribution. The smallest silent-only factor that
-  reverses the day-average order is 5.4 (office-centred days 2.5; the sofa alone 6.0). A uniform factor reverses it
-  only on office-centred days, at about 8\,400. The adverse pairing (6.6 silent, 0.27 audible) gives 3.7 / 0.72, with
-  99\% remembered silent worse.
-  \item \emph{Mesh:} silent doses $\times 0.55$ give 0.26 / 3.1, $\times 3.0$ give 1.7 / 3.0.
-  \item \emph{Dose between the representative releases} (log-linear in $M_0$ in the headline): the nearest level
-  0.6 / 3.3; the level below 0.4 / 1.8; the adverse bracket, in which a silent passage takes the larger and an audible
-  passage the smaller of its class's two doses, 0.9 / 1.7 (sofa 0.98 / 2.3). About two-thirds of the audible passages
-  lie below the lower audible level and are held at it under every rule.
-  \item \emph{Just-noticeable ratio} 1.15 or 1.45 instead of 1.28: 0.5 / 3.1 in both. The Stevens exponent does not
-  enter the outcomes: intensity rises monotonically with OAV, and the tie test is on the concentration ratio.
-  \item \emph{Combined} (Table~\ref{tab:combined}): the mesh factor of the releaser's nose (3.0, on every silent dose;
-  at the neighbour it was 0.55) times the class peak factors. On the sofa a silent-only factor of 6.0 (7.9 with the
-  audible peak factor 1.3) reverses the order.
-\end{itemize}
+The headline compares intensity: among pairs of one silent and one audible passage that a bystander both smells, the
+share in which the silent one is stronger (above the just-noticeable ratio) and the share in which the audible one is.
+Bystanders, bare, attentive observer, with the 88-mmHg driving-pressure limit; Table~\ref{tab:combined} gives silent
+stronger / audible stronger (\%), the rest being ties. The pairs in which both are smelled are rare on the sofa
+($3.3\times10^{-4}$ of pairs, still about 900 silent and 650 audible passages in effect) and common for the person
+behind the releaser in the lift (0.39), so a day average follows the lift unless the sofa's share of such pairs grows.
+Scripts: \texttt{uq/comparison\_criteria.py} and \texttt{uq/intensity\_robustness.py}.
 
 \begin{table}
-\caption{Combined adverse factors (silent / audible multipliers on the OAV): bystanders, bare, attentive, with the
-driving-pressure limit; silent worse / audible worse (\%) per setting and for three weightings: day average (central
-weights), office-centred day and equal weights per setting.}
+\caption{Silent stronger / audible stronger (\%) among pairs in which a bystander smells both, per setting and for
+the day weightings (day: central weights; home- and office-centred days; equal weights per setting). Peak factors
+are the large-eddy over RANS worst breath, by class (median 2.2 silent and 1.3 audible; adverse 6.6 and 0.27); mesh
+is the refinement factor 3.0 of the releaser's nose on every silent dose; release order is the factor 2.4 by which a
+silent release alone exceeds its dose inside a multi-release run.}
 \label{tab:combined}
 \small
-\setlength{\tabcolsep}{4pt}
+\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{lcccccc}
 \toprule
-factors & sofa & standing & lift & day & office day & equal \\
+variant & sofa & lift & day & home day & office day & equal \\
 \midrule
-none (RANS mean) & 0.55 / 4.1 & 0.04 / 0.00 & 22 / 21 & 0.5 / 3.1 & 1.1 / 2.2 & 7.4 / 8.4 \\
-mesh (3.0 / 1) & 2.0 / 4.0 & 0.26 / 0.00 & 36 / 15 & 1.7 / 3.0 & 2.3 / 2.0 & 12.7 / 6.5 \\
-peak factor, median (2.2 / 1.3) & 1.4 / 5.2 & 0.16 / 0.01 & 30 / 21 & 1.2 / 3.9 & 1.8 / 2.6 & 10.5 / 8.6 \\
-peak factor, adverse (6.6 / 0.27) & 4.4 / 0.95 & 0.77 / 0.00 & 51 / 3.4 & 3.7 / 0.72 & 4.1 / 0.46 & 18.8 / 1.4 \\
-mesh $\times$ median (6.6 / 1.3) & 4.3 / 5.1 & 0.77 / 0.01 & 47 / 14 & 3.6 / 3.8 & 3.9 / 2.3 & 17.2 / 6.4 \\
-mesh $\times$ adverse (19.8 / 0.27) & 10.9 / 0.89 & 2.8 / 0.00 & 67 / 1.9 & 9.1 / 0.66 & 8.2 / 0.37 & 27.0 / 0.91 \\
+headline & 30 / 59 & 54 / 35 & 48 / 41 & 32 / 57 & 53 / 35 & 54 / 35 \\
+mesh & 42 / 46 & 71 / 20 & 58 / 32 & 44 / 45 & 70 / 21 & 71 / 20 \\
+peak factors, median & 36 / 52 & 62 / 28 & 51 / 38 & 37 / 51 & 61 / 29 & 62 / 28 \\
+peak factors, adverse & 65 / 26 & 93 / 4 & 81 / 13 & 66 / 25 & 92 / 5 & 93 / 4 \\
+mesh $\times$ median peak factors & 49 / 40 & 77 / 15 & 59 / 31 & 49 / 39 & 75 / 17 & 77 / 15 \\
+release order & 40 / 48 & 68 / 22 & 56 / 33 & 41 / 47 & 67 / 23 & 68 / 23 \\
+release order $\times$ median peak factors & 46 / 42 & 75 / 17 & 58 / 32 & 47 / 42 & 72 / 19 & 74 / 17 \\
+dose rule: nearest level & 30 / 60 & 53 / 35 & 46 / 42 & 31 / 58 & 53 / 36 & 53 / 35 \\
+dose rule: level below & 44 / 43 & 57 / 32 & 56 / 33 & 47 / 41 & 57 / 32 & 57 / 32 \\
+dose rule: adverse bracket & 42 / 44 & 63 / 26 & 57 / 32 & 44 / 43 & 63 / 27 & 63 / 26 \\
+just-noticeable ratio 1.15 & 32 / 62 & 56 / 37 & 50 / 43 & 34 / 59 & 56 / 38 & 56 / 37 \\
+just-noticeable ratio 1.45 & 27 / 56 & 51 / 32 & 45 / 38 & 29 / 54 & 50 / 32 & 51 / 32 \\
+detection spread 1 binary step & 31 / 53 & 53 / 34 & 52 / 34 & 41 / 44 & 53 / 34 & 53 / 34 \\
+detection spread 3 binary steps & 27 / 64 & 52 / 37 & 36 / 54 & 27 / 63 & 50 / 39 & 52 / 37 \\
+detection spread 4 binary steps & 24 / 68 & 50 / 39 & 29 / 63 & 24 / 68 & 45 / 46 & 49 / 40 \\
+logistic tail & 27 / 63 & 54 / 35 & 47 / 42 & 30 / 60 & 53 / 35 & 53 / 35 \\
+no detection below OAV 1 & 31 / 56 & 54 / 35 & 49 / 39 & 33 / 54 & 53 / 35 & 54 / 35 \\
+deterministic at the trained-panel threshold & 30 / 49 & 45 / 43 & 32 / 48 & 30 / 49 & 41 / 45 & 44 / 44 \\
+no driving-pressure limit & 18 / 74 & 57 / 32 & 41 / 48 & 20 / 72 & 55 / 33 & 57 / 32 \\
+limit 72\,mmHg & 31 / 57 & 53 / 35 & 48 / 40 & 33 / 55 & 53 / 35 & 53 / 35 \\
+limit 108\,mmHg & 28 / 61 & 54 / 34 & 47 / 41 & 30 / 59 & 54 / 35 & 54 / 34 \\
+limit 171\,mmHg & 24 / 65 & 55 / 33 & 46 / 43 & 27 / 63 & 54 / 34 & 55 / 33 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{itemize}
-  \item \emph{Clothing:} 70\% of passages clothed 0.06 / 4.8; 85\% 0.06 / 5.5; all 0.06 / 6.3 (sofa upright and
-  standing only).
-  \item \emph{Releaser:} 4.7 / 15.8 (no selection: memory equals physics).
+  \item \emph{Lift by nose:} the person directly behind the releaser 55 / 33 (both smelled in 39\% of pairs); beside
+  31 / 56 and diagonally behind 33 / 55 (0.5 and 2.6\%). The lift column is carried by the person behind.
+  \item \emph{Driving-pressure limit} (Section~3.1 of the main text): limits slow the passage at fixed volume and
+  orifice; 72\,mmHg is the upper end of intrarectal pressure in simulated defecation \cite{lee2016}, 108 and
+  171\,mmHg the peak intra-abdominal pressures of a cough and a jump \cite{cobb2005}. Discarding the passages above
+  the limit instead of slowing them gives sofa 35 / 53, 33 / 55, 33 / 56 and 29 / 60 at 72, 88, 108 and 171\,mmHg.
+  No passage changes class: the limit is far above the valve onset.
+  \item \emph{Clothing:} trousers runs exist for the upright sofa and the standing pair only. On those scenes the
+  audible passage is stronger in 91\% of doubly smelled pairs with all passages clothed (90\% with 70 or 85\%
+  clothed), against 80\% bare.
+  \item \emph{Distracted observer:} day 51 / 38; the spread of 5 binary steps reverses it (33 / 59).
+  \item \emph{Releaser:} day 44 / 45 (sofa 50 / 39, lift 39 / 48, standing 18 / 72); no selection, so memory equals
+  this comparison.
+  \item \emph{Detection and intensity combined} (the four outcomes of earlier versions, an unsmelled passage counting
+  as the weaker): silent worse / audible worse 0.55 / 4.1 on the sofa, 21.6 / 21.1 in the lift and 0.52 / 3.1 for the
+  day; without the driving-pressure limit 0.52 / 9.2 on the sofa. These shares mostly record which passage is smelled
+  at all.
 \end{itemize}
 
 \section{Breath sampling}

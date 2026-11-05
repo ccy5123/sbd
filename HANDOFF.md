@@ -87,6 +87,30 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
 - **Open:** `submission/SUBMISSION_INFO.txt` still describes the JRSI package and must be rewritten for EPJ Plus;
   graphical abstract; optional Zenodo DOI; engrXiv v2 (the preprint predates the cap); push.
 
+## 5 Nov (evening): headline criterion changed to intensity when smelled; title "Physics says it depends"
+
+- **Why:** an independent audit (no context, read-only) found the conclusions overstated, and the old score (four
+  outcomes, an unsmelled passage counting as deadliness zero) was 99 % detection on the sofa ("audible only
+  smelled"), not the intensity the saying is about. `uq/comparison_criteria.py` gives (a) detection, (b) intensity
+  among pairs where both are smelled, (c) the old four outcomes, (d) (c) among pairs where anything is smelled,
+  (e) remembered. **User chose (b)** and the title "Silent but deadly? Physics says it depends, memory says mostly".
+- **(b) headline (attentive bystander, capped):** sofa 30 / 59 / 12 (both smelled in 3.3e-4 of pairs); lift, person
+  behind 55 / 33 / 12 (39 % of pairs), beside 31 / 56, diagonal 33 / 55; day 48 / 41 (lift supplies 3/4 of the
+  doubly smelled pairs; home-centred day 32 / 57); releaser day 44 / 45. Memory 91 % (attentive), 98 % (distracted).
+- **Robustness of (b)** (`uq/intensity_robustness.py`): the lift (person behind) holds in every variant; the sofa
+  reverses under mesh x median peak factors (49 / 40), release order x median peak factors (46 / 42) and adverse
+  peak factors, and is level under the "level below" dose rule; the day average reverses with steeper or
+  deterministic detection and without the pressure limit. ESM Table S4 is now the (b) table; the old four outcomes
+  are one ESM bullet.
+- **Text changed:** theory 2.1 (comparison defined as intensity when smelled), methods 3.6, results 4.5 (new
+  title, Table 2 with detection, both-smelled share, intensity and remembered columns, lift split by nose), memory
+  paragraph and Figure 6 (truth line = (b); overlap check passed, visual review clean), discussion, conclusion,
+  abstract (239 words), introduction bullet 3, cover letter. Package and zip rebuilt.
+- **Audit points not yet addressed:** source prior vs Miller's median 8 mmHg (most sampled passages need < 1 mmHg);
+  the 150-s window (the tail model returns the 150-s value although the text says the well-mixed level is used);
+  Proposition 1 covers the sup over breathing phase, not the fixed-phase breath maximum of Eq. (1); the TV-time
+  sofa weight versus the 35 dB(A) room; missing car / behind-the-releaser scenes and sofa release geometry (new CFD).
+
 ## Progress 2026-10-29 (session after the brief below)
 
 - **Elevator done** (server, 07:47 KST, 240.2 s); analysed: `cfd/results_v4/elev_v4_FL_multi.json`, probes

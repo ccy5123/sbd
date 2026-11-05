@@ -61,7 +61,15 @@
     "truth_silent_worse": 0.30862522605140336,
     "truth_among_smelled": 0.308631702520222,
     "releaser_among_smelled": 0.20064231504000823,
-    "releaser_silent_worse": 0.20064231503999855
+    "releaser_silent_worse": 0.20064231503999855,
+    "bystander_b_silent_stronger": 0.3059264194851179,
+    "bystander_b_audible_stronger": 0.6266578707560437,
+    "bystander_b_tie": 0.06741570975883833,
+    "bystander_b_pair_mass_both": 0.9951529574744616,
+    "releaser_b_silent_stronger": 0.20064259194002226,
+    "releaser_b_audible_stronger": 0.7478442382260548,
+    "releaser_b_tie": 0.05151316983392295,
+    "releaser_b_pair_mass_both": 0.9999985763535987
    },
    {
     "m50": 1.584893192461114e-05,
@@ -71,7 +79,15 @@
     "truth_silent_worse": 0.3085924154030795,
     "truth_among_smelled": 0.30861328989309367,
     "releaser_among_smelled": 0.20064231604052013,
-    "releaser_silent_worse": 0.20064231604040245
+    "releaser_silent_worse": 0.20064231604040245,
+    "bystander_b_silent_stronger": 0.30420185205413974,
+    "bystander_b_audible_stronger": 0.6282781910983016,
+    "bystander_b_tie": 0.06751995684755868,
+    "bystander_b_pair_mass_both": 0.991810476693694,
+    "releaser_b_silent_stronger": 0.20064318866695627,
+    "releaser_b_audible_stronger": 0.747843482785762,
+    "releaser_b_tie": 0.0515133285472818,
+    "releaser_b_pair_mass_both": 0.9999954707148577
    },
    {
     "m50": 2.5118864315095822e-05,
@@ -81,7 +97,15 @@
     "truth_silent_worse": 0.30849795355018017,
     "truth_among_smelled": 0.30855883160138076,
     "releaser_among_smelled": 0.20064232027137405,
-    "releaser_silent_worse": 0.2006423202701519
+    "releaser_silent_worse": 0.2006423202701519,
+    "bystander_b_silent_stronger": 0.3017069148437176,
+    "bystander_b_audible_stronger": 0.6306535342687227,
+    "bystander_b_tie": 0.06763955088755974,
+    "bystander_b_pair_mass_both": 0.9867771119802693,
+    "releaser_b_silent_stronger": 0.20064487643481052,
+    "releaser_b_audible_stronger": 0.7478413420087461,
+    "releaser_b_tie": 0.051513781556443275,
+    "releaser_b_pair_mass_both": 0.9999865752581065
    },
    {
     "m50": 3.9810717055349695e-05,
@@ -91,7 +115,15 @@
     "truth_silent_worse": 0.3082615347096242,
     "truth_among_smelled": 0.3084225095242689,
     "releaser_among_smelled": 0.20064233691013178,
-    "releaser_silent_worse": 0.20064233689919544
+    "releaser_silent_worse": 0.20064233689919544,
+    "bystander_b_silent_stronger": 0.2982849644870541,
+    "bystander_b_audible_stronger": 0.6339586999448472,
+    "bystander_b_tie": 0.06775633556809858,
+    "bystander_b_pair_mass_both": 0.9795913652588393,
+    "releaser_b_silent_stronger": 0.20064932019153103,
+    "releaser_b_audible_stronger": 0.7478356930369922,
+    "releaser_b_tie": 0.05151498677147684,
+    "releaser_b_pair_mass_both": 0.9999627918420626
    },
    {
     "m50": 6.309573444801929e-05,
@@ -101,7 +133,15 @@
     "truth_silent_worse": 0.30773521013436395,
     "truth_among_smelled": 0.30812190997859823,
     "releaser_among_smelled": 0.20064239783070886,
-    "releaser_silent_worse": 0.2006423977456699
+    "releaser_silent_worse": 0.2006423977456699,
+    "bystander_b_silent_stronger": 0.2938396823821053,
+    "bystander_b_audible_stronger": 0.6383155811190969,
+    "bystander_b_tie": 0.06784473649879773,
+    "bystander_b_pair_mass_both": 0.9698754631172615,
+    "releaser_b_silent_stronger": 0.20066024804549745,
+    "releaser_b_audible_stronger": 0.7478217670915681,
+    "releaser_b_tie": 0.05151798486293434,
+    "releaser_b_pair_mass_both": 0.9999032202125582
    },
    {
     "m50": 0.0001,
@@ -111,7 +151,15 @@
     "truth_silent_worse": 0.3066813152394314,
     "truth_among_smelled": 0.3075270168614838,
     "releaser_among_smelled": 0.20064260564113764,
-    "releaser_silent_worse": 0.20064260506194492
+    "releaser_silent_worse": 0.20064260506194492,
+    "bystander_b_silent_stronger": 0.2883800335419104,
+    "bystander_b_audible_stronger": 0.6437399638367828,
+    "bystander_b_tie": 0.06788000262130695,
+    "bystander_b_pair_mass_both": 0.9574311517529083,
+    "releaser_b_silent_stronger": 0.20068542438606057,
+    "releaser_b_audible_stronger": 0.7477895982965166,
+    "releaser_b_tie": 0.05152497731742289,
+    "releaser_b_pair_mass_both": 0.999762971788454
    },
    {
     "m50": 0.00015848931924611142,
@@ -121,7 +169,15 @@
     "truth_silent_worse": 0.30477158457794995,
     "truth_among_smelled": 0.30645929123324817,
     "releaser_among_smelled": 0.20064326636920854,
-    "releaser_silent_worse": 0.2006432628885095
+    "releaser_silent_worse": 0.2006432628885095,
+    "bystander_b_silent_stronger": 0.28205695517132245,
+    "bystander_b_audible_stronger": 0.6500910854505508,
+    "bystander_b_tie": 0.06785195937812666,
+    "bystander_b_pair_mass_both": 0.9422904984265028,
+    "releaser_b_silent_stronger": 0.20073990858441507,
+    "releaser_b_audible_stronger": 0.7477197901591894,
+    "releaser_b_tie": 0.05154030125639536,
+    "releaser_b_pair_mass_both": 0.9994517395471183
    },
    {
     "m50": 0.0002511886431509582,
@@ -131,7 +187,15 @@
     "truth_silent_worse": 0.30162757428775583,
     "truth_among_smelled": 0.30470937475912896,
     "releaser_among_smelled": 0.2006452248436994,
-    "releaser_silent_worse": 0.20064520626646404
+    "releaser_silent_worse": 0.20064520626646404,
+    "bystander_b_silent_stronger": 0.2751737776559087,
+    "bystander_b_audible_stronger": 0.6570462044193841,
+    "bystander_b_tie": 0.06778001792470749,
+    "bystander_b_pair_mass_both": 0.924661422789033,
+    "releaser_b_silent_stronger": 0.20085090402695716,
+    "releaser_b_audible_stronger": 0.74757718886289,
+    "releaser_b_tie": 0.05157190711015267,
+    "releaser_b_pair_mass_both": 0.998799217829812
    },
    {
     "m50": 0.00039810717055349735,
@@ -141,7 +205,15 @@
     "truth_silent_worse": 0.2969105629673537,
     "truth_among_smelled": 0.30207748532723444,
     "releaser_among_smelled": 0.2006506364683234,
-    "releaser_silent_worse": 0.2006505479042396
+    "releaser_silent_worse": 0.2006505479042396,
+    "bystander_b_silent_stronger": 0.2681525637037184,
+    "bystander_b_audible_stronger": 0.6641256589485982,
+    "bystander_b_tie": 0.06772177734768342,
+    "bystander_b_pair_mass_both": 0.9047352539450118,
+    "releaser_b_silent_stronger": 0.20106412651628525,
+    "releaser_b_audible_stronger": 0.747302548806861,
+    "releaser_b_tie": 0.05163332467685368,
+    "releaser_b_pair_mass_both": 0.9975044891873525
    },
    {
     "m50": 0.000630957344480193,
@@ -151,7 +223,15 @@
     "truth_silent_worse": 0.29044176700911317,
     "truth_among_smelled": 0.2984315945524855,
     "releaser_among_smelled": 0.20066457106755586,
-    "releaser_silent_worse": 0.20066419200847885
+    "releaser_silent_worse": 0.20066419200847885,
+    "bystander_b_silent_stronger": 0.2614516669652633,
+    "bystander_b_audible_stronger": 0.6707805279810667,
+    "bystander_b_tie": 0.06776780505367,
+    "bystander_b_pair_mass_both": 0.8823929138683394,
+    "releaser_b_silent_stronger": 0.20145089518527592,
+    "releaser_b_audible_stronger": 0.7468032531595306,
+    "releaser_b_tie": 0.05174585165519351,
+    "releaser_b_pair_mass_both": 0.995070232762042
    },
    {
     "m50": 0.001,
@@ -161,7 +241,15 @@
     "truth_silent_worse": 0.28230387313451333,
     "truth_among_smelled": 0.2937681612810058,
     "releaser_among_smelled": 0.2006979836135686,
-    "releaser_silent_worse": 0.20069652025532936
+    "releaser_silent_worse": 0.20069652025532936,
+    "bystander_b_silent_stronger": 0.255456838861461,
+    "bystander_b_audible_stronger": 0.6765218056806198,
+    "bystander_b_tie": 0.06802135545791907,
+    "bystander_b_pair_mass_both": 0.8569285335867302,
+    "releaser_b_silent_stronger": 0.2021142086463781,
+    "releaser_b_audible_stronger": 0.7459454423428061,
+    "releaser_b_tie": 0.051940349010815706,
+    "releaser_b_pair_mass_both": 0.9907299278425399
    },
    {
     "m50": 0.001584893192461114,
@@ -171,7 +259,15 @@
     "truth_silent_worse": 0.27286496358225554,
     "truth_among_smelled": 0.2882524290040991,
     "releaser_among_smelled": 0.20077250758540335,
-    "releaser_silent_worse": 0.20076738947030479
+    "releaser_silent_worse": 0.20076738947030479,
+    "bystander_b_silent_stronger": 0.2503933993627103,
+    "bystander_b_audible_stronger": 0.6810353331594187,
+    "bystander_b_tie": 0.06857126747787097,
+    "bystander_b_pair_mass_both": 0.8269495269970539,
+    "releaser_b_silent_stronger": 0.20319135941572983,
+    "releaser_b_audible_stronger": 0.7445509118957606,
+    "releaser_b_tie": 0.052257728688509565,
+    "releaser_b_pair_mass_both": 0.9833865716647189
    },
    {
     "m50": 0.002511886431509582,
@@ -181,7 +277,15 @@
     "truth_silent_worse": 0.2626908840961758,
     "truth_among_smelled": 0.2822141721578502,
     "releaser_among_smelled": 0.20092688756065247,
-    "releaser_silent_worse": 0.2009105994547199
+    "releaser_silent_worse": 0.2009105994547199,
+    "bystander_b_silent_stronger": 0.2463048865778358,
+    "bystander_b_audible_stronger": 0.684223641767144,
+    "bystander_b_tie": 0.06947147165502021,
+    "bystander_b_pair_mass_both": 0.7905674938830523,
+    "releaser_b_silent_stronger": 0.2048507832457638,
+    "releaser_b_audible_stronger": 0.74240200499357,
+    "releaser_b_tie": 0.05274721176066605,
+    "releaser_b_pair_mass_both": 0.9715919114378107
    },
    {
     "m50": 0.003981071705534973,
@@ -191,7 +295,15 @@
     "truth_silent_worse": 0.25236340081914416,
     "truth_among_smelled": 0.2760850632215789,
     "releaser_among_smelled": 0.20122332598082024,
-    "releaser_silent_worse": 0.2011759544638512
+    "releaser_silent_worse": 0.2011759544638512,
+    "bystander_b_silent_stronger": 0.24310740555189855,
+    "bystander_b_audible_stronger": 0.6861565022956644,
+    "bystander_b_tie": 0.07073609215243709,
+    "bystander_b_pair_mass_both": 0.7458740400746606,
+    "releaser_b_silent_stronger": 0.20728219249839358,
+    "releaser_b_audible_stronger": 0.7392558966063049,
+    "releaser_b_tie": 0.05346191089530151,
+    "releaser_b_pair_mass_both": 0.9536006634046172
    },
    {
     "m50": 0.006309573444801936,
@@ -201,7 +313,15 @@
     "truth_silent_worse": 0.2422695678716158,
     "truth_among_smelled": 0.2702872276539026,
     "releaser_among_smelled": 0.20174968881445152,
-    "releaser_silent_worse": 0.2016232320144075
+    "releaser_silent_worse": 0.2016232320144075,
+    "bystander_b_silent_stronger": 0.2406852346682997,
+    "bystander_b_audible_stronger": 0.6869659055401868,
+    "bystander_b_tie": 0.0723488597915137,
+    "bystander_b_pair_mass_both": 0.6915624069403229,
+    "releaser_b_silent_stronger": 0.21068123492128457,
+    "releaser_b_audible_stronger": 0.734866547706975,
+    "releaser_b_tie": 0.05445221737174035,
+    "releaser_b_pair_mass_both": 0.9275288029569009
    },
    {
     "m50": 0.01,
@@ -211,7 +331,15 @@
     "truth_silent_worse": 0.23244451041950956,
     "truth_among_smelled": 0.26511016693186307,
     "releaser_among_smelled": 0.20261163590478992,
-    "releaser_silent_worse": 0.20230044563315694
+    "releaser_silent_worse": 0.20230044563315694,
+    "bystander_b_silent_stronger": 0.23897612592018463,
+    "bystander_b_audible_stronger": 0.686745345453121,
+    "bystander_b_tie": 0.07427852862669428,
+    "bystander_b_pair_mass_both": 0.6274825406841942,
+    "releaser_b_silent_stronger": 0.21523192378353298,
+    "releaser_b_audible_stronger": 0.7290095385548717,
+    "releaser_b_tie": 0.05575853766159541,
+    "releaser_b_pair_mass_both": 0.8916247628977051
    },
    {
     "m50": 0.01584893192461114,
@@ -221,7 +349,15 @@
     "truth_silent_worse": 0.22252907859597376,
     "truth_among_smelled": 0.260625871948103,
     "releaser_among_smelled": 0.20390980629223412,
-    "releaser_silent_worse": 0.20320089194529947
+    "releaser_silent_worse": 0.20320089194529947,
+    "bystander_b_silent_stronger": 0.23801125108086402,
+    "bystander_b_audible_stronger": 0.6854964040360494,
+    "bystander_b_tie": 0.0764923448830864,
+    "bystander_b_pair_mass_both": 0.5549380018487671,
+    "releaser_b_silent_stronger": 0.22109091262563949,
+    "releaser_b_audible_stronger": 0.7215034453150276,
+    "releaser_b_tie": 0.05740564205933274,
+    "releaser_b_pair_mass_both": 0.8446277912489888
    },
    {
     "m50": 0.025118864315095822,
@@ -231,7 +367,15 @@
     "truth_silent_worse": 0.21186009972202446,
     "truth_among_smelled": 0.2566759164764934,
     "releaser_among_smelled": 0.20570334385753675,
-    "releaser_silent_worse": 0.20420244814757654
+    "releaser_silent_worse": 0.20420244814757654,
+    "bystander_b_silent_stronger": 0.23790537944066192,
+    "bystander_b_audible_stronger": 0.6831307802529147,
+    "bystander_b_tie": 0.07896384030642338,
+    "bystander_b_pair_mass_both": 0.4766286389893421,
+    "releaser_b_silent_stronger": 0.22837701333804505,
+    "releaser_b_audible_stronger": 0.7122222203492253,
+    "releaser_b_tie": 0.05940076631272963,
+    "releaser_b_pair_mass_both": 0.7861459240650351
    },
    {
     "m50": 0.039810717055349734,
@@ -241,7 +385,15 @@
     "truth_silent_worse": 0.19966476687986942,
     "truth_among_smelled": 0.2529282988027131,
     "releaser_among_smelled": 0.20797097126445896,
-    "releaser_silent_worse": 0.2050073534961595
+    "releaser_silent_worse": 0.2050073534961595,
+    "bystander_b_silent_stronger": 0.2388157058068659,
+    "bystander_b_audible_stronger": 0.6795097507415118,
+    "bystander_b_tie": 0.08167454345162248,
+    "bystander_b_pair_mass_both": 0.3962619864547701,
+    "releaser_b_silent_stronger": 0.23716741613471623,
+    "releaser_b_audible_stronger": 0.7010962066350214,
+    "releaser_b_tie": 0.06173637723026258,
+    "releaser_b_pair_mass_both": 0.7169515527355647
    },
    {
     "m50": 0.06309573444801936,
@@ -251,7 +403,15 @@
     "truth_silent_worse": 0.1852985374147652,
     "truth_among_smelled": 0.2489717577447317,
     "releaser_among_smelled": 0.2105882897933474,
-    "releaser_silent_worse": 0.20511383868454536
+    "releaser_silent_worse": 0.20511383868454536,
+    "bystander_b_silent_stronger": 0.24089431295402045,
+    "bystander_b_audible_stronger": 0.6744950081219679,
+    "bystander_b_tie": 0.08461067892401168,
+    "bystander_b_pair_mass_both": 0.3179489318730484,
+    "releaser_b_silent_stronger": 0.24749924892234995,
+    "releaser_b_audible_stronger": 0.6881042926787312,
+    "releaser_b_tie": 0.06439645839891889,
+    "releaser_b_pair_mass_both": 0.639084842471984
    },
    {
     "m50": 0.1,
@@ -261,7 +421,15 @@
     "truth_silent_worse": 0.16845662236501283,
     "truth_among_smelled": 0.2444097115296705,
     "releaser_among_smelled": 0.21333771744026717,
-    "releaser_silent_worse": 0.2038513056241646
+    "releaser_silent_worse": 0.2038513056241646,
+    "bystander_b_silent_stronger": 0.24425404200759127,
+    "bystander_b_audible_stronger": 0.6679891421969547,
+    "bystander_b_tie": 0.08775681579545386,
+    "bystander_b_pair_mass_both": 0.2455404626989188,
+    "releaser_b_silent_stronger": 0.2593720918695451,
+    "releaser_b_audible_stronger": 0.6732646605745093,
+    "releaser_b_tie": 0.06736324755594564,
+    "releaser_b_pair_mass_both": 0.5556904304599634
    },
    {
     "m50": 0.15848931924611143,
@@ -271,7 +439,15 @@
     "truth_silent_worse": 0.1493010728742454,
     "truth_among_smelled": 0.2389303010848759,
     "releaser_among_smelled": 0.21595417187830368,
-    "releaser_silent_worse": 0.20049119302649918
+    "releaser_silent_worse": 0.20049119302649918,
+    "bystander_b_silent_stronger": 0.24895955537066072,
+    "bystander_b_audible_stronger": 0.6599517543825828,
+    "bystander_b_tie": 0.09108869024675642,
+    "bystander_b_pair_mass_both": 0.18205605311150153,
+    "releaser_b_silent_stronger": 0.2727452690097329,
+    "releaser_b_audible_stronger": 0.6566340569289387,
+    "releaser_b_tie": 0.07062067406132831,
+    "releaser_b_pair_mass_both": 0.4705910245169467
    },
    {
     "m50": 0.25118864315095824,
@@ -281,7 +457,15 @@
     "truth_silent_worse": 0.1284699636315021,
     "truth_among_smelled": 0.2323458802608809,
     "releaser_among_smelled": 0.2181925711701082,
-    "releaser_silent_worse": 0.19441096995104704
+    "releaser_silent_worse": 0.19441096995104704,
+    "bystander_b_silent_stronger": 0.2550500226512787,
+    "bystander_b_audible_stronger": 0.6503839183451203,
+    "bystander_b_tie": 0.09456605900360102,
+    "bystander_b_pair_mass_both": 0.12931718244106136,
+    "releaser_b_silent_stronger": 0.2875250257102323,
+    "releaser_b_audible_stronger": 0.6383231774111366,
+    "releaser_b_tie": 0.074151796878631,
+    "releaser_b_pair_mass_both": 0.38769751210799214
    },
    {
     "m50": 0.39810717055349776,
@@ -291,7 +475,15 @@
     "truth_silent_worse": 0.10696613061321916,
     "truth_among_smelled": 0.22460423038180194,
     "releaser_among_smelled": 0.21989282387522668,
-    "releaser_silent_worse": 0.18525674440018614
+    "releaser_silent_worse": 0.18525674440018614,
+    "bystander_b_silent_stronger": 0.2625972016308033,
+    "bystander_b_audible_stronger": 0.6392782262732147,
+    "bystander_b_tie": 0.09812457209598173,
+    "bystander_b_pair_mass_both": 0.08784363322378586,
+    "releaser_b_silent_stronger": 0.30354212663046626,
+    "releaser_b_audible_stronger": 0.6185277670071513,
+    "releaser_b_tie": 0.0779301063623825,
+    "releaser_b_pair_mass_both": 0.3104237863965553
    },
    {
     "m50": 0.6309573444801942,
@@ -301,7 +493,15 @@
     "truth_silent_worse": 0.08595714895622741,
     "truth_among_smelled": 0.21577705646943682,
     "releaser_among_smelled": 0.22101952982347312,
-    "releaser_silent_worse": 0.17304236815390953
+    "releaser_silent_worse": 0.17304236815390953,
+    "bystander_b_silent_stronger": 0.27180173468924973,
+    "bystander_b_audible_stronger": 0.6265314986179928,
+    "bystander_b_tie": 0.10166676669275748,
+    "bystander_b_pair_mass_both": 0.0570031728621525,
+    "releaser_b_silent_stronger": 0.3205289485766033,
+    "releaser_b_audible_stronger": 0.5975629977665774,
+    "releaser_b_tie": 0.08190805365681915,
+    "releaser_b_pair_mass_both": 0.24127458043249625
    },
    {
     "m50": 1.0,
@@ -311,7 +511,15 @@
     "truth_silent_worse": 0.06654616214291909,
     "truth_among_smelled": 0.2060345912891946,
     "releaser_among_smelled": 0.2216647386163109,
-    "releaser_silent_worse": 0.1581488861041547
+    "releaser_silent_worse": 0.1581488861041547,
+    "bystander_b_silent_stronger": 0.28313129203453496,
+    "bystander_b_audible_stronger": 0.6118112655528198,
+    "bystander_b_tie": 0.10505744241264538,
+    "bystander_b_pair_mass_both": 0.03534205399623472,
+    "releaser_b_silent_stronger": 0.3381126067428576,
+    "releaser_b_audible_stronger": 0.5758781600876378,
+    "releaser_b_tie": 0.08600923316950458,
+    "releaser_b_pair_mass_both": 0.18169881371923297
    },
    {
     "m50": 1.584893192461114,
@@ -321,7 +529,15 @@
     "truth_silent_worse": 0.04957984055200974,
     "truth_among_smelled": 0.19561881287287403,
     "releaser_among_smelled": 0.22201638638540047,
-    "releaser_silent_worse": 0.14123435248386107
+    "releaser_silent_worse": 0.14123435248386107,
+    "bystander_b_silent_stronger": 0.29749825577575517,
+    "bystander_b_audible_stronger": 0.5943687521596626,
+    "bystander_b_tie": 0.1081329920645821,
+    "bystander_b_pair_mass_both": 0.020987232396965615,
+    "releaser_b_silent_stronger": 0.3558397515720584,
+    "releaser_b_audible_stronger": 0.5540296457873493,
+    "releaser_b_tie": 0.09013060264059226,
+    "releaser_b_pair_mass_both": 0.13218711735031166
    },
    {
     "m50": 2.5118864315095824,
@@ -331,7 +547,15 @@
     "truth_silent_worse": 0.03553983186821633,
     "truth_among_smelled": 0.18482831750935094,
     "releaser_among_smelled": 0.2223067389522487,
-    "releaser_silent_worse": 0.12310184497005915
+    "releaser_silent_worse": 0.12310184497005915,
+    "bystander_b_silent_stronger": 0.3164194123503111,
+    "bystander_b_audible_stronger": 0.572848013333718,
+    "bystander_b_tie": 0.1107325743159709,
+    "bystander_b_pair_mass_both": 0.012015050033675407,
+    "releaser_b_silent_stronger": 0.3732340254662456,
+    "releaser_b_audible_stronger": 0.5326096244561764,
+    "releaser_b_tie": 0.09415635007757792,
+    "releaser_b_pair_mass_both": 0.0925029949326683
    },
    {
     "m50": 3.9810717055349776,
@@ -341,7 +565,15 @@
     "truth_silent_worse": 0.024529610423605505,
     "truth_among_smelled": 0.17402358048477562,
     "releaser_among_smelled": 0.22276102604904183,
-    "releaser_silent_worse": 0.10458008423965584
+    "releaser_silent_worse": 0.10458008423965584,
+    "bystander_b_silent_stronger": 0.3418998971530709,
+    "bystander_b_audible_stronger": 0.5453448825832317,
+    "bystander_b_tie": 0.11275522026369755,
+    "bystander_b_pair_mass_both": 0.00671750175740043,
+    "releaser_b_silent_stronger": 0.389865096059928,
+    "releaser_b_audible_stronger": 0.5121566029058551,
+    "releaser_b_tie": 0.09797830103421701,
+    "releaser_b_pair_mass_both": 0.06191967100010087
    },
    {
     "m50": 6.309573444801943,
@@ -351,7 +583,15 @@
     "truth_silent_worse": 0.016338338218953044,
     "truth_among_smelled": 0.16365449513296934,
     "releaser_among_smelled": 0.22356468471403773,
-    "releaser_silent_worse": 0.08644603497096685
+    "releaser_silent_worse": 0.08644603497096685,
+    "bystander_b_silent_stronger": 0.3754383792771229,
+    "bystander_b_audible_stronger": 0.510319498117461,
+    "bystander_b_tie": 0.11424212260541589,
+    "bystander_b_pair_mass_both": 0.0037436833597502797,
+    "releaser_b_silent_stronger": 0.40539771281378595,
+    "releaser_b_audible_stronger": 0.49308784828765884,
+    "releaser_b_tie": 0.10151443889855515,
+    "releaser_b_pair_mass_both": 0.03938883310344472
    },
    {
     "m50": 10.0,
@@ -361,7 +601,15 @@
     "truth_silent_worse": 0.010547877557788462,
     "truth_among_smelled": 0.15430585010877643,
     "releaser_among_smelled": 0.22485800347095436,
-    "releaser_silent_worse": 0.06938374604332999
+    "releaser_silent_worse": 0.06938374604332999,
+    "bystander_b_silent_stronger": 0.415801636555571,
+    "bystander_b_audible_stronger": 0.46875820500377857,
+    "bystander_b_tie": 0.11544015844065042,
+    "bystander_b_pair_mass_both": 0.002130902247874261,
+    "releaser_b_silent_stronger": 0.41960358492926697,
+    "releaser_b_audible_stronger": 0.47567741519874573,
+    "releaser_b_tie": 0.10471899987198728,
+    "releaser_b_pair_mass_both": 0.023646253703676838
    },
    {
     "m50": 15.848931924611142,
@@ -371,7 +619,15 @@
     "truth_silent_worse": 0.00664806789273699,
     "truth_among_smelled": 0.14675059167648463,
     "releaser_among_smelled": 0.226753093124784,
-    "releaser_silent_worse": 0.05395502687952076
+    "releaser_silent_worse": 0.05395502687952076,
+    "bystander_b_silent_stronger": 0.4574802666850914,
+    "bystander_b_audible_stronger": 0.4258062220779519,
+    "bystander_b_tie": 0.11671351123695657,
+    "bystander_b_pair_mass_both": 0.0012596154381007035,
+    "releaser_b_silent_stronger": 0.432347092852578,
+    "releaser_b_audible_stronger": 0.46007096360093586,
+    "releaser_b_tie": 0.10758194354648622,
+    "releaser_b_pair_mass_both": 0.013304629974523263
    },
    {
     "m50": 25.11886431509582,
@@ -381,7 +637,15 @@
     "truth_silent_worse": 0.004133609013526075,
     "truth_among_smelled": 0.14199228527241958,
     "releaser_among_smelled": 0.22935783632229328,
-    "releaser_silent_worse": 0.04056592816338874
+    "releaser_silent_worse": 0.04056592816338874,
+    "bystander_b_silent_stronger": 0.4933525488010398,
+    "bystander_b_audible_stronger": 0.3883776904467518,
+    "bystander_b_tie": 0.1182697607522084,
+    "bystander_b_pair_mass_both": 0.0007706187338282572,
+    "releaser_b_silent_stronger": 0.44357257886208357,
+    "releaser_b_audible_stronger": 0.44630758908478824,
+    "releaser_b_tie": 0.11011983205312825,
+    "releaser_b_pair_mass_both": 0.006971320341346896
    },
    {
     "m50": 39.81071705534978,
@@ -391,7 +655,15 @@
     "truth_silent_worse": 0.0025682705931545182,
     "truth_among_smelled": 0.14126785129527908,
     "releaser_among_smelled": 0.23279144239177568,
-    "releaser_silent_worse": 0.02943508896413687
+    "releaser_silent_worse": 0.02943508896413687,
+    "bystander_b_silent_stronger": 0.5196951778926743,
+    "bystander_b_audible_stronger": 0.3602995398166988,
+    "bystander_b_tie": 0.1200052822906269,
+    "bystander_b_pair_mass_both": 0.00047666900857098104,
+    "releaser_b_silent_stronger": 0.4533136940156247,
+    "releaser_b_audible_stronger": 0.43432256095204613,
+    "releaser_b_tie": 0.11236374503232904,
+    "releaser_b_pair_mass_both": 0.0033825671130728215
    },
    {
     "m50": 63.09573444801943,
@@ -401,7 +673,15 @@
     "truth_silent_worse": 0.001614381507746861,
     "truth_among_smelled": 0.14598025592963956,
     "releaser_among_smelled": 0.23718560718457,
-    "releaser_silent_worse": 0.02058282495089761
+    "releaser_silent_worse": 0.02058282495089761,
+    "bystander_b_silent_stronger": 0.5373658725396684,
+    "bystander_b_audible_stronger": 0.3409720928166071,
+    "bystander_b_tie": 0.12166203464372467,
+    "bystander_b_pair_mass_both": 0.00028905938869176615,
+    "releaser_b_silent_stronger": 0.46172428350885164,
+    "releaser_b_audible_stronger": 0.42392436804314393,
+    "releaser_b_tie": 0.11435134844800429,
+    "releaser_b_pair_mass_both": 0.0015125703120626463
    },
    {
     "m50": 100.0,
@@ -411,7 +691,15 @@
     "truth_silent_worse": 0.0010343453019348193,
     "truth_among_smelled": 0.15755398471741228,
     "releaser_among_smelled": 0.24267644584052847,
-    "releaser_silent_worse": 0.0138532053988752
+    "releaser_silent_worse": 0.0138532053988752,
+    "bystander_b_silent_stronger": 0.5492275525689344,
+    "bystander_b_audible_stronger": 0.3277319579672362,
+    "bystander_b_tie": 0.12304048946382941,
+    "bystander_b_pair_mass_both": 0.00016730595098690053,
+    "releaser_b_silent_stronger": 0.4691135195185387,
+    "releaser_b_audible_stronger": 0.4147596738471146,
+    "releaser_b_tie": 0.1161268066343468,
+    "releaser_b_pair_mass_both": 0.0006208662164923215
    },
    {
     "m50": 158.48931924611142,
@@ -421,7 +709,15 @@
     "truth_silent_worse": 0.0006748898498878783,
     "truth_among_smelled": 0.17725183177833198,
     "releaser_among_smelled": 0.2493980702994085,
-    "releaser_silent_worse": 0.008964517906922233
+    "releaser_silent_worse": 0.008964517906922233,
+    "bystander_b_silent_stronger": 0.5578866361377806,
+    "bystander_b_audible_stronger": 0.3180471545860043,
+    "bystander_b_tie": 0.12406620927621503,
+    "bystander_b_pair_mass_both": 9.068297445107244e-05,
+    "releaser_b_silent_stronger": 0.475963386390078,
+    "releaser_b_audible_stronger": 0.4062920068735869,
+    "releaser_b_tie": 0.11774460673633527,
+    "releaser_b_pair_mass_both": 0.00023316492300563303
    },
    {
     "m50": 251.18864315095823,
@@ -431,7 +727,15 @@
     "truth_silent_worse": 0.00044450970239636947,
     "truth_among_smelled": 0.20602185602413406,
     "releaser_among_smelled": 0.25748713254917416,
-    "releaser_silent_worse": 0.005571530933758394
+    "releaser_silent_worse": 0.005571530933758394,
+    "bystander_b_silent_stronger": 0.5650197034180673,
+    "bystander_b_audible_stronger": 0.31022024818836647,
+    "bystander_b_tie": 0.12476004839356632,
+    "bystander_b_pair_mass_both": 4.546282155662595e-05,
+    "releaser_b_silent_stronger": 0.48291067405996696,
+    "releaser_b_audible_stronger": 0.3978207144176955,
+    "releaser_b_tie": 0.11926861152233767,
+    "releaser_b_pair_mass_both": 7.988631033879612e-05
    },
    {
     "m50": 398.1071705534977,
@@ -441,7 +745,15 @@
     "truth_silent_worse": 0.0002917573367629286,
     "truth_among_smelled": 0.24441157415533632,
     "releaser_among_smelled": 0.2671015259624212,
-    "releaser_silent_worse": 0.0033222377914669788
+    "releaser_silent_worse": 0.0033222377914669788,
+    "bystander_b_silent_stronger": 0.5715303985511011,
+    "bystander_b_audible_stronger": 0.30327039242555426,
+    "bystander_b_tie": 0.12519920902334472,
+    "bystander_b_pair_mass_both": 2.0914832365301382e-05,
+    "releaser_b_silent_stronger": 0.49068387275091263,
+    "releaser_b_audible_stronger": 0.38855347934122153,
+    "releaser_b_tie": 0.12076264790786573,
+    "releaser_b_pair_mass_both": 2.490289521535347e-05
    },
    {
     "m50": 630.9573444801943,
@@ -451,7 +763,15 @@
     "truth_silent_worse": 0.00018841865609965912,
     "truth_among_smelled": 0.29250356703723057,
     "releaser_among_smelled": 0.2784492895670901,
-    "releaser_silent_worse": 0.0018986140003181048
+    "releaser_silent_worse": 0.0018986140003181048,
+    "bystander_b_silent_stronger": 0.577874886853148,
+    "bystander_b_audible_stronger": 0.29662641590170447,
+    "bystander_b_tie": 0.12549869724514728,
+    "bystander_b_pair_mass_both": 8.782449339315308e-06,
+    "releaser_b_silent_stronger": 0.499997823708445,
+    "releaser_b_audible_stronger": 0.37772196423128673,
+    "releaser_b_tie": 0.1222802120602682,
+    "releaser_b_pair_mass_both": 7.042796179409939e-06
    },
    {
     "m50": 1000.0,
@@ -461,7 +781,15 @@
     "truth_silent_worse": 0.00011849672280142554,
     "truth_among_smelled": 0.34977735626285567,
     "releaser_among_smelled": 0.2918180308315506,
-    "releaser_silent_worse": 0.0010388323076717786
+    "releaser_silent_worse": 0.0010388323076717786,
+    "bystander_b_silent_stronger": 0.5843310007120553,
+    "bystander_b_audible_stronger": 0.2898624636395409,
+    "bystander_b_tie": 0.12580653564840374,
+    "bystander_b_pair_mass_both": 3.3532406743011946e-06,
+    "releaser_b_silent_stronger": 0.5114243323627838,
+    "releaser_b_audible_stronger": 0.36471013816298714,
+    "releaser_b_tie": 0.12386552947422905,
+    "releaser_b_pair_mass_both": 1.8009615768985706e-06
    },
    {
     "m50": 1584.8931924611175,
@@ -471,7 +799,15 @@
     "truth_silent_worse": 7.202657899362936e-05,
     "truth_among_smelled": 0.4148648724731123,
     "releaser_among_smelled": 0.30759208608606325,
-    "releaser_silent_worse": 0.0005436382019546035
+    "releaser_silent_worse": 0.0005436382019546035,
+    "bystander_b_silent_stronger": 0.5911822960616056,
+    "bystander_b_audible_stronger": 0.28252166559744346,
+    "bystander_b_tie": 0.1262960383409511,
+    "bystander_b_pair_mass_both": 1.1604339515045322e-06,
+    "releaser_b_silent_stronger": 0.5252679713133739,
+    "releaser_b_audible_stronger": 0.34916295097968403,
+    "releaser_b_tie": 0.12556907770694206,
+    "releaser_b_pair_mass_both": 4.1473232042639057e-07
    },
    {
     "m50": 2511.886431509582,
@@ -481,7 +817,15 @@
     "truth_silent_worse": 4.208709218330204e-05,
     "truth_among_smelled": 0.48532547267724474,
     "releaser_among_smelled": 0.3262446886751764,
-    "releaser_silent_worse": 0.00027179134036934416
+    "releaser_silent_worse": 0.00027179134036934416,
+    "bystander_b_silent_stronger": 0.598830710947909,
+    "bystander_b_audible_stronger": 0.27402972824619876,
+    "bystander_b_tie": 0.12713956080589237,
+    "bystander_b_pair_mass_both": 3.6288055923259e-07,
+    "releaser_b_silent_stronger": 0.5414773927029977,
+    "releaser_b_audible_stronger": 0.3310555108909652,
+    "releaser_b_tie": 0.127467096406037,
+    "releaser_b_pair_mass_both": 8.558572722155481e-08
    },
    {
     "m50": 3981.071705534969,
@@ -491,7 +835,15 @@
     "truth_silent_worse": 2.3547032550066212e-05,
     "truth_among_smelled": 0.5576981143498967,
     "releaser_among_smelled": 0.3482959174508581,
-    "releaser_silent_worse": 0.00012962728368983215
+    "releaser_silent_worse": 0.00012962728368983215,
+    "bystander_b_silent_stronger": 0.6078458529338885,
+    "bystander_b_audible_stronger": 0.2637010434309321,
+    "bystander_b_tie": 0.12845310363517937,
+    "bystander_b_pair_mass_both": 1.0220286563171556e-07,
+    "releaser_b_silent_stronger": 0.5596170304508781,
+    "releaser_b_audible_stronger": 0.3107114985583244,
+    "releaser_b_tie": 0.12967147099079745,
+    "releaser_b_pair_mass_both": 1.5735114297493954e-08
    },
    {
     "m50": 6309.573444801943,
@@ -501,7 +853,15 @@
     "truth_silent_worse": 1.2572671502760326e-05,
     "truth_among_smelled": 0.6280255138532187,
     "releaser_among_smelled": 0.3742343554097468,
-    "releaser_silent_worse": 5.886172624778805e-05
+    "releaser_silent_worse": 5.886172624778805e-05,
+    "bystander_b_silent_stronger": 0.6189460067731555,
+    "bystander_b_audible_stronger": 0.250840864314376,
+    "bystander_b_tie": 0.13021312891246853,
+    "bystander_b_pair_mass_both": 2.582511249697015e-08,
+    "releaser_b_silent_stronger": 0.5789163780643071,
+    "releaser_b_audible_stronger": 0.2887587688704523,
+    "releaser_b_tie": 0.13232485306524072,
+    "releaser_b_pair_mass_both": 2.5601045343298823e-09
    },
    {
     "m50": 10000.0,
@@ -511,7 +871,15 @@
     "truth_silent_worse": 6.387223073070819e-06,
     "truth_among_smelled": 0.6927385096796542,
     "releaser_among_smelled": 0.40441078387211293,
-    "releaser_silent_worse": 2.537842196912663e-05
+    "releaser_silent_worse": 2.537842196912663e-05,
+    "bystander_b_silent_stronger": 0.6329014049344012,
+    "bystander_b_audible_stronger": 0.23492695834932464,
+    "bystander_b_tie": 0.13217163671627405,
+    "bystander_b_pair_mass_both": 5.827615961071439e-09,
+    "releaser_b_silent_stronger": 0.5983990281028908,
+    "releaser_b_audible_stronger": 0.26601714497784545,
+    "releaser_b_tie": 0.13558382691926346,
+    "releaser_b_pair_mass_both": 3.658782839125884e-10
    }
   ],
   "baseline": {
@@ -521,7 +889,15 @@
    "truth_silent_worse": 0.005234218434111349,
    "truth_among_smelled": 0.14392486577746216,
    "releaser_among_smelled": 0.22797305334032114,
-   "releaser_silent_worse": 0.04691822023316906
+   "releaser_silent_worse": 0.04691822023316906,
+   "bystander_b_silent_stronger": 0.47668222230168533,
+   "bystander_b_audible_stronger": 0.4058536307121439,
+   "bystander_b_tie": 0.1174641469861708,
+   "bystander_b_pair_mass_both": 0.000979621697834834,
+   "releaser_b_silent_stronger": 0.43820765048613886,
+   "releaser_b_audible_stronger": 0.45288950211494605,
+   "releaser_b_tie": 0.1089028473989151,
+   "releaser_b_pair_mass_both": 0.009688159840126177
   }
  },
  "distracted (everyday)": {
@@ -536,7 +912,15 @@
     "truth_silent_worse": 0.3077879438641616,
     "truth_among_smelled": 0.30793190470380427,
     "releaser_among_smelled": 0.20064793024900426,
-    "releaser_silent_worse": 0.20064792569749945
+    "releaser_silent_worse": 0.20064792569749945,
+    "bystander_b_silent_stronger": 0.3005921803791723,
+    "bystander_b_audible_stronger": 0.6319884011426808,
+    "bystander_b_tie": 0.0674194184781471,
+    "bystander_b_pair_mass_both": 0.9811208831141862,
+    "releaser_b_silent_stronger": 0.2007138815315864,
+    "releaser_b_audible_stronger": 0.7477525136958522,
+    "releaser_b_tie": 0.05153360477256143,
+    "releaser_b_pair_mass_both": 0.9995203194215184
    },
    {
     "m50": 1.584893192461114e-05,
@@ -546,7 +930,15 @@
     "truth_silent_worse": 0.30726913312267556,
     "truth_among_smelled": 0.30753996253983573,
     "releaser_among_smelled": 0.20065372707317905,
-    "releaser_silent_worse": 0.2006537123369324
+    "releaser_silent_worse": 0.2006537123369324,
+    "bystander_b_silent_stronger": 0.29798713208821426,
+    "bystander_b_audible_stronger": 0.6345646516075427,
+    "bystander_b_tie": 0.06744821630424305,
+    "bystander_b_pair_mass_both": 0.9741779435334812,
+    "releaser_b_silent_stronger": 0.2007651619531311,
+    "releaser_b_audible_stronger": 0.7476865226368726,
+    "releaser_b_tie": 0.05154831540999614,
+    "releaser_b_pair_mass_both": 0.9991556592986738
    },
    {
     "m50": 2.5118864315095822e-05,
@@ -556,7 +948,15 @@
     "truth_silent_worse": 0.3064947260026054,
     "truth_among_smelled": 0.3069812661025237,
     "releaser_among_smelled": 0.2006648865794744,
-    "releaser_silent_worse": 0.200664841165438
+    "releaser_silent_worse": 0.200664841165438,
+    "bystander_b_silent_stronger": 0.2948488052886606,
+    "bystander_b_audible_stronger": 0.6376767195577788,
+    "bystander_b_tie": 0.06747447515356063,
+    "bystander_b_pair_mass_both": 0.9653707549731173,
+    "releaser_b_silent_stronger": 0.20084768760368715,
+    "releaser_b_audible_stronger": 0.7475803658855392,
+    "releaser_b_tie": 0.051571946510773785,
+    "releaser_b_pair_mass_both": 0.9985499012630427
    },
    {
     "m50": 3.9810717055349695e-05,
@@ -566,7 +966,15 @@
     "truth_silent_worse": 0.3053769288274872,
     "truth_among_smelled": 0.30621236363843113,
     "releaser_among_smelled": 0.20068575906902233,
-    "releaser_silent_worse": 0.20068562576159812
+    "releaser_silent_worse": 0.20068562576159812,
+    "bystander_b_silent_stronger": 0.2911746220895324,
+    "bystander_b_audible_stronger": 0.6413251046938182,
+    "bystander_b_tie": 0.06750027321664934,
+    "bystander_b_pair_mass_both": 0.9544228864742402,
+    "releaser_b_silent_stronger": 0.20097677174759243,
+    "releaser_b_audible_stronger": 0.7474144379747881,
+    "releaser_b_tie": 0.05160879027761942,
+    "releaser_b_pair_mass_both": 0.9975694362453598
    },
    {
     "m50": 6.309573444801929e-05,
@@ -576,7 +984,15 @@
     "truth_silent_worse": 0.3038186774736509,
     "truth_among_smelled": 0.30519132331484394,
     "releaser_among_smelled": 0.2007236749398639,
-    "releaser_silent_worse": 0.20072330196373528
+    "releaser_silent_worse": 0.20072330196373528,
+    "bystander_b_silent_stronger": 0.28699726319499114,
+    "bystander_b_audible_stronger": 0.6454719505410108,
+    "bystander_b_tie": 0.06753078626399818,
+    "bystander_b_pair_mass_both": 0.9410602957550317,
+    "releaser_b_silent_stronger": 0.20117304503891872,
+    "releaser_b_audible_stronger": 0.7471624151705463,
+    "releaser_b_tie": 0.05166453979053502,
+    "releaser_b_pair_mass_both": 0.9960229280375774
    },
    {
     "m50": 0.0001,
@@ -586,7 +1002,15 @@
     "truth_silent_worse": 0.3017232994424538,
     "truth_among_smelled": 0.30388425736431135,
     "releaser_among_smelled": 0.20079053696025254,
-    "releaser_silent_worse": 0.20078954158231918
+    "releaser_silent_worse": 0.20078954158231918,
+    "bystander_b_silent_stronger": 0.2823879528550144,
+    "bystander_b_audible_stronger": 0.650037305990704,
+    "bystander_b_tie": 0.0675747411542816,
+    "bystander_b_pair_mass_both": 0.9250055219152723,
+    "releaser_b_silent_stronger": 0.20146321354427005,
+    "releaser_b_audible_stronger": 0.7467903781948694,
+    "releaser_b_tie": 0.05174640826086058,
+    "releaser_b_pair_mass_both": 0.9936454317662189
    },
    {
     "m50": 0.00015848931924611142,
@@ -596,7 +1020,15 @@
     "truth_silent_worse": 0.29900817678164104,
     "truth_among_smelled": 0.30227336944385996,
     "releaser_among_smelled": 0.20090492797461398,
-    "releaser_silent_worse": 0.20090239217449762
+    "releaser_silent_worse": 0.20090239217449762,
+    "bystander_b_silent_stronger": 0.27745453897214617,
+    "bystander_b_audible_stronger": 0.6549012410362289,
+    "bystander_b_tie": 0.06764421999162498,
+    "bystander_b_pair_mass_both": 0.905964142820941,
+    "releaser_b_silent_stronger": 0.2018804563807747,
+    "releaser_b_audible_stronger": 0.7462564436825838,
+    "releaser_b_tie": 0.05186309993664173,
+    "releaser_b_pair_mass_both": 0.990082661815471
    },
    {
     "m50": 0.0002511886431509582,
@@ -606,7 +1038,15 @@
     "truth_silent_worse": 0.2956203287250493,
     "truth_among_smelled": 0.3003655902277311,
     "releaser_among_smelled": 0.20109466321691896,
-    "releaser_silent_worse": 0.20108849115533978
+    "releaser_silent_worse": 0.20108849115533978,
+    "bystander_b_silent_stronger": 0.2723335160411399,
+    "bystander_b_audible_stronger": 0.6599127989433464,
+    "bystander_b_tie": 0.06775368501551385,
+    "bystander_b_pair_mass_both": 0.8836075823586884,
+    "releaser_b_silent_stronger": 0.20246429457362303,
+    "releaser_b_audible_stronger": 0.7455111234386965,
+    "releaser_b_tie": 0.052024581987680556,
+    "releaser_b_pair_mass_both": 0.9848779333687082
    },
    {
     "m50": 0.00039810717055349735,
@@ -616,7 +1056,15 @@
     "truth_silent_worse": 0.2915500963297682,
     "truth_among_smelled": 0.29820029881531,
     "releaser_among_smelled": 0.20139951380979204,
-    "releaser_silent_worse": 0.20138514777329095
+    "releaser_silent_worse": 0.20138514777329095,
+    "bystander_b_silent_stronger": 0.26717657992806815,
+    "bystander_b_audible_stronger": 0.6649051107431204,
+    "bystander_b_tie": 0.06791830932881143,
+    "bystander_b_pair_mass_both": 0.8575606991850537,
+    "releaser_b_silent_stronger": 0.20325982484667118,
+    "releaser_b_audible_stronger": 0.744498540121178,
+    "releaser_b_tie": 0.052241635032151,
+    "releaser_b_pair_mass_both": 0.9774652073699348
    },
    {
     "m50": 0.000630957344480193,
@@ -626,7 +1074,15 @@
     "truth_silent_worse": 0.28683797862749055,
     "truth_among_smelled": 0.2958541138040548,
     "releaser_among_smelled": 0.20187354079428588,
-    "releaser_silent_worse": 0.20184153128711688
+    "releaser_silent_worse": 0.20184153128711688,
+    "bystander_b_silent_stronger": 0.26213401572615536,
+    "bystander_b_audible_stronger": 0.6697140424774116,
+    "bystander_b_tie": 0.0681519417964332,
+    "bystander_b_pair_mass_both": 0.8274054429584612,
+    "releaser_b_silent_stronger": 0.2043163224393017,
+    "releaser_b_audible_stronger": 0.7431584719490982,
+    "releaser_b_tie": 0.05252520561160006,
+    "releaser_b_pair_mass_both": 0.9671723636876859
    },
    {
     "m50": 0.001,
@@ -636,7 +1092,15 @@
     "truth_silent_worse": 0.28156988719165515,
     "truth_among_smelled": 0.2934404561557906,
     "releaser_among_smelled": 0.20258615363265683,
-    "releaser_silent_worse": 0.2025178029352965
+    "releaser_silent_worse": 0.2025178029352965,
+    "bystander_b_silent_stronger": 0.25733853630114517,
+    "bystander_b_audible_stronger": 0.6741962576296662,
+    "bystander_b_tie": 0.06846520606918878,
+    "bystander_b_pair_mass_both": 0.7927112993422307,
+    "releaser_b_silent_stronger": 0.2056853548946616,
+    "releaser_b_audible_stronger": 0.7414290073922941,
+    "releaser_b_tie": 0.05288563771304427,
+    "releaser_b_pair_mass_both": 0.953239039860522
    },
    {
     "m50": 0.001584893192461114,
@@ -646,7 +1110,15 @@
     "truth_silent_worse": 0.27585811628554396,
     "truth_among_smelled": 0.2911018272289662,
     "releaser_among_smelled": 0.20362075366946117,
-    "releaser_silent_worse": 0.20348071285491348
+    "releaser_silent_worse": 0.20348071285491348,
+    "bystander_b_silent_stronger": 0.25289341190319575,
+    "bystander_b_audible_stronger": 0.6782423467086556,
+    "bystander_b_tie": 0.06886424138814856,
+    "bystander_b_pair_mass_both": 0.7530981672562148,
+    "releaser_b_silent_stronger": 0.20741867718327875,
+    "releaser_b_audible_stronger": 0.7392494158918368,
+    "releaser_b_tie": 0.05333190692488424,
+    "releaser_b_pair_mass_both": 0.934852797319947
    },
    {
     "m50": 0.002511886431509582,
@@ -656,7 +1128,15 @@
     "truth_silent_worse": 0.26980903787980026,
     "truth_among_smelled": 0.2889938351505834,
     "releaser_among_smelled": 0.20506981281748018,
-    "releaser_silent_worse": 0.20479415719842362
+    "releaser_silent_worse": 0.20479415719842362,
+    "bystander_b_silent_stronger": 0.2488675717727314,
+    "bystander_b_audible_stronger": 0.6817820174536782,
+    "bystander_b_tie": 0.0693504107735905,
+    "bystander_b_pair_mass_both": 0.7083282544594955,
+    "releaser_b_silent_stronger": 0.2095662557057206,
+    "releaser_b_audible_stronger": 0.7365627413623292,
+    "releaser_b_tie": 0.05387100293195028,
+    "releaser_b_pair_mass_both": 0.9112057361013389
    },
    {
     "m50": 0.003981071705534973,
@@ -666,7 +1146,15 @@
     "truth_silent_worse": 0.26348307901040396,
     "truth_among_smelled": 0.28726205340092487,
     "releaser_among_smelled": 0.20702565684396176,
-    "releaser_silent_worse": 0.206503696134142
+    "releaser_silent_worse": 0.206503696134142,
+    "bystander_b_silent_stronger": 0.24529821265511642,
+    "bystander_b_audible_stronger": 0.684780788056809,
+    "bystander_b_tie": 0.06992099928807445,
+    "bystander_b_pair_mass_both": 0.6584128921822525,
+    "releaser_b_silent_stronger": 0.21217476351998638,
+    "releaser_b_audible_stronger": 0.7333176447370764,
+    "releaser_b_tie": 0.05450759174293719,
+    "releaser_b_pair_mass_both": 0.8815708231134194
    },
    {
     "m50": 0.006309573444801936,
@@ -676,7 +1164,15 @@
     "truth_silent_worse": 0.2568565290334317,
     "truth_among_smelled": 0.2860153898397106,
     "releaser_among_smelled": 0.20956717146018844,
-    "releaser_silent_worse": 0.20861524926395159
+    "releaser_silent_worse": 0.20861524926395159,
+    "bystander_b_silent_stronger": 0.24219923309135954,
+    "bystander_b_audible_stronger": 0.6872301350952595,
+    "bystander_b_tie": 0.07057063181338114,
+    "bystander_b_pair_mass_both": 0.6037113840736671,
+    "releaser_b_silent_stronger": 0.21528679364393935,
+    "releaser_b_audible_stronger": 0.729469169550805,
+    "releaser_b_tie": 0.055244036805255636,
+    "releaser_b_pair_mass_both": 0.845393235334511
    },
    {
     "m50": 0.01,
@@ -686,7 +1182,15 @@
     "truth_silent_worse": 0.24979664074664584,
     "truth_among_smelled": 0.2853017524556117,
     "releaser_among_smelled": 0.21274401507855134,
-    "releaser_silent_worse": 0.21107009316372136
+    "releaser_silent_worse": 0.21107009316372136,
+    "bystander_b_silent_stronger": 0.2395724366390178,
+    "bystander_b_audible_stronger": 0.6891345904138472,
+    "bystander_b_tie": 0.07129297294713505,
+    "bystander_b_pair_mass_both": 0.5449955436604839,
+    "releaser_b_silent_stronger": 0.2189408700435643,
+    "releaser_b_audible_stronger": 0.7249783512119623,
+    "releaser_b_tie": 0.05608077874447331,
+    "releaser_b_pair_mass_both": 0.8023874386169868
    },
    {
     "m50": 0.01584893192461114,
@@ -696,7 +1200,15 @@
     "truth_silent_worse": 0.24206023830264392,
     "truth_among_smelled": 0.28509220694826315,
     "releaser_among_smelled": 0.21656130325242412,
-    "releaser_silent_worse": 0.21372054984737268
+    "releaser_silent_worse": 0.21372054984737268,
+    "bystander_b_silent_stronger": 0.23741832039965532,
+    "bystander_b_audible_stronger": 0.6904994067280907,
+    "bystander_b_tie": 0.07208227287225369,
+    "bystander_b_pair_mass_both": 0.4834573894135892,
+    "releaser_b_silent_stronger": 0.2231721348294182,
+    "releaser_b_audible_stronger": 0.7198108784669095,
+    "releaser_b_tie": 0.057016986703672425,
+    "releaser_b_pair_mass_both": 0.7526264583905224
    },
    {
     "m50": 0.025118864315095822,
@@ -706,7 +1218,15 @@
     "truth_silent_worse": 0.2333214170099069,
     "truth_among_smelled": 0.28527794724791805,
     "releaser_among_smelled": 0.2209685170841668,
-    "releaser_silent_worse": 0.216312694308518
+    "releaser_silent_worse": 0.216312694308518,
+    "bystander_b_silent_stronger": 0.23574417602901881,
+    "bystander_b_audible_stronger": 0.6913213709673968,
+    "bystander_b_tie": 0.07293445300358442,
+    "bystander_b_pair_mass_both": 0.42064819110871277,
+    "releaser_b_silent_stronger": 0.2280133995992361,
+    "releaser_b_audible_stronger": 0.7139352777977865,
+    "releaser_b_tie": 0.058051322602977254,
+    "releaser_b_pair_mass_both": 0.6966071348771101
    },
    {
     "m50": 0.039810717055349734,
@@ -716,7 +1236,15 @@
     "truth_silent_worse": 0.2232268006091862,
     "truth_among_smelled": 0.2856808560505136,
     "releaser_among_smelled": 0.22585603902284299,
-    "releaser_silent_worse": 0.21848313976852168
+    "releaser_silent_worse": 0.21848313976852168,
+    "bystander_b_silent_stronger": 0.23456860734309584,
+    "bystander_b_audible_stronger": 0.6915837878564868,
+    "bystander_b_tie": 0.07384760480041755,
+    "bystander_b_pair_mass_both": 0.35835204862142644,
+    "releaser_b_silent_stronger": 0.23349610793783074,
+    "releaser_b_audible_stronger": 0.7073212707287372,
+    "releaser_b_tie": 0.05918262133343192,
+    "releaser_b_pair_mass_both": 0.635275427379343
    },
    {
     "m50": 0.06309573444801936,
@@ -726,7 +1254,15 @@
     "truth_silent_worse": 0.2114690514526356,
     "truth_among_smelled": 0.2860747632357351,
     "releaser_among_smelled": 0.23106111262549922,
-    "releaser_silent_worse": 0.21977570942008492
+    "releaser_silent_worse": 0.21977570942008492,
+    "bystander_b_silent_stronger": 0.23392285004600358,
+    "bystander_b_audible_stronger": 0.69125521537361,
+    "bystander_b_tie": 0.07482193458038662,
+    "bystander_b_pair_mass_both": 0.29841237269357873,
+    "releaser_b_silent_stronger": 0.23965069312826162,
+    "releaser_b_audible_stronger": 0.6999390123592762,
+    "releaser_b_tie": 0.060410294512462,
+    "releaser_b_pair_mass_both": 0.5699999393045622
    },
    {
     "m50": 0.1,
@@ -736,7 +1272,15 @@
     "truth_silent_worse": 0.19786322098917372,
     "truth_among_smelled": 0.2862122299902645,
     "releaser_among_smelled": 0.2363826388393389,
-    "releaser_silent_worse": 0.21968031283338754
+    "releaser_silent_worse": 0.21968031283338754,
+    "bystander_b_silent_stronger": 0.23385014309747296,
+    "bystander_b_audible_stronger": 0.6902905653789708,
+    "bystander_b_tie": 0.07585929152355629,
+    "bystander_b_pair_mass_both": 0.24254085869587744,
+    "releaser_b_silent_stronger": 0.24650584804361614,
+    "releaser_b_audible_stronger": 0.6917598390958941,
+    "releaser_b_tie": 0.061734312860489735,
+    "releaser_b_pair_mass_both": 0.502489718571165
    },
    {
     "m50": 0.15848931924611143,
@@ -746,7 +1290,15 @@
     "truth_silent_worse": 0.18240814658615964,
     "truth_among_smelled": 0.28585140993150937,
     "releaser_among_smelled": 0.24160196236740855,
-    "releaser_silent_worse": 0.2176911613444438
+    "releaser_silent_worse": 0.2176911613444438,
+    "bystander_b_silent_stronger": 0.23440479253519475,
+    "bystander_b_audible_stronger": 0.6886327440495988,
+    "bystander_b_tie": 0.07696246341520613,
+    "bystander_b_pair_mass_both": 0.1921427899814076,
+    "releaser_b_silent_stronger": 0.2540863629390731,
+    "releaser_b_audible_stronger": 0.6827589326183199,
+    "releaser_b_tie": 0.06315470444260704,
+    "releaser_b_pair_mass_both": 0.43466271712734034
    },
    {
     "m50": 0.25118864315095824,
@@ -756,7 +1308,15 @@
     "truth_silent_worse": 0.16531751996169727,
     "truth_among_smelled": 0.28477884496428313,
     "releaser_among_smelled": 0.24650551849814406,
-    "releaser_silent_worse": 0.2133759359955375
+    "releaser_silent_worse": 0.2133759359955375,
+    "bystander_b_silent_stronger": 0.2356526016344527,
+    "bystander_b_audible_stronger": 0.6862129675323643,
+    "bystander_b_tie": 0.07813443083318304,
+    "bystander_b_pair_mass_both": 0.14818876221358476,
+    "releaser_b_silent_stronger": 0.2624094326123708,
+    "releaser_b_audible_stronger": 0.6729199579203878,
+    "releaser_b_tie": 0.06467060946724146,
+    "releaser_b_pair_mass_both": 0.36848161238658184
    },
    {
     "m50": 0.39810717055349776,
@@ -766,7 +1326,15 @@
     "truth_silent_worse": 0.14701206859410296,
     "truth_among_smelled": 0.2828260059292644,
     "releaser_among_smelled": 0.2509052600432256,
-    "releaser_silent_worse": 0.2064434436796102
+    "releaser_silent_worse": 0.2064434436796102,
+    "bystander_b_silent_stronger": 0.2376741797560531,
+    "bystander_b_audible_stronger": 0.6829480664815504,
+    "bystander_b_tie": 0.0793777537623965,
+    "bystander_b_pair_mass_both": 0.11115237588591059,
+    "releaser_b_silent_stronger": 0.271479672003308,
+    "releaser_b_audible_stronger": 0.662241288145623,
+    "releaser_b_tie": 0.06627903985106877,
+    "releaser_b_pair_mass_both": 0.30578110328912905
    },
    {
     "m50": 0.6309573444801942,
@@ -776,7 +1344,15 @@
     "truth_silent_worse": 0.12807363230525032,
     "truth_among_smelled": 0.2798791554067143,
     "releaser_among_smelled": 0.2546539163183308,
-    "releaser_silent_worse": 0.19679619739855927
+    "releaser_silent_worse": 0.19679619739855927,
+    "bystander_b_silent_stronger": 0.2405724048228693,
+    "bystander_b_audible_stronger": 0.6787333584561835,
+    "bystander_b_tie": 0.08069423672094712,
+    "bystander_b_pair_mass_both": 0.08101907763187242,
+    "releaser_b_silent_stronger": 0.28128346480430855,
+    "releaser_b_audible_stronger": 0.6507429521722702,
+    "releaser_b_tie": 0.06797358302342103,
+    "releaser_b_pair_mass_both": 0.2481129836060589
    },
    {
     "m50": 1.0,
@@ -786,7 +1362,15 @@
     "truth_silent_worse": 0.10917102072881096,
     "truth_among_smelled": 0.2758832785554178,
     "releaser_among_smelled": 0.257653740517939,
-    "releaser_silent_worse": 0.18455686078402325
+    "releaser_silent_worse": 0.18455686078402325,
+    "bystander_b_silent_stronger": 0.24448500577958374,
+    "bystander_b_audible_stronger": 0.6734300135845076,
+    "bystander_b_tie": 0.08208498063590859,
+    "bystander_b_pair_mass_both": 0.05735698335354577,
+    "releaser_b_silent_stronger": 0.2917836209264193,
+    "releaser_b_audible_stronger": 0.6384730371411406,
+    "releaser_b_tie": 0.06974334193244026,
+    "releaser_b_pair_mass_both": 0.19663148701024152
    },
    {
     "m50": 1.584893192461114,
@@ -796,7 +1380,15 @@
     "truth_silent_worse": 0.09097371697830624,
     "truth_among_smelled": 0.2708413695109249,
     "releaser_among_smelled": 0.2598588768115952,
-    "releaser_silent_worse": 0.17006299320155135
+    "releaser_silent_worse": 0.17006299320155135,
+    "bystander_b_silent_stronger": 0.24960267093976324,
+    "bystander_b_audible_stronger": 0.6668464579298493,
+    "bystander_b_tie": 0.08355087113038762,
+    "bystander_b_pair_mass_both": 0.03942974388452021,
+    "releaser_b_silent_stronger": 0.3029155219624486,
+    "releaser_b_audible_stronger": 0.6255120820893931,
+    "releaser_b_tie": 0.07157239594815828,
+    "releaser_b_pair_mass_both": 0.15203272789611083
    },
    {
     "m50": 2.5118864315095824,
@@ -806,7 +1398,15 @@
     "truth_silent_worse": 0.07407109893506664,
     "truth_among_smelled": 0.2648104486902945,
     "releaser_among_smelled": 0.261272476646252,
-    "releaser_silent_worse": 0.15383137135412434
+    "releaser_silent_worse": 0.15383137135412434,
+    "bystander_b_silent_stronger": 0.2561918101748204,
+    "bystander_b_audible_stronger": 0.6587147402707395,
+    "bystander_b_tie": 0.08509344955443987,
+    "bystander_b_pair_mass_both": 0.026326565024111247,
+    "releaser_b_silent_stronger": 0.31458587631966933,
+    "releaser_b_audible_stronger": 0.6119741349570418,
+    "releaser_b_tie": 0.07343998872328891,
+    "releaser_b_pair_mass_both": 0.11455115578079453
    },
    {
     "m50": 3.9810717055349776,
@@ -816,7 +1416,15 @@
     "truth_silent_worse": 0.05891180988740971,
     "truth_among_smelled": 0.2578955282681704,
     "releaser_among_smelled": 0.2619401529590315,
-    "releaser_silent_worse": 0.1364993147424131
+    "releaser_silent_worse": 0.1364993147424131,
+    "bystander_b_silent_stronger": 0.2646182419382103,
+    "bystander_b_audible_stronger": 0.6486658300817644,
+    "bystander_b_tie": 0.08671592798002514,
+    "bystander_b_pair_mass_both": 0.017085757788143814,
+    "releaser_b_silent_stronger": 0.3266748302656885,
+    "releaser_b_audible_stronger": 0.5980036632670923,
+    "releaser_b_tie": 0.07532150646721918,
+    "releaser_b_pair_mass_both": 0.08400586712870328
    },
    {
     "m50": 6.309573444801943,
@@ -826,7 +1434,15 @@
     "truth_silent_worse": 0.04577162559111869,
     "truth_among_smelled": 0.25024249675051646,
     "releaser_among_smelled": 0.261941395772483,
-    "releaser_silent_worse": 0.11875427693023355
+    "releaser_silent_worse": 0.11875427693023355,
+    "bystander_b_silent_stronger": 0.27536242479494616,
+    "bystander_b_audible_stronger": 0.6362137722173921,
+    "bystander_b_tie": 0.08842380298766181,
+    "bystander_b_pair_mass_both": 0.010794305446402967,
+    "releaser_b_silent_stronger": 0.33904153773745704,
+    "releaser_b_audible_stronger": 0.5837683271345405,
+    "releaser_b_tie": 0.07719013512800257,
+    "releaser_b_pair_mass_both": 0.059882725772839186
    },
    {
     "m50": 10.0,
@@ -836,7 +1452,15 @@
     "truth_silent_worse": 0.03475084950262474,
     "truth_among_smelled": 0.24203064873162927,
     "releaser_among_smelled": 0.26138034582497777,
-    "releaser_silent_worse": 0.10126379588890935
+    "releaser_silent_worse": 0.10126379588890935,
+    "bystander_b_silent_stronger": 0.28900756300299374,
+    "bystander_b_audible_stronger": 0.6207683381349561,
+    "bystander_b_tie": 0.0902240988620502,
+    "bystander_b_pair_mass_both": 0.0066544448577206495,
+    "releaser_b_silent_stronger": 0.3515325485738678,
+    "releaser_b_audible_stronger": 0.5694485238349835,
+    "releaser_b_tie": 0.07901892759114888,
+    "releaser_b_pair_mass_both": 0.041435457818734873
    },
    {
     "m50": 15.848931924611142,
@@ -846,7 +1470,15 @@
     "truth_silent_worse": 0.02579607366004705,
     "truth_among_smelled": 0.23346537974624088,
     "releaser_among_smelled": 0.2603769703248154,
-    "releaser_silent_worse": 0.08461605426695731
+    "releaser_silent_worse": 0.08461605426695731,
+    "bystander_b_silent_stronger": 0.3061709885762863,
+    "bystander_b_audible_stronger": 0.6017071151297839,
+    "bystander_b_tie": 0.09212189629392964,
+    "bystander_b_pair_mass_both": 0.004016578433974832,
+    "releaser_b_silent_stronger": 0.36399176525492927,
+    "releaser_b_audible_stronger": 0.5552253123951005,
+    "releaser_b_tie": 0.08078292234997038,
+    "releaser_b_pair_mass_both": 0.027789735987478192
    },
    {
     "m50": 25.11886431509582,
@@ -856,7 +1488,15 @@
     "truth_silent_worse": 0.018737458158346276,
     "truth_among_smelled": 0.22477140561193276,
     "releaser_among_smelled": 0.25905929912295056,
-    "releaser_silent_worse": 0.06927778749795946
+    "releaser_silent_worse": 0.06927778749795946,
+    "bystander_b_silent_stronger": 0.3273464593645973,
+    "bystander_b_audible_stronger": 0.578540534611158,
+    "bystander_b_tie": 0.09411300602424469,
+    "bystander_b_pair_mass_both": 0.0023840294507736243,
+    "releaser_b_silent_stronger": 0.37627044107255686,
+    "releaser_b_audible_stronger": 0.541268597614795,
+    "releaser_b_tie": 0.08246096131264831,
+    "releaser_b_pair_mass_both": 0.018037475317110543
    },
    {
     "m50": 39.81071705534978,
@@ -866,7 +1506,15 @@
     "truth_silent_worse": 0.013331853808165185,
     "truth_among_smelled": 0.21618674491178044,
     "releaser_among_smelled": 0.2575570230477359,
-    "releaser_silent_worse": 0.05557226409520667
+    "releaser_silent_worse": 0.05557226409520667,
+    "bystander_b_silent_stronger": 0.35265158754440906,
+    "bystander_b_audible_stronger": 0.5511750646271402,
+    "bystander_b_tie": 0.09617334782845077,
+    "bystander_b_pair_mass_both": 0.0013983686070069648,
+    "releaser_b_silent_stronger": 0.3882358204948012,
+    "releaser_b_audible_stronger": 0.5277272301808652,
+    "releaser_b_tie": 0.0840369493243335,
+    "releaser_b_pair_mass_both": 0.011312776474789062
    },
    {
     "m50": 63.09573444801943,
@@ -876,7 +1524,15 @@
     "truth_silent_worse": 0.009303577500956006,
     "truth_among_smelled": 0.2079576126668711,
     "releaser_among_smelled": 0.25599647440164963,
-    "releaser_silent_worse": 0.04367648312184004
+    "releaser_silent_worse": 0.04367648312184004,
+    "bystander_b_silent_stronger": 0.3815501592441782,
+    "bystander_b_audible_stronger": 0.5202005587960613,
+    "bystander_b_tie": 0.09824928195976045,
+    "bystander_b_pair_mass_both": 0.0008144431421985105,
+    "releaser_b_silent_stronger": 0.3997774741414635,
+    "releaser_b_audible_stronger": 0.514722082396263,
+    "releaser_b_tie": 0.08550044346227345,
+    "releaser_b_pair_mass_both": 0.0068452088605575135
    },
    {
     "m50": 100.0,
@@ -886,7 +1542,15 @@
     "truth_silent_worse": 0.0063774291487099025,
     "truth_among_smelled": 0.2003343018946131,
     "releaser_among_smelled": 0.2544968322747044,
-    "releaser_silent_worse": 0.03363412523060948
+    "releaser_silent_worse": 0.03363412523060948,
+    "bystander_b_silent_stronger": 0.41271664544678854,
+    "bystander_b_audible_stronger": 0.48702653420625186,
+    "bystander_b_tie": 0.10025682034695954,
+    "bystander_b_pair_mass_both": 0.00047267047175525895,
+    "releaser_b_silent_stronger": 0.4108109719366249,
+    "releaser_b_audible_stronger": 0.5023424219405338,
+    "releaser_b_tie": 0.08684660612284142,
+    "releaser_b_pair_mass_both": 0.003989900840298167
    },
    {
     "m50": 158.48931924611142,
@@ -896,7 +1560,15 @@
     "truth_silent_worse": 0.004301564021038703,
     "truth_among_smelled": 0.19356806474773586,
     "releaser_among_smelled": 0.25316732930356256,
-    "releaser_silent_worse": 0.025379332988371313
+    "releaser_silent_worse": 0.025379332988371313,
+    "bystander_b_silent_stronger": 0.4442201508615002,
+    "bystander_b_audible_stronger": 0.45368375686892165,
+    "bystander_b_tie": 0.10209609226957822,
+    "bystander_b_pair_mass_both": 0.0002736699741329542,
+    "releaser_b_silent_stronger": 0.4212790731171372,
+    "releaser_b_audible_stronger": 0.49064526480790605,
+    "releaser_b_tie": 0.08807566207495669,
+    "releaser_b_pair_mass_both": 0.0022369327469070836
    },
    {
     "m50": 251.18864315095823,
@@ -906,7 +1578,15 @@
     "truth_silent_worse": 0.0028603369039626953,
     "truth_among_smelled": 0.18790893132571834,
     "releaser_among_smelled": 0.2521052622773407,
-    "releaser_silent_worse": 0.018766020274412938
+    "releaser_silent_worse": 0.018766020274412938,
+    "bystander_b_silent_stronger": 0.47402811399588185,
+    "bystander_b_audible_stronger": 0.4222941853943371,
+    "bystander_b_tie": 0.10367770060978079,
+    "bystander_b_pair_mass_both": 0.0001578014317008852,
+    "releaser_b_silent_stronger": 0.43115096151937493,
+    "releaser_b_audible_stronger": 0.47965699022278163,
+    "releaser_b_tie": 0.08919204825784334,
+    "releaser_b_pair_mass_both": 0.0012046191711485605
    },
    {
     "m50": 398.1071705534977,
@@ -916,7 +1596,15 @@
     "truth_silent_worse": 0.0018788438859788255,
     "truth_among_smelled": 0.18360430831240782,
     "releaser_among_smelled": 0.25139468626825273,
-    "releaser_silent_worse": 0.013597917034764161
+    "releaser_silent_worse": 0.013597917034764161,
+    "bystander_b_silent_stronger": 0.5005750139039442,
+    "bystander_b_audible_stronger": 0.3944779583272846,
+    "bystander_b_tie": 0.10494702776877138,
+    "bystander_b_pair_mass_both": 9.021801350759924e-05,
+    "releaser_b_silent_stronger": 0.4404201839638842,
+    "releaser_b_audible_stronger": 0.4693763752646889,
+    "releaser_b_tie": 0.09020344077142689,
+    "releaser_b_pair_mass_both": 0.0006222758209075749
    },
    {
     "m50": 630.9573444801943,
@@ -926,7 +1614,15 @@
     "truth_silent_worse": 0.001221584845717188,
     "truth_among_smelled": 0.18089807558269777,
     "releaser_among_smelled": 0.2511057537320111,
-    "releaser_silent_worse": 0.009655662049925991
+    "releaser_silent_worse": 0.009655662049925991,
+    "bystander_b_silent_stronger": 0.5230821479386522,
+    "bystander_b_audible_stronger": 0.3710245687892002,
+    "bystander_b_tie": 0.10589328327214777,
+    "bystander_b_pair_mass_both": 5.082813715784312e-05,
+    "releaser_b_silent_stronger": 0.4491018991290962,
+    "releaser_b_audible_stronger": 0.4597782965654771,
+    "releaser_b_tie": 0.09111980430542672,
+    "releaser_b_pair_mass_both": 0.0003079826300773605
    },
    {
     "m50": 1000.0,
@@ -936,7 +1632,15 @@
     "truth_silent_worse": 0.0007876581336012856,
     "truth_among_smelled": 0.18002975652948056,
     "releaser_among_smelled": 0.2512947086420672,
-    "releaser_silent_worse": 0.006718642932564001
+    "releaser_silent_worse": 0.006718642932564001,
+    "bystander_b_silent_stronger": 0.541523549437967,
+    "bystander_b_audible_stronger": 0.35193450853082175,
+    "bystander_b_tie": 0.10654194203121131,
+    "bystander_b_pair_mass_both": 2.8030012175173292e-05,
+    "releaser_b_silent_stronger": 0.4572298895314456,
+    "releaser_b_audible_stronger": 0.45081755437564613,
+    "releaser_b_tie": 0.09195255609290831,
+    "releaser_b_pair_mass_both": 0.00014588085674766468
    },
    {
     "m50": 1584.8931924611175,
@@ -946,7 +1650,15 @@
     "truth_silent_worse": 0.0005044634800929784,
     "truth_among_smelled": 0.18123320570732784,
     "releaser_among_smelled": 0.2520045441223626,
-    "releaser_silent_worse": 0.004580644774705693
+    "releaser_silent_worse": 0.004580644774705693,
+    "bystander_b_silent_stronger": 0.5563706091513428,
+    "bystander_b_audible_stronger": 0.33669011937020604,
+    "bystander_b_tie": 0.10693927147845102,
+    "bystander_b_pair_mass_both": 1.5034361484272825e-05,
+    "releaser_b_silent_stronger": 0.4648536039665562,
+    "releaser_b_audible_stronger": 0.4424325101602793,
+    "releaser_b_tie": 0.09271388587316463,
+    "releaser_b_pair_mass_both": 6.606352939496791e-05
    },
    {
     "m50": 2511.886431509582,
@@ -956,7 +1668,15 @@
     "truth_silent_worse": 0.00032129183362907996,
     "truth_among_smelled": 0.18473417876898046,
     "releaser_among_smelled": 0.25326628596531414,
-    "releaser_silent_worse": 0.003059474887900074
+    "releaser_silent_worse": 0.003059474887900074,
+    "bystander_b_silent_stronger": 0.5683077074413151,
+    "bystander_b_audible_stronger": 0.32455414902290025,
+    "bystander_b_tie": 0.1071381435357848,
+    "bystander_b_pair_mass_both": 7.800205780860876e-06,
+    "releaser_b_silent_stronger": 0.47203533416127175,
+    "releaser_b_audible_stronger": 0.4345484310613212,
+    "releaser_b_tie": 0.0934162347774071,
+    "releaser_b_pair_mass_both": 2.8577264273598e-05
    },
    {
     "m50": 3981.071705534969,
@@ -966,7 +1686,15 @@
     "truth_silent_worse": 0.00020360684382951066,
     "truth_among_smelled": 0.19074617019288392,
     "releaser_among_smelled": 0.2551007959752393,
-    "releaser_silent_worse": 0.002001460689509367
+    "releaser_silent_worse": 0.002001460689509367,
+    "bystander_b_silent_stronger": 0.5780298396532475,
+    "bystander_b_audible_stronger": 0.31478094174359517,
+    "bystander_b_tie": 0.1071892186031573,
+    "bystander_b_pair_mass_both": 3.8972210831669825e-06,
+    "releaser_b_silent_stronger": 0.4788475138512423,
+    "releaser_b_audible_stronger": 0.42708057354867346,
+    "releaser_b_tie": 0.09407191260008402,
+    "releaser_b_pair_mass_both": 1.1798224582584823e-05
    },
    {
     "m50": 6309.573444801943,
@@ -976,7 +1704,15 @@
     "truth_silent_worse": 0.00012837035758246488,
     "truth_among_smelled": 0.19946405540026843,
     "releaser_among_smelled": 0.2575209254365076,
-    "releaser_silent_worse": 0.0012820643997739764
+    "releaser_silent_worse": 0.0012820643997739764,
+    "bystander_b_silent_stronger": 0.586139606102767,
+    "bystander_b_audible_stronger": 0.3067232014419811,
+    "bystander_b_tie": 0.10713719245525173,
+    "bystander_b_pair_mass_both": 1.8686327955803961e-06,
+    "releaser_b_silent_stronger": 0.4853700670817455,
+    "releaser_b_audible_stronger": 0.4199371095571639,
+    "releaser_b_tie": 0.09469282336109057,
+    "releaser_b_pair_mass_both": 4.645416475975577e-06
    },
    {
     "m50": 10000.0,
@@ -986,7 +1722,15 @@
     "truth_silent_worse": 8.046164075672683e-05,
     "truth_among_smelled": 0.21105535901059333,
     "releaser_among_smelled": 0.260533811495847,
-    "releaser_silent_worse": 0.0008038969694150772
+    "releaser_silent_worse": 0.0008038969694150772,
+    "bystander_b_silent_stronger": 0.5931156768069242,
+    "bystander_b_audible_stronger": 0.2998641475931788,
+    "bystander_b_tie": 0.10702017559989697,
+    "bystander_b_pair_mass_both": 8.575458972146849e-07,
+    "releaser_b_silent_stronger": 0.4916877189721856,
+    "releaser_b_audible_stronger": 0.4130220110987373,
+    "releaser_b_tie": 0.09529026992907703,
+    "releaser_b_pair_mass_both": 1.7432017145741803e-06
    }
   ],
   "baseline": {
@@ -996,7 +1740,15 @@
    "truth_silent_worse": 0.0014653210063569838,
    "truth_among_smelled": 0.1818244905068108,
    "releaser_among_smelled": 0.25117182489944245,
-   "releaser_silent_worse": 0.011176373683114195
+   "releaser_silent_worse": 0.011176373683114195,
+   "bystander_b_silent_stronger": 0.5141379099231557,
+   "bystander_b_audible_stronger": 0.3803278477980558,
+   "bystander_b_tie": 0.10553424227878856,
+   "bystander_b_pair_mass_both": 6.482203347310558e-05,
+   "releaser_b_silent_stronger": 0.4455255032335184,
+   "releaser_b_audible_stronger": 0.463728683506828,
+   "releaser_b_tie": 0.09074581325965349,
+   "releaser_b_pair_mass_both": 0.0004160150569238569
   }
  }
 }
