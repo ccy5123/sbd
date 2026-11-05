@@ -1,0 +1,3430 @@
+{
+ "observer_order": [
+  "attentive, Amoore thresholds",
+  "distracted (everyday)"
+ ],
+ "dp_max_params_Pa": 11732.0,
+ "caps_mmHg": {
+  "72 mmHg (simulated defecation, Lee & Bharucha 2016)": 72.0,
+  "88 mmHg (flatus maximum, Miller 1988)": 88.0,
+  "108 mmHg (cough, Cobb 2005)": 107.6,
+  "171 mmHg (jump, Cobb 2005)": 171.0
+ },
+ "required_pressure_uncapped": {
+  "all": {
+   "n": 20000,
+   "median_kPa": 0.01973679254152743,
+   "p90_kPa": 3.3004644366012665,
+   "median_mmHg": 0.1480385273362793,
+   "p90_mmHg": 24.755587499446953,
+   "share_above_88_mmHg": 0.05115,
+   "share_above_150_mmHg": 0.0367
+  },
+  "audible (oscillating)": {
+   "n": 3097,
+   "median_kPa": 5.573052407897185,
+   "p90_kPa": 64.05642977880939,
+   "median_mmHg": 41.80144618215437,
+   "p90_mmHg": 480.4640627864072,
+   "share_above_88_mmHg": 0.3303196641911527,
+   "share_above_150_mmHg": 0.23700355182434615
+  },
+  "silent": {
+   "n": 16903,
+   "median_kPa": 0.008841967906995955,
+   "p90_kPa": 0.3587540252420734,
+   "median_mmHg": 0.06632039653617523,
+   "p90_mmHg": 2.690883914448279,
+   "share_above_88_mmHg": 0.0,
+   "share_above_150_mmHg": 0.0
+  }
+ },
+ "cases": {
+  "uncapped": {
+   "frac_silent": 0.8451500000000001,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9025923362450509,
+       "silent_worse": 0.005186276652631689,
+       "audible_worse": 0.0921712861152572,
+       "tie": 5.010098706022006e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9792241429582379,
+       "silent_worse": 0.0013903743471009075,
+       "audible_worse": 0.01938367261565235,
+       "tie": 1.8100790089092434e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.5568152197334478,
+       "silent_worse": 0.2233958624812765,
+       "audible_worse": 0.2044420892304147,
+       "tie": 0.015346828554861061
+      },
+      "distracted (everyday)": {
+       "none": 0.8652846773423083,
+       "silent_worse": 0.0741804045143996,
+       "audible_worse": 0.059576594543010675,
+       "tie": 0.0009583236002815116
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995513330807384,
+       "silent_worse": 0.0004198846865863836,
+       "audible_worse": 2.8779285553458788e-05,
+       "tie": 2.947121726741373e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997726368027513,
+       "silent_worse": 0.0001945929315148257,
+       "audible_worse": 3.2769044190363294e-05,
+       "tie": 1.2215435613074612e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.926163921194123,
+       "silent_worse": 0.005080988629209592,
+       "audible_worse": 0.06863801628085914,
+       "tie": 0.00011707389580826288
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.8841311815823168,
+       "audible_worse": 0.09549705823732108,
+       "tie": 0.020371760180362086
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.984006788123734,
+       "silent_worse": 0.001458442197299832,
+       "audible_worse": 0.014528425198658941,
+       "tie": 6.344480307365816e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9743633228009203,
+       "audible_worse": 0.021398025214671046,
+       "tie": 0.004238651984408455
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9113262198210027,
+       "silent_worse": 0.004802648567971504,
+       "audible_worse": 0.08382210821733256,
+       "tie": 4.90233936933497e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9115899968939559,
+       "audible_worse": 0.07910488017810799,
+       "tie": 0.00930512292793625
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9810658739448749,
+       "silent_worse": 0.0012982310760108974,
+       "audible_worse": 0.017634031964287332,
+       "tie": 1.8630148269354712e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9812245020434989,
+       "audible_worse": 0.017367400561793287,
+       "tie": 0.0014080973947076185
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9487843294127056,
+       "silent_worse": 0.011299347750046908,
+       "audible_worse": 0.039260169476490595,
+       "tie": 0.0006561533607570303
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.8153057141550698,
+       "audible_worse": 0.137349465929547,
+       "tie": 0.04734481991538307
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9873194738770619,
+       "silent_worse": 0.003675928885997052,
+       "audible_worse": 0.008964062963795207,
+       "tie": 4.053427314609189e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9582762381145499,
+       "audible_worse": 0.03115690055874919,
+       "tie": 0.010566861326700787
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8196529630197457,
+       "silent_worse": 0.07633400794016486,
+       "audible_worse": 0.09888071821040845,
+       "tie": 0.005132310829681003
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7980623057172158,
+       "audible_worse": 0.1482800399172062,
+       "tie": 0.05365765436557807
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9480938190344325,
+       "silent_worse": 0.02525512393100511,
+       "audible_worse": 0.026331012067617798,
+       "tie": 0.0003200449669446607
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9539644180515695,
+       "audible_worse": 0.0339464901872584,
+       "tie": 0.012089091761172212
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.760633966326033,
+       "silent_worse": 0.055123937488333476,
+       "audible_worse": 0.18283254424864478,
+       "tie": 0.0014095519369887995
+      },
+      "distracted (everyday)": {
+       "none": 0.9473553770891475,
+       "silent_worse": 0.013351235263383414,
+       "audible_worse": 0.03923967628969293,
+       "tie": 5.3711357776025746e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7364992219212119,
+       "silent_worse": 0.10143716563533456,
+       "audible_worse": 0.1595656988361584,
+       "tie": 0.002497913607295163
+      },
+      "distracted (everyday)": {
+       "none": 0.9459308309414501,
+       "silent_worse": 0.021512240551221633,
+       "audible_worse": 0.03247553181623805,
+       "tie": 8.139669109021833e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.8134511182012958,
+       "silent_worse": 0.018845637140970463,
+       "audible_worse": 0.1670806139056754,
+       "tie": 0.0006226307520584058
+      },
+      "distracted (everyday)": {
+       "none": 0.9602156000372157,
+       "silent_worse": 0.00467231219037273,
+       "audible_worse": 0.035091009561939564,
+       "tie": 2.1078210471975708e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7743340859561811,
+       "silent_worse": 0.04586947785890337,
+       "audible_worse": 0.17858718632947745,
+       "tie": 0.0012092498554379444
+      },
+      "memory": {
+       "none": 0.7743340859561811,
+       "silent_worse": 0.04586947785890337,
+       "audible_worse": 0.17858718632947745,
+       "tie": 0.0012092498554379444
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9507144692423187,
+       "silent_worse": 0.011121993648919037,
+       "audible_worse": 0.03811822351031532,
+       "tie": 4.5313598446767576e-05
+      },
+      "memory": {
+       "none": 0.9507144692423187,
+       "silent_worse": 0.011121993648919037,
+       "audible_worse": 0.03811822351031532,
+       "tie": 4.5313598446767576e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7654289506490733,
+       "silent_worse": 0.05183718290737501,
+       "audible_worse": 0.18139558924237342,
+       "tie": 0.0013382772011783358
+      },
+      "memory": {
+       "none": 0.7654289506490731,
+       "silent_worse": 0.051837182907375,
+       "audible_worse": 0.1813955892423734,
+       "tie": 0.0013382772011783356
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9485238989326102,
+       "silent_worse": 0.012564275885079293,
+       "audible_worse": 0.03886107350951234,
+       "tie": 5.07516727979967e-05
+      },
+      "memory": {
+       "none": 0.94852389893261,
+       "silent_worse": 0.012564275885079289,
+       "audible_worse": 0.03886107350951233,
+       "tie": 5.0751672797996686e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7926390718978714,
+       "silent_worse": 0.034379717610689975,
+       "audible_worse": 0.17201813589210202,
+       "tie": 0.0009630745993367352
+      },
+      "memory": {
+       "none": 0.7926390718978714,
+       "silent_worse": 0.034379717610689975,
+       "audible_worse": 0.17201813589210202,
+       "tie": 0.0009630745993367352
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9553336603422029,
+       "silent_worse": 0.008266950229744996,
+       "audible_worse": 0.03636492023178646,
+       "tie": 3.4469196265752495e-05
+      },
+      "memory": {
+       "none": 0.9553336603422029,
+       "silent_worse": 0.008266950229744996,
+       "audible_worse": 0.03636492023178646,
+       "tie": 3.4469196265752495e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7701947688161802,
+       "silent_worse": 0.05846891342154616,
+       "audible_worse": 0.16982628566349287,
+       "tie": 0.0015100320987807894
+      },
+      "memory": {
+       "none": 0.7701947688161802,
+       "silent_worse": 0.05846891342154616,
+       "audible_worse": 0.16982628566349287,
+       "tie": 0.0015100320987807894
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9511672693559378,
+       "silent_worse": 0.013178596001659259,
+       "audible_worse": 0.03560207255595685,
+       "tie": 5.2062086446073265e-05
+      },
+      "memory": {
+       "none": 0.9511672693559378,
+       "silent_worse": 0.013178596001659259,
+       "audible_worse": 0.03560207255595685,
+       "tie": 5.2062086446073265e-05
+      }
+     }
+    }
+   }
+  },
+  "capped (headline, params dp_max)": {
+   "frac_silent": 0.8451500000000001,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9537146540236128,
+       "silent_worse": 0.005450938995905444,
+       "audible_worse": 0.04079597905389853,
+       "tie": 3.8427926583312156e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9900730647505318,
+       "silent_worse": 0.0014051892500296433,
+       "audible_worse": 0.008520284943485239,
+       "tie": 1.4610559533168599e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.556509034787959,
+       "silent_worse": 0.2156101099705473,
+       "audible_worse": 0.21128249881565112,
+       "tie": 0.01659835642584265
+      },
+      "distracted (everyday)": {
+       "none": 0.8621695144666591,
+       "silent_worse": 0.07342021560468559,
+       "audible_worse": 0.06330827303091165,
+       "tie": 0.0011019968977437034
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995441184871292,
+       "silent_worse": 0.0004198830303591674,
+       "audible_worse": 3.59947739194402e-05,
+       "tie": 3.7085921698979675e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997667022483215,
+       "silent_worse": 0.00019459203210696406,
+       "audible_worse": 3.870420740683295e-05,
+       "tie": 1.512164656757745e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9636322854578545,
+       "silent_worse": 0.005234218434111349,
+       "audible_worse": 0.03101842568092889,
+       "tie": 0.00011507042710531335
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9107943486050883,
+       "audible_worse": 0.06918251020995883,
+       "tie": 0.020023141184952624
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9919410140940167,
+       "silent_worse": 0.0014653210063569836,
+       "audible_worse": 0.0065868239554407685,
+       "tie": 6.840944185554459e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9789589517961924,
+       "audible_worse": 0.01647071616043059,
+       "tie": 0.004570332043376929
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9577897688080189,
+       "silent_worse": 0.005041426790669391,
+       "audible_worse": 0.03713010602680699,
+       "tie": 3.869837450487599e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9569124551598223,
+       "audible_worse": 0.03574221223975361,
+       "tie": 0.007345332600424068
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9909250419031863,
+       "silent_worse": 0.0013115232966521347,
+       "audible_worse": 0.007761856334909021,
+       "tie": 1.578465252641183e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9912709820737157,
+       "audible_worse": 0.007535987802344196,
+       "tie": 0.0011930301239398227
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9658078351784916,
+       "silent_worse": 0.011063161141382434,
+       "audible_worse": 0.022424593868984627,
+       "tie": 0.0007044098111413208
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7982636427089322,
+       "audible_worse": 0.1509095877434158,
+       "tie": 0.05082676954765183
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.990802273591489,
+       "silent_worse": 0.0036491920869386337,
+       "audible_worse": 0.005502129820412336,
+       "tie": 4.640450116000374e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9513062340650901,
+       "audible_worse": 0.03659659752325032,
+       "tie": 0.012097168411659615
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.836589269099567,
+       "silent_worse": 0.07382697733227063,
+       "audible_worse": 0.08403815754782303,
+       "tie": 0.005545596020339377
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7718516208412425,
+       "audible_worse": 0.1701698808983567,
+       "tie": 0.05797849826040066
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9506697604885042,
+       "silent_worse": 0.02500666562894073,
+       "audible_worse": 0.02395575406060124,
+       "tie": 0.0003678198219538923
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9445793768145339,
+       "audible_worse": 0.04152692686638774,
+       "tie": 0.013893696319078488
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7968491971366051,
+       "silent_worse": 0.05691627479246426,
+       "audible_worse": 0.14505140948752107,
+       "tie": 0.0011831185834096406
+      },
+      "distracted (everyday)": {
+       "none": 0.956308993366743,
+       "silent_worse": 0.013443665265904093,
+       "audible_worse": 0.030204657367735976,
+       "tie": 4.26839996169185e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7478214245455719,
+       "silent_worse": 0.10278287454885109,
+       "audible_worse": 0.147036692931772,
+       "tie": 0.002359007973805019
+      },
+      "distracted (everyday)": {
+       "none": 0.94863261190836,
+       "silent_worse": 0.021568871508498906,
+       "audible_worse": 0.029722161175186546,
+       "tie": 7.635540795449767e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7876869327475833,
+       "silent_worse": 0.017806374380828854,
+       "audible_worse": 0.19383624456870488,
+       "tie": 0.0006704483028829469
+      },
+      "distracted (everyday)": {
+       "none": 0.953383915443998,
+       "silent_worse": 0.004620107294794788,
+       "audible_worse": 0.04197280836205889,
+       "tie": 2.3168899148416918e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.794194008696594,
+       "silent_worse": 0.04691822023316906,
+       "audible_worse": 0.15783270287759144,
+       "tie": 0.0010550681926455602
+      },
+      "memory": {
+       "none": 0.794194008696594,
+       "silent_worse": 0.04691822023316906,
+       "audible_worse": 0.15783270287759144,
+       "tie": 0.0010550681926455602
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9555030756829963,
+       "silent_worse": 0.011176373683114195,
+       "audible_worse": 0.03328279900922077,
+       "tie": 3.775162466881641e-05
+      },
+      "memory": {
+       "none": 0.9555030756829963,
+       "silent_worse": 0.011176373683114195,
+       "audible_worse": 0.03328279900922077,
+       "tie": 3.775162466881641e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7960053131265621,
+       "silent_worse": 0.05337205903129685,
+       "audible_worse": 0.14948583787105157,
+       "tie": 0.0011367899710896495
+      },
+      "memory": {
+       "none": 0.7960053131265619,
+       "silent_worse": 0.05337205903129683,
+       "audible_worse": 0.14948583787105155,
+       "tie": 0.0011367899710896493
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9560413933779777,
+       "silent_worse": 0.012643552113847486,
+       "audible_worse": 0.03127413655463364,
+       "tie": 4.0917953541239554e-05
+      },
+      "memory": {
+       "none": 0.9560413933779774,
+       "silent_worse": 0.012643552113847482,
+       "audible_worse": 0.03127413655463363,
+       "tie": 4.091795354123955e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7890799580355068,
+       "silent_worse": 0.03438369535837492,
+       "audible_worse": 0.17562465155677143,
+       "tie": 0.0009116950493469312
+      },
+      "memory": {
+       "none": 0.7890799580355068,
+       "silent_worse": 0.03438369535837492,
+       "audible_worse": 0.17562465155677143,
+       "tie": 0.0009116950493469312
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9541609704375947,
+       "silent_worse": 0.008267491794068894,
+       "audible_worse": 0.03753964773116491,
+       "tie": 3.189003717150415e-05
+      },
+      "memory": {
+       "none": 0.9541609704375947,
+       "silent_worse": 0.008267491794068894,
+       "audible_worse": 0.03753964773116491,
+       "tie": 3.189003717150415e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7774525181432533,
+       "silent_worse": 0.0591685079073814,
+       "audible_worse": 0.16197478232933263,
+       "tie": 0.0014041916200325355
+      },
+      "memory": {
+       "none": 0.7774525181432533,
+       "silent_worse": 0.0591685079073814,
+       "audible_worse": 0.16197478232933263,
+       "tie": 0.0014041916200325355
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9527751735730337,
+       "silent_worse": 0.01321088135639926,
+       "audible_worse": 0.03396654230166047,
+       "tie": 4.740276890661103e-05
+      },
+      "memory": {
+       "none": 0.9527751735730337,
+       "silent_worse": 0.01321088135639926,
+       "audible_worse": 0.03396654230166047,
+       "tie": 4.740276890661103e-05
+      }
+     }
+    }
+   }
+  },
+  "truncate 72 mmHg (simulated defecation, Lee & Bharucha 2016)": {
+   "frac_silent": 0.8974726558351916,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9666598385928453,
+       "silent_worse": 0.005528472033462306,
+       "audible_worse": 0.02778198247410808,
+       "tie": 2.9706899584350686e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9926470534388566,
+       "silent_worse": 0.0014090512762579548,
+       "audible_worse": 0.005942721057272191,
+       "tie": 1.174227613262504e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.5733096710055915,
+       "silent_worse": 0.22237665849240487,
+       "audible_worse": 0.18881084008405072,
+       "tie": 0.015502830417952973
+      },
+      "distracted (everyday)": {
+       "none": 0.867856707374397,
+       "silent_worse": 0.0739514784101596,
+       "audible_worse": 0.05719658585969057,
+       "tie": 0.000995228355752724
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995468363264819,
+       "silent_worse": 0.00041988265736568213,
+       "audible_worse": 3.327724473802568e-05,
+       "tie": 3.771414347434116e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997720938229,
+       "silent_worse": 0.00019459247584832374,
+       "audible_worse": 3.3312402444799595e-05,
+       "tie": 1.2988067825249443e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9732095753420316,
+       "silent_worse": 0.005326475790813675,
+       "audible_worse": 0.021361006537675826,
+       "tie": 0.00010294232947894996
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9268478397154547,
+       "audible_worse": 0.055239401560025575,
+       "tie": 0.017912758724519834
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9938588946594727,
+       "silent_worse": 0.0014709334077418299,
+       "audible_worse": 0.004664100282722709,
+       "tie": 6.07165006255812e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9827085128500043,
+       "audible_worse": 0.013235108953594567,
+       "tie": 0.004056378196401235
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9695595088782049,
+       "silent_worse": 0.005113432823287413,
+       "audible_worse": 0.025296535249809494,
+       "tie": 3.052304869827191e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9705799092992646,
+       "audible_worse": 0.023626515452775262,
+       "tie": 0.005793575247960315
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9932662822067623,
+       "silent_worse": 0.0013151541862715993,
+       "audible_worse": 0.00541727011495714,
+       "tie": 1.2934920089788118e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9940152684528257,
+       "audible_worse": 0.005007088910312126,
+       "tie": 0.0009776426368619956
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9708246218602328,
+       "silent_worse": 0.011370944775857858,
+       "audible_worse": 0.017148577439499407,
+       "tie": 0.0006558559244101247
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.8204718056456103,
+       "audible_worse": 0.132204835992239,
+       "tie": 0.047323358362150625
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.991900605926198,
+       "silent_worse": 0.003672615656581171,
+       "audible_worse": 0.004384918348105837,
+       "tie": 4.186006911502342e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9574125138371964,
+       "audible_worse": 0.03167500368481909,
+       "tie": 0.010912482477984441
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8465054486416396,
+       "silent_worse": 0.07610833772774428,
+       "audible_worse": 0.07220869993429894,
+       "tie": 0.005177513696317223
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7957029524628022,
+       "audible_worse": 0.15016680297301516,
+       "tie": 0.0541302445641827
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9534252848787178,
+       "silent_worse": 0.025185040720755295,
+       "audible_worse": 0.02105753977313585,
+       "tie": 0.00033213462739092306
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9513171576752673,
+       "audible_worse": 0.03613708656446215,
+       "tie": 0.012545755760270661
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.8203195092907448,
+       "silent_worse": 0.05806447272125007,
+       "audible_worse": 0.12063010835622628,
+       "tie": 0.000985909631778736
+      },
+      "distracted (everyday)": {
+       "none": 0.9616295418652309,
+       "silent_worse": 0.01349624719979542,
+       "audible_worse": 0.024839439192692925,
+       "tie": 3.4771742280792567e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7687319329895195,
+       "silent_worse": 0.10493665477098081,
+       "audible_worse": 0.12431262385855088,
+       "tie": 0.0020187883809488563
+      },
+      "distracted (everyday)": {
+       "none": 0.9530924653885035,
+       "silent_worse": 0.02165118527138849,
+       "audible_worse": 0.02519114620262909,
+       "tie": 6.520313747894837e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7989797105681024,
+       "silent_worse": 0.018188243040880493,
+       "audible_worse": 0.182176041503397,
+       "tie": 0.0006560048876201414
+      },
+      "distracted (everyday)": {
+       "none": 0.9561633666662368,
+       "silent_worse": 0.004638633554450099,
+       "audible_worse": 0.03917556419690356,
+       "tie": 2.243558240949774e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8144630825240781,
+       "silent_worse": 0.047871073234502695,
+       "audible_worse": 0.136760889365969,
+       "tie": 0.0009049548754501516
+      },
+      "memory": {
+       "none": 0.8144630825240781,
+       "silent_worse": 0.047871073234502695,
+       "audible_worse": 0.136760889365969,
+       "tie": 0.0009049548754501516
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9601539092137835,
+       "silent_worse": 0.011220196183064147,
+       "audible_worse": 0.02859419289541789,
+       "tie": 3.1701707734370654e-05
+      },
+      "memory": {
+       "none": 0.9601539092137835,
+       "silent_worse": 0.011220196183064147,
+       "audible_worse": 0.02859419289541789,
+       "tie": 3.1701707734370654e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8183682466083186,
+       "silent_worse": 0.054450834982077596,
+       "audible_worse": 0.12622475861170698,
+       "tie": 0.0009561597978968301
+      },
+      "memory": {
+       "none": 0.8183682466083184,
+       "silent_worse": 0.05445083498207758,
+       "audible_worse": 0.12622475861170696,
+       "tie": 0.0009561597978968299
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9611307899551935,
+       "silent_worse": 0.012693045536521952,
+       "audible_worse": 0.026142507065606852,
+       "tie": 3.365744267767515e-05
+      },
+      "memory": {
+       "none": 0.9611307899551933,
+       "silent_worse": 0.012693045536521948,
+       "audible_worse": 0.026142507065606845,
+       "tie": 3.365744267767514e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8048326527432089,
+       "silent_worse": 0.03509483675642454,
+       "audible_worse": 0.1592497547191382,
+       "tie": 0.0008227557812283695
+      },
+      "memory": {
+       "none": 0.8048326527432089,
+       "silent_worse": 0.03509483675642454,
+       "audible_worse": 0.1592497547191382,
+       "tie": 0.0008227557812283695
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.957857470845996,
+       "silent_worse": 0.008300027757770972,
+       "audible_worse": 0.033814171779071915,
+       "tie": 2.8329617161156462e-05
+      },
+      "memory": {
+       "none": 0.957857470845996,
+       "silent_worse": 0.008300027757770972,
+       "audible_worse": 0.033814171779071915,
+       "tie": 2.8329617161156462e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7960103842827889,
+       "silent_worse": 0.06039645684437046,
+       "audible_worse": 0.14237292457272474,
+       "tie": 0.0012202343001159112
+      },
+      "memory": {
+       "none": 0.7960103842827889,
+       "silent_worse": 0.06039645684437046,
+       "audible_worse": 0.14237292457272474,
+       "tie": 0.0012202343001159112
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9569617913066569,
+       "silent_worse": 0.01326202200854467,
+       "audible_worse": 0.029735383197408524,
+       "tie": 4.080348738974622e-05
+      },
+      "memory": {
+       "none": 0.9569617913066569,
+       "silent_worse": 0.01326202200854467,
+       "audible_worse": 0.029735383197408524,
+       "tie": 4.080348738974622e-05
+      }
+     }
+    }
+   },
+   "share_discarded": 0.05830000000000002,
+   "share_oscillating_discarded": 0.37649338069099125
+  },
+  "clip 72 mmHg (simulated defecation, Lee & Bharucha 2016)": {
+   "frac_silent": 0.8451500000000001,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9575822189720666,
+       "silent_worse": 0.005472240204480723,
+       "audible_worse": 0.03690881574026205,
+       "tie": 3.6725083190677225e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9908488799338739,
+       "silent_worse": 0.0014062987809891,
+       "audible_worse": 0.007743412906598974,
+       "tie": 1.408378538071603e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.5564770516999801,
+       "silent_worse": 0.21464255649587424,
+       "audible_worse": 0.2121502167941145,
+       "tie": 0.016730175010031142
+      },
+      "distracted (everyday)": {
+       "none": 0.8617615090966999,
+       "silent_worse": 0.07331518948523096,
+       "audible_worse": 0.06380442980217112,
+       "tie": 0.0011188716158980004
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995426472688087,
+       "silent_worse": 0.000419882594527019,
+       "audible_worse": 3.746624151248171e-05,
+       "tie": 3.8951518647592926e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997657806122602,
+       "silent_worse": 0.0001945918597675871,
+       "audible_worse": 3.962596482212811e-05,
+       "tie": 1.5631500735733992e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9664665972315694,
+       "silent_worse": 0.005244766046332599,
+       "audible_worse": 0.028174124253960344,
+       "tie": 0.00011451246813779681
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.912629714423944,
+       "audible_worse": 0.06744423355174209,
+       "tie": 0.0199260520243139
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9925072970180736,
+       "silent_worse": 0.0014655843550370905,
+       "audible_worse": 0.006020227931765099,
+       "tie": 6.890695124249757e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9791348910932582,
+       "audible_worse": 0.016261539008597926,
+       "tie": 0.004603569898143722
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9613047970569167,
+       "silent_worse": 0.005060567237498199,
+       "audible_worse": 0.033597455049863056,
+       "tie": 3.718065572221903e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9605455004718577,
+       "audible_worse": 0.03239724489985964,
+       "tie": 0.007057254628282848
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9916299917040438,
+       "silent_worse": 0.0013125078521582974,
+       "audible_worse": 0.007055966017297641,
+       "tie": 1.5344265003894211e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9920151253962104,
+       "audible_worse": 0.006825129696593854,
+       "tie": 0.0011597449071957973
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9670947713545268,
+       "silent_worse": 0.01102994654373439,
+       "audible_worse": 0.02116594734745409,
+       "tie": 0.0007093347542847723
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7958670396611414,
+       "audible_worse": 0.15295083096198758,
+       "tie": 0.05118212937687101
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9910433024063164,
+       "silent_worse": 0.003645185734569065,
+       "audible_worse": 0.0052644217719706185,
+       "tie": 4.709008714390321e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9502618198785435,
+       "audible_worse": 0.037462286609847704,
+       "tie": 0.012275893511608616
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8378673059802851,
+       "silent_worse": 0.07351155976496067,
+       "audible_worse": 0.08303216625862968,
+       "tie": 0.0055889679961245615
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7685539704515444,
+       "audible_worse": 0.1730140828195065,
+       "tie": 0.05843194672894915
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9507920565476113,
+       "silent_worse": 0.024972026708662543,
+       "audible_worse": 0.02386248955786407,
+       "tie": 0.00037342718586204853
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9432709572829018,
+       "audible_worse": 0.042623538859000595,
+       "tie": 0.014105503858097551
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.8003665083778772,
+       "silent_worse": 0.05708723118299041,
+       "audible_worse": 0.14138820070309516,
+       "tie": 0.0011580597360371849
+      },
+      "distracted (everyday)": {
+       "none": 0.9571451483881394,
+       "silent_worse": 0.013452199557208255,
+       "audible_worse": 0.029361068080762637,
+       "tie": 4.158397388966835e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7490774041440944,
+       "silent_worse": 0.10292878307809145,
+       "audible_worse": 0.14565188909346954,
+       "tie": 0.0023419236843446236
+      },
+      "distracted (everyday)": {
+       "none": 0.9489314292301516,
+       "silent_worse": 0.021575035044123437,
+       "audible_worse": 0.02941778248025571,
+       "tie": 7.575324546922824e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.784438225891964,
+       "silent_worse": 0.01767160663356584,
+       "audible_worse": 0.19721558591071664,
+       "tie": 0.0006745815637535662
+      },
+      "distracted (everyday)": {
+       "none": 0.9523932340477426,
+       "silent_worse": 0.0046124150131234935,
+       "audible_worse": 0.042970951770153594,
+       "tie": 2.339916898041153e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7959282715792937,
+       "silent_worse": 0.04700901298625677,
+       "audible_worse": 0.15602502242441166,
+       "tie": 0.0010376930100378472
+      },
+      "memory": {
+       "none": 0.7959282715792937,
+       "silent_worse": 0.04700901298625677,
+       "audible_worse": 0.15602502242441166,
+       "tie": 0.0010376930100378472
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9558581879893027,
+       "silent_worse": 0.011180647768112324,
+       "audible_worse": 0.03292416179211888,
+       "tie": 3.700245046619567e-05
+      },
+      "memory": {
+       "none": 0.9558581879893027,
+       "silent_worse": 0.011180647768112324,
+       "audible_worse": 0.03292416179211888,
+       "tie": 3.700245046619567e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7989071577533376,
+       "silent_worse": 0.05351522294216453,
+       "audible_worse": 0.14646323314377657,
+       "tie": 0.0011143861607213158
+      },
+      "memory": {
+       "none": 0.7989071577533374,
+       "silent_worse": 0.053515222942164514,
+       "audible_worse": 0.14646323314377654,
+       "tie": 0.0011143861607213156
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9567113880029277,
+       "silent_worse": 0.012650611058651793,
+       "audible_worse": 0.030598061989000738,
+       "tie": 3.993894941974716e-05
+      },
+      "memory": {
+       "none": 0.9567113880029274,
+       "silent_worse": 0.012650611058651789,
+       "audible_worse": 0.03059806198900073,
+       "tie": 3.9938949419747155e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7882742858144405,
+       "silent_worse": 0.03436253050189594,
+       "audible_worse": 0.17645797014079087,
+       "tie": 0.0009052135428727333
+      },
+      "memory": {
+       "none": 0.7882742858144405,
+       "silent_worse": 0.03436253050189594,
+       "audible_worse": 0.17645797014079087,
+       "tie": 0.0009052135428727333
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9538329636271419,
+       "silent_worse": 0.008265785695776745,
+       "audible_worse": 0.03786960848661087,
+       "tie": 3.1642190470531165e-05
+      },
+      "memory": {
+       "none": 0.9538329636271419,
+       "silent_worse": 0.008265785695776745,
+       "audible_worse": 0.03786960848661087,
+       "tie": 3.1642190470531165e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7779607128046452,
+       "silent_worse": 0.05922920696488257,
+       "audible_worse": 0.1614185585690938,
+       "tie": 0.001391521661378458
+      },
+      "memory": {
+       "none": 0.7779607128046452,
+       "silent_worse": 0.05922920696488257,
+       "audible_worse": 0.1614185585690938,
+       "tie": 0.001391521661378458
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9528232705553444,
+       "silent_worse": 0.013213216538151726,
+       "audible_worse": 0.03391660077705732,
+       "tie": 4.691212944643604e-05
+      },
+      "memory": {
+       "none": 0.9528232705553444,
+       "silent_worse": 0.013213216538151726,
+       "audible_worse": 0.03391660077705732,
+       "tie": 4.691212944643604e-05
+      }
+     }
+    }
+   }
+  },
+  "truncate 88 mmHg (flatus maximum, Miller 1988)": {
+   "frac_silent": 0.8907098066079991,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9640581275548654,
+       "silent_worse": 0.005514082973808415,
+       "audible_worse": 0.030396954085718467,
+       "tie": 3.083538560773135e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9921378747862799,
+       "silent_worse": 0.0014083253744119038,
+       "audible_worse": 0.006452586916549628,
+       "tie": 1.2129227585481079e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.5719096798221428,
+       "silent_worse": 0.2221075566868307,
+       "audible_worse": 0.19039832365463735,
+       "tie": 0.015584439836389269
+      },
+      "distracted (everyday)": {
+       "none": 0.8675673035370007,
+       "silent_worse": 0.07395474554999384,
+       "audible_worse": 0.05747746492628966,
+       "tie": 0.0010004859867157217
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995482857502612,
+       "silent_worse": 0.0004198831898968186,
+       "audible_worse": 3.182751692554941e-05,
+       "tie": 3.5429163623809748e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997725050750926,
+       "silent_worse": 0.00019459263416576796,
+       "audible_worse": 3.2901027213228296e-05,
+       "tie": 1.2635283260989299e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9712956116493003,
+       "silent_worse": 0.0053145200655227735,
+       "audible_worse": 0.023285671578541885,
+       "tie": 0.000104196706635025
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9247674513698971,
+       "audible_worse": 0.05710151861271401,
+       "tie": 0.01813103001738888
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9934842671590095,
+       "silent_worse": 0.0014704184799787896,
+       "audible_worse": 0.005039186830386905,
+       "tie": 6.127530624757916e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9823644973469372,
+       "audible_worse": 0.013541791492512804,
+       "tie": 0.004093711160550093
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9671946680752985,
+       "silent_worse": 0.0051002937350327696,
+       "audible_worse": 0.027673470955078106,
+       "tie": 3.1567234590742934e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9680859809487464,
+       "audible_worse": 0.025922247037279217,
+       "tie": 0.005991772013974451
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9928034693203123,
+       "silent_worse": 0.00131449518220039,
+       "audible_worse": 0.005880705644628515,
+       "tie": 1.329852858949919e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9935171822849888,
+       "audible_worse": 0.005477692946835073,
+       "tie": 0.0010051247681759424
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9698999577714578,
+       "silent_worse": 0.011354936180239595,
+       "audible_worse": 0.018085473712261182,
+       "tie": 0.0006596323360415231
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.8193167036192024,
+       "audible_worse": 0.13308745061050692,
+       "tie": 0.04759584577029045
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9917190782480678,
+       "silent_worse": 0.0036725099190739836,
+       "audible_worse": 0.004566319819453547,
+       "tie": 4.2092013404541586e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9573849491742886,
+       "audible_worse": 0.031642102895835654,
+       "tie": 0.010972947929875613
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8451720310424231,
+       "silent_worse": 0.07601384095017864,
+       "audible_worse": 0.07360903508576046,
+       "tie": 0.0052050929216377875
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7947150007199042,
+       "audible_worse": 0.150866417436853,
+       "tie": 0.054418581843242865
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9531592277994577,
+       "silent_worse": 0.025185887852857174,
+       "audible_worse": 0.021320984290017508,
+       "tie": 0.000333900057667532
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9513491564840948,
+       "audible_worse": 0.036038401974522044,
+       "tie": 0.01261244154138331
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.8171106035422362,
+       "silent_worse": 0.05791262075412057,
+       "audible_worse": 0.12396517816461923,
+       "tie": 0.0010115975390240163
+      },
+      "distracted (everyday)": {
+       "none": 0.9609167782418168,
+       "silent_worse": 0.01348944248017754,
+       "audible_worse": 0.025557953954784756,
+       "tie": 3.58253232210411e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7666220497108583,
+       "silent_worse": 0.10472765328110137,
+       "audible_worse": 0.12659305898384712,
+       "tie": 0.00205723802419312
+      },
+      "distracted (everyday)": {
+       "none": 0.9526709894914412,
+       "silent_worse": 0.021643808850388677,
+       "audible_worse": 0.0256188080909238,
+       "tie": 6.639356724630043e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7990479140960645,
+       "silent_worse": 0.018197828078142898,
+       "audible_worse": 0.18209838029935457,
+       "tie": 0.0006558775264379947
+      },
+      "distracted (everyday)": {
+       "none": 0.9563080080275954,
+       "silent_worse": 0.00463998380363053,
+       "audible_worse": 0.039029565729846484,
+       "tie": 2.244243892760116e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8121178128294615,
+       "silent_worse": 0.047761183051126324,
+       "audible_worse": 0.1391970524450171,
+       "tie": 0.0009239516743950532
+      },
+      "memory": {
+       "none": 0.8121178128294615,
+       "silent_worse": 0.047761183051126324,
+       "audible_worse": 0.1391970524450171,
+       "tie": 0.0009239516743950532
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.959667122223694,
+       "silent_worse": 0.01121552327883126,
+       "audible_worse": 0.029084872503943,
+       "tie": 3.248199353179116e-05
+      },
+      "memory": {
+       "none": 0.959667122223694,
+       "silent_worse": 0.01121552327883126,
+       "audible_worse": 0.029084872503943,
+       "tie": 3.248199353179116e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8154574419125384,
+       "silent_worse": 0.0543136427859624,
+       "audible_worse": 0.12924941100595377,
+       "tie": 0.0009795042955454342
+      },
+      "memory": {
+       "none": 0.8154574419125382,
+       "silent_worse": 0.05431364278596239,
+       "audible_worse": 0.12924941100595375,
+       "tie": 0.000979504295545434
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9604960207152459,
+       "silent_worse": 0.012686981879348504,
+       "audible_worse": 0.02678238148583698,
+       "tie": 3.4615919568836896e-05
+      },
+      "memory": {
+       "none": 0.9604960207152456,
+       "silent_worse": 0.0126869818793485,
+       "audible_worse": 0.026782381485836972,
+       "tie": 3.461591956883689e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8037177328954048,
+       "silent_worse": 0.035041501686925394,
+       "audible_worse": 0.16040792453296332,
+       "tie": 0.0008328408847064656
+      },
+      "memory": {
+       "none": 0.8037177328954048,
+       "silent_worse": 0.035041501686925394,
+       "audible_worse": 0.16040792453296332,
+       "tie": 0.0008328408847064656
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9576927223266628,
+       "silent_worse": 0.008298296072761124,
+       "audible_worse": 0.033980246903204135,
+       "tie": 2.8734697372026943e-05
+      },
+      "memory": {
+       "none": 0.9576927223266628,
+       "silent_worse": 0.008298296072761124,
+       "audible_worse": 0.033980246903204135,
+       "tie": 2.8734697372026943e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7942601891163864,
+       "silent_worse": 0.06027936737112161,
+       "audible_worse": 0.14421887248260698,
+       "tie": 0.0012415710298850438
+      },
+      "memory": {
+       "none": 0.7942601891163864,
+       "silent_worse": 0.06027936737112161,
+       "audible_worse": 0.14421887248260698,
+       "tie": 0.0012415710298850438
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9566319252536178,
+       "silent_worse": 0.013257745044732249,
+       "audible_worse": 0.030068775925185014,
+       "tie": 4.155377646498089e-05
+      },
+      "memory": {
+       "none": 0.9566319252536178,
+       "silent_worse": 0.013257745044732249,
+       "audible_worse": 0.030068775925185014,
+       "tie": 4.155377646498089e-05
+      }
+     }
+    }
+   },
+   "share_discarded": 0.05115000000000003,
+   "share_oscillating_discarded": 0.3303196641911528
+  },
+  "clip 88 mmHg (flatus maximum, Miller 1988)": {
+   "frac_silent": 0.8451500000000001,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9537146540236128,
+       "silent_worse": 0.005450938995905444,
+       "audible_worse": 0.04079597905389853,
+       "tie": 3.8427926583312156e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9900730647505318,
+       "silent_worse": 0.0014051892500296433,
+       "audible_worse": 0.008520284943485239,
+       "tie": 1.4610559533168599e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.556509034787959,
+       "silent_worse": 0.2156101099705473,
+       "audible_worse": 0.21128249881565112,
+       "tie": 0.01659835642584265
+      },
+      "distracted (everyday)": {
+       "none": 0.8621695144666591,
+       "silent_worse": 0.07342021560468559,
+       "audible_worse": 0.06330827303091165,
+       "tie": 0.0011019968977437034
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995441184871292,
+       "silent_worse": 0.0004198830303591674,
+       "audible_worse": 3.59947739194402e-05,
+       "tie": 3.7085921698979675e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997667022483215,
+       "silent_worse": 0.00019459203210696406,
+       "audible_worse": 3.870420740683295e-05,
+       "tie": 1.512164656757745e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9636322854578545,
+       "silent_worse": 0.005234218434111349,
+       "audible_worse": 0.03101842568092889,
+       "tie": 0.00011507042710531335
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9107943486050883,
+       "audible_worse": 0.06918251020995883,
+       "tie": 0.020023141184952624
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9919410140940167,
+       "silent_worse": 0.0014653210063569836,
+       "audible_worse": 0.0065868239554407685,
+       "tie": 6.840944185554459e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9789589517961924,
+       "audible_worse": 0.01647071616043059,
+       "tie": 0.004570332043376929
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9577897688080189,
+       "silent_worse": 0.005041426790669391,
+       "audible_worse": 0.03713010602680699,
+       "tie": 3.869837450487599e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9569124551598223,
+       "audible_worse": 0.03574221223975361,
+       "tie": 0.007345332600424068
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9909250419031863,
+       "silent_worse": 0.0013115232966521347,
+       "audible_worse": 0.007761856334909021,
+       "tie": 1.578465252641183e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9912709820737157,
+       "audible_worse": 0.007535987802344196,
+       "tie": 0.0011930301239398227
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9658078351784916,
+       "silent_worse": 0.011063161141382434,
+       "audible_worse": 0.022424593868984627,
+       "tie": 0.0007044098111413208
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7982636427089322,
+       "audible_worse": 0.1509095877434158,
+       "tie": 0.05082676954765183
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.990802273591489,
+       "silent_worse": 0.0036491920869386337,
+       "audible_worse": 0.005502129820412336,
+       "tie": 4.640450116000374e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9513062340650901,
+       "audible_worse": 0.03659659752325032,
+       "tie": 0.012097168411659615
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.836589269099567,
+       "silent_worse": 0.07382697733227063,
+       "audible_worse": 0.08403815754782303,
+       "tie": 0.005545596020339377
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7718516208412425,
+       "audible_worse": 0.1701698808983567,
+       "tie": 0.05797849826040066
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9506697604885042,
+       "silent_worse": 0.02500666562894073,
+       "audible_worse": 0.02395575406060124,
+       "tie": 0.0003678198219538923
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9445793768145339,
+       "audible_worse": 0.04152692686638774,
+       "tie": 0.013893696319078488
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7968491971366051,
+       "silent_worse": 0.05691627479246426,
+       "audible_worse": 0.14505140948752107,
+       "tie": 0.0011831185834096406
+      },
+      "distracted (everyday)": {
+       "none": 0.956308993366743,
+       "silent_worse": 0.013443665265904093,
+       "audible_worse": 0.030204657367735976,
+       "tie": 4.26839996169185e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7478214245455719,
+       "silent_worse": 0.10278287454885109,
+       "audible_worse": 0.147036692931772,
+       "tie": 0.002359007973805019
+      },
+      "distracted (everyday)": {
+       "none": 0.94863261190836,
+       "silent_worse": 0.021568871508498906,
+       "audible_worse": 0.029722161175186546,
+       "tie": 7.635540795449767e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7876869327475833,
+       "silent_worse": 0.017806374380828854,
+       "audible_worse": 0.19383624456870488,
+       "tie": 0.0006704483028829469
+      },
+      "distracted (everyday)": {
+       "none": 0.953383915443998,
+       "silent_worse": 0.004620107294794788,
+       "audible_worse": 0.04197280836205889,
+       "tie": 2.3168899148416918e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.794194008696594,
+       "silent_worse": 0.04691822023316906,
+       "audible_worse": 0.15783270287759144,
+       "tie": 0.0010550681926455602
+      },
+      "memory": {
+       "none": 0.794194008696594,
+       "silent_worse": 0.04691822023316906,
+       "audible_worse": 0.15783270287759144,
+       "tie": 0.0010550681926455602
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9555030756829963,
+       "silent_worse": 0.011176373683114195,
+       "audible_worse": 0.03328279900922077,
+       "tie": 3.775162466881641e-05
+      },
+      "memory": {
+       "none": 0.9555030756829963,
+       "silent_worse": 0.011176373683114195,
+       "audible_worse": 0.03328279900922077,
+       "tie": 3.775162466881641e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7960053131265621,
+       "silent_worse": 0.05337205903129685,
+       "audible_worse": 0.14948583787105157,
+       "tie": 0.0011367899710896495
+      },
+      "memory": {
+       "none": 0.7960053131265619,
+       "silent_worse": 0.05337205903129683,
+       "audible_worse": 0.14948583787105155,
+       "tie": 0.0011367899710896493
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9560413933779777,
+       "silent_worse": 0.012643552113847486,
+       "audible_worse": 0.03127413655463364,
+       "tie": 4.0917953541239554e-05
+      },
+      "memory": {
+       "none": 0.9560413933779774,
+       "silent_worse": 0.012643552113847482,
+       "audible_worse": 0.03127413655463363,
+       "tie": 4.091795354123955e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7890799580355068,
+       "silent_worse": 0.03438369535837492,
+       "audible_worse": 0.17562465155677143,
+       "tie": 0.0009116950493469312
+      },
+      "memory": {
+       "none": 0.7890799580355068,
+       "silent_worse": 0.03438369535837492,
+       "audible_worse": 0.17562465155677143,
+       "tie": 0.0009116950493469312
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9541609704375947,
+       "silent_worse": 0.008267491794068894,
+       "audible_worse": 0.03753964773116491,
+       "tie": 3.189003717150415e-05
+      },
+      "memory": {
+       "none": 0.9541609704375947,
+       "silent_worse": 0.008267491794068894,
+       "audible_worse": 0.03753964773116491,
+       "tie": 3.189003717150415e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7774525181432533,
+       "silent_worse": 0.0591685079073814,
+       "audible_worse": 0.16197478232933263,
+       "tie": 0.0014041916200325355
+      },
+      "memory": {
+       "none": 0.7774525181432533,
+       "silent_worse": 0.0591685079073814,
+       "audible_worse": 0.16197478232933263,
+       "tie": 0.0014041916200325355
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9527751735730337,
+       "silent_worse": 0.01321088135639926,
+       "audible_worse": 0.03396654230166047,
+       "tie": 4.740276890661103e-05
+      },
+      "memory": {
+       "none": 0.9527751735730337,
+       "silent_worse": 0.01321088135639926,
+       "audible_worse": 0.03396654230166047,
+       "tie": 4.740276890661103e-05
+      }
+     }
+    }
+   }
+  },
+  "truncate 108 mmHg (cough, Cobb 2005)": {
+   "frac_silent": 0.8856229697160222,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9619961540236397,
+       "silent_worse": 0.005503106523837478,
+       "audible_worse": 0.032468812119459255,
+       "tie": 3.1927333063654525e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9917368576528928,
+       "silent_worse": 0.0014077626874670383,
+       "audible_worse": 0.0068541290721535406,
+       "tie": 1.2505874866240086e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.5709856109367353,
+       "silent_worse": 0.22217740639618733,
+       "audible_worse": 0.19120750362488595,
+       "tie": 0.015629479042191457
+      },
+      "distracted (everyday)": {
+       "none": 0.8674341968437401,
+       "silent_worse": 0.07397813905366155,
+       "audible_worse": 0.05758875975945981,
+       "tie": 0.000998904343138587
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995489838042015,
+       "silent_worse": 0.0004198834954483126,
+       "audible_worse": 3.112927929008335e-05,
+       "tie": 3.4210599491571925e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997727372609597,
+       "silent_worse": 0.00019459270422158702,
+       "audible_worse": 3.266878316086311e-05,
+       "tie": 1.251657867085062e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9697795621175725,
+       "silent_worse": 0.005306840285370942,
+       "audible_worse": 0.024808364734626623,
+       "tie": 0.0001052328624298458
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9234311104340216,
+       "audible_worse": 0.05825756045445027,
+       "tie": 0.01831132911152812
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9931896917868938,
+       "silent_worse": 0.0014701285367022315,
+       "audible_worse": 0.005334032822088997,
+       "tie": 6.146854314970171e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9821707905994953,
+       "audible_worse": 0.013722588372810575,
+       "tie": 0.0041066210276938485
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9653204260911556,
+       "silent_worse": 0.00509033331059428,
+       "audible_worse": 0.02955667068692978,
+       "tie": 3.256991132033384e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9661953942954781,
+       "audible_worse": 0.0276225157724493,
+       "tie": 0.006182089932072604
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.992438981984276,
+       "silent_worse": 0.0013139890867099409,
+       "audible_worse": 0.006245665203735053,
+       "tie": 1.363725278977836e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9931346669494846,
+       "audible_worse": 0.005834606947500589,
+       "tie": 0.0010307261030145965
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9691745666745366,
+       "silent_worse": 0.011354187959108827,
+       "audible_worse": 0.01880937249041297,
+       "tie": 0.0006618728759416639
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.8192627156389347,
+       "audible_worse": 0.13297977218101478,
+       "tie": 0.04775751218005022
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.99158000487422,
+       "silent_worse": 0.003673297129863403,
+       "audible_worse": 0.004704659336837546,
+       "tie": 4.2038659079149404e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9575901667988084,
+       "audible_worse": 0.031450794186262246,
+       "tie": 0.010959039014929318
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8441769162548588,
+       "silent_worse": 0.07603346547182437,
+       "audible_worse": 0.07456914834121177,
+       "tie": 0.00522046993210502
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7949201725878016,
+       "audible_worse": 0.15050048088805282,
+       "tie": 0.054579346524145464
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9529812639191976,
+       "silent_worse": 0.025193498148450056,
+       "audible_worse": 0.021491852538258072,
+       "tie": 0.00033338539409435937
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9516366209695709,
+       "audible_worse": 0.03577037792962395,
+       "tie": 0.012593001100805183
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.8144757535954796,
+       "silent_worse": 0.05780160149191644,
+       "audible_worse": 0.12669035749734295,
+       "tie": 0.0010322874152609287
+      },
+      "distracted (everyday)": {
+       "none": 0.9603395540245053,
+       "silent_worse": 0.013484253547593868,
+       "audible_worse": 0.026139546050637147,
+       "tie": 3.664637726358918e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7651375017470808,
+       "silent_worse": 0.10460536354866104,
+       "audible_worse": 0.12817609844816127,
+       "tie": 0.002081036256096797
+      },
+      "distracted (everyday)": {
+       "none": 0.9523513490959238,
+       "silent_worse": 0.021638733207214395,
+       "audible_worse": 0.02594277038920279,
+       "tie": 6.71473076590748e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7996385452744569,
+       "silent_worse": 0.018229414117417367,
+       "audible_worse": 0.18147406423888998,
+       "tie": 0.0006579763692357785
+      },
+      "distracted (everyday)": {
+       "none": 0.9565621578688934,
+       "silent_worse": 0.004642167049041638,
+       "audible_worse": 0.038773201495675945,
+       "tie": 2.2473586389021233e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8103333521928642,
+       "silent_worse": 0.047687436011978175,
+       "audible_worse": 0.1410394207330925,
+       "tie": 0.0009397910620650039
+      },
+      "memory": {
+       "none": 0.8103333521928642,
+       "silent_worse": 0.047687436011978175,
+       "audible_worse": 0.1410394207330925,
+       "tie": 0.0009397910620650039
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9593088838008971,
+       "silent_worse": 0.011212264828913285,
+       "audible_worse": 0.029445755456870164,
+       "tie": 3.309591331943781e-05
+      },
+      "memory": {
+       "none": 0.9593088838008971,
+       "silent_worse": 0.011212264828913285,
+       "audible_worse": 0.029445755456870164,
+       "tie": 3.309591331943781e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8131160122684501,
+       "silent_worse": 0.054215582135464985,
+       "audible_worse": 0.13166990042794272,
+       "tie": 0.0009985051681422686
+      },
+      "memory": {
+       "none": 0.8131160122684499,
+       "silent_worse": 0.05421558213546497,
+       "audible_worse": 0.1316699004279427,
+       "tie": 0.0009985051681422683
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9599944173130368,
+       "silent_worse": 0.012682463018222982,
+       "audible_worse": 0.02728775450379645,
+       "tie": 3.5365164943791025e-05
+      },
+      "memory": {
+       "none": 0.9599944173130366,
+       "silent_worse": 0.012682463018222978,
+       "audible_worse": 0.027287754503796443,
+       "tie": 3.536516494379102e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8031467379011572,
+       "silent_worse": 0.03501914113521888,
+       "audible_worse": 0.16099208008376062,
+       "tie": 0.0008420408798633711
+      },
+      "memory": {
+       "none": 0.8031467379011572,
+       "silent_worse": 0.03501914113521888,
+       "audible_worse": 0.16099208008376062,
+       "tie": 0.0008420408798633711
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9576458395552236,
+       "silent_worse": 0.008297719471816246,
+       "audible_worse": 0.034027381717893296,
+       "tie": 2.9059255066796112e-05
+      },
+      "memory": {
+       "none": 0.9576458395552236,
+       "silent_worse": 0.008297719471816246,
+       "audible_worse": 0.034027381717893296,
+       "tie": 2.9059255066796112e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7930839335390059,
+       "silent_worse": 0.06021212638599829,
+       "audible_worse": 0.14544684006146472,
+       "tie": 0.001257100013531168
+      },
+      "memory": {
+       "none": 0.7930839335390059,
+       "silent_worse": 0.06021212638599829,
+       "audible_worse": 0.14544684006146472,
+       "tie": 0.001257100013531168
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9564176869964408,
+       "silent_worse": 0.013255051267949966,
+       "audible_worse": 0.03028517264517196,
+       "tie": 4.20890904372284e-05
+      },
+      "memory": {
+       "none": 0.9564176869964408,
+       "silent_worse": 0.013255051267949966,
+       "audible_worse": 0.03028517264517196,
+       "tie": 4.20890904372284e-05
+      }
+     }
+    }
+   },
+   "share_discarded": 0.04569999999999996,
+   "share_oscillating_discarded": 0.2951243138521149
+  },
+  "clip 108 mmHg (cough, Cobb 2005)": {
+   "frac_silent": 0.8451500000000001,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9492238417397373,
+       "silent_worse": 0.00542642003443296,
+       "audible_worse": 0.045309455233754924,
+       "tie": 4.0282992074884535e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9891690765323787,
+       "silent_worse": 0.0014039071237105596,
+       "audible_worse": 0.009425497907347181,
+       "tie": 1.5184365634104911e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.5565444164346377,
+       "silent_worse": 0.2166707914596451,
+       "audible_worse": 0.21033202119616382,
+       "tie": 0.016452770909553365
+      },
+      "distracted (everyday)": {
+       "none": 0.8626143698715939,
+       "silent_worse": 0.07353417552711426,
+       "audible_worse": 0.06276832365899888,
+       "tie": 0.0010831309422930492
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995455014909866,
+       "silent_worse": 0.00041988341443387753,
+       "audible_worse": 3.4611549062727336e-05,
+       "tie": 3.545516670272488e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997676460482157,
+       "silent_worse": 0.00019459219855595398,
+       "audible_worse": 3.776029022330289e-05,
+       "tie": 1.4630050702060572e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9603411378772105,
+       "silent_worse": 0.005221799827235358,
+       "audible_worse": 0.034321394405104656,
+       "tie": 0.00011566789044958489
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.908633415296213,
+       "audible_worse": 0.0712394802921729,
+       "tie": 0.020127104411614104
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9912809810828032,
+       "silent_worse": 0.001464977920284766,
+       "audible_worse": 0.00724725678114539,
+       "tie": 6.784215766617949e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9787297411452995,
+       "audible_worse": 0.016737826215821316,
+       "tie": 0.004532432638879064
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9537082735677751,
+       "silent_worse": 0.005019382934552384,
+       "audible_worse": 0.04123199217810519,
+       "tie": 4.035131956731643e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9527283141707761,
+       "audible_worse": 0.039612607976985285,
+       "tie": 0.007659077852238815
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9901036080251472,
+       "silent_worse": 0.0013103839013387263,
+       "audible_worse": 0.008584381747134072,
+       "tie": 1.6263263799052708e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9904098082659949,
+       "audible_worse": 0.008360987379117574,
+       "tie": 0.001229204354887404
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9643132363632223,
+       "silent_worse": 0.011099183456317373,
+       "audible_worse": 0.023888618179256006,
+       "tie": 0.0006989620012042708
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.8008628369149365,
+       "audible_worse": 0.1487034808792262,
+       "tie": 0.050433682205836966
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9905200697022442,
+       "silent_worse": 0.003653513145630753,
+       "audible_worse": 0.0057807796362969125,
+       "tie": 4.5637515828182763e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9524326889004733,
+       "audible_worse": 0.03567008774699668,
+       "tie": 0.011897223352530134
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8351045865551207,
+       "silent_worse": 0.07417236496950398,
+       "audible_worse": 0.08522536265966048,
+       "tie": 0.005497685815714973
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7754626044850299,
+       "audible_worse": 0.16705979232613302,
+       "tie": 0.05747760318883694
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9505170308173961,
+       "silent_worse": 0.025044224949793595,
+       "audible_worse": 0.024077193952189792,
+       "tie": 0.00036155028062050994
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9459981089402483,
+       "audible_worse": 0.04034501477631815,
+       "tie": 0.013656876283433851
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7928857527227754,
+       "silent_worse": 0.05672362926138611,
+       "audible_worse": 0.149179630983639,
+       "tie": 0.0012109870321994555
+      },
+      "distracted (everyday)": {
+       "none": 0.9553674121295362,
+       "silent_worse": 0.013434080459924091,
+       "audible_worse": 0.031154588149764965,
+       "tie": 4.3919260774649254e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7464260589286646,
+       "silent_worse": 0.10262010432238912,
+       "audible_worse": 0.14857615127156362,
+       "tie": 0.002377685477382605
+      },
+      "distracted (everyday)": {
+       "none": 0.9483028363382906,
+       "silent_worse": 0.02156205317665163,
+       "audible_worse": 0.030058095125276758,
+       "tie": 7.701535978101715e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7912544762132727,
+       "silent_worse": 0.017952598048630433,
+       "audible_worse": 0.19012606082260478,
+       "tie": 0.0006668649154921006
+      },
+      "distracted (everyday)": {
+       "none": 0.9544502795051146,
+       "silent_worse": 0.004628301197148143,
+       "audible_worse": 0.04089844528221626,
+       "tie": 2.2974015520933074e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7922154725171773,
+       "silent_worse": 0.04681444033166474,
+       "audible_worse": 0.15989543209482338,
+       "tie": 0.0010746550563346146
+      },
+      "memory": {
+       "none": 0.7922154725171773,
+       "silent_worse": 0.04681444033166474,
+       "audible_worse": 0.15989543209482338,
+       "tie": 0.0010746550563346146
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9550903377472727,
+       "silent_worse": 0.011171457473421107,
+       "audible_worse": 0.03369959528902191,
+       "tie": 3.860949028418098e-05
+      },
+      "memory": {
+       "none": 0.9550903377472727,
+       "silent_worse": 0.011171457473421107,
+       "audible_worse": 0.03369959528902191,
+       "tie": 3.860949028418098e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7927269319325924,
+       "silent_worse": 0.05321021957948626,
+       "audible_worse": 0.1529010507645693,
+       "tie": 0.0011617977233519758
+      },
+      "memory": {
+       "none": 0.7927269319325921,
+       "silent_worse": 0.05321021957948625,
+       "audible_worse": 0.15290105076456928,
+       "tie": 0.0011617977233519755
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9552824501605383,
+       "silent_worse": 0.012635583815435645,
+       "audible_worse": 0.032039942923669996,
+       "tie": 4.202310035599893e-05
+      },
+      "memory": {
+       "none": 0.955282450160538,
+       "silent_worse": 0.012635583815435641,
+       "audible_worse": 0.03203994292366999,
+       "tie": 4.202310035599892e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7899303843295817,
+       "silent_worse": 0.03440408788095561,
+       "audible_worse": 0.1747460046449895,
+       "tie": 0.0009195231444733233
+      },
+      "memory": {
+       "none": 0.7899303843295817,
+       "silent_worse": 0.03440408788095561,
+       "audible_worse": 0.1747460046449895,
+       "tie": 0.0009195231444733233
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9544998469146375,
+       "silent_worse": 0.008269133950552772,
+       "audible_worse": 0.03719881164819336,
+       "tie": 3.2207486616341974e-05
+      },
+      "memory": {
+       "none": 0.9544998469146375,
+       "silent_worse": 0.008269133950552772,
+       "audible_worse": 0.03719881164819336,
+       "tie": 3.2207486616341974e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7768554292882376,
+       "silent_worse": 0.05909877721080189,
+       "audible_worse": 0.1626272810259358,
+       "tie": 0.0014185124750247203
+      },
+      "memory": {
+       "none": 0.7768554292882376,
+       "silent_worse": 0.05909877721080189,
+       "audible_worse": 0.1626272810259358,
+       "tie": 0.0014185124750247203
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9527068426576472,
+       "silent_worse": 0.013208144944574623,
+       "audible_worse": 0.034037042852419326,
+       "tie": 4.796954535886649e-05
+      },
+      "memory": {
+       "none": 0.9527068426576472,
+       "silent_worse": 0.013208144944574623,
+       "audible_worse": 0.034037042852419326,
+       "tie": 4.796954535886649e-05
+      }
+     }
+    }
+   }
+  },
+  "truncate 171 mmHg (jump, Cobb 2005)": {
+   "frac_silent": 0.8739917269906928,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9533289691090987,
+       "silent_worse": 0.005455813972738967,
+       "audible_worse": 0.04117960999834606,
+       "tie": 3.5606919816301784e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.9898830844223102,
+       "silent_worse": 0.0014051516422517293,
+       "audible_worse": 0.008710398900871769,
+       "tie": 1.3650345664250884e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.5680660448132202,
+       "silent_worse": 0.22224779005200046,
+       "audible_worse": 0.19409844506089002,
+       "tie": 0.015587720073889345
+      },
+      "distracted (everyday)": {
+       "none": 0.8669148275048694,
+       "silent_worse": 0.07400330141099899,
+       "audible_worse": 0.05808707712104464,
+       "tie": 0.0009947939630869987
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995500473937442,
+       "silent_worse": 0.0004198840215091789,
+       "audible_worse": 3.0065379136970955e-05,
+       "tie": 3.2056095539018688e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997727591044161,
+       "silent_worse": 0.00019459280707101809,
+       "audible_worse": 3.264685138454309e-05,
+       "tie": 1.2371282924529825e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9634116444490798,
+       "silent_worse": 0.005272544226758716,
+       "audible_worse": 0.031208100072178984,
+       "tie": 0.00010771125198245702
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9174633319095573,
+       "audible_worse": 0.06379408009536285,
+       "tie": 0.018742587995079746
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9918281916327178,
+       "silent_worse": 0.0014683464485852984,
+       "audible_worse": 0.0066972527005880605,
+       "tie": 6.20921810890646e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9809802042997066,
+       "audible_worse": 0.014871510358720882,
+       "tie": 0.0041482853415725435
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9574423906927302,
+       "silent_worse": 0.005047365891754497,
+       "audible_worse": 0.03747433869350146,
+       "tie": 3.590472201384186e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9580397550367757,
+       "audible_worse": 0.035145175118773755,
+       "tie": 0.006815069844450601
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9907540004904596,
+       "silent_worse": 0.0013116216753570379,
+       "audible_worse": 0.007932911025031115,
+       "tie": 1.4668091524890557e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9913453383247052,
+       "audible_worse": 0.007546023077098136,
+       "tie": 0.0011086385981965501
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9661645211913406,
+       "silent_worse": 0.011341356756522914,
+       "audible_worse": 0.02183276273894638,
+       "tie": 0.0006613593131901278
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.8183368787659406,
+       "audible_worse": 0.13394266523239795,
+       "tie": 0.04772045600166126
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9909404537270665,
+       "silent_worse": 0.003673475277294921,
+       "audible_worse": 0.005344165462449457,
+       "tie": 4.190553318928276e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9576366079721279,
+       "audible_worse": 0.03143905754093914,
+       "tie": 0.010924334486932863
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8403150204386877,
+       "silent_worse": 0.07604116268208287,
+       "audible_worse": 0.07843604014612435,
+       "tie": 0.005207776733105067
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7950006459381765,
+       "audible_worse": 0.15055271331239334,
+       "tie": 0.05444664074943008
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9521902236771985,
+       "silent_worse": 0.025201015286773914,
+       "audible_worse": 0.02227670762443365,
+       "tie": 0.0003320534115939054
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9519205666158533,
+       "audible_worse": 0.035536745396608144,
+       "tie": 0.012542687987538673
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.8052293834071774,
+       "silent_worse": 0.057352656432237546,
+       "audible_worse": 0.13631788681484583,
+       "tie": 0.0011000733457391988
+      },
+      "distracted (everyday)": {
+       "none": 0.958116040298672,
+       "silent_worse": 0.013461752584412373,
+       "audible_worse": 0.028382679122177134,
+       "tie": 3.952799473844876e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7597156588129332,
+       "silent_worse": 0.10402067374517529,
+       "audible_worse": 0.1341011713524297,
+       "tie": 0.0021624960894617313
+      },
+      "distracted (everyday)": {
+       "none": 0.9511287689518461,
+       "silent_worse": 0.02161516233003356,
+       "audible_worse": 0.027186169768903028,
+       "tie": 6.989894921736453e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.8019422416859059,
+       "silent_worse": 0.01833724972934974,
+       "audible_worse": 0.1790691339977299,
+       "tie": 0.0006513745870144771
+      },
+      "distracted (everyday)": {
+       "none": 0.9572252424557809,
+       "silent_worse": 0.004647760619070505,
+       "audible_worse": 0.038104765793369764,
+       "tie": 2.2231131778884874e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8041305833513774,
+       "silent_worse": 0.04738353434935036,
+       "audible_worse": 0.14749770693883424,
+       "tie": 0.0009881753604380808
+      },
+      "memory": {
+       "none": 0.8041305833513774,
+       "silent_worse": 0.04738353434935036,
+       "audible_worse": 0.14749770693883424,
+       "tie": 0.0009881753604380808
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9578462645735863,
+       "silent_worse": 0.01119711285393346,
+       "audible_worse": 0.030921463542105704,
+       "tie": 3.515903037457819e-05
+      },
+      "memory": {
+       "none": 0.9578462645735863,
+       "silent_worse": 0.01119711285393346,
+       "audible_worse": 0.030921463542105704,
+       "tie": 3.515903037457819e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8049202785643911,
+       "silent_worse": 0.05381721115529091,
+       "audible_worse": 0.14020297705744778,
+       "tie": 0.0010595332228702677
+      },
+      "memory": {
+       "none": 0.8049202785643909,
+       "silent_worse": 0.053817211155290895,
+       "audible_worse": 0.14020297705744775,
+       "tie": 0.0010595332228702675
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9580334894219387,
+       "silent_worse": 0.012662515280074468,
+       "audible_worse": 0.029266032487122326,
+       "tie": 3.79628108644777e-05
+      },
+      "memory": {
+       "none": 0.9580334894219384,
+       "silent_worse": 0.012662515280074465,
+       "audible_worse": 0.02926603248712232,
+       "tie": 3.7962810864477695e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8012785146399559,
+       "silent_worse": 0.03491252796430508,
+       "audible_worse": 0.16294505315988103,
+       "tie": 0.0008639042358580199
+      },
+      "memory": {
+       "none": 0.8012785146399559,
+       "silent_worse": 0.03491252796430508,
+       "audible_worse": 0.16294505315988103,
+       "tie": 0.0008639042358580199
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9572681553407474,
+       "silent_worse": 0.008292733012141257,
+       "audible_worse": 0.03440912873528611,
+       "tie": 2.9982911825342823e-05
+      },
+      "memory": {
+       "none": 0.9572681553407474,
+       "silent_worse": 0.008292733012141257,
+       "audible_worse": 0.03440912873528611,
+       "tie": 2.9982911825342823e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7889624279686722,
+       "silent_worse": 0.05990352663558753,
+       "audible_worse": 0.14982939738833514,
+       "tie": 0.0013046480074051358
+      },
+      "memory": {
+       "none": 0.7889624279686722,
+       "silent_worse": 0.05990352663558753,
+       "audible_worse": 0.14982939738833514,
+       "tie": 0.0013046480074051358
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9554900172354329,
+       "silent_worse": 0.013241558511172147,
+       "audible_worse": 0.031224538228149978,
+       "tie": 4.3886025244899385e-05
+      },
+      "memory": {
+       "none": 0.9554900172354329,
+       "silent_worse": 0.013241558511172147,
+       "audible_worse": 0.031224538228149978,
+       "tie": 4.3886025244899385e-05
+      }
+     }
+    }
+   },
+   "share_discarded": 0.03300000000000003,
+   "share_oscillating_discarded": 0.21310946076848558
+  },
+  "clip 171 mmHg (jump, Cobb 2005)": {
+   "frac_silent": 0.8451500000000001,
+   "bystanders": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9371626931094771,
+       "silent_worse": 0.005361917328391572,
+       "audible_worse": 0.05743086088353083,
+       "tie": 4.45286786004898e-05
+      },
+      "distracted (everyday)": {
+       "none": 0.986739708633638,
+       "silent_worse": 0.0014005045938788251,
+       "audible_worse": 0.0118581398110878,
+       "tie": 1.6469613954338548e-06
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.5566476391829178,
+       "silent_worse": 0.21911594556135908,
+       "audible_worse": 0.20814140030289627,
+       "tie": 0.01609501495282688
+      },
+      "distracted (everyday)": {
+       "none": 0.8636233465542507,
+       "silent_worse": 0.07378493075492419,
+       "audible_worse": 0.061552495235839,
+       "tie": 0.0010392274549860835
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.9995482137074136,
+       "silent_worse": 0.0004198841286497155,
+       "audible_worse": 3.1898941180072685e-05,
+       "tie": 3.2227565866835187e-09
+      },
+      "distracted (everyday)": {
+       "none": 0.9997696379911942,
+       "silent_worse": 0.00019459252832979189,
+       "audible_worse": 3.576811827671069e-05,
+       "tie": 1.3621993518228055e-09
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9515017558108922,
+       "silent_worse": 0.005187322397741701,
+       "audible_worse": 0.043194015031707944,
+       "tie": 0.00011690675965824495
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9026340768405215,
+       "audible_worse": 0.07702324595736806,
+       "tie": 0.02034267720211038
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9895060966221114,
+       "silent_worse": 0.0014637968602850748,
+       "audible_worse": 0.009023457982732809,
+       "tie": 6.648534870756097e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9779406927017912,
+       "audible_worse": 0.017617521027610338,
+       "tie": 0.00444178627059836
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.94274635436493,
+       "silent_worse": 0.004961313090340271,
+       "audible_worse": 0.052248203706180024,
+       "tie": 4.412883854974341e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9417060858407714,
+       "audible_worse": 0.049917826001380124,
+       "tie": 0.008376088157848564
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9878960038803871,
+       "silent_worse": 0.0013073484020909207,
+       "audible_worse": 0.010794914561894506,
+       "tie": 1.7331556274624477e-06
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9881155277693103,
+       "audible_worse": 0.010574524565019503,
+       "tie": 0.0013099476656700003
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.9602988495695808,
+       "silent_worse": 0.011179564421593225,
+       "audible_worse": 0.027836115478701833,
+       "tie": 0.00068547053012415
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.806662734550482,
+       "audible_worse": 0.1438770618645096,
+       "tie": 0.049460203585008196
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9897535660621364,
+       "silent_worse": 0.003662827309620904,
+       "audible_worse": 0.006539755645778837,
+       "tie": 4.385098246415966e-05
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9548607940968672,
+       "audible_worse": 0.03370771312495193,
+       "tie": 0.011431492778180941
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.8311195153332696,
+       "silent_worse": 0.07496591567280012,
+       "audible_worse": 0.08853472004253571,
+       "tie": 0.005379848951394653
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.7837590757573422,
+       "audible_worse": 0.1599952904233799,
+       "tie": 0.05624563381927787
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9500442310596943,
+       "silent_worse": 0.025126675959044272,
+       "audible_worse": 0.02448213438840117,
+       "tie": 0.00034695859286028974
+      },
+      "memory": {
+       "none": 0.0,
+       "silent_worse": 0.9491125394721461,
+       "audible_worse": 0.0377817575809913,
+       "tie": 0.013105702946862753
+      }
+     }
+    }
+   },
+   "culprit": {
+    "per_scene": {
+     "sofa": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7830340205126388,
+       "silent_worse": 0.05624523775297199,
+       "audible_worse": 0.15944035157738465,
+       "tie": 0.0012803901570045495
+      },
+      "distracted (everyday)": {
+       "none": 0.9530262827327798,
+       "silent_worse": 0.013410294098764299,
+       "audible_worse": 0.03351639246181893,
+       "tie": 4.703070663696676e-05
+      }
+     },
+     "elevator": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7431088078866097,
+       "silent_worse": 0.10223381030433677,
+       "audible_worse": 0.15223514898705268,
+       "tie": 0.002422232822000832
+      },
+      "distracted (everyday)": {
+       "none": 0.9475234707585627,
+       "silent_worse": 0.021545988982663116,
+       "audible_worse": 0.030851945745521525,
+       "tie": 7.859451325267091e-05
+      }
+     },
+     "standing": {
+      "attentive, Amoore thresholds": {
+       "none": 0.7995368258987157,
+       "silent_worse": 0.018290138886922852,
+       "audible_worse": 0.18151760126760097,
+       "tie": 0.0006554339467603832
+      },
+      "distracted (everyday)": {
+       "none": 0.9567838513981255,
+       "silent_worse": 0.00464623538864333,
+       "audible_worse": 0.03854749120166349,
+       "tie": 2.2422011567699425e-05
+      }
+     }
+    },
+    "frequency, central": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7871450941078107,
+       "silent_worse": 0.046550125864222816,
+       "audible_worse": 0.16518201273927202,
+       "tie": 0.001122767288694539
+      },
+      "memory": {
+       "none": 0.7871450941078107,
+       "silent_worse": 0.046550125864222816,
+       "audible_worse": 0.16518201273927202,
+       "tie": 0.001122767288694539
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9539811289175603,
+       "silent_worse": 0.011158633153098592,
+       "audible_worse": 0.03481948403394422,
+       "tie": 4.075389539692664e-05
+      },
+      "memory": {
+       "none": 0.9539811289175603,
+       "silent_worse": 0.011158633153098592,
+       "audible_worse": 0.03481948403394422,
+       "tie": 4.075389539692664e-05
+      }
+     }
+    },
+    "frequency, home": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.784524862807982,
+       "silent_worse": 0.052806007811170515,
+       "audible_worse": 0.1614452810646594,
+       "tie": 0.001223848316188219
+      },
+      "memory": {
+       "none": 0.7845248628079817,
+       "silent_worse": 0.0528060078111705,
+       "audible_worse": 0.16144528106465938,
+       "tie": 0.0012238483161882189
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9533665519111857,
+       "silent_worse": 0.012615591124630128,
+       "audible_worse": 0.03397305573135347,
+       "tie": 4.480123283076562e-05
+      },
+      "memory": {
+       "none": 0.9533665519111855,
+       "silent_worse": 0.012615591124630125,
+       "audible_worse": 0.033973055731353466,
+       "tie": 4.480123283076561e-05
+      }
+     }
+    },
+    "frequency, office": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7916847233528523,
+       "silent_worse": 0.03443949148466482,
+       "audible_worse": 0.1729384158591727,
+       "tie": 0.0009373693033101239
+      },
+      "memory": {
+       "none": 0.7916847233528523,
+       "silent_worse": 0.03443949148466482,
+       "audible_worse": 0.1729384158591727,
+       "tie": 0.0009373693033101239
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.9551454793163618,
+       "silent_worse": 0.00827174469176781,
+       "audible_worse": 0.03654981056104272,
+       "tie": 3.2965430827662344e-05
+      },
+      "memory": {
+       "none": 0.9551454793163618,
+       "silent_worse": 0.00827174469176781,
+       "audible_worse": 0.03654981056104272,
+       "tie": 3.2965430827662344e-05
+      }
+     }
+    },
+    "equal per scene": {
+     "attentive, Amoore thresholds": {
+      "physics": {
+       "none": 0.7752265514326547,
+       "silent_worse": 0.05892306231474387,
+       "audible_worse": 0.16439770061067943,
+       "tie": 0.0014526856419219214
+      },
+      "memory": {
+       "none": 0.7752265514326547,
+       "silent_worse": 0.05892306231474387,
+       "audible_worse": 0.16439770061067943,
+       "tie": 0.0014526856419219214
+      }
+     },
+     "distracted (everyday)": {
+      "physics": {
+       "none": 0.952444534963156,
+       "silent_worse": 0.013200839490023581,
+       "audible_worse": 0.034305276469667974,
+       "tie": 4.93490771524457e-05
+      },
+      "memory": {
+       "none": 0.952444534963156,
+       "silent_worse": 0.013200839490023581,
+       "audible_worse": 0.034305276469667974,
+       "tie": 4.93490771524457e-05
+      }
+     }
+    }
+   }
+  }
+ },
+ "clipping_at_dp_max": {
+  "share_clipped": 0.05115,
+  "share_oscillating_clipped": 0.3303196641911527,
+  "oscillation_lost": 0,
+  "median_T_clipped_s": 1.0451354792709164,
+  "max_T_clipped_s": 4.165241279320601,
+  "median_u0_oscillating_m_s": [
+   86.31476609789057,
+   85.5494267257663
+  ],
+  "median_M0_oscillating": [
+   0.017770474168919286,
+   0.0139098221728896
+  ],
+  "heard_lost": {
+   "heard_living@0.782": 0,
+   "heard_living@0.787": 0,
+   "heard_living@0.794": 0,
+   "heard_living@0.815": 0,
+   "heard_living@0.819": 0,
+   "heard_living@0.955": 0,
+   "heard_living@0.978": 0,
+   "heard_living@0.995": 0,
+   "heard_living@1.100": 0,
+   "heard_living@1.225": 0,
+   "heard_living@1.459": 0
+  }
+ }
+}

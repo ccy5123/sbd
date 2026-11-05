@@ -1,9 +1,15 @@
-"""Build a self-contained LaTeX source package of the manuscript and the ESM for journal upload.
+"""Build the LaTeX source package of the manuscript for EPJ Plus (Editorial Manager compiles it itself).
 
-Output: manuscript/preprint/submission/latex/ with main.tex and si.tex (every \\input inlined), refs.bib (only the
-cited entries), main.bbl, si.bbl and si.aux, and figures/ (only the images used). Build si.tex first, then main.tex: main.tex
-reads si.aux for the S-numbers. Run from the repository root after building main.pdf and si.pdf (needs main.aux,
-si.aux and the two .bbl files): python3 manuscript/preprint/make_latex_package.py
+Editorial Manager wants one flat folder (no subfolders) with the source, every figure and the compiled PDF; the ESM is
+uploaded separately as a PDF (Online Resource 1, ESM_1.pdf). So main.tex is made standalone:
+  * every \\input is inlined;
+  * the ESM cross-references (\\ref{SI-...}, package xr) are replaced by their numbers read from si.aux, and the xr
+    lines are dropped;
+  * the bibliography is pasted in from main.bbl (no BibTeX run needed);
+  * figures are copied next to main.tex and \\graphicspath points there.
+Output: manuscript/preprint/submission/latex/ (main.tex, main.pdf, figures, README.txt) and
+manuscript/preprint/submission/ESM_1.pdf. Run from the repository root after building si.pdf and main.pdf (needs
+si.aux and main.bbl): python3 manuscript/preprint/make_latex_package.py
 """
 import re
 import shutil
@@ -14,6 +20,8 @@ FIG_DIRS = [PRE / "figs", PRE.parents[1] / "figures"]  # same search order as \g
 OUT = PRE / "submission" / "latex"
 INPUT = re.compile(r"^(?P<pre>[^%\n]*?)\\input\{(?P<name>[^}]+)\}", re.M)
 GRAPHICS = re.compile(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}")
+SI_REF = re.compile(r"\\ref\{SI-([^}]+)\}")
+NEWLABEL = re.compile(r"\\newlabel\{([^}]+)\}\{\{([^}]*)\}")
 
 
 def flatten(path: Path) -> str:
@@ -27,20 +35,8 @@ def flatten(path: Path) -> str:
     return INPUT.sub(inline, text)
 
 
-def cited_keys(aux: Path) -> set[str]:
-    keys = set()
-    for m in re.finditer(r"\\citation\{([^}]*)\}", aux.read_text(encoding="utf-8", errors="replace")):
-        keys.update(k.strip() for k in m.group(1).split(","))
-    return keys
-
-
-def bib_subset(keys: set[str]) -> str:
-    text = (PRE / "refs.bib").read_text(encoding="utf-8")
-    entries = re.split(r"\n(?=@)", text)
-    keep = [e.strip() for e in entries if (m := re.match(r"@\w+\{([^,]+),", e.strip())) and m.group(1) in keys]
-    missing = keys - {re.match(r"@\w+\{([^,]+),", e).group(1) for e in keep}
-    assert not missing, f"cited but not in refs.bib: {sorted(missing)}"
-    return "% Cited entries of refs.bib (generated from refs/references.yaml).\n\n" + "\n\n".join(keep) + "\n"
+def si_labels() -> dict:
+    return {m.group(1): m.group(2) for m in NEWLABEL.finditer((PRE / "si.aux").read_text(encoding="utf-8"))}
 
 
 def find_figure(name: str) -> Path:
@@ -54,28 +50,31 @@ def find_figure(name: str) -> Path:
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
-    (OUT / "figures").mkdir(parents=True)
-    keys = set()
-    for stem in ("si", "main"):
-        tex = flatten(PRE / f"{stem}.tex")
-        tex = re.sub(r"\\graphicspath\{.*\}[^\n]*", r"\\graphicspath{{figures/}}", tex)
-        for name in GRAPHICS.findall(tex):
-            src = find_figure(name)
-            shutil.copy2(src, OUT / "figures" / src.name)
-        (OUT / f"{stem}.tex").write_text(tex, encoding="utf-8")
-        shutil.copy2(PRE / f"{stem}.bbl", OUT / f"{stem}.bbl")
-        keys |= cited_keys(PRE / f"{stem}.aux")
-    shutil.copy2(PRE / "si.aux", OUT / "si.aux")  # main.tex reads it via xr; Overleaf compiles only main.tex
-    (OUT / "refs.bib").write_text(bib_subset(keys), encoding="utf-8")
+    OUT.mkdir(parents=True)
+    tex = flatten(PRE / "main.tex")
+    labels = si_labels()
+    missing = sorted({k for k in SI_REF.findall(tex) if k not in labels})
+    assert not missing, f"ESM labels not in si.aux: {missing}"
+    tex = SI_REF.sub(lambda m: labels[m.group(1)], tex)
+    tex = re.sub(r"^\\usepackage\{xr\}[^\n]*\n", "", tex, flags=re.M)
+    tex = re.sub(r"^\\externaldocument[^\n]*\n", "", tex, flags=re.M)
+    bbl = (PRE / "main.bbl").read_text(encoding="utf-8")
+    tex, n = re.subn(r"\\bibliographystyle\{[^}]*\}\s*\\bibliography\{[^}]*\}", lambda m: bbl.strip(), tex)
+    assert n == 1, "bibliography commands not found"
+    tex = re.sub(r"\\graphicspath\{.*\}[^\n]*", r"\\graphicspath{{./}}", tex)
+    for name in GRAPHICS.findall(tex):
+        src = find_figure(name)
+        shutil.copy2(src, OUT / src.name)
+    (OUT / "main.tex").write_text(tex, encoding="utf-8")
+    shutil.copy2(PRE / "main.pdf", OUT / "main.pdf")
+    shutil.copy2(PRE / "si.pdf", PRE / "submission" / "ESM_1.pdf")
     (OUT / "README.txt").write_text(
-        "LaTeX source of the manuscript (main.tex) and the electronic supplementary material (si.tex).\n"
-        "Build order: pdflatex si, bibtex si, pdflatex si (x2); then pdflatex main, bibtex main, pdflatex main (x2).\n"
-        "main.tex reads si.aux (package xr) for the numbers of ESM sections, figures and tables. A ready si.aux is\n"
-        "included so that main.tex compiles on its own (e.g. on Overleaf, which compiles only the main document);\n"
-        "if si.tex changes, recompile it and replace si.aux.\n"
-        "Or: latexmk -pdf si.tex && latexmk -pdf main.tex\n", encoding="utf-8")
-    print(f"{OUT}: main.tex, si.tex, refs.bib ({len(keys)} cited), .bbl, "
-          f"{len(list((OUT / 'figures').iterdir()))} figures")
+        "LaTeX source of the manuscript. main.tex is standalone: the bibliography is included and the numbers of the\n"
+        "sections, figures and tables of Online Resource 1 (ESM_1.pdf, uploaded separately) are written in.\n"
+        "Build: pdflatex main.tex (twice). Standard packages only (article class, natbib, siunitx, mhchem, lineno).\n",
+        encoding="utf-8")
+    figs = [p.name for p in OUT.iterdir() if p.suffix in (".png", ".pdf", ".jpg") and p.name != "main.pdf"]
+    print(f"{OUT}: main.tex (standalone), main.pdf, {len(figs)} figures; ESM_1.pdf")
 
 
 if __name__ == "__main__":

@@ -3,121 +3,121 @@
  "variants": {
   "baseline": {
    "frac_silent": 0.8402000000000001,
-   "R_median": 0.9605178663339538,
-   "P_R_gt_1": 0.4844,
+   "R_median": 0.9070892215636442,
+   "P_R_gt_1": 0.4582,
    "headline attentive,": {
-    "none": 0.926148923417648,
-    "silent_worse": 0.003927948236875915,
-    "audible_worse": 0.06988656106808258,
-    "memory_silent_worse": 0.9122971235627293
+    "none": 0.9635942120345745,
+    "silent_worse": 0.005224019739504325,
+    "audible_worse": 0.031067668889988225,
+    "memory_silent_worse": 0.9089819986850944
    },
    "headline distracted": {
-    "none": 0.9842175330964905,
-    "silent_worse": 0.0010709730111534562,
-    "audible_worse": 0.014710157499402996,
-    "memory_silent_worse": 0.9817045780489714
+    "none": 0.9920266342000292,
+    "silent_worse": 0.0014565228522966898,
+    "audible_worse": 0.0065098915806180895,
+    "memory_silent_worse": 0.9780195242530746
    }
   },
   "P_th fixed low (0.6 kPa)": {
    "frac_silent": 0.7924,
-   "R_median": 0.9344305427404773,
-   "P_R_gt_1": 0.4716,
+   "R_median": 0.8844204809578314,
+   "P_R_gt_1": 0.4524,
    "headline attentive,": {
-    "none": 0.9397169142944966,
-    "silent_worse": 0.003452228022649323,
-    "audible_worse": 0.05680431527468426,
-    "memory_silent_worse": 0.9292423977545938
+    "none": 0.9680744739412266,
+    "silent_worse": 0.004704362211347845,
+    "audible_worse": 0.02711600089428204,
+    "memory_silent_worse": 0.9102549602109753
    },
    "headline distracted": {
-    "none": 0.9870459448212184,
-    "silent_worse": 0.0009555128842263809,
-    "audible_worse": 0.011997538646391522,
-    "memory_silent_worse": 0.9852352243532746
+    "none": 0.9929018955119113,
+    "silent_worse": 0.0013446070062872325,
+    "audible_worse": 0.005746890011289475,
+    "memory_silent_worse": 0.9783222800154854
    }
   },
   "P_th fixed high (2.5 kPa)": {
    "frac_silent": 0.8852,
-   "R_median": 0.9876518858319246,
-   "P_R_gt_1": 0.4948,
+   "R_median": 0.9022551049941037,
+   "P_R_gt_1": 0.4602,
    "headline attentive,": {
-    "none": 0.9038379252278729,
-    "silent_worse": 0.004311318106583072,
-    "audible_worse": 0.09179913155246985,
-    "memory_silent_worse": 0.8854559103180225
+    "none": 0.9567482240880054,
+    "silent_worse": 0.005689289551588072,
+    "audible_worse": 0.03743543727824416,
+    "memory_silent_worse": 0.9030678721629039
    },
    "headline distracted": {
-    "none": 0.9795651713703306,
-    "silent_worse": 0.001177343357324933,
-    "audible_worse": 0.019255647918154095,
-    "memory_silent_worse": 0.9759882696801794
+    "none": 0.9906952830533384,
+    "silent_worse": 0.0015619499616161905,
+    "audible_worse": 0.0077352137093227346,
+    "memory_silent_worse": 0.9767509331757094
    }
   },
   "T upper bound 5 s (was 20)": {
    "frac_silent": 0.7614,
-   "R_median": 0.8731363655733575,
-   "P_R_gt_1": 0.4472,
+   "R_median": 0.8153876638294455,
+   "P_R_gt_1": 0.4186,
    "headline attentive,": {
-    "none": 0.9263745453899344,
-    "silent_worse": 0.005173784024247697,
-    "audible_worse": 0.06839875596804626,
-    "memory_silent_worse": 0.9141513718183186
+    "none": 0.9634083250393201,
+    "silent_worse": 0.006402230958531077,
+    "audible_worse": 0.030067883193315856,
+    "memory_silent_worse": 0.9177024713731963
    },
    "headline distracted": {
-    "none": 0.9841510935743067,
-    "silent_worse": 0.0013269659391871593,
-    "audible_worse": 0.01452009274558747,
-    "memory_silent_worse": 0.9819417434579181
+    "none": 0.9920286625657838,
+    "silent_worse": 0.0016548692314289678,
+    "audible_worse": 0.0063099188606930996,
+    "memory_silent_worse": 0.9804100722446834
    }
   },
   "T lower bound 1 s (was 0.3)": {
    "frac_silent": 0.9296,
-   "R_median": 0.8215000221715392,
-   "P_R_gt_1": 0.4228,
+   "R_median": 0.8111661561189916,
+   "P_R_gt_1": 0.418,
    "headline attentive,": {
-    "none": 0.9602653958372889,
-    "silent_worse": 0.0033332183855653355,
-    "audible_worse": 0.03637544553167736,
-    "memory_silent_worse": 0.9505316549139421
+    "none": 0.9671618756304312,
+    "silent_worse": 0.004439090990609933,
+    "audible_worse": 0.02826635004097512,
+    "memory_silent_worse": 0.8805836588874508
    },
    "headline distracted": {
-    "none": 0.9917811767726566,
-    "silent_worse": 0.0009206161953397184,
-    "audible_worse": 0.0072972442607203095,
-    "memory_silent_worse": 0.9908018459385067
+    "none": 0.9926867135859703,
+    "silent_worse": 0.0013232332016779335,
+    "audible_worse": 0.005980591310872623,
+    "memory_silent_worse": 0.9681964908480853
    }
   },
   "d upper bound 4 mm (was 8)": {
    "frac_silent": 0.766,
-   "R_median": 0.8956544145647163,
-   "P_R_gt_1": 0.4532,
+   "R_median": 0.8325377464984609,
+   "P_R_gt_1": 0.4198,
    "headline attentive,": {
-    "none": 0.9284440525443844,
-    "silent_worse": 0.003425270606411138,
-    "audible_worse": 0.06809933329991337,
-    "memory_silent_worse": 0.9106881052410948
+    "none": 0.9639810944556926,
+    "silent_worse": 0.004643528422880652,
+    "audible_worse": 0.03126745661853242,
+    "memory_silent_worse": 0.9019964902063387
    },
    "headline distracted": {
-    "none": 0.9846824048839063,
-    "silent_worse": 0.0009625400740347215,
-    "audible_worse": 0.014353917256089038,
-    "memory_silent_worse": 0.9815132081641582
+    "none": 0.9921361116472669,
+    "silent_worse": 0.0013246581483586039,
+    "audible_worse": 0.006532794823952055,
+    "memory_silent_worse": 0.9768335941299233
    }
   },
   "d lower bound 2 mm (was 1)": {
    "frac_silent": 0.9392,
-   "R_median": 0.7127760923697137,
-   "P_R_gt_1": 0.366,
+   "R_median": 0.7045454163238553,
+   "P_R_gt_1": 0.3584,
    "headline attentive,": {
-    "none": 0.9164323087566811,
-    "silent_worse": 0.00421875327192186,
-    "audible_worse": 0.07929855665875948,
-    "memory_silent_worse": 0.8963553282544244
+    "none": 0.9284093822993488,
+    "silent_worse": 0.005368009052529188,
+    "audible_worse": 0.06607454652896048,
+    "memory_silent_worse": 0.8678661240886969
    },
    "headline distracted": {
-    "none": 0.9824693129219904,
-    "silent_worse": 0.0011494177112175903,
-    "audible_worse": 0.016379457748649705,
-    "memory_silent_worse": 0.9790578635730464
+    "none": 0.9851941267974851,
+    "silent_worse": 0.0015388300810128051,
+    "audible_worse": 0.013258371519025682,
+    "memory_silent_worse": 0.9695735197446661
    }
   }
  }

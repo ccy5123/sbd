@@ -56,6 +56,37 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
     Melikov checked and left out (co-author of the 2014/2015 validation data).
   - About 7,550 words; ESM 18 pages.
 
+## 5 Nov (later): venue changed to EPJ Plus; 88-mmHg driving-pressure limit is now the headline
+
+- **Why the venue changed (user):** a second blind review (`research/jrsi_review_sim_v2/review_simulation.md`; desk
+  rejection 45-60 %, publication about 10-18 %) found that the Royal Society AI policy allows AI in the writing
+  process only "to improve readability and language", while the manuscript declares AI drafting. Springer (EPJ Plus)
+  allows drafting if documented in the Methods. EPJ Plus: Regular Article, no length limit, abstract 150-250 words,
+  LaTeX source + PDF at submission (flat folder), "Statements and Declarations", graphical abstract (480 px, 11:6)
+  before acceptance, subscription route free (APC only for open access), Editorial Manager
+  https://www.editorialmanager.com/epjp.
+- **Driving-pressure limit (user: make it the headline; no CFD rerun):** exit velocity is capped where the needed
+  pressure 1/2 rho (u0/Cd)^2 exceeds 88 mmHg (largest rectal rise while passing flatus, Miller 1988); the passage is
+  slowed at fixed V and d (5 % of passages, a third of audible ones). One place: `acoustics/regime.u_cap`, used by
+  `gate0/run_gate0.draw_release`, `perception/run_selection.simulate` and `acoustics/run_m2`; `params.yaml dp_max`;
+  `SBD_NO_DP_CAP=1` reproduces the old stream exactly. All stream-dependent scripts and Figures 2, 3, 6 and S3 were
+  regenerated (overlap checks passed, visual review clean). Comparison and other caps: `uq/pressure_cap.py`.
+- **New headline:** sofa 0.55 / 4.1 % (was 0.5 / 9.2), lift 21.6 / 21.1, day average 0.5 / 3.1, remembered 91 %
+  (was 88). Combined median mesh x peak factors: sofa 4.3 / 5.1 (holds narrowly), day 3.6 / 3.8, office days
+  reverse (3.9 / 2.3); silent-only factor to reverse the sofa 6.0 (was 16). Table 1 and the analytic-model numbers
+  moved slightly (93 % equal-mass unchanged). Representative releases are described as median / p90 of the
+  uncapped stream, which bracket the capped one.
+- **Other fixes in this pass:** "robust to numerical uncertainty" replaced by "holds at the median numerical
+  uncertainties"; 14 (day) vs 16 (sofa) labels; Cobb 2005 (cough 107.6, jump 171 mmHg, verified on Europe PMC)
+  added to references; `cmap` in the cover letter (the "Nstase" in the review was a Latin-1 text-extraction
+  artefact, the PDF was fine).
+- **EPJ format done:** Statements and Declarations; AI use as Methods 3.7; ESM retitled "Online Resource 1" with
+  journal and contact; cover letter rewritten for EPJ Plus (tex/md/txt in step); `make_latex_package.py` now writes
+  a standalone flat `submission/latex/` (S-numbers and bibliography written in; test-compiled, no errors, no ??)
+  and `submission/ESM_1.pdf`. Zip: `manuscript/preprint/epjplus_submission_2026-11-05.zip` (not versioned).
+- **Open:** `submission/SUBMISSION_INFO.txt` still describes the JRSI package and must be rewritten for EPJ Plus;
+  graphical abstract; optional Zenodo DOI; engrXiv v2 (the preprint predates the cap); push.
+
 ## Progress 2026-10-29 (session after the brief below)
 
 - **Elevator done** (server, 07:47 KST, 240.2 s); analysed: `cfd/results_v4/elev_v4_FL_multi.json`, probes

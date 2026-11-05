@@ -51,3 +51,13 @@ def test_onset_velocity_consistent_with_classification():
     q_just_above = 1.02 * u * np.pi * d**2 / 4
     assert ac.classify(q_just_below, d, P, None) == ac.S1
     assert ac.classify(q_just_above, d, P, None) != ac.S1
+
+
+def test_pressure_cap_velocity_inverts_the_orifice_equation():
+    """u_cap drives exactly dp_max through the orifice equation, lies above the onset, and None disables it."""
+    d = 0.003
+    q = ac.u_cap(P) * np.pi * d**2 / 4
+    rho_gas = P["rho_air"] * (1.0 - P["g_reduced"] / P["g"])
+    assert ac.driving_pressure(q, d, rho_gas, P["C_d"]) == pytest.approx(P["dp_max"])
+    assert ac.u_cap(P) > ac.u_onset(P)
+    assert ac.u_cap({**P, "dp_max": None}) == np.inf

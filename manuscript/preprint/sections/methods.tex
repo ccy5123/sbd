@@ -1,8 +1,9 @@
 \section{Methods}
 \label{sec:methods}
 
-Every parameter, with its source, range and whether it is measured, derived or assumed, is listed in
-Table~\ref{SI-tab:params}. Code and data are openly archived (Data accessibility).
+Supplementary sections, figures and tables, numbered S1, S2, \ldots, are in Online Resource~1. Every parameter,
+with its source, range and whether it is measured, derived or assumed, is listed in Table~\ref{SI-tab:params}. Code
+and data are openly available (Statements and Declarations).
 
 \subsection{Source}
 \label{sec:source}
@@ -10,7 +11,10 @@ Passage volumes span 17--375\,mL \cite{suarez1997}; the median of the 16 subject
 computed from the same data, is 92\,mL. In the Monte Carlo analysis, volume $V$,
 duration $T$ (0.3--20\,s) and effective orifice diameter $d$ (1--8\,mm) are drawn log-uniformly. Neither duration nor
 diameter has been measured for a passage; their upper bounds come from anorectal physiology
-(Section~\ref{SI-sec:si-acoustics}) and the lower bounds are assumed.
+(Section~\ref{SI-sec:si-acoustics}) and the lower bounds are assumed. The driving pressure a passage needs,
+$\tfrac12\rho(u_0/C_\mathrm{d})^2$, is limited to the largest rectal pressure rise measured while passing flatus,
+88\,mmHg \cite{miller1988b}: a passage that would need more leaves at the capped velocity, about 131\,m\,s$^{-1}$, over
+a longer time at the same volume and orifice. This slows 5\% of passages, a third of the audible ones.
 
 Sulfur gas concentrations are taken from 87 passages of 16 volunteers \cite{suarez1998}: \ce{H2S}
 1.06\,\textmu mol\,L$^{-1}$, methanethiol 0.21\,\textmu mol\,L$^{-1}$ and dimethyl sulfide 0.08\,\textmu mol\,L$^{-1}$.
@@ -74,7 +78,8 @@ thighs, 2\,cm from the skin, with the air permeability of denim and open at the 
 \emph{Releases.} Each room first runs 90\,s without a release, until the body plumes have developed. Four
 representative passages are then released behind the releaser's buttocks, 30\,s apart, each carried by its own
 passive scalar so that their doses can be read separately: the median and 90th percentile of the exit momentum flux
-$M_0 = \dot Q_0u_0$ (volume flow rate $\dot Q_0 = V/T$) within each class of the source model (silent: 122\,mL over 4.8\,s at $u_0 = 3.5$\,m\,s$^{-1}$, and
+$M_0 = \dot Q_0u_0$ (volume flow rate $\dot Q_0 = V/T$) within each class of the source model without the pressure
+limit, which bracket the passages with it (silent: 122\,mL over 4.8\,s at $u_0 = 3.5$\,m\,s$^{-1}$, and
 66\,mL at 22\,m\,s$^{-1}$; audible: 86\,mL at 94\,m\,s$^{-1}$, and 279\,mL at 162\,m\,s$^{-1}$). Each enters
 through the same 1-cm-radius inlet with its own momentum, odorant and buoyancy fluxes, so it is pre-diluted with room
 air by 6.5--12 (Section~\ref{SI-sec:si-scenes}); because momentum is conserved while a jet entrains, the dilution at
@@ -144,3 +149,9 @@ silent passage only if smelled (Proposition~3), so the remembered shares are the
 passage was smelled. Scenes are weighted by the time an adult spends close to another person in each setting
 (sofa 0.73, lift 0.005, standing 0.26; Section~\ref{SI-sec:si-weights}), with home- and office-centred days as
 bounds. In the clothed variants each passage is in trousers with probability 0.7 or 0.85, independently.
+
+\subsection{Use of AI-assisted tools}
+\label{sec:ai}
+AI-assisted technologies (Claude Code, Anthropic) were used to write code and simulation set-ups, search the
+literature and draft text. The author checked all content, including every reference, and takes responsibility
+for it.

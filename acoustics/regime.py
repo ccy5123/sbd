@@ -4,7 +4,8 @@ Chain (plan section 7):
   1. Oscillation onset (defines S1). The anal canal is treated as a soft-tissue self-oscillating flow valve
      (lip-reed / vocal-fold analogue; Ancalle et al. 2021). It oscillates when the transmural driving pressure
      exceeds a threshold P_th. The driving pressure is linked to the release through the orifice equation,
-     dp = 0.5 rho (u0 / C_d)^2, with u0 = Q / A.
+     dp = 0.5 rho (u0 / C_d)^2, with u0 = Q / A. The same equation caps u0 at the largest driving pressure measured
+     while passing flatus (params dp_max; u_cap).
   2. Source strength. The valve modulates the volume flow; harmonic n carries an amplitude
      q_n = alpha_mod * Q * n^(harm_slope/6.02). It radiates as a monopole into a half space (the body and seat act
      as a baffle): p_n = 2 rho_air omega_n q_n / (4 pi r), with p_n as the peak amplitude.
@@ -14,6 +15,8 @@ Chain (plan section 7):
      background spectrum is octave-band levels with a fixed slope, scaled to the room's dB(A).
 """
 from __future__ import annotations
+
+import os
 
 import numpy as np
 
@@ -102,3 +105,14 @@ def u_onset(p: dict) -> float:
     """Exit velocity (Q/A) at oscillation onset: the acoustic replacement for Gate 0's u_audible placeholder."""
     rho_gas = p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])
     return p["C_d"] * np.sqrt(2.0 * p["P_th"] / rho_gas)
+
+
+def u_cap(p: dict) -> float:
+    """Largest exit velocity the available driving pressure p["dp_max"] can sustain through the same orifice equation,
+    C_d sqrt(2 dp_max / rho_gas); inf if p has no cap (dp_max None or missing) or SBD_NO_DP_CAP is set to anything
+    but 0 in the environment (the switch for the uncapped numbers). Used by the passage samplers
+    (gate0/run_gate0.draw_release, acoustics/run_m2.prior_samples) to clip u0."""
+    if p.get("dp_max") is None or os.environ.get("SBD_NO_DP_CAP", "0") not in ("", "0"):
+        return np.inf
+    rho_gas = p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])
+    return p["C_d"] * np.sqrt(2.0 * p["dp_max"] / rho_gas)

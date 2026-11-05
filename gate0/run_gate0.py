@@ -1,5 +1,10 @@
 """Run the Gate 0 analysis: ratio maps, Monte Carlo P(SBD), rank sensitivity.
 
+Passages are sampled from the release prior (V, T, d log-uniform, params.yaml) and their exit velocity is capped by
+the driving pressure available (params.yaml dp_max, 88 mmHg, Miller et al. 1988): see draw_release. Every passage
+sampler of the repository goes through draw_release (perception/run_selection.simulate, monte_carlo below; the
+vectorised acoustic prior of acoustics/run_m2.py applies the same regime.u_cap). The cap is disabled with
+SBD_NO_DP_CAP=1 in the environment or P0["dp_max"] = None (uncapped numbers for the ESM comparison).
 Usage:  python3 gate0/run_gate0.py      (from the repository root)
 Writes: figures/gate0_ratio_map.png, figures/gate0_psbd.png, figures/gate0_sensitivity.png,
         gate0/results.json
@@ -23,6 +28,9 @@ from model import Release, load_params, nominal, oav, prior_range, ratio, recept
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "params"))
 from derive_from_suarez1997 import g_red as G_RED_EMPIRICAL  # noqa: E402  (16 subjects, Suarez 1997)
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "acoustics"))
+from regime import u_cap  # noqa: E402  (driving-pressure cap on the exit velocity)
 
 ROOT = Path(__file__).resolve().parents[1]
 FIG = ROOT / "figures"
@@ -118,9 +126,17 @@ RELEASE_PRIOR = {k: prior_range(P_RAW, name)                    # all log-unifor
 CLOTHING = ("none", "skirt", "leggings", "chino", "denim")
 
 
-def draw_release(rng):
-    return Release(V=logu(rng, *RELEASE_PRIOR["V"]), T=logu(rng, *RELEASE_PRIOR["T"]),
-                   d=logu(rng, *RELEASE_PRIOR["d"]))
+def draw_release(rng, p=None):
+    """One passage from the release prior. With the passage's parameters p (C_d, g_reduced, dp_max), the exit velocity
+    is capped by the driving pressure available, dp = 1/2 rho_gas (u0 / C_d)^2 <= dp_max (regime.u_cap), by clipping:
+    V and d are kept (the volumes are measured), u0 is lowered to the cap and the duration T = V / Q lengthens.
+    [ASSUMPTION] The pressure limits how fast a measured volume can leave, not how much leaves (truncation, i.e.
+    rejecting such passages, is the alternative reported in uq/pressure_cap.py). Draws no extra random numbers, so the
+    stream is the uncapped one with the clipped passages slowed down. p None: no cap."""
+    r = Release(V=logu(rng, *RELEASE_PRIOR["V"]), T=logu(rng, *RELEASE_PRIOR["T"]), d=logu(rng, *RELEASE_PRIOR["d"]))
+    if p is not None and r.u0 > (u_max := u_cap(p)):
+        r = Release(V=r.V, T=4.0 * r.V / (np.pi * r.d**2 * u_max), d=r.d)
+    return r
 
 
 def monte_carlo(n=20000):
@@ -135,7 +151,7 @@ def monte_carlo(n=20000):
         p["u_audible"] = p["C_d"] * np.sqrt(2.0 * p["P_th"] / (p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])))
         silent = loud = None
         for _ in range(200):
-            r = draw_release(rng)
+            r = draw_release(rng, p)
             if r.u0 < p["u_audible"] and silent is None:
                 silent = r
             elif r.u0 >= p["u_audible"] and loud is None:

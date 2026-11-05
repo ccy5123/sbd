@@ -40,7 +40,9 @@ SILENT_C, AUDIBLE_C, EMITTER_C, TRUTH_C = "#2a78d6", "#eb6834", "#1baf7a", "#8a8
 
 def simulate(n=N_EVENTS, seed=SEED, distances=()):
     """`distances` (m): extra listener distances; adds heard_living@<r> per passage (draws no random numbers, so the
-    other columns are unchanged)."""
+    other columns are unchanged). Releases come from gate0 draw_release with the passage's parameters, so the exit
+    velocity is capped by the driving pressure (params dp_max; off with SBD_NO_DP_CAP=1); columns d, T and dp (driving
+    pressure 1/2 rho_gas (u0 / C_d)^2 as emitted) describe the release."""
     rng = np.random.default_rng(seed)
     P0 = g0.P0
     sig = P0["sulfur_sigma_ln"]
@@ -51,10 +53,12 @@ def simulate(n=N_EVENTS, seed=SEED, distances=()):
             p[k] = g0.logu(rng, lo, hi) if lg else rng.uniform(lo, hi)
         p["g_reduced"] = float(rng.choice(g0.G_RED_EMPIRICAL))
         p["u_audible"] = p["C_d"] * np.sqrt(2.0 * p["P_th"] / (p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])))
-        r = g0.draw_release(rng)
+        r = g0.draw_release(rng, p)
         m = float(np.exp(sig * rng.standard_normal() - 0.5 * sig**2))  # sulfur multiplier, mean 1
         Q = r.V / r.T
-        row = {"V": r.V, "u0": r.u0, "Q": Q, "osc": r.u0 >= p["u_audible"], "sulfur": m,
+        rho_gas = p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])
+        row = {"V": r.V, "u0": r.u0, "Q": Q, "osc": r.u0 >= p["u_audible"], "sulfur": m, "d": r.d, "T": r.T,
+               "dp": 0.5 * rho_gas * (r.u0 / p["C_d"]) ** 2,
                "OAV_nb": m * oav(receptor(r, p, p["L_neighbour"], p["u_room"])["phi_inh"], p),
                "OAV_own": m * oav(receptor(r, p, p["L_own"], p["u_own_eff"])["phi_inh"], p)}
         for bg in BACKGROUNDS:

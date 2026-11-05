@@ -5,540 +5,540 @@
   "baseline (probit, sd 2 / 3.5)": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.005080988629209591,
-     "audible_worse": 0.06863801628085914,
-     "none": 0.926163921194123,
-     "audible_to_silent": 13.50879155412253,
-     "memory_silent_worse": 0.8841311815823167,
+     "silent_worse": 0.005234218434111349,
+     "audible_worse": 0.03101842568092889,
+     "none": 0.9636322854578545,
+     "audible_to_silent": 5.926085445494999,
+     "memory_silent_worse": 0.9107943486050883,
      "pi_s": 0.005746871884007325,
-     "pi_l": 0.06922628456941271
+     "pi_l": 0.03160046435597306
     },
     "frequency, home": {
-     "silent_worse": 0.004802648567971503,
-     "audible_worse": 0.08382210821733256,
-     "none": 0.9113262198210027,
-     "audible_to_silent": 17.45330873808586,
-     "memory_silent_worse": 0.9115899968939558,
+     "silent_worse": 0.005041426790669391,
+     "audible_worse": 0.03713010602680699,
+     "none": 0.9577897688080189,
+     "audible_to_silent": 7.364999546463101,
+     "memory_silent_worse": 0.9569124551598223,
      "pi_s": 0.00526843052724962,
-     "pi_l": 0.08398469176647368
+     "pi_l": 0.037274882160408314
     },
     "frequency, office": {
-     "silent_worse": 0.011299347750046908,
-     "audible_worse": 0.039260169476490595,
-     "none": 0.9487843294127056,
-     "audible_to_silent": 3.4745518365276977,
-     "memory_silent_worse": 0.8153057141550701,
-     "pi_s": 0.013859031715185289,
-     "pi_l": 0.043082344240761114
+     "silent_worse": 0.011063161141382434,
+     "audible_worse": 0.022424593868984627,
+     "none": 0.9658078351784916,
+     "audible_to_silent": 2.0269607919841333,
+     "memory_silent_worse": 0.7982636427089322,
+     "pi_s": 0.013859031715185294,
+     "pi_l": 0.026307158661564457
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.0014584421972998324,
-     "audible_worse": 0.014528425198658941,
-     "none": 0.984006788123734,
-     "audible_to_silent": 9.961605078046249,
-     "memory_silent_worse": 0.9743633228009206,
+     "silent_worse": 0.0014653210063569836,
+     "audible_worse": 0.0065868239554407685,
+     "none": 0.9919410140940167,
+     "audible_to_silent": 4.495140605277092,
+     "memory_silent_worse": 0.9789589517961924,
      "pi_s": 0.001496815575023258,
-     "pi_l": 0.014566898359012462
+     "pi_l": 0.006626992364433153
     },
     "frequency, home": {
-     "silent_worse": 0.0012982310760108976,
-     "audible_worse": 0.017634031964287332,
-     "none": 0.9810658739448749,
-     "audible_to_silent": 13.583122673716762,
-     "memory_silent_worse": 0.981224502043499,
+     "silent_worse": 0.0013115232966521347,
+     "audible_worse": 0.007761856334909021,
+     "none": 0.9909250419031863,
+     "audible_to_silent": 5.9181993600284155,
+     "memory_silent_worse": 0.9912709820737157,
      "pi_s": 0.0013230724195198963,
-     "pi_l": 0.017641165542183146
+     "pi_l": 0.007768619628751759
     },
     "frequency, office": {
-     "silent_worse": 0.0036759288859970524,
-     "audible_worse": 0.008964062963795207,
-     "none": 0.9873194738770619,
-     "audible_to_silent": 2.4385844345200955,
-     "memory_silent_worse": 0.95827623811455,
+     "silent_worse": 0.0036491920869386337,
+     "audible_worse": 0.005502129820412336,
+     "none": 0.990802273591489,
+     "audible_to_silent": 1.5077665656751331,
+     "memory_silent_worse": 0.9513062340650901,
      "pi_s": 0.003835980419622636,
-     "pi_l": 0.009235972195147475
+     "pi_l": 0.005790312132973991
     }
    }
   },
   "attentive sd 1": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.0020289238739815505,
-     "audible_worse": 0.05059316810784238,
-     "none": 0.9472710390356557,
-     "audible_to_silent": 24.93596174634122,
-     "memory_silent_worse": 0.8446342261016778,
+     "silent_worse": 0.0020169601789304468,
+     "audible_worse": 0.014913220757809372,
+     "none": 0.9829597821001146,
+     "audible_to_silent": 7.393909365983394,
+     "memory_silent_worse": 0.8396537798462077,
      "pi_s": 0.002402133149808337,
-     "pi_l": 0.05111505967590904
+     "pi_l": 0.015442536048493907
     },
     "frequency, home": {
-     "silent_worse": 0.001208078594872238,
-     "audible_worse": 0.06168944310836751,
-     "none": 0.9370854463078547,
-     "audible_to_silent": 51.06409746039045,
-     "memory_silent_worse": 0.9337892972631119,
+     "silent_worse": 0.0012516986161772992,
+     "audible_worse": 0.01739998614873019,
+     "none": 0.9813374430424208,
+     "audible_to_silent": 13.901098813922102,
+     "memory_silent_worse": 0.9675055713647672,
      "pi_s": 0.0012937378897070826,
-     "pi_l": 0.061742886579934736
+     "pi_l": 0.017440238137283053
     },
     "frequency, office": {
-     "silent_worse": 0.0091176253791545,
-     "audible_worse": 0.029560689814941244,
-     "none": 0.9605489065301981,
-     "audible_to_silent": 3.242147882334082,
-     "memory_silent_worse": 0.7824836294914119,
+     "silent_worse": 0.008745623558021151,
+     "audible_worse": 0.013630227212432858,
+     "none": 0.9767866697527502,
+     "audible_to_silent": 1.5585197695745474,
+     "memory_silent_worse": 0.7505580652054146,
      "pi_s": 0.011652161189724378,
-     "pi_l": 0.03352097354615868
+     "pi_l": 0.017734333647037654
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.0014584421972998324,
-     "audible_worse": 0.014528425198658941,
-     "none": 0.984006788123734,
-     "audible_to_silent": 9.961605078046249,
-     "memory_silent_worse": 0.9743633228009206,
+     "silent_worse": 0.0014653210063569836,
+     "audible_worse": 0.0065868239554407685,
+     "none": 0.9919410140940167,
+     "audible_to_silent": 4.495140605277092,
+     "memory_silent_worse": 0.9789589517961924,
      "pi_s": 0.001496815575023258,
-     "pi_l": 0.014566898359012462
+     "pi_l": 0.006626992364433153
     },
     "frequency, home": {
-     "silent_worse": 0.0012982310760108976,
-     "audible_worse": 0.017634031964287332,
-     "none": 0.9810658739448749,
-     "audible_to_silent": 13.583122673716762,
-     "memory_silent_worse": 0.981224502043499,
+     "silent_worse": 0.0013115232966521347,
+     "audible_worse": 0.007761856334909021,
+     "none": 0.9909250419031863,
+     "audible_to_silent": 5.9181993600284155,
+     "memory_silent_worse": 0.9912709820737157,
      "pi_s": 0.0013230724195198963,
-     "pi_l": 0.017641165542183146
+     "pi_l": 0.007768619628751759
     },
     "frequency, office": {
-     "silent_worse": 0.0036759288859970524,
-     "audible_worse": 0.008964062963795207,
-     "none": 0.9873194738770619,
-     "audible_to_silent": 2.4385844345200955,
-     "memory_silent_worse": 0.95827623811455,
+     "silent_worse": 0.0036491920869386337,
+     "audible_worse": 0.005502129820412336,
+     "none": 0.990802273591489,
+     "audible_to_silent": 1.5077665656751331,
+     "memory_silent_worse": 0.9513062340650901,
      "pi_s": 0.003835980419622636,
-     "pi_l": 0.009235972195147475
+     "pi_l": 0.005790312132973991
     }
    }
   },
   "attentive sd 3": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.013874899427800907,
-     "audible_worse": 0.0947360561543476,
-     "none": 0.8911891485306082,
-     "audible_to_silent": 6.827873358456677,
-     "memory_silent_worse": 0.8799794623414263,
-     "pi_s": 0.015767299149099388,
-     "pi_l": 0.09563763403756634
+     "silent_worse": 0.014501275020640818,
+     "audible_worse": 0.0580631459582318,
+     "none": 0.927235402716406,
+     "audible_to_silent": 4.004002811862123,
+     "memory_silent_worse": 0.919705707585888,
+     "pi_s": 0.015767299149099384,
+     "pi_l": 0.05898260828865658
     },
     "frequency, home": {
-     "silent_worse": 0.014843850038718184,
-     "audible_worse": 0.11578366920070537,
-     "none": 0.8692152679481953,
-     "audible_to_silent": 7.800110409273825,
-     "memory_silent_worse": 0.8830760549362925,
-     "pi_s": 0.01680925437366667,
-     "pi_l": 0.1163435029425388
+     "silent_worse": 0.015661020637452984,
+     "audible_worse": 0.07024258775974339,
+     "none": 0.9139450045220007,
+     "audible_to_silent": 4.485185824464071,
+     "memory_silent_worse": 0.9316903825304406,
+     "pi_s": 0.016809254373666673,
+     "pi_l": 0.07082245253879697
     },
     "frequency, office": {
-     "silent_worse": 0.017656630224238877,
-     "audible_worse": 0.05292224371883466,
-     "none": 0.9287622717899576,
-     "audible_to_silent": 2.99730146957393,
-     "memory_silent_worse": 0.8445875464484066,
+     "silent_worse": 0.017688030306617038,
+     "audible_worse": 0.03654805311281039,
+     "none": 0.945066338281921,
+     "audible_to_silent": 2.0662590734672066,
+     "memory_silent_worse": 0.8460895385158195,
      "pi_s": 0.020905624643042815,
-     "pi_l": 0.056827821543741566
+     "pi_l": 0.04047461705898976
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.0014584421972998324,
-     "audible_worse": 0.014528425198658941,
-     "none": 0.984006788123734,
-     "audible_to_silent": 9.961605078046249,
-     "memory_silent_worse": 0.9743633228009206,
+     "silent_worse": 0.0014653210063569836,
+     "audible_worse": 0.0065868239554407685,
+     "none": 0.9919410140940167,
+     "audible_to_silent": 4.495140605277092,
+     "memory_silent_worse": 0.9789589517961924,
      "pi_s": 0.001496815575023258,
-     "pi_l": 0.014566898359012462
+     "pi_l": 0.006626992364433153
     },
     "frequency, home": {
-     "silent_worse": 0.0012982310760108976,
-     "audible_worse": 0.017634031964287332,
-     "none": 0.9810658739448749,
-     "audible_to_silent": 13.583122673716762,
-     "memory_silent_worse": 0.981224502043499,
+     "silent_worse": 0.0013115232966521347,
+     "audible_worse": 0.007761856334909021,
+     "none": 0.9909250419031863,
+     "audible_to_silent": 5.9181993600284155,
+     "memory_silent_worse": 0.9912709820737157,
      "pi_s": 0.0013230724195198963,
-     "pi_l": 0.017641165542183146
+     "pi_l": 0.007768619628751759
     },
     "frequency, office": {
-     "silent_worse": 0.0036759288859970524,
-     "audible_worse": 0.008964062963795207,
-     "none": 0.9873194738770619,
-     "audible_to_silent": 2.4385844345200955,
-     "memory_silent_worse": 0.95827623811455,
+     "silent_worse": 0.0036491920869386337,
+     "audible_worse": 0.005502129820412336,
+     "none": 0.990802273591489,
+     "audible_to_silent": 1.5077665656751331,
+     "memory_silent_worse": 0.9513062340650901,
      "pi_s": 0.003835980419622636,
-     "pi_l": 0.009235972195147475
+     "pi_l": 0.005790312132973991
     }
    }
   },
   "attentive sd 4": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.029781611427450134,
-     "audible_worse": 0.12379854353171596,
-     "none": 0.8460316584318415,
-     "audible_to_silent": 4.156878610591537,
-     "memory_silent_worse": 0.8614107946065893,
+     "silent_worse": 0.031188785460537806,
+     "audible_worse": 0.08989744683177166,
+     "none": 0.8785032034347082,
+     "audible_to_silent": 2.882364462236469,
+     "memory_silent_worse": 0.9021122490911693,
      "pi_s": 0.034573065039255224,
-     "pi_l": 0.12543714475511195
+     "pi_l": 0.09165398620696363
     },
     "frequency, home": {
-     "silent_worse": 0.03234998836823633,
-     "audible_worse": 0.1507588186039379,
-     "none": 0.8165033536768318,
-     "audible_to_silent": 4.660243363548294,
-     "memory_silent_worse": 0.8544431406626979,
+     "silent_worse": 0.034130875977665745,
+     "audible_worse": 0.10858837834883293,
+     "none": 0.8568706241418925,
+     "audible_to_silent": 3.181529194266506,
+     "memory_silent_worse": 0.9014807836085679,
      "pi_s": 0.037860902415514736,
-     "pi_l": 0.15220990300761245
+     "pi_l": 0.11018687605242983
     },
     "frequency, office": {
-     "silent_worse": 0.030146500019239398,
-     "audible_worse": 0.06915052012518919,
-     "none": 0.899949886169836,
-     "audible_to_silent": 2.2938158685438625,
-     "memory_silent_worse": 0.8615214118742774,
+     "silent_worse": 0.030566486350345496,
+     "audible_worse": 0.05416496856579557,
+     "none": 0.9144724433774071,
+     "audible_to_silent": 1.7720377784011585,
+     "memory_silent_worse": 0.8735237078858047,
      "pi_s": 0.034992165724185974,
-     "pi_l": 0.07345406816310536
+     "pi_l": 0.05850875936082075
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.0014584421972998324,
-     "audible_worse": 0.014528425198658941,
-     "none": 0.984006788123734,
-     "audible_to_silent": 9.961605078046249,
-     "memory_silent_worse": 0.9743633228009206,
+     "silent_worse": 0.0014653210063569836,
+     "audible_worse": 0.0065868239554407685,
+     "none": 0.9919410140940167,
+     "audible_to_silent": 4.495140605277092,
+     "memory_silent_worse": 0.9789589517961924,
      "pi_s": 0.001496815575023258,
-     "pi_l": 0.014566898359012462
+     "pi_l": 0.006626992364433153
     },
     "frequency, home": {
-     "silent_worse": 0.0012982310760108976,
-     "audible_worse": 0.017634031964287332,
-     "none": 0.9810658739448749,
-     "audible_to_silent": 13.583122673716762,
-     "memory_silent_worse": 0.981224502043499,
+     "silent_worse": 0.0013115232966521347,
+     "audible_worse": 0.007761856334909021,
+     "none": 0.9909250419031863,
+     "audible_to_silent": 5.9181993600284155,
+     "memory_silent_worse": 0.9912709820737157,
      "pi_s": 0.0013230724195198963,
-     "pi_l": 0.017641165542183146
+     "pi_l": 0.007768619628751759
     },
     "frequency, office": {
-     "silent_worse": 0.0036759288859970524,
-     "audible_worse": 0.008964062963795207,
-     "none": 0.9873194738770619,
-     "audible_to_silent": 2.4385844345200955,
-     "memory_silent_worse": 0.95827623811455,
+     "silent_worse": 0.0036491920869386337,
+     "audible_worse": 0.005502129820412336,
+     "none": 0.990802273591489,
+     "audible_to_silent": 1.5077665656751331,
+     "memory_silent_worse": 0.9513062340650901,
      "pi_s": 0.003835980419622636,
-     "pi_l": 0.009235972195147475
+     "pi_l": 0.005790312132973991
     }
    }
   },
   "distracted sd 2": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.005080988629209591,
-     "audible_worse": 0.06863801628085914,
-     "none": 0.926163921194123,
-     "audible_to_silent": 13.50879155412253,
-     "memory_silent_worse": 0.8841311815823167,
+     "silent_worse": 0.005234218434111349,
+     "audible_worse": 0.03101842568092889,
+     "none": 0.9636322854578545,
+     "audible_to_silent": 5.926085445494999,
+     "memory_silent_worse": 0.9107943486050883,
      "pi_s": 0.005746871884007325,
-     "pi_l": 0.06922628456941271
+     "pi_l": 0.03160046435597306
     },
     "frequency, home": {
-     "silent_worse": 0.004802648567971503,
-     "audible_worse": 0.08382210821733256,
-     "none": 0.9113262198210027,
-     "audible_to_silent": 17.45330873808586,
-     "memory_silent_worse": 0.9115899968939558,
+     "silent_worse": 0.005041426790669391,
+     "audible_worse": 0.03713010602680699,
+     "none": 0.9577897688080189,
+     "audible_to_silent": 7.364999546463101,
+     "memory_silent_worse": 0.9569124551598223,
      "pi_s": 0.00526843052724962,
-     "pi_l": 0.08398469176647368
+     "pi_l": 0.037274882160408314
     },
     "frequency, office": {
-     "silent_worse": 0.011299347750046908,
-     "audible_worse": 0.039260169476490595,
-     "none": 0.9487843294127056,
-     "audible_to_silent": 3.4745518365276977,
-     "memory_silent_worse": 0.8153057141550701,
-     "pi_s": 0.013859031715185289,
-     "pi_l": 0.043082344240761114
+     "silent_worse": 0.011063161141382434,
+     "audible_worse": 0.022424593868984627,
+     "none": 0.9658078351784916,
+     "audible_to_silent": 2.0269607919841333,
+     "memory_silent_worse": 0.7982636427089322,
+     "pi_s": 0.013859031715185294,
+     "pi_l": 0.026307158661564457
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.00022837266265117228,
-     "audible_worse": 0.0027235293605899985,
-     "none": 0.9970468562711935,
-     "audible_to_silent": 11.925811649137936,
-     "memory_silent_worse": 0.9824770291790909,
+     "silent_worse": 0.00022701330529777773,
+     "audible_worse": 0.0006086345322949772,
+     "none": 0.9991627486999235,
+     "audible_to_silent": 2.6810522471210203,
+     "memory_silent_worse": 0.9766289676876163,
      "pi_s": 0.00023244580368661562,
-     "pi_l": 0.002731076310083676
+     "pi_l": 0.0006175942009180473
     },
     "frequency, home": {
-     "silent_worse": 3.812808658755262e-05,
-     "audible_worse": 0.0032613788712587796,
-     "none": 0.9967004286322476,
-     "audible_to_silent": 85.53743875318142,
-     "memory_silent_worse": 0.9933099510389902,
+     "silent_worse": 3.812861868092498e-05,
+     "audible_worse": 0.0006177634915249424,
+     "none": 0.999344034802886,
+     "audible_to_silent": 16.20209472298554,
+     "memory_silent_worse": 0.9933238130942086,
      "pi_s": 3.8384883336436024e-05,
-     "pi_l": 0.0032617321675567426
+     "pi_l": 0.0006181637000666487
     },
     "frequency, office": {
-     "silent_worse": 0.0016403233467188365,
-     "audible_worse": 0.0019643278270777614,
-     "none": 0.9963855328940978,
-     "audible_to_silent": 1.197524763033481,
-     "memory_silent_worse": 0.9809156318140276,
+     "silent_worse": 0.0016291318416451867,
+     "audible_worse": 0.0011354486140675768,
+     "none": 0.997222680590022,
+     "audible_to_silent": 0.696965454263627,
+     "memory_silent_worse": 0.9742230962891091,
      "pi_s": 0.0016722369320237589,
-     "pi_l": 0.0020242274012281796
+     "pi_l": 0.0012066813699583207
     }
    }
   },
   "distracted sd 5": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.005080988629209591,
-     "audible_worse": 0.06863801628085914,
-     "none": 0.926163921194123,
-     "audible_to_silent": 13.50879155412253,
-     "memory_silent_worse": 0.8841311815823167,
+     "silent_worse": 0.005234218434111349,
+     "audible_worse": 0.03101842568092889,
+     "none": 0.9636322854578545,
+     "audible_to_silent": 5.926085445494999,
+     "memory_silent_worse": 0.9107943486050883,
      "pi_s": 0.005746871884007325,
-     "pi_l": 0.06922628456941271
+     "pi_l": 0.03160046435597306
     },
     "frequency, home": {
-     "silent_worse": 0.004802648567971503,
-     "audible_worse": 0.08382210821733256,
-     "none": 0.9113262198210027,
-     "audible_to_silent": 17.45330873808586,
-     "memory_silent_worse": 0.9115899968939558,
+     "silent_worse": 0.005041426790669391,
+     "audible_worse": 0.03713010602680699,
+     "none": 0.9577897688080189,
+     "audible_to_silent": 7.364999546463101,
+     "memory_silent_worse": 0.9569124551598223,
      "pi_s": 0.00526843052724962,
-     "pi_l": 0.08398469176647368
+     "pi_l": 0.037274882160408314
     },
     "frequency, office": {
-     "silent_worse": 0.011299347750046908,
-     "audible_worse": 0.039260169476490595,
-     "none": 0.9487843294127056,
-     "audible_to_silent": 3.4745518365276977,
-     "memory_silent_worse": 0.8153057141550701,
-     "pi_s": 0.013859031715185289,
-     "pi_l": 0.043082344240761114
+     "silent_worse": 0.011063161141382434,
+     "audible_worse": 0.022424593868984627,
+     "none": 0.9658078351784916,
+     "audible_to_silent": 2.0269607919841333,
+     "memory_silent_worse": 0.7982636427089322,
+     "pi_s": 0.013859031715185294,
+     "pi_l": 0.026307158661564457
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.008675921698274905,
-     "audible_worse": 0.03825506990080033,
-     "none": 0.9530354982128183,
-     "audible_to_silent": 4.409337846883388,
-     "memory_silent_worse": 0.9553765954512048,
-     "pi_s": 0.009081153693300854,
-     "pi_l": 0.038413266558288924
+     "silent_worse": 0.008808264814732061,
+     "audible_worse": 0.025420286051451548,
+     "none": 0.9657363838976035,
+     "audible_to_silent": 2.885958424970992,
+     "memory_silent_worse": 0.9699499768658134,
+     "pi_s": 0.009081153693300856,
+     "pi_l": 0.02558663531530989
     },
     "frequency, home": {
-     "silent_worse": 0.009302670670493163,
-     "audible_worse": 0.04646776495476102,
-     "none": 0.9442013804500503,
-     "audible_to_silent": 4.995099429043598,
-     "memory_silent_worse": 0.9543820496036357,
-     "pi_s": 0.0097473235947351,
-     "pi_l": 0.046574892213912054
+     "silent_worse": 0.00947417329323746,
+     "audible_worse": 0.0305079468949104,
+     "none": 0.9599889839642161,
+     "audible_to_silent": 3.2201170435299695,
+     "memory_silent_worse": 0.9719768920316565,
+     "pi_s": 0.009747323594735104,
+     "pi_l": 0.03062362131905386
     },
     "frequency, office": {
-     "silent_worse": 0.01004389597189543,
-     "audible_worse": 0.02233145325562521,
-     "none": 0.9675261737147283,
-     "audible_to_silent": 2.223385558563381,
-     "memory_silent_worse": 0.9485372376307604,
+     "silent_worse": 0.010058033433930476,
+     "audible_worse": 0.016678437200058467,
+     "none": 0.9731568027533416,
+     "audible_to_silent": 1.6582204970401329,
+     "memory_silent_worse": 0.949872367865418,
      "pi_s": 0.010588826219393237,
-     "pi_l": 0.02295646235603795
+     "pi_l": 0.01731659218700707
     }
    }
   },
   "logistic tail": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.005686650722479851,
-     "audible_worse": 0.06804387787120077,
-     "none": 0.9261545785010594,
-     "audible_to_silent": 11.965545483955449,
-     "memory_silent_worse": 0.888289574811724,
+     "silent_worse": 0.005869136676825272,
+     "audible_worse": 0.030966015147702117,
+     "none": 0.9630508409291849,
+     "audible_to_silent": 5.276076679211401,
+     "memory_silent_worse": 0.9167949954372264,
      "pi_s": 0.006401798336634938,
-     "pi_l": 0.06862852489340347
+     "pi_l": 0.03154782102883603
     },
     "frequency, home": {
-     "silent_worse": 0.005462502695908359,
-     "audible_worse": 0.08307646996320833,
-     "none": 0.9114166829761844,
-     "audible_to_silent": 15.208499581233353,
-     "memory_silent_worse": 0.9124811810093246,
+     "silent_worse": 0.005738527525695774,
+     "audible_worse": 0.03705165257512529,
+     "none": 0.9571746702135032,
+     "audible_to_silent": 6.456648052870135,
+     "memory_silent_worse": 0.9585896182392004,
      "pi_s": 0.005986427785684424,
-     "pi_l": 0.08323196812970231
+     "pi_l": 0.03719215937088192
     },
     "frequency, office": {
-     "silent_worse": 0.011762383224877156,
-     "audible_worse": 0.03892151990028961,
-     "none": 0.9486485698805602,
-     "audible_to_silent": 3.3089824703187305,
-     "memory_silent_worse": 0.8189436402539237,
+     "silent_worse": 0.011533434200902148,
+     "audible_worse": 0.02234470848745246,
+     "none": 0.96540396566683,
+     "audible_to_silent": 1.9373855261345014,
+     "memory_silent_worse": 0.8030033037131005,
      "pi_s": 0.014362872665120254,
-     "pi_l": 0.04275814003368398
+     "pi_l": 0.02625192597606125
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.0026430225827562643,
-     "audible_worse": 0.015433799279361659,
-     "none": 0.9819168945387228,
-     "audible_to_silent": 5.839450400482992,
-     "memory_silent_worse": 0.9787093312327572,
-     "pi_s": 0.00270051842606546,
-     "pi_l": 0.015471288753869524
+     "silent_worse": 0.0026601706982662086,
+     "audible_worse": 0.008357761876829245,
+     "none": 0.9889752394013648,
+     "audible_to_silent": 3.141814125791437,
+     "memory_silent_worse": 0.9850592658765759,
+     "pi_s": 0.0027005184260654605,
+     "pi_l": 0.008397292079628103
     },
     "frequency, home": {
-     "silent_worse": 0.0026322962620239356,
-     "audible_worse": 0.018699915273866732,
-     "none": 0.9786650766680711,
-     "audible_to_silent": 7.104031390254161,
-     "memory_silent_worse": 0.9808506032049911,
-     "pi_s": 0.00268368725412692,
-     "pi_l": 0.01871079238868034
+     "silent_worse": 0.0026577447517302905,
+     "audible_worse": 0.009897754579186607,
+     "none": 0.9874419138697279,
+     "audible_to_silent": 3.7241178155813497,
+     "memory_silent_worse": 0.9903332616880984,
+     "pi_s": 0.002683687254126921,
+     "pi_l": 0.00990895021256749
     },
     "frequency, office": {
-     "silent_worse": 0.004452550732502022,
-     "audible_worse": 0.009440551664584709,
-     "none": 0.986072224137936,
-     "audible_to_silent": 2.1202569564613984,
-     "memory_silent_worse": 0.9672368476105023,
+     "silent_worse": 0.004434126694055971,
+     "audible_worse": 0.006375801004711175,
+     "none": 0.9891501391667966,
+     "audible_to_silent": 1.4378932864633875,
+     "memory_silent_worse": 0.9632345554554167,
      "pi_s": 0.004603371701048992,
-     "pi_l": 0.009680528340845405
+     "pi_l": 0.006630555894172932
     }
    }
   },
   "hard floor at Nagata OAV 1": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.004558421508868226,
-     "audible_worse": 0.06761144908057268,
-     "none": 0.9277134782195083,
-     "audible_to_silent": 14.832206488372634,
-     "memory_silent_worse": 0.8814550308908335,
+     "silent_worse": 0.004683532724261294,
+     "audible_worse": 0.029773407947920064,
+     "none": 0.9654284981527435,
+     "audible_to_silent": 6.357040657299144,
+     "memory_silent_worse": 0.9056475962370923,
      "pi_s": 0.00517147369873345,
-     "pi_l": 0.06819328190168054
+     "pi_l": 0.030347867163317926
     },
     "frequency, home": {
-     "silent_worse": 0.004206650446865307,
-     "audible_worse": 0.0825603627837491,
-     "none": 0.9131844792441542,
-     "audible_to_silent": 19.626152404764476,
-     "memory_silent_worse": 0.9128606945608554,
+     "silent_worse": 0.004410603769288768,
+     "audible_worse": 0.035599288554111826,
+     "none": 0.9599520321196864,
+     "audible_to_silent": 8.071295998518677,
+     "memory_silent_worse": 0.9571194162961524,
      "pi_s": 0.004608206347288264,
-     "pi_l": 0.08271539807224726
+     "pi_l": 0.03573508228286018
     },
     "frequency, office": {
-     "silent_worse": 0.010923317995129278,
-     "audible_worse": 0.03875086496840974,
-     "none": 0.9496699049758478,
-     "audible_to_silent": 3.547536104477486,
-     "memory_silent_worse": 0.8120861368030188,
+     "silent_worse": 0.010674082104812754,
+     "audible_worse": 0.021811571745997595,
+     "none": 0.9668102185708938,
+     "audible_to_silent": 2.0434142750469517,
+     "memory_silent_worse": 0.7935568756929734,
      "pi_s": 0.013450935190362522,
-     "pi_l": 0.042567426654052484
+     "pi_l": 0.02568810612049671
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.0011191819859831063,
-     "audible_worse": 0.01400956426469372,
-     "none": 0.9848649792776831,
-     "audible_to_silent": 12.517682057210301,
-     "memory_silent_worse": 0.972247261410751,
+     "silent_worse": 0.0011224901131295544,
+     "audible_worse": 0.005961458232238349,
+     "none": 0.9929092948515946,
+     "audible_to_silent": 5.310922708813468,
+     "memory_silent_worse": 0.9751210724609777,
      "pi_s": 0.0011511289672949552,
-     "pi_l": 0.014047353126915355
+     "pi_l": 0.006000823479961361
     },
     "frequency, home": {
-     "silent_worse": 0.0009141128665266436,
-     "audible_worse": 0.017000354964124813,
-     "none": 0.982083754661979,
-     "audible_to_silent": 18.597654170125725,
-     "memory_silent_worse": 0.9817560963112761,
+     "silent_worse": 0.000922981609476057,
+     "audible_worse": 0.0069975431729931295,
+     "none": 0.9920779996919018,
+     "audible_to_silent": 7.58145460445889,
+     "memory_silent_worse": 0.9912811153499951,
      "pi_s": 0.0009310997608888944,
-     "pi_l": 0.017006680631083865
+     "pi_l": 0.00700334928520133
     },
     "frequency, office": {
-     "silent_worse": 0.0034286779444412828,
-     "audible_worse": 0.008698729209958903,
-     "none": 0.9878320974005533,
-     "audible_to_silent": 2.537050534029202,
-     "memory_silent_worse": 0.9563702583935709,
+     "silent_worse": 0.0034002908302629364,
+     "audible_worse": 0.005185106116990448,
+     "none": 0.9913682441033635,
+     "audible_to_silent": 1.5249007734404578,
+     "memory_silent_worse": 0.9484521651338037,
      "pi_s": 0.003585094699829419,
-     "pi_l": 0.008970082480662691
+     "pi_l": 0.005472691855165373
     }
    }
   },
   "Nagata deterministic (both)": {
    "attentive, Amoore thresholds": {
     "frequency, central": {
-     "silent_worse": 0.032387725770367415,
-     "audible_worse": 0.3017127967362392,
-     "none": 0.6614666598571537,
-     "audible_to_silent": 9.315652444244359,
-     "memory_silent_worse": 0.6176676535720597,
+     "silent_worse": 0.03671679291651136,
+     "audible_worse": 0.22428891149891306,
+     "none": 0.7343253768427793,
+     "audible_to_silent": 6.108619345074974,
+     "memory_silent_worse": 0.7002274716115554,
      "pi_s": 0.05243552189120574,
-     "pi_l": 0.313121801709812
+     "pi_l": 0.23634931288005448
     },
     "frequency, home": {
-     "silent_worse": 0.03658596836622011,
-     "audible_worse": 0.37100251053289535,
-     "none": 0.5873819209676234,
-     "audible_to_silent": 10.140568286158652,
-     "memory_silent_worse": 0.616521918720335,
+     "silent_worse": 0.042015384906573264,
+     "audible_worse": 0.2749531028656063,
+     "none": 0.6777172382851575,
+     "audible_to_silent": 6.544105295643505,
+     "memory_silent_worse": 0.7080147629026708,
      "pi_s": 0.05934252660823263,
-     "pi_l": 0.3828833042538766
+     "pi_l": 0.28769992416915063
     },
     "frequency, office": {
-     "silent_worse": 0.03163439542771605,
-     "audible_worse": 0.15673930380157386,
-     "none": 0.8066819607002944,
-     "audible_to_silent": 4.954711530989108,
-     "memory_silent_worse": 0.5865349165261091,
+     "silent_worse": 0.03321762810727376,
+     "audible_worse": 0.12181518754832496,
+     "none": 0.8398647661574864,
+     "audible_to_silent": 3.667185000534422,
+     "memory_silent_worse": 0.6158897132589143,
      "pi_s": 0.053934377197999046,
-     "pi_l": 0.17613819825637714
+     "pi_l": 0.14114465611882465
     }
    },
    "distracted (everyday)": {
     "frequency, central": {
-     "silent_worse": 0.032387725770367415,
-     "audible_worse": 0.3017127967362392,
-     "none": 0.6614666598571537,
-     "audible_to_silent": 9.315652444244359,
-     "memory_silent_worse": 0.6176676535720597,
+     "silent_worse": 0.03671679291651136,
+     "audible_worse": 0.22428891149891306,
+     "none": 0.7343253768427793,
+     "audible_to_silent": 6.108619345074974,
+     "memory_silent_worse": 0.7002274716115554,
      "pi_s": 0.05243552189120574,
-     "pi_l": 0.313121801709812
+     "pi_l": 0.23634931288005448
     },
     "frequency, home": {
-     "silent_worse": 0.03658596836622011,
-     "audible_worse": 0.37100251053289535,
-     "none": 0.5873819209676234,
-     "audible_to_silent": 10.140568286158652,
-     "memory_silent_worse": 0.616521918720335,
+     "silent_worse": 0.042015384906573264,
+     "audible_worse": 0.2749531028656063,
+     "none": 0.6777172382851575,
+     "audible_to_silent": 6.544105295643505,
+     "memory_silent_worse": 0.7080147629026708,
      "pi_s": 0.05934252660823263,
-     "pi_l": 0.3828833042538766
+     "pi_l": 0.28769992416915063
     },
     "frequency, office": {
-     "silent_worse": 0.03163439542771605,
-     "audible_worse": 0.15673930380157386,
-     "none": 0.8066819607002944,
-     "audible_to_silent": 4.954711530989108,
-     "memory_silent_worse": 0.5865349165261091,
+     "silent_worse": 0.03321762810727376,
+     "audible_worse": 0.12181518754832496,
+     "none": 0.8398647661574864,
+     "audible_to_silent": 3.667185000534422,
+     "memory_silent_worse": 0.6158897132589143,
      "pi_s": 0.053934377197999046,
-     "pi_l": 0.17613819825637714
+     "pi_l": 0.14114465611882465
     }
    }
   }

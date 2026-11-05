@@ -84,9 +84,10 @@ def figure(res):
                     marker=MARKERS[i], markevery=(i, 5), label=label)
         xb = res[name]["baseline"]["smelled_bystander"]
         ax.axvline(xb, color=MUTED, lw=0.6, ls=LINESTYLES[3], zorder=0)
-        # labels in the empty middle-left band (the remembered curve runs along the top, the truths along the bottom)
-        ax.text(xb / 1.25, 0.45, f"Baseline\n(50 % at OAV {M50_BASE[name]:g})", ha="right", va="center", color=MUTED)
-        ax.text(0.03, 0.68, f"{who} spread\nsd {SD[name]:g} binary steps", transform=ax.transAxes,
+        # labels in the empty middle band (the remembered curve runs along the top, the truths along the bottom): the
+        # baseline label right of its line, the observer label at the left edge
+        ax.text(xb * 1.25, 0.45, f"Baseline\n(50 % at OAV {M50_BASE[name]:g})", ha="left", va="center", color=MUTED)
+        ax.text(0.03, 0.68, f"{who}\nspread, sd {SD[name]:g}\nbinary steps", transform=ax.transAxes,
                 ha="left", va="center")
         ax.set_xscale("log")
         ax.set_xlim(1e-4, 1.5)

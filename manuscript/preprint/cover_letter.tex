@@ -1,8 +1,9 @@
-% Cover letter for J. R. Soc. Interface; same text as cover_letter.md (keep the two in step).
+% Cover letter for EPJ Plus; same text as cover_letter.md (keep the two in step).
 % Bracketed bold items are for the author to decide or write before submission.
 % Build: latexmk -pdf cover_letter.tex
 \documentclass[11pt]{article}
 \usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{url}
@@ -13,50 +14,49 @@
 
 Dear Editor,
 
-Please consider our manuscript ``Silent but deadly? Physics says seldom, memory says mostly'' for publication as a
-Research Article in \emph{Journal of the Royal Society Interface}.
+Please consider the manuscript ``Silent but deadly? Physics says seldom, memory says mostly'' for publication as a
+Regular Article in \emph{The European Physical Journal Plus}.
 
 The belief that a silent release of flatus smells worse than an audible one is recorded in many languages, yet no
 mechanistic test of it exists. The closest prior work is a conference abstract on the physics of flatulence (Ancalle
-et al.\ 2021). We follow one passage through a single chain: chemistry, sound, dispersion, perception and memory.
-Three results reach beyond the topic.
+et al.\ 2021). The manuscript follows one passage through a single physical chain, from the valve that makes the
+sound through dispersion next to the human body to the nose, and asks why a belief arises that the physics does not
+support. Three results reach beyond the topic.
 
 \begin{enumerate}
   \item \textbf{Routing by the human convective boundary layer.} In simulations of a sofa, a standing pair and a
   closed lift, the warm air rising along a body takes a slow release next to it and lets a fast one pass, so the
   momentum of the release, relative to that of the boundary layer, decides which nearby nose it reaches. The same
-  set-up reproduces measured breathing-zone intake from a source at a seated manikin's groin within a factor of 1.5. This
-  bears on any near-body source, such as respiratory, skin and clothing emissions in shared indoor spaces.
+  set-up reproduces measured breathing-zone intake from a source at a seated manikin's groin within a factor of 1.5.
+  This bears on any near-body source, such as respiratory, skin and clothing emissions in shared indoor spaces.
   \item \textbf{A peak bound for linear transport.} We prove that a slower release of the same substance cannot give a
   higher peak concentration while both are carried passively by the same flow, whatever that flow is. A slower release
-  can win only near the source: through less pre-dilution, by at most the jet-to-ambient velocity ratio (which we call
-  the Silencer number), or by being carried to a different nose.
-  \item \textbf{Selection across two senses.} With passages as emitted, a bystander on a sofa, where people spend most
-  of their shared time, finds the silent passage worse in 0.5\% of pairs and the audible one in 9.2\%; only in a
-  closed lift, for the person behind the releaser, is the silent one worse as often. Yet because a silent passage is
-  noticed only if it is smelled, a remembered silent passage seems the worse one in 88\% of comparisons. When an event
-  can be noticed through either of two senses, selection on noticing alone can create a false sensory belief. The
-  explanation makes testable predictions: releasers should hold the belief less firmly than bystanders, and people
-  without a sense of smell should never remember a silent passage.
+  can win only near the source: through less pre-dilution, by at most the jet-to-ambient velocity ratio, or by being
+  carried to a different nose.
+  \item \textbf{Selection across two senses.} With passages as emitted and driving pressures within the measured
+  physiological range, a bystander on a sofa, where people spend most of their shared time, finds the silent passage
+  worse in 0.5\% of pairs and the audible one in 4.1\%; only in a closed lift, for the person behind
+  the releaser, is the silent one worse as often. Yet because a silent passage is noticed only if it is smelled, a
+  remembered silent passage seems the worse one in 91\% of comparisons. When an event can be noticed through
+  either of two senses, selection on noticing alone can create a false sensory belief, with testable predictions.
 \end{enumerate}
 
-The work joins fluid dynamics, chemistry, acoustics, sensory science and cognition. We think it suits \emph{Interface}
-because each part can be read on its own, and because the question shows how a physical and a cognitive explanation
-can be separated. The outcomes are reported per setting and checked against the scene weights, the observer models,
-large-eddy peak factors, mesh refinement and clothing. On the sofa the order holds with the numerical uncertainties
-combined at their median values, and the remembered share stays above 60\% in every case.
+The work is applied fluid physics with an interdisciplinary reach into acoustics, sensory science and cognition, the
+kind of topic \emph{EPJ Plus} welcomes. The outcomes are reported per setting and checked against the scene weights,
+the observer models, large-eddy peak factors, mesh refinement, clothing and the driving-pressure limit.
 
-Because the work spans several fields, our suggested reviewers cover them: indoor plume and ventilation modelling
-(H.~C. Burridge), the human thermal plume and CFD validation (I. N\u{a}stase), the human convective boundary layer
-and breathing-zone exposure (D. Licina, whose manikin data we use for validation), CFD of inhaled and smelled
-pollutants near the body (K. Ito), turbulent puffs and jets (S.~S. Diwan), olfactory perception (A. Oleszkiewicz)
-and judgement from selective samples (H. Alves). We have no collaboration with any of them.
+Suggested reviewers, with no collaboration with any of them: H.~C. Burridge (indoor plume and ventilation modelling,
+h.burridge@imperial.ac.uk), I. N\u{a}stase (human thermal plume and CFD validation, ilinca.nastase@utcb.ro),
+D. Licina (human convective boundary layer and breathing-zone exposure, author of the manikin data used for
+validation; dusan.licina@epfl.ch), K. Ito (CFD of inhaled and smelled pollutants near the body, ito@kyudai.jp), S.~S. Diwan
+(turbulent puffs and jets, sdiwan@iisc.ac.in), A. Oleszkiewicz (olfactory perception, anna.oleszkiewicz@uwr.edu.pl)
+and H. Alves (judgement from selective samples, hans.alves@rub.de).
 
-Proofs and technical details are in the electronic supplementary material. Code and processed data are openly
-available at \url{https://github.com/ccy5123/sbd}; an archived release with a DOI (Zenodo) will accompany the revised
-manuscript. A preprint is posted on engrXiv (\url{https://doi.org/10.31224/8708}). The results have not been reported
-in the media. The manuscript is not under consideration elsewhere. AI-assisted technologies (Claude Code, Anthropic)
-were used to write code and simulation set-ups, search the literature and draft text, as declared in the manuscript.
+Proofs and technical details are in Online Resource~1. Code and processed data are openly available at
+\url{https://github.com/ccy5123/sbd}. An earlier version of this work is posted as a preprint on engrXiv
+(\url{https://doi.org/10.31224/8708}, CC BY 4.0); the manuscript contains no other previously published material and
+is not under consideration elsewhere. AI-assisted technologies (Claude Code, Anthropic) were used to write code and
+simulation set-ups, search the literature and draft text, as documented in the Methods section.
 
 Yours sincerely,\\[0.4em]
 Chan Young Joe\\

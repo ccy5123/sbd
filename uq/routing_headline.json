@@ -2,7 +2,7 @@
  "n_mc": 20000,
  "JND_conc_ratio": 1.28,
  "volume_ratio_median": 0.45194336339214325,
- "gate0_neighbour_P_R_gt_1": 0.48055,
+ "gate0_neighbour_P_R_gt_1": 0.4533,
  "scenes": [
   {
    "OAV_equal_mass": [
@@ -22,7 +22,7 @@
     },
     "distracted (everyday)": {
      "silent": 5.74726240716635e-47,
-     "audible": 0.0007702249336752528
+     "audible": 0.0007702249336752529
     }
    },
    "given_noticed": {
@@ -95,18 +95,18 @@
    "P_audible_perceptibly_worse": 1.0,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 4.880661726174634e-94,
+     "silent": 4.880661726174635e-94,
      "audible": 0.09271940032194173
     },
     "distracted (everyday)": {
-     "silent": 4.557984739000384e-40,
+     "silent": 4.557984739000385e-40,
      "audible": 0.017514451541618948
     }
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
      "P_any_noticed": 0.09271940032194173,
-     "w_sum": 1854.3880064388345,
+     "w_sum": 1854.3880064388347,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
@@ -173,7 +173,7 @@
    "P_audible_perceptibly_worse": 0.99705,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 4.58051156737914e-48,
+     "silent": 4.5805115673791404e-48,
      "audible": 7.709157469334073e-37
     },
     "distracted (everyday)": {
@@ -222,8 +222,8 @@
    },
    "given_noticed": {
     "attentive, Amoore thresholds": {
-     "P_any_noticed": 0.00015311667935041941,
-     "w_sum": 3.0623335870083883,
+     "P_any_noticed": 0.00015311667935041944,
+     "w_sum": 3.0623335870083888,
      "w_silent_stronger": 0.0,
      "P_R_gt_1": 0.0
     },
@@ -290,7 +290,7 @@
    "P_audible_perceptibly_worse": 0.71025,
    "noticed": {
     "attentive, Amoore thresholds": {
-     "silent": 0.0026836796932269555,
+     "silent": 0.002683679693226956,
      "audible": 0.008151256384646657
     },
     "distracted (everyday)": {
@@ -525,7 +525,7 @@
    "noticed": {
     "attentive, Amoore thresholds": {
      "silent": 0.07335477577523741,
-     "audible": 0.3288127388628026
+     "audible": 0.32881273886280266
     },
     "distracted (everyday)": {
      "silent": 0.014205980217960334,
@@ -613,9 +613,9 @@
    "given_noticed": {
     "attentive, Amoore thresholds": {
      "P_any_noticed": 0.03889131161656513,
-     "w_sum": 777.8262323313025,
+     "w_sum": 777.8262323313027,
      "w_silent_stronger": 54.639703412130665,
-     "P_R_gt_1": 0.07024667096706731
+     "P_R_gt_1": 0.0702466709670673
     },
     "distracted (everyday)": {
      "P_any_noticed": 0.01000219879686208,
@@ -685,7 +685,7 @@
     },
     "distracted (everyday)": {
      "silent": 1.527750159420659e-14,
-     "audible": 1.0164051957001852e-16
+     "audible": 1.0164051957001857e-16
     }
    },
    "given_noticed": {
@@ -759,7 +759,7 @@
    "noticed": {
     "attentive, Amoore thresholds": {
      "silent": 5.640648559634594e-14,
-     "audible": 9.219386379210525e-17
+     "audible": 9.219386379210527e-17
     },
     "distracted (everyday)": {
      "silent": 5.014850424296651e-09,

@@ -1,7 +1,8 @@
 """M2: acoustic regime map (Fig. 3) and regime statistics over the release prior.
 
 Figure in FIGSTYLE v1.2 (paper, double column): (a) regimes over flow rate and orifice diameter for a sofa neighbour
-(0.6 m) in a 35 dB(A) living room; (b) minimum audible flow rate of an oscillating release for five backgrounds at
+(0.6 m) in a 35 dB(A) living room, with the region of the sampled releases (the prior box, cut along the
+driving-pressure cap params dp_max, regime.u_cap); (b) minimum audible flow rate of an oscillating release for five backgrounds at
 0.6 m and 3 m.
 Usage (repo root, figure venv, see HANDOFF): /root/figenv/bin/python acoustics/run_m2.py
 Writes: figures/acoustic_regimes_paper.svg/.png, acoustics/results.json
@@ -15,7 +16,7 @@ import matplotlib
 matplotlib.use("Agg")
 import numpy as np
 from matplotlib.colors import ListedColormap
-from matplotlib.patches import Patch, Rectangle
+from matplotlib.patches import Patch, Polygon
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "gate0"))
@@ -42,10 +43,12 @@ PRIOR = {k: prior_range(load_params(), name)  # same as the Gate 0 release prior
 
 
 def prior_samples(n=200000):
+    """(Q, d) of n releases from the Gate 0 prior at nominal parameters, with the exit velocity clipped at the
+    driving-pressure cap (regime.u_cap, as gate0/run_gate0.draw_release: V and d kept, T lengthened)."""
     rng = np.random.default_rng(SEED)
     lu = lambda lo, hi: np.exp(rng.uniform(np.log(lo), np.log(hi), n))  # noqa: E731
     V, T, d = lu(*PRIOR["V"]), lu(*PRIOR["T"]), lu(*PRIOR["d"])
-    return V / T, d
+    return np.minimum(V / T, ac.u_cap(P) * np.pi * d**2 / 4.0), d
 
 
 def regime_map():
@@ -67,8 +70,16 @@ def regime_map():
         ax.plot(Q[m] * 1e6, dd[m] * 1e3, color=MUTED, lw=0.8, ls=LINESTYLES[(3, 1, 2, 0)[i]])
         re_lines.append((Re, Q[m] * 1e6, dd[m] * 1e3))
     qlo, qhi = PRIOR["V"][0] / PRIOR["T"][1] * 1e6, PRIOR["V"][1] / PRIOR["T"][0] * 1e6
-    ax.add_patch(Rectangle((qlo, PRIOR["d"][0] * 1e3), qhi - qlo, (PRIOR["d"][1] - PRIOR["d"][0]) * 1e3,
-                           fill=False, ec=INK, lw=0.8, ls=LINESTYLES[1]))
+    dlo, dhi = PRIOR["d"][0] * 1e3, PRIOR["d"][1] * 1e3
+    # the box of the prior, cut along the driving-pressure cap Q = u_cap pi d^2 / 4 (a line of constant u0)
+    u_max = ac.u_cap(P)
+    q_cap = lambda dd: u_max * np.pi * (dd * 1e-3) ** 2 / 4 * 1e6  # noqa: E731  (mL/s at d in mm)
+    d_cap = lambda qq: np.sqrt(4 * qq * 1e-6 / (np.pi * u_max)) * 1e3  # noqa: E731
+    if q_cap(dlo) < qhi:
+        corners = [(qlo, dlo), (q_cap(dlo), dlo), (qhi, d_cap(qhi)), (qhi, dhi), (qlo, dhi)]
+    else:
+        corners = [(qlo, dlo), (qhi, dlo), (qhi, dhi), (qlo, dhi)]
+    ax.add_patch(Polygon(corners, closed=True, fill=False, ec=INK, lw=0.8, ls=LINESTYLES[1]))
     allow_overlap(ax.text(0.6, PRIOR["d"][1] * 1e3 * 1.04, "Sampled releases\n(Suarez 1997 volumes)",
                           va="bottom", ha="left"))  # just above the top left of the dashed box
     ax.set_xscale("log")
@@ -116,6 +127,13 @@ def regime_map():
         ang = np.degrees(np.arctan2(p1[1] - p0[1], p1[0] - p0[0]))
         allow_overlap(ax.text(qq[k], dd[k] * 1.08, f"Re = {Re:,}" if n == 0 else f"{Re:,}", rotation=ang,
                               rotation_mode="anchor", ha="left", va="bottom", color=INK))
+    if q_cap(dlo) < qhi:  # label the cut edge of the sampled box (on the audible region, so in white)
+        (x0, y0), (x1, y1) = corners[1], corners[2]
+        p0, p1 = ax.transData.transform([(x0, y0), (x1, y1)])
+        ang = np.degrees(np.arctan2(p1[1] - p0[1], p1[0] - p0[0]))
+        xm, ym = x0**0.35 * x1**0.65, y0**0.35 * y1**0.65  # below the edge, clear of the Re = 10,000 line
+        allow_overlap(ax.text(xm, ym / 1.06, f"{P['dp_max'] / 133.322:.0f} mmHg cap", rotation=ang,
+                              rotation_mode="anchor", ha="center", va="top", color="white"))
     panel_labels(axes)
     out = save_figure(fig, "acoustic_regimes_paper", outdir=ROOT / "figures")
     plt.close(fig)

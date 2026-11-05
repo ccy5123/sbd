@@ -1,21 +1,21 @@
 {
   "fig7": {
     "neighbour_audible_median_arrival_s": 16.269972479849496,
-    "median_sigma_t_s": 3.9115474552555662,
+    "median_sigma_t_s": 3.736057529272619,
     "unwarned": {
       "short passage (10th pct)": {
-        "sigma_t": 1.4825283675136713,
-        "mean_worst_ratio": 0.6636496425144329,
-        "P_worst_below_half": 0.3
+        "sigma_t": 1.4329485915565567,
+        "mean_worst_ratio": 0.6490781628778793,
+        "P_worst_below_half": 0.31666666666666665
       },
       "median passage": {
-        "sigma_t": 3.9115474552555662,
-        "mean_worst_ratio": 0.9303779600013977,
+        "sigma_t": 3.736057529272619,
+        "mean_worst_ratio": 0.924201927945881,
         "P_worst_below_half": 0.0
       },
       "long passage (90th pct)": {
-        "sigma_t": 11.784259887608547,
-        "mean_worst_ratio": 0.9918162177573101,
+        "sigma_t": 11.501329976683554,
+        "mean_worst_ratio": 0.9914121385908934,
         "P_worst_below_half": 0.0
       }
     },
@@ -46,59 +46,59 @@
       0.013333333333333334,
       0.0,
       0.0033333333333333335,
-      0.03,
-      0.15,
-      0.27,
-      0.3566666666666667,
-      0.4166666666666667,
+      0.04,
+      0.15666666666666668,
+      0.2833333333333333,
+      0.37333333333333335,
+      0.42,
       0.49333333333333335,
-      0.52,
-      0.5633333333333334,
-      0.6233333333333333,
-      0.6666666666666666,
-      0.6766666666666666,
-      0.7266666666666667,
-      0.78,
-      0.78,
+      0.5266666666666666,
+      0.57,
+      0.6266666666666667,
+      0.67,
+      0.6833333333333333,
+      0.7333333333333333,
+      0.79,
+      0.7833333333333333,
       0.81,
-      0.8333333333333334,
-      0.8433333333333334,
-      0.8733333333333333
+      0.8366666666666667,
+      0.8466666666666667,
+      0.8833333333333333
     ],
-    "hold_for_50pct_dodge_s": 24.75
+    "hold_for_50pct_dodge_s": 24.6
   },
   "fig11": {
     "neighbour \u00b7 as emitted": {
-      "median_R": 0.9639954611133159,
-      "gamma_star_median": 1.0103201228753291,
-      "P_belief_gamma_lit": 0.6593333333333333,
-      "intensity_ratio_median": 0.9897852941442378,
-      "P_belief_gamma1": 0.4846666666666667,
-      "P_belief_gamma1.5": 0.883
+      "median_R": 0.9097336971568095,
+      "gamma_star_median": 1.0268428919389614,
+      "P_belief_gamma_lit": 0.6388333333333334,
+      "intensity_ratio_median": 0.9738588131157293,
+      "P_belief_gamma1": 0.45866666666666667,
+      "P_belief_gamma1.5": 0.8733333333333333
     },
     "own nose \u00b7 as emitted": {
-      "median_R": 1.2448313368872106,
-      "gamma_star_median": 0.940522211768947,
-      "P_belief_gamma_lit": 0.7496666666666667,
-      "intensity_ratio_median": 1.0632391106629862,
-      "P_belief_gamma1": 0.5966666666666667,
-      "P_belief_gamma1.5": 0.9315
+      "median_R": 1.154458928074197,
+      "gamma_star_median": 0.9605810697612591,
+      "P_belief_gamma_lit": 0.73,
+      "intensity_ratio_median": 1.0410365470230827,
+      "P_belief_gamma1": 0.5653333333333334,
+      "P_belief_gamma1.5": 0.9213333333333333
     },
     "neighbour \u00b7 equal mass": {
-      "median_R": 1.4561656291867657,
-      "gamma_star_median": 0.9001211839471391,
-      "P_belief_gamma_lit": 0.9918333333333333,
-      "intensity_ratio_median": 1.1109615214419022,
-      "P_belief_gamma1": 0.9315,
+      "median_R": 1.3888090746624764,
+      "gamma_star_median": 0.9121370302369526,
+      "P_belief_gamma_lit": 0.9916666666666667,
+      "intensity_ratio_median": 1.0963265023241329,
+      "P_belief_gamma1": 0.9286666666666666,
       "P_belief_gamma1.5": 0.9996666666666667
     },
     "neighbour \u00b7 as emitted \u00b7 denim": {
-      "median_R": 0.6319273854007952,
-      "gamma_star_median": 1.1371380468410819,
-      "P_belief_gamma_lit": 0.5161666666666667,
-      "intensity_ratio_median": 0.8794007049345987,
-      "P_belief_gamma1": 0.30966666666666665,
-      "P_belief_gamma1.5": 0.8035
+      "median_R": 0.6008239066000592,
+      "gamma_star_median": 1.1533225477001594,
+      "P_belief_gamma_lit": 0.497,
+      "intensity_ratio_median": 0.867060131612011,
+      "P_belief_gamma1": 0.2843333333333333,
+      "P_belief_gamma1.5": 0.7916666666666666
     }
   },
   "adaptation": {
