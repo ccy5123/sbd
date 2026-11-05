@@ -1,5 +1,5 @@
 """Fig. 2 of the preprint: the mechanistic chain from release to memory, with the quantity each stage hands on and
-where each theorem acts. Pure drawing, no data.
+where each proposition acts. Pure drawing, no data.
 Figure in FIGSTYLE v1.2 (paper, double column). Colour = part of the chain (physics, perception, memory), in PALETTE
 order; box text sits on the boxes on purpose (allow_overlap), and a check below keeps every line inside its box.
 Usage (repo root, figure venv, see HANDOFF): /root/figenv/bin/python manuscript/preprint/fig_chain.py
@@ -33,10 +33,10 @@ STAGES = [  # (title, detail, kind)
     ("Memory", r"$\mathit{N} = \mathit{H} \cup \mathit{S}$:" + "\nonly noticed\npassages\ncount", "mind"),
 ]
 NOTES = {  # stage index -> annotation under the box
-    2: "the only\nexception to\nTheorem 1",
-    3: "Theorems 1–2:\nno higher peak;\nrelease mode\nforgotten",
+    2: "the only\nexception to\nProposition 1",
+    3: "Propositions 1–2:\nno higher peak;\nrelease mode\nforgotten",
     4: "JND: ratio 1.28",
-    6: "Theorem 3:\nevery\nremembered\nsilent passage\nstank",
+    6: "Proposition 3:\nevery\nremembered\nsilent passage\nstank",
 }
 SPANS = ((0, 3, "Physics: Sections 2.2–2.4, 4.1–4.4", "phys"),  # (first stage, last stage, label, kind)
          (4, 5, "Perception: Sections 4.5–4.6", "perc"),

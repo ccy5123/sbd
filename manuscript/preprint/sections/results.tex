@@ -62,7 +62,7 @@ neighbour, trousers & as emitted & 0.62 & 0.11--3.3 & 0.31 \\
 
 \emph{Equal mass.} At equal mass the audible release arrives pre-diluted by its own momentum
 (Eq.~\eqref{eq:silencer}), and the silent one is stronger at the neighbour in 93\% of pairs. This is the
-near-field exception of Section~\ref{sec:nonlinear}, not a violation of Theorem~1, which holds only once the
+near-field exception of Section~\ref{sec:nonlinear}, not a violation of Proposition~1, which holds only once the
 release has lost its own momentum. At the just-noticeable
 ratio of 1.28, the silent release is perceptibly stronger in 59\% of pairs and indistinguishable in 39\%.
 
@@ -138,42 +138,46 @@ two audible levels); filled symbols bare, open symbols trousers.}
 
 \subsection{How often a silent passage is worse}
 \label{sec:res-headline}
-Table~\ref{tab:headline} gives the four outcomes for passages as emitted, weighted by how often people are in each
-setting. For a bystander, nothing is smelled in 93\% of pairs (attentive) or 98\% (distracted). When something is,
-the audible passage is worse about 13 times as often as the silent one: 6.9\% against 0.5\% for an attentive
-bystander. The releaser smells more and still finds the audible passage worse four times as often. The lift is
-the exception: with a person behind the releaser, the silent passage is worse in 22\% of pairs and the audible one
-in 20\%. It weighs little because people spend minutes a day in shared lifts, against hours on a sofa.
+Table~\ref{tab:headline} gives the four outcomes for passages as emitted in each setting. On the sofa a bystander
+smells nothing in 90\% of pairs; when something is smelled, the audible passage is worse 18 times as often as the
+silent one (9.2 against 0.5\% for an attentive bystander). Between two standing people almost nothing reaches the
+other nose (silent worse 0.04\%, audible 0.003\%). In the closed lift, with a person behind the releaser, the silent
+passage is worse slightly more often (22 against 20\%). Weighted by the time an adult spends close to another person
+in each setting, the day average is 0.5 against 6.9\%. The sofa carries it: with equal weights per setting it is
+7.6 against 9.9\%. The releaser smells more and finds the audible passage worse four times as often.
 
 \begin{table}
-\caption{Four outcomes for one silent and one audible passage as emitted (bare, weighted by time spent in each
-setting; \%). Remembered: the same outcomes among pairs whose silent passage was smelled (Theorem~3). Bystander
-shares are given to two decimals.}
+\caption{Four outcomes for one silent and one audible passage as emitted (bare; \%). Day average: settings weighted
+by the time spent in each (Section~\ref{SI-sec:si-weights}). Remembered: the same outcomes among pairs whose silent
+passage was smelled (Proposition~3).}
 \label{tab:headline}
 \begin{tabular}{llcccc}
 \toprule
-nose & observer & none & silent worse & audible worse & tie \\
+nose, observer & setting & none & silent worse & audible worse & tie \\
 \midrule
-bystander & attentive & 92.62 & 0.51 & 6.86 & 0.01 \\
- & \quad remembered & -- & 88.41 & 9.55 & 2.04 \\
-bystander & distracted & 98.40 & 0.15 & 1.45 & 0.00 \\
- & \quad remembered & -- & 97.44 & 2.14 & 0.42 \\
-releaser & attentive & 77.4 & 4.6 & 17.9 & 0.1 \\
-releaser & distracted & 95.1 & 1.1 & 3.8 & 0.0 \\
-lift bystanders & attentive & 55.7 & 22.3 & 20.4 & 1.5 \\
+bystander, attentive & sofa & 90.3 & 0.5 & 9.2 & 0.0 \\
+ & standing pair & 100.0 & $<0.1$ & $<0.1$ & 0.0 \\
+ & lift & 55.7 & 22.3 & 20.4 & 1.5 \\
+ & day average & 92.6 & 0.5 & 6.9 & 0.0 \\
+ & \quad remembered & -- & 88.4 & 9.6 & 2.0 \\
+bystander, distracted & day average & 98.4 & 0.15 & 1.5 & 0.0 \\
+ & \quad remembered & -- & 97.4 & 2.1 & 0.4 \\
+releaser, attentive & day average & 77.4 & 4.6 & 17.9 & 0.1 \\
+releaser, distracted & day average & 95.1 & 1.1 & 3.8 & 0.0 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\emph{Robustness} (Section~\ref{SI-sec:si-robust}). The order of the two physical shares holds under every variation
-we tried. Home- and office-centred days give 0.5 and 1.1\% silent worse against 8.4 and 3.9\% audible worse. The
-psychometric tail (slope, logistic or floored shape, or a deterministic threshold) moves the ratio between 4 and 25.
-In trousers the audible passage is worse more often (9.3 and 10.2\% when 70 and 85\% of passages are clothed; silent
-worse 0.1\%). The large-eddy peak factors near threshold are 2.2 (1.0--6.6) for silent and 1.3 (0.27--64) for audible
-releases; applied by class they give 1.2 against 8.2\%. A silent-only factor of about 14 would be needed to reverse
-the order; only the adverse pairing of the highest silent with the lowest audible factor does so (3.6 against
-2.3\%). Scaling every silent dose by the mesh-refinement factors (0.55 or 3.0) gives 0.3 or 1.6 against 6.8--6.9\%. The
-source assumptions move the share of silent passages between 76 and 94\% without changing the order.
+\emph{Robustness} (Section~\ref{SI-sec:si-robust}). On the sofa the order holds under the mesh and peak-factor
+variations, alone and combined at their median values; a silent-only factor of 16 would be needed to reverse it. The large-eddy peak factors near threshold
+are 2.2 (1.0--6.6) for silent and 1.3 (0.27--64) for audible releases. Applied together with the mesh-refinement
+factor of the releaser's nose, 3.0 on every silent dose, they give 4.0 against 10.8\% on the sofa; only the adverse
+pairing of the highest silent with the lowest audible peak factor reverses it (4.3 against 3.1\%). The same combined
+factors make the silent passage clearly worse in the lift (47 against 14\%) and move the day average to 3.4 against
+8.0\% (office-centred days 3.8 against 4.2\%). In trousers the audible passage is worse more often (day average 9.3
+and 10.2\% when 70 and 85\% of passages are clothed; silent worse 0.1\%). The psychometric tail moves the
+day-average ratio between 4 and 25, and the source assumptions move the share of silent passages between 76 and 94\%,
+without changing the order.
 
 \subsection{Perception}
 \label{sec:res-perception}
@@ -181,10 +185,9 @@ source assumptions move the share of silent passages between 76 and 94\% without
 listener warned by the sound needs about 25\,s of breath-hold for an even chance of missing the cloud
 (Figure~\ref{SI-fig:breath}).
 
-\emph{Expectation.} Labels change rated intensity little for most odours, by a few per cent
-\cite{herz2001,djordjevic2008}, but a warning that an odour is harmful raised it by 18--61\% over a 20-min exposure
-\cite{dalton1999}. Every such study announced the label, so the sign of the effect for an unwarned listener has not
-been established. We do not include expectation in the model.
+\emph{Expectation} is not modelled. Labels change rated intensity by a few per cent for most odours
+\cite{herz2001,djordjevic2008} and a health warning by 18--61\% \cite{dalton1999}, but every such study announced the
+label, so the sign of the effect for an unwarned listener is unknown.
 
 \subsection{Memory}
 \label{sec:res-memory}

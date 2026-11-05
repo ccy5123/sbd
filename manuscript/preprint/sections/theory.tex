@@ -45,27 +45,27 @@ where the Green's function $G$ encodes everything about the room, the bodies, th
 Time invariance of $G$ requires the flow to be statistically stationary over the release, which holds for the
 quasi-steady convective boundary layers and room flows considered here.
 
-\paragraph{Theorem 1.}
+\paragraph{Proposition 1.}
 Let a silent release be a smoothed version of an audible one, $q_\mathrm{s} = q_\mathrm{a} * \kappa$ with
 $\kappa \ge 0$ and $\int \kappa = 1$. Then, for any $G$:
 \begin{enumerate}
   \item[(i)] the time-integrated dose $\int C\,\mathrm{d}t = V\int G$ is the same for both;
   \item[(ii)] the peak concentration of the silent release does not exceed that of the audible one.
 \end{enumerate}
-The proof (Appendix~\ref{sec:app-proofs}) needs nothing about $G$ beyond linearity, and it covers the
-breath-averaged OAV of Eq.~\eqref{eq:deadliness} and releases stretched by any integer factor. In the linear regime,
-therefore, a quiet release can never be deadlier than a loud release of the same gas, whatever the posture, room or
-flow.
+The proof (Section~\ref{SI-sec:si-proofs}) uses only linearity and one $G$ for both releases, and it covers the
+breath-averaged OAV of Eq.~\eqref{eq:deadliness} and releases stretched by any integer factor. A quiet release can
+therefore be deadlier than a loud release of the same gas only where the two do not share $G$: near the source,
+where each release still shapes the flow that carries it.
 
 \subsection{Release mode is forgotten}
 \label{sec:thm2}
-\paragraph{Theorem 2.}
+\paragraph{Proposition 2.}
 In a closed room of fluid volume $V_\mathrm{room}$ whose air mixes, so that $G(t)\to 1/V_\mathrm{room}$ as
 $t\to\infty$, every release of volume $V$ approaches $C = V/V_\mathrm{room}$, whatever its history $q$, and the ratio
-of two release modes tends to one (proof in Appendix~\ref{sec:app-proofs}). Any difference between release modes is
+of two release modes tends to one (proof in Section~\ref{SI-sec:si-proofs}). Any difference between release modes is
 therefore carried by the early, near-field part of $G$.
 
-\subsection{Where the theorems fail: momentum and buoyancy}
+\subsection{Where the propositions fail: momentum and buoyancy}
 \label{sec:nonlinear}
 Equation~\eqref{eq:green} fails only near the source, where the release still carries its own momentum and buoyancy
 and so changes the flow that carries it. Two effects survive this.
@@ -77,7 +77,8 @@ puff or a steady jet alike, the dilution at that hand-off is
   D_1 \approx \beta\,\frac{u_0}{u_h} \equiv \beta\,\mathrm{Si}, \qquad \beta = O(1)
   \label{eq:silencer}
 \end{equation}
-(Appendix~\ref{sec:app-nearfield}). We call $\mathrm{Si} = u_0/u_h$ the \emph{Silencer number}. With the nominal
+(Section~\ref{SI-sec:si-nearfield}). We call the jet-to-ambient velocity ratio $\mathrm{Si} = u_0/u_h$ the
+\emph{Silencer number}. With the nominal
 $u_h = 0.15$\,m\,s$^{-1}$, an audible release ($\mathrm{Si} > 279$, the acoustic onset) arrives pre-diluted; a slow
 silent one does not ($\mathrm{Si} \approx 5$ for the slow reference release of Figure~\ref{fig:uq}a and 23 for the median silent
 release of the simulations, Section~\ref{sec:cfd}). At equal mass, pre-dilution favours
@@ -92,13 +93,13 @@ pre-dilution does.
 Let $H$ be the event that a passage is heard and $S$ the event that it is smelled. An observer can only compare
 passages they noticed, $N = H\cup S$.
 
-\paragraph{Theorem 3.}
+\paragraph{Proposition 3.}
 Whatever the joint law of $H$ and $S$,
 \begin{equation}
   P(S \mid \lnot H, N) = 1, \qquad P(S \mid H, N) = P(S \mid H).
   \label{eq:berkson}
 \end{equation}
-The proof is two lines (Appendix~\ref{sec:app-proofs}). Among remembered passages, then, every silent one stank, while
+The proof is two lines (Section~\ref{SI-sec:si-proofs}). Among remembered passages, then, every silent one stank, while
 audible ones stank only at the base rate $p_S$, even when sound and smell are independent. The gap $1-P(S\mid H)$ is
 largest when smelly passages are rare. This is Berkson's bias \cite{berkson1946,snoep2014}: selecting on an event that
 either of two causes can produce (here, noticing, produced by hearing or by smelling) makes the two causes appear

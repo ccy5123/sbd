@@ -12,6 +12,34 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   `submission/engrxiv/ENGRXIV.txt`; README links it. New zip `manuscript/preprint/jrsi_submission_2026-11-05.zip`
   (not versioned). Left for the author: the ScholarOne preprint field, then submit.
 
+## 5 Nov: pre-submission revision for JRSI (user: try JRSI first, EPJ Plus as the free fallback)
+
+- **Blind review simulation** (separate session, only the three PDFs and the prompt; output outside the repo in
+  `research/jrsi_review_sim/review_simulation.md`): desk rejection 45-65%, acceptance 12-22%; main risk significance /
+  fit. Venue talk: RSOS has an APC (GBP 1,400, discretionary waiver), so the user ruled it out (no money); JRSI is free
+  in 2026 under Subscribe to Open. Fallback order for a free, likely acceptance: EPJ Plus, Physics of Fluids, The
+  Science of Nature.
+- **Combined adverse factors** (`uq/combined_adverse.py` -> `.json`, runs in WSL Ubuntu, Windows Python has no
+  scipy): mesh 3.0 x LES class peak factors, per setting and weighting. Sofa holds (4.0 vs 10.8% at the median
+  factors; a silent-only factor of 16 reverses it), lift turns silent-worse (47 vs 14%), day average 3.4 vs 8.0%
+  (office 3.8 vs 4.2), equal weights reverse even with one factor. So the old "order holds under every variation"
+  was true only one factor at a time. **User chose per-setting framing:** abstract, results 4.5 (new Table 2 by
+  setting + day average), robustness paragraph, discussion, conclusion and cover letter now lead with the sofa
+  (0.5 vs 9.2%) and give the day average as weight-dependent; ESM robustness gains Table S4 (combined factors).
+- **Wording:** Theorems -> Propositions everywhere (incl. Figure 1, regenerated: overlap check passed, visual review
+  clean); "in any room or flow" replaced by "while both are carried passively by the same flow"; the cover letter's
+  "bounded by a velocity ratio" fixed (pre-dilution bounded, routing not); Si named as the jet-to-ambient velocity
+  ratio; Table 2 one decimal.
+- **Intro** opens with the history (1811, 1970, 32 languages); the film is one sentence after it (user: keep title
+  and "Silencer number").
+- **Words:** appendices (proofs, near field) moved to ESM sections S3-S4; discussion "Where the odour comes from" cut
+  (pointer from methods to ESM origin section); expectation paragraph shortened. texcount 6,715 -> 6,426,
+  references 1,410 -> 1,290 (four near-field references now ESM only); about 7,450 of 8,000.
+- **AI-use statement** (user's choice, short form, in manuscript, cover letter and SUBMISSION_INFO): "to write code
+  and simulation set-ups, search the literature and draft text" (no longer "simulations").
+- PDFs, cover letter (tex/md/txt), SUBMISSION_INFO and `jrsi_submission_2026-11-05.zip` rebuilt. The engrXiv preprint
+  (v1) now differs from the submission (per-setting headline); posting a v2 is the author's call.
+
 ## Progress 2026-10-29 (session after the brief below)
 
 - **Elevator done** (server, 07:47 KST, 240.2 s); analysed: `cfd/results_v4/elev_v4_FL_multi.json`, probes

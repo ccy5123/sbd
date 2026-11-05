@@ -37,6 +37,7 @@ supplementary material does not repeat this list.
 | analytic dispersion model | `gate0/model.py`, `gate0/run_gate0.py`, `gate0/gate0_report.md` |
 | uncertainty, regime map | `uq/run_m7.py`, `uq/m7_report.md` |
 | passages as emitted in the scenes | `uq/routing_headline.py`, `uq/routing_headline.json`, `uq/fig_routing.py` |
+| four outcomes per setting and their robustness | `uq/four_outcomes_v4.py`, `uq/combined_adverse.py`, `uq/peak_breakeven.py`, `uq/les_peak_factor.py`, `uq/tail_sensitivity.py`, `uq/source_sensitivity.py` |
 | CFD validation | `cfd/validation/jet`, `cfd/validation/cbl`, `cfd/validation/m3_report.md` |
 | sofa | `cfd/cases/sofa`, `cfd/cases/sofa/m4_report.md` |
 | elevator | `cfd/cases/elevator`, `cfd/cases/elevator/m5_report.md` |
