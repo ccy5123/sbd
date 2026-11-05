@@ -10,7 +10,7 @@ BEFORE YOU SUBMIT (author)
 FILES IN THIS PACKAGE
 - 01_manuscript.pdf      Main text with figures, tables, declarations and references (one PDF, as the
                          journal asks for a first submission). Line numbers are on for reviewers.
-- 02_ESM.pdf             Electronic supplementary material (17 pages, with a contents list).
+- 02_ESM.pdf             Electronic supplementary material (18 pages, with a contents list).
 - 03_cover_letter.pdf    Cover letter (upload as file); 03_cover_letter.txt is the same text for the text box.
 - figures/               The six main-text figures, figure1_ ... figure6_ in text order (PNG, 600 dpi). Optional at first
                          submission; the journal wants separate files only for the final version.
@@ -22,7 +22,7 @@ Abstract:          paste from below (200 words; limit 200)
 Keywords (3-10):   convective boundary layer; indoor air; odour dispersion; starting jet; Berkson bias;
                    olfactory perception; flatus
 Subject areas:     choose in the system (suggested: biophysics, environmental science, biomedical engineering)
-Word count:        about 7,450 (main text about 6,160 including captions and declarations, references about
+Word count:        about 7,550 (main text about 6,250 including captions and declarations, references about
                    1,290); limit 8,000
 Figures / tables:  6 figures, 2 tables in the main text; ESM 4 figures, 5 tables (incl. the parameter table)
 Third-party material: none (all figures made by the author; map borders from Natural Earth, public domain)
@@ -40,7 +40,7 @@ Data accessibility: Code, parameters with their sources, processed data such as 
 AI use:            Yes. I used AI-assisted technologies (Claude Code, Anthropic) to write code and simulation set-ups,
                    search the literature and draft text; I checked all content and take
                    responsibility for it. (Same text as in the manuscript.)
-Suggested reviewers (author's choice 2026-10-30; details and sources in suggested_reviewers.md):
+Suggested reviewers (author's choice 2026-10-30, 6-7 added 2026-11-05; details and sources in suggested_reviewers.md):
   1. Henry C. Burridge, Imperial College London, UK - h.burridge@imperial.ac.uk
      (analytic plume and ventilation models, indoor exposure)
   2. Ilinca Nastase (Năstase), Technical University of Civil Engineering Bucharest, Romania - ilinca.nastase@utcb.ro
@@ -51,6 +51,10 @@ Suggested reviewers (author's choice 2026-10-30; details and sources in suggeste
      (olfactory thresholds and individual differences)
   5. Hans Alves, Ruhr-Universitaet Bochum, Germany - hans.alves@rub.de (from a job advert)
      (illusory correlation from selective samples)
+  6. Dusan Licina, EPFL (Smart Living Lab, Fribourg), Switzerland - dusan.licina@epfl.ch
+     (human convective boundary layer, breathing-zone exposure; author of the manikin data used for validation)
+  7. Kazuhide Ito, Kyushu University, Japan - ito@kyudai.jp (corresponding address in a 2026 paper)
+     (CFD of inhaled and smelled pollutants near the body)
   Email sources: Nastase from her CV on the UTCB site (sd.utcb.ro); Oleszkiewicz from her affiliation line in
   Psychol. Res. 2025 (doi:10.1007/s00426-025-02127-y); Alves from an RUB job advert; others from staff pages.
 Opposed reviewers: none.

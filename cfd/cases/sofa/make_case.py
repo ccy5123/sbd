@@ -5,9 +5,10 @@ Release = momentum-equivalent inlet: a 3 cm long, 1 cm radius nozzle stub behind
 (patch 'release') pointing down and back into the seat/backrest corner, 2.8 cm above the seat:
   physical release  : V over T through an orifice d  ->  Q0 = V/T, u0 = Q0/(pi d^2/4), M0 = u0 Q0
   equivalent inlet  : area A_e = pi r_e^2;
-                      audible (u0 > sqrt(M0/A_e)): u_eq = sqrt(M0/A_e), Q_eq = M0/u_eq  (momentum and odorant flux
-                      conserved, the inlet fluid is pre-diluted by Q0/Q_eq with room air)
-                      silent: Q_eq = Q0, u_eq = Q0/A_e
+                      orifice smaller than the inlet (u0 > sqrt(M0/A_e), every release of the study, silent ones
+                      included): u_eq = sqrt(M0/A_e), Q_eq = M0/u_eq (momentum and odorant flux conserved, the inlet
+                      fluid is pre-diluted by Q_eq/Q0 = 2 r_e/d with room air)
+                      orifice wider than the inlet (never used): Q_eq = Q0, u_eq = Q0/A_e
                       the pulse has 0.03 s linear ramps (volume preserved)
   buoyancy          : the flatus density deficit (median g' = 1.70 m/s^2, Suarez 1997 compositions) is represented
                       by an equivalent temperature excess dT = g'/(g beta), diluted like the scalar.

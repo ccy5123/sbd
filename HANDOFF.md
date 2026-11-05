@@ -39,6 +39,22 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   and simulation set-ups, search the literature and draft text" (no longer "simulations").
 - PDFs, cover letter (tex/md/txt), SUBMISSION_INFO and `jrsi_submission_2026-11-05.zip` rebuilt. The engrXiv preprint
   (v1) now differs from the submission (per-setting headline); posting a v2 is the author's call.
+- **Second pass (same day, subagents):**
+  - **Inlet fact fixed:** every release, silent ones included, enters the 1-cm inlet at its M0 and is pre-diluted
+    6.5-12x (`equivalent_source` in `cfd/cases/sofa/make_case.py`; its docstring was wrong and is fixed). Methods and
+    ESM said only audible releases were diluted; now stated with u_e and the factors (ESM release table) and why the
+    hand-off dilution u0/u_h is unchanged (momentum conserved).
+  - **LES set-up in the ESM:** RANS meshes unchanged (0.72 / 1.3 M), WALE cube-root filter, LUST, Spalding wall
+    function, Co 0.8 (dt ~7 / 4.5 ms, 30 us in A90); one sentence that the mesh is not wall-resolved LES.
+  - **Dose interpolation and JND** (`uq/interp_perception_sensitivity.py` -> `.json`; `analyze_multi.nose_oav` gained
+    an optional `rule`, default unchanged and checked bit-identical): nearest 0.6/7.9, lower 0.4/4.4, adverse bracket
+    0.8/4.4 (sofa 0.95/5.9); JND 1.15-1.45 no change; Stevens n does not enter the outcomes. Note: A90/A50 differ by
+    6.9x in M0 (the review's "factor ~100" was wrong); about half of audible passages sit below A50.
+  - **Discussion:** attribution (a stranger's flatus disgusts more, liuzza2016) and deliberately slowed releases
+    (equal-mass case, not in the source model). Abstract: "Most sampled releases (85%)".
+  - **Suggested reviewers (user):** Licina and Ito added (cover letter, SUBMISSION_INFO, suggested_reviewers.md);
+    Melikov checked and left out (co-author of the 2014/2015 validation data).
+  - About 7,550 words; ESM 18 pages.
 
 ## Progress 2026-10-29 (session after the brief below)
 

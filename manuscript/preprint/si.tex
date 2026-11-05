@@ -270,20 +270,26 @@ height.}
 All scenes use the solver of the main text, skin at 33\,\textdegree C and walls at 23\,\textdegree C. Each runs 90\,s
 without a release; the four representative releases then follow 30\,s apart (strongest first) on separate scalars,
 each until 150\,s after its start. A release enters behind the releaser's buttocks, pointing down and back, through a
-1\,cm-radius inlet that carries its momentum flux and odorant flux (audible releases are pre-diluted with room air
-to fit the inlet), with the flatus buoyancy ($g' = 1.70$\,m\,s$^{-2}$) as an equivalent temperature excess.
+1\,cm-radius inlet (area $A_e$) at its own momentum flux $M_0$, and so at the velocity $u_e = (M_0/A_e)^{1/2}$
+instead of $u_0$. Room air pre-dilutes it by $u_0/u_e = 2r_e/d$ (Table~\ref{tab:releases}), and the odorant
+concentration and the equivalent temperature excess of the flatus buoyancy ($g' = 1.70$\,m\,s$^{-2}$) are reduced by
+the same factor, so the momentum, odorant and buoyancy fluxes are kept and the volume flux is not. A jet conserves its
+momentum while it entrains, so its dilution when it has slowed to the ambient velocity $u_h$ is about $u_0/u_h$
+either way (Section~\ref{sec:si-nearfield}).
 
 \begin{table}
 \caption{Representative releases: median and 90th percentile of the exit momentum flux within each class.}
 \label{tab:releases}
-\begin{tabular}{lcccccc}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccccccc}
 \toprule
-release & class & $V$ (mL) & $T$ (s) & $d$ (mm) & $u_0$ (m\,s$^{-1}$) & $M_0$ (m$^4$\,s$^{-2}$) \\
+release & class & $V$ (mL) & $T$ (s) & $d$ (mm) & $u_0$ (m\,s$^{-1}$) & $M_0$ (m$^4$\,s$^{-2}$) & $u_e$ (m\,s$^{-1}$) & pre-dilution \\
 \midrule
-S50 & silent & 122 & 4.76 & 3.06 & 3.5 & $8.9\times10^{-5}$ \\
-S90 & silent & 66 & 0.65 & 2.45 & 22 & $2.2\times10^{-3}$ \\
-A50 & audible & 86 & 0.42 & 1.67 & 94 & $1.9\times10^{-2}$ \\
-A90 & audible & 279 & 0.34 & 2.54 & 162 & 0.13 \\
+S50 & silent & 122 & 4.76 & 3.06 & 3.5 & $8.9\times10^{-5}$ & 0.53 & 6.5 \\
+S90 & silent & 66 & 0.65 & 2.45 & 22 & $2.2\times10^{-3}$ & 2.65 & 8.2 \\
+A50 & audible & 86 & 0.42 & 1.67 & 94 & $1.9\times10^{-2}$ & 7.8 & 12.0 \\
+A90 & audible & 279 & 0.34 & 2.54 & 162 & 0.13 & 20.6 & 7.9 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -303,9 +309,13 @@ A90 & audible & 279 & 0.34 & 2.54 & 162 & 0.13 \\
   ceiling at an assumed 1.5\,m\,s$^{-1}$ and exiting through a ceiling grille.
   \item \emph{Trousers.} A porous shell 1\,cm thick, 2\,cm from the skin over pelvis and thighs, open at the waist and
   hems, with a Darcy resistance from the air permeability of denim (0.03\,m\,s$^{-1}$ at 100\,Pa, EN ISO 9237).
-  \item \emph{Large-eddy simulation.} The upright sofa, bare and in trousers: WALE model, maximum Courant number 0.8,
-  60\,s of spin-up from the RANS flow, then six releases 30\,s apart (S50, A50, S90, A90 and the two medians again),
-  each followed for 90\,s.
+  \item \emph{Large-eddy simulation.} The upright sofa, bare and in trousers, on the RANS meshes unchanged (0.72 and
+  1.3 million cells): WALE model with a cube-root-volume filter width, LUST convection of momentum, a Spalding wall
+  function and a maximum Courant number of 0.8 (time step about 7\,ms between releases bare and 4.5\,ms in
+  trousers, down to 30\,\textmu s during the fastest release); 60\,s of spin-up from the 90-s RANS flow, then six
+  releases 30\,s apart (S50, A50, S90, A90 and the two medians again), each followed for 90\,s. The mesh was not
+  designed for wall-resolved LES, so the large-eddy runs give the spread of a breath about the mean, not a resolved
+  boundary layer.
 \end{itemize}
 
 \section{Scene doses}
@@ -372,6 +382,12 @@ Bystanders, bare, frequency-weighted; silent worse / audible worse (\%), attenti
   reverses the order is 14 (office bound 5.7); a uniform factor never does (tested to $10^4$). The adverse pairing
   (6.6 silent, 0.27 audible) gives 3.6 / 2.3, with 98\% remembered silent worse.
   \item \emph{Mesh:} silent doses $\times 0.55$ give 0.26 / 6.9, $\times 3.0$ give 1.6 / 6.8.
+  \item \emph{Dose between the representative releases} (log-linear in $M_0$ in the headline): the nearest level
+  0.6 / 7.9; the level below 0.4 / 4.4; the adverse bracket, in which a silent passage takes the larger and an audible
+  passage the smaller of its class's two doses, 0.8 / 4.4 (sofa 0.95 / 5.9). About half of the audible passages lie
+  below the lower audible level and are held at it under every rule.
+  \item \emph{Just-noticeable ratio} 1.15 or 1.45 instead of 1.28: 0.5 / 6.9 in both. The Stevens exponent does not
+  enter the outcomes: intensity rises monotonically with OAV, and the tie test is on the concentration ratio.
   \item \emph{Combined} (Table~\ref{tab:combined}): the mesh factor of the releaser's nose (3.0, on every silent dose;
   at the neighbour it was 0.55) times the class peak factors. On the sofa a silent-only factor of 16 (20 with the
   audible peak factor 1.3) reverses the order.

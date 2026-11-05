@@ -45,6 +45,10 @@ WINDOWS = (30.0, 60.0, 120.0, 150.0)  # s after release, from the run
 TAIL_WINDOWS = (300.0, 600.0)          # s after release, from the well-mixed tail
 LATE = (90.0, 150.0)                   # s after release: sets the nose's late level relative to well mixed
 CLASSES = {"A": "audible", "S": "silent"}
+# nose_oav rule between a class's levels: "log-linear" (headline), or the sensitivity alternatives "nearest" (the
+# level nearest in log M0), "lower" / "upper" (the level at or below / at or above M0); see
+# uq/interp_perception_sensitivity.py
+INTERP = "log-linear"
 
 
 def room(case: Path):
@@ -121,7 +125,7 @@ def release_metrics(t, s, t_rel, V, v_room=None, lam=0.0):
     return out
 
 
-def nose_oav(result, nose, window, V, M0, cls, stat="worst_breath_OAV_mean"):
+def nose_oav(result, nose, window, V, M0, cls, stat="worst_breath_OAV_mean", rule=None):
     """OAV at `nose` over the first `window` s for passages of volume V (m^3) and exit momentum flux M0 (m^4/s^2) in
     class cls ('silent' or 'audible'); V and M0 may be arrays.
 
@@ -131,6 +135,9 @@ def nose_oav(result, nose, window, V, M0, cls, stat="worst_breath_OAV_mean"):
     at the nearest level (no extrapolation). The result is that response x V.
     [APPROXIMATION] At a given M0 the route does not depend on V: a larger or smaller passage keeps the route of the
     representative release, and the concentration scales with the released volume (passive scalar, linear transport).
+    rule (default: module INTERP, "log-linear", the rule above): "nearest" gives each passage the response of the
+    level nearest in log M0, "lower" / "upper" that of the level at or below / at or above its M0; all are held
+    outside the range as above.
     """
     key = f"{window:g}"
     per_v = {}
@@ -143,7 +150,16 @@ def nose_oav(result, nose, window, V, M0, cls, stat="worst_breath_OAV_mean"):
     m0 = np.array(sorted(per_v))
     y = np.array([np.mean(per_v[m]) for m in m0])
     x = np.log(np.clip(np.asarray(M0, dtype=float), m0[0], m0[-1]))
-    if np.all(y > 0):
+    rule = INTERP if rule is None else rule
+    if rule == "nearest":
+        resp = y[np.argmin(np.abs(x[..., None] - np.log(m0)), axis=-1)]
+    elif rule == "lower":
+        resp = y[np.clip(np.searchsorted(np.log(m0), x, side="right") - 1, 0, m0.size - 1)]
+    elif rule == "upper":
+        resp = y[np.clip(np.searchsorted(np.log(m0), x, side="left"), 0, m0.size - 1)]
+    elif rule != "log-linear":
+        raise ValueError(f"unknown interpolation rule {rule!r}")
+    elif np.all(y > 0):
         resp = np.exp(np.interp(x, np.log(m0), np.log(y)))
     else:
         resp = np.interp(x, np.log(m0), y)

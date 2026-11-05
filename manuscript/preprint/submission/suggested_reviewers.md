@@ -1,4 +1,6 @@
-# Suggested reviewers: candidates for J. R. Soc. Interface (research 2026-10-30)
+# Suggested reviewers: candidates for J. R. Soc. Interface (research 2026-10-30, 2026-11-05)
+
+Chosen for the submission: Burridge, Năstase, Diwan, Oleszkiewicz, Alves (30 Oct) and Licina, Ito (added 5 Nov).
 
 Optional in ScholarOne; the journal may choose others and especially welcomes early-career researchers, researchers
 from under-represented groups and from the global South. Public sources only; nobody was contacted. Positions were
@@ -16,10 +18,11 @@ Academy notices).
 | 6 | Anna Oleszkiewicz | olfactory thresholds, variation between people | dr hab., prof. UWr, Institute of Psychology, University of Wrocław, Poland | early-career / C. Europe; woman | anna.oleszkiewicz@uwr.edu.pl (affiliation in Psychol. Res. 2025, doi:10.1007/s00426-025-02127-y) |
 | 7 | Hans Alves | illusory correlation from selective samples | Professor of Social Cognition, Ruhr-Universität Bochum, Germany | early-career (PhD 2016) / W. Europe | hans.alves@rub.de (job advert, not a staff page) |
 | 8 | Patricia Yang | biological fluid mechanics of excretion | Assistant Professor, Power Mechanical Engineering, National Tsing Hua University, Taiwan | early-career / East Asia; woman | peijyang@pme.nthu.edu.tw |
+| 9 | Kazuhide Ito | CFD of inhalation and odour exposure (Computer Simulated Person) | Professor (Distinguished Professor since 2025-10), Faculty of Engineering Sciences, Kyushu University, Japan; Otto Mønsted Professor, DTU (2026) | senior / East Asia | ito@kyudai.jp (corresponding address in Eur. J. Pharm. Biopharm. 2026, doi:10.1016/j.ejpb.2026.115254; the staff page shows the email only as an image) |
 
 ORCIDs: Licina 0000-0001-5945-0872; Năstase 0000-0003-4267-5236; Ghaddar 0000-0002-9536-651X; Burridge
 0000-0002-0719-355X; Diwan 0000-0002-9190-7403; Oleszkiewicz 0000-0003-2217-1858; Alves 0000-0003-1853-1224; Yang
-0000-0002-9274-7042.
+0000-0002-9274-7042; Ito 0000-0002-7715-7896.
 
 ## Why each fits (recent work)
 1. **Licina** made the boundary-layer and intake-fraction measurements the CFD is validated against (Licina 2014,
@@ -40,13 +43,19 @@ ORCIDs: Licina 0000-0001-5945-0872; Năstase 0000-0003-4267-5236; Ghaddar 0000-0
    sampling-based judgement (Psychol. Rev. 2026 doi:10.1037/rev0000647).
 8. **Yang**: excretion and bird dust-bathing mechanics (PNAS 2026 doi:10.1073/pnas.2521949123; Soft Matter 2022
    doi:10.1039/d2sm00359g). Former PhD student of David Hu (see below).
+9. **Ito** (added 5 Nov after a blind review asked for an independent near-body expert): odorant transport from room
+   to the olfactory region, CFD with sensory tests (Sustain. Cities Soc. 126 (2025) 106397 doi:10.1016/j.scs.2025.106397);
+   RANS versus scale-resolving cough jets (Phys. Fluids 2026 doi:10.1063/5.0316118). Not an author of the validation
+   data. Profile: https://hyoka.ofc.kyushu-u.ac.jp/html/100021701_en.html (updated 2026-07-23).
 
 ## Avoid or handle with care
 - **Klaus Fiedler** (cited): died May 2026. Exclude.
 - **David L. Hu** (Georgia Tech; senior author of Ancalle et al. 2021, named in the cover letter as the closest prior
   work): his group has an unpublished physics-of-flatulence project, so he may be a competitor. Neither suggest nor
   oppose without a concrete reason. If he is a concern, Yang (his former student) may also be better left out.
-- Older cited authors (Levitt, Suarez, Nazaroff, Melikov, Hudson) were not checked and may be retired.
+- Older cited authors (Levitt, Suarez, Nazaroff, Hudson) were not checked and may be retired. Melikov (DTU, akme@dtu.dk)
+  is active (2026 papers) but co-authored the 2014/2015 validation data with Licina and Sekhar; suggesting more than
+  one of them would load the review onto one group.
 - No one needs to be opposed on the evidence found.
 
 ## Alternates
