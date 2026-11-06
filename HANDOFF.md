@@ -83,7 +83,7 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
 - **EPJ format done:** Statements and Declarations; AI use as Methods 3.7; ESM retitled "Online Resource 1" with
   journal and contact; cover letter rewritten for EPJ Plus (tex/md/txt in step); `make_latex_package.py` now writes
   a standalone flat `submission/latex/` (S-numbers and bibliography written in; test-compiled, no errors, no ??)
-  and `submission/ESM_1.pdf`. Zip: `manuscript/preprint/epjplus_submission_2026-11-05.zip` (not versioned).
+  and `submission/ESM_1.pdf`. Zip: `manuscript/preprint/epjplus_submission_2026-11-05.zip` (not versioned; superseded by the 11-06 zip).
 - **Open:** `submission/SUBMISSION_INFO.txt` still describes the JRSI package and must be rewritten for EPJ Plus;
   graphical abstract; optional Zenodo DOI; engrXiv v2 (the preprint predates the cap); push.
 
@@ -106,10 +106,31 @@ needs a **local** session (Remote Control cannot start new sessions; the desktop
   title, Table 2 with detection, both-smelled share, intensity and remembered columns, lift split by nose), memory
   paragraph and Figure 6 (truth line = (b); overlap check passed, visual review clean), discussion, conclusion,
   abstract (239 words), introduction bullet 3, cover letter. Package and zip rebuilt.
-- **Audit points not yet addressed:** source prior vs Miller's median 8 mmHg (most sampled passages need < 1 mmHg);
-  the 150-s window (the tail model returns the 150-s value although the text says the well-mixed level is used);
-  Proposition 1 covers the sup over breathing phase, not the fixed-phase breath maximum of Eq. (1); the TV-time
-  sofa weight versus the 35 dB(A) room; missing car / behind-the-releaser scenes and sofa release geometry (new CFD).
+
+## 6 Nov: audit points fixed; well-mixed floor is now in the headline
+
+- **150-s window fixed (changes the headline):** the 600-s window was the 150-s value by construction. Now
+  `analyze_multi.nose_oav` takes the larger of the CFD response and the well-mixed level per unit V (`WM_FLOOR`,
+  `SBD_NO_WM_FLOOR=1` restores the old numbers exactly). Peak, mesh and order factors act on the CFD dose, not on the
+  floor. Rule against the 10-minute runs at 600 s: 0.84-1.20 (`uq/wm_floor_check.py`); at 300 s it overstates, so
+  600 s only. The standing result (36 / 50) is the floor alone, with no reference run. 150-s results (Figures 4-5,
+  Table S3, LES and mesh factors) do not change.
+- **New headline (attentive bystander, (b), floor on):** sofa 27 / 61 / 12 (smelled 1.25 / 4.7 %, both 0.063 %); lift
+  person behind 55 / 33 / 12 (unchanged, doses above the floor), beside 36 / 51, diagonal 33 / 54; standing 36 / 50;
+  **day level, 43 / 45** (lift 60 % of doubly smelled pairs; home day 29 / 59); releaser day 43 / 47; remembered 95 %
+  attentive, 99 % distracted; truth at full detection 27 %.
+- **Pressure-based source (sensitivity, not headline; `uq/source_pressure_prior.py`):** rectal rise log-normal, median
+  8 mmHg, truncated at 88: silent share 55-65 %, sofa 26-37 / 50-63, person behind 47-51 / 38-41, day 34-41 / 46-55.
+  Passages kept only above 4 mmHg: person behind 44.5 / 43.1. Making it the headline needs new representative
+  releases, i.e. new CFD. The abstract now says 55-85 % never oscillate.
+- **Television (ESM + one sentence):** Kurakata 1999 preferred levels 47-57 dB(A); 50-55 dB(A) changes little; 65
+  dB(A) gives sofa 19 / 72, day 31 / 59, remembered 90 %.
+- **Proposition 1:** the bound is on the largest value over the breathing phase, not on one fixed phase (theory and
+  ESM proof reworded).
+- Zip: `manuscript/preprint/epjplus_submission_2026-11-06.zip` (not versioned; replaces the 11-05 one).
+- **Open:** `submission/SUBMISSION_INFO.txt` still JRSI; graphical abstract; Zenodo DOI (optional); engrXiv v2; push;
+  new CFD if wanted (car / behind-the-releaser scenes, sofa release geometry, room air motion, pressure-based
+  representative releases).
 
 ## Progress 2026-10-29 (session after the brief below)
 

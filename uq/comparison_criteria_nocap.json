@@ -4,570 +4,570 @@
  "by": {
   "bystander | attentive, | sofa": {
    "a_detection": {
-    "silent_smelled": 0.00568439076132703,
-    "audible_smelled": 0.09232754614240046
+    "silent_smelled": 0.012453562115042427,
+    "audible_smelled": 0.09625134482125032
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.1756805515811031,
-    "audible_stronger": 0.741408289514176,
-    "tie": 0.08291115890472091,
-    "pair_mass_both": 0.0006042731487783769
+    "silent_stronger": 0.15111850636884666,
+    "audible_stronger": 0.7699820375008001,
+    "tie": 0.07889945613035347,
+    "pair_mass_both": 0.0012284374403408861
    },
    "c_combined": {
-    "none": 0.9025128889465804,
-    "silent_worse": 0.005186276652631689,
-    "audible_worse": 0.0921712861152572,
-    "tie": 5.010098706022006e-05
+    "none": 0.892493765165095,
+    "silent_worse": 0.011410764305853425,
+    "audible_worse": 0.09596878214416539,
+    "tie": 9.692304593305946e-05
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.05319961373960286,
-    "audible_worse": 0.9454715102261111,
-    "tie": 0.0005139242154049108
+    "silent_worse": 0.10614048872027462,
+    "audible_worse": 0.8926810830231624,
+    "tie": 0.0009015574406628799
    },
    "median_OAV_when_smelled": {
-    "silent": 2.0938576287270423,
-    "audible": 16.108090585494693
+    "silent": 2.794888899890675,
+    "audible": 14.024713521611211
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.9123715927335271,
-    "audible_worse": 0.07881462419563363,
-    "tie": 0.008813783070839399
+    "silent_worse": 0.9162650975234286,
+    "audible_worse": 0.07595214562052398,
+    "tie": 0.007782756856047468
    }
   },
   "bystander | attentive, | elevator": {
    "a_detection": {
-    "silent_smelled": 0.28084326870849463,
-    "audible_smelled": 0.294923892560762
+    "silent_smelled": 0.3018049333129824,
+    "audible_smelled": 0.3178210955750662
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.5667040688758914,
-    "audible_stronger": 0.3175427787158109,
-    "tie": 0.1157531524082979,
-    "pair_mass_both": 0.1325823810027044
+    "silent_stronger": 0.5600755547135071,
+    "audible_stronger": 0.3235767022140902,
+    "tie": 0.11634774307240268,
+    "pair_mass_both": 0.13745980889467913
    },
    "c_combined": {
-    "none": 0.5070602287377406,
-    "silent_worse": 0.22339586248127652,
-    "audible_worse": 0.2044420892304147,
-    "tie": 0.015346828554861061
+    "none": 0.47629394566744326,
+    "silent_worse": 0.24133300313580336,
+    "audible_worse": 0.22484007832950645,
+    "tie": 0.0159931385280597
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.4531909890517292,
-    "audible_worse": 0.41474050411250973,
-    "tie": 0.0311332731695858
+    "silent_worse": 0.4608176688798701,
+    "audible_worse": 0.42932495522904834,
+    "tie": 0.0305383877000283
    },
    "median_OAV_when_smelled": {
-    "silent": 10.221898487247508,
+    "silent": 10.34606550327825,
     "audible": 16.81714709537601
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.7954467397726861,
-    "audible_worse": 0.14990773275771832,
-    "tie": 0.0546455274695956
+    "silent_worse": 0.799632399930098,
+    "audible_worse": 0.1473759595672124,
+    "tie": 0.05299164050268936
    }
   },
   "bystander | attentive, | standing": {
    "a_detection": {
-    "silent_smelled": 0.0004198910910224058,
-    "audible_smelled": 2.8800005220064675e-05
+    "silent_smelled": 0.009538055869677098,
+    "audible_smelled": 0.020296686109505295
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.7351019116767553,
-    "audible_stronger": 0.14300024926846527,
-    "tie": 0.12189783905477941,
-    "pair_mass_both": 2.41769809013347e-08
+    "silent_stronger": 0.3631494330992466,
+    "audible_stronger": 0.4994040562629988,
+    "tie": 0.1374465106377547,
+    "pair_mass_both": 0.000194796873397417
    },
    "c_combined": {
-    "none": 0.9995513209966231,
-    "silent_worse": 0.00041988468658638365,
-    "audible_worse": 2.877928555345879e-05,
-    "tie": 2.947121726741373e-09
+    "none": 0.9703588489468993,
+    "silent_worse": 0.00941399937042346,
+    "audible_worse": 0.0201991715848299,
+    "tie": 2.6774150531619435e-05
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.9358242383223521,
-    "audible_worse": 0.06414226058464792,
-    "tie": 6.568441368017346e-06
+    "silent_worse": 0.31759898100983747,
+    "audible_worse": 0.6814570577452961,
+    "tie": 0.0009032763432045809
    },
    "median_OAV_when_smelled": {
-    "silent": 0.5866473201006424,
-    "audible": 0.25150190065285266
+    "silent": 2.6999665818341407,
+    "audible": 3.519822221830877
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.9999847473876938,
-    "audible_worse": 8.233835795447494e-06,
-    "tie": 7.018776510750288e-06
+    "silent_worse": 0.9869935235284129,
+    "audible_worse": 0.010199389692326609,
+    "tie": 0.0028070867792605882
    }
   },
   "bystander | attentive, | day (central weights)": {
    "a_detection": {
-    "silent_smelled": 0.005746871884007325,
-    "audible_smelled": 0.06922628456941271
+    "silent_smelled": 0.01320526922985747,
+    "audible_smelled": 0.0775279773613894
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.4143906915798169,
-    "audible_stronger": 0.48264897315967464,
-    "tie": 0.10296033526050877,
-    "pair_mass_both": 0.0011370776475430483
+    "silent_stronger": 0.3337118471606085,
+    "audible_stronger": 0.569474486841207,
+    "tie": 0.09681366599818463,
+    "pair_mass_both": 0.001671104158179445
    },
    "c_combined": {
-    "none": 0.9254246781350062,
-    "silent_worse": 0.005080988629209592,
-    "audible_worse": 0.06863801628085915,
-    "tie": 0.00011707389580826288
+    "none": 0.9102905312226566,
+    "silent_worse": 0.012091832327101863,
+    "audible_worse": 0.07680852438614741,
+    "tie": 0.00016178571981816228
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.06813230572987501,
-    "audible_worse": 0.9203851162066297,
-    "tie": 0.001569874495750828
+    "silent_worse": 0.1347888076019431,
+    "audible_worse": 0.8561919430911376,
+    "tie": 0.001803440841007656
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.8841311815823168,
-    "audible_worse": 0.09549705823732108,
-    "tie": 0.020371760180362086
+    "silent_worse": 0.9156823777406904,
+    "audible_worse": 0.07206601897867693,
+    "tie": 0.012251603280632885
    }
   },
   "bystander | attentive, | equal per scene": {
    "a_detection": {
-    "silent_smelled": 0.09564918352028136,
-    "audible_smelled": 0.12909341290279416
+    "silent_smelled": 0.10793218376590065,
+    "audible_smelled": 0.14478970883527395
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.5649300105116759,
-    "audible_stronger": 0.319465841368711,
-    "tie": 0.11560414811961334,
-    "pair_mass_both": 0.04439555944282122
+    "silent_stronger": 0.5561820718953985,
+    "audible_stronger": 0.3277718266353362,
+    "tie": 0.1160461014692654,
+    "pair_mass_both": 0.046294347736139135
    },
    "c_combined": {
-    "none": 0.7876050831189232,
-    "silent_worse": 0.07633400794016484,
-    "audible_worse": 0.09888071821040845,
-    "tie": 0.005132310829681003
+    "none": 0.7629055768602454,
+    "silent_worse": 0.08738592227069342,
+    "audible_worse": 0.11366934401950057,
+    "tie": 0.0053722785748414595
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.35939658566737465,
-    "audible_worse": 0.46555124605817794,
-    "tie": 0.024164000273860897
+    "silent_worse": 0.36857012962799235,
+    "audible_worse": 0.47942647707280117,
+    "tie": 0.022658814592508514
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.7980623057172158,
-    "audible_worse": 0.1482800399172062,
-    "tie": 0.05365765436557807
+    "silent_worse": 0.8096373039225166,
+    "audible_worse": 0.14058812108608265,
+    "tie": 0.049774574991400665
    }
   },
   "releaser | attentive, | sofa": {
    "a_detection": {
-    "silent_smelled": 0.06223958029908636,
+    "silent_smelled": 0.06440501661893623,
     "audible_smelled": 0.18993395636945876
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.4444160728468911,
-    "audible_stronger": 0.4455271941907573,
-    "tie": 0.11005673296235166,
-    "pair_mass_both": 0.012807502994578085
+    "silent_stronger": 0.4324174929005496,
+    "audible_stronger": 0.45897983906198175,
+    "tie": 0.1086026680374686,
+    "pair_mass_both": 0.013248449139264025
    },
    "c_combined": {
-    "none": 0.7596478730604349,
-    "silent_worse": 0.05512393748833347,
-    "audible_worse": 0.18283254424864476,
-    "tie": 0.0014095519369887995
+    "none": 0.7578937266280803,
+    "silent_worse": 0.05688542864129321,
+    "audible_worse": 0.182766278283955,
+    "tie": 0.0014388169238827775
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.2293465765842547,
-    "audible_worse": 0.7606861922824455,
-    "tie": 0.005864528660248643
+    "silent_worse": 0.23496057268167828,
+    "audible_worse": 0.7549010429944226,
+    "tie": 0.005942914670668159
    },
    "median_OAV_when_smelled": {
-    "silent": 14.786516165643059,
+    "silent": 14.025418304245916,
     "audible": 15.631919334880557
    }
   },
   "releaser | attentive, | elevator": {
    "a_detection": {
-    "silent_smelled": 0.11362774823179145,
-    "audible_smelled": 0.16908587734782715
+    "silent_smelled": 0.12256123566000635,
+    "audible_smelled": 0.18894668659656352
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.36549839392989786,
-    "audible_stronger": 0.5044889357885527,
-    "tie": 0.13001267028154942,
-    "pair_mass_both": 0.019212847500830472
+    "silent_stronger": 0.366171216093743,
+    "audible_stronger": 0.5025044671200173,
+    "tie": 0.1313243167862398,
+    "pair_mass_both": 0.023157539383138786
    },
    "c_combined": {
-    "none": 0.7364992219212119,
-    "silent_worse": 0.10143716563533456,
-    "audible_worse": 0.1595656988361584,
-    "tie": 0.002497913607295163
+    "none": 0.7116496171265689,
+    "silent_worse": 0.10788332063453024,
+    "audible_worse": 0.1774259142009597,
+    "tie": 0.003041148037941142
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.384959643667558,
-    "audible_worse": 0.6055606362894587,
-    "tie": 0.009479720042983227
+    "silent_worse": 0.37413968228328903,
+    "audible_worse": 0.6153136071223436,
+    "tie": 0.010546710594367506
    },
    "median_OAV_when_smelled": {
-    "silent": 9.824585911599753,
-    "audible": 12.726672685553806
+    "silent": 10.431077544460583,
+    "audible": 13.416672032509156
    }
   },
   "releaser | attentive, | standing": {
    "a_detection": {
-    "silent_smelled": 0.02347546567060037,
-    "audible_smelled": 0.16896560062725796
+    "silent_smelled": 0.026649948147561484,
+    "audible_smelled": 0.17221218636252295
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.21424243753829858,
-    "audible_stronger": 0.6800869487618423,
-    "tie": 0.10567061369985908,
-    "pair_mass_both": 0.005892184499154055
+    "silent_stronger": 0.21097655708244747,
+    "audible_stronger": 0.6847885681619007,
+    "tie": 0.10423487475565173,
+    "pair_mass_both": 0.006215980356705176
    },
    "c_combined": {
-    "none": 0.8115254798591792,
-    "silent_worse": 0.018845637140970463,
-    "audible_worse": 0.16708061390567538,
-    "tie": 0.0006226307520584058
+    "none": 0.8057273113268549,
+    "silent_worse": 0.02174539392540609,
+    "audible_worse": 0.17025283829400842,
+    "tie": 0.0006479219339647553
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.09999037072432783,
-    "audible_worse": 0.8864891327530071,
-    "tie": 0.0033035274560890273
+    "silent_worse": 0.11193232602031737,
+    "audible_worse": 0.8763601279048083,
+    "tie": 0.003335115905328589
    },
    "median_OAV_when_smelled": {
-    "silent": 6.549348030308506,
-    "audible": 13.146378702693621
+    "silent": 6.065017812126266,
+    "audible": 13.08761309939451
    }
   },
   "releaser | attentive, | day (central weights)": {
    "a_detection": {
-    "silent_smelled": 0.05236095431221938,
-    "audible_smelled": 0.18433570576143954
+    "silent_smelled": 0.054825973663293996,
+    "audible_smelled": 0.18528958060966982
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.4115106597726565,
-    "audible_stronger": 0.47886394842095925,
-    "tie": 0.10962539180638449,
-    "pair_mass_both": 0.01103074602984013
+    "silent_stronger": 0.4002721744836107,
+    "audible_stronger": 0.49150497810644767,
+    "tie": 0.10822284740994144,
+    "pair_mass_both": 0.011459368778614457
    },
    "c_combined": {
-    "none": 0.7729553333938265,
-    "silent_worse": 0.04586947785890337,
-    "audible_worse": 0.17858718632947745,
-    "tie": 0.0012092498554379444
+    "none": 0.7700431273936247,
+    "silent_worse": 0.047953471343905145,
+    "audible_worse": 0.179462548631702,
+    "tie": 0.0012401655187422394
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.20202843142960727,
-    "audible_worse": 0.7865729197649496,
-    "tie": 0.0053260438728361835
+    "silent_worse": 0.2085324556748024,
+    "audible_worse": 0.780418287123316,
+    "tie": 0.005393035244765531
    }
   },
   "releaser | attentive, | equal per scene": {
    "a_detection": {
-    "silent_smelled": 0.0664475980671594,
-    "audible_smelled": 0.1759951447815146
+    "silent_smelled": 0.07120540014216803,
+    "audible_smelled": 0.18369760977618177
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.368650660255966,
-    "audible_stronger": 0.511861252308254,
-    "tie": 0.11948808743578006,
-    "pair_mass_both": 0.012637511664854204
+    "silent_stronger": 0.36412939293944363,
+    "audible_stronger": 0.5155597197260623,
+    "tie": 0.12031088733449412,
+    "pair_mass_both": 0.01420732295970266
    },
    "c_combined": {
-    "none": 0.7692517117935397,
-    "silent_worse": 0.05846891342154616,
-    "audible_worse": 0.16982628566349284,
-    "tie": 0.0015100320987807894
+    "none": 0.7581772518909231,
+    "silent_worse": 0.06217138106707651,
+    "audible_worse": 0.17681501025964103,
+    "tie": 0.0017092956319295584
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.2533882867604701,
-    "audible_worse": 0.7359806956034362,
-    "tie": 0.006544066309301066
+    "silent_worse": 0.25709484137957694,
+    "audible_worse": 0.731176085137725,
+    "tie": 0.0070683822977586925
    }
   },
   "bystander | distracted | sofa": {
    "a_detection": {
-    "silent_smelled": 0.001416798226729382,
-    "audible_smelled": 0.019389901348700094
+    "silent_smelled": 0.003011609391544838,
+    "audible_smelled": 0.020223608828304568
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.14326494984158258,
-    "audible_stronger": 0.798047296796967,
-    "tie": 0.05868775336145053,
-    "pair_mass_both": 3.0842533667308634e-05
+    "silent_stronger": 0.13127491595973242,
+    "audible_stronger": 0.8105222374098562,
+    "tie": 0.05820284663041121,
+    "pair_mass_both": 6.173390889582606e-05
    },
    "c_combined": {
-    "none": 0.9792207720024179,
-    "silent_worse": 0.0013903743471009077,
-    "audible_worse": 0.019383672615652346,
-    "tie": 1.8100790089092434e-06
+    "none": 0.9768256873904289,
+    "silent_worse": 0.002957979596351177,
+    "audible_worse": 0.020211911625371042,
+    "tie": 3.5930892313595426e-06
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.06691174221018659,
-    "audible_worse": 0.9328389205752889,
-    "tie": 8.711002204316077e-05
+    "silent_worse": 0.1276404459621172,
+    "audible_worse": 0.8721687657317347,
+    "tie": 0.00015504620533493506
    },
    "median_OAV_when_smelled": {
-    "silent": 1.2480329845647598,
-    "audible": 17.701726905120218
+    "silent": 1.8178146016834216,
+    "audible": 14.569359072839612
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.9813495816623988,
-    "audible_worse": 0.01737283415182203,
-    "tie": 0.0012775841857790389
+    "silent_worse": 0.9821923137362275,
+    "audible_worse": 0.016614606828754205,
+    "tie": 0.0011930794350181078
    }
   },
   "bystander | distracted | elevator": {
    "a_detection": {
-    "silent_smelled": 0.07781019618701364,
-    "audible_smelled": 0.06605243223989803
+    "silent_smelled": 0.08171774518381976,
+    "audible_smelled": 0.07048618487101033
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.6031846136784818,
-    "audible_stronger": 0.29204971821559217,
-    "tie": 0.10476566810592593,
-    "pair_mass_both": 0.009147305769219882
+    "silent_stronger": 0.5988752031004598,
+    "audible_stronger": 0.29613845794779436,
+    "tie": 0.1049863389517457,
+    "pair_mass_both": 0.009326180279167904
    },
    "c_combined": {
-    "none": 0.8612769242843042,
-    "silent_worse": 0.0741804045143996,
-    "audible_worse": 0.05957659454301067,
-    "tie": 0.0009583236002815116
+    "none": 0.8535560420394387,
+    "silent_worse": 0.07797678301349002,
+    "audible_worse": 0.06392184523825833,
+    "tie": 0.0009791215239138079
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.5347373112345611,
-    "audible_worse": 0.42946419862481394,
-    "tie": 0.006908177282960015
+    "silent_worse": 0.532468420680694,
+    "audible_worse": 0.436493564695056,
+    "tie": 0.0066859810233857115
    },
    "median_OAV_when_smelled": {
-    "silent": 10.15001168077484,
+    "silent": 10.327008389545826,
     "audible": 19.006761860883035
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.9533506937331196,
-    "audible_worse": 0.0343331363143175,
-    "tie": 0.01231616995256277
+    "silent_worse": 0.9542209325292244,
+    "audible_worse": 0.03379731832055937,
+    "tie": 0.011981749150216096
    }
   },
   "bystander | distracted | standing": {
    "a_detection": {
-    "silent_smelled": 0.00019459653800630344,
-    "audible_smelled": 3.277931026937474e-05
+    "silent_smelled": 0.0024554398141138868,
+    "audible_smelled": 0.0046865118755243
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.7149250018758685,
-    "audible_stronger": 0.1885181282136842,
-    "tie": 0.09655686991044733,
-    "pair_mass_both": 1.2651026927865355e-08
+    "silent_stronger": 0.35953325538156006,
+    "audible_stronger": 0.5237188737537977,
+    "tie": 0.11674787086464229,
+    "pair_mass_both": 1.1555701250891064e-05
    },
    "c_combined": {
-    "none": 0.9997726305304646,
-    "silent_worse": 0.00019459293151482567,
-    "audible_worse": 3.2769044190363294e-05,
-    "tie": 1.2215435613074612e-09
+    "none": 0.9928695557582103,
+    "silent_worse": 0.002448038771751946,
+    "audible_worse": 0.004681008113117962,
+    "tie": 1.3491035173894152e-06
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.8558445947578691,
-    "audible_worse": 0.14412244641870492,
-    "tie": 5.372504777372232e-06
+    "silent_worse": 0.34332205522408193,
+    "audible_worse": 0.6564819742483652,
+    "tie": 0.00018920329107724796
    },
    "median_OAV_when_smelled": {
-    "silent": 0.2670484184667433,
-    "audible": 0.08439009760009673
+    "silent": 1.7420862346945283,
+    "audible": 2.324098989610969
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.9999814668261076,
-    "audible_worse": 1.2255859949290765e-05,
-    "tie": 6.277313943107726e-06
+    "silent_worse": 0.9969858587779673,
+    "audible_worse": 0.0024647066524560806,
+    "tie": 0.0005494345695768058
    }
   },
   "bystander | distracted | day (central weights)": {
    "a_detection": {
-    "silent_smelled": 0.001496815575023258,
-    "audible_smelled": 0.014566898359012462
+    "silent_smelled": 0.0032780892707109494,
+    "audible_smelled": 0.016419460809475733
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.4557126566597337,
-    "audible_stronger": 0.4542973415150507,
-    "tie": 0.08999000182521553,
-    "pair_mass_both": 7.050205776957845e-05
+    "silent_stronger": 0.3735177832214154,
+    "audible_stronger": 0.5429305261544961,
+    "tie": 0.08355169062408845,
+    "pair_mass_both": 9.710320726245082e-05
    },
    "c_combined": {
-    "none": 0.9839580900263079,
-    "silent_worse": 0.0014584421972998322,
-    "audible_worse": 0.014528425198658941,
-    "tie": 6.344480307365816e-06
+    "none": 0.9803562743781237,
+    "silent_worse": 0.003217255838168859,
+    "audible_worse": 0.016375077897623574,
+    "tie": 8.11313713179903e-06
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.09091449831669654,
-    "audible_worse": 0.9056543280996316,
-    "tie": 0.0003954940725743017
+    "silent_worse": 0.16378032864529254,
+    "audible_worse": 0.8336034728253071,
+    "tie": 0.0004130141750078099
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.9743633228009203,
-    "audible_worse": 0.021398025214671046,
-    "tie": 0.004238651984408455
+    "silent_worse": 0.9814424112590147,
+    "audible_worse": 0.01608262956147548,
+    "tie": 0.0024749591795099157
    }
   },
   "bystander | distracted | equal per scene": {
    "a_detection": {
-    "silent_smelled": 0.026473863650583105,
-    "audible_smelled": 0.0284917042996225
+    "silent_smelled": 0.02906159812982616,
+    "audible_smelled": 0.0317987685249464
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.60163924155473,
-    "audible_stronger": 0.29374994309183877,
-    "tie": 0.10461081535343125,
-    "pair_mass_both": 0.003059386984638039
+    "silent_stronger": 0.59550984761306,
+    "audible_stronger": 0.299796618788705,
+    "tie": 0.10469353359823483,
+    "pair_mass_both": 0.0031331566297715403
    },
    "c_combined": {
-    "none": 0.9457887175445954,
-    "silent_worse": 0.02525512393100511,
-    "audible_worse": 0.02633101206761779,
-    "tie": 0.0003200449669446607
+    "none": 0.9400637563771229,
+    "silent_worse": 0.027794267127197715,
+    "audible_worse": 0.029604921658915782,
+    "tie": 0.00032802123888751893
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.4658647201674397,
-    "audible_worse": 0.4857109235384396,
-    "tie": 0.0059036597632224725
+    "silent_worse": 0.4637305484488006,
+    "audible_worse": 0.49394022496958534,
+    "tie": 0.005472836118183362
    },
    "e_remembered": {
     "none": 0.0,
-    "silent_worse": 0.9539644180515695,
-    "audible_worse": 0.0339464901872584,
-    "tie": 0.012089091761172212
+    "silent_worse": 0.9563915584763463,
+    "audible_worse": 0.03232133895544102,
+    "tie": 0.011287102568212448
    }
   },
   "releaser | distracted | sofa": {
    "a_detection": {
-    "silent_smelled": 0.013665602771693435,
+    "silent_smelled": 0.014175983517579439,
     "audible_smelled": 0.039551295774285365
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.45067116435847115,
-    "audible_stronger": 0.45547308767812095,
-    "tie": 0.09385574796340779,
-    "pair_mass_both": 0.0005722756351264344
+    "silent_stronger": 0.43660865451470104,
+    "audible_stronger": 0.4713067246132241,
+    "tie": 0.09208462087207503,
+    "pair_mass_both": 0.0005939069085776858
    },
    "c_combined": {
-    "none": 0.9473235937511783,
-    "silent_worse": 0.013351235263383415,
-    "audible_worse": 0.039239676289692924,
-    "tie": 5.3711357776025746e-05
+    "none": 0.9468333992251303,
+    "silent_worse": 0.013841381505262842,
+    "audible_worse": 0.0392373011855146,
+    "tie": 5.468969250968232e-05
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.2534575954236068,
-    "audible_worse": 0.7449193877110898,
-    "tie": 0.0010196473450051872
+    "silent_worse": 0.260339786699421,
+    "audible_worse": 0.7380065795754417,
+    "tie": 0.0010286475289488992
    },
    "median_OAV_when_smelled": {
-    "silent": 16.307127458197133,
+    "silent": 15.156962337767663,
     "audible": 18.09370544122053
    }
   },
   "releaser | distracted | elevator": {
    "a_detection": {
-    "silent_smelled": 0.021972967985100525,
-    "audible_smelled": 0.032817294433391916
+    "silent_smelled": 0.023689484884834796,
+    "audible_smelled": 0.0366128613515142
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.3610710353571871,
-    "audible_stronger": 0.5260494186479578,
-    "tie": 0.11287954599485507,
-    "pair_mass_both": 0.0007210933599425382
+    "silent_stronger": 0.36188763405451874,
+    "audible_stronger": 0.5237405491398903,
+    "tie": 0.1143718168055909,
+    "pair_mass_both": 0.0008673398255772478
    },
    "c_combined": {
-    "none": 0.9459308309414501,
-    "silent_worse": 0.021512240551221633,
-    "audible_worse": 0.03247553181623805,
-    "tie": 8.139669109021833e-05
+    "none": 0.9405649935892283,
+    "silent_worse": 0.02313602461665696,
+    "audible_worse": 0.036199782562475684,
+    "tie": 9.919923163911415e-05
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.3978651961143823,
-    "audible_worse": 0.6006293860567986,
-    "tie": 0.0015054178288199016
+    "silent_worse": 0.38926595644253015,
+    "audible_worse": 0.6090650064423146,
+    "tie": 0.0016690371151560231
    },
    "median_OAV_when_smelled": {
-    "silent": 9.695182636128136,
-    "audible": 13.469162283062682
+    "silent": 10.469531030491089,
+    "audible": 14.649305273642348
    }
   },
   "releaser | distracted | standing": {
    "a_detection": {
-    "silent_smelled": 0.004871758753312817,
-    "audible_smelled": 0.03516024893820681
+    "silent_smelled": 0.0056359116509226885,
+    "audible_smelled": 0.03583001748927421
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.1945059067471442,
-    "audible_stronger": 0.7203666597125887,
-    "tie": 0.08512743354026697,
-    "pair_mass_both": 0.0002476077287353588
+    "silent_stronger": 0.19115176773946208,
+    "audible_stronger": 0.7252572014177497,
+    "tie": 0.08359103084278813,
+    "pair_mass_both": 0.0002636724928021279
    },
    "c_combined": {
-    "none": 0.9601392845590138,
-    "silent_worse": 0.00467231219037273,
-    "audible_worse": 0.03509100956193956,
-    "tie": 2.1078210471975708e-05
+    "none": 0.9587360056728237,
+    "silent_worse": 0.005422640621223958,
+    "audible_worse": 0.0357575753706926,
+    "tie": 2.2040655478217503e-05
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.11721596410606541,
-    "audible_worse": 0.8803406856530654,
-    "tie": 0.0005287965918018201
+    "silent_worse": 0.1314133716243904,
+    "audible_worse": 0.866556327222612,
+    "tie": 0.0005341377110383522
    },
    "median_OAV_when_smelled": {
-    "silent": 5.404494939437018,
-    "audible": 14.530977176008905
+    "silent": 4.943338311938505,
+    "audible": 14.610044492827766
    }
   },
   "releaser | distracted | day (central weights)": {
    "a_detection": {
-    "silent_smelled": 0.011407043422449331,
-    "audible_smelled": 0.03836655052221823
+    "silent_smelled": 0.011990171517759636,
+    "audible_smelled": 0.038561754681754844
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.41595723436889814,
-    "audible_stronger": 0.49119905265500724,
-    "tie": 0.09284371297609448,
-    "pair_mass_both": 0.00048806318698644657
+    "silent_stronger": 0.4026488786138075,
+    "audible_stronger": 0.5062196661686844,
+    "tie": 0.0911314552175083,
+    "pair_mass_both": 0.0005088896945893176
    },
    "c_combined": {
-    "none": 0.9506640549631089,
-    "silent_worse": 0.011121993648919038,
-    "audible_worse": 0.03811822351031532,
-    "tie": 4.5313598446767576e-05
+    "none": 0.9499104358531456,
+    "silent_worse": 0.011686185688034827,
+    "audible_worse": 0.03831047495847722,
+    "tie": 4.637585841311787e-05
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.2254338827522719,
-    "audible_worse": 0.772625790016028,
-    "tie": 0.0009184702636765993
+    "silent_worse": 0.23330579706728624,
+    "audible_worse": 0.7648394553036474,
+    "tie": 0.0009258586933827465
    }
   },
   "releaser | distracted | equal per scene": {
    "a_detection": {
-    "silent_smelled": 0.013503443170035594,
-    "audible_smelled": 0.03584294638196136
+    "silent_smelled": 0.014500460017778974,
+    "audible_smelled": 0.037331391538357926
    },
    "b_intensity_when_both_smelled": {
-    "silent_stronger": 0.36758194327356686,
-    "audible_stronger": 0.5310626910511941,
-    "tie": 0.101355365675239,
-    "pair_mass_both": 0.0005136589079347771
+    "silent_stronger": 0.36151601015194573,
+    "audible_stronger": 0.5364910519309715,
+    "tie": 0.10199293791708276,
+    "pair_mass_both": 0.0005749730756523538
    },
    "c_combined": {
-    "none": 0.9511376136375185,
-    "silent_worse": 0.013178596001659259,
-    "audible_worse": 0.03560207255595685,
-    "tie": 5.2062086446073265e-05
+    "none": 0.9487094707942731,
+    "silent_worse": 0.014133348914381252,
+    "audible_worse": 0.03706488637289429,
+    "tie": 5.864319320900466e-05
    },
    "d_among_any_smelled": {
-    "silent_worse": 0.26970839909240096,
-    "audible_worse": 0.7286191937464096,
-    "tie": 0.0010654839094401782
+    "silent_worse": 0.27555474925384843,
+    "audible_worse": 0.7226458168178893,
+    "tie": 0.0011433532489748
    }
   }
  }

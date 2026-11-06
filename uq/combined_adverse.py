@@ -2,14 +2,15 @@
 
 The robustness analyses of the ESM vary one factor at a time. Here the factors that can raise silent doses relative to
 audible ones are applied together, as (silent, audible) multipliers on the OAV of physically silent / audible passages
-(four_outcomes_v4.compute gain hook), under every scene weighting (central, home, office, equal per scene):
+(four_outcomes_v4.compute gain hook: on the CFD dose, below the well-mixed floor of the 600-s window), under every
+scene weighting (central, home, office, equal per scene):
   * mesh: the 1.5x refinement factor of the median silent dose, 3.0 at the releaser's nose (0.55 at the neighbour;
     the larger one is applied to every silent dose, as in the ESM mesh bullet);
   * LES: the class peak factors, median 2.2 silent / 1.3 audible, and the adverse pairing 6.6 / 0.27
     (uq/les_peak_factor.json, 60 s windows, releases with RANS OAV >= 0.01);
   * combined: mesh x LES, central (6.6 / 1.3) and extreme (19.8 / 0.27).
 The boundary-layer speed bias has no factor of its own and is not applied.
-Headline key as in uq/peak_breakeven.py: bystanders, bare, 600 s (the same shares as 150 s).
+Headline key as in uq/peak_breakeven.py: bystanders, bare, 600 s.
 Usage (repo root): python3 uq/combined_adverse.py -> uq/combined_adverse.json
 """
 import json

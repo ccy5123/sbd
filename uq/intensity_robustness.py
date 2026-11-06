@@ -8,9 +8,11 @@ proportion to its weight times its both-smelled pair mass; that mass ('pair_mass
 silent-audible pair is smelled twice) and each scene's share of it ('both_mass_share_by_scene') are reported with
 every result, and per scene the Kish effective number of passages behind it (weights p, silent and audible passages
 separately; row values averaged with weights = the row's both-smelled mass), to show how few passages carry it.
-Weightings: sofa, lift (elevator), standing, day averages with the central, home-centred and office-centred frequency
-weights, and equal weight per scene. Bystanders (the neighbour's nose; every non-releaser nose of the lift) and the
-releaser; both observers (attentive, Amoore thresholds; distracted); bare, 600 s unless stated.
+Each result also has the detection shares pi_s, pi_l and the remembered silent-worse share of the same rows.
+Weightings: sofa, lift (elevator) and each lift bystander nose (behind, beside, diagonal behind), standing, day averages
+with the central, home-centred and office-centred frequency weights, and equal weight per scene. Bystanders (the
+neighbour's nose; every non-releaser nose of the lift) and the releaser; both observers (attentive, Amoore thresholds;
+distracted); bare, 600 s unless stated. Doses of the 600-s window carry the well-mixed floor (analyze_multi.WM_FLOOR).
 Variants (each one factor or one documented combination; everything else as the headline):
   * gains (four_outcomes_v4.compute gain hook, (silent, audible) multipliers on the OAV): mesh 3.0 on silent doses, LES
     class peak factors (median 2.2 / 1.3, adverse pairing 6.6 / 0.27) and their products, as in uq/combined_adverse.py;
@@ -25,7 +27,15 @@ Variants (each one factor or one documented combination; everything else as the 
     model) and by truncation of the uncapped stream;
   * clothing: per-passage clothed shares 0.70 and 0.85, and all trousers. Only sofa upright and the standing pair
     (still air, ventilated) have trousers runs, so these aggregates contain the sofa (upright only) and standing
-    scenes and no lift; 'bare, same scenes' is the like-for-like bare comparison (the same three cases, bare).
+    scenes and no lift; 'bare, same scenes' is the like-for-like bare comparison (the same three cases, bare);
+  * window and floor: the 150-s window (no floor, the CFD alone), the floor off in the lift only (a shared ride lasts
+    about 24 s, ESM scene weights, so the car never reaches its room level in company), and the floor x 0.83 and
+    x 0.89, the ratios of the neighbour's actual 600-s level to it in the reference runs (uq/wm_floor_check.json);
+  * television on the sofa: hearing at the sofa's bystander nose against a background of 50, 55, 60 and 65 dB(A) instead of
+    the 35 dB(A) living room, same masking model (acoustics/regime.classify), speech-shaped spectrum -3 dB/octave as
+    the restaurant babble of params bg_slope; a masked passage counts as not heard, the route does not change. The
+    day averages keep the living room in the other scenes. Hearing shares of the oscillating passages at 0.6 m and at
+    the nose (0.995 m) are under 'tv_hearing'.
 The default run is checked against uq/comparison_criteria.json (every (b) entry there, to 1e-12) and against the
 rounded headline numbers. No module default is changed (every switch is restored in a finally block).
 Usage (repo root): python3 uq/intensity_robustness.py -> uq/intensity_robustness.json
@@ -43,8 +53,10 @@ sys.path.insert(0, str(ROOT / "uq"))
 import four_outcomes_v4 as fv  # noqa: E402
 
 fo, rh, am = fv.fo, fv.rh, fv.am
+TV = {f"tv{la}": (float(la), -3.0) for la in (50, 55, 60, 65)}  # dB(A), speech-shaped slope dB/octave
 ATT, DIS = rh.OBS
 GROUPS = {"bystander": lambda r: r["nose"] != "culprit", "releaser": lambda r: r["nose"] == "culprit"}
+LIFT_NOSES = ("behind", "beside", "diagonal behind")
 SAME_SCENE_CASES = ("sofa_v4_multi", "stand_still_v4_multi", "stand_vent_v4_multi")  # bare cases with a trousers twin
 B_KEYS = ("both", "both_s_gt", "both_l_gt", "both_tie")
 
@@ -56,19 +68,24 @@ def weightings():
             "day, office": f["frequency, office"], "equal per scene": {sc: 1.0 for sc in fo.SCENES}}
 
 
-def criterion_b(out, group, obs, weights, cloth="bare", win=600, cases=None):
-    """(b) shares, both-smelled pair mass and each scene's share of it, for one group, observer and weighting."""
-    rows = [r for r in out["rows"] if GROUPS[group](r) and r["clothing"] == cloth and r["window_s"] == win
-            and (cases is None or r["case"] in cases) and r["by_observer"][obs]["terms"] is not None]
-    tot, W, contrib, ess = dict.fromkeys(B_KEYS, 0.0), 0.0, {}, {}
+def criterion_b(out, group, obs, weights, cloth="bare", win=600, cases=None, nose=None):
+    """(b) shares, both-smelled pair mass and each scene's share of it, detection and remembered share, for one group,
+    observer and weighting. win: seconds, or a dict scene -> seconds (default 600); nose: keep only that nose role."""
+    win_of = (lambda sc: win.get(sc, 600)) if isinstance(win, dict) else (lambda sc: win)  # noqa: E731
+    rows = [r for r in out["rows"] if GROUPS[group](r) and r["clothing"] == cloth
+            and r["window_s"] == win_of(fo.scene_of(r)) and (cases is None or r["case"] in cases)
+            and (nose is None or r["nose"] == nose) and r["by_observer"][obs]["terms"] is not None]
+    tot, W, contrib, ess = dict.fromkeys(B_KEYS + ("pi_s", "pi_l", "mem_s", "mem_t"), 0.0), 0.0, {}, {}
     for sc, w in weights.items():
         g = [r for r in rows if fo.scene_of(r) == sc]
         if not g or w == 0:
             continue
         W += w
-        m = {k: float(np.mean([r["by_observer"][obs]["terms"][k] for r in g])) for k in B_KEYS}
-        for k in B_KEYS:
-            tot[k] += w * m[k]
+        m = {k: float(np.mean([r["by_observer"][obs]["terms"][k] for r in g])) for k in (*B_KEYS, "pi_s", "pi_l")}
+        m["mem_s"] = float(np.mean([r["by_observer"][obs]["memory_mass"]["silent_worse"] for r in g]))
+        m["mem_t"] = float(np.mean([r["by_observer"][obs]["memory_mass"]["_total"] for r in g]))
+        for k, v in m.items():
+            tot[k] += w * v
         contrib[sc] = w * m["both"]
         if "ess" in g[0]["by_observer"][obs]:
             b = np.array([r["by_observer"][obs]["terms"]["both"] for r in g])
@@ -77,14 +94,20 @@ def criterion_b(out, group, obs, weights, cloth="bare", win=600, cases=None):
     if W == 0 or tot["both"] <= 0:
         return None
     return {"silent_stronger": tot["both_s_gt"] / tot["both"], "audible_stronger": tot["both_l_gt"] / tot["both"],
-            "tie": tot["both_tie"] / tot["both"], "pair_mass_both": tot["both"] / W,
+            "tie": tot["both_tie"] / tot["both"], "pair_mass_both": tot["both"] / W, "pi_s": tot["pi_s"] / W,
+            "pi_l": tot["pi_l"] / W, "remembered_silent_worse": tot["mem_s"] / tot["mem_t"],
             "both_mass_share_by_scene": {sc: c / tot["both"] for sc, c in contrib.items()},
             **({"kish_effective_passages": ess[next(iter(ess))]} if len(contrib) == 1 and ess else {})}
 
 
 def summarise(out, cloth="bare", win=600, cases=None):
-    return {grp: {obs: {name: criterion_b(out, grp, obs, w, cloth, win, cases) for name, w in weightings().items()}
-                  for obs in rh.OBS} for grp in GROUPS}
+    res = {grp: {obs: {name: criterion_b(out, grp, obs, w, cloth, win, cases) for name, w in weightings().items()}
+                 for obs in rh.OBS} for grp in GROUPS}
+    for obs in rh.OBS:
+        for role in LIFT_NOSES:
+            res["bystander"][obs][f"lift, {role}"] = criterion_b(out, "bystander", obs, {"elevator": 1.0}, cloth, win, cases,
+                                                                 role)
+    return res
 
 
 def _kish(p):
@@ -93,24 +116,26 @@ def _kish(p):
 
 
 @contextmanager
-def switches(interp=None, jnd=None):
-    """Temporarily set the interpolation rule and the just-noticeable ratio (restored afterwards)."""
-    old = am.INTERP, rh.JND, am.nose_oav
+def switches(interp=None, jnd=None, wm_scale=None):
+    """Temporarily set the interpolation rule, the just-noticeable ratio and the floor's scale (restored afterwards)."""
+    old = am.INTERP, rh.JND, am.nose_oav, am.WM_SCALE
     try:
         if interp == "adverse bracket":
             f, pick = am.nose_oav, {"silent": np.maximum, "audible": np.minimum}
-            am.nose_oav = lambda res, nose, win, V, M0, cls: pick[cls](f(res, nose, win, V, M0, cls, rule="lower"),
-                                                                       f(res, nose, win, V, M0, cls, rule="upper"))
+            am.nose_oav = lambda res, nose, win, V, M0, cls, **kw: pick[cls](f(res, nose, win, V, M0, cls, rule="lower", **kw),
+                                                                             f(res, nose, win, V, M0, cls, rule="upper", **kw))
         elif interp is not None:
             am.INTERP = interp
         if jnd is not None:
             rh.JND = jnd
+        if wm_scale is not None:
+            am.WM_SCALE = wm_scale
         yield
     finally:
-        am.INTERP, rh.JND, am.nose_oav = old
+        am.INTERP, rh.JND, am.nose_oav, am.WM_SCALE = old
 
 
-def run(sim, interp=None, jnd=None, **kw):
+def run(sim, interp=None, jnd=None, wm_scale=None, **kw):
     """four_outcomes_v4.compute with the Kish effective numbers of every pair_terms call attached to its row."""
     calls, orig = [], fv.pair_terms
 
@@ -120,7 +145,7 @@ def run(sim, interp=None, jnd=None, **kw):
 
     fv.pair_terms = capture
     try:
-        with switches(interp, jnd):
+        with switches(interp, jnd, wm_scale):
             out = fv.compute(sim=sim, **kw)
     finally:
         fv.pair_terms = orig
@@ -145,15 +170,13 @@ def check_headline(s):
         for a, b in (("silent_stronger", "silent_stronger"), ("audible_stronger", "audible_stronger"), ("tie", "tie"),
                      ("pair_mass_both", "pair_mass_both")):
             dev, n = max(dev, abs(mine[a] - theirs[b])), n + 1
-    rounded = {("bystander", "sofa"): (29.5, 58.9, 11.6), ("bystander", "lift"): (53.7, 34.6, 11.8),
-               ("bystander", "day, central"): (47.7, 40.6, 11.8), ("bystander", "equal per scene"): (53.6, 34.6, 11.8),
-               ("releaser", "day, central"): (43.8, 45.3, 10.9)}
+    rounded = {("bystander", "sofa"): (27.4, 60.9, 11.6), ("bystander", "lift"): (53.1, 35.0, 11.8),
+               ("bystander", "standing"): (36.3, 49.9, 13.7), ("bystander", "day, central"): (43.1, 45.0, 11.8),
+               ("bystander", "equal per scene"): (53.0, 35.2, 11.8), ("releaser", "day, central"): (42.6, 46.6, 10.8)}
     for (grp, w), v in rounded.items():
         x = s[grp][ATT][w]
         got = tuple(100 * x[k] for k in ("silent_stronger", "audible_stronger", "tie"))
-        assert all(abs(a - b) <= 0.06 for a, b in zip(got, v)), (grp, w, got, v)  # lift silent is 53.645
-    x = s["bystander"][ATT]["standing"]
-    assert (round(100 * x["silent_stronger"]), round(100 * x["audible_stronger"]), round(100 * x["tie"])) == (73, 14, 12)
+        assert all(abs(a - b) <= 0.06 for a, b in zip(got, v)), (grp, w, got, v)
     print(f"headline (b) vs uq/comparison_criteria.json: {n} values, max |difference| {dev:.1e}")
     if dev > 1e-12:
         raise SystemExit("headline (b) differs from uq/comparison_criteria.json")
@@ -165,8 +188,8 @@ def line(name, s):
         return "      -        " if x is None else (f"{100 * x['silent_stronger']:4.1f}/{100 * x['audible_stronger']:4.1f}/"
                                                     f"{100 * x['tie']:4.1f} {x['pair_mass_both']:.1e}")
     b, d = s["bystander"][ATT], s["bystander"][DIS]
-    print(f"{name[:40]:40s} " + " | ".join(f(b[w]) for w in ("sofa", "lift", "day, central", "day, home", "day, office",
-                                                              "equal per scene"))
+    print(f"{name[:40]:40s} " + " | ".join(f(b[w]) for w in ("sofa", "lift", "lift, behind", "standing", "day, central",
+                                                              "day, home", "day, office", "equal per scene"))
           + f" || dis day {f(d['day, central'])} || rel day {f(s['releaser'][ATT]['day, central'])}")
 
 
@@ -181,7 +204,7 @@ def main():
     import pressure_cap as pc
     import tail_sensitivity as ts
     g0 = fv.rs.g0
-    sim = fv.passages()
+    sim = fv.passages(backgrounds=TV)
     res = {"criterion": "(b) intensity when both are smelled: silent stronger / audible stronger / tie (JND)",
            "observers": list(rh.OBS), "JND_headline": rh.JND, "window_s": 600, "n_events": int(sim["V"].size),
            "weightings": weightings(), "families": {}}
@@ -191,8 +214,8 @@ def main():
         fam.setdefault(family, {})[name] = {**extra, "directions_attentive_bystander": directions(s), "b": s}
         line(f"{family[:7]}: {name}", s)
 
-    print("attentive bystander: silent/audible/tie (%) both-smelled mass  [sofa | lift | day central | day home | "
-          "day office | equal]  || distracted day || releaser day")
+    print("attentive bystander: silent/audible/tie (%) both-smelled mass  [sofa | lift | lift behind | standing | "
+          "day central | day home | day office | equal]  || distracted day || releaser day")
     base_out = run(sim)
     base = summarise(base_out)
     res["headline_max_abs_deviation_from_comparison_criteria_json"] = check_headline(base)
@@ -228,6 +251,28 @@ def main():
         summarise(base_out, cases=SAME_SCENE_CASES), scenes="sofa upright; standing still air and ventilated")
     for cloth in ("mixed 0.70", "mixed 0.85", "trousers"):
         add("clothing", cloth, summarise(base_out, cloth=cloth), scenes="sofa upright; standing still air and ventilated")
+    # window and floor
+    add("window", "150 s (no floor)", summarise(base_out, win=150))
+    add("window", "no floor in the lift (150 s there, 600 s elsewhere)", summarise(base_out, win={"elevator": 150}))
+    for k in (0.83, 0.89):
+        add("window", f"floor x {k:g}", summarise(run(sim, wm_scale=k)))
+    # television on the sofa
+    add("television", "35 dB(A) (headline)", base)
+    osc = sim["osc"].astype(bool)
+    d = fo.nose_distances()["sofa, upright", "beside"]
+    sim06 = fv.rs.simulate(distances=(0.6,), backgrounds=TV)
+    res["tv_hearing"] = {"spectrum_slope_dB_per_octave": TV["tv60"][1], "share_oscillating": float(osc.mean())}
+    for label, s, r in (("0.6 m", sim06, 0.6), ("nose 0.995 m", sim, d)):
+        h35 = s[f"heard_living@{r:.3f}"].astype(bool)
+        res["tv_hearing"][label] = {"heard_of_oscillating_35dB": float(h35[osc].mean())}
+        for name in TV:
+            h = s[f"heard_{name}@{r:.3f}"].astype(bool)
+            res["tv_hearing"][label][name] = {"heard_of_oscillating": float(h[osc].mean()),
+                                              "masked_of_oscillating": float((h35 & ~h)[osc].mean()),
+                                              "masked_of_heard_35dB": float((h35 & ~h).sum() / h35.sum())}
+    for name in TV:
+        add("television", f"sofa background {TV[name][0]:g} dB(A)", summarise(run(sim, heard_bg={"sofa": name})))
+    print(json.dumps(res["tv_hearing"], indent=1))
     (ROOT / "uq/intensity_robustness.json").write_text(json.dumps(res, indent=1))
     print("wrote uq/intensity_robustness.json")
 

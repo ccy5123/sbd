@@ -6,16 +6,16 @@
    "R_median": 0.9070892215636442,
    "P_R_gt_1": 0.4582,
    "headline attentive,": {
-    "none": 0.9635942120345745,
-    "silent_worse": 0.005224019739504325,
-    "audible_worse": 0.031067668889988225,
-    "memory_silent_worse": 0.9089819986850944
+    "none": 0.9461049986130772,
+    "silent_worse": 0.012353725111380824,
+    "audible_worse": 0.041390717618167205,
+    "memory_silent_worse": 0.9439719570180771
    },
    "headline distracted": {
-    "none": 0.9920266342000292,
-    "silent_worse": 0.0014565228522966898,
-    "audible_worse": 0.0065098915806180895,
-    "memory_silent_worse": 0.9780195242530746
+    "none": 0.9880599684843969,
+    "silent_worse": 0.0032050826781533995,
+    "audible_worse": 0.008726476238169184,
+    "memory_silent_worse": 0.9866359556133458
    }
   },
   "P_th fixed low (0.6 kPa)": {
@@ -23,16 +23,16 @@
    "R_median": 0.8844204809578314,
    "P_R_gt_1": 0.4524,
    "headline attentive,": {
-    "none": 0.9680744739412266,
-    "silent_worse": 0.004704362211347845,
-    "audible_worse": 0.02711600089428204,
-    "memory_silent_worse": 0.9102549602109753
+    "none": 0.9511407432678562,
+    "silent_worse": 0.01178401665340873,
+    "audible_worse": 0.03693677747250695,
+    "memory_silent_worse": 0.9478296666597653
    },
    "headline distracted": {
-    "none": 0.9929018955119113,
-    "silent_worse": 0.0013446070062872325,
-    "audible_worse": 0.005746890011289475,
-    "memory_silent_worse": 0.9783222800154854
+    "none": 0.9890303320750914,
+    "silent_worse": 0.0030851109181607678,
+    "audible_worse": 0.007876541153245502,
+    "memory_silent_worse": 0.9874064885116924
    }
   },
   "P_th fixed high (2.5 kPa)": {
@@ -40,16 +40,16 @@
    "R_median": 0.9022551049941037,
    "P_R_gt_1": 0.4602,
    "headline attentive,": {
-    "none": 0.9567482240880054,
-    "silent_worse": 0.005689289551588072,
-    "audible_worse": 0.03743543727824416,
-    "memory_silent_worse": 0.9030678721629039
+    "none": 0.9385665670059316,
+    "silent_worse": 0.012873721861176064,
+    "audible_worse": 0.04839090535100423,
+    "memory_silent_worse": 0.9375168523067832
    },
    "headline distracted": {
-    "none": 0.9906952830533384,
-    "silent_worse": 0.0015619499616161905,
-    "audible_worse": 0.0077352137093227346,
-    "memory_silent_worse": 0.9767509331757094
+    "none": 0.9866019099528525,
+    "silent_worse": 0.0033208277273335143,
+    "audible_worse": 0.01006799849017381,
+    "memory_silent_worse": 0.9852927042501709
    }
   },
   "T upper bound 5 s (was 20)": {
@@ -57,16 +57,16 @@
    "R_median": 0.8153876638294455,
    "P_R_gt_1": 0.4186,
    "headline attentive,": {
-    "none": 0.9634083250393201,
-    "silent_worse": 0.006402230958531077,
-    "audible_worse": 0.030067883193315856,
-    "memory_silent_worse": 0.9177024713731963
+    "none": 0.9480026114110626,
+    "silent_worse": 0.01222398383696125,
+    "audible_worse": 0.03962555802274228,
+    "memory_silent_worse": 0.9441035737564892
    },
    "headline distracted": {
-    "none": 0.9920286625657838,
-    "silent_worse": 0.0016548692314289678,
-    "audible_worse": 0.0063099188606930996,
-    "memory_silent_worse": 0.9804100722446834
+    "none": 0.9884789420682732,
+    "silent_worse": 0.0031151624305301513,
+    "audible_worse": 0.008398208008634596,
+    "memory_silent_worse": 0.9869685728200845
    }
   },
   "T lower bound 1 s (was 0.3)": {
@@ -74,16 +74,16 @@
    "R_median": 0.8111661561189916,
    "P_R_gt_1": 0.418,
    "headline attentive,": {
-    "none": 0.9671618756304312,
-    "silent_worse": 0.004439090990609933,
-    "audible_worse": 0.02826635004097512,
-    "memory_silent_worse": 0.8805836588874508
+    "none": 0.9425968894425925,
+    "silent_worse": 0.0121784508992335,
+    "audible_worse": 0.04504187758878754,
+    "memory_silent_worse": 0.9335591509896194
    },
    "headline distracted": {
-    "none": 0.9926867135859703,
-    "silent_worse": 0.0013232332016779335,
-    "audible_worse": 0.005980591310872623,
-    "memory_silent_worse": 0.9681964908480853
+    "none": 0.9873935969051579,
+    "silent_worse": 0.0032173358778456005,
+    "audible_worse": 0.009377556758130392,
+    "memory_silent_worse": 0.9826327522580997
    }
   },
   "d upper bound 4 mm (was 8)": {
@@ -91,16 +91,16 @@
    "R_median": 0.8325377464984609,
    "P_R_gt_1": 0.4198,
    "headline attentive,": {
-    "none": 0.9639810944556926,
-    "silent_worse": 0.004643528422880652,
-    "audible_worse": 0.03126745661853242,
-    "memory_silent_worse": 0.9019964902063387
+    "none": 0.9475545002333717,
+    "silent_worse": 0.010941324683898907,
+    "audible_worse": 0.04136457333756616,
+    "memory_silent_worse": 0.9405740219115758
    },
    "headline distracted": {
-    "none": 0.9921361116472669,
-    "silent_worse": 0.0013246581483586039,
-    "audible_worse": 0.006532794823952055,
-    "memory_silent_worse": 0.9768335941299233
+    "none": 0.9883774217907813,
+    "silent_worse": 0.002903561387241449,
+    "audible_worse": 0.008711245166916024,
+    "memory_silent_worse": 0.9860309362538661
    }
   },
   "d lower bound 2 mm (was 1)": {
@@ -108,16 +108,16 @@
    "R_median": 0.7045454163238553,
    "P_R_gt_1": 0.3584,
    "headline attentive,": {
-    "none": 0.9284093822993488,
-    "silent_worse": 0.005368009052529188,
-    "audible_worse": 0.06607454652896048,
-    "memory_silent_worse": 0.8678661240886969
+    "none": 0.9091215484810662,
+    "silent_worse": 0.012781138275285158,
+    "audible_worse": 0.07788946048856357,
+    "memory_silent_worse": 0.9094558061708876
    },
    "headline distracted": {
-    "none": 0.9851941267974851,
-    "silent_worse": 0.0015388300810128051,
-    "audible_worse": 0.013258371519025682,
-    "memory_silent_worse": 0.9695735197446661
+    "none": 0.9808450755353324,
+    "silent_worse": 0.003382240130807482,
+    "audible_worse": 0.015761709190343493,
+    "memory_silent_worse": 0.9796602865410917
    }
   }
  }

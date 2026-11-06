@@ -51,8 +51,8 @@ def run(sim, rule="log-linear", jnd=None):
         if rule == "adverse bracket":
             f = am.nose_oav
             pick = {"silent": np.maximum, "audible": np.minimum}
-            am.nose_oav = lambda res, nose, win, V, M0, cls: pick[cls](f(res, nose, win, V, M0, cls, rule="lower"),
-                                                                       f(res, nose, win, V, M0, cls, rule="upper"))
+            am.nose_oav = lambda res, nose, win, V, M0, cls, **kw: pick[cls](f(res, nose, win, V, M0, cls, rule="lower", **kw),
+                                                                             f(res, nose, win, V, M0, cls, rule="upper", **kw))
         else:
             am.INTERP = rule
         if jnd is not None:

@@ -7,7 +7,9 @@ route changes:
     flux M0 = Q u0 gets OAV = m x nose_oav(result, nose, window, V, M0, class) (cfd/postprocess/analyze_multi.py:
     log-interpolated in M0 between the class's levels, held outside them; [APPROXIMATION] the route depends on M0 but
     not on V).
-Windows: 150 s from the run, 300 and 600 s from the well-mixed tail (validated on the 10-minute reference runs).
+Windows: 150 s from the run, 300 and 600 s from the well-mixed floor of analyze_multi.nose_oav (worst breath of the
+150 s run, or the room level V / V_room if that is higher; SBD_NO_WM_FLOOR=1 removes the floor; validated on the
+10-minute reference runs, cfd/postprocess/validate_tail.py).
 Scenes: sofa (three postures) and standing pair (still air, ventilated), bare; clothed variants are reported
 separately (sofa upright, standing still and ventilated); mixed clothed shares draw each passage's clothing
 independently. Elevator: the front-row layout only (culprit front left, a person behind; v4 run elev_v4_FL_multi, four
@@ -53,16 +55,20 @@ CLOTHED_SHARES = (0.7, 0.85)  # share of passages in long trousers; 1.0 is the t
 MIX_SEED = 20261029  # bystander role name from nose_distances (beside / facing)
 
 
-def passages(n=rs.N_EVENTS):
-    """The Theorem 3 passage stream with hearing at every nose distance (reusable across compute() calls)."""
-    return rs.simulate(n=n, distances=sorted(set(fo.nose_distances().values())))
+def passages(n=rs.N_EVENTS, **kw):
+    """The Theorem 3 passage stream with hearing at every nose distance (reusable across compute() calls); kw go to
+    rs.simulate (backgrounds, draw)."""
+    return rs.simulate(n=n, distances=sorted(set(fo.nose_distances().values())), **kw)
 
 
-def compute(n=rs.N_EVENTS, sim=None, detectors=None, gain=(1.0, 1.0)):
+def compute(n=rs.N_EVENTS, sim=None, detectors=None, gain=(1.0, 1.0), heard_bg=None):
     """All rows and summaries for n passages (dict as written to uq/four_outcomes_v4.json).
     Robustness hooks (defaults reproduce the headline): sim, a passages() result to reuse; detectors, observer name
     (rh.OBS) -> function OAV -> detection probability, replacing observer_ps; gain, (silent, audible) multipliers on the
-    OAV of physically silent / audible passages (e.g. a peak factor)."""
+    CFD dose of physically silent / audible passages (e.g. a peak factor), not on the well-mixed floor of the windows
+    beyond 150 s (cfd/postprocess/analyze_multi.py), since the room level is set by the released volume; heard_bg,
+    scene name (fo.SCENES) -> background of a passages(backgrounds=...) stream to use for hearing at that scene's
+    bystander noses instead of the living room (a masked passage counts as not heard; the route does not change)."""
     dists = fo.nose_distances()
     sim = passages(n) if sim is None else sim
     J = rh.JND
@@ -77,9 +83,10 @@ def compute(n=rs.N_EVENTS, sim=None, detectors=None, gain=(1.0, 1.0)):
                  {"releaser": "culprit", "neighbour": "beside" if scene.startswith("sofa") else "facing"})
         for nose, role in noses.items():
             r = dists[scene, role]
-            audible = osc if role == "culprit" else sim[f"heard_living@{r:.3f}"].astype(bool)
+            bg = (heard_bg or {}).get(scene.split(",")[0].split(" ")[0], "living")
+            audible = osc if role == "culprit" else sim[f"heard_{bg}@{r:.3f}"].astype(bool)
             for win in WINDOWS:
-                A = sim["sulfur"] * oav_of(nose, win) * np.where(osc, gain[1], gain[0])
+                A = sim["sulfur"] * oav_of(nose, win)
                 row = {"case": case, "scene": scene, "clothing": cloth, "nose": role, "window_s": win, "distance_m": r,
                        "frac_audible": float(audible.mean()), "median_OAV_silent": float(np.median(A[~osc])),
                        "median_OAV_audible": float(np.median(A[osc])), "by_observer": {}}
@@ -93,8 +100,8 @@ def compute(n=rs.N_EVENTS, sim=None, detectors=None, gain=(1.0, 1.0)):
                                                 "memory_mass": mm}
                 out["rows"].append(row)
 
-    route = lambda res: (lambda nose, win: np.where(osc, am.nose_oav(res, nose, win, V, M0, "audible"),  # noqa: E731
-                                                    am.nose_oav(res, nose, win, V, M0, "silent")))
+    route = lambda res: (lambda nose, win: np.where(osc, am.nose_oav(res, nose, win, V, M0, "audible", gain=gain[1]),  # noqa: E731
+                                                    am.nose_oav(res, nose, win, V, M0, "silent", gain=gain[0])))
     results = {case: json.loads((RES / f"{case}.json").read_text()) for case in CASES if (RES / f"{case}.json").exists()}
     for case, res in results.items():
         add_rows(case, *CASES[case], route(res))

@@ -202,8 +202,10 @@ $\|C_\mathrm{s}\|_\infty \le \|C_\mathrm{a}\|_\infty\,\|\kappa\|_1 = \|C_\mathrm
 
 A top-hat release lasting $nT$ is a top-hat lasting $T$ convolved with
 $\kappa = n^{-1}\sum_{j=0}^{n-1}\delta(t-jT)$, so stretching a release by an integer factor is covered. The
-breath-averaged OAV of Eq.~(1) is itself a convolution of $C$ with a non-negative kernel, so the same argument bounds
-it.
+average of the OAV over an inhalation starting at time $\tau$ is a convolution of $C$ with a non-negative kernel of
+unit integral, so the same argument bounds its supremum over $\tau$. Eq.~(1) samples this function at the inhalations
+of one breathing rhythm, so the bound applies to its largest value over the breathing phase and not to every fixed
+phase: a short release can fall between two inhalations.
 
 \emph{Proposition 2.} Let the release last $T_\mathrm{r}$, so that $q$ vanishes outside $[0, T_\mathrm{r}]$. Then
 $C(t) = \int_0^{T_\mathrm{r}} G(t-s)\,q(s)\,\mathrm{d}s$, and as $t\to\infty$, $G(t-s)\to 1/V_\mathrm{room}$ uniformly
@@ -251,8 +253,10 @@ and is of order one.
   0.094 at the neighbour. Released fourth in the four-release run on the base mesh, the same passage gives 0.33 and
   0.071, so the release order matters about as much as the mesh.
   \item \emph{Well-mixed tail.} Two coupled 10-minute runs of the sofa (one silent, one audible 92-mL release): the
-  tail predicts 1.00 and 0.67 (silent: releaser, neighbour) and 0.84 and 0.71 (audible) of the actual worst breath at
-  600\,s. The neighbours' level keeps creeping up after 300\,s; nothing worse arrives later.
+  larger of the 150-s worst breath and the well-mixed level gives 1.00 and 1.20 (silent: releaser, neighbour) and
+  0.84 and 1.12 (audible) of the actual worst breath at 600\,s, where the neighbours reach 0.83--0.89 of the level. At
+  300\,s the rule overstates (1.56 and 1.28), so it is used for the 600-s window only. There is no such run for the
+  standing rooms, whose bystander result rests on the well-mixed level alone.
 \end{itemize}
 
 \begin{figure}
@@ -377,8 +381,8 @@ The headline compares intensity: among pairs of one silent and one audible passa
 share in which the silent one is stronger (above the just-noticeable ratio) and the share in which the audible one is.
 Bystanders, bare, attentive observer, with the 88-mmHg driving-pressure limit; Table~\ref{tab:combined} gives silent
 stronger / audible stronger (\%), the rest being ties. The pairs in which both are smelled are rare on the sofa
-($3.3\times10^{-4}$ of pairs, still about 900 silent and 650 audible passages in effect) and common for the person
-behind the releaser in the lift (0.39), so a day average follows the lift unless the sofa's share of such pairs grows.
+($6.3\times10^{-4}$ of pairs, still about 1\,500 silent and 610 audible passages in effect) and common for the person
+behind the releaser in the lift (0.39), so the lift supplies 60\% of such pairs in the day average.
 Scripts: \texttt{uq/comparison\_criteria.py} and \texttt{uq/intensity\_robustness.py}.
 
 \begin{table}
@@ -386,7 +390,8 @@ Scripts: \texttt{uq/comparison\_criteria.py} and \texttt{uq/intensity\_robustnes
 the day weightings (day: central weights; home- and office-centred days; equal weights per setting). Peak factors
 are the large-eddy over RANS worst breath, by class (median 2.2 silent and 1.3 audible; adverse 6.6 and 0.27); mesh
 is the refinement factor 3.0 of the releaser's nose on every silent dose; release order is the factor 2.4 by which a
-silent release alone exceeds its dose inside a multi-release run.}
+silent release alone exceeds its dose inside a multi-release run. Factors act on the CFD dose, not on the
+well-mixed level.}
 \label{tab:combined}
 \small
 \setlength{\tabcolsep}{3.5pt}
@@ -394,49 +399,70 @@ silent release alone exceeds its dose inside a multi-release run.}
 \toprule
 variant & sofa & lift & day & home day & office day & equal \\
 \midrule
-headline & 30 / 59 & 54 / 35 & 48 / 41 & 32 / 57 & 53 / 35 & 54 / 35 \\
-mesh & 42 / 46 & 71 / 20 & 58 / 32 & 44 / 45 & 70 / 21 & 71 / 20 \\
-peak factors, median & 36 / 52 & 62 / 28 & 51 / 38 & 37 / 51 & 61 / 29 & 62 / 28 \\
-peak factors, adverse & 65 / 26 & 93 / 4 & 81 / 13 & 66 / 25 & 92 / 5 & 93 / 4 \\
-mesh $\times$ median peak factors & 49 / 40 & 77 / 15 & 59 / 31 & 49 / 39 & 75 / 17 & 77 / 15 \\
-release order & 40 / 48 & 68 / 22 & 56 / 33 & 41 / 47 & 67 / 23 & 68 / 23 \\
-release order $\times$ median peak factors & 46 / 42 & 75 / 17 & 58 / 32 & 47 / 42 & 72 / 19 & 74 / 17 \\
-dose rule: nearest level & 30 / 60 & 53 / 35 & 46 / 42 & 31 / 58 & 53 / 36 & 53 / 35 \\
-dose rule: level below & 44 / 43 & 57 / 32 & 56 / 33 & 47 / 41 & 57 / 32 & 57 / 32 \\
-dose rule: adverse bracket & 42 / 44 & 63 / 26 & 57 / 32 & 44 / 43 & 63 / 27 & 63 / 26 \\
-just-noticeable ratio 1.15 & 32 / 62 & 56 / 37 & 50 / 43 & 34 / 59 & 56 / 38 & 56 / 37 \\
-just-noticeable ratio 1.45 & 27 / 56 & 51 / 32 & 45 / 38 & 29 / 54 & 50 / 32 & 51 / 32 \\
-detection spread 1 binary step & 31 / 53 & 53 / 34 & 52 / 34 & 41 / 44 & 53 / 34 & 53 / 34 \\
-detection spread 3 binary steps & 27 / 64 & 52 / 37 & 36 / 54 & 27 / 63 & 50 / 39 & 52 / 37 \\
-detection spread 4 binary steps & 24 / 68 & 50 / 39 & 29 / 63 & 24 / 68 & 45 / 46 & 49 / 40 \\
-logistic tail & 27 / 63 & 54 / 35 & 47 / 42 & 30 / 60 & 53 / 35 & 53 / 35 \\
-no detection below OAV 1 & 31 / 56 & 54 / 35 & 49 / 39 & 33 / 54 & 53 / 35 & 54 / 35 \\
-deterministic at the trained-panel threshold & 30 / 49 & 45 / 43 & 32 / 48 & 30 / 49 & 41 / 45 & 44 / 44 \\
-no driving-pressure limit & 18 / 74 & 57 / 32 & 41 / 48 & 20 / 72 & 55 / 33 & 57 / 32 \\
-limit 72\,mmHg & 31 / 57 & 53 / 35 & 48 / 40 & 33 / 55 & 53 / 35 & 53 / 35 \\
-limit 108\,mmHg & 28 / 61 & 54 / 34 & 47 / 41 & 30 / 59 & 54 / 35 & 54 / 34 \\
-limit 171\,mmHg & 24 / 65 & 55 / 33 & 46 / 43 & 27 / 63 & 54 / 34 & 55 / 33 \\
+headline & 27 / 61 & 53 / 35 & 43 / 45 & 29 / 59 & 52 / 36 & 53 / 35 \\
+150\,s, no well-mixed level & 30 / 59 & 54 / 35 & 48 / 41 & 32 / 57 & 53 / 35 & 54 / 35 \\
+mesh & 41 / 47 & 70 / 20 & 55 / 34 & 42 / 46 & 68 / 22 & 70 / 21 \\
+peak factors, median & 34 / 54 & 61 / 28 & 48 / 40 & 35 / 53 & 60 / 29 & 61 / 28 \\
+peak factors, adverse & 62 / 27 & 85 / 10 & 72 / 20 & 63 / 27 & 83 / 12 & 85 / 10 \\
+mesh $\times$ median peak factors & 48 / 40 & 77 / 15 & 58 / 31 & 49 / 39 & 74 / 18 & 76 / 16 \\
+release order & 38 / 50 & 67 / 23 & 53 / 36 & 39 / 49 & 65 / 25 & 67 / 23 \\
+release order $\times$ median peak factors & 46 / 42 & 74 / 18 & 57 / 33 & 46 / 42 & 71 / 20 & 74 / 18 \\
+dose rule: nearest level & 25 / 65 & 53 / 36 & 41 / 48 & 27 / 63 & 51 / 37 & 53 / 36 \\
+dose rule: level below & 35 / 51 & 57 / 32 & 50 / 38 & 37 / 50 & 56 / 33 & 57 / 32 \\
+dose rule: adverse bracket & 39 / 47 & 62 / 27 & 53 / 35 & 40 / 46 & 61 / 28 & 62 / 27 \\
+just-noticeable ratio 1.15 & 30 / 64 & 56 / 38 & 46 / 48 & 31 / 62 & 55 / 39 & 56 / 38 \\
+just-noticeable ratio 1.45 & 25 / 58 & 50 / 32 & 40 / 42 & 26 / 56 & 49 / 33 & 50 / 32 \\
+detection spread 1 binary step & 26 / 58 & 53 / 34 & 51 / 35 & 36 / 49 & 53 / 34 & 53 / 34 \\
+detection spread 3 binary steps & 28 / 62 & 52 / 37 & 33 / 56 & 28 / 62 & 46 / 43 & 51 / 38 \\
+detection spread 4 binary steps & 27 / 64 & 50 / 40 & 30 / 60 & 28 / 63 & 39 / 50 & 48 / 42 \\
+logistic tail & 26 / 64 & 53 / 35 & 42 / 47 & 28 / 62 & 52 / 36 & 53 / 35 \\
+no detection below OAV 1 & 28 / 59 & 53 / 35 & 44 / 43 & 30 / 57 & 52 / 36 & 53 / 35 \\
+deterministic at the trained-panel threshold & 29 / 48 & 44 / 44 & 31 / 46 & 30 / 48 & 36 / 44 & 42 / 44 \\
+no driving-pressure limit & 15 / 77 & 56 / 32 & 33 / 57 & 17 / 75 & 53 / 36 & 56 / 33 \\
+limit 72\,mmHg & 29 / 59 & 53 / 35 & 44 / 44 & 31 / 57 & 52 / 36 & 53 / 36 \\
+limit 108\,mmHg & 26 / 63 & 54 / 35 & 42 / 46 & 27 / 61 & 52 / 36 & 53 / 35 \\
+limit 171\,mmHg & 22 / 67 & 54 / 34 & 40 / 49 & 24 / 66 & 53 / 36 & 54 / 34 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{itemize}
   \item \emph{Lift by nose:} the person directly behind the releaser 55 / 33 (both smelled in 39\% of pairs); beside
-  31 / 56 and diagonally behind 33 / 55 (0.5 and 2.6\%). The lift column is carried by the person behind.
+  36 / 51 and diagonally behind 33 / 54 (2.0 and 2.6\%). The doses of the person behind stand above the well-mixed
+  level, so this result does not depend on it; a shared ride lasts about 24\,s, and without the level the lift
+  column is 54 / 35. The lift column is carried by the person behind.
   \item \emph{Driving-pressure limit} (Section~3.1 of the main text): limits slow the passage at fixed volume and
   orifice; 72\,mmHg is the upper end of intrarectal pressure in simulated defecation \cite{lee2016}, 108 and
   171\,mmHg the peak intra-abdominal pressures of a cough and a jump \cite{cobb2005}. Discarding the passages above
-  the limit instead of slowing them gives sofa 35 / 53, 33 / 55, 33 / 56 and 29 / 60 at 72, 88, 108 and 171\,mmHg.
+  the limit instead of slowing them gives sofa 32 / 55, 31 / 57, 30 / 58 and 26 / 63 at 72, 88, 108 and 171\,mmHg.
   No passage changes class: the limit is far above the valve onset.
+  \item \emph{Source built from pressure.} The sampled releases need a median driving pressure of 0.14\,mmHg, against
+  a measured median rectal rise of 8\,mmHg while passing flatus \cite{miller1988b}, which is an upper bound on the
+  drop across the orifice. Durations and orifices are unmeasured, so this source is tested in place of theirs: the rise
+  is drawn log-normally with median 8\,mmHg, truncated at 88 with $\sigma_{\ln} = 1.15$ (so that 88 is the expected
+  largest of the 54 events measured; non-positive rises are not represented), $V$ and $d$ as before, and the duration
+  follows. Silent share 55\%: sofa 26 / 63, person behind 51 / 38, lift 49 / 39, day 34 / 55, remembered 95\%. With
+  durations held to 0.3--20\,s (46\% of draws fall outside): silent share 65\%, sofa 37 / 50, person behind 47 / 41,
+  lift 46 / 42, day 41 / 46, remembered 96\%. With $\sigma_{\ln} = 0.8$: 56\%, sofa 29 / 60, person behind 49 / 39,
+  lift 48 / 40, day 36 / 52. Keeping only headline passages that need at least 1 or 4\,mmHg: silent share 52 and 26\%,
+  sofa 32 / 56 and 36 / 52, person behind 46 / 41 and 45 / 43, day 37 / 50 and 39 / 49. Representative releases
+  would need new CFD for such a source: 46--72\% of silent passages then lie above the top simulated silent release
+  and are held at its dose.
+  \item \emph{Television.} The sofa's weight is television time, while hearing is computed in a 35\,dB(A) room.
+  Preferred television levels are 47--57\,dB(A) at the listener's head \cite{kurakata1999}, measured in a soundproof
+  room. With a steady speech-shaped masker, an upper bound on masking, a background of 50, 55, 60 and 65\,dB(A)
+  masks 1.9, 12, 37 and 67\% of oscillating passages at 0.6\,m and gives sofa 27 / 61, 26 / 63, 22 / 68 and 19 / 72,
+  day 43 / 46, 41 / 48, 36 / 53 and 31 / 59, and remembered 94, 94, 92 and 90\%.
   \item \emph{Clothing:} trousers runs exist for the upright sofa and the standing pair only. On those scenes the
-  audible passage is stronger in 91\% of doubly smelled pairs with all passages clothed (90\% with 70 or 85\%
-  clothed), against 80\% bare.
-  \item \emph{Distracted observer:} day 51 / 38; the spread of 5 binary steps reverses it (33 / 59).
-  \item \emph{Releaser:} day 44 / 45 (sofa 50 / 39, lift 39 / 48, standing 18 / 72); no selection, so memory equals
+  audible passage is stronger in 73\% of doubly smelled pairs with all passages clothed (72 and 73\% with 70 and 85\%
+  clothed), against 59\% bare.
+  \item \emph{Distracted observer:} day 47 / 43; a spread of 5 binary steps gives 32 / 59, the logistic tail 40 / 51
+  and no driving-pressure limit 37 / 54.
+  \item \emph{Releaser:} day 43 / 47 (sofa 49 / 40, lift 38 / 49, standing 18 / 73); no selection, so memory equals
   this comparison.
   \item \emph{Detection and intensity combined} (the four outcomes of earlier versions, an unsmelled passage counting
-  as the weaker): silent worse / audible worse 0.55 / 4.1 on the sofa, 21.6 / 21.1 in the lift and 0.52 / 3.1 for the
-  day; without the driving-pressure limit 0.52 / 9.2 on the sofa. These shares mostly record which passage is smelled
+  as the weaker): silent worse / audible worse 1.2 / 4.6 on the sofa, 23.4 / 23.2 in the lift and 1.3 / 4.1 for the
+  day; without the driving-pressure limit 1.1 / 9.6 on the sofa. These shares mostly record which passage is smelled
   at all.
 \end{itemize}
 

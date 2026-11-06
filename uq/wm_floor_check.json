@@ -1,0 +1,391 @@
+{
+ "switch": {
+  "reference_commit": "7b96837",
+  "max_abs_deviation_default": 0,
+  "max_abs_deviation_gain": 2.168404344971009e-17
+ },
+ "reference_runs": {
+  "silent releaser 300 s": {
+   "floor_OAV": 0.49354193545534514,
+   "old_rule_OAV": 0.92594722031877,
+   "new_rule_OAV": 0.92594722031877,
+   "actual_OAV": 0.928040083892805,
+   "old_ratio": 0.9977448564880342,
+   "new_ratio": 0.9977448564880342,
+   "actual_over_floor": 1.8803672337115365,
+   "late_rising": false
+  },
+  "silent releaser 600 s": {
+   "floor_OAV": 0.49354193545534514,
+   "old_rule_OAV": 0.92594722031877,
+   "new_rule_OAV": 0.92594722031877,
+   "actual_OAV": 0.928040083892805,
+   "old_ratio": 0.9977448564880342,
+   "new_ratio": 0.9977448564880342,
+   "actual_over_floor": 1.8803672337115365,
+   "late_rising": false
+  },
+  "silent neighbour 300 s": {
+   "floor_OAV": 0.49354193545534514,
+   "old_rule_OAV": 0.276759524761645,
+   "new_rule_OAV": 0.49354193545534514,
+   "actual_OAV": 0.31548940777022844,
+   "old_ratio": 0.8772387216347038,
+   "new_ratio": 1.56436927294495,
+   "actual_over_floor": 0.6392352606859147,
+   "late_rising": false
+  },
+  "silent neighbour 600 s": {
+   "floor_OAV": 0.49354193545534514,
+   "old_rule_OAV": 0.276759524761645,
+   "new_rule_OAV": 0.49354193545534514,
+   "actual_OAV": 0.4108092353252006,
+   "old_ratio": 0.6736935320905322,
+   "new_ratio": 1.2013895818691918,
+   "actual_over_floor": 0.8323694620725293,
+   "late_rising": false
+  },
+  "audible releaser 300 s": {
+   "floor_OAV": 0.49354193545534514,
+   "old_rule_OAV": 0.5185215478933599,
+   "new_rule_OAV": 0.5185215478933599,
+   "actual_OAV": 0.6169689036014465,
+   "old_ratio": 0.8404338449905374,
+   "new_ratio": 0.8404338449905374,
+   "actual_over_floor": 1.250084054219682,
+   "late_rising": false
+  },
+  "audible releaser 600 s": {
+   "floor_OAV": 0.49354193545534514,
+   "old_rule_OAV": 0.5185215478933599,
+   "new_rule_OAV": 0.5185215478933599,
+   "actual_OAV": 0.6169689036014465,
+   "old_ratio": 0.8404338449905374,
+   "new_ratio": 0.8404338449905374,
+   "actual_over_floor": 1.250084054219682,
+   "late_rising": false
+  },
+  "audible neighbour 300 s": {
+   "floor_OAV": 0.49354193545534514,
+   "old_rule_OAV": 0.3134781253468363,
+   "new_rule_OAV": 0.49354193545534514,
+   "actual_OAV": 0.3866742448374252,
+   "old_ratio": 0.8107034009431795,
+   "new_ratio": 1.2763765418688586,
+   "actual_over_floor": 0.7834678617140748,
+   "late_rising": false
+  },
+  "audible neighbour 600 s": {
+   "floor_OAV": 0.49354193545534514,
+   "old_rule_OAV": 0.3134781253468363,
+   "new_rule_OAV": 0.49354193545534514,
+   "actual_OAV": 0.44177058032723054,
+   "old_ratio": 0.7095948424511093,
+   "new_ratio": 1.1171905903959614,
+   "actual_over_floor": 0.8951024190470259,
+   "late_rising": false
+  }
+ },
+ "share_on_floor": {
+  "sofa_v4_multi releaser": {
+   "scene": "sofa, upright",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 0.5862272969295391,
+    "median_rise": 1.96182216680671
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "sofa_v4_multi neighbour": {
+   "scene": "sofa, upright",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 9.224999391000576
+   },
+   "audible": {
+    "share_at_floor": 0.85082337746206,
+    "median_rise": 2.816708627552836
+   }
+  },
+  "sofa_rec4.5_v4_multi releaser": {
+   "scene": "sofa, reclined 4.5 deg",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 0.587292196651482,
+    "median_rise": 2.566871541911765
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "sofa_rec4.5_v4_multi neighbour": {
+   "scene": "sofa, reclined 4.5 deg",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 0.7703957877299887,
+    "median_rise": 5.4250474166728635
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "sofa_rec-10_v4_multi releaser": {
+   "scene": "sofa, leaning forward 10 deg",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 0.5908418623912914,
+    "median_rise": 1.3445554613901871
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "sofa_rec-10_v4_multi neighbour": {
+   "scene": "sofa, leaning forward 10 deg",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 2.1857725281451046
+   },
+   "audible": {
+    "share_at_floor": 0.7462060058120762,
+    "median_rise": 1.606923588836527
+   }
+  },
+  "stand_still_v4_multi releaser": {
+   "scene": "standing pair, still air",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 0.7743004200437792,
+    "median_rise": 4.877376123026009
+   },
+   "audible": {
+    "share_at_floor": 0.9857927026154343,
+    "median_rise": 1.782609394869456
+   }
+  },
+  "stand_still_v4_multi neighbour": {
+   "scene": "standing pair, still air",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 116.07246079200094
+   },
+   "audible": {
+    "share_at_floor": 1.0,
+    "median_rise": 1259.2113143787478
+   }
+  },
+  "stand_vent_v4_multi releaser": {
+   "scene": "standing pair, office ventilation",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0007950721153846151,
+   "floor_OAV_at_92mL": 0.43805611278362666,
+   "silent": {
+    "share_at_floor": 0.5777080991539963,
+    "median_rise": 1.5311187804438877
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "stand_vent_v4_multi neighbour": {
+   "scene": "standing pair, office ventilation",
+   "clothing": "bare",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0007950721153846151,
+   "floor_OAV_at_92mL": 0.43805611278362666,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 3.4224500501567086
+   },
+   "audible": {
+    "share_at_floor": 1.0,
+    "median_rise": 22.2358513387287
+   }
+  },
+  "sofa_tr_v4_multi releaser": {
+   "scene": "sofa, upright",
+   "clothing": "trousers",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "sofa_tr_v4_multi neighbour": {
+   "scene": "sofa, upright",
+   "clothing": "trousers",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 5.933398033384464
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "stand_still_tr_v4_multi releaser": {
+   "scene": "standing pair, still air",
+   "clothing": "trousers",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 15.653292566140683
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "stand_still_tr_v4_multi neighbour": {
+   "scene": "standing pair, still air",
+   "clothing": "trousers",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 0.4935419354553451,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 45.48278326139625
+   },
+   "audible": {
+    "share_at_floor": 1.0,
+    "median_rise": 139.71427280231455
+   }
+  },
+  "stand_vent_tr_v4_multi releaser": {
+   "scene": "standing pair, office ventilation",
+   "clothing": "trousers",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0007950721153846151,
+   "floor_OAV_at_92mL": 0.43805611278362666,
+   "silent": {
+    "share_at_floor": 0.6037981423415961,
+    "median_rise": 3.653200858773044
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "stand_vent_tr_v4_multi neighbour": {
+   "scene": "standing pair, office ventilation",
+   "clothing": "trousers",
+   "V_room": 26.624000000000006,
+   "lambda_per_s": 0.0007950721153846151,
+   "floor_OAV_at_92mL": 0.43805611278362666,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 3.9613495731118573
+   },
+   "audible": {
+    "share_at_floor": 1.0,
+    "median_rise": 4.13217137005598
+   }
+  },
+  "elev_v4_FL_multi FL": {
+   "scene": "elevator, front row (person behind)",
+   "clothing": "bare",
+   "V_room": 3.2340000000000004,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 4.063098481621246,
+   "silent": {
+    "share_at_floor": 0.3052712536236171,
+    "median_rise": 1.0
+   },
+   "audible": {
+    "share_at_floor": 0.9512431385211495,
+    "median_rise": 1.2963962745069033
+   }
+  },
+  "elev_v4_FL_multi FR": {
+   "scene": "elevator, front row (person behind)",
+   "clothing": "bare",
+   "V_room": 3.2340000000000004,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 4.063098481621246,
+   "silent": {
+    "share_at_floor": 1.0,
+    "median_rise": 2.385414264676379
+   },
+   "audible": {
+    "share_at_floor": 1.0,
+    "median_rise": 1.81062204875537
+   }
+  },
+  "elev_v4_FL_multi BL": {
+   "scene": "elevator, front row (person behind)",
+   "clothing": "bare",
+   "V_room": 3.2340000000000004,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 4.063098481621246,
+   "silent": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  },
+  "elev_v4_FL_multi BR": {
+   "scene": "elevator, front row (person behind)",
+   "clothing": "bare",
+   "V_room": 3.2340000000000004,
+   "lambda_per_s": 0.0,
+   "floor_OAV_at_92mL": 4.063098481621246,
+   "silent": {
+    "share_at_floor": 0.1657693900491037,
+    "median_rise": 1.0
+   },
+   "audible": {
+    "share_at_floor": 0.0,
+    "median_rise": 1.0
+   }
+  }
+ }
+}

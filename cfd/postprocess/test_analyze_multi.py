@@ -111,6 +111,34 @@ def test_rooms():
     assert np.isclose(lam * 3600, 2.86, atol=0.01)  # 2.9 air changes per hour
 
 
+def test_breath_average_of_a_constant_level_is_the_level():
+    t = np.arange(0.0, 60.0, 0.1)
+    mean, worst = am.an.breath_metrics(t, np.full(t.size, 3.0e-6))
+    assert np.isclose(mean, 3.0e-6) and np.isclose(worst, 3.0e-6)
+
+
+def _floored(per_v, lam, v_room):
+    rel = {"S50": {"class": "silent", "M0": 1e-4, "V": 1e-4,
+                   "n": {"by_window": {"150": {"worst_breath_OAV_mean": per_v * 1e-4},
+                                       "600": {"worst_breath_OAV_mean": per_v * 1e-4}}}}}
+    return {"releases": rel, "V_room": v_room, "lambda_per_s": lam}
+
+
+def test_well_mixed_floor(monkeypatch):
+    v_room, lam, V = 26.0, 8e-4, 2e-4
+    floor = am.an.oav(V / v_room * np.exp(-lam * 150.0), am.an.P)                     # the level, with decay to 150 s
+    assert np.isclose(am.wm_floor_per_V(v_room, lam) * V, floor)
+    low = _floored(0.1 * floor / V, lam, v_room)
+    assert np.isclose(am.nose_oav(low, "n", 600, V, 1e-4, "silent"), floor)           # scales with V, not the route
+    assert np.isclose(am.nose_oav(low, "n", 150, V, 1e-4, "silent"), 0.1 * floor)     # 150 s stays the run
+    assert np.isclose(am.nose_oav(low, "n", 600, V, 1e-4, "silent", gain=3.0), floor)  # a gain does not lift the floor
+    assert np.isclose(am.nose_oav(low, "n", 600, V, 1e-4, "silent", gain=30.0), 3.0 * floor)  # but acts above it
+    high = _floored(10.0 * floor / V, lam, v_room)
+    assert np.isclose(am.nose_oav(high, "n", 600, V, 1e-4, "silent"), 10.0 * floor)   # above the floor: the run
+    monkeypatch.setattr(am, "WM_FLOOR", False)
+    assert np.isclose(am.nose_oav(low, "n", 600, V, 1e-4, "silent"), 0.1 * floor)     # switch off: the old value
+
+
 def test_tail_never_exceeds_the_150_s_window(tmp_path):
     res = run(write_case(tmp_path))
     for r in res["releases"].values():

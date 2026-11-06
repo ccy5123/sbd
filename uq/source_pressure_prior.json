@@ -1,0 +1,1211 @@
+{
+ "prior": {
+  "median_mmHg": 8.0,
+  "truncated_at_mmHg": 88.0,
+  "sigma_ln": 1.1457625978039956,
+  "z_top": 2.092837798505774,
+  "non_positive_rises": "not represented; prior conditional on a positive rise (see docstring)"
+ },
+ "T_bound_s": [
+  0.3,
+  20.0
+ ],
+ "variants": {
+  "headline stream": {
+   "n": 20000,
+   "silent_share": 0.8451500000000001,
+   "dp_mmHg": {
+    "p10": 0.0008897613181443584,
+    "median": 0.14803852733627929,
+    "p90": 24.755587499446953
+   },
+   "T_s": {
+    "p10": 0.5071782044493348,
+    "median": 2.444527770031073,
+    "p90": 13.096045780541333
+   },
+   "share_T_outside_bound": 0.0,
+   "M0_levels": {
+    "silent": {
+     "levels_M0": [
+      8.947149376145528e-05,
+      0.0022135401070680284
+     ],
+     "share_below": 0.5064189788794888,
+     "share_within": 0.3937170916405372,
+     "share_above": 0.09986392947997397,
+     "median_M0": 8.466518540360015e-05
+    },
+    "audible": {
+     "levels_M0": [
+      0.019230612957924515,
+      0.13269983723106255
+     ],
+     "share_below": 0.6444946722634808,
+     "share_within": 0.35485954149176624,
+     "share_above": 0.0006457862447529867,
+     "median_M0": 0.0139098221728896
+    }
+   },
+   "by": {
+    "attentive, Amoore thresholds": {
+     "sofa": {
+      "silent_stronger": 0.2743360603234724,
+      "audible_stronger": 0.6093807064725584,
+      "tie": 0.11628323320396917,
+      "pair_mass_both": 0.0006305861262743466,
+      "pi_s": 0.012453562115042427,
+      "pi_l": 0.046633695409855534,
+      "remembered_silent_worse": 0.9632560059145743,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.5534347306571127,
+      "audible_stronger": 0.32947959646012975,
+      "tie": 0.11708567288275758,
+      "pair_mass_both": 0.3909792733748087,
+      "pi_s": 0.6801320518626931,
+      "pi_l": 0.5748578857650142,
+      "remembered_silent_worse": 0.7432884334094637,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.5311464459830277,
+      "audible_stronger": 0.3504228109070731,
+      "tie": 0.1184307431098993,
+      "pair_mass_both": 0.14562246735241888,
+      "pi_s": 0.3018049333129824,
+      "pi_l": 0.32676622887985046,
+      "remembered_silent_worse": 0.7737756947395623,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.4313780251024887,
+      "audible_stronger": 0.4502091923521008,
+      "tie": 0.1184127825454106,
+      "pair_mass_both": 0.0012756249670193625,
+      "pi_s": 0.01320526922985747,
+      "pi_l": 0.04120585283630833,
+      "remembered_silent_worse": 0.9450712912134279,
+      "both_mass_share_by_scene": {
+       "sofa": 0.36233982401972714,
+       "elevator": 0.5976845191579491,
+       "standing": 0.03997565682232383
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.5298171921997736,
+      "audible_stronger": 0.3517360178716043,
+      "tie": 0.11844678992862225,
+      "pair_mass_both": 0.04881595011736354,
+      "pi_s": 0.10793218376590065,
+      "pi_l": 0.13123220346640377,
+      "remembered_silent_worse": 0.7873440553987082,
+      "both_mass_share_by_scene": {
+       "sofa": 0.004305874922426573,
+       "elevator": 0.9943639800947071,
+       "standing": 0.0013301449828664977
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.42624617779486784,
+      "audible_stronger": 0.4659569206141209,
+      "tie": 0.10779690159101118,
+      "pair_mass_both": 0.010077331389032837,
+      "pi_s": 0.054825973663293996,
+      "pi_l": 0.1645176391679575,
+      "remembered_silent_worse": 0.04904406626120864,
+      "both_mass_share_by_scene": {
+       "sofa": 0.7987723283883933,
+       "elevator": 0.011666745148728874,
+       "standing": 0.1895609264628779
+      }
+     }
+    },
+    "distracted (everyday)": {
+     "sofa": {
+      "silent_stronger": 0.2589225749519466,
+      "audible_stronger": 0.6464324255136017,
+      "tie": 0.09464499953445157,
+      "pair_mass_both": 3.0917094125767634e-05,
+      "pi_s": 0.003011609391544838,
+      "pi_l": 0.009703801956901854,
+      "remembered_silent_worse": 0.9923921207813275,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.5781690271028801,
+      "audible_stronger": 0.31345244187669424,
+      "tie": 0.10837853102042572,
+      "pair_mass_both": 0.029287045251622908,
+      "pi_s": 0.2015553281123735,
+      "pi_l": 0.14530523963769615,
+      "remembered_silent_worse": 0.9387057493965816,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.5645329730885367,
+      "audible_stronger": 0.3268549047228559,
+      "tie": 0.1086121221886076,
+      "pair_mass_both": 0.01033799640601755,
+      "pi_s": 0.08171774518381976,
+      "pi_l": 0.07470766073574951,
+      "remembered_silent_worse": 0.9449096821134361,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.4699888097953534,
+      "audible_stronger": 0.425056496879427,
+      "tie": 0.10495469332521971,
+      "pair_mass_both": 7.98124327024585e-05,
+      "pi_s": 0.0032780892707109494,
+      "pi_l": 0.00873070957318442,
+      "remembered_silent_worse": 0.9870956893005589,
+      "both_mass_share_by_scene": {
+       "sofa": 0.28393752223870455,
+       "elevator": 0.678160454466795,
+       "standing": 0.03790202329450051
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.5633945369822232,
+      "audible_stronger": 0.32802588353586765,
+      "tie": 0.10857957948190926,
+      "pair_mass_both": 0.0034601564004647363,
+      "pi_s": 0.02906159812982616,
+      "pi_l": 0.029699324856058557,
+      "remembered_silent_worse": 0.9480165137309373,
+      "both_mass_share_by_scene": {
+       "sofa": 0.002978390815091011,
+       "elevator": 0.9959083934885185,
+       "standing": 0.001113215696390584
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.4311572348044265,
+      "audible_stronger": 0.47946350113042047,
+      "tie": 0.08937926406515305,
+      "pair_mass_both": 0.0004345057751082725,
+      "pi_s": 0.011990171517759636,
+      "pi_l": 0.03378199262879684,
+      "remembered_silent_worse": 0.011743006051153602,
+      "both_mass_share_by_scene": {
+       "sofa": 0.7976690377186805,
+       "elevator": 0.010075981741511203,
+       "standing": 0.19225498053980836
+      }
+     }
+    }
+   }
+  },
+  "filtered, dp >= 1 mmHg": {
+   "share_kept": 0.32135,
+   "n": 6427,
+   "silent_share": 0.5181266531818889,
+   "dp_mmHg": {
+    "p10": 1.4567722004424006,
+    "median": 8.072006396010806,
+    "p90": 87.99747978578178
+   },
+   "T_s": {
+    "p10": 0.38928729507056203,
+    "median": 1.0079610385434832,
+    "p90": 3.987910058486814
+   },
+   "share_T_outside_bound": 0.0,
+   "M0_levels": {
+    "silent": {
+     "levels_M0": [
+      8.947149376145528e-05,
+      0.0022135401070680284
+     ],
+     "share_below": 0.0,
+     "share_within": 0.5756756756756757,
+     "share_above": 0.4243243243243243,
+     "median_M0": 0.001774460511803748
+    },
+    "audible": {
+     "levels_M0": [
+      0.019230612957924515,
+      0.13269983723106255
+     ],
+     "share_below": 0.6444946722634808,
+     "share_within": 0.35485954149176624,
+     "share_above": 0.0006457862447529867,
+     "median_M0": 0.0139098221728896
+    }
+   },
+   "by": {
+    "attentive, Amoore thresholds": {
+     "sofa": {
+      "silent_stronger": 0.32078629684770643,
+      "audible_stronger": 0.5563239859180642,
+      "tie": 0.1228897172342293,
+      "pair_mass_both": 0.001260182452353404,
+      "pi_s": 0.023069596004340248,
+      "pi_l": 0.046633695409855534,
+      "remembered_silent_worse": 0.962897781567156,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.46119323663040296,
+      "audible_stronger": 0.41390507102554663,
+      "tie": 0.12490169234405038,
+      "pair_mass_both": 0.33738548397526297,
+      "pi_s": 0.586902419414973,
+      "pi_l": 0.5748578857650142,
+      "remembered_silent_worse": 0.6902626831734632,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.4470578084331127,
+      "audible_stronger": 0.4263790273400218,
+      "tie": 0.12656316422686556,
+      "pair_mass_both": 0.13222068198592626,
+      "pi_s": 0.29303508232882797,
+      "pi_l": 0.32676622887985046,
+      "remembered_silent_worse": 0.7505063452241324,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.374991421153047,
+      "audible_stronger": 0.49991919990074335,
+      "tie": 0.12508937894620967,
+      "pair_mass_both": 0.0016910594077940149,
+      "pi_s": 0.02212208725122488,
+      "pi_l": 0.04120585283630833,
+      "remembered_silent_worse": 0.9522230147088591,
+      "both_mass_share_by_scene": {
+       "sofa": 0.5462220545748554,
+       "elevator": 0.4093616559636501,
+       "standing": 0.044416289461494604
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.44571882707040095,
+      "audible_stronger": 0.42772688859204316,
+      "tie": 0.12655428433755594,
+      "pair_mass_both": 0.044589262289914916,
+      "pi_s": 0.11005182705803934,
+      "pi_l": 0.13123220346640377,
+      "remembered_silent_worse": 0.7754240955119687,
+      "both_mass_share_by_scene": {
+       "sofa": 0.009420672060460236,
+       "elevator": 0.988434398744109,
+       "standing": 0.0021449291954308064
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.4832689557855466,
+      "audible_stronger": 0.40467491562068947,
+      "tie": 0.11205612859376386,
+      "pair_mass_both": 0.03057137235163022,
+      "pi_s": 0.1641891660353784,
+      "pi_l": 0.1645176391679575,
+      "remembered_silent_worse": 0.14839198887705166,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8161718497052179,
+       "elevator": 0.004573472856686581,
+       "standing": 0.1792546774380954
+      }
+     }
+    },
+    "distracted (everyday)": {
+     "sofa": {
+      "silent_stronger": 0.3168734174231971,
+      "audible_stronger": 0.5794512730982977,
+      "tie": 0.10367530947850544,
+      "pair_mass_both": 5.612410378651226e-05,
+      "pi_s": 0.005137908144429487,
+      "pi_l": 0.009703801956901854,
+      "remembered_silent_worse": 0.9925378449473774,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.4708459157584609,
+      "audible_stronger": 0.41076261098619005,
+      "tie": 0.11839147325534906,
+      "pair_mass_both": 0.022270716878728183,
+      "pi_s": 0.15326850521191082,
+      "pi_l": 0.14530523963769615,
+      "remembered_silent_worse": 0.9231111389840176,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.4610664869558099,
+      "audible_stronger": 0.42050718416250266,
+      "tie": 0.11842632888168737,
+      "pair_mass_both": 0.00815729887319411,
+      "pi_s": 0.06969407349006286,
+      "pi_l": 0.07470766073574951,
+      "remembered_silent_worse": 0.9369208668896539,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.39019282978936193,
+      "audible_stronger": 0.4981524736997693,
+      "tie": 0.1116546965108688,
+      "pair_mass_both": 8.810578272999421e-05,
+      "pi_s": 0.005036025253112883,
+      "pi_l": 0.00873070957318442,
+      "remembered_silent_worse": 0.989331360478671,
+      "both_mass_share_by_scene": {
+       "sofa": 0.466916986268175,
+       "elevator": 0.48473970425671187,
+       "standing": 0.04834330947511313
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.45993805421648215,
+      "audible_stronger": 0.42173147591994753,
+      "tie": 0.11833046986357035,
+      "pair_mass_both": 0.0027432311996476943,
+      "pi_s": 0.026096524609059913,
+      "pi_l": 0.029699324856058557,
+      "remembered_silent_worse": 0.9432294222464607,
+      "both_mass_share_by_scene": {
+       "sofa": 0.0068197075761994505,
+       "elevator": 0.9912032295153406,
+       "standing": 0.001977062908460039
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.5016486324417371,
+      "audible_stronger": 0.4029751338054995,
+      "tie": 0.09537623375276336,
+      "pair_mass_both": 0.0012987243829931379,
+      "pi_s": 0.03553390472646242,
+      "pi_l": 0.03378199262879684,
+      "remembered_silent_worse": 0.03488668365411653,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8211375811708391,
+       "elevator": 0.00396157703752753,
+       "standing": 0.17490084179163323
+      }
+     }
+    }
+   }
+  },
+  "filtered, dp >= 4 mmHg": {
+   "share_kept": 0.2103,
+   "n": 4206,
+   "silent_share": 0.2636709462672373,
+   "dp_mmHg": {
+    "p10": 5.297776547009357,
+    "median": 22.028307481550033,
+    "p90": 87.99747978578179
+   },
+   "T_s": {
+    "p10": 0.3792247491098646,
+    "median": 0.9002672955482256,
+    "p90": 2.8646275864183597
+   },
+   "share_T_outside_bound": 0.0,
+   "M0_levels": {
+    "silent": {
+     "levels_M0": [
+      8.947149376145528e-05,
+      0.0022135401070680284
+     ],
+     "share_below": 0.0,
+     "share_within": 0.37330928764652843,
+     "share_above": 0.6266907123534716,
+     "median_M0": 0.0031349223821172108
+    },
+    "audible": {
+     "levels_M0": [
+      0.019230612957924515,
+      0.13269983723106255
+     ],
+     "share_below": 0.6444946722634808,
+     "share_within": 0.35485954149176624,
+     "share_above": 0.0006457862447529867,
+     "median_M0": 0.0139098221728896
+    }
+   },
+   "by": {
+    "attentive, Amoore thresholds": {
+     "sofa": {
+      "silent_stronger": 0.35841553454679426,
+      "audible_stronger": 0.5174921456127511,
+      "tie": 0.12409231984045453,
+      "pair_mass_both": 0.001601367622843821,
+      "pi_s": 0.02888915665876748,
+      "pi_l": 0.046633695409855534,
+      "remembered_silent_worse": 0.9644360476689611,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.44455298087437334,
+      "audible_stronger": 0.4310354320404633,
+      "tie": 0.12441158708516338,
+      "pair_mass_both": 0.3238830868480735,
+      "pi_s": 0.5634141843893359,
+      "pi_l": 0.5748578857650142,
+      "remembered_silent_worse": 0.6806969009309629,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.43595020246661975,
+      "audible_stronger": 0.43811348027611396,
+      "tie": 0.12593631725726626,
+      "pair_mass_both": 0.12914964806489668,
+      "pi_s": 0.2923117842634629,
+      "pi_l": 0.32676622887985046,
+      "remembered_silent_worse": 0.7507906394329458,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.38832218799850055,
+      "audible_stronger": 0.48638252197123416,
+      "tie": 0.1252952900302652,
+      "pair_mass_both": 0.0019393528582557563,
+      "pi_s": 0.027084871324766512,
+      "pi_l": 0.04120585283630833,
+      "remembered_silent_worse": 0.9562021506835805,
+      "both_mass_share_by_scene": {
+       "sofa": 0.6052417486465925,
+       "elevator": 0.3486607220550826,
+       "standing": 0.04609752929832485
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.43496347007589037,
+      "audible_stronger": 0.4390958927250201,
+      "tie": 0.12594063719908935,
+      "pair_mass_both": 0.043697507100338956,
+      "pi_s": 0.11264309168434006,
+      "pi_l": 0.13123220346640377,
+      "remembered_silent_worse": 0.7808060182909361,
+      "both_mass_share_by_scene": {
+       "sofa": 0.012215552854969763,
+       "elevator": 0.9851793739502581,
+       "standing": 0.0026050731947720026
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.5102031311371051,
+      "audible_stronger": 0.378574344059828,
+      "tie": 0.11122252480306707,
+      "pair_mass_both": 0.03850800607809745,
+      "pi_s": 0.20683814603122228,
+      "pi_l": 0.1645176391679575,
+      "remembered_silent_worse": 0.18797704522801684,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8165927423724153,
+       "elevator": 0.00389972707579621,
+       "standing": 0.1795075305517886
+      }
+     }
+    },
+    "distracted (everyday)": {
+     "sofa": {
+      "silent_stronger": 0.3560560089924492,
+      "audible_stronger": 0.5391846666389831,
+      "tie": 0.10475932436856761,
+      "pair_mass_both": 6.898586849314696e-05,
+      "pi_s": 0.006215243511072485,
+      "pi_l": 0.009703801956901854,
+      "remembered_silent_worse": 0.9928525671759346,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.45655097728911564,
+      "audible_stronger": 0.42596032900652286,
+      "tie": 0.1174886937043615,
+      "pair_mass_both": 0.0210533886033932,
+      "pi_s": 0.14489077376622952,
+      "pi_l": 0.14530523963769615,
+      "remembered_silent_worse": 0.9210340095241231,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.45004902768645044,
+      "audible_stronger": 0.43250848596757446,
+      "tie": 0.11744248634597518,
+      "pair_mass_both": 0.007813783046392854,
+      "pi_s": 0.06849207277038026,
+      "pi_l": 0.07470766073574951,
+      "remembered_silent_worse": 0.9372599279011857,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.39961917673162944,
+      "audible_stronger": 0.4895617775293803,
+      "tie": 0.11081904573899021,
+      "pair_mass_both": 9.634019073803819e-05,
+      "pi_s": 0.00594815573402839,
+      "pi_l": 0.00873070957318442,
+      "remembered_silent_worse": 0.9902758425274181,
+      "both_mass_share_by_scene": {
+       "sofa": 0.5248646247265437,
+       "elevator": 0.42463958777990524,
+       "standing": 0.050495787493550874
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.4491773252711514,
+      "audible_stronger": 0.43348936328763304,
+      "tie": 0.11733331144121571,
+      "pair_mass_both": 0.0026337841169322127,
+      "pi_s": 0.026218915966343542,
+      "pi_l": 0.029699324856058557,
+      "remembered_silent_worse": 0.9446678873447993,
+      "both_mass_share_by_scene": {
+       "sofa": 0.008730893830622755,
+       "elevator": 0.9889171751219328,
+       "standing": 0.002351931047444504
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.5341664738468958,
+      "audible_stronger": 0.3711620735550818,
+      "tie": 0.09467145259802241,
+      "pair_mass_both": 0.001662735262202876,
+      "pi_s": 0.04551407306301918,
+      "pi_l": 0.03378199262879684,
+      "remembered_silent_worse": 0.0447395152327681,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8239695617869507,
+       "elevator": 0.0033623885003919167,
+       "standing": 0.1726680497126574
+      }
+     }
+    }
+   }
+  },
+  "pressure prior, sigma 1.15, free": {
+   "n": 20000,
+   "silent_share": 0.55,
+   "dp_mmHg": {
+    "p10": 1.8708861325556503,
+    "median": 7.8533427514932335,
+    "p90": 31.19761868144918
+   },
+   "T_s": {
+    "p10": 0.04150497983023409,
+    "median": 0.35056387853039545,
+    "p90": 2.8243486008474346
+   },
+   "share_T_outside_bound": 0.4645,
+   "M0_levels": {
+    "silent": {
+     "levels_M0": [
+      8.947149376145528e-05,
+      0.0022135401070680284
+     ],
+     "share_below": 0.003909090909090909,
+     "share_within": 0.342,
+     "share_above": 0.6540909090909091,
+     "median_M0": 0.004206429292434548
+    },
+    "audible": {
+     "levels_M0": [
+      0.019230612957924515,
+      0.13269983723106255
+     ],
+     "share_below": 0.4812222222222222,
+     "share_within": 0.41488888888888886,
+     "share_above": 0.10388888888888889,
+     "median_M0": 0.020804606135389783
+    }
+   },
+   "by": {
+    "attentive, Amoore thresholds": {
+     "sofa": {
+      "silent_stronger": 0.258043653550128,
+      "audible_stronger": 0.6310514705768119,
+      "tie": 0.11090487587305997,
+      "pair_mass_both": 0.001212736879646942,
+      "pi_s": 0.019830009487824304,
+      "pi_l": 0.057546118205572726,
+      "remembered_silent_worse": 0.9546244380276094,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.5084545681600207,
+      "audible_stronger": 0.3749341566423462,
+      "tie": 0.1166112751976332,
+      "pair_mass_both": 0.2089562520106886,
+      "pi_s": 0.5046935746414374,
+      "pi_l": 0.4140259803369655,
+      "remembered_silent_worse": 0.7964874207022955,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.49329916026181586,
+      "audible_stronger": 0.38801339263917756,
+      "tie": 0.11868744709900675,
+      "pair_mass_both": 0.08122071026966414,
+      "pi_s": 0.24965709365209862,
+      "pi_l": 0.23266387740337172,
+      "remembered_silent_worse": 0.835155486688793,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.33675435329140957,
+      "audible_stronger": 0.5491923731099468,
+      "tie": 0.1140532735986433,
+      "pair_mass_both": 0.001350526093108262,
+      "pi_s": 0.018890868640105866,
+      "pi_l": 0.04650192778513808,
+      "remembered_silent_worse": 0.95258394046959,
+      "both_mass_share_by_scene": {
+       "sofa": 0.6582005998211466,
+       "elevator": 0.31486938531108666,
+       "standing": 0.026930014867766524
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.4897377911490992,
+      "audible_stronger": 0.39165855449132486,
+      "tie": 0.11860365435957612,
+      "pair_mass_both": 0.027524126452193307,
+      "pi_s": 0.09371101763539243,
+      "pi_l": 0.10068831707483361,
+      "remembered_silent_worse": 0.8501294520690023,
+      "both_mass_share_by_scene": {
+       "sofa": 0.014686955724139526,
+       "elevator": 0.9836304936656998,
+       "standing": 0.001682550610160773
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.5041841837535675,
+      "audible_stronger": 0.382438350543706,
+      "tie": 0.1133774657027266,
+      "pair_mass_both": 0.023124245899669656,
+      "pi_s": 0.15873861328780958,
+      "pi_l": 0.1276905139505158,
+      "remembered_silent_worse": 0.14727324643198164,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8630822895478896,
+       "elevator": 0.00351437772808117,
+       "standing": 0.13340333272402938
+      }
+     }
+    },
+    "distracted (everyday)": {
+     "sofa": {
+      "silent_stronger": 0.24917542854128463,
+      "audible_stronger": 0.6615942457507508,
+      "tie": 0.08923032570796474,
+      "pair_mass_both": 5.4546065141467086e-05,
+      "pi_s": 0.004458094539193627,
+      "pi_l": 0.011694923432390281,
+      "remembered_silent_worse": 0.9908134460531182,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.5204341678991443,
+      "audible_stronger": 0.372623249102914,
+      "tie": 0.10694258299794168,
+      "pair_mass_both": 0.012234312293502246,
+      "pi_s": 0.12687235255797993,
+      "pi_l": 0.0964300893522979,
+      "remembered_silent_worse": 0.9537554239602054,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.509417661622491,
+      "audible_stronger": 0.38298705555113244,
+      "tie": 0.1075952828263765,
+      "pair_mass_both": 0.004513546468874766,
+      "pi_s": 0.05805133647261674,
+      "pi_l": 0.0505498199249473,
+      "remembered_silent_worse": 0.9618567579039181,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.348998743880627,
+      "audible_stronger": 0.5542662318617645,
+      "tie": 0.0967350242576085,
+      "pair_mass_both": 6.585206580994765e-05,
+      "pi_s": 0.004329203366238354,
+      "pi_l": 0.009607473661904583,
+      "remembered_silent_worse": 0.9900975366750717,
+      "both_mass_share_by_scene": {
+       "sofa": 0.6071397838847615,
+       "elevator": 0.35885181511381425,
+       "standing": 0.03400840100142419
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.506183236915494,
+      "audible_stronger": 0.38642442927198023,
+      "tie": 0.10739233381252573,
+      "pair_mass_both": 0.0015255491712122097,
+      "pi_s": 0.021801098810548796,
+      "pi_l": 0.021729503578873783,
+      "remembered_silent_worse": 0.9654447805497882,
+      "both_mass_share_by_scene": {
+       "sofa": 0.01191834524702657,
+       "elevator": 0.9862123869985951,
+       "standing": 0.0018692677543783638
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.5266271578062984,
+      "audible_stronger": 0.3774318573389476,
+      "tie": 0.09594098485475369,
+      "pair_mass_both": 0.0009686471465945322,
+      "pi_s": 0.03390326566208898,
+      "pi_l": 0.025869877575136396,
+      "remembered_silent_worse": 0.03344473440922271,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8677165937289777,
+       "elevator": 0.003144407705524864,
+       "standing": 0.12913899856549738
+      }
+     }
+    }
+   }
+  },
+  "pressure prior, sigma 1.15, T bound": {
+   "n": 20000,
+   "silent_share": 0.64635,
+   "dp_mmHg": {
+    "p10": 1.4339230532336322,
+    "median": 5.8867624200516815,
+    "p90": 23.86274464156297
+   },
+   "T_s": {
+    "p10": 0.3762778813038281,
+    "median": 0.9846475523194673,
+    "p90": 4.473101007380389
+   },
+   "share_T_outside_bound": 0.0,
+   "M0_levels": {
+    "silent": {
+     "levels_M0": [
+      8.947149376145528e-05,
+      0.0022135401070680284
+     ],
+     "share_below": 0.0037905159743173203,
+     "share_within": 0.5331476754080606,
+     "share_above": 0.46306180861762203,
+     "median_M0": 0.001979328571033885
+    },
+    "audible": {
+     "levels_M0": [
+      0.019230612957924515,
+      0.13269983723106255
+     ],
+     "share_below": 0.8173335218436307,
+     "share_within": 0.1826664781563693,
+     "share_above": 0.0,
+     "median_M0": 0.007226034066670813
+    }
+   },
+   "by": {
+    "attentive, Amoore thresholds": {
+     "sofa": {
+      "silent_stronger": 0.3684749665513369,
+      "audible_stronger": 0.4973483383343079,
+      "tie": 0.134176695114355,
+      "pair_mass_both": 0.0009994987295515471,
+      "pi_s": 0.02398397551178374,
+      "pi_l": 0.03492312535103432,
+      "remembered_silent_worse": 0.9736820750045455,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.4685935848716024,
+      "audible_stronger": 0.4070999907838435,
+      "tie": 0.12430642434455409,
+      "pair_mass_both": 0.3256944674587013,
+      "pi_s": 0.5835187352665823,
+      "pi_l": 0.5581559730209978,
+      "remembered_silent_worse": 0.7033923352944089,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.4575607716482721,
+      "audible_stronger": 0.41633707883935506,
+      "tie": 0.126102149512373,
+      "pair_mass_both": 0.12677631021416946,
+      "pi_s": 0.29342375108237945,
+      "pi_l": 0.30871779955721723,
+      "remembered_silent_worse": 0.765634364525091,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.41042138917695103,
+      "audible_stronger": 0.45870250985853633,
+      "tie": 0.1308761009645126,
+      "pair_mass_both": 0.0014634644674632318,
+      "pi_s": 0.022921363961136965,
+      "pi_l": 0.03180201703170682,
+      "remembered_silent_worse": 0.962357067878736,
+      "both_mass_share_by_scene": {
+       "sofa": 0.5006044807485327,
+       "elevator": 0.4535472708865806,
+       "standing": 0.04584824836488669
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.4567542900376367,
+      "audible_stronger": 0.4170485720580161,
+      "tie": 0.12619713790434725,
+      "pair_mass_both": 0.04267737352080095,
+      "pi_s": 0.11064791015702145,
+      "pi_l": 0.12038850766511039,
+      "remembered_silent_worse": 0.7904677996653038,
+      "both_mass_share_by_scene": {
+       "sofa": 0.007806624815406314,
+       "elevator": 0.9901914430322873,
+       "standing": 0.0020019321523062484
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.5014113026584498,
+      "audible_stronger": 0.38688628613704645,
+      "tie": 0.11170241120450383,
+      "pair_mass_both": 0.028268939010150415,
+      "pi_s": 0.1710685231691351,
+      "pi_l": 0.14765428442854997,
+      "remembered_silent_worse": 0.15697394969283646,
+      "both_mass_share_by_scene": {
+       "sofa": 0.7972204000515991,
+       "elevator": 0.0045797008169910875,
+       "standing": 0.19819989913140987
+      }
+     }
+    },
+    "distracted (everyday)": {
+     "sofa": {
+      "silent_stronger": 0.3711471800556843,
+      "audible_stronger": 0.5148531306733973,
+      "tie": 0.11399968927091839,
+      "pair_mass_both": 4.444026229937846e-05,
+      "pi_s": 0.005277359169685843,
+      "pi_l": 0.007380740648242091,
+      "remembered_silent_worse": 0.9947044755970831,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.4808181212995048,
+      "audible_stronger": 0.4019268591065852,
+      "tie": 0.11725501959390998,
+      "pair_mass_both": 0.021394976861887783,
+      "pi_s": 0.15280207627258935,
+      "pi_l": 0.14001757949754873,
+      "remembered_silent_worse": 0.9273054100253668,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.4730526464145109,
+      "audible_stronger": 0.40943040473383907,
+      "tie": 0.11751694885165004,
+      "pair_mass_both": 0.007804156486848985,
+      "pi_s": 0.06984877255280643,
+      "pi_l": 0.07036026116668932,
+      "remembered_silent_worse": 0.9411245257802763,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.4270280944081223,
+      "audible_stronger": 0.4567088350601612,
+      "tie": 0.11626307053171657,
+      "pair_mass_both": 7.730888475077595e-05,
+      "pi_s": 0.0051596460822100725,
+      "pi_l": 0.006869739440157775,
+      "remembered_silent_worse": 0.9914149501130393,
+      "both_mass_share_by_scene": {
+       "sofa": 0.42134890906606143,
+       "elevator": 0.5285221508245811,
+       "standing": 0.05012894010935756
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.4723607959202765,
+      "audible_stronger": 0.41013356598061657,
+      "tie": 0.11750563809910673,
+      "pair_mass_both": 0.0026211336082403633,
+      "pi_s": 0.026220799543452755,
+      "pi_l": 0.027303375812640824,
+      "remembered_silent_worse": 0.9472551228444941,
+      "both_mass_share_by_scene": {
+       "sofa": 0.005651532115680333,
+       "elevator": 0.9924658122874964,
+       "standing": 0.0018826555968231302
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.5204940500350682,
+      "audible_stronger": 0.384737328959826,
+      "tie": 0.09476862100510587,
+      "pair_mass_both": 0.0011833694259522633,
+      "pi_s": 0.03692590592281789,
+      "pi_l": 0.030162657831579284,
+      "remembered_silent_worse": 0.03635847324206721,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8011415173145972,
+       "elevator": 0.004014130729167393,
+       "standing": 0.1948443519562355
+      }
+     }
+    }
+   }
+  },
+  "pressure prior, sigma 0.80, free": {
+   "n": 20000,
+   "silent_share": 0.5633,
+   "dp_mmHg": {
+    "p10": 2.8637798142237436,
+    "median": 7.94522184590489,
+    "p90": 22.221921831072688
+   },
+   "T_s": {
+    "p10": 0.04209125745029971,
+    "median": 0.33932740654857435,
+    "p90": 2.7212569012903978
+   },
+   "share_T_outside_bound": 0.47165,
+   "M0_levels": {
+    "silent": {
+     "levels_M0": [
+      8.947149376145528e-05,
+      0.0022135401070680284
+     ],
+     "share_below": 0.0002662879460323096,
+     "share_within": 0.2831528492810225,
+     "share_above": 0.7165808627729452,
+     "median_M0": 0.0053842323321883
+    },
+    "audible": {
+     "levels_M0": [
+      0.019230612957924515,
+      0.13269983723106255
+     ],
+     "share_below": 0.5297687199450424,
+     "share_within": 0.40645752232654,
+     "share_above": 0.06377375772841767,
+     "median_M0": 0.017052834924547844
+    }
+   },
+   "by": {
+    "attentive, Amoore thresholds": {
+     "sofa": {
+      "silent_stronger": 0.28939047534437273,
+      "audible_stronger": 0.596287158560507,
+      "tie": 0.1143223660951203,
+      "pair_mass_both": 0.0010167043171534068,
+      "pi_s": 0.019727866859794305,
+      "pi_l": 0.04730037637150497,
+      "remembered_silent_worse": 0.9633777044085728,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.4896411679393343,
+      "audible_stronger": 0.3925882211352387,
+      "tie": 0.11777061092542697,
+      "pair_mass_both": 0.20439910124556349,
+      "pi_s": 0.4882396776354782,
+      "pi_l": 0.4186450028712511,
+      "remembered_silent_worse": 0.7863408252865942,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.4779880045287697,
+      "audible_stronger": 0.40245302120418924,
+      "tie": 0.11955897426704108,
+      "pair_mass_both": 0.07902982344727529,
+      "pi_s": 0.24210676086582397,
+      "pi_l": 0.23105569667767778,
+      "remembered_silent_worse": 0.8296019669507927,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.35880731846874325,
+      "audible_stronger": 0.5244176435999522,
+      "tie": 0.11677503793130435,
+      "pair_mass_both": 0.001192820942466394,
+      "pi_s": 0.018674691490080705,
+      "pi_l": 0.03886582855286458,
+      "remembered_silent_worse": 0.9590446750302185,
+      "both_mass_share_by_scene": {
+       "sofa": 0.6247612435063249,
+       "elevator": 0.3468824988036253,
+       "standing": 0.028356257690049593
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.47551955701842014,
+      "audible_stronger": 0.40496015709876604,
+      "tie": 0.11952028588281373,
+      "pair_mass_both": 0.026725245069225093,
+      "pi_s": 0.09103059559766201,
+      "pi_l": 0.09658712344911934,
+      "remembered_silent_worse": 0.846020249777884,
+      "both_mass_share_by_scene": {
+       "sofa": 0.01268094785186425,
+       "elevator": 0.9857074991899757,
+       "standing": 0.001611552958159974
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.512581455504771,
+      "audible_stronger": 0.37531639015586443,
+      "tie": 0.11210215433936471,
+      "pair_mass_both": 0.022471999962632213,
+      "pi_s": 0.1641649348070184,
+      "pi_l": 0.12080548817356812,
+      "remembered_silent_worse": 0.15321166529333535,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8519112566834088,
+       "elevator": 0.003397700969374895,
+       "standing": 0.14469104234721641
+      }
+     }
+    },
+    "distracted (everyday)": {
+     "sofa": {
+      "silent_stronger": 0.2824165355238089,
+      "audible_stronger": 0.6247462478592755,
+      "tie": 0.09283721661691546,
+      "pair_mass_both": 4.634018333996039e-05,
+      "pi_s": 0.004443481879805193,
+      "pi_l": 0.009779086649028476,
+      "remembered_silent_worse": 0.9925164656445029,
+      "both_mass_share_by_scene": {
+       "sofa": 1.0
+      }
+     },
+     "lift, behind": {
+      "silent_stronger": 0.4993731162947335,
+      "audible_stronger": 0.39194183644425173,
+      "tie": 0.10868504726101474,
+      "pair_mass_both": 0.011727529886835439,
+      "pi_s": 0.12010289178716166,
+      "pi_l": 0.09764569122630441,
+      "remembered_silent_worse": 0.9511159418941285,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "lift": {
+      "silent_stronger": 0.4908176579968646,
+      "audible_stronger": 0.40007275025632855,
+      "tie": 0.10910959174680682,
+      "pair_mass_both": 0.004319653273491771,
+      "pi_s": 0.05540984095455442,
+      "pi_l": 0.050340219633690536,
+      "remembered_silent_worse": 0.9603050445092955,
+      "both_mass_share_by_scene": {
+       "elevator": 1.0
+      }
+     },
+     "day, central": {
+      "silent_stronger": 0.36843046827148285,
+      "audible_stronger": 0.5316490683445823,
+      "tie": 0.09992046338393479,
+      "pair_mass_both": 5.868680021965395e-05,
+      "pi_s": 0.004284573282998611,
+      "pi_l": 0.008175234123124951,
+      "remembered_silent_worse": 0.9913492447239852,
+      "both_mass_share_by_scene": {
+       "sofa": 0.578777960372303,
+       "elevator": 0.38536750411404797,
+       "standing": 0.035854535513649026
+      }
+     },
+     "equal per scene": {
+      "silent_stronger": 0.4885190977663034,
+      "audible_stronger": 0.4025319711833809,
+      "tie": 0.1089489310503158,
+      "pair_mass_both": 0.0014580104849496948,
+      "pi_s": 0.02089014889762289,
+      "pi_l": 0.020986817874367597,
+      "remembered_silent_worse": 0.964301617860028,
+      "both_mass_share_by_scene": {
+       "sofa": 0.010594387310266667,
+       "elevator": 0.98756794917489,
+       "standing": 0.0018376635148434073
+      }
+     },
+     "releaser, day": {
+      "silent_stronger": 0.5361155908915494,
+      "audible_stronger": 0.3693088999871145,
+      "tie": 0.09457550912133621,
+      "pair_mass_both": 0.0009395842589374402,
+      "pi_s": 0.03508142717094095,
+      "pi_l": 0.02448326245796971,
+      "remembered_silent_worse": 0.03464556868217615,
+      "both_mass_share_by_scene": {
+       "sofa": 0.8565122906520437,
+       "elevator": 0.0030513262648577916,
+       "standing": 0.1404363830830985
+      }
+     }
+    }
+   }
+  }
+ }
+}

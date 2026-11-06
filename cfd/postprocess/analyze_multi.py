@@ -15,10 +15,15 @@ concentrations of the 10-minute reference runs already sit at 0.2-2x the well-mi
 tail takes the room level C_wm(t) = V/V_room x exp(-lambda t) (lambda = supply flow / V_room in the ventilated
 standing room; 0 in the still rooms, whose vent only relieves pressure [ASSUMPTION: no loss through it, an upper
 bound]) and the nose's late level relative to it, f = worst breath over LATE (90-150 s after release) / C_wm(120 s).
-After 150 s the nose stays at f x C_wm(t), whose maximum is at 150 s, so the worst breath over a window W > 150 s is
-max(worst breath over 150 s, f x C_wm(150 s)). Since f x C_wm(150 s) <= the late worst breath, this is the 150 s value:
-the tail says nothing worse arrives after 150 s. That is what validate_tail.py checks on the coupled 10-minute
-reference runs. 'late_rising' flags a nose still climbing at 150 s (cloud not yet arrived), where the tail is too low.
+After 150 s the nose stays at f x C_wm(t), whose maximum is at 150 s, so f x C_wm(150 s) can never exceed the late
+worst breath: on its own the tail says nothing worse arrives after 150 s, and 'late_rising' flags the noses still
+climbing at 150 s (cloud not yet arrived), where that is too low. Hence the well-mixed floor (WM_FLOOR, default on,
+SBD_NO_WM_FLOOR=1 switches it off and gives the numbers before 6 Nov): over a window W > 150 s the worst breath at a
+nose is max(worst breath over 150 s, tail, OAV of the level C_wm(150 s)). The level is uniform and steady, so its
+breath average is the level itself (an.breath_metrics of a constant) and it scales with the released volume alone,
+whatever the route; it is the same for silent and audible passages. nose_oav applies it per unit volume from the
+V_room and lambda stored in the result, so the stored by_window values need no rerun; a gain on the CFD dose (peak or
+mesh factor) acts below the floor, not on it. validate_tail.py checks the rule on the coupled 10-minute reference runs.
 Writes <case>/multi_result.json.
 Usage: python3 cfd/postprocess/analyze_multi.py <multi_case> [--noses releaser,neighbour]
 (probe order is releaser, neighbour in both the sofa and the standing case; the elevator has four probes, FL FR BL
@@ -27,6 +32,7 @@ BR, so use --noses FL,FR,BL,BR there; FL is the culprit of elev_v4_FL_multi)
 import argparse
 import importlib.util
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -49,6 +55,8 @@ CLASSES = {"A": "audible", "S": "silent"}
 # level nearest in log M0), "lower" / "upper" (the level at or below / at or above M0); see
 # uq/interp_perception_sensitivity.py
 INTERP = "log-linear"
+WM_FLOOR = os.environ.get("SBD_NO_WM_FLOOR") is None  # well-mixed floor on windows > LATE[1] (module docstring)
+WM_SCALE = 1.0                                        # sensitivity: multiplier on that level (uq/intensity_robustness.py)
 
 
 def room(case: Path):
@@ -92,6 +100,11 @@ def release_plan(case: Path):
     return rels, 0.2, gap, sofa_case.MULTI_WINDOW
 
 
+def wm_floor_per_V(v_room, lam):
+    """OAV per released m^3 of the well-mixed level at 150 s, C_wm(150 s) / V = exp(-lambda 150 s) / V_room (linear)."""
+    return an.oav(np.exp(-lam * LATE[1]) / v_room, an.P)
+
+
 def worst_breath(t, s):
     wb_mean, wb_max = an.breath_metrics(t, s)
     return an.oav(wb_mean, an.P), an.oav(wb_max, an.P)
@@ -118,14 +131,15 @@ def release_metrics(t, s, t_rel, V, v_room=None, lam=0.0):
     if v_room and f"{LATE[1]:g}" in by_window:
         tl = tail(t, s, t_rel, V, v_room, lam)
         w150 = by_window[f"{LATE[1]:g}"]
+        floor = wm_floor_per_V(v_room, lam) * V if WM_FLOOR else 0.0
         for W in TAIL_WINDOWS:
-            by_window[f"{W:g}"] = {**entry(max(w150["worst_breath_OAV_mean"], tl["OAV_mean"]),
-                                           max(w150["worst_breath_OAV_max"], tl["OAV_max"])), "tail_model": True}
+            by_window[f"{W:g}"] = {**entry(max(w150["worst_breath_OAV_mean"], tl["OAV_mean"], floor),
+                                           max(w150["worst_breath_OAV_max"], tl["OAV_max"], floor)), "tail_model": True}
         out["tail"] = tl
     return out
 
 
-def nose_oav(result, nose, window, V, M0, cls, stat="worst_breath_OAV_mean", rule=None):
+def nose_oav(result, nose, window, V, M0, cls, stat="worst_breath_OAV_mean", rule=None, gain=1.0):
     """OAV at `nose` over the first `window` s for passages of volume V (m^3) and exit momentum flux M0 (m^4/s^2) in
     class cls ('silent' or 'audible'); V and M0 may be arrays.
 
@@ -138,6 +152,8 @@ def nose_oav(result, nose, window, V, M0, cls, stat="worst_breath_OAV_mean", rul
     rule (default: module INTERP, "log-linear", the rule above): "nearest" gives each passage the response of the
     level nearest in log M0, "lower" / "upper" that of the level at or below / at or above its M0; all are held
     outside the range as above.
+    gain multiplies the CFD response (a peak or mesh factor). For a window > 150 s the response then cannot fall below
+    the well-mixed level per unit volume (WM_FLOOR, module docstring), which the gain does not touch.
     """
     key = f"{window:g}"
     per_v = {}
@@ -163,6 +179,9 @@ def nose_oav(result, nose, window, V, M0, cls, stat="worst_breath_OAV_mean", rul
         resp = np.exp(np.interp(x, np.log(m0), np.log(y)))
     else:
         resp = np.interp(x, np.log(m0), y)
+    resp = resp * gain
+    if WM_FLOOR and float(window) > LATE[1]:
+        resp = np.maximum(resp, WM_SCALE * wm_floor_per_V(result["V_room"], result["lambda_per_s"]))
     return resp * np.asarray(V, dtype=float)
 
 

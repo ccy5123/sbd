@@ -92,7 +92,7 @@ def main():
     print("attentive bystander, silent worse / audible worse (%), bare 600 s")
     base = headline(free)
     o = fv.rh.OBS[0]
-    for sc, (sw, aw) in UNCAPPED.items():
+    for sc, (sw, aw) in UNCAPPED.items() if not fv.am.WM_FLOOR else ():  # the numbers before the well-mixed floor
         x = base["bystanders"]["per_scene"][sc][o] if sc in base["bystanders"]["per_scene"] else base["bystanders"][sc][o]["physics"]
         assert abs(100 * x["silent_worse"] - sw) < 0.01 + 0.005 * sw and abs(100 * x["audible_worse"] - aw) < 0.01 + 0.005 * aw, sc
     out["cases"]["uncapped"] = base

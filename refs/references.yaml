@@ -53,6 +53,7 @@ references:
   papanicolaou1988: {authors: [Papanicolaou PN, List EJ], year: 1988, journal: "Journal of Fluid Mechanics", volume: 195, pages: "341-391", doi: 10.1017/S0022112088002447}
   lee2016: {authors: [Lee TH, Bharucha AE], year: 2016, journal: "Journal of Neurogastroenterology and Motility", volume: 22, pages: "46-59", doi: 10.5056/jnm15168}
   cobb2005: {authors: [Cobb WS, Burns JM, Kercher KW, Matthews BD, Norton HJ, Heniford BT], year: 2005, title: "Normal intraabdominal pressure in healthy adults", journal: "Journal of Surgical Research", volume: 129, issue: 2, pages: "231-235", doi: 10.1016/j.jss.2005.06.015}
+  kurakata1999: {authors: [Kurakata K, Kuba Y, Kizuka T, Kuchinomachi Y], year: 1999, title: "Relationship between hearing levels of the elderly and preferred volume levels of television", journal: "The Japanese Journal of Ergonomics", volume: 35, issue: 3, pages: "169-176", doi: 10.5100/jje.35.169}
   sundlevander2002: {authors: [Sund-Levander M, Forsberg C, Wahren LK], year: 2002, journal: "Scandinavian Journal of Caring Sciences", volume: 16, pages: "122-128", doi: 10.1046/j.1471-6712.2002.00069.x}
   hongisto2017: {authors: [Hongisto V, Varjo J, Sanchez-Oliva D, Haapakangas A, Benway E], year: 2017, journal: "Frontiers in Psychology", volume: 8, pages: "1177", doi: 10.3389/fpsyg.2017.01177}
   yao2017: {authors: [Yao CMKL, Ma AK, Cushing SL, Lin V], year: 2017, journal: "Journal of Otolaryngology - Head & Neck Surgery", volume: 46, pages: "62", doi: 10.1186/s40463-017-0239-6}

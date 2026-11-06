@@ -38,11 +38,13 @@ SURFACE, INK, INK2, MUTED = "#fcfcfb", "#0b0b0b", "#52514e", "#8a8984"
 SILENT_C, AUDIBLE_C, EMITTER_C, TRUTH_C = "#2a78d6", "#eb6834", "#1baf7a", "#8a8984"
 
 
-def simulate(n=N_EVENTS, seed=SEED, distances=()):
+def simulate(n=N_EVENTS, seed=SEED, distances=(), backgrounds=None, draw=None):
     """`distances` (m): extra listener distances; adds heard_living@<r> per passage (draws no random numbers, so the
-    other columns are unchanged). Releases come from gate0 draw_release with the passage's parameters, so the exit
-    velocity is capped by the driving pressure (params dp_max; off with SBD_NO_DP_CAP=1); columns d, T and dp (driving
-    pressure 1/2 rho_gas (u0 / C_d)^2 as emitted) describe the release."""
+    other columns are unchanged). `backgrounds`, name -> (dB(A), slope dB/octave): further backgrounds, adds
+    heard_<name>@<r> at the same distances (no random numbers either). Releases come from gate0 draw_release with the
+    passage's parameters, so the exit velocity is capped by the driving pressure (params dp_max; off with
+    SBD_NO_DP_CAP=1); columns d, T and dp (driving pressure 1/2 rho_gas (u0 / C_d)^2 as emitted) describe the release.
+    `draw`, function (rng, p) -> Release: another release model in place of draw_release."""
     rng = np.random.default_rng(seed)
     P0 = g0.P0
     sig = P0["sulfur_sigma_ln"]
@@ -53,7 +55,7 @@ def simulate(n=N_EVENTS, seed=SEED, distances=()):
             p[k] = g0.logu(rng, lo, hi) if lg else rng.uniform(lo, hi)
         p["g_reduced"] = float(rng.choice(g0.G_RED_EMPIRICAL))
         p["u_audible"] = p["C_d"] * np.sqrt(2.0 * p["P_th"] / (p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])))
-        r = g0.draw_release(rng, p)
+        r = (draw or g0.draw_release)(rng, p)
         m = float(np.exp(sig * rng.standard_normal() - 0.5 * sig**2))  # sulfur multiplier, mean 1
         Q = r.V / r.T
         rho_gas = p["rho_air"] * (1.0 - p["g_reduced"] / p["g"])
@@ -65,6 +67,9 @@ def simulate(n=N_EVENTS, seed=SEED, distances=()):
             row[f"heard_{bg}"] = bool(classify(Q, r.d, p, background=bg, r=p["L_neighbour"]) == AUDIBLE)
         for L in distances:
             row[f"heard_living@{L:.3f}"] = bool(classify(Q, r.d, p, background="living", r=L) == AUDIBLE)
+            for name, (la, slope) in (backgrounds or {}).items():
+                pb = {**p, f"bg_{name}": la, "bg_slope": {**p["bg_slope"], name: slope}}
+                row[f"heard_{name}@{L:.3f}"] = bool(classify(Q, r.d, pb, background=name, r=L) == AUDIBLE)
         rows.append(row)
     return {k: np.array([r[k] for r in rows]) for k in rows[0]}
 

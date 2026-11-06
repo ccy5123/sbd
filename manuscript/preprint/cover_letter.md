@@ -28,7 +28,7 @@ Three results reach beyond the topic.
    the measured physiological range, the answer depends on where the noses are: on a sofa the audible passage is the
    stronger twice as often as the silent one, while in a closed lift the person standing behind the releaser finds the
    silent one stronger (55 against 33% of pairs). Yet because a silent passage is noticed only if it is smelled, a
-   remembered silent passage seems the worse one in 91% of comparisons. When an event can be noticed through either of
+   remembered silent passage seems the worse one in 95% of comparisons. When an event can be noticed through either of
    two senses, selection on noticing alone can create a sensory belief stronger than the physics supports, with
    testable predictions.
 
